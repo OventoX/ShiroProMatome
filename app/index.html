@@ -405,9 +405,29 @@
         <!-- Left: Fullbody Character Art & Lore -->
         <div class="detail-col-left">
           <div class="detail-portrait-card">
-            <div class="detail-portrait-frame">
-              <img id="detailPortraitImg" class="detail-portrait-img" src="" alt="城娘立ち絵" />
+            <!-- Appearance / Form Switcher Tabs -->
+            <div class="portrait-form-tabs" id="portraitFormTabs">
+              <button class="form-tab-btn active" data-form="battle" id="btnFormBattle">⚔️ 城娘</button>
+              <button class="form-tab-btn" data-form="ojou" id="btnFormOjou">🌸 御嬢</button>
+              <button class="form-tab-btn" data-form="taiha" id="btnFormTaiha">💥 大破</button>
+              <button class="form-tab-btn" data-form="side_by_side" id="btnFormSideBySide" title="御嬢と城娘を横並びで表示">👥 並べて表示</button>
             </div>
+
+            <div class="detail-portrait-frame" id="detailPortraitFrame">
+              <img id="detailPortraitImg" class="detail-portrait-img" src="" alt="城娘立ち絵" />
+              <!-- Side-by-side container -->
+              <div id="detailSideBySideContainer" style="display:none; width:100%; gap:8px;">
+                <div style="flex:1; text-align:center;">
+                  <div style="font-size:11px; font-weight:bold; color:#e84393; margin-bottom:4px; background:#fff0f6; border:1px solid #ffd1e3; border-radius:4px; padding:2px;">🌸 御嬢姿</div>
+                  <img id="detailSideImgOjou" style="max-width:100%; max-height:380px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.15));" src="" alt="御嬢立ち絵" />
+                </div>
+                <div style="flex:1; text-align:center;">
+                  <div style="font-size:11px; font-weight:bold; color:var(--primary-color); margin-bottom:4px; background:#fdf0f0; border:1px solid #fed2d2; border-radius:4px; padding:2px;">⚔️ 城娘姿</div>
+                  <img id="detailSideImgBattle" style="max-width:100%; max-height:380px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.15));" src="" alt="城娘立ち絵" />
+                </div>
+              </div>
+            </div>
+            <div id="detailPortraitCaption" style="font-size:11px; color:#666; margin-top:4px; text-align:center; font-weight:bold;">⚔️ 戦闘姿 (城娘)</div>
             <div class="detail-meta-info" id="detailMetaInfo"></div>
           </div>
           <div class="detail-lore-box">

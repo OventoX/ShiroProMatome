@@ -949,6 +949,58 @@ async function runTests() {
   if (isModalOpenAfterEsc) throw new Error('TEST 24 FAILED: Detail modal did not close on Escape key');
   console.log('=> TEST 24 PASSED');
 
+  // Test 25: Ojou & Form Switcher (御嬢・大破・並べて表示)
+  console.log('\n[TEST 25] Testing Ojou (御嬢) & Appearance Form Switcher...');
+  // Search Osaka Castle
+  await page.evaluate(() => {
+    document.getElementById('searchCastleInput').value = '大坂城';
+    document.getElementById('filterType').value = '';
+    document.getElementById('filterRarity').value = '';
+    document.getElementById('filterOwnership').value = '';
+    document.getElementById('filterBuffCategory').value = '';
+  });
+  // Trigger input event to re-render list
+  await page.$eval('#searchCastleInput', el => el.dispatchEvent(new Event('input', { bubbles: true })));
+  await new Promise(r => setTimeout(r, 300));
+
+  // Click Osaka Castle card
+  await page.click('.castle-list-item');
+  await new Promise(r => setTimeout(r, 400));
+
+  // Verify Ojou tab is available and click it
+  const isOjouDisabled = await page.$eval('#btnFormOjou', el => el.disabled);
+  console.log('Osaka Castle Ojou button disabled:', isOjouDisabled);
+  if (isOjouDisabled) throw new Error('TEST 25 FAILED: Ojou button should be enabled for Osaka Castle');
+
+  await page.click('#btnFormOjou');
+  await new Promise(r => setTimeout(r, 200));
+  const ojouSrc = await page.$eval('#detailPortraitImg', el => el.src);
+  const ojouCaption = await page.$eval('#detailPortraitCaption', el => el.textContent);
+  console.log('Ojou image src:', ojouSrc);
+  console.log('Ojou caption:', ojouCaption);
+  if (!ojouSrc.includes('c80c157e035286ca9b205a4b3497e745d7dd81a0') || !ojouCaption.includes('御嬢')) {
+    throw new Error('TEST 25 FAILED: Ojou image src or caption did not match expected Ojou form');
+  }
+
+  // Click Side by side view tab
+  await page.click('#btnFormSideBySide');
+  await new Promise(r => setTimeout(r, 300));
+  const sideBySideDisplay = await page.$eval('#detailSideBySideContainer', el => el.style.display);
+  console.log('Side by side display:', sideBySideDisplay);
+  if (sideBySideDisplay !== 'flex') throw new Error('TEST 25 FAILED: Side-by-side container not displayed as flex');
+
+  // Click Taiha (大破) tab
+  await page.click('#btnFormTaiha');
+  await new Promise(r => setTimeout(r, 200));
+  const taihaCaption = await page.$eval('#detailPortraitCaption', el => el.textContent);
+  console.log('Taiha caption:', taihaCaption);
+  if (!taihaCaption.includes('大破')) throw new Error('TEST 25 FAILED: Taiha caption not shown');
+
+  // Close modal
+  await page.keyboard.press('Escape');
+  await new Promise(r => setTimeout(r, 300));
+  console.log('=> TEST 25 PASSED');
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));

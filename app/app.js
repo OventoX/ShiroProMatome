@@ -1725,6 +1725,61 @@
     }
   }
 
+  let currentDetailForm = "battle"; // 'battle' | 'ojou' | 'taiha' | 'side_by_side'
+
+  function setDetailPortraitForm(form, castle) {
+    const c = castle || getCastleById(activeDetailCastleId);
+    if (!c) return;
+    currentDetailForm = form;
+
+    const modalContent = document.querySelector(".modal-detail-content");
+    const imgEl = document.getElementById("detailPortraitImg");
+    const sideContainer = document.getElementById("detailSideBySideContainer");
+    const sideImgOjou = document.getElementById("detailSideImgOjou");
+    const sideImgBattle = document.getElementById("detailSideImgBattle");
+    const captionEl = document.getElementById("detailPortraitCaption");
+    const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
+
+    // Update active tab buttons
+    document.querySelectorAll("#portraitFormTabs .form-tab-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-form") === form);
+    });
+
+    if (form === "side_by_side") {
+      if (modalContent) modalContent.classList.add("side-by-side-mode");
+      if (imgEl) imgEl.style.display = "none";
+      if (sideContainer) {
+        sideContainer.style.display = "flex";
+        if (sideImgOjou) {
+          sideImgOjou.onerror = function() { this.src = fallbackSrc; };
+          sideImgOjou.src = c.ojouUrl || fallbackSrc;
+        }
+        if (sideImgBattle) {
+          sideImgBattle.onerror = function() { this.src = fallbackSrc; };
+          sideImgBattle.src = c.illustUrl || fallbackSrc;
+        }
+      }
+      if (captionEl) captionEl.innerHTML = `<span style="color:#e84393;">🌸 御嬢姿 (私服)</span> ＆ <span style="color:var(--primary-color);">⚔️ 城娘姿 (戦闘)</span>`;
+    } else {
+      if (modalContent) modalContent.classList.remove("side-by-side-mode");
+      if (sideContainer) sideContainer.style.display = "none";
+      if (imgEl) {
+        imgEl.style.display = "block";
+        imgEl.onerror = function() { this.src = fallbackSrc; };
+        if (form === "ojou") {
+          imgEl.src = c.ojouUrl || fallbackSrc;
+          if (captionEl) captionEl.innerHTML = `🌸 御嬢姿 (私服・日常)`;
+        } else if (form === "taiha") {
+          imgEl.src = c.taihaUrl || fallbackSrc;
+          if (captionEl) captionEl.innerHTML = `💥 大破姿 (戦闘不能)`;
+        } else {
+          imgEl.src = c.illustUrl || fallbackSrc;
+          if (captionEl) captionEl.innerHTML = `⚔️ 城娘姿 (通常・戦闘)`;
+        }
+      }
+    }
+  }
+
   function openCastleDetail(castleId, customList) {
     const c = getCastleById(castleId);
     if (!c) return;
@@ -1770,21 +1825,24 @@
     const wikiBtn = document.getElementById("btnDetailWikiLink");
     wikiBtn.href = `https://scre.swiki.jp/index.php?${encodeURIComponent(c.name)}`;
 
-    // Left Column: Fullbody Illustration (全身立ち絵)
-    const imgEl = document.getElementById("detailPortraitImg");
-    const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
+    // Left Column: Fullbody Illustration & Form Switcher (城娘 / 御嬢 / 大破)
+    const btnBattle = document.getElementById("btnFormBattle");
+    const btnOjou = document.getElementById("btnFormOjou");
+    const btnTaiha = document.getElementById("btnFormTaiha");
+    const btnSideBySide = document.getElementById("btnFormSideBySide");
 
-    imgEl.onerror = function() {
-      if (this.src !== fallbackSrc) {
-        this.src = fallbackSrc;
-      }
-    };
+    if (btnOjou) btnOjou.disabled = !c.ojouUrl;
+    if (btnTaiha) btnTaiha.disabled = !c.taihaUrl;
+    if (btnSideBySide) btnSideBySide.disabled = !c.ojouUrl;
 
-    if (c.illustUrl) {
-      imgEl.src = c.illustUrl;
-    } else {
-      imgEl.src = fallbackSrc;
+    // Reset to battle form if current mode is unavailable
+    if ((currentDetailForm === "ojou" && !c.ojouUrl) ||
+        (currentDetailForm === "taiha" && !c.taihaUrl) ||
+        (currentDetailForm === "side_by_side" && !c.ojouUrl)) {
+      currentDetailForm = "battle";
     }
+
+    setDetailPortraitForm(currentDetailForm, c);
 
     // Meta Info (イラストレーター / 声優 / 令制国)
     const metaEl = document.getElementById("detailMetaInfo");
@@ -1999,6 +2057,17 @@
   if (modalDetailOwnedBtn) {
     modalDetailOwnedBtn.addEventListener("click", () => {
       if (activeDetailCastleId) toggleOwned(activeDetailCastleId);
+    });
+  }
+
+  // Portrait Form Switcher Tabs (城娘 / 御嬢 / 大破 / 並べて表示)
+  const portraitFormTabs = document.getElementById("portraitFormTabs");
+  if (portraitFormTabs) {
+    portraitFormTabs.addEventListener("click", e => {
+      const btn = e.target.closest(".form-tab-btn");
+      if (!btn || btn.disabled) return;
+      const form = btn.getAttribute("data-form");
+      if (form) setDetailPortraitForm(form);
     });
   }
 

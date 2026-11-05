@@ -90,6 +90,8 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
         "cost": 10,
         "illustFile": "",
         "illustUrl": "",
+        "ojouUrl": "",
+        "taihaUrl": "",
         "illustrator": "",
         "voiceActor": "",
         "lore": "",
@@ -130,6 +132,38 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
     if m_img:
         castle["illustFile"] = m_img.group(1).strip()
         castle["illustUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(page_name)}&src={quote(castle['illustFile'])}"
+
+    # Ojou (御嬢) illustration
+    m_ojou = re.search(r'\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*御嬢[^\n|]*\|[^\n|]*城娘[^\n|]*\|', src, re.I)
+    if m_ojou:
+        castle["ojouUrl"] = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_ojou.group(1)}"
+    else:
+        m_ojou2 = re.search(r'\|[^\n|]*御嬢[^\n|]*\|[^\n|]*城娘[^\n|]*\|[\r\n]+\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|', src, re.I)
+        if m_ojou2:
+            castle["ojouUrl"] = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_ojou2.group(1)}"
+        else:
+            m_ojou_ref = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*御嬢[^\./,\)]*\.(?:png|jpg))', src, re.I)
+            if m_ojou_ref:
+                p_part = m_ojou_ref.group(1) or page_name
+                f_part = m_ojou_ref.group(2)
+                castle["ojouUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p_part)}&src={quote(f_part)}"
+            else:
+                m_ojou_tab = re.search(r'\|[^\n|]*&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]+\.(?:png|jpg))[^\)]*\)[^\n|]*\|[^\n|]*&(?:attach)?ref\([^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*御嬢', src, re.I)
+                if m_ojou_tab:
+                    p_part = m_ojou_tab.group(1) or page_name
+                    f_part = m_ojou_tab.group(2)
+                    castle["ojouUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p_part)}&src={quote(f_part)}"
+
+    # Taiha (大破) illustration
+    m_taiha = re.search(r'\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*大破[^\n|]*\|', src, re.I)
+    if m_taiha:
+        castle["taihaUrl"] = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_taiha.group(1)}"
+    else:
+        m_taiha_ref = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*大破[^\./,\)]*\.(?:png|jpg))', src, re.I)
+        if m_taiha_ref:
+            p_part = m_taiha_ref.group(1) or page_name
+            f_part = m_taiha_ref.group(2)
+            castle["taihaUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p_part)}&src={quote(f_part)}"
 
     # Lore
     m_lore = re.search(r"BGCOLOR\(#[A-Fa-f0-9]+\):CENTER:\'\'図鑑文章\'\'\|[\r\n]+\|>\|>\|>\|>\|([^\n|]+(?:\n[^\n|]+)*)", src)
@@ -342,7 +376,9 @@ def main():
     none_count = sum(1 for c in results if c["castleType"] == "無")
     illust_count = sum(1 for c in results if c["illustFile"])
     lore_count = sum(1 for c in results if c["lore"])
-    print(f"Total parsed: {len(results)}, '無' count: {none_count}, With illustration: {illust_count}, With lore: {lore_count}")
+    ojou_count = sum(1 for c in results if c.get("ojouUrl"))
+    taiha_count = sum(1 for c in results if c.get("taihaUrl"))
+    print(f"Total parsed: {len(results)}, '無' count: {none_count}, With illustration: {illust_count}, With Ojou: {ojou_count}, With Taiha: {taiha_count}, With lore: {lore_count}")
 
     rules_js = """// Generated data for scre-helper
 window.SCRE_RULES = {
