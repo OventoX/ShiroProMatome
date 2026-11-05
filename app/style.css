@@ -1,21 +1,247 @@
+/* ========================================================
+   C1 & C2: Color Tokens, Palettes & Theme System
+   ======================================================== */
 :root {
-  --primary-color: #812828;
-  --primary-hover: #9c3333;
+  /* Default / Dark Theme Baseline (ShiroPro Style) */
+  --body-bg: #1e1e1e;
   --bg-color: #ece8e1;
+  --container-bg: #ece8e1;
   --card-bg: #ffffff;
+  --card-border: #d8d0c5;
   --text-main: #333333;
   --text-sub: #666666;
   --text-muted: #888888;
   --border-color: #d8d0c5;
+  --nav-bg: #fdfaf6;
+  --modal-bg: #ffffff;
+
+  /* Primary Accent (Default: 城プロ紅) */
+  --primary-color: #812828;
+  --primary-hover: #9c3333;
+  --primary-light: rgba(129, 40, 40, 0.1);
+
+  /* Tactical buff/debuff colors */
   --buff-color: #278838;
   --debuff-color: #c93434;
   --share-color: #1a7f72;
-  --tag-mountain: #8d5a36;
-  --tag-plains: #4d8c47;
-  --tag-plain-mtn: #789932;
-  --tag-water: #2c7da0;
-  --tag-hell: #6d3b84;
-  --tag-none: #666666;
+
+  /* C2: Official System Color Tokens */
+  /* Attribute Tokens */
+  --token-attr-plain: #4d8c47;
+  --token-attr-plain-mtn: #789932;
+  --token-attr-mountain: #8d5a36;
+  --token-attr-water: #2c7da0;
+  --token-attr-hell: #6d3b84;
+  --token-attr-none: #666666;
+
+  /* Rarity Tokens (★1 〜 ★7) */
+  --token-rarity-7: #b85d19;
+  --token-rarity-6: #9b59b6;
+  --token-rarity-5: #2980b9;
+  --token-rarity-4: #27ae60;
+  --token-rarity-3: #16a085;
+  --token-rarity-2: #7f8c8d;
+  --token-rarity-1: #95a5a6;
+
+  /* Tier Tokens (SS 〜 D) */
+  --token-tier-ss: #b33939;
+  --token-tier-s:  #d35400;
+  --token-tier-a:  #2980b9;
+  --token-tier-b:  #27ae60;
+  --token-tier-c:  #6c5ce7;
+  --token-tier-d:  #7f8c8d;
+
+  /* RangeKind Tokens (近接・遠隔・遠近両用) */
+  --token-range-near: #c0392b;
+  --token-range-far:  #2980b9;
+  --token-range-both: #8e44ad;
+
+  /* Backward Compatibility Aliases */
+  --tag-mountain: var(--token-attr-mountain);
+  --tag-plains: var(--token-attr-plain);
+  --tag-plain-mtn: var(--token-attr-plain-mtn);
+  --tag-water: var(--token-attr-water);
+  --tag-hell: var(--token-attr-hell);
+  --tag-none: var(--token-attr-none);
+}
+
+/* Light Theme */
+body[data-theme="light"] {
+  --body-bg: #f5f3ef;
+  --bg-color: #ffffff;
+  --container-bg: #ffffff;
+  --card-bg: #fcfcfc;
+  --card-border: #e3ded5;
+  --text-main: #2b2b2b;
+  --text-sub: #5c5c5c;
+  --text-muted: #808080;
+  --border-color: #ded8ce;
+  --nav-bg: #faf7f2;
+  --modal-bg: #ffffff;
+}
+
+/* Dark Theme (現行・標準) */
+body[data-theme="dark"] {
+  --body-bg: #1e1e1e;
+  --bg-color: #ece8e1;
+  --container-bg: #ece8e1;
+  --card-bg: #ffffff;
+  --card-border: #d8d0c5;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --text-muted: #888888;
+  --border-color: #d8d0c5;
+  --nav-bg: #fdfaf6;
+  --modal-bg: #ffffff;
+}
+
+/* Accent Color Variations */
+body[data-accent="plain"] {
+  --primary-color: #2e7d32;
+  --primary-hover: #388e3c;
+  --primary-light: rgba(46, 125, 50, 0.12);
+}
+body[data-accent="mountain"] {
+  --primary-color: #bf360c;
+  --primary-hover: #d84315;
+  --primary-light: rgba(191, 54, 12, 0.12);
+}
+body[data-accent="water"] {
+  --primary-color: #1565c0;
+  --primary-hover: #1976d2;
+  --primary-light: rgba(21, 101, 192, 0.12);
+}
+body[data-accent="hell"] {
+  --primary-color: #6a1b9a;
+  --primary-hover: #7b1fa2;
+  --primary-light: rgba(106, 27, 154, 0.12);
+}
+
+/* C5: Root Font Size Adjustments */
+html {
+  font-size: 13px;
+}
+html[data-font-size="small"] {
+  font-size: 12px;
+}
+html[data-font-size="normal"], html:not([data-font-size]) {
+  font-size: 13px;
+}
+html[data-font-size="large"] {
+  font-size: 15px;
+}
+
+/* C2: Official Token Badge Classes */
+.badge-rarity-7 { background-color: var(--token-rarity-7) !important; color: #fff !important; }
+.badge-rarity-6 { background-color: var(--token-rarity-6) !important; color: #fff !important; }
+.badge-rarity-5 { background-color: var(--token-rarity-5) !important; color: #fff !important; }
+.badge-rarity-4 { background-color: var(--token-rarity-4) !important; color: #fff !important; }
+.badge-rarity-3 { background-color: var(--token-rarity-3) !important; color: #fff !important; }
+.badge-rarity-2 { background-color: var(--token-rarity-2) !important; color: #fff !important; }
+.badge-rarity-1 { background-color: var(--token-rarity-1) !important; color: #fff !important; }
+
+.badge-range-near { background-color: var(--token-range-near) !important; color: #fff !important; }
+.badge-range-far  { background-color: var(--token-range-far)  !important; color: #fff !important; }
+.badge-range-both { background-color: var(--token-range-both) !important; color: #fff !important; }
+
+.badge-tier-ss { background-color: var(--token-tier-ss) !important; color: #fff !important; }
+.badge-tier-s  { background-color: var(--token-tier-s)  !important; color: #fff !important; }
+.badge-tier-a  { background-color: var(--token-tier-a)  !important; color: #fff !important; }
+.badge-tier-b  { background-color: var(--token-tier-b)  !important; color: #fff !important; }
+.badge-tier-c  { background-color: var(--token-tier-c)  !important; color: #fff !important; }
+.badge-tier-d  { background-color: var(--token-tier-d)  !important; color: #fff !important; }
+
+/* ========================================================
+   C3: Display Density System (Compact / Normal / Comfortable)
+   ======================================================== */
+/* Compact Mode */
+.app-container.density-compact .castle-list-item {
+  padding: 4px 8px;
+  font-size: 11.5px;
+  min-height: auto;
+}
+.app-container.density-compact .castle-item-icon {
+  width: 38px;
+  height: 38px;
+}
+.app-container.density-compact .tier-chip {
+  padding: 2px 5px;
+  font-size: 11px;
+}
+.app-container.density-compact .tier-chip-icon {
+  width: 28px;
+  height: 28px;
+}
+.app-container.density-compact .buff-card {
+  padding: 6px 8px;
+  font-size: 11.5px;
+}
+
+/* Comfortable Mode */
+.app-container.density-comfortable .castle-list-item {
+  padding: 12px 16px;
+  font-size: 13.5px;
+}
+.app-container.density-comfortable .castle-item-icon {
+  width: 54px;
+  height: 54px;
+}
+.app-container.density-comfortable .tier-chip {
+  padding: 6px 10px;
+  font-size: 13px;
+}
+.app-container.density-comfortable .tier-chip-icon {
+  width: 38px;
+  height: 38px;
+}
+.app-container.density-comfortable .buff-card {
+  padding: 12px 14px;
+  font-size: 13.5px;
+}
+
+/* ========================================================
+   C4: Subtle Animations & Accessibility
+   ======================================================== */
+.tab-content {
+  animation: tabFadeIn 200ms ease-out;
+}
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-overlay.active,
+.modal-overlay[style*="display: flex"],
+.modal-overlay[style*="display: block"] {
+  animation: modalOverlayFadeIn 200ms ease-out;
+}
+.modal-content {
+  animation: modalContentScaleIn 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes modalOverlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes modalContentScaleIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Image Fade-In on Load */
+.castle-item-icon img,
+.detail-modal-body img,
+.tier-chip-icon img {
+  transition: opacity 200ms ease;
+}
+
+/* prefers-reduced-motion: disable all transitions and animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 * {
@@ -27,7 +253,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-  background-color: #1e1e1e;
+  background-color: var(--body-bg);
   color: var(--text-main);
   line-height: 1.4;
   font-size: 13px;
@@ -38,7 +264,7 @@ body {
   max-width: 1800px;
   min-height: 100vh;
   margin: 0 auto;
-  background-color: var(--bg-color);
+  background-color: var(--container-bg);
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.45);
@@ -74,7 +300,7 @@ body {
 /* Tab Navigation */
 .tab-nav {
   display: flex;
-  background: #fdfaf6;
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 42px;

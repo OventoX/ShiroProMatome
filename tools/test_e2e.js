@@ -2580,6 +2580,180 @@ async function runTests() {
     console.log('=> TEST 44 PASSED');
   }
 
+  // TEST 45: テーマ切替（ダーク/ライト＋アクセントカラー）(C1)
+  console.log('\n--- TEST 45: Theme Switching & Accent Colors (C1) ---');
+  {
+    await page.click('button[data-tab="tab-settings"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    // Switch theme to light
+    await page.select('#settingThemeMode', 'light');
+    await new Promise(r => setTimeout(r, 200));
+
+    let bodyTheme = await page.$eval('body', el => el.getAttribute('data-theme'));
+    if (bodyTheme !== 'light') {
+      throw new Error(`TEST 45 FAILED: Expected data-theme="light", got ${bodyTheme}`);
+    }
+
+    // Switch accent to plain (green)
+    await page.select('#settingThemeAccent', 'plain');
+    await new Promise(r => setTimeout(r, 200));
+
+    let bodyAccent = await page.$eval('body', el => el.getAttribute('data-accent'));
+    if (bodyAccent !== 'plain') {
+      throw new Error(`TEST 45 FAILED: Expected data-accent="plain", got ${bodyAccent}`);
+    }
+
+    // Check localStorage persistence
+    const savedTheme = await page.evaluate(() => localStorage.getItem('scre-helper:theme:v1'));
+    console.log('Saved theme in localStorage:', savedTheme);
+    const parsedTheme = JSON.parse(savedTheme);
+    if (parsedTheme.mode !== 'light' || parsedTheme.accent !== 'plain') {
+      throw new Error('TEST 45 FAILED: Theme settings not saved in localStorage');
+    }
+
+    // Save screenshot of light theme
+    const lightScreenshotPath = path.join(path.resolve(__dirname, 'screenshots'), 'theme_light_settings.png');
+    await page.screenshot({ path: lightScreenshotPath, fullPage: false });
+    console.log('Saved theme_light_settings.png');
+
+    // Restore to dark and default accent
+    await page.select('#settingThemeMode', 'dark');
+    await page.select('#settingThemeAccent', 'default');
+    await new Promise(r => setTimeout(r, 200));
+
+    console.log('=> TEST 45 PASSED');
+  }
+
+  // TEST 46: 色の体系化（カラーパレット統一）(C2)
+  console.log('\n--- TEST 46: Color Tokens Consistency (C2) ---');
+  {
+    await page.click('button[data-tab="tab-list"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    // Verify presence of token badge classes on first card
+    const hasRarityTokenClass = await page.$eval('.castle-list-item:nth-child(1) .badge-rarity', el => !!el);
+    const hasRangeTokenClass = await page.$eval('.castle-list-item:nth-child(1) .badge-range', el => !!el);
+    console.log('Badge token classes present:', { hasRarityTokenClass, hasRangeTokenClass });
+
+    if (!hasRarityTokenClass || !hasRangeTokenClass) {
+      throw new Error('TEST 46 FAILED: Token badge classes missing on list cards');
+    }
+
+    console.log('=> TEST 46 PASSED');
+  }
+
+  // TEST 47: 表示密度の切替 (C3)
+  console.log('\n--- TEST 47: Display Density Switching (C3) ---');
+  {
+    // Test density compact via list button
+    const compactBtn = await page.$('#listDensityBtns .btn-density[data-density="compact"]');
+    if (!compactBtn) throw new Error('TEST 47 FAILED: list density button missing');
+    await compactBtn.click();
+    await new Promise(r => setTimeout(r, 200));
+
+    let containerClass = await page.$eval('.app-container', el => el.className);
+    if (!containerClass.includes('density-compact')) {
+      throw new Error('TEST 47 FAILED: .app-container does not have density-compact');
+    }
+
+    let savedDensity = await page.evaluate(() => localStorage.getItem('scre-helper:density:v1'));
+    if (savedDensity !== 'compact') {
+      throw new Error(`TEST 47 FAILED: localStorage density is not compact (got ${savedDensity})`);
+    }
+
+    // Test density comfortable
+    const comfortableBtn = await page.$('#listDensityBtns .btn-density[data-density="comfortable"]');
+    await comfortableBtn.click();
+    await new Promise(r => setTimeout(r, 200));
+
+    containerClass = await page.$eval('.app-container', el => el.className);
+    if (!containerClass.includes('density-comfortable')) {
+      throw new Error('TEST 47 FAILED: .app-container does not have density-comfortable');
+    }
+
+    // Restore normal density
+    const normalBtn = await page.$('#listDensityBtns .btn-density[data-density="normal"]');
+    await normalBtn.click();
+    await new Promise(r => setTimeout(r, 200));
+
+    console.log('=> TEST 47 PASSED');
+  }
+
+  // TEST 48: さりげないアニメーションと減速設定 (C4)
+  console.log('\n--- TEST 48: Subtle Animations & Reduced Motion (C4) ---');
+  {
+    const hasTabAnim = await page.evaluate(() => {
+      const sheets = Array.from(document.styleSheets);
+      for (const sheet of sheets) {
+        try {
+          for (const rule of sheet.cssRules) {
+            if (rule.cssText && rule.cssText.includes('@keyframes tabFadeIn')) return true;
+          }
+        } catch (e) {}
+      }
+      return false;
+    });
+    console.log('Keyframes tabFadeIn found in CSS:', hasTabAnim);
+    if (!hasTabAnim) {
+      throw new Error('TEST 48 FAILED: Keyframes tabFadeIn missing');
+    }
+
+    const hasReducedMotion = await page.evaluate(() => {
+      const sheets = Array.from(document.styleSheets);
+      for (const sheet of sheets) {
+        try {
+          for (const rule of sheet.cssRules) {
+            if (rule.media && rule.media.mediaText.includes('prefers-reduced-motion')) return true;
+          }
+        } catch (e) {}
+      }
+      return false;
+    });
+    console.log('Reduced-motion media query found in CSS:', hasReducedMotion);
+    if (!hasReducedMotion) {
+      throw new Error('TEST 48 FAILED: prefers-reduced-motion query missing');
+    }
+
+    console.log('=> TEST 48 PASSED');
+  }
+
+  // TEST 49: 文字サイズ調整 (C5)
+  console.log('\n--- TEST 49: Font Size Adjustments (C5) ---');
+  {
+    await page.click('button[data-tab="tab-settings"]');
+    await new Promise(r => setTimeout(r, 300));
+
+    // Switch to small
+    await page.select('#settingFontSizeSelect', 'small');
+    await new Promise(r => setTimeout(r, 200));
+
+    let htmlFontSize = await page.$eval('html', el => el.getAttribute('data-font-size'));
+    if (htmlFontSize !== 'small') {
+      throw new Error(`TEST 49 FAILED: html data-font-size expected small, got ${htmlFontSize}`);
+    }
+
+    let savedFontSize = await page.evaluate(() => localStorage.getItem('scre-helper:font-size:v1'));
+    if (savedFontSize !== 'small') {
+      throw new Error(`TEST 49 FAILED: localStorage font-size expected small, got ${savedFontSize}`);
+    }
+
+    // Switch to large
+    await page.select('#settingFontSizeSelect', 'large');
+    await new Promise(r => setTimeout(r, 200));
+
+    htmlFontSize = await page.$eval('html', el => el.getAttribute('data-font-size'));
+    if (htmlFontSize !== 'large') {
+      throw new Error(`TEST 49 FAILED: html data-font-size expected large, got ${htmlFontSize}`);
+    }
+
+    // Restore to normal
+    await page.select('#settingFontSizeSelect', 'normal');
+    await new Promise(r => setTimeout(r, 200));
+
+    console.log('=> TEST 49 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -2591,7 +2765,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (44/44)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (49/49)!');
   console.log('=====================================');
 }
 

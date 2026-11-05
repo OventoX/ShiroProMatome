@@ -285,6 +285,15 @@
             <div id="filterPresetPills" style="display:inline-flex; gap:4px; flex-wrap:wrap;"></div>
             <button id="btnSaveFilterPreset" class="btn btn-sm" style="font-size:11px; padding:2px 8px; background:#f4f0e6;" title="現在の検索条件とソート順をプリセットとして保存">💾 条件を保存</button>
           </div>
+          <!-- C3: 表示密度切替 (一覧) -->
+          <div style="display:flex; align-items:center; gap:4px; margin-left:auto;">
+            <span style="font-size:11.5px; font-weight:bold; color:var(--text-sub);">表示密度:</span>
+            <div class="btn-group density-button-group" id="listDensityBtns">
+              <button type="button" class="btn btn-sm btn-density" data-density="compact" title="コンパクト表示 (省スペース)" style="font-size:11px; padding:2px 7px;">小</button>
+              <button type="button" class="btn btn-sm btn-density active" data-density="normal" title="標準表示" style="font-size:11px; padding:2px 7px;">標準</button>
+              <button type="button" class="btn btn-sm btn-density" data-density="comfortable" title="ゆったり表示" style="font-size:11px; padding:2px 7px;">大</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -389,6 +398,12 @@
           </div>
 
           <div class="tier-auto-right-controls">
+            <!-- C3: 表示密度切替 (ティア表) -->
+            <div class="btn-group density-button-group" id="tierDensityBtns" style="margin-right:4px;">
+              <button type="button" class="btn btn-sm btn-density" data-density="compact" title="コンパクト表示" style="font-size:11px; padding:2px 7px;">小</button>
+              <button type="button" class="btn btn-sm btn-density active" data-density="normal" title="標準表示" style="font-size:11px; padding:2px 7px;">標準</button>
+              <button type="button" class="btn btn-sm btn-density" data-density="comfortable" title="ゆったり表示" style="font-size:11px; padding:2px 7px;">大</button>
+            </div>
             <button type="button" class="btn btn-sm" id="btnToggleTierWeights" title="基礎性能・バフ・計略などの配点重みをスライダーで調整">⚙️ 重み配点調整</button>
             <button type="button" class="btn btn-sm" id="btnClearTierOverrides" title="手動で設定したティア上書きをすべてリセット">✏️ 上書き解除 <span id="tierOverrideCount">(0)</span></button>
             <button type="button" class="btn btn-sm" id="btnExportAutoTierImage" style="background:#2d3436; color:#fff;" title="自動スコアティア表をPNG画像で保存">📸 画像保存</button>
@@ -667,6 +682,47 @@
             <input type="file" id="fullBackupFileInput" accept=".json" style="display:none;" />
           </div>
           <div id="fullBackupStatus" style="font-size:11.5px; color:var(--text-sub);"></div>
+        </section>
+
+        <!-- C1, C3, C5: テーマ・デザイン・表示設定 -->
+        <section class="section-box">
+          <div class="section-title">🎨 テーマ・表示設定 (デザイン)</div>
+          <div style="display:flex; flex-direction:column; gap:12px; margin-top:8px;">
+            <div>
+              <label style="font-size:12px; font-weight:600; color:var(--text-main); display:block; margin-bottom:4px;">テーマ切替 (C1)</label>
+              <div style="display:flex; gap:8px;">
+                <select id="settingThemeMode" class="btn btn-sm" style="flex:1;">
+                  <option value="dark">ダーク（現行）</option>
+                  <option value="light">ライト</option>
+                </select>
+                <select id="settingThemeAccent" class="btn btn-sm" style="flex:1;">
+                  <option value="default">城プロ紅（標準）</option>
+                  <option value="plain">平（翠・緑）</option>
+                  <option value="mountain">山（橙・琥珀）</option>
+                  <option value="water">水（青・碧）</option>
+                  <option value="hell">地獄（紫・冥）</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label style="font-size:12px; font-weight:600; color:var(--text-main); display:block; margin-bottom:4px;">表示密度 (C3)</label>
+              <select id="settingDensitySelect" class="btn btn-sm" style="width:100%;">
+                <option value="normal">標準 (通常余白・標準アイコン)</option>
+                <option value="compact">コンパクト (余白縮小・省スペース)</option>
+                <option value="comfortable">ゆったり (余白拡大・大きめアイコン)</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size:12px; font-weight:600; color:var(--text-main); display:block; margin-bottom:4px;">文字サイズ調整 (C5)</label>
+              <select id="settingFontSizeSelect" class="btn btn-sm" style="width:100%;">
+                <option value="normal">標準 (13px)</option>
+                <option value="small">小 (12px)</option>
+                <option value="large">大 (15px)</option>
+              </select>
+            </div>
+          </div>
         </section>
 
         <section class="section-box">

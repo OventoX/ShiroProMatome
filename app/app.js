@@ -1698,10 +1698,11 @@
             <div class="castle-item-badges">
               <button class="btn-fav ${isFav ? 'active' : ''}" data-action="toggle-fav" data-id="${c.id}" title="お気に入り切替">${isFav ? '★' : '☆'}</button>
               <button class="btn-owned ${isOwned ? 'active' : ''}" data-action="toggle-owned" data-id="${c.id}" title="所持切替">${isOwned ? '所持' : '未所持'}</button>
-              <span class="badge" style="background:#b85d19;color:#fff;">★${c.rarity}</span>
+              <!-- C2: Official color token badges -->
+              <span class="badge badge-rarity badge-rarity-${c.rarity}">★${c.rarity}</span>
               ${getAttrBadgeHtml(c)}
-              <span class="badge" style="background:#555;color:#fff;">${c.weapon}</span>
-              <span class="badge" style="background:#3a6073;color:#fff;">${c.rangeKind || '近'}</span>
+              <span class="badge badge-weapon" style="background:#555;color:#fff;">${c.weapon}</span>
+              <span class="badge badge-range badge-range-${c.rangeKind === '遠近' ? 'both' : (c.rangeKind === '遠' ? 'far' : 'near')}">${c.rangeKind || '近'}</span>
             </div>
           </div>
           <div class="castle-item-skill" title="${c.skill ? c.skill.text : ''}">
@@ -2403,6 +2404,151 @@
       reader.readAsText(file);
     });
   }
+
+  // ==========================================
+  // C1, C3, C5: テーマ・アクセント・表示密度・文字サイズ管理
+  // ==========================================
+  const THEME_STORAGE_KEY = "scre-helper:theme:v1";
+  const DENSITY_STORAGE_KEY = "scre-helper:density:v1";
+  const FONT_SIZE_STORAGE_KEY = "scre-helper:font-size:v1";
+
+  // C1: テーマ・アクセントカラー切替
+  function loadThemeSettings() {
+    try {
+      const saved = localStorage.getItem(THEME_STORAGE_KEY);
+      if (saved) {
+        if (saved.startsWith("{")) {
+          return JSON.parse(saved);
+        }
+        return { mode: saved, accent: "default" };
+      }
+    } catch (e) {}
+    return { mode: "dark", accent: "default" };
+  }
+
+  function applyThemeSettings(mode, accent) {
+    const validMode = (mode === "light") ? "light" : "dark";
+    const validAccent = ["plain", "mountain", "water", "hell"].includes(accent) ? accent : "default";
+
+    document.body.setAttribute("data-theme", validMode);
+    if (validAccent !== "default") {
+      document.body.setAttribute("data-accent", validAccent);
+    } else {
+      document.body.removeAttribute("data-accent");
+    }
+
+    const modeSel = document.getElementById("settingThemeMode");
+    if (modeSel && modeSel.value !== validMode) modeSel.value = validMode;
+    const accentSel = document.getElementById("settingThemeAccent");
+    if (accentSel && accentSel.value !== validAccent) accentSel.value = validAccent;
+  }
+
+  function saveThemeSettings(mode, accent) {
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify({ mode, accent }));
+    } catch (e) {}
+    applyThemeSettings(mode, accent);
+  }
+
+  // C3: 表示密度切替 (コンパクト / 標準 / ゆったり)
+  function loadDensitySetting() {
+    try {
+      const saved = localStorage.getItem(DENSITY_STORAGE_KEY);
+      if (saved && ["compact", "normal", "comfortable"].includes(saved)) {
+        return saved;
+      }
+    } catch (e) {}
+    return "normal";
+  }
+
+  function applyDensitySetting(density) {
+    const valid = ["compact", "normal", "comfortable"].includes(density) ? density : "normal";
+    const container = document.querySelector(".app-container");
+    if (container) {
+      container.classList.remove("density-compact", "density-normal", "density-comfortable");
+      container.classList.add(`density-${valid}`);
+    }
+
+    // Sync select in settings tab
+    const sel = document.getElementById("settingDensitySelect");
+    if (sel && sel.value !== valid) sel.value = valid;
+
+    // Sync button groups in list and tier tabs
+    document.querySelectorAll(".density-button-group .btn-density").forEach(btn => {
+      if (btn.getAttribute("data-density") === valid) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+  }
+
+  function saveDensitySetting(density) {
+    try {
+      localStorage.setItem(DENSITY_STORAGE_KEY, density);
+    } catch (e) {}
+    applyDensitySetting(density);
+  }
+
+  // C5: 文字サイズ切替 (小 / 標準 / 大)
+  function loadFontSizeSetting() {
+    try {
+      const saved = localStorage.getItem(FONT_SIZE_STORAGE_KEY);
+      if (saved && ["small", "normal", "large"].includes(saved)) {
+        return saved;
+      }
+    } catch (e) {}
+    return "normal";
+  }
+
+  function applyFontSizeSetting(size) {
+    const valid = ["small", "normal", "large"].includes(size) ? size : "normal";
+    document.documentElement.setAttribute("data-font-size", valid);
+
+    const sel = document.getElementById("settingFontSizeSelect");
+    if (sel && sel.value !== valid) sel.value = valid;
+  }
+
+  function saveFontSizeSetting(size) {
+    try {
+      localStorage.setItem(FONT_SIZE_STORAGE_KEY, size);
+    } catch (e) {}
+    applyFontSizeSetting(size);
+  }
+
+  // Event Listeners for C1, C3, C5
+  document.getElementById("settingThemeMode")?.addEventListener("change", (e) => {
+    const current = loadThemeSettings();
+    saveThemeSettings(e.target.value, current.accent);
+  });
+
+  document.getElementById("settingThemeAccent")?.addEventListener("change", (e) => {
+    const current = loadThemeSettings();
+    saveThemeSettings(current.mode, e.target.value);
+  });
+
+  document.getElementById("settingDensitySelect")?.addEventListener("change", (e) => {
+    saveDensitySetting(e.target.value);
+  });
+
+  document.querySelectorAll(".density-button-group .btn-density").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const d = btn.getAttribute("data-density");
+      if (d) saveDensitySetting(d);
+    });
+  });
+
+  document.getElementById("settingFontSizeSelect")?.addEventListener("change", (e) => {
+    saveFontSizeSetting(e.target.value);
+  });
+
+  // Expose helpers globally for testing and external hooks
+  window.applyThemeSettings = applyThemeSettings;
+  window.saveThemeSettings = saveThemeSettings;
+  window.applyDensitySetting = applyDensitySetting;
+  window.saveDensitySetting = saveDensitySetting;
+  window.applyFontSizeSetting = applyFontSizeSetting;
+  window.saveFontSizeSetting = saveFontSizeSetting;
 
   // ==========================================
   // B4: 城娘2体比較ビュー
@@ -3271,10 +3417,11 @@
     // Badges
     const badgesEl = document.getElementById("detailBadges");
     badgesEl.innerHTML = `
-      <span class="badge" style="background:#b85d19;color:#fff;">★${c.rarity}</span>
+      <!-- C2: Official color token badges -->
+      <span class="badge badge-rarity badge-rarity-${c.rarity}">★${c.rarity}</span>
       ${getAttrBadgeHtml(c)}
-      <span class="badge" style="background:#555;color:#fff;">${c.weapon}</span>
-      <span class="badge" style="background:#3a6073;color:#fff;">${c.rangeKind || '近'}</span>
+      <span class="badge badge-weapon" style="background:#555;color:#fff;">${c.weapon}</span>
+      <span class="badge badge-range badge-range-${c.rangeKind === '遠近' ? 'both' : (c.rangeKind === '遠' ? 'far' : 'near')}">${c.rangeKind || '近'}</span>
       ${c.country ? `<span class="badge" style="background:#706b64;color:#fff;">${c.country}</span>` : ''}
     `;
 
@@ -5850,9 +5997,9 @@
           <div class="tier-card-info-col">
             <div class="tier-card-header">
               <span class="tier-card-title" data-action="detail" data-id="${c.id}" title="クリックで詳細表示">${c.name}</span>
-              <span class="badge" style="background:#b85d19;color:#fff;font-size:10px;">★${c.rarity}</span>
+              <span class="badge badge-rarity badge-rarity-${c.rarity}" style="font-size:10px;">★${c.rarity}</span>
               ${getAttrBadgeHtml(c)}
-              <span class="badge" style="background:#555;color:#fff;font-size:10px;">${c.weapon}</span>
+              <span class="badge badge-weapon" style="background:#555;color:#fff;font-size:10px;">${c.weapon}</span>
             </div>
             ${item.tag ? `<div class="tier-card-tag">${item.tag}</div>` : ''}
             <div class="tier-card-actions">
@@ -6667,6 +6814,16 @@
   if (appInfoCountEl && window.SCRE_DATA) {
     appInfoCountEl.textContent = window.SCRE_DATA.length.toLocaleString();
   }
+  // Initialize Theme, Density, and Font Size (C1, C3, C5)
+  const initTheme = loadThemeSettings();
+  applyThemeSettings(initTheme.mode, initTheme.accent);
+
+  const initDensity = loadDensitySetting();
+  applyDensitySetting(initDensity);
+
+  const initFontSize = loadFontSizeSetting();
+  applyFontSizeSetting(initFontSize);
+
   renderPresetBar();
   renderDashboard();
 })();
