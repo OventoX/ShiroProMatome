@@ -4324,7 +4324,7 @@
     const hasKiRestriction = combinedRules.includes("気獲得制限") || /気の自然回復量が.*低下|敵撃破時の獲得気が0|気の自然増加.*停止/.test(combinedRules);
     const needsMagic = /術攻撃以外|術属性以外|術ダメージ以外/.test(allText);
     const needsPhysical = /物理攻撃以外|物理属性以外|物理ダメージ以外/.test(allText);
-    const hasFlying = /飛行|飛翔|羽|鳥|大鷹/.test(allText);
+    const hasFlying = /飛行|飛翔|空を飛ぶ|空中|(?:大鷹|怪鳥|鳥形|羽虫|蝙蝠)形?兜/.test(allText);
     const hasAbnormal = isHades || /暗闇|状態異常|猛毒|毒|火傷|氷結|混乱|麻痺/.test(allText);
     const hasBossRamp = /時間経過|徐々に攻撃|徐々に.*強化|ゲージが無くなる|大幅に強化/.test(allText);
 
