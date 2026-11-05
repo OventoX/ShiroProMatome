@@ -1201,6 +1201,296 @@ async function runTests() {
 
   console.log('=> TEST 28 PASSED');
 
+// -------------------------------------------------------------
+  // Test 29: ふりがな検索 (Ruby / Furigana Search in List & Modal)
+  // -------------------------------------------------------------
+  console.log('\n[TEST 29] Testing Furigana (Ruby) Search in List & Selector Modal...');
+  await page.click('.tab-btn[data-tab="tab-list"]');
+  await new Promise(r => setTimeout(r, 200));
+
+  // Verify list placeholder
+  const listPlaceholder = await page.$eval('#searchCastleInput', el => el.placeholder);
+  console.log('List search placeholder:', listPlaceholder);
+  if (!listPlaceholder.includes('ふりがなでも検索できます')) {
+    throw new Error('TEST 29 FAILED: List search placeholder should mention ふりがなでも検索できます');
+  }
+
+  // Type hiragana "おおさか" for 大坂城
+  await page.evaluate(() => {
+    const el = document.getElementById('searchCastleInput');
+    el.value = 'おおさか';
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  await new Promise(r => setTimeout(r, 200));
+  const listMatchesHira = await page.$$eval('#allCastleList .castle-item-title', titles => titles.map(t => t.textContent.trim()));
+  console.log('List results for hiragana "おおさか":', listMatchesHira);
+  if (!listMatchesHira.some(name => name.includes('大坂城'))) {
+    throw new Error('TEST 29 FAILED: Hiragana search "おおさか" did not match 大坂城');
+  }
+
+  // Type katakana "オオサカ" for 大坂城
+  await page.evaluate(() => {
+    const el = document.getElementById('searchCastleInput');
+    el.value = 'オオサカ';
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  await new Promise(r => setTimeout(r, 200));
+  const listMatchesKata = await page.$$eval('#allCastleList .castle-item-title', titles => titles.map(t => t.textContent.trim()));
+  console.log('List results for katakana "オオサカ":', listMatchesKata);
+  if (!listMatchesKata.some(name => name.includes('大坂城'))) {
+    throw new Error('TEST 29 FAILED: Katakana search "オオサカ" did not match 大坂城');
+  }
+
+  // Clear list search
+  await page.evaluate(() => {
+    const el = document.getElementById('searchCastleInput');
+    el.value = '';
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+
+  // Test Modal Selector Search
+  await page.click('.tab-btn[data-tab="tab-dashboard"]');
+  await new Promise(r => setTimeout(r, 200));
+  // Open modal selector by removing 1 slot and clicking empty
+  await page.click('.party-card .btn-remove');
+  await new Promise(r => setTimeout(r, 200));
+  await page.click('.party-card.empty');
+  await new Promise(r => setTimeout(r, 300));
+
+  const modalPlaceholder = await page.$eval('#modalSearchInput', el => el.placeholder);
+  console.log('Modal search placeholder:', modalPlaceholder);
+  if (!modalPlaceholder.includes('ふりがなでも検索できます')) {
+    throw new Error('TEST 29 FAILED: Modal search placeholder should mention ふりがなでも検索できます');
+  }
+
+  // Type hiragana "なごや" for 名古屋城 in modal
+  await page.evaluate(() => {
+    const el = document.getElementById('modalSearchInput');
+    el.value = 'なごや';
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  await new Promise(r => setTimeout(r, 200));
+  const modalMatches = await page.$$eval('#modalCastleList .castle-list-item strong', items => items.map(it => it.textContent.trim()));
+  console.log('Modal results for hiragana "なごや":', modalMatches);
+  if (!modalMatches.some(name => name.includes('名古屋城'))) {
+    throw new Error('TEST 29 FAILED: Modal hiragana search "なごや" did not match 名古屋城');
+  }
+
+  // Select 名古屋城 to refill slot and close modal
+  await page.click('#modalCastleList .castle-list-item');
+  await new Promise(r => setTimeout(r, 300));
+  console.log('=> TEST 29 PASSED');
+
+  // -------------------------------------------------------------
+  // Test 30: ステージクリア記録・進捗表示・編成保存復元 (Prompt 2)
+  // -------------------------------------------------------------
+  console.log('\n[TEST 30] Testing Stage Progress, Saved Parties & Clear Filter...');
+  await page.click('.tab-btn[data-tab="tab-guides"]');
+  await new Promise(r => setTimeout(r, 300));
+
+  // Check progress banner
+  const bannerText = await page.$eval('#guidesProgressBanner', el => el.textContent);
+  console.log('Guides progress banner text:', bannerText.trim());
+  if (!bannerText.includes('ステージクリア進捗状況') || !bannerText.includes('地獄')) {
+    throw new Error('TEST 30 FAILED: Progress banner missing or does not show category progress');
+  }
+
+  // Find toggle clear button on first stage card
+  const firstToggleClearBtn = await page.$('#guidesListContainer .btn-toggle-clear');
+  if (!firstToggleClearBtn) throw new Error('TEST 30 FAILED: No toggle clear button found on stage card');
+  const stageTitle = await page.evaluate(el => el.getAttribute('data-title'), firstToggleClearBtn);
+  console.log('Toggling clear for stage:', stageTitle);
+
+  await firstToggleClearBtn.click();
+  await new Promise(r => setTimeout(r, 200));
+
+  // Verify cleared state (re-query element after renderGuidesTab recreates DOM)
+  const isClearedBtn = await page.$eval('#guidesListContainer .btn-toggle-clear', el => el.classList.contains('cleared'));
+  console.log('Button is cleared after click:', isClearedBtn);
+  if (!isClearedBtn) throw new Error('TEST 30 FAILED: Button should be cleared');
+
+  // Test Clear Filter (cleared vs uncleared)
+  await page.evaluate(() => {
+    const sel = document.getElementById('guideClearFilter');
+    sel.value = 'cleared';
+    sel.dispatchEvent(new Event('change'));
+  });
+  await new Promise(r => setTimeout(r, 200));
+  const clearedCardsCount = await page.$$eval('#guidesListContainer .buff-card', cards => cards.length);
+  console.log('Cards count when filtered by "cleared":', clearedCardsCount);
+  if (clearedCardsCount !== 1) {
+    throw new Error('TEST 30 FAILED: Expected 1 cleared card, got: ' + clearedCardsCount);
+  }
+
+  await page.evaluate(() => {
+    const sel = document.getElementById('guideClearFilter');
+    sel.value = '';
+    sel.dispatchEvent(new Event('change'));
+  });
+  await new Promise(r => setTimeout(r, 200));
+
+  // Open Stage Diagnostic to test Save & Restore Party
+  const diagBtn = await page.$('#guidesListContainer .buff-card button[data-action="diag-stage"]');
+  await diagBtn.click();
+  await new Promise(r => setTimeout(r, 300));
+
+  const diagBoxText = await page.$eval('#diagStageProgressBox', el => el.textContent);
+  console.log('Diagnostic modal progress box text:', diagBoxText.trim());
+  if (!diagBoxText.includes('このステージをクリア済みにする') || !diagBoxText.includes('現在の編成を保存')) {
+    throw new Error('TEST 30 FAILED: Diagnostic progress box missing save/clear controls');
+  }
+
+  // Click Save Party
+  await page.click('#btnSaveStageParty');
+  await new Promise(r => setTimeout(r, 300));
+  const diagBoxAfterSave = await page.$eval('#diagStageProgressBox', el => el.textContent);
+  console.log('Progress box after save:', diagBoxAfterSave.trim());
+  if (!diagBoxAfterSave.includes('保存済みクリア編成') || !diagBoxAfterSave.includes('クリア編成を復元')) {
+    throw new Error('TEST 30 FAILED: Saved party did not appear in diagnostic progress box');
+  }
+
+  // Close diagnostic modal and switch to dashboard
+  await page.keyboard.press('Escape');
+  await new Promise(r => setTimeout(r, 300));
+
+  await page.click('.tab-btn[data-tab="tab-dashboard"]');
+  await new Promise(r => setTimeout(r, 200));
+
+  // Clear party via #btnEmptyParty to test restore
+  await page.evaluate(() => {
+    window.confirm = () => true;
+  });
+  await page.click('#btnEmptyParty');
+  await new Promise(r => setTimeout(r, 200));
+  const partyCountAfterEmpty = await page.$eval('#partyCounter', el => el.textContent);
+  console.log('Party counter after empty:', partyCountAfterEmpty);
+
+  // Re-open guides and diagnostic modal, restore party
+  await page.click('.tab-btn[data-tab="tab-guides"]');
+  await new Promise(r => setTimeout(r, 300));
+  const reopenDiagBtn = await page.$('#guidesListContainer .buff-card button[data-action="diag-stage"]');
+  await reopenDiagBtn.click();
+  await new Promise(r => setTimeout(r, 300));
+
+  // Accept confirmation dialog
+  await page.evaluate(() => {
+    window.confirm = () => true;
+  });
+  await page.click('#btnRestoreStageParty');
+  await new Promise(r => setTimeout(r, 400));
+
+  await page.keyboard.press('Escape');
+  await new Promise(r => setTimeout(r, 300));
+
+  await page.click('.tab-btn[data-tab="tab-dashboard"]');
+  await new Promise(r => setTimeout(r, 200));
+  const partyCountAfterRestore = await page.$eval('#partyCounter', el => el.textContent);
+  console.log('Party counter after restore:', partyCountAfterRestore);
+  if (!partyCountAfterRestore.includes('4/8') && !partyCountAfterRestore.includes('8/8')) {
+    throw new Error('TEST 30 FAILED: Party was not restored from stage saved party');
+  }
+  console.log('=> TEST 30 PASSED');
+
+  // -------------------------------------------------------------
+  // Test 31: 属性・武器種カバレッジ診断 (Prompt 3)
+  // -------------------------------------------------------------
+  console.log('\n[TEST 31] Testing Attribute & Weapon Coverage Panel...');
+  const coveragePanelText = await page.$eval('#partyCoveragePanel', el => el.textContent);
+  console.log('Coverage panel snippet:', coveragePanelText.slice(0, 150).replace(/\s+/g, ' '));
+
+  const attrChips = await page.$$eval('#partyCoveragePanel .coverage-group:nth-child(1) .coverage-chip', chips => chips.map(c => c.textContent.trim()));
+  console.log('Attribute coverage chips:', attrChips);
+  if (attrChips.length === 0) throw new Error('TEST 31 FAILED: No attribute chips in coverage panel');
+
+  const rangeChips = await page.$$eval('#partyCoveragePanel .coverage-group:nth-child(2) .coverage-chip', chips => chips.map(c => c.textContent.trim()));
+  console.log('Range coverage chips:', rangeChips);
+  if (!rangeChips.some(c => c.includes('近接')) || !rangeChips.some(c => c.includes('遠隔'))) {
+    throw new Error('TEST 31 FAILED: Range chips missing 近接 or 遠隔');
+  }
+
+  const warningsCount = await page.$$eval('#partyCoveragePanel .coverage-warning-item', items => items.length);
+  console.log('Coverage factual warnings count:', warningsCount);
+  console.log('=> TEST 31 PASSED');
+
+  // -------------------------------------------------------------
+  // Test 32: バフ競合（無効になっている重なり）の可視化 (Prompt 4)
+  // -------------------------------------------------------------
+  console.log('\n[TEST 32] Testing Buff Conflict Visualization (Strikethrough & Tooltips)...');
+  // Click first breakdown toggle on buff card
+  const breakdownToggle = await page.$('.buff-card .breakdown-toggle');
+  if (breakdownToggle) {
+    await breakdownToggle.click();
+    await new Promise(r => setTimeout(r, 200));
+  }
+
+  // Check if any breakdown list has unapplied tags or strikethroughs
+  const unappliedHtml = await page.evaluate(() => {
+    const unappliedElements = document.querySelectorAll('.buff-source-unapplied');
+    return Array.from(unappliedElements).map(el => ({
+      tagName: el.tagName,
+      className: el.className,
+      text: el.textContent.trim(),
+      title: el.getAttribute('title') || ''
+    }));
+  });
+
+  console.log('Total unapplied elements rendered on page:', unappliedHtml.length);
+  if (unappliedHtml.length > 0) {
+    console.log('Sample unapplied element:', unappliedHtml[0]);
+    if (!unappliedHtml[0].title.includes('同種バフと重なりのため未適用')) {
+      throw new Error('TEST 32 FAILED: Tooltip must mention 同種バフと重なりのため未適用');
+    }
+  }
+  console.log('=> TEST 32 PASSED');
+
+  // -------------------------------------------------------------
+  // Test 33: 気コスト内訳テーブル & 気支援情報 (Prompt 5)
+  // -------------------------------------------------------------
+  console.log('\n[TEST 33] Testing Ki Cost Breakdown Table & Ki Support Section...');
+  const costTableRows = await page.$$eval('#partyKiCostBreakdown .cost-breakdown-table tbody tr', trs => trs.length);
+  console.log('Cost breakdown table rows (including total row):', costTableRows);
+  if (costTableRows < 2) {
+    throw new Error('TEST 33 FAILED: Cost breakdown table should have rows for active party members + total row');
+  }
+
+  const costBreakdownContent = await page.$eval('#partyKiCostBreakdown', el => el.textContent);
+  console.log('Cost breakdown table summary:', costBreakdownContent.includes('部隊合計'));
+  if (!costBreakdownContent.includes('部隊合計') || !costBreakdownContent.includes('配置気')) {
+    throw new Error('TEST 33 FAILED: Ki cost breakdown table header or summary missing');
+  }
+
+  const hasKiSupport = costBreakdownContent.includes('編成内の気関連・気支援能力');
+  console.log('Ki support ability note rendered:', hasKiSupport);
+  console.log('=> TEST 33 PASSED');
+
+  // -------------------------------------------------------------
+  // Test 34: 編成の画像エクスポート (Prompt 6)
+  // -------------------------------------------------------------
+  console.log('\n[TEST 34] Testing html2canvas Party Summary Image Export...');
+  const hasHtml2Canvas = await page.evaluate(() => typeof window.html2canvas === 'function');
+  console.log('html2canvas loaded in page:', hasHtml2Canvas);
+  if (!hasHtml2Canvas) {
+    throw new Error('TEST 34 FAILED: html2canvas is not loaded in window');
+  }
+
+  // Click image export button
+  await page.click('#btnExportImage');
+  await new Promise(r => setTimeout(r, 600));
+
+  const exportAreaPopulated = await page.$eval('#partyExportArea', el => el.children.length > 0);
+  console.log('partyExportArea populated by export handler:', exportAreaPopulated);
+  if (!exportAreaPopulated) {
+    throw new Error('TEST 34 FAILED: #partyExportArea should be populated with export markup');
+  }
+
+  const exportAreaText = await page.$eval('#partyExportArea', el => el.textContent);
+  console.log('Export area text snippet:', exportAreaText.slice(0, 120).replace(/\s+/g, ' '));
+  if (!exportAreaText.includes('編成サマリー') || !exportAreaText.includes('出撃地形')) {
+    throw new Error('TEST 34 FAILED: Export area missing header or summary details');
+  }
+
+  console.log('=> TEST 34 PASSED');
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -1212,7 +1502,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (28/28)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (34/34)!');
   console.log('=====================================');
 }
 

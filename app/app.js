@@ -148,6 +148,7 @@
   }
 
   // Toast Notification Helper
+  const showToast = (msg, isWarning = false) => showNotification(msg, isWarning);
   function showNotification(msg, isWarning = false) {
     let toast = document.querySelector(".toast-notification");
     if (toast) toast.remove();
@@ -209,6 +210,126 @@
         }
       }
     });
+  }
+
+  
+  // ==========================================
+  // Stage Progress & Saved Parties (プロンプト2)
+  // ==========================================
+  const STAGE_PROGRESS_STORAGE_KEY = "scre-helper:stage-progress:v1";
+
+  function getStageProgressData() {
+    try {
+      const raw = localStorage.getItem(STAGE_PROGRESS_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      console.warn("Stage progress load error:", e);
+      return {};
+    }
+  }
+
+  function saveStageProgressData(data) {
+    try {
+      localStorage.setItem(STAGE_PROGRESS_STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {
+      console.warn("Stage progress save error:", e);
+    }
+  }
+
+  function toggleStageCleared(stageTitle, forceStatus = null) {
+    const data = getStageProgressData();
+    const existing = data[stageTitle] || {};
+    const newStatus = (forceStatus !== null) ? forceStatus : !existing.cleared;
+    data[stageTitle] = {
+      cleared: newStatus,
+      party: existing.party || (newStatus ? party.map(s => s.id).filter(Boolean) : []),
+      savedAt: new Date().toISOString()
+    };
+    saveStageProgressData(data);
+    renderGuidesTab();
+  }
+
+  function savePartyForStage(stageTitle) {
+    const data = getStageProgressData();
+    const partyIds = party.map(s => s.id).filter(Boolean);
+    data[stageTitle] = {
+      cleared: true,
+      party: partyIds,
+      savedAt: new Date().toISOString()
+    };
+    saveStageProgressData(data);
+    showToast(`✅ 【${stageTitle}】のクリア編成（${partyIds.length}体）を保存しました`);
+    renderGuidesTab();
+  }
+
+  function restorePartyFromStage(stageTitle) {
+    const data = getStageProgressData();
+    const record = data[stageTitle];
+    if (!record || !record.party || record.party.length === 0) {
+      showToast("⚠️ 保存されたクリア編成がありません");
+      return;
+    }
+
+    // Validate IDs
+    const validCastles = [];
+    const missingIds = [];
+    record.party.forEach(id => {
+      const c = getCastleById(id);
+      if (c) validCastles.push(c);
+      else missingIds.push(id);
+    });
+
+    if (validCastles.length === 0) {
+      showToast("⚠️ クリア編成内の城娘データが見つかりませんでした");
+      return;
+    }
+
+    const confirmMsg = `【${stageTitle}】のクリア編成を復元しますか？\n\n【読み込む城娘 (${validCastles.length}体)】\n${validCastles.map(c => c.name).join("、")}\n\n※現在の編成は上書きされます。`;
+    if (!window.confirm(confirmMsg)) return;
+
+    if (missingIds.length > 0) {
+      showToast(`⚠️ 一部未存在の城娘を除外して復元しました: ${missingIds.join('、')}`);
+    }
+
+    party = validCastles.slice(0, 8).map(c => ({
+      id: c.id,
+      strategyOn: true,
+      specialOn: !!c.special
+    }));
+    saveParty();
+    renderDashboard();
+    showToast(`✅ 【${stageTitle}】のクリア編成を復元しました`);
+  }
+
+  // ==========================================
+  // Kana Normalization & Search Matcher (プロンプト1)
+  // ==========================================
+  function toHiragana(str) {
+    return (str || "").replace(/[\u30a1-\u30f6]/g, m => String.fromCharCode(m.charCodeAt(0) - 0x60));
+  }
+
+  function matchCastleNameOrRuby(castle, query) {
+    if (!query) return true;
+    const qLower = query.toLowerCase();
+    const qHira = toHiragana(qLower);
+
+    // 1. Direct name match
+    if (castle.name && castle.name.toLowerCase().includes(qLower)) return true;
+
+    // 2. Ruby match (hiragana <=> katakana)
+    if (castle.ruby) {
+      const rLower = castle.ruby.toLowerCase();
+      const rHira = toHiragana(rLower);
+      if (rLower.includes(qLower) || rHira.includes(qHira) || rHira.includes(qLower)) return true;
+    }
+
+    // 3. Name kana match
+    if (castle.name) {
+      const nameHira = toHiragana(castle.name.toLowerCase());
+      if (nameHira.includes(qHira)) return true;
+    }
+
+    return false;
   }
 
   function getCastleById(id) {
@@ -361,6 +482,53 @@
       });
     });
 
+    
+    // Evaluate buff conflict / applied status (プロンプト4: 憶測で仕様を変えず、既存の最大値/加算ルールに従ってフラグ付け)
+    const percentKeys = ["atkPercent", "defPercent", "rangePercent", "hpPercent", "dmgDealt", "dmgDealtTarget", "dmgTakenDown", "atkSpeed", "gapShorten"];
+    for (const cid in perCastle) {
+      const b = perCastle[cid].buffs;
+      percentKeys.forEach(key => {
+        const bucket = b[key];
+        if (!bucket || !bucket.sources) return;
+        let maxApplied = false;
+        bucket.sources.forEach(s => {
+          if (s.stackable) {
+            s.applied = true;
+          } else if (bucket.max > 0 && s.val === bucket.max && !maxApplied) {
+            s.applied = true;
+            maxApplied = true;
+          } else {
+            s.applied = false;
+            s.conflictReason = "同種バフと重なりのため未適用 (最大値優先)";
+          }
+        });
+      });
+      // Flat buffs and shares always stack
+      ["atkFlat", "defFlat", "rangeFlat", "hpFlat", "recoveryFlat"].forEach(k => {
+        if (b[k] && b[k].items) {
+          b[k].items.forEach(it => { it.applied = true; });
+        }
+      });
+      if (b.shares) {
+        b.shares.forEach(sh => { sh.applied = true; });
+      }
+    }
+
+    // Evaluate enemy debuff conflicts
+    for (const debKey in enemyDebuffs) {
+      const deb = enemyDebuffs[debKey];
+      let maxApplied = false;
+      deb.sources.forEach(s => {
+        if (deb.max > 0 && s.val === deb.max && !maxApplied) {
+          s.applied = true;
+          maxApplied = true;
+        } else {
+          s.applied = false;
+          s.conflictReason = "同種バフと重なりのため未適用 (最大値優先)";
+        }
+      });
+    }
+
     // 2nd Pass: Calculate dynamic effective values (Real Stat = Base * (1 + Perc/100) + Flat + Shares)
     activePartyMembers.forEach(({ castle }) => {
       const data = perCastle[castle.id];
@@ -468,6 +636,7 @@
     renderPartyTab(calcResult);
     renderBuffGrid(calcResult);
     renderMissingSidebar(calcResult);
+    renderCoveragePanel(calcResult);
     const simBody = document.getElementById("giantizeSimBody");
     if (simBody && simBody.style.display !== "none") {
       calculateGiantizeSimulation();
@@ -548,6 +717,124 @@
       }
       listEl.appendChild(card);
     }
+    renderKiCostBreakdown(calcResult);
+  }
+
+  
+  // ==========================================
+  // Ki Cost Breakdown Table & Support Note (プロンプト5)
+  // ==========================================
+  function renderKiCostBreakdown(calcResult) {
+    const container = document.getElementById("partyKiCostBreakdown");
+    if (!container) return;
+
+    const { activePartyMembers, totalDeployCost, totalGiantCost, matchCount } = calcResult || calculateBuffs();
+    if (!activePartyMembers || activePartyMembers.length === 0) {
+      container.innerHTML = `<div style="color:var(--text-muted); font-size:11px; padding:4px 0;">編成に城娘を追加すると、配置・巨大化気の内訳と気支援効果が表示されます。</div>`;
+      return;
+    }
+
+    const rowsHtml = activePartyMembers.map(({ slot, castle }) => {
+      const calc = calcResult.perCastle[castle.id]?.calculatedStats;
+      const deployCost = calc ? calc.deployCost : (castle.cost || 10);
+      const totalCost = calc ? calc.actualGiantCost : (deployCost * 8);
+      const giantOnlyCost = Math.max(0, totalCost - deployCost);
+      const isMatch = calc ? calc.isTerrainMatch : false;
+      const attrStr = castle.subType || castle.castleType || "-";
+
+      const matchBadge = isMatch 
+        ? `<span class="badge" style="background:#2c6f4f; color:#fff; font-size:9.5px; padding:1px 4px;" title="出撃地形一致: 巨大化消費気35%減">✓35%減</span>` 
+        : `<span style="color:#999; font-size:10px;">-</span>`;
+
+      return `
+        <tr>
+          <td style="text-align:left; font-weight:bold; white-space:nowrap;">
+            <div style="display:flex; align-items:center; gap:4px;">
+              ${getIconHtml(castle, 20)}
+              <span style="font-size:11px;">${castle.name}</span>
+            </div>
+          </td>
+          <td><span class="badge" style="font-size:9.5px;">${attrStr}</span></td>
+          <td style="font-weight:bold;">${deployCost}</td>
+          <td>${giantOnlyCost}</td>
+          <td style="font-weight:bold; color:var(--primary-color);">${totalCost}</td>
+          <td>${matchBadge}</td>
+        </tr>
+      `;
+    }).join("");
+
+    const giantTotalOnly = Math.max(0, totalGiantCost - totalDeployCost);
+    const matchSummaryText = currentTerrain ? `${matchCount}/${activePartyMembers.length}体一致` : "-";
+
+    // Detect Ki supporters
+    const kiSupporters = [];
+    activePartyMembers.forEach(({ slot, castle }) => {
+      const notes = [];
+      if (castle.skill) {
+        const text = castle.skill.text || "";
+        const name = castle.skill.name || "";
+        if (text.includes("気") || name.includes("気")) {
+          notes.push(`特技: ${name}`);
+        }
+      }
+      if (slot.strategyOn && castle.strategy) {
+        const text = castle.strategy.text || "";
+        const name = castle.strategy.name || "";
+        if (text.includes("気") || name.includes("気")) {
+          notes.push(`計略: ${name}`);
+        }
+      }
+      if (slot.specialOn && castle.special) {
+        const text = castle.special.text || "";
+        const name = castle.special.name || "";
+        if (text.includes("気") || name.includes("気")) {
+          notes.push(`特殊: ${name}`);
+        }
+      }
+      if (notes.length > 0) {
+        kiSupporters.push({ name: castle.name, note: notes.join(" / ") });
+      }
+    });
+
+    let kiSupportHtml = "";
+    if (kiSupporters.length > 0) {
+      kiSupportHtml = `
+        <div class="ki-support-box">
+          <div class="ki-support-title">⚡ 編成内の気関連・気支援能力 (${kiSupporters.length}体)</div>
+          ${kiSupporters.map(k => `<div>• <strong>${k.name}</strong>: <span style="color:#2c3e50;">${k.note}</span></div>`).join("")}
+        </div>
+      `;
+    }
+
+    container.innerHTML = `
+      <table class="cost-breakdown-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">城娘</th>
+            <th>地形</th>
+            <th>配置気</th>
+            <th>巨大化気</th>
+            <th>合計気</th>
+            <th>地形一致</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rowsHtml}
+          <tr style="background:#f9f6f0; font-weight:bold; border-top:2px solid #dfd5c7;">
+            <td style="text-align:left;">部隊合計</td>
+            <td>-</td>
+            <td style="color:var(--primary-color);">${totalDeployCost}</td>
+            <td>${giantTotalOnly}</td>
+            <td style="color:var(--primary-color); font-size:12px;">${totalGiantCost}</td>
+            <td style="font-size:10px;">${matchSummaryText}</td>
+          </tr>
+        </tbody>
+      </table>
+      ${kiSupportHtml}
+      <div style="font-size:10px; color:#888; margin-top:5px; line-height:1.3;">
+        ※ 巨大化気は地形一致時0.65倍の近似計算です（巨大化シミュレータと連動）。
+      </div>
+    `;
   }
 
   // 2. Render Buff Calculation Grid (Showing Base -> Live Dynamic Stats)
@@ -577,22 +864,25 @@
       const modeText = isMixed ? `最大値+加算 (${count}件)` : (bucket.stackSum > 0 ? `加算合計 (${count}件)` : `最大値採用 (${count}件)`);
       const bdId = `bd-${uid}-${++breakdownCounter}`;
 
-      let maxFound = false;
       const itemsHtml = (bucket.sources || []).map(s => {
         let tag = "";
         let style = "";
+        let nameHtml = "";
         if (s.stackable) {
-          tag = "[加算]";
+          tag = `<span class="buff-tag">[加算]</span>`;
           style = "color:var(--buff-color); font-weight:bold;";
-        } else if (s.val === bucket.max && !maxFound) {
-          tag = "[最大値適用]";
+          nameHtml = `<strong>${s.from}</strong>`;
+        } else if (s.applied !== false) {
+          tag = `<span class="buff-tag">[最大値適用]</span>`;
           style = "color:var(--buff-color); font-weight:bold;";
-          maxFound = true;
+          nameHtml = `<strong>${s.from}</strong>`;
         } else {
-          tag = "[未適用]";
+          tag = `<span class="buff-tag-unapplied" title="同種バフと重なりのため未適用 (最大値優先)">[未適用]</span>`;
           style = "color:var(--text-muted);";
+          const tooltip = s.conflictReason || "同種バフと重なりのため未適用 (最大値優先)";
+          nameHtml = `<span class="buff-source-unapplied" title="${tooltip}"><s>${s.from}</s></span>`;
         }
-        return `<div style="margin-bottom:2px;"><span style="${style}">${tag} +${s.val}%</span>: <strong>${s.from}</strong> [${s.type}] <span style="color:#666;">(${s.raw})</span></div>`;
+        return `<div style="margin-bottom:2px;"><span style="${style}">${tag} +${s.val}%</span>: ${nameHtml} [${s.type}] <span style="color:#666;">(${s.raw})</span></div>`;
       }).join("");
 
       return `
@@ -678,19 +968,21 @@
       const count = (bucket.sources || []).length;
       const bdId = `bd-${uid}-${++breakdownCounter}`;
 
-      let maxFound = false;
       const itemsHtml = (bucket.sources || []).map(s => {
         let tag = "";
         let style = "";
-        if (s.val === bucket.max && !maxFound) {
-          tag = "[最大値適用]";
+        let nameHtml = "";
+        if (s.applied !== false) {
+          tag = `<span class="buff-tag">[最大値適用]</span>`;
           style = "color:var(--debuff-color); font-weight:bold;";
-          maxFound = true;
+          nameHtml = `<strong>${s.from}</strong>`;
         } else {
-          tag = "[未適用]";
+          tag = `<span class="buff-tag-unapplied" title="同種バフと重なりのため未適用 (最大値優先)">[未適用]</span>`;
           style = "color:var(--text-muted);";
+          const tooltip = s.conflictReason || "同種バフと重なりのため未適用 (最大値優先)";
+          nameHtml = `<span class="buff-source-unapplied" title="${tooltip}"><s>${s.from}</s></span>`;
         }
-        return `<div style="margin-bottom:2px;"><span style="${style}">${tag} ${sign}${s.val}%</span>: <strong>${s.from}</strong> [${s.type}] <span style="color:#666;">(${s.raw})</span></div>`;
+        return `<div style="margin-bottom:2px;"><span style="${style}">${tag} ${sign}${s.val}%</span>: ${nameHtml} [${s.type}] <span style="color:#666;">(${s.raw})</span></div>`;
       }).join("");
 
       return `
@@ -845,7 +1137,108 @@
     });
   }
 
-  // Handle party slots click
+// ==========================================
+  // Attribute & Weapon Coverage Diagnostic (プロンプト3)
+  // ==========================================
+  function renderCoveragePanel(calcResult) {
+    const container = document.getElementById("partyCoveragePanel");
+    if (!container) return;
+
+    const { activePartyMembers } = calcResult || calculateBuffs();
+    if (!activePartyMembers || activePartyMembers.length === 0) {
+      container.innerHTML = `<div style="color:var(--text-muted); font-size:11px;">編成に城娘を追加すると、属性・武器種・配置距離の網羅状況を診断します。</div>`;
+      return;
+    }
+
+    const attrCounts = {};
+    const weaponCounts = {};
+    let nearCount = 0;
+    let farCount = 0;
+    let bothCount = 0;
+
+    activePartyMembers.forEach(({ castle }) => {
+      // Attributes
+      const attrs = (castle.attributes && castle.attributes.length > 0) ? castle.attributes : [castle.castleType || "無"];
+      attrs.forEach(a => {
+        attrCounts[a] = (attrCounts[a] || 0) + 1;
+      });
+
+      // Weapons
+      const w = castle.weapon || "その他";
+      weaponCounts[w] = (weaponCounts[w] || 0) + 1;
+
+      // Range kind
+      const rk = castle.rangeKind || "近";
+      if (rk === "近" || rk === "近接") nearCount++;
+      else if (rk === "遠" || rk === "遠隔") farCount++;
+      else if (rk === "遠近") bothCount++;
+    });
+
+    // Major attributes list
+    const mainAttrs = ["平", "平山", "山", "水", "地獄", "無"];
+    const attrChipsHtml = mainAttrs.map(attr => {
+      const count = attrCounts[attr] || 0;
+      const activeClass = count > 0 ? "active" : "";
+      return `<span class="coverage-chip ${activeClass}">${attr} <span class="chip-count">${count}</span></span>`;
+    }).join("");
+
+    // Weapons chips sorted by count descending
+    const sortedWeapons = Object.entries(weaponCounts).sort((a, b) => b[1] - a[1]);
+    const weaponChipsHtml = sortedWeapons.map(([w, count]) => {
+      return `<span class="coverage-chip active">${w} <span class="chip-count">${count}</span></span>`;
+    }).join("");
+
+    // Range chips
+    const rangeChipsHtml = `
+      <span class="coverage-chip ${nearCount > 0 ? 'active' : ''}">近接 <span class="chip-count">${nearCount}</span></span>
+      <span class="coverage-chip ${farCount > 0 ? 'active' : ''}">遠隔 <span class="chip-count">${farCount}</span></span>
+      ${bothCount > 0 ? `<span class="coverage-chip active">遠近両用 <span class="chip-count">${bothCount}</span></span>` : ''}
+    `;
+
+    // Warnings list
+    const warnings = [];
+    if (nearCount === 0) {
+      warnings.push("近接配置（近）の城娘がいません（前線維持・足止めにご注意ください）");
+    }
+    if (farCount === 0) {
+      warnings.push("遠隔配置（遠）の城娘がいません（対空・遠距離支援にご注意ください）");
+    }
+    if (currentTerrain && (!attrCounts[currentTerrain] || attrCounts[currentTerrain] === 0)) {
+      warnings.push(`出撃地形【${currentTerrain}】に一致する属性の城娘がいません`);
+    }
+    const zeroMajor = ["平", "平山", "山", "水"].filter(a => !attrCounts[a]);
+    if (zeroMajor.length > 0 && zeroMajor.length < 4) {
+      warnings.push(`主要4属性のうち【${zeroMajor.join('・')}】の城娘がいません`);
+    }
+
+    let warningsHtml = "";
+    if (warnings.length > 0) {
+      warningsHtml = `
+        <div class="coverage-warnings-box">
+          <div style="font-weight:bold; margin-bottom:3px;">⚠️ カバレッジ確認（事実表示）:</div>
+          ${warnings.map(w => `<div class="coverage-warning-item">• <span>${w}</span></div>`).join("")}
+        </div>
+      `;
+    }
+
+    container.innerHTML = `
+      <div class="coverage-group">
+        <div class="coverage-group-title"><span>地形属性 (${activePartyMembers.length}体)</span></div>
+        <div class="coverage-chips-wrap">${attrChipsHtml}</div>
+      </div>
+      <div class="coverage-group" style="margin-top:6px;">
+        <div class="coverage-group-title"><span>配置距離 (近接 / 遠隔)</span></div>
+        <div class="coverage-chips-wrap">${rangeChipsHtml}</div>
+      </div>
+      <div class="coverage-group" style="margin-top:6px;">
+        <div class="coverage-group-title"><span>武器種内訳 (${Object.keys(weaponCounts).length}種)</span></div>
+        <div class="coverage-chips-wrap">${weaponChipsHtml}</div>
+      </div>
+      ${warningsHtml}
+    `;
+  }
+
+    // Handle party slots click
   document.getElementById("partySlotList").addEventListener("click", e => {
     const action = e.target.getAttribute("data-action");
     const index = parseInt(e.target.getAttribute("data-index"), 10);
@@ -1040,7 +1433,7 @@
     listEl.innerHTML = "";
 
     const filtered = window.SCRE_DATA.filter(c => {
-      if (searchVal && !c.name.toLowerCase().includes(searchVal)) return false;
+      if (searchVal && !matchCastleNameOrRuby(c, searchVal)) return false;
       if (filterRarity && String(c.rarity) !== filterRarity) return false;
       if (filterType) {
         if (filterType === "複合") {
@@ -1312,10 +1705,39 @@
     const subcatSelect = document.getElementById("guideSubCategorySelect");
     const subcat = (cat === "地獄" && subcatSelect) ? subcatSelect.value : "";
     const q = document.getElementById("guideSearchInput").value.trim().toLowerCase();
+    const clearFilter = document.getElementById("guideClearFilter") ? document.getElementById("guideClearFilter").value : "";
 
     // Toggle subcategory select visibility
     if (subcatSelect) {
       subcatSelect.style.display = (cat === "地獄") ? "inline-block" : "none";
+    }
+
+    const progressData = getStageProgressData();
+
+    // Render Category Clear Progress Banner (プロンプト2)
+    const bannerEl = document.getElementById("guidesProgressBanner");
+    if (bannerEl && window.SCRE_GUIDES) {
+      const chipsHtml = window.SCRE_GUIDES.map(g => {
+        const total = g.stages.length;
+        const cleared = g.stages.filter(s => progressData[s.title] && progressData[s.title].cleared).length;
+        const pct = total > 0 ? Math.round((cleared / total) * 100) : 0;
+        return `
+          <div class="guide-progress-chip">
+            <strong>${g.category}:</strong> <span style="color:var(--primary-color); font-weight:bold;">${cleared}</span> / ${total} (${pct}%)
+          </div>
+        `;
+      }).join("");
+
+      bannerEl.innerHTML = `
+        <div class="guide-progress-box">
+          <div class="guide-progress-header">
+            <span>🏆 ステージクリア進捗状況</span>
+          </div>
+          <div class="guide-progress-items">
+            ${chipsHtml}
+          </div>
+        </div>
+      `;
     }
 
     container.innerHTML = "";
@@ -1373,6 +1795,10 @@
     }
 
     const filtered = categoryData.stages.filter(st => {
+      const isStCleared = Boolean(progressData[st.title] && progressData[st.title].cleared);
+      if (clearFilter === "cleared" && !isStCleared) return false;
+      if (clearFilter === "uncleared" && isStCleared) return false;
+
       if (subcat && st.subCategory !== subcat && !st.id.startsWith(subcat)) {
         return false;
       }
@@ -1407,7 +1833,15 @@
       card.style.borderTop = isHades ? "3px solid #8e44ad" : "3px solid var(--primary-color)";
 
       // Badges
+      const isStCleared = Boolean(progressData[st.title] && progressData[st.title].cleared);
+      const hasSavedParty = Boolean(progressData[st.title] && progressData[st.title].party && progressData[st.title].party.length > 0);
       let badgeHtml = "";
+      if (isStCleared) {
+        badgeHtml += `<span class="stage-cleared-badge">✓ クリア済</span> `;
+      }
+      if (hasSavedParty) {
+        badgeHtml += `<span class="badge" style="background:#34495e; color:#fff; font-size:10px;">編成保存済 (${progressData[st.title].party.length}体)</span> `;
+      }
       if (st.subCategory) {
         badgeHtml += `<span class="badge" style="background:#4b3869; color:#fff; font-size:10px;">${st.subCategory}</span> `;
       }
@@ -1475,9 +1909,10 @@
           ${bossHtml}
           ${delibHtml}
         </div>
-        <div style="display:flex; gap:8px; margin-top:10px; padding-top:8px; border-top:1px dashed #d8cfc4;">
-          <button class="btn btn-sm btn-primary" data-action="diag-stage" data-title="${st.title}" data-id="${st.id}" style="font-size:11px; font-weight:bold; flex:1;">部隊の適合判定 ⚔</button>
-          <button class="btn btn-sm" data-action="filter-stage" data-title="${st.title}" data-terrain="${st.terrain}" style="font-size:11px; flex:1; background:#f5f0e6; border-color:#d5cbbd;">対策城娘を探す 🔍</button>
+        <div style="display:flex; gap:8px; margin-top:10px; padding-top:8px; border-top:1px dashed #d8cfc4; flex-wrap:wrap;">
+          <button class="btn btn-sm btn-primary" data-action="diag-stage" data-title="${st.title}" data-id="${st.id}" style="font-size:11px; font-weight:bold; flex:2; min-width:110px;">部隊の適合判定 ⚔</button>
+          <button class="btn btn-sm" data-action="filter-stage" data-title="${st.title}" data-terrain="${st.terrain}" style="font-size:11px; flex:2; min-width:110px; background:#f5f0e6; border-color:#d5cbbd;">対策城娘を探す 🔍</button>
+          <button class="btn btn-sm btn-toggle-clear ${isStCleared ? 'cleared' : ''}" data-action="toggle-clear" data-title="${st.title}" style="flex:1; min-width:80px;">${isStCleared ? '✓ クリア済' : '未クリア'}</button>
         </div>
       `;
       container.appendChild(card);
@@ -1488,6 +1923,8 @@
   const subcatEl = document.getElementById("guideSubCategorySelect");
   if (subcatEl) subcatEl.addEventListener("change", renderGuidesTab);
   document.getElementById("guideSearchInput").addEventListener("input", renderGuidesTab);
+  const guideClearFilterEl = document.getElementById("guideClearFilter");
+  if (guideClearFilterEl) guideClearFilterEl.addEventListener("change", renderGuidesTab);
 
   // Guide stage action listeners
   document.getElementById("guidesListContainer").addEventListener("click", e => {
@@ -1496,7 +1933,9 @@
     const id = e.target.getAttribute("data-id") || title;
     if (!action || !title) return;
 
-    if (action === "diag-stage") {
+    if (action === "toggle-clear") {
+      toggleStageCleared(title);
+    } else if (action === "diag-stage") {
       openStageDiagnostic(id);
     } else if (action === "filter-stage") {
       const terrain = e.target.getAttribute("data-terrain");
@@ -1548,7 +1987,7 @@
       const t = typeSelect ? typeSelect.value : "";
       listEl.innerHTML = "";
       window.SCRE_DATA.filter(c => {
-        if (q && !c.name.toLowerCase().includes(q)) return false;
+        if (q && !matchCastleNameOrRuby(c, q)) return false;
         if (r && String(c.rarity) !== r) return false;
         if (t) {
           if (t === "複合") {
@@ -2754,6 +3193,59 @@
       });
     }
 
+    
+    // Render Stage Clear & Saved Party Section (プロンプト2)
+    const progressBox = document.getElementById("diagStageProgressBox");
+    if (progressBox) {
+      const data = getStageProgressData();
+      const stageRecord = data[foundStage.title] || {};
+      const isCleared = !!stageRecord.cleared;
+      const savedParty = stageRecord.party || [];
+      const savedAtStr = stageRecord.savedAt ? new Date(stageRecord.savedAt).toLocaleString("ja-JP") : "";
+
+      let savedPartyHtml = "";
+      if (savedParty.length > 0) {
+        const memberCastles = savedParty.map(id => getCastleById(id)).filter(Boolean);
+        savedPartyHtml = `
+          <div style="margin-top:6px; font-size:11px; color:#444; background:#fbf9f6; padding:6px 8px; border-radius:4px; border:1px solid #ebdccb;">
+            <strong>保存済みクリア編成 (${memberCastles.length}体):</strong> ${memberCastles.map(c => c.name).join("、")}
+            ${stageRecord.savedAt ? `<span style="font-size:10px; color:#888; margin-left:6px;">(${savedAtStr}保存)</span>` : ''}
+          </div>
+        `;
+      }
+
+      progressBox.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <label style="display:flex; align-items:center; gap:6px; font-weight:bold; cursor:pointer;">
+            <input type="checkbox" id="diagStageClearedCheckbox" ${isCleared ? 'checked' : ''} style="cursor:pointer; width:16px; height:16px;">
+            <span>このステージをクリア済みにする</span>
+          </label>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="btn btn-sm btn-primary" id="btnSaveStageParty" style="font-size:11px;">現在の編成を保存 💾</button>
+            ${savedParty.length > 0 ? `<button class="btn btn-sm" id="btnRestoreStageParty" style="font-size:11px; background:#eef5ee; border-color:#95c99e; color:#1e6b2c; font-weight:bold;">クリア編成を復元 ↺</button>` : ''}
+          </div>
+        </div>
+        ${savedPartyHtml}
+      `;
+
+      document.getElementById("diagStageClearedCheckbox").addEventListener("change", (e) => {
+        toggleStageCleared(foundStage.title, e.target.checked);
+      });
+
+      document.getElementById("btnSaveStageParty").addEventListener("click", () => {
+        savePartyForStage(foundStage.title);
+        openStageDiagnostic(foundStage.title);
+      });
+
+      const btnRestore = document.getElementById("btnRestoreStageParty");
+      if (btnRestore) {
+        btnRestore.addEventListener("click", () => {
+          restorePartyFromStage(foundStage.title);
+          openStageDiagnostic(foundStage.title);
+        });
+      }
+    }
+
     document.getElementById("modalStageDiagnostic").classList.add("open");
   }
 
@@ -3420,230 +3912,125 @@
   const btnRunGiantizeSim = document.getElementById("btnRunGiantizeSim");
   if (btnRunGiantizeSim) btnRunGiantizeSim.addEventListener("click", calculateGiantizeSimulation);
 
-  // Export Party Summary Image (Canvas 1200x675)
+  // Dedicated html2canvas party exporter (プロンプト6)
   function exportPartyImage() {
-    const canvas = document.getElementById("partyCanvas");
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    const width = 1200;
-    const height = 675;
-    canvas.width = width;
-    canvas.height = height;
+    if (typeof window.html2canvas !== "function") {
+      showToast("⚠️ html2canvas ライブラリが読み込まれていません（オフライン環境等）。画像エクスポートを利用できません。");
+      return;
+    }
 
     const calcResult = calculateBuffs();
-    const presetName = partyPresets[currentPresetIdx].name;
+    if (!calcResult.activePartyMembers || calcResult.activePartyMembers.length === 0) {
+      showToast("⚠️ 編成に城娘がいません。城娘を編成してからエクスポートしてください。");
+      return;
+    }
+
+    const exportArea = document.getElementById("partyExportArea");
+    if (!exportArea) return;
+
+    const presetName = partyPresets[currentPresetIdx]?.name || "部隊";
     const terrainLabel = currentTerrain ? `${currentTerrain}属性` : "指定なし";
+    const dateStr = new Date().toLocaleString("ja-JP", { year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" });
 
-    // 1. Background Gradient
-    const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
-    bgGrad.addColorStop(0, "#231818");
-    bgGrad.addColorStop(0.5, "#181212");
-    bgGrad.addColorStop(1, "#100c0c");
-    ctx.fillStyle = bgGrad;
-    ctx.fillRect(0, 0, width, height);
-
-    // Decorative inner border
-    ctx.strokeStyle = "rgba(191, 161, 95, 0.4)";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(15, 15, width - 30, height - 30);
-    ctx.strokeStyle = "rgba(191, 161, 95, 0.15)";
-    ctx.strokeRect(20, 20, width - 40, height - 40);
-
-    // 2. Header
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 24px sans-serif";
-    ctx.fillText("城プロRE 部隊編成＆バフ・デバフ総合サマリー", 36, 52);
-
-    ctx.font = "14px sans-serif";
-    ctx.fillStyle = "#dfc8a5";
-    ctx.fillText(`${presetName}  |  出撃地形: ${terrainLabel}  |  総消費気: ${calcResult.totalGiantCost}気 (配置: ${calcResult.totalDeployCost}気)`, 36, 78);
-
-    // Date
-    const dateStr = new Date().toLocaleDateString("ja-JP", { year: "numeric", month: "2-digit", day: "2-digit" });
-    ctx.fillStyle = "#888888";
-    ctx.font = "12px sans-serif";
-    ctx.textAlign = "right";
-    ctx.fillText(`出力日時: ${dateStr}  |  城プロRE 編成支援ツール`, width - 36, 52);
-    ctx.textAlign = "left";
-
-    // 3. Left Section: 8 Party Slots (Grid: 2 cols x 4 rows)
-    const slotW = 310;
-    const slotH = 110;
-    const startX = 36;
-    const startY = 100;
-
+    // Build slots HTML (4 cols x 2 rows)
+    const slotsHtml = [];
     for (let i = 0; i < 8; i++) {
-      const col = i % 2;
-      const row = Math.floor(i / 2);
-      const x = startX + col * (slotW + 16);
-      const y = startY + row * (slotH + 12);
-
       const slot = party[i];
       const castle = slot ? getCastleById(slot.id) : null;
-      const calc = (castle && calcResult.perCastle[castle.id]) ? calcResult.perCastle[castle.id].calculatedStats : null;
-
-      // Slot Box Background
-      ctx.fillStyle = castle ? "rgba(45, 35, 35, 0.85)" : "rgba(30, 25, 25, 0.4)";
-      ctx.strokeStyle = castle ? "rgba(191, 161, 95, 0.3)" : "rgba(255, 255, 255, 0.1)";
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.roundRect(x, y, slotW, slotH, 6);
-      ctx.fill();
-      ctx.stroke();
-
       if (castle) {
-        // Icon Box
-        ctx.fillStyle = "#333333";
-        ctx.beginPath();
-        ctx.roundRect(x + 10, y + 10, 50, 50, 4);
-        ctx.fill();
+        const calc = calcResult.perCastle[castle.id]?.calculatedStats;
+        const attrStr = castle.subType || castle.castleType;
+        const isMatch = calc?.isTerrainMatch;
+        const matchBadge = isMatch ? `<span style="background:#2c6f4f; color:#fff; font-size:10px; font-weight:bold; padding:1px 5px; border-radius:3px;">✓一致(-35%)</span>` : '';
 
-        ctx.fillStyle = "#ffffff";
-        ctx.font = "bold 20px sans-serif";
-        ctx.textAlign = "center";
-        ctx.fillText(castle.weapon ? castle.weapon[0] : "城", x + 35, y + 42);
-        ctx.textAlign = "left";
-
-        // Castle Name & Rarity
-        ctx.fillStyle = "#ffffff";
-        ctx.font = "bold 15px sans-serif";
-        const nameText = castle.name.length > 10 ? castle.name.slice(0, 9) + "…" : castle.name;
-        ctx.fillText(nameText, x + 68, y + 28);
-
-        // Sub badges
-        ctx.fillStyle = "#e0a13c";
-        ctx.font = "12px sans-serif";
-        ctx.fillText(`★${castle.rarity}`, x + 68, y + 48);
-
-        ctx.fillStyle = "#78b878";
-        ctx.fillText(`[${castle.subType || castle.castleType}]`, x + 100, y + 48);
-
-        ctx.fillStyle = "#cccccc";
-        ctx.fillText(`${castle.weapon} (${castle.rangeKind || '近'})`, x + 165, y + 48);
-
-        // Stats Row
-        ctx.fillStyle = "rgba(255,255,255,0.08)";
-        ctx.fillRect(x + 10, y + 68, slotW - 20, 32);
-
-        if (calc) {
-          ctx.font = "12px sans-serif";
-          ctx.fillStyle = "#ffffff";
-          ctx.fillText(`攻: `, x + 16, y + 89);
-          ctx.fillStyle = "#55d677";
-          ctx.font = "bold 13px sans-serif";
-          ctx.fillText(`${calc.atk}`, x + 38, y + 89);
-
-          ctx.font = "12px sans-serif";
-          ctx.fillStyle = "#ffffff";
-          ctx.fillText(`射: `, x + 90, y + 89);
-          ctx.fillStyle = "#55d677";
-          ctx.font = "bold 13px sans-serif";
-          ctx.fillText(`${calc.range}`, x + 110, y + 89);
-
-          ctx.font = "12px sans-serif";
-          ctx.fillStyle = "#ffffff";
-          ctx.fillText(`1撃: `, x + 160, y + 89);
-          ctx.fillStyle = "#ffb055";
-          ctx.font = "bold 13px sans-serif";
-          ctx.fillText(`${calc.singleHit}`, x + 188, y + 89);
-
-          if (calc.isTerrainMatch) {
-            ctx.fillStyle = "#2c8f5f";
-            ctx.font = "bold 10px sans-serif";
-            ctx.fillText("✓一致", x + 258, y + 89);
-          }
-        }
+        slotsHtml.push(`
+          <div style="background:#fff; border:1px solid #d5cbbd; border-radius:6px; padding:10px 12px; display:flex; gap:10px; align-items:center; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+            <div style="width:48px; height:48px; border-radius:6px; overflow:hidden; background:#eee; flex-shrink:0; display:flex; align-items:center; justify-content:center; border:1px solid #ccc;">
+              <img src="${castle.iconUrl}" onerror="this.onerror=null; this.src='icons/${castle.id}.png'; this.onerror=function(){this.style.display='none';};" style="width:100%; height:100%; object-fit:cover;" crossorigin="anonymous">
+            </div>
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2px;">
+                <strong style="font-size:13px; color:#222; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${castle.name}</strong>
+                <span style="font-size:10.5px; color:#b5781a; font-weight:bold;">★${castle.rarity}</span>
+              </div>
+              <div style="font-size:10.5px; color:#666; margin-bottom:4px; display:flex; gap:4px; align-items:center; flex-wrap:wrap;">
+                <span style="background:#f0e9df; padding:1px 4px; border-radius:3px;">[${attrStr}]</span>
+                <span>${castle.weapon} (${castle.rangeKind || '近'})</span>
+                ${matchBadge}
+              </div>
+              <div style="font-size:11px; background:#f9f7f2; padding:3px 6px; border-radius:4px; border:1px solid #eee; display:flex; justify-content:space-between;">
+                <span>攻: <strong style="color:#27ae60;">${calc ? calc.atk : '-'}</strong></span>
+                <span>射: <strong style="color:#2980b9;">${calc ? calc.range : '-'}</strong></span>
+                <span>防: <strong>${calc ? calc.def : '-'}</strong></span>
+                <span>単撃: <strong style="color:#e67e22;">${calc ? calc.singleHit : '-'}</strong></span>
+              </div>
+            </div>
+          </div>
+        `);
       } else {
-        ctx.fillStyle = "#666666";
-        ctx.font = "13px sans-serif";
-        ctx.fillText(`[枠 ${i + 1}] 未編成`, x + 18, y + 60);
+        slotsHtml.push(`
+          <div style="background:#faf8f5; border:1px dashed #d5cbbd; border-radius:6px; padding:10px 12px; display:flex; align-items:center; justify-content:center; color:#999; font-size:12px; min-height:80px;">
+            未編成 (スロット ${i + 1})
+          </div>
+        `);
       }
     }
 
-    // 4. Right Section: Buff Coverage & Debuffs (Width 440px)
-    const rightX = 724;
-    const rightY = 100;
-    const rightW = 440;
-    const rightH = 476;
+    exportArea.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid #8e2a2a; padding-bottom:10px; margin-bottom:14px;">
+        <div>
+          <div style="font-size:11px; color:#8e2a2a; font-weight:bold; letter-spacing:1px; margin-bottom:2px;">城プロRE 編成・バフ/デバフ統合ダッシュボード</div>
+          <div style="font-size:22px; font-weight:bold; color:#2c1b18;">${presetName} 編成サマリー</div>
+        </div>
+        <div style="text-align:right; font-size:11.5px; color:#555;">
+          <div>出撃地形: <strong>${terrainLabel}</strong> ｜ 総消費気: <strong style="color:#8e2a2a; font-size:13px;">${calcResult.totalGiantCost}気</strong> (配置: ${calcResult.totalDeployCost}気)</div>
+          <div style="font-size:10px; color:#888; margin-top:2px;">出力日時: ${dateStr}</div>
+        </div>
+      </div>
 
-    ctx.fillStyle = "rgba(35, 28, 28, 0.85)";
-    ctx.strokeStyle = "rgba(191, 161, 95, 0.35)";
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.roundRect(rightX, rightY, rightW, rightH, 6);
-    ctx.fill();
-    ctx.stroke();
+      <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px; margin-bottom:14px;">
+        ${slotsHtml.join("")}
+      </div>
 
-    ctx.fillStyle = "#dfc8a5";
-    ctx.font = "bold 15px sans-serif";
-    ctx.fillText("バフ・デバフ網羅度チェック", rightX + 16, rightY + 30);
+      <div style="display:flex; justify-content:space-between; align-items:center; font-size:10.5px; color:#888; border-top:1px solid #e0d5c1; padding-top:8px;">
+        <div>城プロRE 部隊編成＆ステータス画像出力 ｜ 全${window.SCRE_DATA?.length || 1161}体データベース対応</div>
+        <div>※ 巨大化気は地形一致時0.65倍の近似値です</div>
+      </div>
+    `;
 
-    const checklist = window.SCRE_RULES.checklist;
-    const { perCastle, enemyDebuffs } = calcResult;
+    showToast("📸 画像を生成中...");
 
-    checklist.forEach((item, idx) => {
-      let isCovered = false;
-      let sumText = "";
-
-      if (item.key.startsWith("enemy")) {
-        isCovered = enemyDebuffs[item.key] && enemyDebuffs[item.key].max > 0;
-        if (isCovered) sumText = `-${enemyDebuffs[item.key].max}%`;
-      } else {
-        for (const cid in perCastle) {
-          const b = perCastle[cid].buffs;
-          if (item.key === "atkFlat" && b.atkFlat.sum > 0) { isCovered = true; sumText = `+${b.atkFlat.sum}`; }
-          else if (item.key === "rangeFlat" && b.rangeFlat.sum > 0) { isCovered = true; sumText = `+${b.rangeFlat.sum}`; }
-          else if (item.key === "defIgnore" && b.defIgnore.length > 0) { isCovered = true; sumText = "発動中"; }
-          else if (b[item.key] && (b[item.key].max > 0 || b[item.key].stackSum > 0)) {
-            isCovered = true;
-            sumText = `+${b[item.key].max + b[item.key].stackSum}%`;
-          }
+    window.html2canvas(exportArea, {
+      useCORS: true,
+      scale: 2,
+      backgroundColor: "#fffcf7",
+      logging: false
+    }).then(canvas => {
+      canvas.toBlob(blob => {
+        if (!blob) {
+          showToast("⚠️ 画像の生成に失敗しました");
+          return;
         }
-      }
+        const now = new Date();
+        const pad = n => String(n).padStart(2, '0');
+        const yyyymmdd = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}`;
+        const hhmm = `${pad(now.getHours())}${pad(now.getMinutes())}`;
+        const filename = `shiropro-party-${yyyymmdd}-${hhmm}.png`;
 
-      const itemY = rightY + 62 + idx * 34;
-
-      ctx.fillStyle = isCovered ? "#55d677" : "#888888";
-      ctx.font = "bold 14px sans-serif";
-      ctx.fillText(isCovered ? "✓" : "×", rightX + 20, itemY);
-
-      ctx.fillStyle = isCovered ? "#ffffff" : "#999999";
-      ctx.font = "13px sans-serif";
-      ctx.fillText(item.label, rightX + 42, itemY);
-
-      if (isCovered && sumText) {
-        ctx.fillStyle = item.key.startsWith("enemy") ? "#ff7777" : "#55d677";
-        ctx.font = "bold 13px sans-serif";
-        ctx.textAlign = "right";
-        ctx.fillText(sumText, rightX + rightW - 20, itemY);
-        ctx.textAlign = "left";
-      } else {
-        ctx.fillStyle = "#666666";
-        ctx.font = "11px sans-serif";
-        ctx.textAlign = "right";
-        ctx.fillText("未編成", rightX + rightW - 20, itemY);
-        ctx.textAlign = "left";
-      }
-
-      ctx.strokeStyle = "rgba(255,255,255,0.06)";
-      ctx.beginPath();
-      ctx.moveTo(rightX + 16, itemY + 8);
-      ctx.lineTo(rightX + rightW - 16, itemY + 8);
-      ctx.stroke();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast(`📸 編成画像を保存しました: ${filename}`);
+      }, "image/png");
+    }).catch(err => {
+      console.error("html2canvas export error:", err);
+      showToast("⚠️ 画像の書き出し中にエラーが発生しました: " + (err.message || err));
     });
-
-    // 5. Download PNG
-    canvas.toBlob(blob => {
-      if (!blob) return;
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `城プロRE_${presetName.replace(/\s+/g, '_')}_編成.png`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }, "image/png");
   }
 
   const btnExportImg = document.getElementById("btnExportImage");

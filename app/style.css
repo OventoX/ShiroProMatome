@@ -1924,3 +1924,192 @@ body {
   font-weight: bold;
 }
 
+/* ============================================================
+   Feature: 属性・武器種カバレッジ診断 (Coverage Panel)
+============================================================ */
+.coverage-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11.5px;
+}
+.coverage-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.coverage-group-title {
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--text-sub);
+  display: flex;
+  justify-content: space-between;
+}
+.coverage-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.coverage-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #f4efe6;
+  border: 1px solid #dfd5c7;
+  font-size: 10.5px;
+}
+.coverage-chip.active {
+  background: #fff;
+  border-color: #c49c74;
+  font-weight: bold;
+}
+.coverage-chip .chip-count {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-left: 2px;
+}
+.coverage-warnings-box {
+  background: #fdf6ec;
+  border: 1px solid #f3d19e;
+  border-radius: 5px;
+  padding: 6px 8px;
+  font-size: 11px;
+  color: #8c5b10;
+  line-height: 1.45;
+  margin-top: 4px;
+}
+.coverage-warning-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+.coverage-warning-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   Feature: ステージクリア進捗 & 保存 (Stage Progress & Saved Party)
+============================================================ */
+.guide-progress-box {
+  background: linear-gradient(135deg, #fdfaf6 0%, #f4ede2 100%);
+  border: 1px solid #dcd2c4;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+.guide-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.guide-progress-items {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.guide-progress-chip {
+  background: #fff;
+  border: 1px solid #d4c7b5;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 11px;
+}
+.stage-cleared-badge {
+  background: #27ae60;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.btn-toggle-clear {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  color: #666;
+  font-size: 10.5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-toggle-clear:hover {
+  background: #eef8f0;
+  border-color: #27ae60;
+  color: #27ae60;
+}
+.btn-toggle-clear.cleared {
+  background: #27ae60;
+  border-color: #219653;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* ============================================================
+   Feature: 気コスト内訳 & 気支援情報 (Ki Cost Breakdown)
+============================================================ */
+.cost-breakdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  margin-top: 6px;
+}
+.cost-breakdown-table th {
+  background: #f5efe6;
+  border: 1px solid #e2d7c8;
+  padding: 4px 6px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--text-sub);
+}
+.cost-breakdown-table td {
+  border: 1px solid #ebe2d5;
+  padding: 4px 6px;
+  text-align: center;
+}
+.ki-support-box {
+  background: #f0f7ff;
+  border: 1px solid #bcd8f5;
+  border-radius: 5px;
+  padding: 7px 10px;
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #1a5276;
+}
+.ki-support-title {
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: #154360;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ============================================================
+   Feature: バフ競合 (未適用バフの打ち消し線 & スタイル)
+============================================================ */
+.buff-source-unapplied {
+  color: #888888;
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+.buff-tag-unapplied {
+  color: #999999;
+  font-weight: normal;
+  border: 1px solid #ddd;
+  background: #f0f0f0;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 9.5px;
+}
+
+

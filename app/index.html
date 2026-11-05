@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>城プロRE 編成・バフデバフ統合計算機</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
   <div class="app-container">
@@ -88,6 +89,16 @@
             </div>
           </section>
 
+          <!-- 気コスト内訳テーブル & 気支援情報 (プロンプト5) -->
+          <section class="section-box" style="margin-top: 10px;" id="partyCostBreakdownSection">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+              <div class="section-title" style="margin-bottom:0;">⚡ 気コスト内訳 & 気支援</div>
+            </div>
+            <div id="partyKiCostBreakdown">
+              <!-- ki cost breakdown table & support note -->
+            </div>
+          </section>
+
           <!-- 敵デバフを左列下部にも配置 -->
           <div id="enemyDebuffContainer">
             <!-- Enemy debuffs -->
@@ -105,11 +116,19 @@
           </div>
         </div>
 
-        <!-- Column 3: 不足と候補 (右列サイドバー) -->
+        <!-- Column 3: 不足と候補 & カバレッジ診断 (右列サイドバー) -->
         <div class="dashboard-col dashboard-sidebar-right">
           <div class="section-title">バフ/デバフ網羅状況 & 候補</div>
           <div id="missingChecklist" class="checklist-grid" style="display: flex; flex-direction: column; gap: 6px;">
             <!-- Missing checklist -->
+          </div>
+
+          <!-- 属性・武器種カバレッジ診断 (プロンプト3) -->
+          <div class="section-box" style="margin-top: 12px; padding: 10px 12px;" id="partyCoverageSection">
+            <div class="section-title" style="margin-bottom:6px;">📊 属性・武器種カバレッジ診断</div>
+            <div id="partyCoveragePanel" class="coverage-panel">
+              <!-- Coverage content -->
+            </div>
           </div>
         </div>
       </div>
@@ -173,7 +192,7 @@
     <main id="tab-list" class="tab-content">
       <div class="section-box" style="margin-top: 0; margin-bottom: 10px;">
         <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-          <input type="text" id="searchCastleInput" class="input-text" placeholder="城娘名・特技・武器で検索..." style="flex: 2; min-width: 200px;">
+          <input type="text" id="searchCastleInput" class="input-text" placeholder="城娘名・特技・武器で検索（ふりがなでも検索できます）..." style="flex: 2; min-width: 200px;">
           <select id="filterRarity" class="btn" style="flex: 1; min-width: 100px;">
             <option value="">レア度 (すべて)</option>
             <option value="7">★7</option>
@@ -254,24 +273,29 @@
 
     <!-- Tab 3: 高難易度マップ攻略 -->
     <main id="tab-guides" class="tab-content">
-      <div class="banner-notice">
-        地獄（審議・特別ルール）、武神降臨（ボス特性・戦場効果）、四季御殿、群雄割拠などの攻略情報をまとめています。
-      </div>
-      <div style="display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
-        <select id="guideCategorySelect" class="btn" style="flex: 1; min-width: 150px; font-weight: bold;">
+      <!-- Category Clear Progress Banner (プロンプト2) -->
+      <div id="guidesProgressBanner" style="margin-bottom: 10px;"></div>
+
+      <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+        <select id="guideCategorySelect" class="btn" style="flex: 1; min-width: 140px; font-weight: bold;">
           <option value="地獄">地獄 (審議・特殊ルール)</option>
           <option value="武神降臨">武神降臨 (ボス武将兜・戦場効果)</option>
           <option value="四季御殿">四季御殿 (季節回廊)</option>
           <option value="群雄割拠">群雄割拠 (挑戦絵巻)</option>
         </select>
-        <select id="guideSubCategorySelect" class="btn" style="flex: 1; min-width: 170px;">
+        <select id="guideSubCategorySelect" class="btn" style="flex: 1; min-width: 160px;">
           <option value="">地獄エリア（すべて）</option>
           <option value="ハデスの死闘場" selected>🔥 ハデスの死闘場 (超難・全11深層)</option>
           <option value="閻魔の闘技場">👹 閻魔の闘技場 (等活/針山/焦熱/極寒/無間/賽の河原)</option>
           <option value="ヘルの遊戯場">❄️ ヘルの遊戯場 (ヘルヘイム/ニヴル/アスガルド等)</option>
           <option value="オシリスの審判場">⚖️ オシリスの審判場 (マアト/アケト/オンボス等)</option>
         </select>
-        <input type="text" id="guideSearchInput" class="input-text" placeholder="マップ名・ボス名・審議・効果で検索..." style="flex: 2; min-width: 200px;">
+        <select id="guideClearFilter" class="btn" style="flex: 1; min-width: 130px; font-weight: bold; background: #fdfaf6;">
+          <option value="">クリア状況 (すべて)</option>
+          <option value="cleared">✓ クリア済みのみ</option>
+          <option value="uncleared">未クリアのみ</option>
+        </select>
+        <input type="text" id="guideSearchInput" class="input-text" placeholder="マップ名・ボス名・審議・効果で検索..." style="flex: 2; min-width: 180px;">
       </div>
       <div id="guidesListContainer" class="buff-card-grid">
         <!-- Guides rendered here -->
@@ -348,7 +372,7 @@
       </div>
       <div class="modal-body">
         <div style="display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap;">
-          <input type="text" id="modalSearchInput" class="input-text" placeholder="名前で絞り込み..." style="flex: 2; margin-bottom: 0; min-width: 130px;">
+          <input type="text" id="modalSearchInput" class="input-text" placeholder="名前で絞り込み（ふりがなでも検索できます）..." style="flex: 2; margin-bottom: 0; min-width: 130px;">
           <select id="modalFilterRarity" class="btn" style="flex: 1; min-width: 80px;">
             <option value="">★ (すべて)</option>
             <option value="7">★7</option>
@@ -529,6 +553,9 @@
         <!-- Stage Notice / Rules Summary -->
         <div id="diagStageRules" style="background:#f4f6fa; border:1px solid #d5dce6; border-radius:6px; padding:10px 12px; margin-bottom:12px; font-size:12px; line-height:1.5;"></div>
 
+        <!-- Stage Clear Progress & Saved Party Section (プロンプト2) -->
+        <div id="diagStageProgressBox" style="background:#fdfaf6; border:1px solid #dcd2c4; border-radius:6px; padding:10px 12px; margin-bottom:12px; font-size:12px;"></div>
+
         <!-- Party Evaluation List -->
         <div class="section-title" style="margin-bottom:8px;">編成メンバーの適格性判定</div>
         <div id="diagPartyEvaluation" style="display:flex; flex-direction:column; gap:6px; margin-bottom:14px;"></div>
@@ -641,6 +668,9 @@
 
   <!-- Hidden Canvas for Party Summary Image Generation -->
   <canvas id="partyCanvas" width="1200" height="675" style="display: none;"></canvas>
+
+  <!-- Dedicated Party Image Export Container for html2canvas (プロンプト6) -->
+  <div id="partyExportArea" style="position: absolute; left: -9999px; top: 0; width: 1100px; background: #fffcf7; color: #333; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 24px 28px; border: 1px solid #e0d5c1; border-radius: 8px; box-sizing: border-box;"></div>
 
   <script src="data.js"></script>
   <script src="guides.js"></script>
