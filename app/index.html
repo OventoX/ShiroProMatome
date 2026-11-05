@@ -281,13 +281,155 @@
           <div class="tier-subtitle">環境メタ・高難易度攻略に基づくおすすめティアの閲覧から、自分好みのカスタムティア表作成・画像保存まで対応</div>
         </div>
         <div class="tier-mode-toggle">
-          <button type="button" class="tier-mode-btn active" id="btnTierModeCurated" data-mode="curated">🌟 環境おすすめティア</button>
+          <button type="button" class="tier-mode-btn active" id="btnTierModeAuto" data-mode="auto">🤖 自動スコアティア (SS〜D)</button>
+          <button type="button" class="tier-mode-btn" id="btnTierModeCurated" data-mode="curated">🌟 環境おすすめティア</button>
           <button type="button" class="tier-mode-btn" id="btnTierModeCustom" data-mode="custom">🎨 カスタムティアメーカー</button>
         </div>
       </div>
 
+      <!-- VIEW 0: 自動スコアティア (Automatic Data-Driven Tier Board) -->
+      <div id="tierViewAuto" class="tier-view-panel">
+        <!-- Notice Banner -->
+        <div class="tier-notice-banner" id="tierNoticeBanner">
+          <div class="tier-notice-icon">ℹ️</div>
+          <div class="tier-notice-body">
+            <div class="tier-notice-primary">このティアはデータからの自動スコアによる目安です</div>
+            <div class="tier-notice-secondary">effects が未収録の城娘はテキスト判定のみのため、実際より低く出る場合があります。各城娘の最新改築（改弐＞改壱＞無印）の特技・計略・特殊能力および巨大化最大ステータス（同配置区分内パーセンタイル）を元に100点満点で自動算定しています。</div>
+          </div>
+        </div>
+
+        <!-- Controls Bar -->
+        <div class="tier-auto-controls-bar">
+          <div class="tier-auto-left-controls">
+            <!-- Scope Switcher: 全体 vs 武器種別 -->
+            <div class="tier-scope-toggle">
+              <button type="button" class="tier-scope-btn active" id="btnTierScopeOverall" data-scope="overall">🌐 全体ティア (1161体)</button>
+              <button type="button" class="tier-scope-btn" id="btnTierScopeWeapon" data-scope="weapon">⚔️ 武器種別ティア</button>
+            </div>
+
+            <!-- Filters -->
+            <div class="tier-auto-filters">
+              <select id="tierAutoFilterWeapon" class="btn btn-sm">
+                <option value="">武器種 (すべて)</option>
+                <option value="刀">刀</option>
+                <option value="槍">槍</option>
+                <option value="槌">槌</option>
+                <option value="拳">拳</option>
+                <option value="鎌">鎌</option>
+                <option value="戦棍">戦棍</option>
+                <option value="短槍">短槍</option>
+                <option value="弓">弓</option>
+                <option value="石弓">石弓</option>
+                <option value="鉄砲">鉄砲</option>
+                <option value="大砲">大砲</option>
+                <option value="歌舞">歌舞</option>
+                <option value="法術">法術</option>
+                <option value="鈴">鈴</option>
+                <option value="杖">杖</option>
+                <option value="祓串">祓串</option>
+                <option value="本">本</option>
+                <option value="投剣">投剣</option>
+                <option value="鞭">鞭</option>
+                <option value="陣貝">陣貝</option>
+                <option value="軍配者">軍配者</option>
+              </select>
+
+              <select id="tierAutoFilterType" class="btn btn-sm">
+                <option value="">地形属性 (すべて)</option>
+                <option value="平">平</option>
+                <option value="平山">平山</option>
+                <option value="山">山</option>
+                <option value="水">水</option>
+                <option value="地獄">地獄</option>
+                <option value="無">無</option>
+              </select>
+
+              <select id="tierAutoFilterRangeKind" class="btn btn-sm">
+                <option value="">配置 (すべて)</option>
+                <option value="近">近接</option>
+                <option value="遠">遠隔</option>
+                <option value="遠近">遠近</option>
+              </select>
+
+              <select id="tierAutoFilterOwnership" class="btn btn-sm">
+                <option value="">所持・お気に入り (すべて)</option>
+                <option value="owned">所持城娘のみ</option>
+                <option value="unowned">未所持のみ</option>
+                <option value="favorites">お気に入りのみ</option>
+              </select>
+
+              <input type="text" id="tierAutoSearchInput" class="input-text" placeholder="城娘名・ふりがな検索..." style="width:140px; font-size:11.5px; padding:3px 7px;">
+            </div>
+          </div>
+
+          <div class="tier-auto-right-controls">
+            <button type="button" class="btn btn-sm" id="btnToggleTierWeights" title="基礎性能・バフ・計略などの配点重みをスライダーで調整">⚙️ 重み配点調整</button>
+            <button type="button" class="btn btn-sm" id="btnClearTierOverrides" title="手動で設定したティア上書きをすべてリセット">✏️ 上書き解除 <span id="tierOverrideCount">(0)</span></button>
+            <button type="button" class="btn btn-sm" id="btnExportAutoTierImage" style="background:#2d3436; color:#fff;" title="自動スコアティア表をPNG画像で保存">📸 画像保存</button>
+          </div>
+        </div>
+
+        <!-- Weight Adjustment Drawer (Collapsible) -->
+        <div id="tierWeightDrawer" class="tier-weight-drawer" style="display:none;">
+          <div class="tier-weight-header">
+            <span style="font-weight:bold; font-size:12px;">⚖️ 自動スコアリング評価重み調整（合計配点・比率カスタマイズ）</span>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span id="tierTotalWeightBadge" class="tier-weight-total-badge">合計: 100点</span>
+              <button type="button" class="btn btn-sm" id="btnResetTierWeights">↺ 初期値に戻す</button>
+            </div>
+          </div>
+          <div class="tier-weight-sliders-grid">
+            <div class="weight-slider-item">
+              <div class="weight-slider-label">
+                <span>1. 基礎性能 (巨5ステ・配置別)</span>
+                <span id="lblWeightBase" class="weight-slider-val">25点</span>
+              </div>
+              <input type="range" id="sliderWeightBase" min="0" max="50" step="1" value="25" class="weight-slider">
+            </div>
+            <div class="weight-slider-item">
+              <div class="weight-slider-label">
+                <span>2. 自己強化 (自己バフ・与ダメ等)</span>
+                <span id="lblWeightSelf" class="weight-slider-val">15点</span>
+              </div>
+              <input type="range" id="sliderWeightSelf" min="0" max="30" step="1" value="15" class="weight-slider">
+            </div>
+            <div class="weight-slider-item">
+              <div class="weight-slider-label">
+                <span>3. 味方バフ提供 (鼓舞・CT・気等)</span>
+                <span id="lblWeightAlly" class="weight-slider-val">25点</span>
+              </div>
+              <input type="range" id="sliderWeightAlly" min="0" max="50" step="1" value="25" class="weight-slider">
+            </div>
+            <div class="weight-slider-item">
+              <div class="weight-slider-label">
+                <span>4. デバフ提供 (敵防御減・被ダメ増等)</span>
+                <span id="lblWeightDebuff" class="weight-slider-val">15点</span>
+              </div>
+              <input type="range" id="sliderWeightDebuff" min="0" max="30" step="1" value="15" class="weight-slider">
+            </div>
+            <div class="weight-slider-item">
+              <div class="weight-slider-label">
+                <span>5. 計略性能 (CT短縮・低気・倍率)</span>
+                <span id="lblWeightStrat" class="weight-slider-val">10点</span>
+              </div>
+              <input type="range" id="sliderWeightStrat" min="0" max="25" step="1" value="10" class="weight-slider">
+            </div>
+            <div class="weight-slider-item">
+              <div class="weight-slider-label">
+                <span>6. 汎用性・特殊能力 (複合地形・防御無視等)</span>
+                <span id="lblWeightSpec" class="weight-slider-val">10点</span>
+              </div>
+              <input type="range" id="sliderWeightSpec" min="0" max="25" step="1" value="10" class="weight-slider">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tier Auto Board (Rendered Container) -->
+        <div id="tierAutoBoard" class="tier-board"></div>
+      </div>
+
       <!-- VIEW 1: 環境おすすめティア (Curated Tier Browser) -->
-      <div id="tierViewCurated" class="tier-view-panel">
+      <div id="tierViewCurated" class="tier-view-panel" style="display:none;">
         <!-- Curated Category Nav Pills -->
         <div class="tier-cat-pills" id="tierCatPills">
           <button type="button" class="tier-pill-btn active" data-cat="overall">👑 総合評価</button>

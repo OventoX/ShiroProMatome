@@ -1700,6 +1700,10 @@ async function runTests() {
       throw new Error('TEST 36 FAILED: tab-tier did not activate on click');
     }
 
+    // Switch to Curated mode
+    await page.click('#btnTierModeCurated');
+    await new Promise(r => setTimeout(r, 300));
+
     // 2. Curated View Checks
     const curatedVisible = await page.$eval('#tierViewCurated', el => el.style.display !== 'none');
     console.log('Curated Tier View visible:', curatedVisible);
@@ -1846,6 +1850,196 @@ async function runTests() {
     console.log('=> TEST 36 PASSED');
   }
 
+  // -------------------------------------------------------------
+  // Test 37: 自動スコアリング ティア表 (Auto-Scoring Tier Board)
+  // -------------------------------------------------------------
+  {
+    console.log('\n[TEST 37] Testing Auto-Scoring Tier System (100-Point Formula, Weights, Overrides)...');
+
+    // 1. Switch back to Tier Tab and activate Auto Mode
+    await page.click('button[data-tab="tab-tier"]');
+    await new Promise(r => setTimeout(r, 300));
+    await page.click('#btnTierModeAuto');
+    await new Promise(r => setTimeout(r, 400));
+
+    const autoVisible = await page.$eval('#tierViewAuto', el => el.style.display !== 'none');
+    console.log('Auto Tier View visible:', autoVisible);
+    if (!autoVisible) {
+      throw new Error('TEST 37 FAILED: tierViewAuto should be visible');
+    }
+
+    // 2. Verify mandatory notice text
+    const noticeText = await page.$eval('#tierNoticeBanner', el => el.textContent);
+    console.log('Notice banner snippet:', noticeText.slice(0, 80));
+    if (!noticeText.includes('このティアはデータからの自動スコアによる目安です') ||
+        !noticeText.includes('effects が未収録の城娘はテキスト判定のみのため、実際より低く出る場合があります')) {
+      throw new Error('TEST 37 FAILED: Mandatory notices missing from #tierNoticeBanner');
+    }
+
+    // 3. Verify all 6 tier rows exist (SS, S, A, B, C, D) and chips are distributed across all rows
+    const tierRows = await page.$$eval('#tierAutoBoard .tier-row', rows => {
+      return rows.map(r => ({
+        tier: r.getAttribute('data-tier'),
+        chipCount: r.querySelectorAll('.tier-auto-chip').length
+      }));
+    });
+    console.log('Auto Tier distribution:', tierRows);
+    if (tierRows.length !== 6) {
+      throw new Error(`TEST 37 FAILED: Expected 6 tier rows, got ${tierRows.length}`);
+    }
+    const totalChips = tierRows.reduce((sum, r) => sum + r.chipCount, 0);
+    console.log('Total scored castles rendered:', totalChips);
+    if (totalChips < 1100) {
+      throw new Error(`TEST 37 FAILED: Expected at least 1100 castles rendered, got ${totalChips}`);
+    }
+    for (const r of tierRows) {
+      if (r.chipCount === 0) {
+        throw new Error(`TEST 37 FAILED: Tier row ${r.tier} has 0 castles. All tiers must be populated.`);
+      }
+    }
+
+    // 4. Test Hover Tooltip Breakdown
+    console.log('Testing score breakdown tooltip on hover...');
+    const firstChip = await page.$('#tierAutoBoard .tier-row[data-tier="SS"] .tier-auto-chip');
+    if (!firstChip) {
+      throw new Error('TEST 37 FAILED: No chip found in SS row');
+    }
+    const firstCastleName = await firstChip.$eval('.tier-auto-chip-name', el => el.textContent);
+    console.log('Top castle in SS tier:', firstCastleName);
+
+    await firstChip.hover();
+    await new Promise(r => setTimeout(r, 300));
+
+    const tooltipVisible = await page.$eval('#tierAutoTooltip', el => el.style.display === 'block');
+    const tooltipContent = await page.$eval('#tierAutoTooltip', el => el.textContent);
+    console.log('Tooltip visible:', tooltipVisible, 'Content preview:', tooltipContent.slice(0, 100));
+    if (!tooltipVisible || !tooltipContent.includes('基礎性能') || !tooltipContent.includes('味方支援') || !tooltipContent.includes('pt')) {
+      throw new Error('TEST 37 FAILED: Auto Tier tooltip missing 6-item breakdown or not visible');
+    }
+
+    // 5. Test Filters (Weapon Filter & Search Filter)
+    console.log('Testing filters in Auto Tier...');
+    await page.select('#tierAutoFilterWeapon', '刀');
+    await new Promise(r => setTimeout(r, 300));
+    const katanaCount = await page.$$eval('#tierAutoBoard .tier-auto-chip', chips => chips.length);
+    console.log('Katana count after filter:', katanaCount);
+    if (katanaCount === 0 || katanaCount >= totalChips) {
+      throw new Error(`TEST 37 FAILED: Katana filter returned invalid count: ${katanaCount}`);
+    }
+
+    // Reset weapon filter
+    await page.select('#tierAutoFilterWeapon', '');
+    await new Promise(r => setTimeout(r, 200));
+
+    // Search filter
+    await page.$eval('#tierAutoSearchInput', el => { el.value = '江戸'; el.dispatchEvent(new Event('input')); });
+    await new Promise(r => setTimeout(r, 300));
+    const searchChips = await page.$$eval('#tierAutoBoard .tier-auto-chip-name', names => names.map(n => n.textContent));
+    console.log('Search "江戸" results:', searchChips);
+    if (!searchChips.some(n => n.includes('江戸'))) {
+      throw new Error('TEST 37 FAILED: Search for "江戸" returned no matching chips');
+    }
+
+    // Reset search
+    await page.$eval('#tierAutoSearchInput', el => { el.value = ''; el.dispatchEvent(new Event('input')); });
+    await new Promise(r => setTimeout(r, 200));
+
+    // 6. Test Weight Sliders & Recalculation
+    console.log('Testing weight sliders adjustment...');
+    await page.click('#btnToggleTierWeights');
+    await new Promise(r => setTimeout(r, 300));
+    const drawerVisible = await page.$eval('#tierWeightDrawer', el => el.style.display !== 'none');
+    console.log('Weight Drawer visible:', drawerVisible);
+    if (!drawerVisible) {
+      throw new Error('TEST 37 FAILED: #tierWeightDrawer did not open');
+    }
+
+    // Change Ally buff weight slider to 50
+    const beforeRank1Name = await page.$eval('#tierAutoBoard .tier-row[data-tier="SS"] .tier-auto-chip:first-child .tier-auto-chip-name', el => el.textContent);
+    console.log('Rank 1 castle before slider change:', beforeRank1Name);
+
+    await page.evaluate(() => {
+      const slider = document.getElementById('sliderWeightAlly');
+      slider.value = '50';
+      slider.dispatchEvent(new Event('input'));
+    });
+    await new Promise(r => setTimeout(r, 400));
+
+    // Verify localStorage key scre-helper:tier-weights:v1
+    const storedWeights = await page.evaluate(() => localStorage.getItem('scre-helper:tier-weights:v1'));
+    console.log('Stored tier weights in localStorage:', storedWeights);
+    if (!storedWeights || !storedWeights.includes('"ally":50')) {
+      throw new Error('TEST 37 FAILED: scre-helper:tier-weights:v1 not updated with ally:50');
+    }
+
+    // Reset weights
+    await page.click('#btnResetTierWeights');
+    await new Promise(r => setTimeout(r, 300));
+    const resetWeights = await page.evaluate(() => localStorage.getItem('scre-helper:tier-weights:v1'));
+    console.log('Reset tier weights in localStorage:', resetWeights);
+    if (!resetWeights || !resetWeights.includes('"ally":25')) {
+      throw new Error('TEST 37 FAILED: Reset weights did not restore ally:25');
+    }
+
+    // 7. Test Manual Override
+    console.log('Testing manual tier override...');
+    // Pick the last castle in D tier
+    const lastChip = await page.$('#tierAutoBoard .tier-row[data-tier="D"] .tier-auto-chip:last-child');
+    const targetCastleName = await lastChip.$eval('.tier-auto-chip-name', el => el.textContent);
+    console.log('Overriding castle to SS:', targetCastleName);
+
+    // Mock prompt to return 'SS'
+    await page.evaluate(() => {
+      window.prompt = () => 'SS';
+    });
+    await lastChip.$eval('.tier-override-select-btn', btn => btn.click());
+    await new Promise(r => setTimeout(r, 400));
+
+    // Check if targetCastle is now in SS row with ✏️ badge
+    const ssCastles = await page.$$eval('#tierAutoBoard .tier-row[data-tier="SS"] .tier-auto-chip', chips => {
+      return chips.map(c => ({
+        name: c.querySelector('.tier-auto-chip-name').textContent,
+        hasBadge: Boolean(c.querySelector('.tier-override-badge'))
+      }));
+    });
+    const overridden = ssCastles.find(c => c.name === targetCastleName);
+    console.log('Overridden castle found in SS row:', overridden);
+    if (!overridden || !overridden.hasBadge) {
+      throw new Error(`TEST 37 FAILED: Castle ${targetCastleName} was not found in SS row with override badge`);
+    }
+
+    // Verify localStorage key scre-helper:tier-overrides:v1
+    const storedOverrides = await page.evaluate(() => localStorage.getItem('scre-helper:tier-overrides:v1'));
+    console.log('Stored overrides in localStorage:', storedOverrides);
+    if (!storedOverrides || !storedOverrides.includes('SS')) {
+      throw new Error('TEST 37 FAILED: scre-helper:tier-overrides:v1 not updated in localStorage');
+    }
+
+    // Test Clear All Overrides
+    await page.evaluate(() => {
+      window.confirm = () => true;
+    });
+    await page.click('#btnClearTierOverrides');
+    await new Promise(r => setTimeout(r, 300));
+
+    const clearedOverrides = await page.evaluate(() => localStorage.getItem('scre-helper:tier-overrides:v1'));
+    console.log('Overrides after clear:', clearedOverrides);
+    if (clearedOverrides !== '{}') {
+      throw new Error('TEST 37 FAILED: Overrides not cleared properly');
+    }
+
+    // 8. Screenshot verification
+    const artifactsDir = 'C:\\Users\\ar265\\.gemini\\antigravity\\brain\\5355bd08-df05-4fee-b014-8a5e518ef73b';
+    await page.screenshot({ path: path.join(artifactsDir, 'tier_auto_scoring_screenshot.png'), fullPage: false });
+    console.log('Saved tier_auto_scoring_screenshot.png');
+
+    // Return to dashboard
+    await page.click('button[data-tab="tab-dashboard"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    console.log('=> TEST 37 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -1857,7 +2051,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (36/36)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (37/37)!');
   console.log('=====================================');
 }
 

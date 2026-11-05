@@ -4064,7 +4064,7 @@
   // ==========================================
   // Feature: 性能ティア表 ＆ ティアメーカー (Tier Browser & Tier Maker)
   // ==========================================
-  let currentTierMode = "curated"; // 'curated' | 'custom'
+  let currentTierMode = "auto"; // 'auto' | 'curated' | 'custom'
   let currentCuratedCat = "overall";
   const DEFAULT_ROW_COLORS = [
     "#b33939", "#d35400", "#e67e22", "#2980b9", "#27ae60", "#6c5ce7", "#e84393", "#7f8c8d"
@@ -4079,6 +4079,632 @@
   let customTiersStorage = {};
   let draggedCastleName = null;
   let draggedSourceRowId = null;
+
+  // ------------------------------------------
+  // Auto Scoring Tier Engine (100-Point System)
+  // ------------------------------------------
+  const DEFAULT_TIER_WEIGHTS = {
+    base: 25,
+    self: 15,
+    ally: 25,
+    debuff: 15,
+    strat: 10,
+    spec: 10
+  };
+
+  const TIER_THRESHOLDS = {
+    SS: 0.03, // Top 3%
+    S:  0.10, // Top 10%
+    A:  0.25, // Top 25%
+    B:  0.50, // Top 50%
+    C:  0.75, // Top 75%
+    D:  1.00  // Remainder
+  };
+
+  const TIER_ROW_METAS = [
+    { tier: "SS", label: "SS", sub: "上位3%・人権/最優先", color: "#b33939" },
+    { tier: "S",  label: "S",  sub: "上位10%・主力級", color: "#d35400" },
+    { tier: "A",  label: "A",  sub: "上位25%・優秀",   color: "#2980b9" },
+    { tier: "B",  label: "B",  sub: "上位50%・実用",   color: "#27ae60" },
+    { tier: "C",  label: "C",  sub: "上位75%・普通",   color: "#6c5ce7" },
+    { tier: "D",  label: "D",  sub: "上位75%超・基本", color: "#7f8c8d" }
+  ];
+
+  const TIER_STORAGE_WEIGHTS_KEY = "scre-helper:tier-weights:v1";
+  const TIER_STORAGE_OVERRIDES_KEY = "scre-helper:tier-overrides:v1";
+
+  let tierWeights = { ...DEFAULT_TIER_WEIGHTS };
+  let tierOverrides = {};
+  let autoTierScope = "overall"; // 'overall' | 'weapon'
+  let cachedRawNormScores = null;
+  let cachedComputedScores = null;
+
+  function parseStatNumber(v) {
+    if (!v) return 0;
+    const parts = String(v).split('/');
+    if (parts.length > 1) {
+      const val = parseInt(parts[1].trim(), 10);
+      if (!isNaN(val) && val > 0) return val;
+    }
+    const val0 = parseInt(parts[0].trim(), 10);
+    return isNaN(val0) ? 0 : val0;
+  }
+
+  function getLatestAbilities(c) {
+    let skill = c.skill || null;
+    if (c.allSkills && c.allSkills.length > 0) {
+      const k2 = c.allSkills.find(s => s.stage === '改弐');
+      const k1 = c.allSkills.find(s => s.stage === '改壱');
+      skill = k2 || k1 || c.allSkills[c.allSkills.length - 1];
+    }
+    let strategy = c.strategy || null;
+    if (c.allStrategies && c.allStrategies.length > 0) {
+      const k2 = c.allStrategies.find(s => s.stage === '改弐');
+      const k1 = c.allStrategies.find(s => s.stage === '改壱');
+      strategy = k2 || k1 || c.allStrategies[c.allStrategies.length - 1];
+    }
+    let special = c.special || null;
+    if (c.allSpecials && c.allSpecials.length > 0) {
+      const k2 = c.allSpecials.find(s => s.stage === '改弐');
+      const k1 = c.allSpecials.find(s => s.stage === '改壱');
+      special = k2 || k1 || c.allSpecials[c.allSpecials.length - 1];
+    }
+    return { skill, strategy, special };
+  }
+
+  function precomputeRawNormScores() {
+    if (!window.SCRE_DATA) return;
+    const groups = {};
+    window.SCRE_DATA.forEach(c => {
+      const rk = c.rangeKind || "近";
+      const g = (c.statsDetail && c.statsDetail.giant5) || {};
+      const st = {
+        atk: parseStatNumber(g.atk) || (c.stats && c.stats.atk) || 0,
+        hp: parseStatNumber(g.hp) || (c.stats && c.stats.hp) || 0,
+        def: parseStatNumber(g.def) || (c.stats && c.stats.def) || 0,
+        range: parseStatNumber(g.range) || (c.stats && c.stats.range) || 0,
+        recovery: parseStatNumber(g.recovery) || (c.stats && c.stats.recovery) || 0,
+        cost: c.cost || 10
+      };
+      if (!groups[rk]) groups[rk] = [];
+      groups[rk].push(st);
+    });
+
+    const sortedStats = {};
+    Object.keys(groups).forEach(rk => {
+      sortedStats[rk] = {
+        atk: groups[rk].map(x => x.atk).sort((a,b) => a - b),
+        hp: groups[rk].map(x => x.hp).sort((a,b) => a - b),
+        def: groups[rk].map(x => x.def).sort((a,b) => a - b),
+        range: groups[rk].map(x => x.range).sort((a,b) => a - b),
+        recovery: groups[rk].map(x => x.recovery).sort((a,b) => a - b),
+        cost: groups[rk].map(x => x.cost).sort((a,b) => a - b)
+      };
+    });
+
+    function calcPercentile(val, sortedArr) {
+      if (!sortedArr || sortedArr.length === 0) return 0.5;
+      let count = 0;
+      for (let i = 0; i < sortedArr.length; i++) {
+        if (sortedArr[i] <= val) count++;
+      }
+      return count / sortedArr.length;
+    }
+
+    const rawMap = {};
+    window.SCRE_DATA.forEach(c => {
+      const rk = c.rangeKind || "近";
+      const g = (c.statsDetail && c.statsDetail.giant5) || {};
+      const c_atk = parseStatNumber(g.atk) || (c.stats && c.stats.atk) || 0;
+      const c_hp = parseStatNumber(g.hp) || (c.stats && c.stats.hp) || 0;
+      const c_def = parseStatNumber(g.def) || (c.stats && c.stats.def) || 0;
+      const c_range = parseStatNumber(g.range) || (c.stats && c.stats.range) || 0;
+      const c_rec = parseStatNumber(g.recovery) || (c.stats && c.stats.recovery) || 0;
+      const c_cost = c.cost || 10;
+
+      // 1. Base percentile (normalized 0 to 1)
+      const p_atk = calcPercentile(c_atk, sortedStats[rk].atk);
+      const p_hp = calcPercentile(c_hp, sortedStats[rk].hp);
+      const p_def = calcPercentile(c_def, sortedStats[rk].def);
+      const p_range = calcPercentile(c_range, sortedStats[rk].range);
+      const p_rec = calcPercentile(c_rec, sortedStats[rk].recovery);
+      const p_cost = 1.0 - calcPercentile(c_cost, sortedStats[rk].cost);
+      const baseNorm = (p_atk * 0.30 + p_range * 0.25 + p_def * 0.15 + p_hp * 0.15 + p_rec * 0.10 + p_cost * 0.05);
+
+      // Latest abilities
+      const { skill: sk, strategy: st, special: sp } = getLatestAbilities(c);
+      const all_effects = [];
+      if (sk && sk.effects) all_effects.push(...sk.effects);
+      if (st && st.effects) all_effects.push(...st.effects);
+      if (sp && sp.effects) all_effects.push(...sp.effects);
+
+      const all_text = [
+        sk ? (sk.name || "") + " " + (sk.text || "") : "",
+        st ? (st.name || "") + " " + (st.text || "") : "",
+        sp ? (sp.name || "") + " " + (sp.text || "") : ""
+      ].filter(Boolean).join(" ");
+
+      // 2. Self Buffs (normalized to 15 max)
+      const self_effects = all_effects.filter(e => e.target === 'self');
+      let self_raw = 0.0;
+      self_effects.forEach(e => {
+        const stat = e.stat;
+        const val = Math.abs(e.value || 20);
+        if (['atkPercent', 'dmgDealt', 'atkSpeed', 'gapShorten', 'defIgnore'].includes(stat)) {
+          self_raw += Math.min(15.0, val * 0.25);
+        } else if (['rangePercent', 'rangeFlat', 'dmgTakenDown', 'atkFlat'].includes(stat)) {
+          self_raw += Math.min(10.0, val * 0.15);
+        } else {
+          self_raw += Math.min(5.0, val * 0.08);
+        }
+      });
+      if (all_text.includes('自身の攻撃が')) self_raw += 3.0;
+      if (all_text.includes('自身の与ダメージ')) self_raw += 3.0;
+      if (all_text.includes('自身の射程が')) self_raw += 2.0;
+      if (all_text.includes('自身の攻撃速度が')) self_raw += 3.0;
+      const selfNorm = Math.min(15.0, self_raw) / 15.0;
+
+      // 3. Ally Buffs (normalized to 25 max)
+      const ally_effects = all_effects.filter(e => ['inRange', 'all', 'allAllies'].includes(e.target));
+      let ally_raw = 0.0;
+      ally_effects.forEach(e => {
+        const stat = e.stat;
+        const val = Math.abs(e.value || 20);
+        if (['shareAtk', 'shareDef', 'shareRange'].includes(stat)) {
+          ally_raw += 10.0; // Kobu / Jinbai is enormous!
+        } else if (['dmgDealt', 'atkSpeed', 'gapShorten'].includes(stat)) {
+          ally_raw += Math.min(8.0, val * 0.20);
+        } else if (['atkPercent', 'rangePercent', 'rangeFlat', 'atkFlat'].includes(stat)) {
+          ally_raw += Math.min(7.0, val * 0.15);
+        } else if (['dmgTakenDown', 'defPercent', 'hpPercent'].includes(stat)) {
+          ally_raw += Math.min(5.0, val * 0.10);
+        } else {
+          ally_raw += Math.min(4.0, val * 0.08);
+        }
+      });
+      if (['巨大化に必要な気', '巨大化気を', '巨大化消費気'].some(k => all_text.includes(k))) ally_raw += 8.0;
+      if (['計略再使用', '計略短縮', '再使用時間を'].some(k => all_text.includes(k))) ally_raw += 7.0;
+      if (['気が増加', '敵撃破時に気', '気の自然増加'].some(k => all_text.includes(k))) ally_raw += 7.0;
+      if (all_text.includes('射程内の城娘の攻撃が') || all_text.includes('全城娘の攻撃が')) ally_raw += 5.0;
+      if (all_text.includes('射程内の城娘の射程が') || all_text.includes('全城娘の射程が')) ally_raw += 4.0;
+      const allyNorm = Math.min(25.0, ally_raw) / 25.0;
+
+      // 4. Debuffs (normalized to 15 max)
+      const enemy_effects = all_effects.filter(e => (e.stat && e.stat.startsWith('enemy')) || ['enemy', 'inRangeEnemies'].includes(e.target));
+      let debuff_raw = 0.0;
+      enemy_effects.forEach(e => {
+        const stat = e.stat;
+        const val = Math.abs(e.value || 20);
+        if (['enemyDefDown', 'enemyDmgTakenUp', 'enemySlow'].includes(stat)) {
+          debuff_raw += Math.min(7.0, val * 0.20);
+        } else if (['enemyAtkDown', 'enemyRangeDown'].includes(stat)) {
+          debuff_raw += Math.min(5.0, val * 0.15);
+        } else {
+          debuff_raw += Math.min(4.0, val * 0.10);
+        }
+      });
+      if (all_text.includes('敵の防御が') || all_text.includes('敵の防御を')) debuff_raw += 4.0;
+      if (all_text.includes('敵の攻撃が') || all_text.includes('敵の攻撃を')) debuff_raw += 3.0;
+      if (all_text.includes('移動速度が')) debuff_raw += 4.0;
+      if (all_text.includes('後退させる')) debuff_raw += 3.0;
+      const debuffNorm = Math.min(15.0, debuff_raw) / 15.0;
+
+      // 5. Strategy Quality (normalized to 10 max)
+      let strat_raw = 0.0;
+      if (st) {
+        const cd = st.cooldown || 50;
+        const cost = st.cost || 7;
+        const cd_eff = Math.max(0.0, 1.0 - (cd / 80.0)) * 3.5;
+        const cost_eff = Math.max(0.0, 1.0 - (cost / 15.0)) * 2.5;
+        strat_raw += cd_eff + cost_eff;
+        const st_text = (st.name || "") + " " + (st.text || "");
+        if (['伏兵', 'トークン'].some(k => st_text.includes(k))) strat_raw += 2.0;
+        if (['連続で攻撃', '倍のダメージ', '連続攻撃'].some(k => st_text.includes(k))) strat_raw += 2.0;
+        if (['範囲内の敵', '全敵'].some(k => st_text.includes(k))) strat_raw += 1.5;
+      }
+      const stratNorm = Math.min(10.0, strat_raw) / 10.0;
+
+      // 6. Versatility & Specials (normalized to 10 max)
+      let spec_raw = 0.0;
+      const attrs = c.attributes || [];
+      if (attrs.length >= 2) spec_raw += 3.5;
+      else spec_raw += 1.5;
+
+      if (['防御無視', '防御を無視', '防御を0'].some(k => all_text.includes(k))) spec_raw += 2.0;
+      if (['足止め', '足を止める'].some(k => all_text.includes(k))) spec_raw += 2.0;
+      if (['隠密', '狙われない', '対象にならない'].some(k => all_text.includes(k))) spec_raw += 2.0;
+      if (['不屈', '耐久が0になっても'].some(k => all_text.includes(k))) spec_raw += 2.0;
+      if (['状態異常無効', '氷結無効', '火傷無効'].some(k => all_text.includes(k))) spec_raw += 1.5;
+      if (['後退', 'ノックバック'].some(k => all_text.includes(k))) spec_raw += 1.5;
+      const specNorm = Math.min(10.0, spec_raw) / 10.0;
+
+      rawMap[c.id] = {
+        baseNorm,
+        selfNorm,
+        allyNorm,
+        debuffNorm,
+        stratNorm,
+        specNorm
+      };
+    });
+
+    cachedRawNormScores = rawMap;
+  }
+
+  function computeCastleScores(weights = tierWeights) {
+    if (!cachedRawNormScores) precomputeRawNormScores();
+    if (!window.SCRE_DATA) return [];
+
+    const result = window.SCRE_DATA.map(c => {
+      const raw = (cachedRawNormScores && cachedRawNormScores[c.id]) || { baseNorm: 0.5, selfNorm: 0, allyNorm: 0, debuffNorm: 0, stratNorm: 0, specNorm: 0 };
+      const sBase = Math.round(raw.baseNorm * weights.base * 10) / 10;
+      const sSelf = Math.round(raw.selfNorm * weights.self * 10) / 10;
+      const sAlly = Math.round(raw.allyNorm * weights.ally * 10) / 10;
+      const sDebuff = Math.round(raw.debuffNorm * weights.debuff * 10) / 10;
+      const sStrat = Math.round(raw.stratNorm * weights.strat * 10) / 10;
+      const sSpec = Math.round(raw.specNorm * weights.spec * 10) / 10;
+      const total = Math.round((sBase + sSelf + sAlly + sDebuff + sStrat + sSpec) * 10) / 10;
+
+      return {
+        id: c.id,
+        name: c.name,
+        rarity: c.rarity,
+        weapon: c.weapon,
+        castleType: c.castleType,
+        rangeKind: c.rangeKind,
+        total: total,
+        breakdown: {
+          base: sBase,
+          self: sSelf,
+          ally: sAlly,
+          debuff: sDebuff,
+          strat: sStrat,
+          spec: sSpec
+        },
+        castle: c
+      };
+    });
+
+    // Sort descending by total
+    result.sort((a, b) => b.total - a.total);
+
+    // Compute Overall Rank (1-based)
+    result.forEach((item, idx) => {
+      item.overallRank = idx + 1;
+    });
+
+    // Compute Weapon Ranks
+    const weaponGroups = {};
+    result.forEach(item => {
+      const w = item.weapon || "その他";
+      if (!weaponGroups[w]) weaponGroups[w] = [];
+      weaponGroups[w].push(item);
+    });
+
+    Object.keys(weaponGroups).forEach(w => {
+      const list = weaponGroups[w];
+      const wCount = list.length;
+      list.forEach((item, wIdx) => {
+        item.weaponRank = wIdx + 1;
+        item.weaponTotal = wCount;
+
+        const idxSS = Math.max(1, Math.floor(wCount * TIER_THRESHOLDS.SS));
+        const idxS  = Math.max(idxSS + 1, Math.floor(wCount * TIER_THRESHOLDS.S));
+        const idxA  = Math.max(idxS + 1, Math.floor(wCount * TIER_THRESHOLDS.A));
+        const idxB  = Math.max(idxA + 1, Math.floor(wCount * TIER_THRESHOLDS.B));
+        const idxC  = Math.max(idxB + 1, Math.floor(wCount * TIER_THRESHOLDS.C));
+
+        let wTier = "D";
+        if (wIdx < idxSS) wTier = "SS";
+        else if (wIdx < idxS) wTier = "S";
+        else if (wIdx < idxA) wTier = "A";
+        else if (wIdx < idxB) wTier = "B";
+        else if (wIdx < idxC) wTier = "C";
+        item.weaponTier = wTier;
+      });
+    });
+
+    // Overall tier
+    const totalCount = result.length;
+    const idxSS = Math.max(1, Math.floor(totalCount * TIER_THRESHOLDS.SS));
+    const idxS  = Math.max(idxSS + 1, Math.floor(totalCount * TIER_THRESHOLDS.S));
+    const idxA  = Math.max(idxS + 1, Math.floor(totalCount * TIER_THRESHOLDS.A));
+    const idxB  = Math.max(idxA + 1, Math.floor(totalCount * TIER_THRESHOLDS.B));
+    const idxC  = Math.max(idxB + 1, Math.floor(totalCount * TIER_THRESHOLDS.C));
+
+    result.forEach((item, idx) => {
+      item.overallTotal = totalCount;
+      let oTier = "D";
+      if (idx < idxSS) oTier = "SS";
+      else if (idx < idxS) oTier = "S";
+      else if (idx < idxA) oTier = "A";
+      else if (idx < idxB) oTier = "B";
+      else if (idx < idxC) oTier = "C";
+      item.overallTier = oTier;
+    });
+
+    cachedComputedScores = result;
+    return result;
+  }
+
+  function loadTierWeights() {
+    try {
+      const saved = localStorage.getItem(TIER_STORAGE_WEIGHTS_KEY);
+      if (saved) {
+        tierWeights = { ...DEFAULT_TIER_WEIGHTS, ...JSON.parse(saved) };
+      }
+    } catch (e) {
+      console.warn("Failed to load tier weights:", e);
+    }
+  }
+
+  function saveTierWeights() {
+    try {
+      localStorage.setItem(TIER_STORAGE_WEIGHTS_KEY, JSON.stringify(tierWeights));
+    } catch (e) {
+      console.warn("Failed to save tier weights:", e);
+    }
+  }
+
+  function loadTierOverrides() {
+    try {
+      const saved = localStorage.getItem(TIER_STORAGE_OVERRIDES_KEY);
+      if (saved) {
+        tierOverrides = JSON.parse(saved);
+      }
+    } catch (e) {
+      console.warn("Failed to load tier overrides:", e);
+    }
+  }
+
+  function saveTierOverrides() {
+    try {
+      localStorage.setItem(TIER_STORAGE_OVERRIDES_KEY, JSON.stringify(tierOverrides));
+    } catch (e) {
+      console.warn("Failed to save tier overrides:", e);
+    }
+  }
+
+  let autoTierTooltipEl = null;
+
+  function initAutoTierTooltip() {
+    if (document.getElementById("tierAutoTooltip")) return;
+    autoTierTooltipEl = document.createElement("div");
+    autoTierTooltipEl.id = "tierAutoTooltip";
+    autoTierTooltipEl.className = "tier-auto-tooltip";
+    document.body.appendChild(autoTierTooltipEl);
+  }
+
+  function showAutoTierTooltip(e, item) {
+    initAutoTierTooltip();
+    const bd = item.breakdown;
+    const c = item.castle;
+    autoTierTooltipEl.innerHTML = `
+      <div class="tier-tooltip-title">
+        <span>★${c.rarity || 7} ${c.name}</span>
+        <span style="color:#ff7675; font-size:13px; font-weight:800;">${item.total} pt</span>
+      </div>
+      <div class="tier-tooltip-ranks">
+        <span>全体: #${item.overallRank} / ${item.overallTotal}</span>
+        <span>${item.weapon}: #${item.weaponRank} / ${item.weaponTotal}</span>
+      </div>
+      <div class="tier-tooltip-breakdown">
+        <div class="tier-tooltip-row">
+          <span class="label">1. 基礎性能 (巨5ステ)</span>
+          <span class="val">${bd.base} / ${tierWeights.base} pt</span>
+        </div>
+        <div class="tier-tooltip-row">
+          <span class="label">2. 自己強化バフ</span>
+          <span class="val">${bd.self} / ${tierWeights.self} pt</span>
+        </div>
+        <div class="tier-tooltip-row">
+          <span class="label">3. 味方支援・鼓舞・気</span>
+          <span class="val">${bd.ally} / ${tierWeights.ally} pt</span>
+        </div>
+        <div class="tier-tooltip-row">
+          <span class="label">4. 敵妨害・デバフ</span>
+          <span class="val">${bd.debuff} / ${tierWeights.debuff} pt</span>
+        </div>
+        <div class="tier-tooltip-row">
+          <span class="label">5. 計略効率・追加効果</span>
+          <span class="val">${bd.strat} / ${tierWeights.strat} pt</span>
+        </div>
+        <div class="tier-tooltip-row">
+          <span class="label">6. 汎用・複合・特殊</span>
+          <span class="val">${bd.spec} / ${tierWeights.spec} pt</span>
+        </div>
+      </div>
+      ${item.isOverridden ? `<div style="margin-top:6px; color:#ffeaa7; font-size:10px; border-top:1px dashed rgba(255,255,255,0.2); padding-top:4px;">✏️ 手動上書き中 (${item.effectiveTier})</div>` : ""}
+    `;
+    autoTierTooltipEl.style.display = "block";
+    positionAutoTierTooltip(e);
+  }
+
+  function positionAutoTierTooltip(e) {
+    if (!autoTierTooltipEl || autoTierTooltipEl.style.display === "none") return;
+    const x = e.clientX + 14;
+    const y = e.clientY + 14;
+    const w = 270;
+    const h = 200;
+    const maxX = window.innerWidth - w - 10;
+    const maxY = window.innerHeight - h - 10;
+    autoTierTooltipEl.style.left = `${Math.min(x, maxX)}px`;
+    autoTierTooltipEl.style.top = `${Math.min(y, maxY)}px`;
+  }
+
+  function hideAutoTierTooltip() {
+    if (autoTierTooltipEl) {
+      autoTierTooltipEl.style.display = "none";
+    }
+  }
+
+  function promptTierOverride(item) {
+    const current = item.effectiveTier || "D";
+    const answer = prompt(`「${item.name}」のティアを手動設定してください (SS, S, A, B, C, D、または空白で手動設定を解除):`, current);
+    if (answer === null) return;
+    const val = answer.trim().toUpperCase();
+    if (!val) {
+      delete tierOverrides[item.id];
+      delete tierOverrides[item.name];
+      saveTierOverrides();
+      renderTierAutoBoard();
+      showToast(`「${item.name}」の手動上書きを解除しました`);
+    } else if (['SS', 'S', 'A', 'B', 'C', 'D'].includes(val)) {
+      tierOverrides[item.id] = val;
+      saveTierOverrides();
+      renderTierAutoBoard();
+      showToast(`「${item.name}」のティアを ${val} に手動設定しました`);
+    } else {
+      alert("ティアは SS, S, A, B, C, D のいずれかで入力してください。");
+    }
+  }
+
+  function syncWeightSlidersUI() {
+    const sliderDefs = [
+      { id: "sliderWeightBase", lbl: "lblWeightBase", key: "base" },
+      { id: "sliderWeightSelf", lbl: "lblWeightSelf", key: "self" },
+      { id: "sliderWeightAlly", lbl: "lblWeightAlly", key: "ally" },
+      { id: "sliderWeightDebuff", lbl: "lblWeightDebuff", key: "debuff" },
+      { id: "sliderWeightStrat", lbl: "lblWeightStrat", key: "strat" },
+      { id: "sliderWeightSpec", lbl: "lblWeightSpec", key: "spec" }
+    ];
+    sliderDefs.forEach(def => {
+      const slider = document.getElementById(def.id);
+      const lbl = document.getElementById(def.lbl);
+      if (slider) slider.value = tierWeights[def.key];
+      if (lbl) lbl.textContent = `${tierWeights[def.key]}点`;
+    });
+    const total = Object.values(tierWeights).reduce((a, b) => a + b, 0);
+    const badge = document.getElementById("tierTotalWeightBadge");
+    if (badge) badge.textContent = `合計: ${total}点`;
+  }
+
+  function renderTierAuto() {
+    loadTierWeights();
+    loadTierOverrides();
+    syncWeightSlidersUI();
+    computeCastleScores(tierWeights);
+    renderTierAutoBoard();
+  }
+
+  function renderTierAutoBoard() {
+    const board = document.getElementById("tierAutoBoard");
+    if (!board) return;
+
+    if (!cachedComputedScores) {
+      computeCastleScores(tierWeights);
+    }
+
+    const filterWeapon = (document.getElementById("tierAutoFilterWeapon")?.value || "").trim();
+    const filterType = (document.getElementById("tierAutoFilterType")?.value || "").trim();
+    const filterRangeKind = (document.getElementById("tierAutoFilterRangeKind")?.value || "").trim();
+    const filterOwnership = (document.getElementById("tierAutoFilterOwnership")?.value || "").trim();
+    const filterSearch = (document.getElementById("tierAutoSearchInput")?.value || "").trim().toLowerCase();
+
+    // Filter list
+    let list = cachedComputedScores.filter(item => {
+      const c = item.castle;
+      if (filterWeapon && c.weapon !== filterWeapon) return false;
+      if (filterType) {
+        const attrs = c.attributes || [c.castleType || ""];
+        if (!attrs.includes(filterType) && c.castleType !== filterType) return false;
+      }
+      if (filterRangeKind && c.rangeKind !== filterRangeKind) return false;
+      if (filterOwnership === "owned" && (!ownership.owned || !ownership.owned[c.id])) return false;
+      if (filterOwnership === "unowned" && (ownership.owned && ownership.owned[c.id])) return false;
+      if (filterOwnership === "favorites" && (!ownership.favorites || !ownership.favorites[c.id])) return false;
+      if (filterSearch) {
+        const matchName = (c.name || "").toLowerCase().includes(filterSearch);
+        const matchKana = (c.reading || "").toLowerCase().includes(filterSearch);
+        if (!matchName && !matchKana) return false;
+      }
+      return true;
+    });
+
+    // Group into tiers: SS, S, A, B, C, D
+    const tierGroups = { SS: [], S: [], A: [], B: [], C: [], D: [] };
+
+    list.forEach(item => {
+      const override = tierOverrides[item.id] || tierOverrides[item.name];
+      const effectiveTier = override || (autoTierScope === "weapon" ? item.weaponTier : item.overallTier);
+      if (tierGroups[effectiveTier]) {
+        tierGroups[effectiveTier].push({ ...item, isOverridden: Boolean(override), effectiveTier });
+      } else {
+        tierGroups["D"].push({ ...item, isOverridden: Boolean(override), effectiveTier: "D" });
+      }
+    });
+
+    // Update override count badge in toolbar
+    const overrideCount = Object.keys(tierOverrides).length;
+    const countBadge = document.getElementById("tierOverrideCount");
+    if (countBadge) countBadge.textContent = `(${overrideCount})`;
+
+    // Render Rows
+    board.innerHTML = "";
+    TIER_ROW_METAS.forEach(rowMeta => {
+      const tierKey = rowMeta.tier;
+      const castlesInTier = tierGroups[tierKey] || [];
+
+      const rowEl = document.createElement("div");
+      rowEl.className = "tier-row";
+      rowEl.setAttribute("data-tier", tierKey);
+
+      rowEl.innerHTML = `
+        <div class="tier-row-header" style="background-color: ${rowMeta.color};">
+          <span class="tier-row-letter">${rowMeta.label}</span>
+          <span class="tier-row-sub">${rowMeta.sub} (${castlesInTier.length}体)</span>
+        </div>
+        <div class="tier-row-content">
+          ${castlesInTier.length === 0 ? `<div style="font-size:11px; color:#999; padding:12px;">該当する城娘はいません</div>` : ""}
+        </div>
+      `;
+
+      const contentEl = rowEl.querySelector(".tier-row-content");
+      castlesInTier.forEach(item => {
+        const c = item.castle;
+        const chip = document.createElement("div");
+        chip.className = "tier-auto-chip";
+        chip.setAttribute("data-id", c.id);
+        chip.setAttribute("data-name", c.name);
+
+        const isHigh = item.total >= 45.0;
+        const overrideHtml = item.isOverridden ? `<span class="tier-override-badge" title="手動設定済み: ${item.effectiveTier}">✏️</span>` : "";
+
+        chip.innerHTML = `
+          <div class="tier-auto-chip-icon">
+            ${getIconHtml(c, 44)}
+          </div>
+          <div class="tier-auto-chip-info">
+            <div class="tier-auto-chip-name" title="${c.name}">${c.name}</div>
+            <div class="tier-auto-chip-meta">
+              <span class="tier-auto-score-pill ${isHigh ? 'high' : ''}">${item.total}pt</span>
+              ${overrideHtml}
+              <button type="button" class="tier-override-select-btn" title="手動上書き設定">⚙️</button>
+            </div>
+          </div>
+        `;
+
+        // Tooltip hover
+        chip.addEventListener("mouseenter", (e) => showAutoTierTooltip(e, item));
+        chip.addEventListener("mousemove", (e) => positionAutoTierTooltip(e));
+        chip.addEventListener("mouseleave", hideAutoTierTooltip);
+
+        // Click on chip: open detail modal or override prompt
+        chip.addEventListener("click", (e) => {
+          if (e.target.closest(".tier-override-select-btn")) {
+            e.stopPropagation();
+            promptTierOverride(item);
+            return;
+          }
+          openCastleDetail(c.id);
+        });
+
+        contentEl.appendChild(chip);
+      });
+
+      board.appendChild(rowEl);
+    });
+  }
 
   function getCastleByName(name) {
     if (!name || !window.SCRE_DATA) return null;
@@ -4106,19 +4732,32 @@
 
   function renderTierTab() {
     loadSavedCustomTiers();
+    loadTierWeights();
+    loadTierOverrides();
+
+    const btnAuto = document.getElementById("btnTierModeAuto");
     const btnCurated = document.getElementById("btnTierModeCurated");
     const btnCustom = document.getElementById("btnTierModeCustom");
+    const viewAuto = document.getElementById("tierViewAuto");
     const viewCurated = document.getElementById("tierViewCurated");
     const viewCustom = document.getElementById("tierViewCustom");
 
+    if (btnAuto) btnAuto.classList.toggle("active", currentTierMode === "auto");
     if (btnCurated) btnCurated.classList.toggle("active", currentTierMode === "curated");
     if (btnCustom) btnCustom.classList.toggle("active", currentTierMode === "custom");
 
-    if (currentTierMode === "curated") {
+    if (currentTierMode === "auto") {
+      if (viewAuto) viewAuto.style.display = "block";
+      if (viewCurated) viewCurated.style.display = "none";
+      if (viewCustom) viewCustom.style.display = "none";
+      renderTierAuto();
+    } else if (currentTierMode === "curated") {
+      if (viewAuto) viewAuto.style.display = "none";
       if (viewCurated) viewCurated.style.display = "block";
       if (viewCustom) viewCustom.style.display = "none";
       renderTierCurated();
     } else {
+      if (viewAuto) viewAuto.style.display = "none";
       if (viewCurated) viewCurated.style.display = "none";
       if (viewCustom) viewCustom.style.display = "block";
       renderTierCustomMaker();
@@ -4637,8 +5276,16 @@
   }
 
   // Tier Event Listeners Initialization
+  const btnTierAuto = document.getElementById("btnTierModeAuto");
   const btnTierCurated = document.getElementById("btnTierModeCurated");
   const btnTierCustom = document.getElementById("btnTierModeCustom");
+
+  if (btnTierAuto) {
+    btnTierAuto.addEventListener("click", () => {
+      currentTierMode = "auto";
+      renderTierTab();
+    });
+  }
   if (btnTierCurated) {
     btnTierCurated.addEventListener("click", () => {
       currentTierMode = "curated";
@@ -4649,6 +5296,128 @@
     btnTierCustom.addEventListener("click", () => {
       currentTierMode = "custom";
       renderTierTab();
+    });
+  }
+
+  // Auto Tier Controls
+  const btnScopeOverall = document.getElementById("btnTierScopeOverall");
+  const btnScopeWeapon = document.getElementById("btnTierScopeWeapon");
+  if (btnScopeOverall && btnScopeWeapon) {
+    btnScopeOverall.addEventListener("click", () => {
+      autoTierScope = "overall";
+      btnScopeOverall.classList.add("active");
+      btnScopeWeapon.classList.remove("active");
+      renderTierAutoBoard();
+    });
+    btnScopeWeapon.addEventListener("click", () => {
+      autoTierScope = "weapon";
+      btnScopeWeapon.classList.add("active");
+      btnScopeOverall.classList.remove("active");
+      renderTierAutoBoard();
+    });
+  }
+
+  const btnToggleWeights = document.getElementById("btnToggleTierWeights");
+  const drawerWeights = document.getElementById("tierWeightDrawer");
+  if (btnToggleWeights && drawerWeights) {
+    btnToggleWeights.addEventListener("click", () => {
+      const isHidden = drawerWeights.style.display === "none";
+      drawerWeights.style.display = isHidden ? "block" : "none";
+      btnToggleWeights.classList.toggle("active", isHidden);
+    });
+  }
+
+  // Weight Sliders
+  const sliderDefs = [
+    { id: "sliderWeightBase", lbl: "lblWeightBase", key: "base" },
+    { id: "sliderWeightSelf", lbl: "lblWeightSelf", key: "self" },
+    { id: "sliderWeightAlly", lbl: "lblWeightAlly", key: "ally" },
+    { id: "sliderWeightDebuff", lbl: "lblWeightDebuff", key: "debuff" },
+    { id: "sliderWeightStrat", lbl: "lblWeightStrat", key: "strat" },
+    { id: "sliderWeightSpec", lbl: "lblWeightSpec", key: "spec" }
+  ];
+  sliderDefs.forEach(def => {
+    const slider = document.getElementById(def.id);
+    const lbl = document.getElementById(def.lbl);
+    if (slider && lbl) {
+      slider.addEventListener("input", () => {
+        const val = parseInt(slider.value, 10);
+        tierWeights[def.key] = val;
+        lbl.textContent = `${val}点`;
+        const total = Object.values(tierWeights).reduce((a, b) => a + b, 0);
+        const badge = document.getElementById("tierTotalWeightBadge");
+        if (badge) badge.textContent = `合計: ${total}点`;
+        saveTierWeights();
+        computeCastleScores(tierWeights);
+        renderTierAutoBoard();
+      });
+    }
+  });
+
+  const btnResetWeights = document.getElementById("btnResetTierWeights");
+  if (btnResetWeights) {
+    btnResetWeights.addEventListener("click", () => {
+      tierWeights = { ...DEFAULT_TIER_WEIGHTS };
+      saveTierWeights();
+      syncWeightSlidersUI();
+      computeCastleScores(tierWeights);
+      renderTierAutoBoard();
+      showToast("評価重みをデフォルト値にリセットしました");
+    });
+  }
+
+  const btnClearOverrides = document.getElementById("btnClearTierOverrides");
+  if (btnClearOverrides) {
+    btnClearOverrides.addEventListener("click", () => {
+      const count = Object.keys(tierOverrides).length;
+      if (count === 0) {
+        showToast("手動上書きされた城娘はありません");
+        return;
+      }
+      if (confirm(`設定されている手動上書き(${count}体)をすべて解除して自動スコアに戻しますか？`)) {
+        tierOverrides = {};
+        saveTierOverrides();
+        renderTierAutoBoard();
+        showToast("すべての手動上書きを解除しました");
+      }
+    });
+  }
+
+  // Filter Listeners
+  ["tierAutoFilterWeapon", "tierAutoFilterType", "tierAutoFilterRangeKind", "tierAutoFilterOwnership"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("change", renderTierAutoBoard);
+  });
+  const searchInput = document.getElementById("tierAutoSearchInput");
+  if (searchInput) {
+    searchInput.addEventListener("input", renderTierAutoBoard);
+  }
+
+  // Image Export for Auto Tier
+  const btnExportAutoImg = document.getElementById("btnExportAutoTierImage");
+  if (btnExportAutoImg) {
+    btnExportAutoImg.addEventListener("click", () => {
+      const board = document.getElementById("tierAutoBoard");
+      if (!board) return;
+      showToast("📷 自動スコアティア表の画像を生成中...");
+      if (typeof html2canvas === "undefined") {
+        showToast("⚠️ html2canvas が読み込まれていません");
+        return;
+      }
+      html2canvas(board, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#f5f3f0"
+      }).then(canvas => {
+        const a = document.createElement("a");
+        a.download = `shiropro_auto_tier_${autoTierScope}.png`;
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+        showToast("✅ ティア表画像を保存しました");
+      }).catch(err => {
+        console.error("Export error:", err);
+        showToast("⚠️ 画像の保存に失敗しました: " + (err.message || err));
+      });
     });
   }
 
