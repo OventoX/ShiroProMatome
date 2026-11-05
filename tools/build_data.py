@@ -510,7 +510,21 @@ def main():
         except Exception as e:
             print("Failed to load real_castles_cache:", e)
 
+    # Load prefecture mapping (令制国・城名 -> 47都道府県)
+    pref_mapping_file = ROOT / "tools" / "prefecture_mapping.json"
+    pref_mapping = {"countryToPrefecture": {}, "castleOverrides": {}}
+    if pref_mapping_file.exists():
+        try:
+            with open(pref_mapping_file, "r", encoding="utf-8") as f:
+                pref_mapping = json.load(f)
+        except Exception as e:
+            print("Failed to load prefecture_mapping:", e)
+
+    country_to_pref = pref_mapping.get("countryToPrefecture", {})
+    castle_pref_overrides = pref_mapping.get("castleOverrides", {})
+
     real_count = 0
+    pref_count = 0
     for c in results:
         base_name = re.sub(r'^[［\[].*?[］\]]', '', c.get("name", "")).strip()
         rc = real_cache.get(base_name)
@@ -518,7 +532,16 @@ def main():
             c["realCastle"] = rc
             real_count += 1
 
-    print(f"Total parsed: {len(results)}, '無' count: {none_count}, With illustration: {illust_count}, With Ojou: {ojou_count}, With Taiha: {taiha_count}, With Tokugi: {tokugi_count}, With lore: {lore_count}, With realCastle: {real_count}")
+        # Determine modern prefecture
+        pref = castle_pref_overrides.get(base_name)
+        if not pref:
+            country = c.get("country", "")
+            pref = country_to_pref.get(country)
+        if pref:
+            c["prefecture"] = pref
+            pref_count += 1
+
+    print(f"Total parsed: {len(results)}, '無' count: {none_count}, With illustration: {illust_count}, With Ojou: {ojou_count}, With Taiha: {taiha_count}, With Tokugi: {tokugi_count}, With lore: {lore_count}, With realCastle: {real_count}, With prefecture: {pref_count}")
 
     rules_js = """// Generated data for scre-helper
 window.SCRE_RULES = {

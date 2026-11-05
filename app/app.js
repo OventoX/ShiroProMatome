@@ -698,6 +698,8 @@
       if (targetId === "tab-dashboard") renderDashboard();
       if (targetId === "tab-tier") renderTierTab();
       if (targetId === "tab-guides") renderGuidesTab();
+      if (targetId === "tab-map") renderMapTab();
+      if (targetId === "tab-quiz") renderQuizTab();
       if (targetId === "tab-special") renderSpecialTab();
       if (targetId === "tab-list") renderAllCastles();
     });
@@ -713,6 +715,8 @@
     if (simBody && simBody.style.display !== "none") {
       calculateGiantizeSimulation();
     }
+    if (typeof renderChallengeUI === "function") renderChallengeUI();
+    if (typeof renderDamageChecker === "function") renderDamageChecker(calcResult);
   }
 
   // 1. Render Party Slots (Showing dynamic live stats & Terrain Matching)
@@ -750,6 +754,10 @@
 
         let subInfo = "";
         if (castle) {
+          const isViolated = (typeof activeChallenge !== "undefined" && activeChallenge && !activeChallenge.checkFn(castle));
+          if (isViolated) {
+            card.classList.add("challenge-violation");
+          }
           const calc = calcResult && calcResult.perCastle[castle.id] ? calcResult.perCastle[castle.id].calculatedStats : null;
           const attrStr = castle.subType || castle.castleType;
           const matchBadge = (calc && calc.isTerrainMatch) ? `<span class="badge" style="background:#2c6f4f;color:#fff;font-size:9.5px;padding:1px 4px;margin-left:3px;" title="出撃地形一致: 巨大化消費気35%減＆合戦ステータス1.25倍">✓一致</span>` : '';
@@ -757,6 +765,9 @@
             subInfo = `★${castle.rarity} [${attrStr}]${matchBadge}・攻<strong style="color:var(--buff-color);">${calc.atk}</strong>・1撃<strong style="color:var(--buff-color);">${calc.singleHit}</strong>`;
           } else {
             subInfo = `★${castle.rarity} [${attrStr}]・攻${castle.stats.giant5.atk}・1撃${castle.stats.giant5.singleHit || '-'}`;
+          }
+          if (isViolated) {
+            subInfo += ` <span class="challenge-violation-tag" style="background:#dc3545;color:#fff;font-size:9.5px;padding:1px 5px;border-radius:3px;margin-left:4px;" title="縛り条件不適合">⚠️ 縛り不適合</span>`;
           }
         }
 
@@ -1534,6 +1545,16 @@
         if (filterOwnership === "fav" && !ownership.favorites.has(c.id)) return false;
       }
 
+      // A3: Extended filters (Illustrator, Voice Actor, Country)
+      const fIll = document.getElementById("filterIllustrator")?.value;
+      if (fIll && cleanIllustratorName(c.illustrator) !== fIll) return false;
+
+      const fVa = document.getElementById("filterVoiceActor")?.value;
+      if (fVa && (c.voiceActor || "").trim() !== fVa) return false;
+
+      const fCountry = document.getElementById("filterCountry")?.value;
+      if (fCountry && cleanCountryName(c.country) !== fCountry) return false;
+
       // Reverse Buff / Effect Filter
       if (filterBuff) {
         const allEffects = [];
@@ -1667,6 +1688,16 @@
     }
 
     const pageItems = filtered.slice((listCurrentPage - 1) * listPageSize, listCurrentPage * listPageSize);
+
+    const galleryEl = document.getElementById("allCastleGallery");
+    if (galleryEl) {
+      galleryEl.innerHTML = "";
+      if (listActiveViewMode === "gallery") {
+        pageItems.forEach(c => {
+          galleryEl.appendChild(renderGalleryTile(c));
+        });
+      }
+    }
 
     pageItems.forEach(c => {
       const inParty = party.some(p => p.id === c.id);
@@ -2765,6 +2796,7 @@
       </table>
     `;
 
+
     modal.classList.add("open");
   }
 
@@ -3606,6 +3638,7 @@
       buffContainer.innerHTML = `<span style="font-size:11px;color:var(--text-muted);">特効・バフ/デバフなし</span>`;
     }
 
+    if (typeof renderCastleSynergy === "function") renderCastleSynergy(c);
     modal.classList.add("open");
   }
 
@@ -6788,6 +6821,1137 @@
     });
   }
 
+// =========================================================================
+// Category A Features: A1-A6 Implementation for ShiroPro RE Helper
+// =========================================================================
+
+// --- A2: 縛り編成チャレンジ (Challenge Mode) ---
+const CHALLENGE_PRESETS = [
+  {
+    id: "attr_plain",
+    title: "平属性縛り",
+    desc: "平属性を持つ城娘のみで編成せよ",
+    checkFn: c => (c.attributes || [c.castleType]).includes("平")
+  },
+  {
+    id: "attr_mountain",
+    title: "山属性縛り",
+    desc: "山属性を持つ城娘のみで編成せよ",
+    checkFn: c => (c.attributes || [c.castleType]).includes("山")
+  },
+  {
+    id: "attr_water",
+    title: "水属性縛り",
+    desc: "水属性を持つ城娘のみで編成せよ",
+    checkFn: c => (c.attributes || [c.castleType]).includes("水")
+  },
+  {
+    id: "attr_plain_mountain",
+    title: "平山属性縛り",
+    desc: "平山属性を持つ城娘のみで編成せよ",
+    checkFn: c => (c.attributes || [c.castleType]).includes("平山")
+  },
+  {
+    id: "attr_hell",
+    title: "地獄属性縛り",
+    desc: "地獄属性を持つ城娘のみで編成せよ",
+    checkFn: c => (c.attributes || [c.castleType]).includes("地獄")
+  },
+  {
+    id: "rarity_max5",
+    title: "★5以下限定縛り",
+    desc: "レアリティ★5以下の城娘のみで編成せよ",
+    checkFn: c => (c.rarity || 1) <= 5
+  },
+  {
+    id: "rarity_max6",
+    title: "★6以下限定縛り",
+    desc: "レアリティ★6以下の城娘のみで編成せよ",
+    checkFn: c => (c.rarity || 1) <= 6
+  },
+  {
+    id: "weapon_melee",
+    title: "近接武器限定縛り",
+    desc: "刀・槍・槌・盾・拳・投剣・鎌・戦棍・陣貝・鞭など近接城娘のみで編成せよ",
+    checkFn: c => c.rangeKind === "近" || c.rangeKind === "遠近"
+  },
+  {
+    id: "weapon_ranged",
+    title: "遠隔武器限定縛り",
+    desc: "弓・石弓・鉄砲・大砲・歌舞・法術・鈴・杖・祓串・本など遠隔城娘のみで編成せよ",
+    checkFn: c => c.rangeKind === "遠" || c.rangeKind === "遠近"
+  },
+  {
+    id: "cost_max12",
+    title: "低消費気縛り (コスト12以下)",
+    desc: "初期配置消費気が12以下の城娘のみで編成せよ",
+    checkFn: c => (c.cost || 10) <= 12
+  },
+  {
+    id: "no_strategy",
+    title: "計略なし城娘縛り",
+    desc: "計略を持たない城娘のみで編成せよ",
+    checkFn: c => !c.strategy || !c.strategy.name || c.strategy.name === "計略なし"
+  }
+];
+
+let activeChallenge = null;
+
+function rollNewChallenge() {
+  const randIdx = Math.floor(Math.random() * CHALLENGE_PRESETS.length);
+  activeChallenge = CHALLENGE_PRESETS[randIdx];
+  renderChallengeUI();
+  renderDashboard();
+}
+
+function clearChallenge() {
+  activeChallenge = null;
+  renderChallengeUI();
+  renderDashboard();
+}
+
+function evaluatePartyChallenge() {
+  if (!activeChallenge) return { active: false, passed: true, count: 0, total: 0, violations: [] };
+  const violations = [];
+  let matchingCount = 0;
+  let activeTotal = 0;
+
+  for (let i = 0; i < 8; i++) {
+    const slot = party[i];
+    if (slot) {
+      activeTotal++;
+      const c = getCastleById(slot.id);
+      if (c && activeChallenge.checkFn(c)) {
+        matchingCount++;
+      } else {
+        violations.push(i);
+      }
+    }
+  }
+
+  const passed = activeTotal > 0 && violations.length === 0;
+  return {
+    active: true,
+    passed,
+    matchingCount,
+    activeTotal,
+    violations
+  };
+}
+
+function autoFillChallenge() {
+  if (!activeChallenge) {
+    rollNewChallenge();
+  }
+  if (!activeChallenge) return;
+
+  pushUndoSnapshot();
+
+  // Filter candidates matching condition
+  const candidates = SCRE_DATA.filter(c => activeChallenge.checkFn(c));
+  if (candidates.length === 0) {
+    alert("該当する城娘が見つかりませんでした。");
+    return;
+  }
+
+  // Prefer owned, then sort by rarity desc, then level
+  candidates.sort((a, b) => {
+    const aOwned = ownership.owned.has(a.id) ? 1 : 0;
+    const bOwned = ownership.owned.has(b.id) ? 1 : 0;
+    if (bOwned !== aOwned) return bOwned - aOwned;
+    if (b.rarity !== a.rarity) return b.rarity - a.rarity;
+    return (parseInt(b.bookNo, 10) || 0) - (parseInt(a.bookNo, 10) || 0);
+  });
+
+  // Pick up to 8 diverse candidates
+  const picked = [];
+  const usedWeapons = new Set();
+  
+  // First pass: try diverse weapons
+  for (const c of candidates) {
+    if (picked.length >= 8) break;
+    if (!usedWeapons.has(c.weapon)) {
+      picked.push(c);
+      usedWeapons.add(c.weapon);
+    }
+  }
+
+  // Second pass: fill remaining
+  for (const c of candidates) {
+    if (picked.length >= 8) break;
+    if (!picked.some(p => p.id === c.id)) {
+      picked.push(c);
+    }
+  }
+
+  party = picked.map(c => ({
+    id: c.id,
+    strategyOn: true,
+    specialOn: true
+  }));
+
+  if (partyPresets && partyPresets[currentPresetIdx]) {
+    partyPresets[currentPresetIdx].party = party;
+  }
+  saveParty();
+  updateUndoButtonUI();
+  renderChallengeUI();
+  renderDashboard();
+}
+
+function renderChallengeUI() {
+  const box = document.getElementById("dashboardChallengeBox");
+  const displayEl = document.getElementById("challengeRulesDisplay");
+  const badgeEl = document.getElementById("challengeStatusBadge");
+  if (!box || !displayEl || !badgeEl) return;
+
+  if (!activeChallenge) {
+    displayEl.innerHTML = `<span class="challenge-rule-chip" style="background:#f0ece1; color:var(--text-sub);">🎲 お題未設定（「お題を引く」を押してください）</span>`;
+    badgeEl.textContent = "未設定";
+    badgeEl.className = "challenge-status-badge badge-neutral";
+    return;
+  }
+
+  displayEl.innerHTML = `
+    <span class="challenge-rule-chip" style="background:#fff3cd; color:#856404; font-weight:bold; border-color:#ffeeba;">
+      🏷️ ${escapeHtml(activeChallenge.title)}
+    </span>
+    <span style="font-size:11.5px; color:var(--text-sub); display:inline-flex; align-items:center;">
+      ${escapeHtml(activeChallenge.desc)}
+    </span>
+  `;
+
+  const evalRes = evaluatePartyChallenge();
+  if (evalRes.activeTotal === 0) {
+    badgeEl.textContent = "編成なし";
+    badgeEl.className = "challenge-status-badge badge-neutral";
+  } else if (evalRes.passed) {
+    badgeEl.textContent = `達成中！ (${evalRes.matchingCount}/${evalRes.activeTotal})`;
+    badgeEl.className = "challenge-status-badge badge-pass";
+  } else {
+    badgeEl.textContent = `未達成 (${evalRes.matchingCount}/${evalRes.activeTotal} 適合)`;
+    badgeEl.className = "challenge-status-badge badge-violation";
+  }
+}
+
+// --- A5: ダメージチェッカー (Damage Simulator) ---
+function toggleDamageChecker() {
+  const body = document.getElementById("dmgCheckerBody");
+  const btn = document.getElementById("btnToggleDamageChecker");
+  if (!body) return;
+  const isHidden = body.style.display === "none" || !body.style.display;
+  body.style.display = isHidden ? "block" : "none";
+  if (btn) btn.textContent = isHidden ? "閉じる ▴" : "展開 ▾";
+  if (isHidden) {
+    renderDamageChecker();
+  }
+}
+
+function renderDamageChecker(providedCalcResult) {
+  const tbody = document.getElementById("dmgCheckerTbody");
+  if (!tbody) return;
+
+  const enemyDef = parseInt(document.getElementById("dmgEnemyDef")?.value, 10) || 500;
+  const enemyHp = parseInt(document.getElementById("dmgEnemyHp")?.value, 10) || 20000;
+  const enemyRed = (parseFloat(document.getElementById("dmgEnemyRed")?.value) || 0) / 100;
+  const immuneDefIgnore = document.getElementById("dmgEnemyImmuneDefIgnore")?.checked || false;
+
+  const calcResult = providedCalcResult || calculateBuffs();
+  tbody.innerHTML = "";
+
+  if (!calcResult || calcResult.activePartyMembers.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-sub); padding:16px;">編成に城娘がいません。</td></tr>`;
+    return;
+  }
+
+  party.forEach((slot, idx) => {
+    if (!slot) return;
+    const c = getCastleById(slot.id);
+    if (!c) return;
+
+    const calcData = calcResult.perCastle[c.id];
+    const calcStats = calcData ? calcData.calculatedStats : (c.stats ? c.stats.giant5 : { atk: 100 });
+    const finalAtk = Math.round(calcStats.atk || 100);
+
+    // Check defense ignore: 杖, 投剣, 鈴, or skills
+    const isMagicOrIgnore = (c.weapon === "杖" || c.weapon === "鈴" || c.weapon === "投剣");
+    const hasDefIgnoreSkill = calcData && calcData.activeBuffs && calcData.activeBuffs.some(b => b.stat === "defIgnore");
+    const effectiveIgnore = !immuneDefIgnore && (isMagicOrIgnore || hasDefIgnoreSkill);
+
+    const effDef = effectiveIgnore ? 0 : enemyDef;
+
+    // Damage Formula: max(atk * 0.1, atk - effDef)
+    const baseDamage = Math.max(Math.floor(finalAtk * 0.1), finalAtk - effDef);
+
+    // Apply damage multiplier buffs (与ダメ%)
+    let dmgMult = 1.0;
+    if (calcData && calcData.activeBuffs) {
+      const dmgBuff = calcData.activeBuffs.find(b => b.stat === "damagePercent");
+      if (dmgBuff) dmgMult += (dmgBuff.value / 100);
+    }
+
+    // Apply enemy damage reduction
+    const finalHitDamage = Math.max(1, Math.floor(baseDamage * dmgMult * (1.0 - enemyRed)));
+    const hitsToKill = Math.ceil(enemyHp / finalHitDamage);
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td style="text-align:center; font-weight:bold; color:var(--text-sub);">${idx + 1}</td>
+      <td>
+        <div style="display:flex; align-items:center; gap:6px;">
+          ${getIconHtml(c, 24)}
+          <div>
+            <strong style="font-size:12px; cursor:pointer;" onclick="openCastleDetail('${escapeHtml(c.id)}')">${escapeHtml(c.name)}</strong>
+            <span style="font-size:10.5px; color:var(--text-sub); margin-left:4px;">★${c.rarity} ${escapeHtml(c.weapon)}</span>
+          </div>
+        </div>
+      </td>
+      <td style="text-align:right; font-weight:bold; color:var(--buff-color); font-size:12.5px;">${finalAtk.toLocaleString()}</td>
+      <td style="text-align:right;">
+        <span style="font-weight:bold; color:#e67e22; font-size:13px;">${finalHitDamage.toLocaleString()}</span>
+        <div style="font-size:10px; color:var(--text-sub);">${effectiveIgnore ? '<span style="color:#27ae60;">防御無視</span>' : `実質防御: ${effDef}`}</div>
+      </td>
+      <td style="text-align:center;">
+        <span class="badge" style="background:${hitsToKill <= 5 ? '#27ae60' : hitsToKill <= 15 ? '#f39c12' : '#e74c3c'}; color:#fff; font-weight:bold; padding:2px 8px; border-radius:10px; font-size:11px;">
+          ${hitsToKill} hit
+        </span>
+      </td>
+      <td style="font-size:11px; color:var(--text-sub);">
+        ${dmgMult > 1.0 ? `<span style="color:#2980b9;">与ダメ+${Math.round((dmgMult - 1.0) * 100)}%</span> ` : ''}
+        ${effectiveIgnore ? `<span style="color:#27ae60;">[術/防御無視]</span> ` : ''}
+        ${(c.strategy && slot.strategyOn) ? `<span style="color:#8e44ad;">[計略中]</span>` : ''}
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// --- A3: 図鑑ギャラリー表示 & 拡張フィルタ (Gallery Mode & Extended Filters) ---
+let listActiveViewMode = localStorage.getItem("scre-helper:view-mode:v1") || "card";
+
+function setListViewMode(mode) {
+  listActiveViewMode = mode;
+  localStorage.setItem("scre-helper:view-mode:v1", mode);
+
+  const btnCard = document.getElementById("btnViewCard");
+  const btnGallery = document.getElementById("btnViewGallery");
+  const cardList = document.getElementById("allCastleList");
+  const galleryList = document.getElementById("allCastleGallery");
+
+  if (btnCard) btnCard.classList.toggle("active", mode === "card");
+  if (btnGallery) btnGallery.classList.toggle("active", mode === "gallery");
+
+  if (cardList && galleryList) {
+    if (mode === "gallery") {
+      cardList.style.display = "none";
+      galleryList.style.display = "grid";
+    } else {
+      cardList.style.display = "block";
+      galleryList.style.display = "none";
+    }
+  }
+  renderAllCastles();
+}
+
+function cleanIllustratorName(s) {
+  if (!s) return "";
+  let clean = s.replace(/&uploader\([^)]+\)/g, "").replace(/[()]/g, "").trim();
+  if (clean.length > 30) clean = clean.slice(0, 30);
+  return clean;
+}
+
+function cleanCountryName(s) {
+  if (!s) return "";
+  return s.replace(/[（）()]/g, "").replace(/架空城.*/, "").replace(/その他.*/, "").trim();
+}
+
+function populateGalleryFilterDropdowns() {
+  const illSel = document.getElementById("filterIllustrator");
+  const vaSel = document.getElementById("filterVoiceActor");
+  const couSel = document.getElementById("filterCountry");
+
+  if (!illSel || !vaSel || !couSel || !window.SCRE_DATA) return;
+
+  const illustrators = new Set();
+  const voiceActors = new Set();
+  const countries = new Set();
+
+  SCRE_DATA.forEach(c => {
+    const ill = cleanIllustratorName(c.illustrator);
+    if (ill && ill.length > 1 && !ill.includes("scre_")) illustrators.add(ill);
+    const va = (c.voiceActor || "").trim();
+    if (va && va.length > 1) voiceActors.add(va);
+    const cou = cleanCountryName(c.country);
+    if (cou && cou.length > 1) countries.add(cou);
+  });
+
+  Array.from(illustrators).sort().forEach(name => {
+    const opt = document.createElement("option");
+    opt.value = name;
+    opt.textContent = name;
+    illSel.appendChild(opt);
+  });
+
+  Array.from(voiceActors).sort().forEach(name => {
+    const opt = document.createElement("option");
+    opt.value = name;
+    opt.textContent = name;
+    vaSel.appendChild(opt);
+  });
+
+  Array.from(countries).sort().forEach(name => {
+    const opt = document.createElement("option");
+    opt.value = name;
+    opt.textContent = name;
+    couSel.appendChild(opt);
+  });
+}
+
+function renderGalleryTile(c) {
+  const tile = document.createElement("div");
+  tile.className = "gallery-castle-tile";
+  tile.setAttribute("data-id", c.id);
+
+  const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
+  const imgSrc = c.illustUrl || fallbackSrc;
+  const isOwned = ownership.owned.has(c.id);
+  const inParty = party.some(p => p.id === c.id);
+
+  const stages = c.remodelStages || ["無印"];
+  const stagesHtml = stages.map(st => `
+    <button type="button" class="gallery-stage-btn ${st === '改壱' ? 'active' : ''}" data-castle-id="${escapeHtml(c.id)}" data-stage="${st}">
+      ${st}
+    </button>
+  `).join("");
+
+  tile.innerHTML = `
+    <div class="gallery-tile-art-wrap">
+      <img src="${imgSrc}" onerror="this.src='${fallbackSrc}'" alt="${escapeHtml(c.name)}" class="gallery-tile-img" loading="lazy">
+      <div class="gallery-tile-badges">
+        <span class="badge badge-rarity badge-rarity-${c.rarity}">★${c.rarity}</span>
+        <span class="badge badge-attr badge-attr-${c.subType || c.castleType}">${c.subType || c.castleType}</span>
+        <span class="badge" style="background:#4a5568; color:#fff; font-size:10px;">${c.weapon}</span>
+      </div>
+      <div class="gallery-tile-stages">
+        ${stagesHtml}
+      </div>
+    </div>
+    <div class="gallery-tile-info">
+      <div class="gallery-tile-title-row">
+        <strong class="gallery-tile-name" title="${escapeHtml(c.name)}">${escapeHtml(c.name)}</strong>
+        ${c.realCastle ? '<span title="実在の城写真あり" style="cursor:help;">🏯</span>' : ''}
+      </div>
+      <div class="gallery-tile-ruby">${escapeHtml(c.ruby || '')}</div>
+      <div class="gallery-tile-credits">
+        ${c.illustrator ? `<span>🎨 ${escapeHtml(cleanIllustratorName(c.illustrator))}</span>` : ''}
+        ${c.voiceActor ? `<span>🎙️ ${escapeHtml(c.voiceActor)}</span>` : ''}
+      </div>
+      <div class="gallery-tile-actions">
+        <button type="button" class="btn btn-xs ${isOwned ? 'btn-success' : 'btn-outline'}" data-action="toggle-owned" data-id="${escapeHtml(c.id)}">
+          ${isOwned ? '✓ 所持' : '未所持'}
+        </button>
+        <button type="button" class="btn btn-xs btn-primary" data-action="detail" data-id="${escapeHtml(c.id)}">
+          詳細 ↗
+        </button>
+        <button type="button" class="btn btn-xs ${inParty ? 'btn-remove' : 'btn-outline'}" data-action="toggle-party" data-id="${escapeHtml(c.id)}">
+          ${inParty ? '✕ 編成外' : '+ 編成'}
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Remodel stage click
+  tile.querySelectorAll(".gallery-stage-btn").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      const st = btn.getAttribute("data-stage");
+      tile.querySelectorAll(".gallery-stage-btn").forEach(b => b.classList.toggle("active", b === btn));
+      const imgEl = tile.querySelector(".gallery-tile-img");
+      const imgSet = getCastleStageImages(c, st);
+      if (imgEl) imgEl.src = imgSet.illustUrl || fallbackSrc;
+    });
+  });
+
+  return tile;
+}
+
+// --- A4: 相性の良い城娘 (シナジー検索・相方探し) ---
+const synergyCache = new Map();
+
+function calculateCastleSynergy(targetCastle) {
+  if (!targetCastle) return [];
+  if (synergyCache.has(targetCastle.id)) {
+    return synergyCache.get(targetCastle.id);
+  }
+
+  const partners = [];
+  const targetAttr = targetCastle.subType || targetCastle.castleType;
+  const targetRange = targetCastle.rangeKind || "近";
+
+  // Pre-filter candidate partners that provide buffs
+  SCRE_DATA.forEach(p => {
+    if (p.id === targetCastle.id) return;
+
+    let score = 0;
+    const reasons = [];
+
+    const pAttr = p.subType || p.castleType;
+    if (pAttr === targetAttr) {
+      score += 15;
+      reasons.push("🌿 地形一致");
+    }
+
+    // Complementary range kinds
+    if ((targetRange === "近" && p.rangeKind === "遠") || (targetRange === "遠" && p.rangeKind === "近")) {
+      score += 10;
+      reasons.push("⚖️ 前衛・後衛調和");
+    }
+
+    // Inspect buffs provided by p
+    const allPEffects = [];
+    if (p.skill && p.skill.effects) allPEffects.push(...p.skill.effects);
+    if (p.strategy && p.strategy.effects) allPEffects.push(...p.strategy.effects);
+
+    allPEffects.forEach(ef => {
+      if (ef.target === "self") return; // skip self-only buffs
+      if (ef.stat === "attackPercent" || ef.stat === "attackFlat") {
+        score += 25;
+        if (!reasons.includes("⚔️ 攻撃力強化")) reasons.push("⚔️ 攻撃力強化");
+      } else if (ef.stat === "rangePercent" || ef.stat === "rangeFlat") {
+        score += 20;
+        if (!reasons.includes("🎯 射程拡大")) reasons.push("🎯 射程拡大");
+      } else if (ef.stat === "speedPercent" || ef.stat === "gapShorten") {
+        score += 20;
+        if (!reasons.includes("⚡ 速度・隙短縮")) reasons.push("⚡ 速度・隙短縮");
+      } else if (ef.stat === "damagePercent") {
+        score += 25;
+        if (!reasons.includes("💥 与ダメ上昇")) reasons.push("💥 与ダメ上昇");
+      } else if (ef.stat === "kiReduction" || ef.stat === "kiRegen") {
+        score += 15;
+        if (!reasons.includes("✨ 気軽減・増")) reasons.push("✨ 気軽減・増");
+      }
+    });
+
+    // Check if targetCastle provides 鼓舞 or ally buffs that p benefits from
+    const targetEffects = [];
+    if (targetCastle.skill && targetCastle.skill.effects) targetEffects.push(...targetCastle.skill.effects);
+    if (targetCastle.strategy && targetCastle.strategy.effects) targetEffects.push(...targetCastle.strategy.effects);
+
+    targetEffects.forEach(ef => {
+      if (ef.target !== "self") {
+        score += 10;
+        if (!reasons.includes("🤝 相互鼓舞・支援")) reasons.push("🤝 相互鼓舞・支援");
+      }
+    });
+
+    if (score >= 25) {
+      // Bonus if user owns this partner
+      const isOwned = ownership.owned.has(p.id);
+      partners.push({
+        castle: p,
+        score: score + (isOwned ? 5 : 0),
+        reasons: reasons.slice(0, 3),
+        isOwned
+      });
+    }
+  });
+
+  partners.sort((a, b) => b.score - a.score);
+  const top10 = partners.slice(0, 10);
+  synergyCache.set(targetCastle.id, top10);
+  return top10;
+}
+
+function renderCastleSynergy(targetCastle) {
+  const container = document.getElementById("detailSynergyList");
+  if (!container) return;
+
+  const topPartners = calculateCastleSynergy(targetCastle);
+  if (topPartners.length === 0) {
+    container.innerHTML = `<div style="font-size:11.5px; color:var(--text-sub); padding:10px;">相乗効果の高い相方候補が見つかりませんでした。</div>`;
+    return;
+  }
+
+  container.innerHTML = topPartners.map(({ castle: p, score, reasons, isOwned }) => {
+    const inParty = party.some(slot => slot && slot.id === p.id);
+    const badgesHtml = reasons.map(r => `<span class="synergy-chip">${escapeHtml(r)}</span>`).join("");
+
+    return `
+      <div class="synergy-card">
+        <div class="synergy-card-left" onclick="openCastleDetail('${escapeHtml(p.id)}')" style="cursor:pointer;" title="詳細を見る">
+          ${getIconHtml(p, 36)}
+          <div class="synergy-card-info">
+            <div class="synergy-card-name">
+              <strong>${escapeHtml(p.name)}</strong>
+              <span style="font-size:10.5px; color:var(--text-sub); margin-left:3px;">★${p.rarity} [${p.subType || p.castleType}] ${p.weapon}</span>
+              ${isOwned ? '<span style="font-size:9.5px; color:#27ae60; margin-left:3px;">✓所持</span>' : ''}
+            </div>
+            <div class="synergy-badges-row">
+              ${badgesHtml}
+            </div>
+          </div>
+        </div>
+        <div class="synergy-card-right">
+          <button type="button" class="btn btn-xs ${inParty ? 'btn-remove' : 'btn-primary'}" onclick="quickToggleParty('${escapeHtml(p.id)}')">
+            ${inParty ? '✕ 編成外' : '+ 編成'}
+          </button>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function quickToggleParty(castleId) {
+  pushUndoSnapshot();
+  const inPartyIdx = party.findIndex(p => p && p.id === castleId);
+  if (inPartyIdx >= 0) {
+    party.splice(inPartyIdx, 1);
+  } else {
+    if (party.length >= 8) {
+      alert("編成枠がいっぱいです (最大8体)。空き枠を作ってください。");
+      return;
+    }
+    party.push({ id: castleId, strategyOn: true, specialOn: true });
+  }
+  if (partyPresets && partyPresets[currentPresetIdx]) {
+    partyPresets[currentPresetIdx].party = party;
+  }
+  saveParty();
+  updateUndoButtonUI();
+  renderDashboard();
+  if (activeDetailCastleId) {
+    const c = getCastleById(activeDetailCastleId);
+    if (c) renderCastleSynergy(c);
+  }
+}
+
+// --- A6: 城巡りマップ (Prefecture Cartogram & Real Castle Photos) ---
+const JAPAN_PREFECTURES = [
+  { id: "hokkaido", name: "北海道", x: 10, y: 0, region: "北海道" },
+  { id: "aomori", name: "青森県", x: 10, y: 1, region: "東北" },
+  { id: "iwate", name: "岩手県", x: 10, y: 2, region: "東北" },
+  { id: "akita", name: "秋田県", x: 9, y: 2, region: "東北" },
+  { id: "miyagi", name: "宮城県", x: 10, y: 3, region: "東北" },
+  { id: "yamagata", name: "山形県", x: 9, y: 3, region: "東北" },
+  { id: "fukushima", name: "福島県", x: 10, y: 4, region: "東北" },
+  { id: "ibaraki", name: "茨城県", x: 10, y: 5, region: "関東" },
+  { id: "tochigi", name: "栃木県", x: 9, y: 5, region: "関東" },
+  { id: "gunma", name: "群馬県", x: 8, y: 5, region: "関東" },
+  { id: "chiba", name: "千葉県", x: 10, y: 6, region: "関東" },
+  { id: "saitama", name: "埼玉県", x: 9, y: 6, region: "関東" },
+  { id: "tokyo", name: "東京都", x: 9, y: 7, region: "関東" },
+  { id: "kanagawa", name: "神奈川県", x: 9, y: 8, region: "関東" },
+  { id: "niigata", name: "新潟県", x: 8, y: 4, region: "中部" },
+  { id: "toyama", name: "富山県", x: 7, y: 4, region: "中部" },
+  { id: "ishikawa", name: "石川県", x: 6, y: 4, region: "中部" },
+  { id: "fukui", name: "福井県", x: 6, y: 5, region: "中部" },
+  { id: "nagano", name: "長野県", x: 8, y: 6, region: "中部" },
+  { id: "yamanashi", name: "山梨県", x: 8, y: 7, region: "中部" },
+  { id: "gifu", name: "岐阜県", x: 7, y: 6, region: "中部" },
+  { id: "shizuoka", name: "静岡県", x: 8, y: 8, region: "中部" },
+  { id: "aichi", name: "愛知県", x: 7, y: 7, region: "中部" },
+  { id: "mie", name: "三重県", x: 6, y: 7, region: "近畿" },
+  { id: "shiga", name: "滋賀県", x: 6, y: 6, region: "近畿" },
+  { id: "kyoto", name: "京都府", x: 5, y: 5, region: "近畿" },
+  { id: "osaka", name: "大阪府", x: 5, y: 6, region: "近畿" },
+  { id: "hyogo", name: "兵庫県", x: 4, y: 5, region: "近畿" },
+  { id: "nara", name: "奈良県", x: 5, y: 7, region: "近畿" },
+  { id: "wakayama", name: "和歌山県", x: 5, y: 8, region: "近畿" },
+  { id: "tottori", name: "鳥取県", x: 3, y: 5, region: "中国" },
+  { id: "shimane", name: "島根県", x: 2, y: 5, region: "中国" },
+  { id: "okayama", name: "岡山県", x: 3, y: 6, region: "中国" },
+  { id: "hiroshima", name: "広島県", x: 2, y: 6, region: "中国" },
+  { id: "yamaguchi", name: "山口県", x: 1, y: 6, region: "中国" },
+  { id: "kagawa", name: "香川県", x: 3, y: 7, region: "四国" },
+  { id: "tokushima", name: "徳島県", x: 3, y: 8, region: "四国" },
+  { id: "ehime", name: "愛媛県", x: 2, y: 7, region: "四国" },
+  { id: "kochi", name: "高知県", x: 2, y: 8, region: "四国" },
+  { id: "fukuoka", name: "福岡県", x: 1, y: 7, region: "九州" },
+  { id: "saga", name: "佐賀県", x: 0, y: 7, region: "九州" },
+  { id: "nagasaki", name: "長崎県", x: 0, y: 8, region: "九州" },
+  { id: "oita", name: "大分県", x: 1, y: 8, region: "九州" },
+  { id: "kumamoto", name: "熊本県", x: 0, y: 9, region: "九州" },
+  { id: "miyazaki", name: "宮崎県", x: 1, y: 9, region: "九州" },
+  { id: "kagoshima", name: "鹿児島県", x: 0, y: 10, region: "九州" },
+  { id: "okinawa", name: "沖縄県", x: 3, y: 10, region: "沖縄" }
+];
+
+let selectedMapPref = "兵庫県";
+
+function renderMapTab() {
+  const container = document.getElementById("japanMapSvgContainer");
+  const prefCountEl = document.getElementById("mapVisitedPrefCount");
+  const realCountEl = document.getElementById("mapVisitedRealCount");
+  const totalRealEl = document.getElementById("mapTotalRealCount");
+
+  if (!container || !window.SCRE_DATA) return;
+
+  // Compute counts per prefecture
+  const prefCastles = new Map();
+  let totalReal = 0;
+  let ownedReal = 0;
+
+  SCRE_DATA.forEach(c => {
+    if (c.realCastle) {
+      totalReal++;
+      if (ownership.owned.has(c.id)) ownedReal++;
+    }
+    if (c.prefecture) {
+      if (!prefCastles.has(c.prefecture)) {
+        prefCastles.set(c.prefecture, []);
+      }
+      prefCastles.get(c.prefecture).push(c);
+    }
+  });
+
+  let visitedPrefCount = 0;
+  JAPAN_PREFECTURES.forEach(p => {
+    const list = prefCastles.get(p.name) || [];
+    const ownedInPref = list.filter(c => ownership.owned.has(c.id)).length;
+    if (ownedInPref > 0) visitedPrefCount++;
+  });
+
+  if (prefCountEl) prefCountEl.textContent = `${visitedPrefCount} / 47`;
+  if (realCountEl) realCountEl.textContent = `${ownedReal}`;
+  if (totalRealEl) totalRealEl.textContent = `${totalReal}`;
+
+  // Build SVG Cartogram: 11 x 11 grid, cellSize 52px, viewBox 0 0 620 620
+  const cellSize = 50;
+  const gap = 4;
+  const offsetX = 10;
+  const offsetY = 10;
+
+  const tilesSvg = JAPAN_PREFECTURES.map(p => {
+    const list = prefCastles.get(p.name) || [];
+    const total = list.length;
+    const owned = list.filter(c => ownership.owned.has(c.id)).length;
+    const isSelected = p.name === selectedMapPref;
+    const ratio = total > 0 ? (owned / total) : 0;
+
+    const px = offsetX + p.x * (cellSize + gap);
+    const py = offsetY + p.y * (cellSize + gap);
+
+    // Color based on region and ownership
+    let fillColor = "#e2e8f0";
+    let textColor = "#4a5568";
+    if (owned > 0) {
+      if (ratio === 1) {
+        fillColor = "#27ae60"; // 100% completed!
+        textColor = "#ffffff";
+      } else if (ratio >= 0.5) {
+        fillColor = "#2980b9";
+        textColor = "#ffffff";
+      } else {
+        fillColor = "#d4e6f1";
+        textColor = "#1b4f72";
+      }
+    }
+
+    const shortName = p.name.replace(/[都府県]/, "");
+    const strokeAttr = isSelected ? 'stroke="#e74c3c" stroke-width="3"' : 'stroke="#cbd5e0" stroke-width="1"';
+
+    return `
+      <g class="map-pref-tile" data-pref="${escapeHtml(p.name)}" style="cursor:pointer;" transform="translate(${px}, ${py})">
+        <rect width="${cellSize}" height="${cellSize}" rx="6" fill="${fillColor}" ${strokeAttr} />
+        <text x="${cellSize / 2}" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="${textColor}">${shortName}</text>
+        <text x="${cellSize / 2}" y="36" text-anchor="middle" font-size="10" fill="${textColor}">${owned}/${total}</text>
+      </g>
+    `;
+  }).join("");
+
+  container.innerHTML = `
+    <svg viewBox="0 0 620 620" class="japan-cartogram-svg" style="width:100%; height:auto; max-height:560px;">
+      ${tilesSvg}
+    </svg>
+  `;
+
+  // Attach click listeners to tiles
+  container.querySelectorAll(".map-pref-tile").forEach(tile => {
+    tile.addEventListener("click", () => {
+      const pref = tile.getAttribute("data-pref");
+      if (pref) selectMapPrefecture(pref);
+    });
+  });
+
+  selectMapPrefecture(selectedMapPref);
+}
+
+function selectMapPrefecture(prefName) {
+  selectedMapPref = prefName;
+
+  // Re-highlight SVG tiles
+  document.querySelectorAll("#japanMapSvgContainer .map-pref-tile").forEach(tile => {
+    const isSel = tile.getAttribute("data-pref") === prefName;
+    const rect = tile.querySelector("rect");
+    if (rect) {
+      rect.setAttribute("stroke", isSel ? "#e74c3c" : "#cbd5e0");
+      rect.setAttribute("stroke-width", isSel ? "3" : "1");
+    }
+  });
+
+  const placeholder = document.getElementById("mapPrefPlaceholder");
+  const content = document.getElementById("mapPrefContent");
+  if (!content) return;
+
+  if (placeholder) placeholder.style.display = "none";
+  content.style.display = "block";
+
+  const list = SCRE_DATA.filter(c => c.prefecture === prefName);
+  const ownedCount = list.filter(c => ownership.owned.has(c.id)).length;
+  const pct = list.length > 0 ? Math.round((ownedCount / list.length) * 100) : 0;
+
+  // Sort: owned first, then rarity desc
+  list.sort((a, b) => {
+    const aOwned = ownership.owned.has(a.id) ? 1 : 0;
+    const bOwned = ownership.owned.has(b.id) ? 1 : 0;
+    if (bOwned !== aOwned) return bOwned - aOwned;
+    return (b.rarity || 1) - (a.rarity || 1);
+  });
+
+  const castlesHtml = list.map(c => {
+    const isOwned = ownership.owned.has(c.id);
+    const rc = c.realCastle;
+
+    return `
+      <div class="map-castle-card" style="display:flex; gap:10px; padding:8px; border-bottom:1px solid var(--border-color); align-items:center;">
+        <div onclick="openCastleDetail('${escapeHtml(c.id)}')" style="cursor:pointer;" title="詳細を見る">
+          ${getIconHtml(c, 40)}
+        </div>
+        <div style="flex:1; min-width:0;">
+          <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
+            <strong style="font-size:12.5px; cursor:pointer;" onclick="openCastleDetail('${escapeHtml(c.id)}')">${escapeHtml(c.name)}</strong>
+            <span class="badge badge-rarity badge-rarity-${c.rarity}">★${c.rarity}</span>
+            <span class="badge badge-attr badge-attr-${c.subType || c.castleType}">${c.subType || c.castleType}</span>
+            <span style="font-size:11px; color:var(--text-sub);">${c.weapon}</span>
+          </div>
+          ${rc ? `
+            <div style="font-size:11px; color:var(--text-sub); margin-top:3px; display:flex; align-items:center; gap:4px;">
+              <span>🏯 実城: ${escapeHtml(rc.name)}</span>
+              ${rc.photoUrl ? `<a href="${escapeHtml(rc.photoUrl)}" target="_blank" rel="noopener noreferrer" style="color:#2980b9; font-size:10.5px;">[写真 ↗]</a>` : ''}
+              ${rc.articleUrl ? `<a href="${escapeHtml(rc.articleUrl)}" target="_blank" rel="noopener noreferrer" style="color:#2980b9; font-size:10.5px;">[Wiki ↗]</a>` : ''}
+            </div>
+          ` : ''}
+        </div>
+        <div>
+          <button type="button" class="btn btn-xs ${isOwned ? 'btn-success' : 'btn-outline'}" data-action="toggle-owned" data-id="${escapeHtml(c.id)}">
+            ${isOwned ? '✓ 所持' : '未所持'}
+          </button>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  content.innerHTML = `
+    <div style="margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border-color);">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3 style="margin:0; font-size:16px;">📍 ${escapeHtml(prefName)}</h3>
+        <span style="font-weight:bold; font-size:13px; color:#27ae60;">制覇率: ${ownedCount} / ${list.length} 城 (${pct}%)</span>
+      </div>
+      <div style="background:#e2e8f0; border-radius:6px; height:8px; width:100%; margin-top:6px; overflow:hidden;">
+        <div style="background:#27ae60; height:100%; width:${pct}%;"></div>
+      </div>
+    </div>
+    <div class="map-pref-castles-list" style="max-height:460px; overflow-y:auto;">
+      ${list.length > 0 ? castlesHtml : '<div style="color:var(--text-sub); padding:12px;">この都道府県に紐付く城娘は登録されていません。</div>'}
+    </div>
+  `;
+}
+
+// --- A1: 城娘クイズ (tab-quiz) ---
+let quizActiveFormat = "ruby"; // 'ruby' | 'icon' | 'photo'
+let quizQuestions = [];
+let quizCurrentIndex = 0;
+let quizScore = 0;
+
+function renderQuizTab() {
+  const bestScoreEl = document.getElementById("quizBestScore");
+  if (bestScoreEl) {
+    const saved = localStorage.getItem("scre-helper:quiz:v1");
+    bestScoreEl.textContent = saved ? `自己ベスト: ${saved}点` : "自己ベスト: 未挑戦";
+  }
+
+  // Format button listeners
+  const formatBtns = document.querySelectorAll("#quizFormatBtns .btn-quiz-format");
+  formatBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      formatBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      quizActiveFormat = btn.getAttribute("data-format") || "ruby";
+    });
+  });
+
+  const btnStart = document.getElementById("btnStartQuiz");
+  if (btnStart) {
+    btnStart.onclick = () => startQuiz(quizActiveFormat);
+  }
+
+  const btnRestart = document.getElementById("btnRestartQuiz");
+  if (btnRestart) {
+    btnRestart.onclick = () => {
+      document.getElementById("quizResultCard").style.display = "none";
+      startQuiz(quizActiveFormat);
+    };
+  }
+
+  const btnNext = document.getElementById("btnNextQuizQuestion");
+  if (btnNext) {
+    btnNext.onclick = nextQuizQuestion;
+  }
+}
+
+function startQuiz(format) {
+  quizActiveFormat = format || "ruby";
+  quizCurrentIndex = 0;
+  quizScore = 0;
+
+  // Filter pool based on format
+  let pool = SCRE_DATA;
+  if (quizActiveFormat === "photo") {
+    pool = SCRE_DATA.filter(c => c.realCastle && c.realCastle.photoUrl);
+  } else if (quizActiveFormat === "ruby") {
+    pool = SCRE_DATA.filter(c => c.ruby && c.ruby.trim().length > 0);
+  }
+
+  if (pool.length < 4) {
+    alert("クイズ対象の城娘データが不足しています。");
+    return;
+  }
+
+  // Shuffle and pick 10 target castles
+  const shuffled = pool.slice().sort(() => Math.random() - 0.5);
+  const targets = shuffled.slice(0, 10);
+
+  quizQuestions = targets.map(target => {
+    // Pick 3 wrong choices
+    const wrong = pool.filter(c => c.id !== target.id).sort(() => Math.random() - 0.5).slice(0, 3);
+    const choices = [target, ...wrong].sort(() => Math.random() - 0.5);
+    return {
+      target,
+      choices,
+      answered: false,
+      selectedId: null,
+      isCorrect: false
+    };
+  });
+
+  document.getElementById("quizCard").style.display = "block";
+  document.getElementById("quizResultCard").style.display = "none";
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  const q = quizQuestions[quizCurrentIndex];
+  if (!q) return;
+
+  const numEl = document.getElementById("quizQuestionNum");
+  const trackerEl = document.getElementById("quizScoreTracker");
+  const clueEl = document.getElementById("quizClueArea");
+  const choicesEl = document.getElementById("quizChoicesGrid");
+  const feedbackEl = document.getElementById("quizFeedbackBox");
+
+  if (numEl) numEl.textContent = `第 ${quizCurrentIndex + 1} 問 / 全 10 問`;
+  if (trackerEl) trackerEl.textContent = `正解数: ${quizScore}`;
+  if (feedbackEl) feedbackEl.style.display = "none";
+
+  // Clue display based on format
+  if (clueEl) {
+    if (quizActiveFormat === "ruby") {
+      clueEl.innerHTML = `
+        <div style="font-size:12px; color:var(--text-sub); margin-bottom:6px;">このふりがなの城娘はだれ？</div>
+        <div class="quiz-ruby-clue" style="font-size:24px; font-weight:bold; color:var(--primary-color); letter-spacing:2px;">
+          「${escapeHtml(q.target.ruby)}」
+        </div>
+      `;
+    } else if (quizActiveFormat === "icon") {
+      const fallbackSrc = `icons/${encodeURIComponent(q.target.name)}.png`;
+      clueEl.innerHTML = `
+        <div style="font-size:12px; color:var(--text-sub); margin-bottom:8px;">この顔の城娘はだれ？ (アイコン拡大)</div>
+        <div class="quiz-face-zoom-box" style="width:110px; height:110px; border-radius:50%; overflow:hidden; margin:0 auto; box-shadow:0 4px 10px rgba(0,0,0,0.15); border:3px solid var(--border-color);">
+          <img src="${fallbackSrc}" onerror="this.src='${fallbackSrc}'" style="width:100%; height:100%; object-fit:cover; transform:scale(2.2); transform-origin:center;" alt="クイズ手がかり" />
+        </div>
+      `;
+    } else if (quizActiveFormat === "photo") {
+      const rc = q.target.realCastle;
+      clueEl.innerHTML = `
+        <div style="font-size:12px; color:var(--text-sub); margin-bottom:8px;">この実在する城をモチーフにした城娘はだれ？</div>
+        <div style="max-width:340px; margin:0 auto; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.12); border:1px solid var(--border-color);">
+          <img src="${escapeHtml(rc.photoUrl)}" style="width:100%; max-height:220px; object-fit:cover; display:block;" alt="実城写真" />
+          <div style="font-size:10.5px; color:var(--text-sub); padding:4px 8px; background:#fafafa; text-align:center;">
+            出典: ${escapeHtml(rc.author || 'Wikimedia Commons')} (${escapeHtml(rc.license || 'CC BY-SA')})
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // Choices grid
+  if (choicesEl) {
+    choicesEl.innerHTML = q.choices.map((c, idx) => `
+      <button type="button" class="btn btn-outline quiz-choice-btn" data-choice-id="${escapeHtml(c.id)}" style="display:flex; align-items:center; gap:8px; padding:10px; text-align:left;">
+        <span style="font-weight:bold; font-size:13px; color:var(--text-sub); width:20px;">${idx + 1}.</span>
+        <div style="flex:1;">
+          <strong style="font-size:13px;">${escapeHtml(c.name)}</strong>
+          <div style="font-size:11px; color:var(--text-sub);">★${c.rarity} [${c.subType || c.castleType}] ${c.weapon}</div>
+        </div>
+      </button>
+    `).join("");
+
+    choicesEl.querySelectorAll(".quiz-choice-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const chosenId = btn.getAttribute("data-choice-id");
+        if (chosenId) handleQuizChoice(chosenId);
+      });
+    });
+  }
+}
+
+function handleQuizChoice(chosenId) {
+  const q = quizQuestions[quizCurrentIndex];
+  if (!q || q.answered) return;
+
+  q.answered = true;
+  q.selectedId = chosenId;
+  q.isCorrect = (chosenId === q.target.id);
+  if (q.isCorrect) quizScore++;
+
+  // Highlight choices
+  const choicesEl = document.getElementById("quizChoicesGrid");
+  if (choicesEl) {
+    choicesEl.querySelectorAll(".quiz-choice-btn").forEach(btn => {
+      btn.disabled = true;
+      const cid = btn.getAttribute("data-choice-id");
+      if (cid === q.target.id) {
+        btn.classList.remove("btn-outline");
+        btn.classList.add("quiz-choice-correct");
+        btn.style.background = "#d4edda";
+        btn.style.borderColor = "#28a745";
+        btn.style.color = "#155724";
+      } else if (cid === chosenId && !q.isCorrect) {
+        btn.classList.remove("btn-outline");
+        btn.classList.add("quiz-choice-wrong");
+        btn.style.background = "#f8d7da";
+        btn.style.borderColor = "#dc3545";
+        btn.style.color = "#721c24";
+      }
+    });
+  }
+
+  // Feedback box
+  const feedbackEl = document.getElementById("quizFeedbackBox");
+  const msgEl = document.getElementById("quizFeedbackMessage");
+  const detailActionEl = document.getElementById("quizFeedbackDetailAction");
+  const nextBtn = document.getElementById("btnNextQuizQuestion");
+
+  if (feedbackEl && msgEl) {
+    feedbackEl.style.display = "block";
+    if (q.isCorrect) {
+      msgEl.innerHTML = `<span style="color:#27ae60; font-weight:bold; font-size:15px;">🎉 正解！</span> 見事です！`;
+    } else {
+      msgEl.innerHTML = `<span style="color:#e74c3c; font-weight:bold; font-size:15px;">❌ 不正解...</span> 正解は <strong>「${escapeHtml(q.target.name)}」</strong> でした。`;
+    }
+
+    if (detailActionEl) {
+      detailActionEl.innerHTML = `
+        <button type="button" class="btn btn-xs btn-outline" onclick="openCastleDetail('${escapeHtml(q.target.id)}')">
+          城娘詳細を見る ↗
+        </button>
+      `;
+    }
+
+    if (nextBtn) {
+      nextBtn.textContent = (quizCurrentIndex + 1 < quizQuestions.length) ? "次の問題へ ➔" : "結果発表 🏆";
+    }
+  }
+
+  const trackerEl = document.getElementById("quizScoreTracker");
+  if (trackerEl) trackerEl.textContent = `正解数: ${quizScore}`;
+}
+
+function nextQuizQuestion() {
+  quizCurrentIndex++;
+  if (quizCurrentIndex < quizQuestions.length) {
+    renderQuizQuestion();
+  } else {
+    showQuizResult();
+  }
+}
+
+function showQuizResult() {
+  document.getElementById("quizCard").style.display = "none";
+  const resultCard = document.getElementById("quizResultCard");
+  const titleEl = document.getElementById("quizResultTitle");
+  const scoreEl = document.getElementById("quizResultScore");
+  const commentEl = document.getElementById("quizResultComment");
+
+  if (!resultCard) return;
+  resultCard.style.display = "block";
+
+  const total = quizQuestions.length;
+  const pct = Math.round((quizScore / total) * 100);
+
+  if (scoreEl) scoreEl.textContent = `${quizScore} / ${total} 問正解 (${pct}点)`;
+
+  let rankTitle = "見習い殿";
+  let rankComment = "日々修練中！もっと城娘たちと触れ合いましょう♪";
+
+  if (pct === 100) {
+    rankTitle = "👑 天下無双の城郭博士！城プロREマスター殿！";
+    rankComment = "全問正解！素晴らしい知識です！全国の城娘たちも大喜びしています！";
+  } else if (pct >= 80) {
+    rankTitle = "🏯 一国一城の主！上級殿！";
+    rankComment = "素晴らしい正解率です！ほぼ完璧に城娘たちを把握しています！";
+  } else if (pct >= 50) {
+    rankTitle = "⚔️ 一騎当千の将！中堅殿！";
+    rankComment = "半分以上正解！あと少しで上級殿の仲間入りです！";
+  }
+
+  if (titleEl) titleEl.textContent = rankTitle;
+  if (commentEl) commentEl.textContent = rankComment;
+
+  // Save best score
+  const saved = parseInt(localStorage.getItem("scre-helper:quiz:v1"), 10) || 0;
+  if (pct > saved) {
+    localStorage.setItem("scre-helper:quiz:v1", pct.toString());
+  }
+
+  const bestScoreEl = document.getElementById("quizBestScore");
+  if (bestScoreEl) {
+    const curBest = Math.max(saved, pct);
+    bestScoreEl.textContent = `自己ベスト: ${curBest}点`;
+  }
+}
+
+
+  // A2: Challenge buttons
+  const btnRollChal = document.getElementById("btnRollChallenge");
+  if (btnRollChal) btnRollChal.addEventListener("click", rollNewChallenge);
+  const btnAutoChal = document.getElementById("btnAutoFillChallenge");
+  if (btnAutoChal) btnAutoChal.addEventListener("click", autoFillChallenge);
+  const btnClearChal = document.getElementById("btnClearChallenge");
+  if (btnClearChal) btnClearChal.addEventListener("click", clearChallenge);
+
+  // A5: Damage Checker buttons & inputs
+  const btnTogDmg = document.getElementById("btnToggleDamageChecker");
+  if (btnTogDmg) btnTogDmg.addEventListener("click", toggleDamageChecker);
+  const hdrDmg = document.getElementById("dmgCheckerHeader");
+  if (hdrDmg) hdrDmg.addEventListener("click", toggleDamageChecker);
+  const btnRecalcDmg = document.getElementById("btnRecalcDamage");
+  if (btnRecalcDmg) btnRecalcDmg.addEventListener("click", () => renderDamageChecker());
+  ["dmgEnemyDef", "dmgEnemyHp", "dmgEnemyRed", "dmgEnemyImmuneDefIgnore"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("change", () => renderDamageChecker());
+  });
+
+  // A3: View mode buttons & extended filters
+  const btnVCard = document.getElementById("btnViewCard");
+  if (btnVCard) btnVCard.addEventListener("click", () => setListViewMode("card"));
+  const btnVGallery = document.getElementById("btnViewGallery");
+  if (btnVGallery) btnVGallery.addEventListener("click", () => setListViewMode("gallery"));
+  ["filterIllustrator", "filterVoiceActor", "filterCountry"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("change", () => { listCurrentPage = 1; renderAllCastles(); });
+  });
+
   // Maker: Export custom image
   const btnExpCustom = document.getElementById("btnExportCustomTierImage");
   if (btnExpCustom) {
@@ -6824,6 +7988,27 @@
   const initFontSize = loadFontSizeSetting();
   applyFontSizeSetting(initFontSize);
 
+  populateGalleryFilterDropdowns();
+  setListViewMode(listActiveViewMode);
+  renderChallengeUI();
+
   renderPresetBar();
   renderDashboard();
+
+  // Window exports for testing and external triggers
+  window.rollNewChallenge = rollNewChallenge;
+  window.clearChallenge = clearChallenge;
+  window.autoFillChallenge = autoFillChallenge;
+  window.getActiveChallenge = () => activeChallenge;
+  window.renderDamageChecker = renderDamageChecker;
+  window.toggleDamageChecker = toggleDamageChecker;
+  window.selectMapPrefecture = selectMapPrefecture;
+  window.renderMapTab = renderMapTab;
+  window.startQuiz = startQuiz;
+  window.handleQuizChoice = handleQuizChoice;
+  window.renderQuizTab = renderQuizTab;
+  window.quickToggleParty = quickToggleParty;
+  window.setListViewMode = setListViewMode;
+  window.openCastleDetail = openCastleDetail;
+  window.calculateCastleSynergy = calculateCastleSynergy;
 })();

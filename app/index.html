@@ -25,6 +25,8 @@
       <button class="tab-btn" data-tab="tab-tier">👑 性能ティア表</button>
       <button class="tab-btn" data-tab="tab-guides">高難易度マップ攻略</button>
       <button class="tab-btn" data-tab="tab-special">特殊効果テキスト</button>
+      <button class="tab-btn" data-tab="tab-map">🗾 城巡りマップ</button>
+      <button class="tab-btn" data-tab="tab-quiz">🏯 城娘クイズ</button>
       <button class="tab-btn" data-tab="tab-settings">設定・保存</button>
     </nav>
 
@@ -67,6 +69,24 @@
           <button class="btn btn-sm" id="btnShareLink" style="font-size: 11px; padding: 3px 8px;" title="現在の編成・地形・計略状態をURLハッシュで共有">🔗 共有リンク</button>
           <button class="btn btn-sm" id="btnEmptyParty" style="font-size: 11px; padding: 3px 8px;">空にする</button>
           <button class="btn btn-sm btn-undo" id="btnUndoParty" disabled title="編成変更を取り消す (Ctrl+Z)" style="font-size: 11px; padding: 3px 8px;">↺ 元に戻す</button>
+        </div>
+      </div>
+
+      <!-- A2: 縛り編成ジェネレータ (チャレンジモード) -->
+      <div class="section-box dashboard-challenge-box" id="dashboardChallengeBox" style="margin-bottom: 12px; background: #fffcf5; border-color: #ebd7b2;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span style="font-weight:bold; font-size:12px; color:#8c5b10;">🎲 縛り編成チャレンジ:</span>
+            <div id="challengeRulesDisplay" style="display:inline-flex; gap:6px; flex-wrap:wrap;">
+              <span class="challenge-rule-chip">お題を抽選してください</span>
+            </div>
+            <span id="challengeStatusBadge" class="badge" style="display:none; font-size:11px;">判定中</span>
+          </div>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <button type="button" class="btn btn-sm btn-primary" id="btnRollChallenge" style="font-size:11px; padding:3px 9px;">🎲 お題を再抽選</button>
+            <button type="button" class="btn btn-sm" id="btnAutoFillChallenge" style="font-size:11px; padding:3px 9px;" title="お題の条件を満たす城娘で空きスロットを自動で埋める">✨ お題に沿って自動で埋める</button>
+            <button type="button" class="btn btn-sm" id="btnClearChallenge" style="font-size:11px; padding:3px 7px;">✕ 解除</button>
+          </div>
         </div>
       </div>
 
@@ -191,6 +211,57 @@
           </div>
         </div>
       </section>
+
+      <!-- A5: ダメージチェッカー (仮想敵シミュレーター) -->
+      <section class="section-box" id="sectionDamageChecker" style="margin-top: 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" id="dmgCheckerHeader">
+          <div class="section-title" style="margin-bottom:0;">
+            🎯 ダメージチェッカー (仮想敵シミュレーター)
+            <span style="font-size:11px; font-weight:normal; color:var(--text-sub); margin-left:6px;">仮想の敵に対する1ヒットあたりの実ダメージと撃破必要ヒット数を算出</span>
+          </div>
+          <button type="button" class="btn btn-sm" id="btnToggleDamageChecker" style="font-size:11px; padding:2px 8px;">展開 ▾</button>
+        </div>
+        <div id="dmgCheckerBody" style="display:none; margin-top:10px;">
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; background:#f7f9fa; padding:8px 12px; border-radius:6px; margin-bottom:10px;">
+            <div style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
+              <strong>敵防御:</strong>
+              <input type="number" id="dmgEnemyDef" class="input-text" value="500" min="0" max="9999" step="50" style="width:65px; padding:2px 6px; font-size:11.5px;">
+            </div>
+            <div style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
+              <strong>敵耐久:</strong>
+              <input type="number" id="dmgEnemyHp" class="input-text" value="20000" min="1" max="999999" step="1000" style="width:80px; padding:2px 6px; font-size:11.5px;">
+            </div>
+            <div style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
+              <strong>被ダメ軽減:</strong>
+              <input type="number" id="dmgEnemyRed" class="input-text" value="0" min="0" max="90" step="5" style="width:55px; padding:2px 6px; font-size:11.5px;"> %
+            </div>
+            <div style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
+              <label style="cursor:pointer; display:flex; align-items:center; gap:3px;">
+                <input type="checkbox" id="dmgEnemyImmuneDefIgnore"> 完全防御 (防御無視無効)
+              </label>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="btnRecalcDamage" style="font-size:11px; font-weight:bold; padding:3px 10px;">再計算 ⚡</button>
+          </div>
+          <div style="overflow-x:auto; border:1px solid #e1e8ed; border-radius:4px;">
+            <table class="giantize-sim-table" style="width:100%;">
+              <thead>
+                <tr>
+                  <th style="width:50px;">枠</th>
+                  <th>城娘</th>
+                  <th style="width:90px;">巨大化攻撃力</th>
+                  <th style="width:110px;">実効ダメージ / hit</th>
+                  <th style="width:95px;">撃破必要hit数</th>
+                  <th>有効バフ・特記事項</th>
+                </tr>
+              </thead>
+              <tbody id="dmgCheckerTbody"></tbody>
+            </table>
+          </div>
+          <div style="margin-top:8px; font-size:11px; color:var(--text-sub); line-height:1.45; background:#fbf9f6; padding:6px 10px; border-radius:4px; border-left:3px solid #2980b9;">
+            💡 <strong>ダメージ計算に関する注記:</strong> 基本ダメージ式「(攻撃力 − 有効防御力) × 与ダメージ上昇 × 被ダメージ軽減」に基づく1ヒットあたりの概算です。連続攻撃武器（鉄砲・鈴等）やマルチロック、攻撃速度・隙によるDPSは考慮していません。
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Tab 2: 一覧 -->
@@ -265,6 +336,23 @@
           </select>
         </div>
 
+        <!-- A3: 絵師・声優・令制国 絞り込み & 表示モード切替 -->
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 6px;">
+          <select id="filterIllustrator" class="btn btn-sm" style="flex: 1; min-width: 120px;">
+            <option value="">絵師 (すべて)</option>
+          </select>
+          <select id="filterVoiceActor" class="btn btn-sm" style="flex: 1; min-width: 120px;">
+            <option value="">声優 (すべて)</option>
+          </select>
+          <select id="filterCountry" class="btn btn-sm" style="flex: 1; min-width: 120px;">
+            <option value="">令制国 (すべて)</option>
+          </select>
+          <div class="btn-group" id="listViewModeBtns" style="margin-left: auto;">
+            <button type="button" class="btn btn-sm active" id="btnViewCard" data-view="card" title="通常のカード一覧表示">📋 一覧</button>
+            <button type="button" class="btn btn-sm" id="btnViewGallery" data-view="gallery" title="立ち絵を大きくタイル表示する図鑑ギャラリー (A3)">🖼️ 図鑑</button>
+          </div>
+        </div>
+
         <!-- B5: ソート順と条件保存プリセット -->
         <div class="list-sort-and-preset-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-top:8px; padding-top:8px; border-top:1px dashed #e2d7c7;">
           <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
@@ -300,8 +388,11 @@
       <!-- Top Pagination Bar -->
       <div id="listPaginationTop" class="pagination-bar"></div>
 
-      <!-- Castles Grid -->
+      <!-- Castles Grid (Card View) -->
       <div id="allCastleList" class="all-castles-grid"></div>
+
+      <!-- Castles Gallery Grid (Gallery View A3) -->
+      <div id="allCastleGallery" class="all-castles-gallery-grid" style="display:none;"></div>
 
       <!-- Bottom Pagination Bar -->
       <div id="listPaginationBottom" class="pagination-bar" style="margin-top: 14px;"></div>
@@ -644,7 +735,108 @@
       </div>
     </main>
 
-    <!-- Tab 4: 設定 -->
+    <!-- Tab 5: 全国城巡りマップ (A6) -->
+    <main id="tab-map" class="tab-content">
+      <div class="map-container-box">
+        <div class="map-header-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border-color);">
+          <div>
+            <h2 class="section-title" style="margin-bottom:2px; font-size:16px;">🗾 全国城巡りマップ (実在の城モチーフ・47都道府県別)</h2>
+            <div style="font-size:12px; color:var(--text-sub);">
+              実在の城がモチーフの城娘（771城）と令制国から現代の47都道府県を紐付け。所持している城娘のゆかりの地を巡った城として記録します。
+            </div>
+          </div>
+          <div class="map-stats-pills" style="display:flex; gap:10px; flex-wrap:wrap;">
+            <div class="map-stat-pill" style="background:var(--card-bg); border:1px solid var(--border-color); padding:4px 12px; border-radius:14px; font-size:12px;">
+              巡った都道府県: <strong id="mapVisitedPrefCount" style="color:var(--primary-color);">0</strong> / 47
+            </div>
+            <div class="map-stat-pill" style="background:var(--card-bg); border:1px solid var(--border-color); padding:4px 12px; border-radius:14px; font-size:12px;">
+              巡った実在の城: <strong id="mapVisitedRealCount" style="color:#27ae60;">0</strong> / <span id="mapTotalRealCount">771</span> 城
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Map Layout: SVG Map on Left, Selected Prefecture on Right -->
+        <div class="map-interactive-layout" style="display:flex; gap:16px; flex-wrap:wrap;">
+          <div class="map-svg-wrapper" style="flex:3; min-width:320px; background:var(--card-bg); border:1px solid var(--border-color); border-radius:8px; padding:12px;">
+            <div id="japanMapSvgContainer" class="japan-map-svg-container">
+              <!-- Dynamically populated clean responsive SVG Japan Map -->
+            </div>
+          </div>
+
+          <div class="map-pref-sidebar" id="mapPrefSidebar" style="flex:2; min-width:280px; background:var(--card-bg); border:1px solid var(--border-color); border-radius:8px; padding:14px; max-height:750px; overflow-y:auto;">
+            <div class="map-pref-placeholder" id="mapPrefPlaceholder" style="font-size:13px; color:var(--text-sub); text-align:center; padding:40px 10px;">
+              👈 地図上の都道府県をクリックして、その土地ゆかりの城娘と実在の城の写真を表示します
+            </div>
+            <div class="map-pref-content" id="mapPrefContent" style="display:none;">
+              <!-- Selected Prefecture Castle List & Photos -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Tab 6: 城娘クイズ (A1) -->
+    <main id="tab-quiz" class="tab-content">
+      <div class="quiz-container-box" style="max-width:760px; margin:0 auto;">
+        <div class="quiz-header-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border-color);">
+          <div>
+            <h2 class="section-title" style="margin-bottom:2px; font-size:16px;">🏯 城娘クイズ (1セット全10問)</h2>
+            <div style="font-size:12px; color:var(--text-sub);">
+              アイコン、ふりがな、立ち絵クローズアップ、実在の城の写真から城娘を当てる4択クイズです。
+            </div>
+          </div>
+          <div class="quiz-best-score-pill" style="background:var(--card-bg); border:1px solid var(--border-color); padding:4px 12px; border-radius:14px; font-size:12px;">
+            🏆 ベストスコア: <strong id="quizBestScore">-</strong>
+          </div>
+        </div>
+
+        <!-- Format Selector -->
+        <div class="quiz-format-bar" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:14px; background:var(--card-bg); border:1px solid var(--border-color); border-radius:6px; padding:8px 12px;">
+          <span style="font-size:12px; font-weight:bold; color:var(--text-sub);">出題形式:</span>
+          <div class="btn-group" id="quizFormatBtns">
+            <button type="button" class="btn btn-sm btn-quiz-format active" data-format="icon">🖼️ アイコン当て</button>
+            <button type="button" class="btn btn-sm btn-quiz-format" data-format="ruby">🈁 ふりがな当て</button>
+            <button type="button" class="btn btn-sm btn-quiz-format" data-format="illust">🔍 立ち絵顔ズーム当て</button>
+            <button type="button" class="btn btn-sm btn-quiz-format" data-format="photo">📸 実在の城写真当て</button>
+          </div>
+          <button type="button" class="btn btn-sm btn-primary" id="btnStartQuiz" style="margin-left:auto; font-weight:bold; font-size:11.5px;">🏁 新しいクイズを開始</button>
+        </div>
+
+        <!-- Quiz Question Card -->
+        <div class="quiz-card section-box" id="quizCard">
+          <div class="quiz-progress-bar" style="display:flex; justify-content:space-between; margin-bottom:12px; border-bottom:1px dashed var(--border-color); padding-bottom:6px;">
+            <span id="quizQuestionNum" style="font-weight:bold; font-size:13px; color:var(--primary-color);">第 1 / 10 問</span>
+            <span id="quizScoreTracker" style="font-size:12px; color:var(--text-sub);">正解: 0 / 0</span>
+          </div>
+
+          <div class="quiz-clue-area" id="quizClueArea" style="display:flex; justify-content:center; align-items:center; min-height:180px; margin-bottom:16px;">
+            <!-- Rendered Clue (img, ruby text, zoomed-in face illust, or castle photo) -->
+          </div>
+
+          <!-- 4 Multiple Choice Options -->
+          <div class="quiz-choices-grid" id="quizChoicesGrid" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
+            <!-- 4 option buttons -->
+          </div>
+
+          <!-- Feedback Box -->
+          <div class="quiz-feedback-box" id="quizFeedbackBox" style="display:none; padding:10px 14px; border-radius:6px; background:#f4f6fa; border:1px solid #d5dce6; margin-top:8px;">
+            <div id="quizFeedbackMessage" class="quiz-feedback-msg" style="font-weight:bold; font-size:13px; margin-bottom:4px;"></div>
+            <div id="quizFeedbackDetailAction"></div>
+            <button type="button" class="btn btn-primary btn-sm" id="btnNextQuizQuestion" style="margin-top:8px;">次の問題へ ▶</button>
+          </div>
+        </div>
+
+        <!-- Quiz Results Modal/Box -->
+        <div class="quiz-result-card section-box" id="quizResultCard" style="display:none; text-align:center; padding:30px 20px;">
+          <h3 id="quizResultTitle" style="font-size:18px; margin-bottom:8px;">クイズ終了！</h3>
+          <div id="quizResultScore" style="font-size:26px; font-weight:bold; color:var(--primary-color); margin-bottom:8px;"></div>
+          <div id="quizResultComment" style="font-size:13px; color:var(--text-sub); margin-bottom:18px;"></div>
+          <button type="button" class="btn btn-primary" id="btnRestartQuiz" style="padding:6px 16px;">もう一度挑戦する ↺</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Tab 7: 設定 -->
     <main id="tab-settings" class="tab-content">
       <div style="max-width: 600px;">
         <section class="section-box" style="margin-top: 0;">
@@ -927,6 +1119,17 @@
           <div class="detail-box">
             <div class="detail-section-title">発動バフ・効果カテゴリ</div>
             <div id="detailBuffAnalysis" class="detail-buff-tags"></div>
+          </div>
+
+          <!-- A4: 相性の良い城娘 (シナジー検索) -->
+          <div class="detail-box" id="detailSynergyBox">
+            <div class="detail-section-title">🤝 相性の良い城娘 (シナジー検索・相方探し)</div>
+            <div style="font-size:11px; color:var(--text-sub); margin-bottom:8px;">
+              この城娘と組み合わせた際にステータス上昇量（攻撃・防御・射程・与ダメ等）が特に大きい上位10体
+            </div>
+            <div id="detailSynergyList" class="detail-synergy-grid">
+              <!-- Dynamically rendered top 10 synergy partner chips -->
+            </div>
           </div>
         </div>
       </div>

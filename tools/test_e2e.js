@@ -1505,7 +1505,7 @@ async function runTests() {
   }
 
   // Click image export button
-  await page.click('#btnExportImage');
+  await page.evaluate(() => document.getElementById('btnExportImage')?.click());
   await new Promise(r => setTimeout(r, 600));
 
   const exportAreaPopulated = await page.$eval('#partyExportArea', el => el.children.length > 0);
@@ -2754,6 +2754,223 @@ async function runTests() {
     console.log('=> TEST 49 PASSED');
   }
 
+  // -------------------------------------------------------------
+  // Test 50: 城娘クイズ (A1)
+  // -------------------------------------------------------------
+  {
+    console.log('\n[TEST 50] Testing 城娘クイズ (A1 Quiz Mode)...');
+    await page.evaluate(() => document.querySelector('.tab-btn[data-tab="tab-quiz"]')?.click());
+    await new Promise(r => setTimeout(r, 300));
+
+    // Check quiz tab active
+    const quizTabActive = await page.$eval('#tab-quiz', el => el.classList.contains('active'));
+    console.log('Quiz tab active:', quizTabActive);
+    if (!quizTabActive) throw new Error('TEST 50 FAILED: Quiz tab not active');
+
+    // Start ruby quiz
+    await page.evaluate(() => {
+      window.startQuiz('ruby');
+    });
+    await new Promise(r => setTimeout(r, 300));
+
+    const qNum = await page.$eval('#quizQuestionNum', el => el.textContent.trim());
+    console.log('Quiz question num:', qNum);
+    if (!qNum.includes('第 1 問')) throw new Error(`TEST 50 FAILED: Expected 第 1 問, got ${qNum}`);
+
+    const choicesCount = await page.$$eval('#quizChoicesGrid .quiz-choice-btn', els => els.length);
+    console.log('Quiz choices count:', choicesCount);
+    if (choicesCount !== 4) throw new Error(`TEST 50 FAILED: Expected 4 choices, got ${choicesCount}`);
+
+    // Answer first choice
+    await page.evaluate(() => {
+      const firstChoice = document.querySelector('#quizChoicesGrid .quiz-choice-btn');
+      if (firstChoice) firstChoice.click();
+    });
+    await new Promise(r => setTimeout(r, 300));
+
+    const feedbackDisplay = await page.$eval('#quizFeedbackBox', el => el.style.display);
+    console.log('Feedback display:', feedbackDisplay);
+    if (feedbackDisplay === 'none') throw new Error('TEST 50 FAILED: Quiz feedback box should be visible');
+
+    // Click next question
+    await page.evaluate(() => document.getElementById('btnNextQuizQuestion')?.click());
+    await new Promise(r => setTimeout(r, 300));
+
+    const qNum2 = await page.$eval('#quizQuestionNum', el => el.textContent.trim());
+    console.log('Quiz question num after next:', qNum2);
+    if (!qNum2.includes('第 2 問')) throw new Error(`TEST 50 FAILED: Expected 第 2 問, got ${qNum2}`);
+
+    console.log('=> TEST 50 PASSED');
+  }
+
+  // -------------------------------------------------------------
+  // Test 51: 縛り編成チャレンジ (A2)
+  // -------------------------------------------------------------
+  {
+    console.log('\n[TEST 51] Testing 縛り編成チャレンジ (A2 Challenge Mode)...');
+    await page.evaluate(() => document.querySelector('.tab-btn[data-tab="tab-dashboard"]')?.click());
+    await new Promise(r => setTimeout(r, 300));
+
+    // Roll challenge
+    await page.evaluate(() => {
+      window.rollNewChallenge();
+    });
+    await new Promise(r => setTimeout(r, 300));
+
+    const activeChal = await page.evaluate(() => window.getActiveChallenge());
+    console.log('Active challenge rolled:', activeChal?.title);
+    if (!activeChal) throw new Error('TEST 51 FAILED: activeChallenge should be non-null after roll');
+
+    // Auto-fill challenge party
+    await page.evaluate(() => {
+      window.autoFillChallenge();
+    });
+    await new Promise(r => setTimeout(r, 400));
+
+    const statusBadge = await page.$eval('#challengeStatusBadge', el => el.textContent.trim());
+    console.log('Challenge status badge after auto-fill:', statusBadge);
+    if (!statusBadge.includes('達成中！')) {
+      throw new Error(`TEST 51 FAILED: Challenge badge should say 達成中！, got: ${statusBadge}`);
+    }
+
+    const violationsCount = await page.$$eval('.party-card.challenge-violation', els => els.length);
+    console.log('Violation slots in party:', violationsCount);
+    if (violationsCount > 0) {
+      throw new Error(`TEST 51 FAILED: Expected 0 violations after autoFillChallenge, found ${violationsCount}`);
+    }
+
+    // Clear challenge
+    await page.evaluate(() => {
+      window.clearChallenge();
+    });
+    await new Promise(r => setTimeout(r, 200));
+
+    console.log('=> TEST 51 PASSED');
+  }
+
+  // -------------------------------------------------------------
+  // Test 52: 図鑑ギャラリー表示 & 拡張フィルタ (A3)
+  // -------------------------------------------------------------
+  {
+    console.log('\n[TEST 52] Testing 図鑑ギャラリー表示 & 拡張フィルタ (A3 Gallery & Filters)...');
+    await page.evaluate(() => document.querySelector('.tab-btn[data-tab="tab-list"]')?.click());
+    await new Promise(r => setTimeout(r, 300));
+
+    // Switch to gallery mode
+    await page.evaluate(() => window.setListViewMode('gallery'));
+    await new Promise(r => setTimeout(r, 400));
+
+    const galleryDisplay = await page.$eval('#allCastleGallery', el => el.style.display);
+    const tileCount = await page.$$eval('#allCastleGallery .gallery-castle-tile', els => els.length);
+    console.log('Gallery display:', galleryDisplay, 'tiles count:', tileCount);
+    if (galleryDisplay === 'none' || tileCount === 0) {
+      throw new Error('TEST 52 FAILED: Gallery tiles should be visible in gallery mode');
+    }
+
+    // Check filter options
+    const illCount = await page.$$eval('#filterIllustrator option', els => els.length);
+    const vaCount = await page.$$eval('#filterVoiceActor option', els => els.length);
+    const couCount = await page.$$eval('#filterCountry option', els => els.length);
+    console.log('Extended filter counts: illustrator =', illCount, 'VA =', vaCount, 'country =', couCount);
+    if (illCount <= 1 || vaCount <= 1 || couCount <= 1) {
+      throw new Error('TEST 52 FAILED: Extended filter options not populated properly');
+    }
+
+    // Switch back to card mode
+    await page.evaluate(() => window.setListViewMode('card'));
+    await new Promise(r => setTimeout(r, 300));
+
+    console.log('=> TEST 52 PASSED');
+  }
+
+  // -------------------------------------------------------------
+  // Test 53: 相性の良い城娘 (A4 シナジー検索)
+  // -------------------------------------------------------------
+  {
+    console.log('\n[TEST 53] Testing 相性の良い城娘 (A4 Synergy Recommendations)...');
+    await page.evaluate(() => window.openCastleDetail('四代目江戸城'));
+    await new Promise(r => setTimeout(r, 500));
+
+    const synergyCardCount = await page.$$eval('#detailSynergyList .synergy-card', els => els.length);
+    console.log('Synergy partners found for 四代目江戸城:', synergyCardCount);
+    if (synergyCardCount === 0) {
+      throw new Error('TEST 53 FAILED: Expected at least 1 synergy partner in detail modal');
+    }
+
+    const firstReasons = await page.$$eval('#detailSynergyList .synergy-card:first-child .synergy-chip', els => els.map(e => e.textContent.trim()));
+    console.log('Top synergy partner badges:', firstReasons);
+    if (firstReasons.length === 0) {
+      throw new Error('TEST 53 FAILED: Top synergy partner missing synergy chips');
+    }
+
+    // Close detail modal
+    await page.evaluate(() => document.getElementById('modalDetailCloseBtn')?.click());
+    await new Promise(r => setTimeout(r, 300));
+
+    console.log('=> TEST 53 PASSED');
+  }
+
+  // -------------------------------------------------------------
+  // Test 54: ダメージチェッカー (A5)
+  // -------------------------------------------------------------
+  {
+    console.log('\n[TEST 54] Testing ダメージチェッカー (A5 Damage Simulator)...');
+    await page.evaluate(() => document.querySelector('.tab-btn[data-tab="tab-dashboard"]')?.click());
+    await new Promise(r => setTimeout(r, 300));
+
+    // Ensure damage checker is open
+    await page.evaluate(() => {
+      const body = document.getElementById('dmgCheckerBody');
+      if (body && (body.style.display === 'none' || !body.style.display)) {
+        window.toggleDamageChecker();
+      }
+    });
+    await new Promise(r => setTimeout(r, 300));
+
+    const dmgRows = await page.$$eval('#dmgCheckerTbody tr', rows => rows.length);
+    console.log('Damage checker table rows:', dmgRows);
+    if (dmgRows === 0) throw new Error('TEST 54 FAILED: Damage checker table has 0 rows');
+
+    const firstRowText = await page.$eval('#dmgCheckerTbody tr:first-child', tr => tr.textContent.replace(/\s+/g, ' '));
+    console.log('Damage checker 1st row snippet:', firstRowText);
+    if (!firstRowText.includes('hit')) throw new Error('TEST 54 FAILED: Missing hit calculation in damage row');
+
+    console.log('=> TEST 54 PASSED');
+  }
+
+  // -------------------------------------------------------------
+  // Test 55: 城巡りマップ (A6)
+  // -------------------------------------------------------------
+  {
+    console.log('\n[TEST 55] Testing 全国城巡りマップ (A6 Prefecture Cartogram)...');
+    await page.evaluate(() => document.querySelector('.tab-btn[data-tab="tab-map"]')?.click());
+    await new Promise(r => setTimeout(r, 400));
+
+    const mapTilesCount = await page.$$eval('#japanMapSvgContainer .map-pref-tile', els => els.length);
+    console.log('Prefecture cartogram tiles count:', mapTilesCount);
+    if (mapTilesCount !== 47) {
+      throw new Error(`TEST 55 FAILED: Expected 47 prefecture tiles, got ${mapTilesCount}`);
+    }
+
+    // Select 兵庫県
+    await page.evaluate(() => window.selectMapPrefecture('兵庫県'));
+    await new Promise(r => setTimeout(r, 300));
+
+    const prefContent = await page.$eval('#mapPrefContent', el => el.textContent);
+    console.log('Hyogo pref header snippet:', prefContent.slice(0, 100).replace(/\s+/g, ' '));
+    if (!prefContent.includes('兵庫県') || !prefContent.includes('制覇率')) {
+      throw new Error('TEST 55 FAILED: Prefecture detail header missing 兵庫県 or 制覇率');
+    }
+
+    const hyogoCastles = await page.$$eval('#mapPrefContent .map-castle-card', els => els.length);
+    console.log('Castles listed in 兵庫県:', hyogoCastles);
+    if (hyogoCastles === 0) {
+      throw new Error('TEST 55 FAILED: No castles listed for 兵庫県');
+    }
+
+    console.log('=> TEST 55 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -2765,7 +2982,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (49/49)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (55/55)!');
   console.log('=====================================');
 }
 

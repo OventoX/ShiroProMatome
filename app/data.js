@@ -193,7 +193,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "大坂城",
@@ -436,7 +437,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "彦根城",
@@ -601,7 +603,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BD%A6%E6%A0%B9%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "五稜郭",
@@ -754,7 +757,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%94%E7%A8%9C%E9%83%AD",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "北海道"
  },
  {
   "id": "安平城",
@@ -1355,7 +1359,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
    "license": "Public domain",
    "author": "三井文庫蔵"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "安土城",
@@ -1530,7 +1535,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E5%9C%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "熊本城",
@@ -1790,7 +1796,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "熊本県"
  },
  {
   "id": "指月伏見城",
@@ -1928,7 +1935,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8F%E8%A6%8B%E5%9F%8E",
    "license": "Public domain",
    "author": "Thomas vanierschot"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "万里の長城",
@@ -2391,7 +2399,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A7%AB%E8%B7%AF%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "プラハ城",
@@ -2914,7 +2923,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "ウィンザー城",
@@ -3838,7 +3848,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "シャンボール城",
@@ -4266,7 +4277,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "熊本県"
  },
  {
   "id": "モン・サン＝ミッシェル",
@@ -4986,7 +4998,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "鎌倉城",
@@ -5204,7 +5217,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%8E%8C%E5%80%89%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Kaba-maru"
-  }
+  },
+  "prefecture": "神奈川県"
  },
  {
   "id": "キャメロット城",
@@ -5541,7 +5555,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BD%A6%E6%A0%B9%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "ペテルゴフ宮殿",
@@ -7052,7 +7067,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "沖縄県"
  },
  {
   "id": "［正月］大坂城",
@@ -7265,7 +7281,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "［正月］姫路城",
@@ -7459,7 +7476,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A7%AB%E8%B7%AF%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "竜宮城",
@@ -7840,7 +7858,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E5%9C%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "木幡山伏見城",
@@ -7998,7 +8017,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8F%E8%A6%8B%E5%9F%8E",
    "license": "Public domain",
    "author": "Thomas vanierschot"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "江戸城",
@@ -8187,7 +8207,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "金鯱城",
@@ -8365,7 +8386,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "虎臥城",
@@ -8533,7 +8555,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%B9%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Wae35244"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "小峯城",
@@ -8725,7 +8748,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "神奈川県"
  },
  {
   "id": "許昌城",
@@ -9052,7 +9076,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%83%E6%97%A9%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Yu-ki-na"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "［花嫁衣装］ロンドン塔",
@@ -9658,7 +9683,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%AE%B0%E5%BA%9C",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "オラヴィ城",
@@ -10027,7 +10053,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
    "license": "Public domain",
    "author": "三井文庫蔵"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "［肝試し］松江城",
@@ -10220,7 +10247,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%B1%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "島根県"
  },
  {
   "id": "平安京",
@@ -10455,7 +10483,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%AE%89%E4%BA%AC",
    "license": "CC BY-SA 3.0",
    "author": "own work"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "サン・レーオ城",
@@ -10813,7 +10842,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%9F%8E%E5%AE%AE",
    "license": "CC BY-SA 4.0",
    "author": "Tsuyoshi chiba"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "肥前名護屋城",
@@ -10969,7 +10999,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E8%AD%B7%E5%B1%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "佐賀県"
  },
  {
   "id": "［ハロウィン］万里の長城",
@@ -11708,7 +11739,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%91%81%E9%98%BF%E5%AF%BA",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "栃木県"
  },
  {
   "id": "［聖夜］ダノター城",
@@ -12210,7 +12242,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%94%E7%A8%9C%E9%83%AD",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "北海道"
  },
  {
   "id": "［正月］小田原城",
@@ -12386,7 +12419,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "神奈川県"
  },
  {
   "id": "二条亭",
@@ -12547,7 +12581,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9D%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "エーリューズニル",
@@ -13714,7 +13749,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%94%B2%E5%BA%9C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "墨俣一夜城",
@@ -13892,7 +13928,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A2%A8%E4%BF%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "月山城",
@@ -14126,7 +14163,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "安来市政策秘書課"
-  }
+  },
+  "prefecture": "島根県"
  },
  {
   "id": "ラピュータ",
@@ -15394,7 +15432,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E9%87%8E%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "オリジナルのアップロード者は日本語版ウィキペディアのT@kaさん"
-  }
+  },
+  "prefecture": "三重県"
  },
  {
   "id": "不夜城",
@@ -15709,7 +15748,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%91%81%E9%98%BF%E5%AF%BA",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "栃木県"
  },
  {
   "id": "ホッホオスターヴィッツ城",
@@ -16086,7 +16126,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "山形県"
  },
  {
   "id": "月の都",
@@ -17544,7 +17585,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "［絢爛］福岡城",
@@ -17729,7 +17771,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "［絢爛］小谷城",
@@ -17942,7 +17985,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E8%B0%B7%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "［正月］甲府城",
@@ -18068,7 +18112,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%94%B2%E5%BA%9C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "［正月］小峯城",
@@ -18247,7 +18292,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "神奈川県"
  },
  {
   "id": "マチュ・ピチュ",
@@ -18898,7 +18944,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%A5%E6%97%A5%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "新潟県"
  },
  {
   "id": "鷹城",
@@ -19111,7 +19158,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E7%9F%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "高知県"
  },
  {
   "id": "寛永江戸城",
@@ -19295,7 +19343,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "白鷺城",
@@ -19476,7 +19525,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "兵庫県"
  },
  {
   "id": "［学園］金亀城",
@@ -19662,7 +19712,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BD%A6%E6%A0%B9%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "［学園］聚楽城",
@@ -19866,7 +19917,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
    "license": "Public domain",
    "author": "三井文庫蔵"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "徳川伏見城",
@@ -20015,7 +20067,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "京都府"
  },
  {
   "id": "チャフティツェ城",
@@ -20561,7 +20614,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BD%A6%E6%A0%B9%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "［絢爛］岡豊城",
@@ -20727,7 +20781,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E8%B1%8A%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "高知県"
  },
  {
   "id": "［絢爛］津山城",
@@ -20901,7 +20956,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "［花嫁衣装］シャンティイ城",
@@ -21252,7 +21308,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9D%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "［夏］ノイシュヴァンシュタイン城",
@@ -21719,7 +21776,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E8%AD%B7%E5%B1%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "佐賀県"
  },
  {
   "id": "［夏］白帝城",
@@ -22244,7 +22302,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%AE%B0%E5%BA%9C",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "［肝試し］伊予松山城",
@@ -22457,7 +22516,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "［肝試し］白河小峰城",
@@ -22623,7 +22683,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%99%BD%E6%B2%B3%E5%B0%8F%E5%B3%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福島県"
  },
  {
   "id": "ノッティンガム城",
@@ -23198,7 +23259,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "三重県"
  },
  {
   "id": "オリュンポス宮殿",
@@ -24187,7 +24249,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9D%82%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "［裏］小牧山城",
@@ -24344,7 +24407,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%89%A7%E5%B1%B1",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "［聖夜］冬宮殿",
@@ -24698,7 +24762,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "山形県"
  },
  {
   "id": "ヴァイジャヤンタ",
@@ -25051,7 +25116,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "京都府"
  },
  {
   "id": "［正月］宇和島城",
@@ -25228,7 +25294,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "［正月］虎臥城",
@@ -25394,7 +25461,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%B9%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Wae35244"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "［正月］錦城",
@@ -25550,7 +25618,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "［絢爛］名古屋城",
@@ -25705,7 +25774,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "［絢爛］会津若松城",
@@ -25909,7 +25979,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%9D%BE%E5%9F%8E",
    "license": "CC BY 4.0",
    "author": "くろふね"
-  }
+  },
+  "prefecture": "福島県"
  },
  {
   "id": "［絢爛］引田城",
@@ -26084,7 +26155,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BC%95%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "香川県"
  },
  {
   "id": "［裏］佐和山城",
@@ -26211,7 +26283,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "［バレンタイン］ウチヒサル城",
@@ -26583,7 +26656,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8F%E8%A6%8B%E5%9F%8E",
    "license": "Public domain",
    "author": "Thomas vanierschot"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "クラック・デ・シュヴァリエ",
@@ -27364,7 +27438,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "滸我御所",
@@ -27763,7 +27838,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%BD%E6%96%BC%E9%83%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮崎県"
  },
  {
   "id": "［学園］マルボルク城",
@@ -28295,7 +28371,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%89%E9%87%8E%E5%9F%8E",
    "license": "Public domain",
    "author": "Enon1979"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "金剛山城",
@@ -28438,7 +28515,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "大阪府"
  },
  {
   "id": "ヘレンキームゼー城",
@@ -28838,7 +28916,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%83%E5%B0%BE%E5%9F%8E",
    "license": "Public domain",
    "author": "tom-spring"
-  }
+  },
+  "prefecture": "石川県"
  },
  {
   "id": "枉死城",
@@ -29219,7 +29298,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B7%80%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "ドゥアト",
@@ -29570,7 +29650,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%A5%E6%97%A5%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "新潟県"
  },
  {
   "id": "［花嫁衣装］許昌城",
@@ -29875,7 +29956,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "［夏］亀田御役所土塁",
@@ -30042,7 +30124,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "北海道"
  },
  {
   "id": "［夏］島原城",
@@ -30247,7 +30330,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B3%B6%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長崎県"
  },
  {
   "id": "［夏］白鷺城",
@@ -30444,7 +30528,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "兵庫県"
  },
  {
   "id": "［絢爛］玉縄城",
@@ -30657,7 +30742,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%8E%89%E7%B8%84%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "神奈川県"
  },
  {
   "id": "［絢爛］佐倉城",
@@ -30823,7 +30909,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%80%89%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "千葉県"
  },
  {
   "id": "［絢爛］松倉城",
@@ -31029,7 +31116,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "富山県"
  },
  {
   "id": "［絢爛］アラゴネーゼ城",
@@ -31398,7 +31486,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%B8%E4%BA%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "香川県"
  },
  {
   "id": "［肝試し］鶴ヶ岡城",
@@ -31581,7 +31670,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B6%B4%E3%83%B6%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "黒船 サスケハナ",
@@ -32502,7 +32592,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "神奈川県"
  },
  {
   "id": "［聖夜］鞠智城",
@@ -32688,7 +32779,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9E%A0%E6%99%BA%E5%9F%8E",
    "license": "Public domain",
    "author": "日本語版ウィキペディアのYAPONさん"
-  }
+  },
+  "prefecture": "熊本県"
  },
  {
   "id": "［聖夜］ウェストミンスター宮殿",
@@ -33085,7 +33177,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "［正月］元和江戸城",
@@ -33298,7 +33391,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "［正月］寛永江戸城",
@@ -33472,7 +33566,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "［正月］四代目江戸城",
@@ -33628,7 +33723,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "帆船 鳳凰丸",
@@ -33807,7 +33903,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "東京都"
  },
  {
   "id": "［裏］川越城",
@@ -33945,7 +34042,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B7%9D%E8%B6%8A%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "埼玉県"
  },
  {
   "id": "［裏］桜尾城",
@@ -34083,7 +34181,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A1%9C%E5%B0%BE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "［裏］伊勢長島城",
@@ -34232,7 +34331,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "三重県"
  },
  {
   "id": "［バレンタイン］キャメロット城",
@@ -34842,7 +34942,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "［絢爛］立花山城",
@@ -34979,7 +35080,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%8B%E8%8A%B1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "［絢爛］駿府城",
@@ -35116,7 +35218,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A7%BF%E5%BA%9C%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "ToukaTsurugi"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "［絢爛］観音寺城",
@@ -35253,7 +35356,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%A6%B3%E9%9F%B3%E5%AF%BA%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Satoshin"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "［学園］ラピュータ",
@@ -35798,7 +35902,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "鹿児島県"
  },
  {
   "id": "シバルバー",
@@ -36120,7 +36225,8 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "京都府"
  },
  {
   "id": "［裏］真田丸",
@@ -36228,7 +36334,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9C%9F%E7%94%B0%E4%B8%B8",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "［花嫁衣装］月の都",
@@ -36465,7 +36572,8 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "福岡県"
  },
  {
   "id": "［夏］竜宮城",
@@ -37175,7 +37283,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "佐賀県"
  },
  {
   "id": "蓉城",
@@ -37451,7 +37560,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "神奈川県"
  },
  {
   "id": "［肝試し］鬼ヶ島",
@@ -37652,7 +37762,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "石川県"
  },
  {
   "id": "黒船 ポーハタン",
@@ -37917,7 +38028,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%8A%E6%B2%BB%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "［絢爛］忍城",
@@ -38034,7 +38146,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BF%8D%E5%9F%8E",
    "license": "Public domain",
    "author": "Mocchy"
-  }
+  },
+  "prefecture": "埼玉県"
  },
  {
   "id": "［絢爛］多気城",
@@ -38191,7 +38304,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "茨城県"
  },
  {
   "id": "天一閣",
@@ -38852,7 +38966,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "［裏］吉田郡山城",
@@ -39008,7 +39123,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%89%E7%94%B0%E9%83%A1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "九龍城砦",
@@ -39767,7 +39883,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%B3%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "［正月］滸我御所",
@@ -40430,7 +40547,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%AE%89%E4%BA%AC",
    "license": "CC BY-SA 3.0",
    "author": "own work"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "ナラカ",
@@ -40665,7 +40783,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E8%B0%B7%E5%A0%82%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Satoshin"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "［雪華］古河城",
@@ -40835,7 +40954,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8F%A4%E6%B2%B3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "千葉県"
  },
  {
   "id": "［バレンタイン］ヴァイジャヤンタ",
@@ -41197,7 +41317,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "［アイドル］江戸城＆信貴山城",
@@ -41429,7 +41550,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "福岡県"
  },
  {
   "id": "［絢爛］佐土原城",
@@ -41566,7 +41688,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%9C%9F%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮崎県"
  },
  {
   "id": "［絢爛］高取城",
@@ -41779,7 +41902,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%8F%96%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "［絢爛］中津城",
@@ -42011,7 +42135,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E6%B4%A5%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "ほっきー"
-  }
+  },
+  "prefecture": "大分県"
  },
  {
   "id": "［学園］千方窟",
@@ -42141,7 +42266,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "三重県"
  },
  {
   "id": "［学園］カステル・ヴェッキオ",
@@ -42537,7 +42663,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E6%9D%BE%E5%9F%8E%20%28%E8%AE%83%E5%B2%90%E5%9B%BD%29",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "香川県"
  },
  {
   "id": "［天明］岐阜城",
@@ -42715,7 +42842,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%90%E9%98%9C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "［破将］掛川城",
@@ -42883,7 +43011,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%8E%9B%E5%B7%9D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "コーロア城",
@@ -43341,7 +43470,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "愛知県"
  },
  {
   "id": "［花嫁衣装］敦賀城",
@@ -43497,7 +43627,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%95%A6%E8%B3%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福井県"
  },
  {
   "id": "［花嫁衣装］チリンガム城",
@@ -44531,7 +44662,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
    "license": "Public domain",
    "author": "三井文庫蔵"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "城塞都市カルタゴ",
@@ -44798,7 +44930,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8",
    "license": "Public domain",
    "author": "前田左衛門佐"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "［赤蹄］新府城",
@@ -44984,7 +45117,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E5%BA%9C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "舞鶴城",
@@ -45103,7 +45237,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "福岡県"
  },
  {
   "id": "［肝試し］姫路城",
@@ -45240,7 +45375,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A7%AB%E8%B7%AF%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "［肝試し］長門指月城",
@@ -45398,7 +45534,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "山口県"
  },
  {
   "id": "戦列艦 ヴィクトリー号",
@@ -45860,7 +45997,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E9%87%8E%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Satoshin"
-  }
+  },
+  "prefecture": "鳥取県"
  },
  {
   "id": "［お月見］松本城",
@@ -45967,7 +46105,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "［絢爛］弘前城",
@@ -46093,7 +46232,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BC%98%E5%89%8D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "青森県"
  },
  {
   "id": "［絢爛］甲府城",
@@ -46302,7 +46442,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%94%B2%E5%BA%9C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "［絢爛］勝竜寺城",
@@ -46429,7 +46570,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8B%9D%E7%AB%9C%E5%AF%BA%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "ソミュール城",
@@ -46981,7 +47123,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "［温泉］山中城",
@@ -47098,7 +47241,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E4%B8%AD%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "［泡影］伊賀上野城",
@@ -47294,7 +47438,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E9%87%8E%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "オリジナルのアップロード者は日本語版ウィキペディアのT@kaさん"
-  }
+  },
+  "prefecture": "三重県"
  },
  {
   "id": "［響乱］室町第",
@@ -47437,7 +47582,8 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "京都府"
  },
  {
   "id": "［聖夜］プレッドヤマ城",
@@ -48313,7 +48459,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E8%AD%B7%E5%B1%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "佐賀県"
  },
  {
   "id": "［正月］忍城",
@@ -48450,7 +48597,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BF%8D%E5%9F%8E",
    "license": "Public domain",
    "author": "Mocchy"
-  }
+  },
+  "prefecture": "埼玉県"
  },
  {
   "id": "［正月］城塞都市ディーテ",
@@ -50084,7 +50232,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "大阪府"
  },
  {
   "id": "［学園］墨俣一夜城",
@@ -50258,7 +50407,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A2%A8%E4%BF%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "城塞都市シュラクサイ",
@@ -50660,7 +50810,8 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "京都府"
  },
  {
   "id": "二条御所",
@@ -50833,7 +50984,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9D%A1%E5%BE%A1%E6%89%80",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "アトランティス",
@@ -51616,7 +51768,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%94%E7%A8%9C%E9%83%AD",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "北海道"
  },
  {
   "id": "［絢爛］千賀地氏城",
@@ -52175,7 +52328,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%A5%E6%97%A5%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "新潟県"
  },
  {
   "id": "［暁星］大坂城",
@@ -52330,7 +52484,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "［桔響］福知山城",
@@ -52571,7 +52726,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E7%9F%A5%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "［花嫁衣装］長篠城",
@@ -53420,7 +53576,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "岡山県"
  },
  {
   "id": "［夏］十河城",
@@ -53881,7 +54038,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "熊本県"
  },
  {
   "id": "［裏］多聞山城",
@@ -54071,7 +54229,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "立花城",
@@ -54223,7 +54382,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%8B%E8%8A%B1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "ヴァヴェル城",
@@ -54489,7 +54649,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%A4%A9%E7%A5%9E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "［肝試し］元和江戸城",
@@ -54623,7 +54784,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "［白輝］姫路城",
@@ -54749,7 +54911,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A7%AB%E8%B7%AF%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "［月狼］月山富田城",
@@ -54944,7 +55107,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "安来市政策秘書課"
-  }
+  },
+  "prefecture": "島根県"
  },
  {
   "id": "［飢渇］鳥取城",
@@ -55119,7 +55283,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%A5%E5%8F%96%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鳥取県"
  },
  {
   "id": "［お月見］洛陽城",
@@ -55585,7 +55750,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "静岡県"
  },
  {
   "id": "雲霧城",
@@ -55710,7 +55876,8 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "静岡県"
  },
  {
   "id": "黄金郷エル・ドラード",
@@ -56047,7 +56214,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%AB%8F%E8%A8%AA%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "［ハロウィン］チャフティツェ城",
@@ -57414,7 +57582,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "愛知県"
  },
  {
   "id": "［温泉］人吉城",
@@ -57578,7 +57747,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%90%89%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "熊本県"
  },
  {
   "id": "［温泉］ブダ城",
@@ -58253,7 +58423,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%99%E5%8F%B0%E5%9F%8E",
    "license": "Public domain",
    "author": "Kinori"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "［天化］志波城",
@@ -58379,7 +58550,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BF%97%E6%B3%A2%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "［聖夜］ハイデルベルク城",
@@ -58858,7 +59030,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E5%9C%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "［正月］長岡京",
@@ -59080,7 +59253,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "神奈川県"
  },
  {
   "id": "［正月］鎌刃城",
@@ -59782,7 +59956,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AF%8C%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "富山県"
  },
  {
   "id": "［バレンタイン］サンタンジェロ城",
@@ -60667,7 +60842,8 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮城県"
  },
  {
   "id": "城塞都市ヴァレッタ",
@@ -61461,7 +61637,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "［燦華］聚楽第",
@@ -61616,7 +61793,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
    "license": "Public domain",
    "author": "三井文庫蔵"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "［球陽］首里城",
@@ -61792,7 +61970,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A6%96%E9%87%8C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "沖縄県"
  },
  {
   "id": "ミスカトニック大学",
@@ -62263,7 +62442,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%89%E7%94%B0%E9%83%A1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "［学園］若桜鬼ヶ城",
@@ -62377,7 +62557,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%A1%9C%E9%AC%BC%E3%83%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鳥取県"
  },
  {
   "id": "幽都",
@@ -62657,7 +62838,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%87%BC%E6%9D%B5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大分県"
  },
  {
   "id": "［絢爛］ビューマリス城",
@@ -62934,7 +63116,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E8%83%BD%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "［絢爛］郡上八幡城",
@@ -63048,7 +63231,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%A1%E4%B8%8A%E5%85%AB%E5%B9%A1%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Kitimi"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "［アイドル］シノン城＆ロシュ城",
@@ -63444,7 +63628,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BF%A1%E8%B2%B4%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "［漆磊］広島城",
@@ -63620,7 +63805,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E5%9F%8E",
    "license": "Public domain",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "［夢双］福岡城",
@@ -63777,7 +63963,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "［花嫁衣装］バルディ城",
@@ -64086,7 +64273,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9E%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "［夏］小田原城",
@@ -64268,7 +64456,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "神奈川県"
  },
  {
   "id": "［夏］七飯台場",
@@ -65288,7 +65477,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "［夏］パンデモニウム",
@@ -66150,7 +66340,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A7%BF%E5%BA%9C%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "ToukaTsurugi"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "［祀叢］清洲城",
@@ -66314,7 +66505,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B8%85%E6%B4%B2%E5%9F%8E",
    "license": "CC0",
    "author": "YTARMR"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "［鉄堅］盛岡城",
@@ -66537,7 +66729,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9B%9B%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岩手県"
  },
  {
   "id": "金田城",
@@ -66757,7 +66950,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%87%91%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長崎県"
  },
  {
   "id": "［お月見］青葉城",
@@ -66890,7 +67084,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%99%E5%8F%B0%E5%9F%8E",
    "license": "Public domain",
    "author": "Kinori"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "［お月見］小牧山城",
@@ -67108,7 +67303,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%89%A7%E5%B1%B1",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "［魁耀］浜松城",
@@ -67366,7 +67562,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%9C%E6%9D%BE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "［裏］松代城",
@@ -67548,7 +67745,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E4%BB%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "［裏］ファルケンシュタイン城",
@@ -68580,7 +68778,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%9C%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "島根県"
  },
  {
   "id": "［絢爛］原城",
@@ -68740,7 +68939,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長崎県"
  },
  {
   "id": "［ハロウィン］モーリッツブルク城",
@@ -70226,7 +70426,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8C%97%E6%9D%A1%E6%B0%8F%E5%BA%B7",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "神奈川県"
  },
  {
   "id": "島津義弘",
@@ -70340,7 +70541,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B3%B6%E6%B4%A5%E7%BE%A9%E5%BC%98",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鹿児島県"
  },
  {
   "id": "明智光秀",
@@ -70487,7 +70689,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%8E%E6%99%BA%E5%85%89%E7%A7%80",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "織田信長",
@@ -70614,7 +70817,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B9%94%E7%94%B0%E4%BF%A1%E9%95%B7",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "豊臣秀吉",
@@ -70771,7 +70975,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%B1%8A%E8%87%A3%E7%A7%80%E5%90%89",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "真田幸村",
@@ -71037,7 +71242,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E5%BA%B7",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "今川義元",
@@ -71308,7 +71514,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%AD%A6%E7%94%B0%E4%BF%A1%E7%8E%84",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "上杉謙信",
@@ -75105,7 +75312,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%94%E7%A8%9C%E9%83%AD",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "北海道"
  },
  {
   "id": "［城姫］広島城",
@@ -75251,7 +75459,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E5%9F%8E",
    "license": "Public domain",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "大地を紡ぐ者 サナラ",
@@ -78055,7 +78264,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "北海道"
  },
  {
   "id": "松前城",
@@ -78206,7 +78416,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%89%8D%E5%9F%8E",
    "license": "Public domain",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "北海道"
  },
  {
   "id": "根城",
@@ -78346,7 +78557,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A0%B9%E5%9F%8E",
    "license": "CC BY 2.5",
    "author": "house-nasu"
-  }
+  },
+  "prefecture": "青森県"
  },
  {
   "id": "不来方城",
@@ -78476,7 +78688,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9B%9B%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "盛岡城",
@@ -78626,7 +78839,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9B%9B%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岩手県"
  },
  {
   "id": "千代城",
@@ -78785,7 +78999,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮城県"
  },
  {
   "id": "東黒川館",
@@ -78955,7 +79170,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮城県"
  },
  {
   "id": "黒川城",
@@ -79085,7 +79301,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%9D%BE%E5%9F%8E",
    "license": "CC BY 4.0",
    "author": "くろふね"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "会津若松城",
@@ -79235,7 +79452,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%9D%BE%E5%9F%8E",
    "license": "CC BY 4.0",
    "author": "くろふね"
-  }
+  },
+  "prefecture": "福島県"
  },
  {
   "id": "山形城",
@@ -79434,7 +79652,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E5%BD%A2%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "矢留ノ城",
@@ -79577,7 +79796,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "山形県"
  },
  {
   "id": "窪田城",
@@ -79727,7 +79947,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AA%AA%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "久保田城",
@@ -79877,7 +80098,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E4%BF%9D%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "秋田県"
  },
  {
   "id": "大宝寺城",
@@ -80027,7 +80249,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B6%B4%E3%83%B6%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "鶴ヶ岡城",
@@ -80177,7 +80400,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B6%B4%E3%83%B6%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "馬場城",
@@ -80320,7 +80544,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "茨城県"
  },
  {
   "id": "水戸城",
@@ -80460,7 +80685,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B0%B4%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "茨城県"
  },
  {
   "id": "石倉城",
@@ -80603,7 +80829,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "群馬県"
  },
  {
   "id": "厩橋城",
@@ -80753,7 +80980,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%89%8D%E6%A9%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "前橋城",
@@ -80912,7 +81140,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "群馬県"
  },
  {
   "id": "宇都宮城",
@@ -81062,7 +81291,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "栃木県"
  },
  {
   "id": "飛山城",
@@ -81212,7 +81442,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A3%9B%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "栃木県"
  },
  {
   "id": "小田喜城",
@@ -81384,7 +81615,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "千葉県"
  },
  {
   "id": "大多喜城",
@@ -81539,7 +81771,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "千葉県"
  },
  {
   "id": "忍城",
@@ -81689,7 +81922,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BF%8D%E5%9F%8E",
    "license": "Public domain",
    "author": "Mocchy"
-  }
+  },
+  "prefecture": "埼玉県"
  },
  {
   "id": "本庄城",
@@ -81814,7 +82048,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "東京都"
  },
  {
   "id": "滝山城",
@@ -81983,7 +82218,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%BB%9D%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "三崎城",
@@ -82134,7 +82370,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%B4%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "神奈川県"
  },
  {
   "id": "新府城",
@@ -82274,7 +82511,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E5%BA%9C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "鍋蓋城",
@@ -82417,7 +82655,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "長野県"
  },
  {
   "id": "小諸城",
@@ -82537,7 +82776,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E8%AB%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "今川館",
@@ -82703,7 +82943,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A7%BF%E5%BA%9C%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "ToukaTsurugi"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "小牧山城",
@@ -82853,7 +83094,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%89%A7%E5%B1%B1",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "柳之丸",
@@ -82992,7 +83234,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "愛知県"
  },
  {
   "id": "那古野城",
@@ -83164,7 +83407,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%82%A3%E5%8F%A4%E9%87%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "稲葉山城",
@@ -83294,7 +83538,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%90%E9%98%9C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "苗木城",
@@ -83466,7 +83711,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%97%E6%9C%A8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "坂戸城",
@@ -83663,7 +83909,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9D%82%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "新潟県"
  },
  {
   "id": "富山城",
@@ -83803,7 +84050,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AF%8C%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "富山県"
  },
  {
   "id": "七尾城",
@@ -83959,7 +84207,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%83%E5%B0%BE%E5%9F%8E",
    "license": "Public domain",
    "author": "tom-spring"
-  }
+  },
+  "prefecture": "石川県"
  },
  {
   "id": "大聖寺城",
@@ -84102,7 +84351,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E8%81%96%E5%AF%BA%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "石川県"
  },
  {
   "id": "北ノ庄城",
@@ -84242,7 +84492,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E4%BA%95%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福井県"
  },
  {
   "id": "福井城",
@@ -84355,7 +84606,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "福井県"
  },
  {
   "id": "津留賀城",
@@ -84541,7 +84793,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "福井県"
  },
  {
   "id": "金ヶ崎城",
@@ -84708,7 +84961,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%87%91%E3%83%B6%E5%B4%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福井県"
  },
  {
   "id": "水口城",
@@ -84828,7 +85082,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B0%B4%E5%8F%A3%E5%9F%8E",
    "license": "CC BY-SA 2.5",
    "author": "kamoseiro"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "仁木館",
@@ -84961,7 +85216,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "三重県"
  },
  {
   "id": "伊賀上野城",
@@ -85101,7 +85357,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E9%87%8E%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "オリジナルのアップロード者は日本語版ウィキペディアのT@kaさん"
-  }
+  },
+  "prefecture": "三重県"
  },
  {
   "id": "多聞山城",
@@ -85253,7 +85510,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "龍王山城",
@@ -85421,7 +85679,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BE%8D%E7%8E%8B%E5%B1%B1%E5%9F%8E",
    "license": "CC BY 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "飯盛山城",
@@ -85571,7 +85830,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A3%AF%E7%9B%9B%E5%B1%B1%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "鬼ヶ城",
@@ -85702,7 +85962,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AC%BC%E3%83%B6%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Captain76"
-  }
+  },
+  "prefecture": "和歌山県"
  },
  {
   "id": "雑賀城",
@@ -85843,7 +86104,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9B%91%E8%B3%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "和歌山県"
  },
  {
   "id": "三木城",
@@ -86035,7 +86297,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E6%9C%A8%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "石山城",
@@ -86185,7 +86448,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "岡山城",
@@ -86335,7 +86599,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "備中高松城",
@@ -86485,7 +86750,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E6%9D%BE%E5%9F%8E%20%28%E5%82%99%E4%B8%AD%E5%9B%BD%29",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "三原城",
@@ -86642,7 +86908,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "桜尾城",
@@ -86792,7 +87059,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A1%9C%E5%B0%BE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "鹿野城",
@@ -86984,7 +87252,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E9%87%8E%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Satoshin"
-  }
+  },
+  "prefecture": "鳥取県"
  },
  {
   "id": "鳥取城",
@@ -87156,7 +87425,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%A5%E5%8F%96%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鳥取県"
  },
  {
   "id": "防己尾城",
@@ -87307,7 +87577,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%98%B2%E5%B7%B1%E5%B0%BE%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Yuniko"
-  }
+  },
+  "prefecture": "鳥取県"
  },
  {
   "id": "三本松城",
@@ -87437,7 +87708,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%92%8C%E9%87%8E%E5%9F%8E",
    "license": "Public domain",
    "author": "Mocchy"
-  }
+  },
+  "prefecture": "島根県"
  },
  {
   "id": "津和野城",
@@ -87580,7 +87852,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "島根県"
  },
  {
   "id": "上関城",
@@ -87723,7 +87996,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "山口県"
  },
  {
   "id": "高松城",
@@ -87866,7 +88140,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "香川県"
  },
  {
   "id": "引田城",
@@ -88036,7 +88311,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BC%95%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "香川県"
  },
  {
   "id": "勝瑞城",
@@ -88202,7 +88478,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8B%9D%E7%91%9E%E5%9F%8E",
    "license": "CC BY 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "徳島県"
  },
  {
   "id": "来島城",
@@ -88352,7 +88629,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%A5%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "大高坂山城",
@@ -88502,7 +88780,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E7%9F%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "高知県"
  },
  {
   "id": "鶴崎城",
@@ -88645,7 +88924,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "大分県"
  },
  {
   "id": "福岡城",
@@ -88785,7 +89065,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "若松城",
@@ -88915,7 +89196,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%9D%BE%E5%9F%8E",
    "license": "CC BY 4.0",
    "author": "くろふね"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "島原城",
@@ -89089,7 +89371,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B3%B6%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長崎県"
  },
  {
   "id": "村中城",
@@ -89232,7 +89515,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "佐賀県"
  },
  {
   "id": "佐賀城",
@@ -89392,7 +89676,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E8%B3%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "佐賀県"
  },
  {
   "id": "日之嶽城",
@@ -89552,7 +89837,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "佐賀県"
  },
  {
   "id": "平戸城",
@@ -89673,7 +89959,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E6%88%B8%E5%9F%8E",
    "license": "Public domain",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長崎県"
  },
  {
   "id": "宇土古城",
@@ -89816,7 +90103,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "熊本県"
  },
  {
   "id": "宇土城",
@@ -89939,7 +90227,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "熊本県"
  },
  {
   "id": "飫肥城",
@@ -90069,7 +90358,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A3%AB%E8%82%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮崎県"
  },
  {
   "id": "鹿児島城",
@@ -90212,7 +90502,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鹿児島県"
  },
  {
   "id": "浦添城",
@@ -90404,7 +90695,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%A6%E6%B7%BB%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "沖縄県"
  },
  {
   "id": "能島城",
@@ -90554,7 +90846,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%83%BD%E5%B3%B6",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "月山富田城",
@@ -90746,7 +91039,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "安来市政策秘書課"
-  }
+  },
+  "prefecture": "島根県"
  },
  {
   "id": "脇本城",
@@ -90873,7 +91167,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%84%87%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "秋田県"
  },
  {
   "id": "一乗谷城",
@@ -91064,7 +91359,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%80%E4%B9%97%E8%B0%B7%E6%9C%9D%E5%80%89%E6%B0%8F%E9%81%BA%E8%B7%A1",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福井県"
  },
  {
   "id": "墨俣城",
@@ -91220,7 +91516,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A2%A8%E4%BF%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "岩櫃城",
@@ -91392,7 +91689,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E6%AB%83%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Koda6029"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "志自岐原城",
@@ -91511,7 +91809,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "佐賀県"
  },
  {
   "id": "原城",
@@ -91683,7 +91982,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長崎県"
  },
  {
   "id": "根来城",
@@ -91826,7 +92126,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "和歌山県"
  },
  {
   "id": "鳥羽城",
@@ -92064,7 +92365,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%A5%E7%BE%BD%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "三重県"
  },
  {
   "id": "丹波横山城",
@@ -92207,7 +92509,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "京都府"
  },
  {
   "id": "今浜城",
@@ -92358,7 +92661,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E6%B5%9C%E5%9F%8E%20%28%E8%BF%91%E6%B1%9F%E5%9B%BD%29",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "長浜城",
@@ -92482,7 +92786,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "滋賀県"
  },
  {
   "id": "八王子城",
@@ -92602,7 +92907,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%AB%E7%8E%8B%E5%AD%90%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "松倉城",
@@ -92725,7 +93031,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "富山県"
  },
  {
   "id": "与板城",
@@ -92910,7 +93217,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "新潟県"
  },
  {
   "id": "久慈城",
@@ -93082,7 +93390,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E6%85%88%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岩手県"
  },
  {
   "id": "乙女城",
@@ -93225,7 +93534,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "長野県"
  },
  {
   "id": "柳川城",
@@ -93398,7 +93708,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "石垣山城",
@@ -93600,7 +93911,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "神奈川県"
  },
  {
   "id": "今治城",
@@ -93770,7 +94082,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%8A%E6%B2%BB%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "真田丸",
@@ -93920,7 +94233,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9C%9F%E7%94%B0%E4%B8%B8",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "尾山御坊",
@@ -94126,7 +94440,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%87%91%E6%B2%A2%E5%9F%8E",
    "license": "Public domain",
    "author": "Fg2"
-  }
+  },
+  "prefecture": "石川県"
  },
  {
   "id": "佐久間金沢城",
@@ -94269,7 +94584,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "石川県"
  },
  {
   "id": "菩提山城",
@@ -94409,7 +94725,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8F%A9%E6%8F%90%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "岩手山城",
@@ -94542,7 +94859,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "岐阜県"
  },
  {
   "id": "山科本願寺",
@@ -94688,7 +95006,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "深志城",
@@ -94854,7 +95173,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "天神西舘",
@@ -94997,7 +95317,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮城県"
  },
  {
   "id": "中村舘",
@@ -95140,7 +95461,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮城県"
  },
  {
   "id": "相馬中村城",
@@ -95260,7 +95582,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9B%B8%E9%A6%AC%E4%B8%AD%E6%9D%91%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福島県"
  },
  {
   "id": "四稜郭",
@@ -95462,7 +95785,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9B%9B%E7%A8%9C%E9%83%AD",
    "license": "CC BY-SA 3.0",
    "author": "日本語版ウィキペディアのSatoshinさん"
-  }
+  },
+  "prefecture": "北海道"
  },
  {
   "id": "安平古堡",
@@ -95975,7 +96299,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "福岡県"
  },
  {
   "id": "久留米城",
@@ -96155,7 +96480,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E7%95%99%E7%B1%B3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "大仏城",
@@ -96357,7 +96683,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "杉目城",
@@ -96470,7 +96797,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮城県"
  },
  {
   "id": "福島城",
@@ -96613,7 +96941,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮城県"
  },
  {
   "id": "伊丹城",
@@ -96753,7 +97082,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8A%E4%B8%B9%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "BJP039"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "板島丸串城",
@@ -96916,7 +97246,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "丸山城",
@@ -97040,7 +97371,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "福岡県"
  },
  {
   "id": "亀居城",
@@ -97243,7 +97575,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%80%E5%B1%85%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "肥後千葉城",
@@ -97372,7 +97705,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "熊本県"
  },
  {
   "id": "コンウィ城",
@@ -97863,7 +98197,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "広島県"
  },
  {
   "id": "曳馬城",
@@ -98013,7 +98348,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%9C%E6%9D%BE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "杵築城",
@@ -98164,7 +98500,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%B5%E7%AF%89%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大分県"
  },
  {
   "id": "アイリーン・ドナン城",
@@ -98440,7 +98777,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "江戸氏館",
@@ -98592,7 +98930,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "湊城",
@@ -98732,7 +99071,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B9%8A%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "秋田県"
  },
  {
   "id": "鬼ノ城",
@@ -98882,7 +99222,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AC%BC%E3%83%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "邯鄲",
@@ -99204,7 +99545,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B4%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "佐土原城",
@@ -99354,7 +99696,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%9C%9F%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮崎県"
  },
  {
   "id": "尼崎城",
@@ -99505,7 +99848,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%BC%E5%B4%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "伊勢長島城",
@@ -99690,7 +100034,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "三重県"
  },
  {
   "id": "菖蒲城",
@@ -99847,7 +100192,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8F%96%E8%92%B2%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "白石城",
@@ -100019,7 +100365,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%99%BD%E7%9F%B3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "赤穂城",
@@ -100190,7 +100537,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%B5%A4%E7%A9%82%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "結城城",
@@ -100378,7 +100726,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B5%90%E5%9F%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "千葉県"
  },
  {
   "id": "唐津城",
@@ -100528,7 +100877,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%B4%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "佐賀県"
  },
  {
   "id": "トームペア城",
@@ -100927,7 +101277,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "岡山県"
  },
  {
   "id": "千賀地氏城",
@@ -101077,7 +101428,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%83%E8%B3%80%E5%9C%B0%E6%B0%8F%E5%9F%8E",
    "license": "CC BY 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "三重県"
  },
  {
   "id": "葛根城",
@@ -101207,7 +101559,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E4%BF%9D%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "椿尾上城",
@@ -101347,7 +101700,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A4%BF%E5%B0%BE%E4%B8%8A%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "多気城",
@@ -101510,7 +101864,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "茨城県"
  },
  {
   "id": "洲本城",
@@ -101630,7 +101985,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%B2%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "一条小山城",
@@ -101773,7 +102129,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "山梨県"
  },
  {
   "id": "佐倉城",
@@ -101943,7 +102300,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%80%89%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "千葉県"
  },
  {
   "id": "浪岡城",
@@ -102093,7 +102451,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%AA%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "青森県"
  },
  {
   "id": "日暮城",
@@ -102306,7 +102665,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "佐賀県"
  },
  {
   "id": "神辺城",
@@ -102476,7 +102836,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A5%9E%E8%BE%BA%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Carpkazu"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "徳丹城",
@@ -102618,7 +102979,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BE%B3%E4%B8%B9%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "江尻城",
@@ -102769,7 +103131,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E5%B0%BB%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "敦賀城",
@@ -102930,7 +103293,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%95%A6%E8%B3%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福井県"
  },
  {
   "id": "ベリー・ポメロイ城",
@@ -103322,7 +103686,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%99%E5%8F%B0%E5%9F%8E",
    "license": "Public domain",
    "author": "Kinori"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "駿府城",
@@ -103532,7 +103897,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A7%BF%E5%BA%9C%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "ToukaTsurugi"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "岐阜城",
@@ -103682,7 +104048,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%90%E9%98%9C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "坂本城",
@@ -103853,7 +104220,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9D%82%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "二条城",
@@ -103985,7 +104353,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9D%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "高知城",
@@ -104162,7 +104531,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E7%9F%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "高知県"
  },
  {
   "id": "丸亀城",
@@ -104341,7 +104711,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%B8%E4%BA%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "香川県"
  },
  {
   "id": "小谷城",
@@ -104467,7 +104838,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E8%B0%B7%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "福山城",
@@ -104628,7 +105000,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "広島県"
  },
  {
   "id": "春日山城",
@@ -104778,7 +105151,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%A5%E6%97%A5%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "新潟県"
  },
  {
   "id": "多賀城",
@@ -104944,7 +105318,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%B3%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "フランケンシュタイン城",
@@ -105288,7 +105663,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%A6%B3%E9%9F%B3%E5%AF%BA%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Satoshin"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "萩城",
@@ -105471,7 +105847,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%90%A9%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山口県"
  },
  {
   "id": "岡豊城",
@@ -105659,7 +106036,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E8%B1%8A%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "高知県"
  },
  {
   "id": "松本城",
@@ -105856,7 +106234,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "尾山城",
@@ -106006,7 +106385,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%87%91%E6%B2%A2%E5%9F%8E",
    "license": "Public domain",
    "author": "Fg2"
-  }
+  },
+  "prefecture": "石川県"
  },
  {
   "id": "ゼーランディア城",
@@ -106309,7 +106689,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BF%A1%E8%B2%B4%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "高岡城",
@@ -106461,7 +106842,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "富山県"
  },
  {
   "id": "吉田郡山城",
@@ -106631,7 +107013,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%89%E7%94%B0%E9%83%A1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "帰雲城",
@@ -106781,7 +107164,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B8%B0%E9%9B%B2%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "清洲城",
@@ -106931,7 +107315,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B8%85%E6%B4%B2%E5%9F%8E",
    "license": "CC0",
    "author": "YTARMR"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "有岡城",
@@ -107081,7 +107466,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8A%E4%B8%B9%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "BJP039"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "サンタンジェロ城",
@@ -107383,7 +107769,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E",
    "license": "CC0",
    "author": "高梁浩洋"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "岡城",
@@ -107526,7 +107913,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "大分県"
  },
  {
   "id": "中津城",
@@ -107697,7 +108085,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E6%B4%A5%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "ほっきー"
-  }
+  },
+  "prefecture": "大分県"
  },
  {
   "id": "ガイヤール城",
@@ -108015,7 +108404,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "北海道"
  },
  {
   "id": "徳島城",
@@ -108177,7 +108567,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "徳島県"
  },
  {
   "id": "隈本城",
@@ -108339,7 +108730,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "熊本県"
  },
  {
   "id": "淀城",
@@ -108542,7 +108934,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B7%80%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "井伊谷城",
@@ -108744,7 +109137,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%95%E4%BC%8A%E8%B0%B7%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Mikutanoya"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "臼杵城",
@@ -108865,7 +109259,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%87%BC%E6%9D%B5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大分県"
  },
  {
   "id": "津山城",
@@ -109037,7 +109432,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "大和郡山城",
@@ -109177,7 +109573,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%A1%E5%B1%B1%E5%9F%8E%20%28%E5%A4%A7%E5%92%8C%E5%9B%BD%29",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "浜田城",
@@ -109337,7 +109734,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%9C%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "島根県"
  },
  {
   "id": "丹波亀山城",
@@ -109487,7 +109885,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%80%E5%B1%B1%E5%9F%8E%20%28%E4%B8%B9%E6%B3%A2%E5%9B%BD%29",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "岩殿山城",
@@ -109657,7 +110056,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E6%AE%BF%E5%B1%B1%E5%9F%8E",
    "license": "Public domain",
    "author": "Kinori"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "山中城",
@@ -109797,7 +110197,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E4%B8%AD%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "岩国城",
@@ -109937,7 +110338,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E5%9B%BD%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山口県"
  },
  {
   "id": "古河城",
@@ -110058,7 +110460,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8F%A4%E6%B2%B3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "千葉県"
  },
  {
   "id": "柳生城",
@@ -110230,7 +110633,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E7%94%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "シノン城",
@@ -110581,7 +110985,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%8E%E7%9F%B3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "大洲城",
@@ -110702,7 +111107,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%B4%B2%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "平遥古城",
@@ -110998,7 +111404,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "三重県"
  },
  {
   "id": "新宮城",
@@ -111160,7 +111567,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E5%AE%AE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "和歌山県"
  },
  {
   "id": "［節分］鬼ヶ城",
@@ -111281,7 +111689,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AC%BC%E3%83%B6%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Captain76"
-  }
+  },
+  "prefecture": "和歌山県"
  },
  {
   "id": "天童城",
@@ -111431,7 +111840,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A9%E7%AB%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "品川台場",
@@ -111573,7 +111983,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E3%81%8A%E5%8F%B0%E5%A0%B4",
    "license": "CC BY-SA 4.0",
    "author": "MaedaAkihiko"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "スピシュ城",
@@ -111911,7 +112322,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%A1%E4%B8%8A%E5%85%AB%E5%B9%A1%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Kitimi"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "近江八幡城",
@@ -112051,7 +112463,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%AB%E5%B9%A1%E5%B1%B1%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "高取城",
@@ -112201,7 +112614,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%8F%96%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "長谷堂城",
@@ -112351,7 +112765,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E8%B0%B7%E5%A0%82%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Satoshin"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "秋田城",
@@ -112553,7 +112968,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A7%8B%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "秋田県"
  },
  {
   "id": "［夏］古河城",
@@ -112674,7 +113090,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8F%A4%E6%B2%B3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "千葉県"
  },
  {
   "id": "岩村城",
@@ -112814,7 +113231,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E6%9D%91%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "マルクスブルク城",
@@ -113286,7 +113704,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E8%B5%A4%E5%9D%82%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "KENPEI"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "松坂城",
@@ -113436,7 +113855,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%9D%82%E5%9F%8E",
    "license": "CC BY 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "三重県"
  },
  {
   "id": "今帰仁城",
@@ -113615,7 +114035,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%8A%E5%B8%B0%E4%BB%81%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "沖縄県"
  },
  {
   "id": "百地丹波城",
@@ -113778,7 +114199,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "三重県"
  },
  {
   "id": "フレデリクスボー城",
@@ -114156,7 +114578,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%94%98%E5%B4%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "ホーエンツォレルン城",
@@ -114458,7 +114881,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BE%8D%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Katana213"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "コッヘム・ライヒスブルク城",
@@ -114739,7 +115163,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E8%83%A1%E6%A1%83%E5%9F%8E",
    "license": "Public domain",
    "author": "デジタルカメラ"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "延岡城",
@@ -114871,7 +115296,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BB%B6%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮崎県"
  },
  {
   "id": "［花嫁衣装］秋田城",
@@ -115021,7 +115447,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A7%8B%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "秋田県"
  },
  {
   "id": "越中高岡城",
@@ -115154,7 +115581,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "富山県"
  },
  {
   "id": "スフォルツェスコ城",
@@ -115476,7 +115904,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%A6%E6%B7%BB%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "沖縄県"
  },
  {
   "id": "［夏］富山城",
@@ -115636,7 +116065,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AF%8C%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "富山県"
  },
  {
   "id": "［肝試し］帰雲城",
@@ -115786,7 +116216,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B8%B0%E9%9B%B2%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "［肝試し］八王子城",
@@ -115936,7 +116367,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%AB%E7%8E%8B%E5%AD%90%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "ハイデルベルク城",
@@ -116249,7 +116681,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "徳島県"
  },
  {
   "id": "［ハロウィン］フランケンシュタイン城",
@@ -116725,7 +117158,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "静岡県"
  },
  {
   "id": "ドーヴァー城",
@@ -117066,7 +117500,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E7%99%BA%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "新潟県"
  },
  {
   "id": "岸和田城",
@@ -117236,7 +117671,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%B8%E5%92%8C%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "［聖夜］エステンセ城",
@@ -117646,7 +118082,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%BD%AE%E5%A1%A9%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "［正月］宇都宮城",
@@ -117796,7 +118233,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "栃木県"
  },
  {
   "id": "［正月］柳川城",
@@ -117946,7 +118384,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "魚津城",
@@ -118134,7 +118573,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AD%9A%E6%B4%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "富山県"
  },
  {
   "id": "［バレンタイン］大洲城",
@@ -118285,7 +118725,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%B4%B2%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "［バレンタイン］高島城",
@@ -118436,7 +118877,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "志波城",
@@ -118582,7 +119024,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BF%97%E6%B3%A2%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "箕輪城",
@@ -118790,7 +119233,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AE%95%E8%BC%AA%E5%9F%8E",
    "license": "Public domain",
    "author": "デジタルカメラ"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "足利学校",
@@ -118960,7 +119404,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%B6%B3%E5%88%A9%E5%AD%A6%E6%A0%A1",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "栃木県"
  },
  {
   "id": "若桜鬼ヶ城",
@@ -119110,7 +119555,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%A1%9C%E9%AC%BC%E3%83%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鳥取県"
  },
  {
   "id": "栗橋城",
@@ -119281,7 +119727,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A0%97%E6%A9%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "千葉県"
  },
  {
   "id": "カステル・ヴェッキオ",
@@ -119698,7 +120145,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B9%AF%E7%AF%89%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "高鍋城",
@@ -119848,7 +120296,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E9%8D%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮崎県"
  },
  {
   "id": "リンディスファーン城",
@@ -120141,7 +120590,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E5%BD%A2%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "［花嫁衣装］アイリーン・ドナン城",
@@ -120492,7 +120942,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%94%98%E5%B4%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "［夏］柳川城",
@@ -120680,7 +121131,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "［夏］延岡城",
@@ -120820,7 +121272,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BB%B6%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮崎県"
  },
  {
   "id": "沼田城",
@@ -120960,7 +121413,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B2%BC%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "名島城",
@@ -121111,7 +121565,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "［肝試し］三木城",
@@ -121281,7 +121736,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E6%9C%A8%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "近江望月城",
@@ -121414,7 +121870,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "滋賀県"
  },
  {
   "id": "プファルツ城",
@@ -121735,7 +122192,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%B4%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "［お月見］備中高松城",
@@ -121875,7 +122333,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E6%9D%BE%E5%9F%8E%20%28%E5%82%99%E4%B8%AD%E5%9B%BD%29",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "［ハロウィン］平遥古城",
@@ -122415,7 +122874,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "福岡県"
  },
  {
   "id": "［聖夜］四稜郭",
@@ -122565,7 +123025,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9B%9B%E7%A8%9C%E9%83%AD",
    "license": "CC BY-SA 3.0",
    "author": "日本語版ウィキペディアのSatoshinさん"
-  }
+  },
+  "prefecture": "北海道"
  },
  {
   "id": "花巻城",
@@ -122735,7 +123196,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8A%B1%E5%B7%BB%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岩手県"
  },
  {
   "id": "［正月］一条小山城",
@@ -122878,7 +123340,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "山梨県"
  },
  {
   "id": "飯沼城",
@@ -123044,7 +123507,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "千葉県"
  },
  {
   "id": "［バレンタイン］与板城",
@@ -123205,7 +123669,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "新潟県"
  },
  {
   "id": "小丸山城",
@@ -123356,7 +123821,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E4%B8%B8%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "石川県"
  },
  {
   "id": "ムーア城",
@@ -123838,7 +124304,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%97%E6%9C%A8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "宇佐山城",
@@ -124008,7 +124475,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E4%BD%90%E5%B1%B1%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "ロケト城",
@@ -124325,7 +124793,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鹿児島県"
  },
  {
   "id": "［夏］三原城",
@@ -124496,7 +124965,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "［肝試し］前橋城",
@@ -124659,7 +125129,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "群馬県"
  },
  {
   "id": "バルディ城",
@@ -125425,7 +125896,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9D%82%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "新潟県"
  },
  {
   "id": "［正月］大宝寺城",
@@ -125593,7 +126065,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B6%B4%E3%83%B6%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "フリント城",
@@ -125939,7 +126412,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9B%9B%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岩手県"
  },
  {
   "id": "新納石城",
@@ -126122,7 +126596,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E7%B4%8D%E7%9F%B3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮崎県"
  },
  {
   "id": "越前大野城",
@@ -126272,7 +126747,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%87%8E%E5%9F%8E%20%28%E8%B6%8A%E5%89%8D%E5%9B%BD%29",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福井県"
  },
  {
   "id": "［学園］鳥羽城",
@@ -126423,7 +126899,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%A5%E7%BE%BD%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "三重県"
  },
  {
   "id": "アルモウロル城",
@@ -126979,7 +127456,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%B4%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "佐賀県"
  },
  {
   "id": "［肝試し］笹原城",
@@ -127113,7 +127591,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "福岡県"
  },
  {
   "id": "育野城",
@@ -127256,7 +127735,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "岡山県"
  },
  {
   "id": "［ハロウィン］コンウィ城",
@@ -127537,7 +128017,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BE%8D%E7%8E%8B%E5%B1%B1%E5%9F%8E",
    "license": "CC BY 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "グランド・マスター宮殿",
@@ -127809,7 +128290,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "［バレンタイン］大高坂山城",
@@ -127946,7 +128428,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E7%9F%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "高知県"
  },
  {
   "id": "鮭延城",
@@ -128095,7 +128578,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AE%AD%E5%BB%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "石動山城",
@@ -128202,7 +128686,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9F%B3%E5%8B%95%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "石川県"
  },
  {
   "id": "杣山城",
@@ -128371,7 +128856,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%A3%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福井県"
  },
  {
   "id": "屋良座森城",
@@ -128478,7 +128964,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%8B%E8%89%AF%E5%BA%A7%E6%A3%AE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "沖縄県"
  },
  {
   "id": "［学園］阿波一宮城",
@@ -128608,7 +129095,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "徳島県"
  },
  {
   "id": "荒神城",
@@ -128708,7 +129196,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "愛媛県"
  },
  {
   "id": "［花嫁衣装］千代城",
@@ -128838,7 +129327,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮城県"
  },
  {
   "id": "［夏］上関城",
@@ -128952,7 +129442,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "山口県"
  },
  {
   "id": "下館城",
@@ -129059,7 +129550,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8B%E9%A4%A8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "茨城県"
  },
  {
   "id": "平塚城",
@@ -129208,7 +129700,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%A1%9A%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "［肝試し］山中城",
@@ -129345,7 +129838,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E4%B8%AD%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "大溝城",
@@ -129453,7 +129947,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%BA%9D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "八代城",
@@ -129586,7 +130081,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%AB%E4%BB%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "熊本県"
  },
  {
   "id": "縣城",
@@ -129728,7 +130224,8 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮崎県"
  },
  {
   "id": "米子城",
@@ -129850,7 +130347,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B1%B3%E5%AD%90%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鳥取県"
  },
  {
   "id": "［ハロウィン］グランド・マスター宮殿",
@@ -130246,7 +130744,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "熊本県"
  },
  {
   "id": "［正月］鳥取城",
@@ -130383,7 +130882,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%A5%E5%8F%96%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鳥取県"
  },
  {
   "id": "［バレンタイン］岩櫃城",
@@ -130510,7 +131010,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E6%AB%83%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Koda6029"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "［学園］菩提山城",
@@ -130680,7 +131181,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8F%A9%E6%8F%90%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "［学園］柳川城",
@@ -130850,7 +131352,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "［幼き］小倉城",
@@ -131001,7 +131504,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E5%80%89%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Keramahani"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "蒼隼丸",
@@ -131144,7 +131648,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "東京都"
  },
  {
   "id": "［花嫁衣装］馬場城",
@@ -131257,7 +131762,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "茨城県"
  },
  {
   "id": "［夏］能島城",
@@ -131397,7 +131903,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%83%BD%E5%B3%B6",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "［肝試し］脇本城",
@@ -131518,7 +132025,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%84%87%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "秋田県"
  },
  {
   "id": "［お月見］高松城",
@@ -131651,7 +132159,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "香川県"
  },
  {
   "id": "ティンタジェル城",
@@ -131947,7 +132456,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B9%AF%E7%AF%89%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "［聖夜］品川台場",
@@ -132107,7 +132617,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E3%81%8A%E5%8F%B0%E5%A0%B4",
    "license": "CC BY-SA 4.0",
    "author": "MaedaAkihiko"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "長岡京",
@@ -132275,7 +132786,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E5%B2%A1%E4%BA%AC",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "［正月］飯沼城",
@@ -132465,7 +132977,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "千葉県"
  },
  {
   "id": "［バレンタイン］コッヘム・ライヒスブルク城",
@@ -132908,7 +133421,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "大草城",
@@ -133040,7 +133554,8 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "愛知県"
  },
  {
   "id": "［ハロウィン］城塞都市ルシュノフ",
@@ -133398,7 +133913,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%8E%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "神奈川県"
  },
  {
   "id": "佐和山城",
@@ -133607,7 +134123,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "石山御坊",
@@ -133777,7 +134294,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9F%B3%E5%B1%B1%E6%9C%AC%E9%A1%98%E5%AF%BA",
    "license": "CC BY-SA 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "首里城",
@@ -133986,7 +134504,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A6%96%E9%87%8C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "沖縄県"
  },
  {
   "id": "福知山城",
@@ -134126,7 +134645,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E7%9F%A5%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "和歌山城",
@@ -134246,7 +134766,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%92%8C%E6%AD%8C%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "和歌山県"
  },
  {
   "id": "ブラン城",
@@ -134536,7 +135057,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E5%9F%8E",
    "license": "Public domain",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "吉野ヶ里",
@@ -134688,7 +135210,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "佐賀県"
  },
  {
   "id": "前田金沢城",
@@ -134831,7 +135354,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "石川県"
  },
  {
   "id": "竹田城",
@@ -135003,7 +135527,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%B9%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Wae35244"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "躑躅ヶ崎館",
@@ -135167,7 +135692,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8",
    "license": "Public domain",
    "author": "前田左衛門佐"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "犬山城",
@@ -135317,7 +135843,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%8A%AC%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "弘前城",
@@ -135459,7 +135986,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BC%98%E5%89%8D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "青森県"
  },
  {
   "id": "伊予松山城",
@@ -135599,7 +136127,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "浜松城",
@@ -135739,7 +136268,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%9C%E6%9D%BE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "宇和島城",
@@ -135969,7 +136499,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛媛県"
  },
  {
   "id": "丸岡城",
@@ -136089,7 +136620,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%B8%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福井県"
  },
  {
   "id": "内城",
@@ -136249,7 +136781,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%86%85%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鹿児島県"
  },
  {
   "id": "マルボルク城",
@@ -136684,7 +137217,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "聚楽城",
@@ -136904,7 +137438,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
    "license": "Public domain",
    "author": "三井文庫蔵"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "シュノンソー城",
@@ -137215,7 +137750,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%99%BD%E6%B2%B3%E5%B0%8F%E5%B3%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福島県"
  },
  {
   "id": "アンボワーズ城",
@@ -137528,7 +138064,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "北海道"
  },
  {
   "id": "大垣城",
@@ -137699,7 +138236,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9E%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "ホーエンザルツブルク城",
@@ -138369,7 +138907,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%B1%9F%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "島根県"
  },
  {
   "id": "［夏］犬山城",
@@ -138555,7 +139094,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%8A%AC%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "［夏］指月伏見城",
@@ -138675,7 +139215,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8F%E8%A6%8B%E5%9F%8E",
    "license": "Public domain",
    "author": "Thomas vanierschot"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "［夏］名古屋城",
@@ -138805,7 +139346,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "高天神城",
@@ -138951,7 +139493,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%A4%A9%E7%A5%9E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "新田金山城",
@@ -139077,7 +139620,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E",
    "license": "Public domain",
    "author": "Mocchy"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "エディンバラ城",
@@ -139395,7 +139939,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%99%E5%8F%B0%E5%9F%8E",
    "license": "Public domain",
    "author": "Kinori"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "銀杏城",
@@ -139579,7 +140124,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "熊本県"
  },
  {
   "id": "高遠城",
@@ -139729,7 +140275,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E9%81%A0%E5%9F%8E",
    "license": "Public domain",
    "author": "コンピュータが読み取れる情報は提供されていませんが、FlyMeToFullmoonだと推定されます（著作権の主張に基づく）"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "長篠城",
@@ -139885,7 +140432,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E7%AF%A0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "城塞都市ルクセンブルク",
@@ -140168,7 +140716,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E4%B9%8B%E5%BE%A1%E6%89%80%E9%81%BA%E8%B7%A1",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "ヴァルトブルク城",
@@ -140774,7 +141323,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E5%80%89%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Keramahani"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "セゴビアのアルカサル",
@@ -141087,7 +141637,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "山口県"
  },
  {
   "id": "リーズ城",
@@ -141632,7 +142183,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BF%A1%E8%B2%B4%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "フォンテーヌブロー宮殿",
@@ -141956,7 +142508,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "茨城県"
  },
  {
   "id": "ペーナ宮殿",
@@ -142570,7 +143123,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AF%A0%E5%B1%B1%E5%9F%8E",
    "license": "CC BY 2.1 jp",
    "author": "日:Jnn"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "城塞都市アビラ",
@@ -142920,7 +143474,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E4%BB%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長野県"
  },
  {
   "id": "リンドス・アクロポリス",
@@ -143195,7 +143750,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8B%9D%E7%AB%9C%E5%AF%BA%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "ネスヴィジ城",
@@ -143555,7 +144111,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BA%9C%E5%86%85%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大分県"
  },
  {
   "id": "［端午］多賀城",
@@ -143695,7 +144252,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%B3%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "ケルフィリー城",
@@ -143977,7 +144535,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%B5%E5%BA%AB%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "金華山城",
@@ -144158,7 +144717,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "岐阜県"
  },
  {
   "id": "［花嫁衣装］アンボワーズ城",
@@ -144638,7 +145198,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%81%E6%B2%B3%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "香川県"
  },
  {
   "id": "鉢形城",
@@ -144806,7 +145367,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%89%A2%E5%BD%A2%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "埼玉県"
  },
  {
   "id": "二本松城",
@@ -144968,7 +145530,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9C%AC%E6%9D%BE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福島県"
  },
  {
   "id": "城塞都市アンベール",
@@ -145281,7 +145844,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E4%B9%8B%E5%BE%A1%E6%89%80%E9%81%BA%E8%B7%A1",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "城塞都市トレド",
@@ -145725,7 +146289,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B7%9D%E8%B6%8A%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "埼玉県"
  },
  {
   "id": "掛川城",
@@ -145865,7 +146430,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%8E%9B%E5%B7%9D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "人吉城",
@@ -146016,7 +146582,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%90%89%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "熊本県"
  },
  {
   "id": "膳所城",
@@ -146156,7 +146723,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%86%B3%E6%89%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "モーリッツブルク城",
@@ -146632,7 +147200,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B1%B3%E6%B2%A2%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "日本語版ウィキペディアのSatoshinさん"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "エステンセ城",
@@ -146992,7 +147561,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E8%83%BD%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "静岡県"
  },
  {
   "id": "芥川山城",
@@ -147132,7 +147702,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8A%A5%E5%B7%9D%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "立花山城",
@@ -147362,7 +147933,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%8B%E8%8A%B1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "館山城",
@@ -147482,7 +148054,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A4%A8%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "千葉県"
  },
  {
   "id": "千代田城",
@@ -147614,7 +148187,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "室町第",
@@ -147780,7 +148354,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "京都府"
  },
  {
   "id": "佐竹城",
@@ -147900,7 +148475,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%AA%E7%94%B0%E5%9F%8E%20%28%E5%B8%B8%E9%99%B8%E5%9B%BD%29",
    "license": "Public domain",
    "author": "by SKYWALKER"
-  }
+  },
+  "prefecture": "茨城県"
  },
  {
   "id": "岡崎城",
@@ -148020,7 +148596,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B4%8E%E5%9F%8E",
    "license": "CC0",
    "author": "Evelyn-rose"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "中城城",
@@ -148160,7 +148737,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E5%9F%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "沖縄県"
  },
  {
   "id": "［花嫁衣装］シノン城",
@@ -148534,7 +149112,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "愛媛県"
  },
  {
   "id": "山崎城",
@@ -148684,7 +149263,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E5%B4%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "吹揚城",
@@ -148847,7 +149427,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "愛媛県"
  },
  {
   "id": "［夏］真田丸",
@@ -148977,7 +149558,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9C%9F%E7%94%B0%E4%B8%B8",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "［肝試し］丸岡城",
@@ -149127,7 +149709,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%B8%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福井県"
  },
  {
   "id": "スワローズ・ネスト",
@@ -149513,7 +150096,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鹿児島県"
  },
  {
   "id": "鶴ヶ城",
@@ -149656,7 +150240,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮城県"
  },
  {
   "id": "［ハロウィン］ケルフィリー城",
@@ -149937,7 +150522,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E4%BA%95%E5%9F%8E",
    "license": "Public domain",
    "author": "前田左衛門佐"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "扇城",
@@ -150149,7 +150735,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E6%B4%A5%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "ほっきー"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "ハーレック城",
@@ -150735,7 +151322,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E9%AB%98%E5%B1%B1%E5%9F%8E",
    "license": "Public domain",
    "author": "前田左衛門佐"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "［正月］竹田城",
@@ -150905,7 +151493,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%B9%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Wae35244"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "都於郡城",
@@ -151075,7 +151664,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%BD%E6%96%BC%E9%83%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "宮崎県"
  },
  {
   "id": "黒井城",
@@ -151245,7 +151835,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BB%92%E4%BA%95%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "白帝城",
@@ -151564,7 +152155,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E5%80%89%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Keramahani"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "鮫ヶ尾城",
@@ -151684,7 +152276,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AE%AB%E3%83%B6%E5%B0%BE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "新潟県"
  },
  {
   "id": "勝幡城",
@@ -151834,7 +152427,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8B%9D%E5%B9%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "要害山城",
@@ -151964,7 +152558,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%A6%81%E5%AE%B3%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "唐沢山城",
@@ -152114,7 +152709,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%B2%A2%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "栃木県"
  },
  {
   "id": "玉縄城",
@@ -152302,7 +152898,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%8E%89%E7%B8%84%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "神奈川県"
  },
  {
   "id": "伊豆下田城",
@@ -152494,7 +153091,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "静岡県"
  },
  {
   "id": "カステル・ヌオーヴォ",
@@ -152825,7 +153423,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9E%A0%E6%99%BA%E5%9F%8E",
    "license": "Public domain",
    "author": "日本語版ウィキペディアのYAPONさん"
-  }
+  },
+  "prefecture": "熊本県"
  },
  {
   "id": "コーブルク城",
@@ -153318,7 +153917,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%90%A9%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山口県"
  },
  {
   "id": "［花嫁衣装］新田金山城",
@@ -153438,7 +154038,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E",
    "license": "Public domain",
    "author": "Mocchy"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "［夏］首里城",
@@ -153593,7 +154194,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A6%96%E9%87%8C%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "沖縄県"
  },
  {
   "id": "［夏］久留米城",
@@ -153744,7 +154346,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E7%95%99%E7%B1%B3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "［夏］立花山城",
@@ -153959,7 +154562,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%8B%E8%8A%B1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "佐柿国吉城",
@@ -154129,7 +154733,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9B%BD%E5%90%89%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福井県"
  },
  {
   "id": "エゲル城",
@@ -154450,7 +155055,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B7%9D%E8%B6%8A%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "埼玉県"
  },
  {
   "id": "［肝試し］平戸城",
@@ -154621,7 +155227,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E6%88%B8%E5%9F%8E",
    "license": "Public domain",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "長崎県"
  },
  {
   "id": "津軽鷹岡城",
@@ -154764,7 +155371,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮城県"
  },
  {
   "id": "モースハム城",
@@ -155107,7 +155715,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A1%91%E5%90%8D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "三重県"
  },
  {
   "id": "［お月見］新宮城",
@@ -155277,7 +155886,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E5%AE%AE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "和歌山県"
  },
  {
   "id": "［お月見］津城",
@@ -155427,7 +156037,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "三重県"
  },
  {
   "id": "大宮城",
@@ -155570,7 +156181,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "静岡県"
  },
  {
   "id": "岩剣城",
@@ -155758,7 +156370,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E5%89%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鹿児島県"
  },
  {
   "id": "［ハロウィン］安平古堡",
@@ -156251,7 +156864,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9C%9F%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "栃木県"
  },
  {
   "id": "胆沢城",
@@ -156413,7 +157027,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%83%86%E6%B2%A2%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "Koda6029"
-  }
+  },
+  "prefecture": "宮城県"
  },
  {
   "id": "雨城",
@@ -156584,7 +157199,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9B%A8%E5%9F%8E%E5%8C%BA",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "［聖夜］スピシュ城",
@@ -157065,7 +157681,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "広島県"
  },
  {
   "id": "［正月］天童城",
@@ -157253,7 +157870,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A9%E7%AB%A5%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "七飯台場",
@@ -157422,7 +158040,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "北海道"
  },
  {
   "id": "グラーフェンステーン",
@@ -157754,7 +158373,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%81%E6%B2%B3%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "香川県"
  },
  {
   "id": "［バレンタイン］シュノンソー城",
@@ -158025,7 +158645,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B9%AF%E5%B3%B6%E8%81%96%E5%A0%82",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "麋城",
@@ -158189,7 +158810,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "岐阜県"
  },
  {
   "id": "元和江戸城",
@@ -158339,7 +158961,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "［学園］岡城",
@@ -158452,7 +159075,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "大分県"
  },
  {
   "id": "エカテリーナ宮殿",
@@ -159271,7 +159895,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%83%E8%B3%80%E5%9C%B0%E6%B0%8F%E5%9F%8E",
    "license": "CC BY 3.0",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "三重県"
  },
  {
   "id": "［夏］雑賀城",
@@ -159422,7 +160047,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9B%91%E8%B3%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "和歌山県"
  },
  {
   "id": "［夏］エゲル城",
@@ -159989,7 +160615,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E6%AE%BF%E5%B1%B1%E5%9F%8E",
    "license": "Public domain",
    "author": "Kinori"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "高田城",
@@ -160160,7 +160787,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "新潟県"
  },
  {
   "id": "基肄城",
@@ -160517,7 +161145,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%97%A5%E5%87%BA%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "大分県"
  },
  {
   "id": "天神山城",
@@ -160650,7 +161279,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "岡山県"
  },
  {
   "id": "［ハロウィン］モースハム城",
@@ -161578,7 +162208,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "北海道"
  },
  {
   "id": "［正月］一乗谷城",
@@ -161802,7 +162433,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%80%E4%B9%97%E8%B0%B7%E6%9C%9D%E5%80%89%E6%B0%8F%E9%81%BA%E8%B7%A1",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福井県"
  },
  {
   "id": "［正月］備中松山城",
@@ -161952,7 +162584,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E",
    "license": "CC0",
    "author": "高梁浩洋"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "金烏城",
@@ -162115,7 +162748,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "岡山県"
  },
  {
   "id": "［バレンタイン］佐竹城",
@@ -162265,7 +162899,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%AA%E7%94%B0%E5%9F%8E%20%28%E5%B8%B8%E9%99%B8%E5%9B%BD%29",
    "license": "Public domain",
    "author": "by SKYWALKER"
-  }
+  },
+  "prefecture": "茨城県"
  },
  {
   "id": "勝野城",
@@ -162465,7 +163100,8 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "福岡県"
  },
  {
   "id": "マルメゾン城",
@@ -162785,7 +163421,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%B6%B3%E5%88%A9%E5%AD%A6%E6%A0%A1",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "栃木県"
  },
  {
   "id": "［学園］城塞都市アビラ",
@@ -163279,7 +163916,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "愛媛県"
  },
  {
   "id": "［花嫁衣装］鮫ヶ尾城",
@@ -163429,7 +164067,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AE%AB%E3%83%B6%E5%B0%BE%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "新潟県"
  },
  {
   "id": "安宅船 日本丸",
@@ -163781,7 +164420,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A0%97%E6%A9%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "千葉県"
  },
  {
   "id": "［夏］丹波亀山城",
@@ -163969,7 +164609,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%80%E5%B1%B1%E5%9F%8E%20%28%E4%B8%B9%E6%B3%A2%E5%9B%BD%29",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "京都府"
  },
  {
   "id": "［夏］平井城",
@@ -164119,7 +164760,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E4%BA%95%E5%9F%8E",
    "license": "Public domain",
    "author": "前田左衛門佐"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "城塞都市イントラムロス",
@@ -164468,7 +165110,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E9%87%8D%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "沖縄県"
  },
  {
   "id": "［肝試し］大垣城",
@@ -164619,7 +165262,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9E%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岐阜県"
  },
  {
   "id": "鳴海城",
@@ -164808,7 +165452,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%B4%E6%B5%B7%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "愛知県"
  },
  {
   "id": "黒船 ミシシッピ",
@@ -165721,7 +166366,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BE%8D%E9%87%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "［正月］千代田城",
@@ -165871,7 +166517,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "［正月］江戸氏館",
@@ -166041,7 +166688,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "［正月］立花山城",
@@ -166211,7 +166859,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%8B%E8%8A%B1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "ブラチスラヴァ城",
@@ -166517,7 +167166,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%8E%89%E5%9F%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "沖縄県"
  },
  {
   "id": "［バレンタイン］プファルツ城",
@@ -167000,7 +167650,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "愛媛県"
  },
  {
   "id": "勝連城",
@@ -167139,7 +167790,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8B%9D%E9%80%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "沖縄県"
  },
  {
   "id": "［花嫁衣装］リーガースブルク城",
@@ -167410,7 +168062,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "静岡県"
  },
  {
   "id": "［夏］岩剣城",
@@ -167547,7 +168200,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E5%89%A3%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鹿児島県"
  },
  {
   "id": "［夏］安宅船 日本丸",
@@ -168019,7 +168673,8 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "愛知県"
  },
  {
   "id": "［肝試し］鬼ノ城",
@@ -168158,7 +168813,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AC%BC%E3%83%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "喜春城",
@@ -168325,7 +168981,8 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "兵庫県"
  },
  {
   "id": "陽城",
@@ -169058,7 +169715,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B6%B4%E3%83%B6%E5%B2%A1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "［正月］館山城",
@@ -169179,7 +169837,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A4%A8%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "千葉県"
  },
  {
   "id": "［正月］湯島聖堂",
@@ -169334,7 +169993,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B9%AF%E5%B3%B6%E8%81%96%E5%A0%82",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "東京都"
  },
  {
   "id": "［バレンタイン］アーカート城",
@@ -169747,7 +170407,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%8E%8C%E5%88%83%E5%9F%8E",
    "license": "CC BY-SA 4.0",
    "author": "HikaruKinkakuji"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "［一刃］小谷城",
@@ -169937,7 +170598,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E8%B0%B7%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "［幼き］熊本城",
@@ -170107,7 +170769,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "熊本県"
  },
  {
   "id": "ジブラルタル要塞",
@@ -170382,7 +171045,8 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "福岡県"
  },
  {
   "id": "［夏］米子城",
@@ -170533,7 +171197,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B1%B3%E5%AD%90%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "鳥取県"
  },
  {
   "id": "［夏］シノン城",
@@ -170912,7 +171577,8 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "徳島県"
  },
  {
   "id": "［命護］尼崎城",
@@ -171113,7 +171779,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%BC%E5%B4%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "兵庫県"
  },
  {
   "id": "ビューマリス城",
@@ -171454,7 +172121,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B2%BC%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "群馬県"
  },
  {
   "id": "［刃衣］米沢城",
@@ -171690,7 +172358,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B1%B3%E6%B2%A2%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "日本語版ウィキペディアのSatoshinさん"
-  }
+  },
+  "prefecture": "山形県"
  },
  {
   "id": "［暁鴉］雑賀城",
@@ -171893,7 +172562,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9B%91%E8%B3%80%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "和歌山県"
  },
  {
   "id": "水城",
@@ -172000,7 +172670,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B0%B4%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "軍艦 三笠",
@@ -172853,7 +173524,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "佐賀県"
  },
  {
   "id": "三刀屋城",
@@ -173012,7 +173684,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%88%80%E5%B1%8B%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "島根県"
  },
  {
   "id": "［毒禍］石山城",
@@ -173168,7 +173841,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "［幼き］萩城",
@@ -173346,7 +174020,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E8%90%A9%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山口県"
  },
  {
   "id": "［雲臥］備中松山城",
@@ -173515,7 +174190,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E",
    "license": "CC0",
    "author": "高梁浩洋"
-  }
+  },
+  "prefecture": "岡山県"
  },
  {
   "id": "岩屋城",
@@ -173662,7 +174338,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E5%B1%8B%E5%9F%8E",
    "license": "Public domain",
    "author": "YAPON"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "ペンブルック城",
@@ -174364,7 +175041,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E6%85%88%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "岩手県"
  },
  {
   "id": "［聖夜］ティンタジェル城",
@@ -175000,7 +175678,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "茨城県"
  },
  {
   "id": "八幡山城",
@@ -175179,7 +175858,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%AB%E5%B9%A1%E5%B1%B1%E5%9F%8E",
    "license": "Public domain",
    "author": "投稿者が撮影"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "［アイドル］ドーヴァー城",
@@ -175844,7 +176524,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%B4%8E%E5%9F%8E",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "神奈川県"
  },
  {
   "id": "［肝試し］大和郡山城",
@@ -175991,7 +176672,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%A1%E5%B1%B1%E5%9F%8E%20%28%E5%A4%A7%E5%92%8C%E5%9B%BD%29",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "奈良県"
  },
  {
   "id": "［お月見］伊丹城",
@@ -176138,7 +176820,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8A%E4%B8%B9%E5%9F%8E",
    "license": "CC BY-SA 3.0",
    "author": "BJP039"
-  }
+  },
+  "prefecture": "大阪府"
  },
  {
   "id": "槇島城",
@@ -176442,7 +177125,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%89%8D%E7%94%B0%E5%88%A9%E5%AE%B6",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "石川県"
  },
  {
   "id": "黒田長政",
@@ -176587,7 +177271,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BB%92%E7%94%B0%E9%95%B7%E6%94%BF",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "福岡県"
  },
  {
   "id": "毛利元就",
@@ -176714,7 +177399,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E6%AF%9B%E5%88%A9%E5%85%83%E5%B0%B1",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "広島県"
  },
  {
   "id": "シュテファン",
@@ -176961,7 +177647,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9F%B3%E7%94%B0%E4%B8%89%E6%88%90",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "滋賀県"
  },
  {
   "id": "福島正則",
@@ -177208,7 +177895,8 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "prefecture": "宮城県"
  },
  {
   "id": "上杉景勝",
@@ -177373,7 +178061,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E6%9D%89%E6%99%AF%E5%8B%9D",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "新潟県"
  },
  {
   "id": "山県昌景",
@@ -177520,7 +178209,8 @@ window.SCRE_DATA = [
    "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E7%9C%8C%E6%98%8C%E6%99%AF",
    "license": "CC BY-SA",
    "author": "Wikimedia Commons"
-  }
+  },
+  "prefecture": "山梨県"
  },
  {
   "id": "蒲生氏郷",
