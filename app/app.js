@@ -1773,8 +1773,15 @@
       party.forEach(slot => {
         const c = getCastleById(slot.id);
         if (!c) return;
-        const text = (c.skillDesc || "") + " " + (c.stratDesc || "");
-        if (text.includes("暗闇") || text.includes("状態異常") || text.includes("無効化")) {
+        const descParts = [
+          c.skill ? (c.skill.name + " " + c.skill.text) : "",
+          c.strategy ? (c.strategy.name + " " + c.strategy.text) : "",
+          c.special ? (c.special.name + " " + c.special.text) : ""
+        ];
+        if (c.allSkills) c.allSkills.forEach(s => descParts.push(s.name + " " + s.text));
+        if (c.allStrategies) c.allStrategies.forEach(s => descParts.push(s.name + " " + s.text));
+        const fullDesc = descParts.join(" ");
+        if (fullDesc.includes("暗闇") || fullDesc.includes("状態異常") || (fullDesc.includes("無効") && (fullDesc.includes("状態") || fullDesc.includes("異常") || fullDesc.includes("デバフ")))) {
           statusCounters.push(c.name);
         }
       });
@@ -1837,14 +1844,17 @@
           comment += "【ペナルティ】地形不一致により巨大化気倍増などの審議対象。 ";
         }
 
-        // Weapon damage 99% down check
-        if (combinedRules.includes("近接限定城娘の与ダメージ99%低下") && c.subType === "近接") {
+        // Weapon rangeKind damage 99% down check
+        const isMeleeOnly = (c.rangeKind === "近" || c.rangeKind === "近接");
+        const isRangedOnly = (c.rangeKind === "遠" || c.rangeKind === "遠隔");
+
+        if (combinedRules.includes("近接限定城娘の与ダメージ99%低下") && isMeleeOnly) {
           hasPenalty = true;
           comment += "【致命的審議】近接限定城娘の与ダメ99%低下に抵触（遠近両用または遠隔城娘を推奨）。 ";
         }
-        if (combinedRules.includes("遠隔限定城娘の与ダメージ99%低下") && c.subType === "遠隔") {
+        if (combinedRules.includes("遠隔限定城娘の与ダメージ99%低下") && isRangedOnly) {
           hasPenalty = true;
-          comment += "【致命的審議】遠隔限定城娘の与ダメ99%低下に抵触（近接城娘推奨）。 ";
+          comment += "【致命的審議】遠隔限定城娘の与ダメ99%低下に抵触（遠近両用または近接城娘を推奨）。 ";
         }
 
         // Check weapon reduction

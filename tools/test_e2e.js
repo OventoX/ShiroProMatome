@@ -627,6 +627,64 @@ async function runTests() {
   }
   console.log('=> TEST 17 PASSED');
 
+  // Test 18: Stage Diagnostic Bug Fixes (rangeKind check & Hades statusCounters)
+  console.log('\n[TEST 18] Testing Stage Diagnostic Bug Fixes (rangeKind & Hades statusCounters)...');
+  await page.click('button[data-tab="tab-dashboard"]');
+  await new Promise(r => setTimeout(r, 200));
+
+  // Load a party containing ブダ城 (status counter) and 彦根城 (melee)
+  await page.evaluate(() => {
+    document.getElementById('bulkInputText').value = 'ブダ城, 彦根城, 大坂城, 江戸城, 聚楽第';
+  });
+  await page.click('#btnBulkLoad');
+  await new Promise(r => setTimeout(r, 300));
+
+  // Select 深淵の闘技場 -覇・前田利家- and open diagnostic
+  await page.evaluate(() => {
+    const sel = document.getElementById('dashboardStageSelect');
+    const opt = Array.from(sel.options).find(o => o.value.includes('覇・前田利家'));
+    if (opt) {
+      sel.value = opt.value;
+      sel.dispatchEvent(new Event('change'));
+    }
+  });
+  await page.click('#btnDashboardDiag');
+  await new Promise(r => setTimeout(r, 300));
+
+  const diagResults = await page.evaluate(() => {
+    const hadesBox = document.getElementById('diagStageRules').textContent;
+    const hasStatusCounterBuda = hadesBox.includes('◯ 状態異常対策持ち城娘: ブダ城');
+
+    const evalBoxes = Array.from(document.querySelectorAll('#diagPartyEvaluation .section-box'));
+    const hikoneBox = evalBoxes.find(b => b.textContent.includes('彦根城'));
+    const osakaBox = evalBoxes.find(b => b.textContent.includes('大坂城'));
+
+    const hikoneHasMeleePenalty = hikoneBox ? hikoneBox.textContent.includes('近接限定城娘の与ダメ99%低下に抵触') : false;
+    const osakaHasMeleePenalty = osakaBox ? osakaBox.textContent.includes('近接限定城娘の与ダメ99%低下に抵触') : false;
+
+    return {
+      hasStatusCounterBuda,
+      hikoneHasMeleePenalty,
+      osakaHasMeleePenalty
+    };
+  });
+
+  console.log('Test 18 diagnostic results:', diagResults);
+  if (!diagResults.hasStatusCounterBuda) {
+    throw new Error('TEST 18 FAILED: Buda Castle not recognized as status counter in Hades diagnostic');
+  }
+  if (!diagResults.hikoneHasMeleePenalty) {
+    throw new Error('TEST 18 FAILED: Hikone Castle (近接) did not trigger 近接限定城娘99%低下 penalty via rangeKind');
+  }
+  if (diagResults.osakaHasMeleePenalty) {
+    throw new Error('TEST 18 FAILED: Osaka Castle (遠隔) incorrectly triggered 近接限定城娘99%低下 penalty');
+  }
+
+  // Close modal
+  await page.click('#modalDiagCloseBtn');
+  await new Promise(r => setTimeout(r, 200));
+  console.log('=> TEST 18 PASSED');
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
