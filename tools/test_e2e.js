@@ -1410,6 +1410,37 @@ async function runTests() {
 
   const warningsCount = await page.$$eval('#partyCoveragePanel .coverage-warning-item', items => items.length);
   console.log('Coverage factual warnings count:', warningsCount);
+
+  // Verify 遠近 (e.g. チャンドラ・マハル) double-counting logic in coverage panel via UI
+  console.log('Adding 遠近 unit (チャンドラ・マハル) to slot 5 to verify both near and far addition...');
+  const emptySlot = await page.$('#partySlotList .party-card.empty');
+  if (emptySlot) {
+    await emptySlot.click();
+    await new Promise(r => setTimeout(r, 300));
+
+    // Type in selector modal (id="modalSearchInput")
+    await page.evaluate(() => {
+      const input = document.getElementById('modalSearchInput');
+      input.value = 'チャンドラ';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    await new Promise(r => setTimeout(r, 300));
+
+    // Click the castle item (.castle-list-item)
+    await page.click('#modalCastleList .castle-list-item');
+    await new Promise(r => setTimeout(r, 300));
+
+    const updatedRangeChips = await page.$$eval('#partyCoveragePanel .coverage-group:nth-child(2) .coverage-chip', chips => chips.map(c => c.textContent.trim()));
+    console.log('Updated range chips with 遠近 unit:', updatedRangeChips);
+    if (!updatedRangeChips.some(c => c.includes('近接 4')) || !updatedRangeChips.some(c => c.includes('遠隔 2')) || !updatedRangeChips.some(c => c.includes('遠近両用 1'))) {
+      throw new Error('TEST 31 FAILED: 遠近 unit must add to both 近接 and 遠隔, and show 遠近両用 chip');
+    }
+
+    // Remove the 5th unit to keep state clean
+    await page.click('#partySlotList .party-card:nth-child(5) .btn-remove');
+    await new Promise(r => setTimeout(r, 300));
+    console.log('Slot 5 removed, restored to 4 units.');
+  }
   console.log('=> TEST 31 PASSED');
 
   // -------------------------------------------------------------
@@ -1487,6 +1518,13 @@ async function runTests() {
   console.log('Export area text snippet:', exportAreaText.slice(0, 120).replace(/\s+/g, ' '));
   if (!exportAreaText.includes('編成サマリー') || !exportAreaText.includes('出撃地形')) {
     throw new Error('TEST 34 FAILED: Export area missing header or summary details');
+  }
+
+  // Verify no undefined img src in export area
+  const undefinedImgs = await page.$$eval('#partyExportArea img', imgs => imgs.filter(img => !img.src || img.src.includes('undefined')).length);
+  console.log('Export area undefined img count:', undefinedImgs);
+  if (undefinedImgs > 0) {
+    throw new Error(`TEST 34 FAILED: Found ${undefinedImgs} img tags with undefined src in export area`);
   }
 
   console.log('=> TEST 34 PASSED');

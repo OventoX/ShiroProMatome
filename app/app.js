@@ -1167,11 +1167,17 @@
       const w = castle.weapon || "その他";
       weaponCounts[w] = (weaponCounts[w] || 0) + 1;
 
-      // Range kind
+      // Range kind (遠近は近接・遠隔の両方に加算)
       const rk = castle.rangeKind || "近";
-      if (rk === "近" || rk === "近接") nearCount++;
-      else if (rk === "遠" || rk === "遠隔") farCount++;
-      else if (rk === "遠近") bothCount++;
+      if (rk === "近" || rk === "近接") {
+        nearCount++;
+      } else if (rk === "遠" || rk === "遠隔") {
+        farCount++;
+      } else if (rk === "遠近") {
+        nearCount++;
+        farCount++;
+        bothCount++;
+      }
     });
 
     // Major attributes list
@@ -3945,8 +3951,8 @@
 
         slotsHtml.push(`
           <div style="background:#fff; border:1px solid #d5cbbd; border-radius:6px; padding:10px 12px; display:flex; gap:10px; align-items:center; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
-            <div style="width:48px; height:48px; border-radius:6px; overflow:hidden; background:#eee; flex-shrink:0; display:flex; align-items:center; justify-content:center; border:1px solid #ccc;">
-              <img src="${castle.iconUrl}" onerror="this.onerror=null; this.src='icons/${castle.id}.png'; this.onerror=function(){this.style.display='none';};" style="width:100%; height:100%; object-fit:cover;" crossorigin="anonymous">
+            <div style="flex-shrink:0;">
+              ${getIconHtml(castle, 48)}
             </div>
             <div style="flex:1; min-width:0;">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2px;">
