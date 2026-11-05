@@ -717,6 +717,7 @@
     }
     if (typeof renderChallengeUI === "function") renderChallengeUI();
     if (typeof renderDamageChecker === "function") renderDamageChecker(calcResult);
+    if (typeof renderRomanSimulator === "function") renderRomanSimulator();
   }
 
   // 1. Render Party Slots (Showing dynamic live stats & Terrain Matching)
@@ -7049,6 +7050,519 @@ function renderChallengeUI() {
   }
 }
 
+
+// --- Prompt 9: ロマン砲シミュレータ (Roman Cannon Simulator) ---
+let romanCannonSlotIdx = 0;
+let romanExcludedSupporterSlots = new Set();
+let romanStratMode = true;
+const romanAssistCache = new Map();
+
+function toggleRomanSimulator() {
+  const body = document.getElementById("romanSimulatorBody");
+  const btn = document.getElementById("btnToggleRomanSimulator");
+  if (!body) return;
+  const isHidden = body.style.display === "none" || !body.style.display;
+  body.style.display = isHidden ? "block" : "none";
+  if (btn) btn.textContent = isHidden ? "閉じる ▴" : "展開 ▾";
+  if (isHidden) {
+    renderRomanSimulator();
+  }
+}
+
+function extractDamageMultiplier(text) {
+  if (!text) return null;
+  const p1 = text.match(/攻撃の\s*(\d+(?:\.\d+)?)\s*倍/);
+  if (p1) return { mult: parseFloat(p1[1]), raw: p1[0] };
+  const p2 = text.match(/(\d+(?:\.\d+)?)\s*倍のダメージ/);
+  if (p2) return { mult: parseFloat(p2[1]), raw: p2[0] };
+  const p3 = text.match(/(?:与える)?ダメージ(?:が|を|\s)?\s*(\d+(?:\.\d+)?)\s*倍/);
+  if (p3) return { mult: parseFloat(p3[1]), raw: p3[0] };
+  return null;
+}
+
+function setRomanCannonSlot(slotIdx) {
+  romanCannonSlotIdx = parseInt(slotIdx, 10) || 0;
+  romanExcludedSupporterSlots.delete(romanCannonSlotIdx);
+  renderRomanSimulator();
+}
+
+function toggleRomanSupporter(slotIdx) {
+  const idx = parseInt(slotIdx, 10);
+  if (romanExcludedSupporterSlots.has(idx)) {
+    romanExcludedSupporterSlots.delete(idx);
+  } else {
+    romanExcludedSupporterSlots.add(idx);
+  }
+  renderRomanSimulator();
+}
+
+function renderRomanSimulator() {
+  const section = document.getElementById("sectionRomanSimulator");
+  if (!section) return;
+
+  const cannonSelect = document.getElementById("romanCannonSelect");
+  const supportersWrap = document.getElementById("romanSupportersWrap");
+  const stratToggle = document.getElementById("romanStrategyToggle");
+  const headlineEl = document.getElementById("romanHeadlineBanner");
+  const waterfallEl = document.getElementById("romanWaterfallList");
+  const assistEl = document.getElementById("romanAssistList");
+
+  if (!cannonSelect || !supportersWrap || !headlineEl || !waterfallEl) return;
+
+  // Sync strategy toggle state
+  if (stratToggle) {
+    romanStratMode = stratToggle.checked;
+  }
+
+  // Get active party members
+  const validPartyEntries = [];
+  party.forEach((slot, idx) => {
+    if (!slot) return;
+    const c = getCastleById(slot.id);
+    if (c) validPartyEntries.push({ slot, castle: c, idx });
+  });
+
+  if (validPartyEntries.length === 0) {
+    cannonSelect.innerHTML = `<option value="">編成に城娘がいません</option>`;
+    supportersWrap.innerHTML = `<span style="font-size:11.5px; color:var(--text-sub);">編成に城娘がいません。</span>`;
+    headlineEl.innerHTML = `
+      <div class="roman-headline-primary">
+        <div class="roman-headline-title">最大の一撃 (ロマン砲)</div>
+        <div class="roman-headline-dmg" style="font-size:18px; color:#a4b0be;">編成に城娘がいません</div>
+      </div>
+    `;
+    waterfallEl.innerHTML = `<div style="font-size:11.5px; color:var(--text-sub); padding:10px;">部隊に城娘を編成してください。</div>`;
+    if (assistEl) assistEl.innerHTML = `<div style="font-size:11.5px; color:var(--text-sub);">部隊に城娘を編成してください。</div>`;
+    return;
+  }
+
+  // Ensure romanCannonSlotIdx points to a valid member
+  const currentCannonExists = validPartyEntries.some(e => e.idx === romanCannonSlotIdx);
+  if (!currentCannonExists) {
+    romanCannonSlotIdx = validPartyEntries[0].idx;
+  }
+
+  // 1. Populate Cannon Select
+  cannonSelect.innerHTML = validPartyEntries.map(({ castle: c, idx }) => {
+    return `<option value="${idx}" ${idx === romanCannonSlotIdx ? "selected" : ""}>枠${idx + 1}: ${escapeHtml(c.name)} (★${c.rarity} ${escapeHtml(c.weapon)})</option>`;
+  }).join("");
+
+  // 2. Populate Supporters Wrap
+  const supporterEntries = validPartyEntries.filter(e => e.idx !== romanCannonSlotIdx);
+  if (supporterEntries.length === 0) {
+    supportersWrap.innerHTML = `<span style="font-size:11.5px; color:var(--text-sub);">支援役の城娘がいません（1人のみ編成中）。</span>`;
+  } else {
+    supportersWrap.innerHTML = supporterEntries.map(({ castle: c, idx }) => {
+      const isExcluded = romanExcludedSupporterSlots.has(idx);
+      return `
+        <label class="roman-supporter-chip ${isExcluded ? 'excluded' : ''}" title="${isExcluded ? 'バフ除外中（クリックで有効化）' : 'バフ適用中（クリックで除外）'}">
+          <input type="checkbox" class="roman-supporter-check" data-slot-idx="${idx}" ${isExcluded ? '' : 'checked'} style="cursor:pointer;">
+          ${getIconHtml(c, 18)}
+          <span>${escapeHtml(c.name)}</span>
+        </label>
+      `;
+    }).join("");
+  }
+
+  // 3. Build custom party for calculateBuffs
+  const customParty = party.map((slot, idx) => {
+    if (!slot) return null;
+    if (idx !== romanCannonSlotIdx && romanExcludedSupporterSlots.has(idx)) {
+      return null; // Excluded supporter
+    }
+    return {
+      ...slot,
+      strategyOn: romanStratMode,
+      specialOn: true
+    };
+  }).filter(Boolean);
+
+  // Run existing engine calculateBuffs
+  const calcResult = calculateBuffs(customParty, currentTerrain);
+
+  const mainEntry = validPartyEntries.find(e => e.idx === romanCannonSlotIdx);
+  const mainCastle = mainEntry ? mainEntry.castle : null;
+  if (!mainCastle) return;
+
+  const calcData = calcResult.perCastle[mainCastle.id];
+  const calcStats = calcData ? calcData.calculatedStats : (mainCastle.stats ? mainCastle.stats.giant5 : { atk: 100 });
+  const finalAtk = Math.round(calcStats.atk || 100);
+
+  const isTerrainMatch = Boolean(currentTerrain && mainCastle.attributes && mainCastle.attributes.includes(currentTerrain));
+  const terrainMult = isTerrainMatch ? 1.25 : 1.0;
+  const baseAtk = Math.floor((mainCastle.stats?.giant5?.atk || 100) * terrainMult);
+
+  // Read enemy parameters
+  const enemyDef = Math.max(0, parseInt(document.getElementById("romanEnemyDef")?.value, 10) || 0);
+  const enemyHp = Math.max(1, parseInt(document.getElementById("romanEnemyHp")?.value, 10) || 50000);
+  const enemyRed = Math.max(0, Math.min(90, parseFloat(document.getElementById("romanEnemyRed")?.value) || 0));
+
+  // Enemy Effective DEF
+  const isMagicOrIgnore = (mainCastle.weapon === "杖" || mainCastle.weapon === "鈴" || mainCastle.weapon === "投剣");
+  const hasDefIgnoreSkill = calcData && calcData.buffs && calcData.buffs.defIgnore && calcData.buffs.defIgnore.length > 0;
+  const defDownPerc = calcResult.enemyDebuffs?.enemyDefDown?.max || 0;
+  let effDef = Math.max(0, Math.floor(enemyDef * (1.0 - defDownPerc / 100)));
+  const effectiveIgnore = isMagicOrIgnore || hasDefIgnoreSkill;
+  if (effectiveIgnore) {
+    effDef = 0;
+  }
+
+  // Damage Calculation: max(atk * 0.1, atk - effDef)
+  const isFloorGuaranteed = (finalAtk - effDef) < Math.floor(finalAtk * 0.1);
+  const baseDamage = Math.max(Math.floor(finalAtk * 0.1), finalAtk - effDef);
+
+  // Damage Multipliers (与ダメ%, 与えるダメージ%, 敵被ダメ上昇%)
+  const dmgDealtPerc = calcData && calcData.buffs ? (calcData.buffs.dmgDealt.max + calcData.buffs.dmgDealt.stackSum) / 100 : 0;
+  const dmgTargetPerc = calcData && calcData.buffs ? (calcData.buffs.dmgDealtTarget.max + calcData.buffs.dmgDealtTarget.stackSum) / 100 : 0;
+  const enemyDmgTakenPerc = (calcResult.enemyDebuffs?.enemyDmgTakenUp?.max || 0) / 100;
+  const totalDmgMult = (1 + dmgDealtPerc) * (1 + dmgTargetPerc) * (1 + enemyDmgTakenPerc);
+
+  // Final 1-Hit Damage
+  const finalHitDamage = Math.max(1, Math.floor(baseDamage * totalDmgMult * (1.0 - enemyRed / 100)));
+  const hitsToKill = Math.ceil(enemyHp / finalHitDamage);
+
+  // Multiplier from Strategy / Special
+  const stratMultObj = romanStratMode ? extractDamageMultiplier(mainCastle.strategy?.text) : null;
+  const stratDamage = stratMultObj ? Math.floor(finalHitDamage * stratMultObj.mult) : null;
+
+  const specialMultObj = extractDamageMultiplier(mainCastle.special?.text);
+  const specialDamage = specialMultObj ? Math.floor(finalHitDamage * specialMultObj.mult) : null;
+
+  // 4. Render Headline Banner
+  let pillsHtml = `
+    <div class="roman-headline-pill">⚔️ 最終攻撃: <strong>${finalAtk.toLocaleString()}</strong></div>
+    <div class="roman-headline-pill">🎯 撃破必要: <strong>${hitsToKill.toLocaleString()} hit</strong></div>
+  `;
+  if (stratDamage) {
+    pillsHtml += `<div class="roman-headline-pill" style="border-color:#e67e22; color:#ffbe76;">🔥 計略一撃: <strong>${stratDamage.toLocaleString()}</strong> (${stratMultObj.mult}倍)</div>`;
+  }
+  if (specialDamage) {
+    pillsHtml += `<div class="roman-headline-pill" style="border-color:#9b59b6; color:#e056fd;">✨ 特殊一撃: <strong>${specialDamage.toLocaleString()}</strong> (${specialMultObj.mult}倍)</div>`;
+  }
+
+  headlineEl.innerHTML = `
+    <div class="roman-headline-primary">
+      <div class="roman-headline-title">最大の一撃 (ロマン砲 / 1hit通常攻撃)</div>
+      <div class="roman-headline-dmg">
+        <span>💥 ${finalHitDamage.toLocaleString()}</span>
+        <span style="font-size:14px; font-weight:normal; color:#dfe4ea;">ダメージ / hit</span>
+      </div>
+    </div>
+    <div class="roman-headline-sub">
+      ${pillsHtml}
+    </div>
+  `;
+
+  // 5. Render Waterfall Steps
+  let stepIdx = 1;
+  const steps = [];
+
+  // Step 1: Base Atk
+  steps.push(`
+    <div class="roman-waterfall-step">
+      <div class="roman-step-label">
+        <span class="roman-step-num">${stepIdx++}</span>
+        <strong>素の巨大化後攻撃力</strong>
+        <span style="font-size:11px; color:var(--text-sub);">${isTerrainMatch ? '（巨大化5回・地形一致×1.25）' : '（巨大化5回）'}</span>
+      </div>
+      <div class="roman-step-val plus">+${baseAtk.toLocaleString()}</div>
+    </div>
+  `);
+
+  // Step 2: Buffs breakdown
+  if (calcData && calcData.buffs) {
+    const b = calcData.buffs;
+
+    // atkPercent sources
+    if (b.atkPercent && b.atkPercent.sources) {
+      b.atkPercent.sources.forEach(s => {
+        if (s.applied) {
+          const inc = Math.floor(baseAtk * (s.val / 100));
+          steps.push(`
+            <div class="roman-waterfall-step">
+              <div class="roman-step-label">
+                <span class="roman-step-num">${stepIdx++}</span>
+                <span>攻撃割合バフ: <strong>${escapeHtml(s.from)}</strong> [${escapeHtml(s.type)}]</span>
+                <span style="font-size:11px; color:var(--text-sub);">(${escapeHtml(s.raw || `${s.val}%`)})</span>
+              </div>
+              <div class="roman-step-val plus">+${inc.toLocaleString()} <span style="font-size:11px; font-weight:normal;">(${s.val}%)</span></div>
+            </div>
+          `);
+        } else {
+          steps.push(`
+            <div class="roman-waterfall-step" style="opacity:0.6; background:#fafafa;">
+              <div class="roman-step-label">
+                <span class="roman-step-num" style="background:#ddd;">-</span>
+                <span style="text-decoration:line-through;">攻撃割合バフ: ${escapeHtml(s.from)} [${escapeHtml(s.type)}] ${s.val}%</span>
+                <span style="font-size:10.5px; color:#e74c3c;">(同種バフ重複のため未適用・最大値優先)</span>
+              </div>
+              <div class="roman-step-val" style="color:#95a5a6; font-size:11px;">未適用 (0)</div>
+            </div>
+          `);
+        }
+      });
+    }
+
+    // atkFlat items
+    if (b.atkFlat && b.atkFlat.items) {
+      b.atkFlat.items.forEach(it => {
+        steps.push(`
+          <div class="roman-waterfall-step">
+            <div class="roman-step-label">
+              <span class="roman-step-num">${stepIdx++}</span>
+              <span>攻撃固定値バフ: <strong>${escapeHtml(it.from)}</strong> [${escapeHtml(it.type)}]</span>
+              <span style="font-size:11px; color:var(--text-sub);">(${escapeHtml(it.raw || `+${it.val}`)})</span>
+            </div>
+            <div class="roman-step-val plus">+${it.val.toLocaleString()}</div>
+          </div>
+        `);
+      });
+    }
+
+    // shares (鼓舞/共有)
+    if (b.shares) {
+      b.shares.forEach(sh => {
+        if (sh.stat === "shareAtk") {
+          const prov = getCastleById(sh.shareSource);
+          const provBase = prov && prov.stats && prov.stats.giant5 ? prov.stats.giant5.atk : 0;
+          const shareVal = Math.floor(provBase * (sh.value / 100));
+          steps.push(`
+            <div class="roman-waterfall-step">
+              <div class="roman-step-label">
+                <span class="roman-step-num">${stepIdx++}</span>
+                <span>攻撃共有・鼓舞: <strong>${escapeHtml(sh.shareSource)}</strong></span>
+                <span style="font-size:11px; color:var(--text-sub);">(${escapeHtml(sh.raw || `${sh.value}%`)})</span>
+              </div>
+              <div class="roman-step-val plus">+${shareVal.toLocaleString()}</div>
+            </div>
+          `);
+        }
+      });
+    }
+  }
+
+  // Step 3: Final Attack
+  steps.push(`
+    <div class="roman-waterfall-step highlight-final">
+      <div class="roman-step-label">
+        <span class="roman-step-num">${stepIdx++}</span>
+        <strong>⚔️ 最終攻撃力</strong>
+        <span style="font-size:11px; color:var(--text-sub);">(素の攻撃 ＋ 全バフ合算)</span>
+      </div>
+      <div class="roman-step-val" style="color:var(--buff-color); font-size:14px;">${finalAtk.toLocaleString()}</div>
+    </div>
+  `);
+
+  // Step 4: Enemy Defense & Effective Defense
+  let defDetailText = `敵初期防御: ${enemyDef.toLocaleString()}`;
+  if (defDownPerc > 0) {
+    const debSources = calcResult.enemyDebuffs.enemyDefDown.sources.map(s => s.from).join(", ");
+    defDetailText += ` → デバフ -${defDownPerc}% (${escapeHtml(debSources)})`;
+  }
+  if (effectiveIgnore) {
+    defDetailText += ` → ${isMagicOrIgnore ? `${mainCastle.weapon}特性` : '防御無視特技'}により防御全無視 (0)`;
+  }
+  steps.push(`
+    <div class="roman-waterfall-step">
+      <div class="roman-step-label">
+        <span class="roman-step-num">${stepIdx++}</span>
+        <span>🛡️ 敵の実効防御力</span>
+        <span style="font-size:11px; color:var(--text-sub);">${defDetailText}</span>
+      </div>
+      <div class="roman-step-val minus">−${effDef.toLocaleString()}</div>
+    </div>
+  `);
+
+  // Step 5: Base Damage
+  steps.push(`
+    <div class="roman-waterfall-step">
+      <div class="roman-step-label">
+        <span class="roman-step-num">${stepIdx++}</span>
+        <span>基礎ダメージ（最終攻撃 − 実効防御）</span>
+        ${isFloorGuaranteed ? '<span style="font-size:10.5px; color:#e67e22;">(※防御超過のため最低保証10%適用)</span>' : ''}
+      </div>
+      <div class="roman-step-val">${baseDamage.toLocaleString()}</div>
+    </div>
+  `);
+
+  // Step 6: Damage Multipliers
+  let multBreakdown = [];
+  if (dmgDealtPerc > 0) multBreakdown.push(`与ダメ+${Math.round(dmgDealtPerc * 100)}%`);
+  if (dmgTargetPerc > 0) multBreakdown.push(`与えるダメージ+${Math.round(dmgTargetPerc * 100)}%`);
+  if (enemyDmgTakenPerc > 0) multBreakdown.push(`敵被ダメ+${Math.round(enemyDmgTakenPerc * 100)}%`);
+  if (enemyRed > 0) multBreakdown.push(`敵被ダメ軽減-${enemyRed}%`);
+
+  const multText = multBreakdown.length > 0 ? multBreakdown.join(" / ") : "倍率補正なし (等倍)";
+  const finalMultFactor = totalDmgMult * (1.0 - enemyRed / 100);
+
+  steps.push(`
+    <div class="roman-waterfall-step">
+      <div class="roman-step-label">
+        <span class="roman-step-num">${stepIdx++}</span>
+        <span>与ダメ補正・被ダメ軽減</span>
+        <span style="font-size:11px; color:var(--text-sub);">${multText}</span>
+      </div>
+      <div class="roman-step-val" style="color:#2980b9;">×${finalMultFactor.toFixed(2)}</div>
+    </div>
+  `);
+
+  // Step 7: Final 1-Hit Damage
+  steps.push(`
+    <div class="roman-waterfall-step highlight-final">
+      <div class="roman-step-label">
+        <span class="roman-step-num">${stepIdx++}</span>
+        <strong>💥 通常攻撃 1ヒット実ダメージ</strong>
+        <span style="font-size:11px; color:var(--text-sub);">(基礎ダメージ × 補正倍率)</span>
+      </div>
+      <div class="roman-step-val" style="color:#e67e22; font-size:15px;">${finalHitDamage.toLocaleString()} ダメージ</div>
+    </div>
+  `);
+
+  // Step 8: Strategy Blast Multiplied Damage
+  if (stratDamage) {
+    steps.push(`
+      <div class="roman-waterfall-step highlight-strat">
+        <div class="roman-step-label">
+          <span class="roman-step-num">${stepIdx++}</span>
+          <strong>🔥 計略倍率 一撃ダメージ</strong>
+          <span style="font-size:11px; color:var(--text-sub);">${escapeHtml(mainCastle.strategy.name)}: ${escapeHtml(stratMultObj.raw)} (${stratMultObj.mult}倍)</span>
+        </div>
+        <div class="roman-step-val" style="color:#d35400; font-size:15px;">${stratDamage.toLocaleString()} ダメージ</div>
+      </div>
+    `);
+  }
+
+  // Step 9: Special Ability Multiplied Damage
+  if (specialDamage) {
+    steps.push(`
+      <div class="roman-waterfall-step highlight-strat" style="background:#f5eef8; border-color:#9b59b6;">
+        <div class="roman-step-label">
+          <span class="roman-step-num">${stepIdx++}</span>
+          <strong>✨ 特殊能力 一撃ダメージ</strong>
+          <span style="font-size:11px; color:var(--text-sub);">${escapeHtml(mainCastle.special.name)}: ${escapeHtml(specialMultObj.raw)} (${specialMultObj.mult}倍)</span>
+        </div>
+        <div class="roman-step-val" style="color:#8e44ad; font-size:15px;">${specialDamage.toLocaleString()} ダメージ</div>
+      </div>
+    `);
+  }
+
+  waterfallEl.innerHTML = steps.join("");
+
+  // 6. Maximization Assist (入れ替えるともっと伸びる支援役 TOP 5)
+  renderRomanAssist(mainCastle, finalHitDamage, finalAtk);
+}
+
+function renderRomanAssist(mainCastle, currentHitDamage, currentAtk) {
+  const assistContainer = document.getElementById("romanAssistList");
+  if (!assistContainer) return;
+
+  const cacheKey = `${mainCastle.id}_${romanStratMode}_${currentTerrain || 'none'}`;
+  if (romanAssistCache.has(cacheKey)) {
+    const cached = romanAssistCache.get(cacheKey);
+    renderRomanAssistCards(cached, assistContainer);
+    return;
+  }
+
+  // Pre-filter candidates with ally buffs
+  const relevantStats = new Set([
+    'atkPercent', 'attackPercent', 'atkFlat', 'attackFlat',
+    'dmgDealt', 'dmgDealtTarget', 'damagePercent',
+    'shareAtk', 'enemyDefDown', 'enemyDmgTakenUp'
+  ]);
+
+  const candidates = SCRE_DATA.filter(p => {
+    if (p.id === mainCastle.id) return false;
+    const effects = [];
+    if (p.skill && p.skill.effects) effects.push(...p.skill.effects);
+    if (p.strategy && p.strategy.effects) effects.push(...p.strategy.effects);
+    return effects.some(e => e.target !== 'self' && relevantStats.has(e.stat));
+  });
+
+  // Base solo simulation for comparison
+  const soloCalc = calculateBuffs([{ id: mainCastle.id, strategyOn: romanStratMode, specialOn: true }], currentTerrain);
+  const soloStats = soloCalc.perCastle[mainCastle.id]?.calculatedStats || { atk: 100 };
+  const soloBaseAtk = soloStats.atk;
+
+  const results = [];
+  candidates.forEach(p => {
+    // 2-member party simulation: [mainCastle, p]
+    const testParty = [
+      { id: mainCastle.id, strategyOn: romanStratMode, specialOn: true },
+      { id: p.id, strategyOn: true, specialOn: true }
+    ];
+    const res = calculateBuffs(testParty, currentTerrain);
+    const postData = res.perCastle[mainCastle.id];
+    if (!postData) return;
+
+    const postAtk = postData.calculatedStats.atk;
+    const diffAtk = postAtk - soloBaseAtk;
+
+    // Check damage difference against baseline enemy
+    const isMagic = (mainCastle.weapon === "杖" || mainCastle.weapon === "鈴" || mainCastle.weapon === "投剣");
+    const effIgnore = isMagic || (postData.buffs.defIgnore && postData.buffs.defIgnore.length > 0);
+    const defDown = res.enemyDebuffs?.enemyDefDown?.max || 0;
+    const simDef = effIgnore ? 0 : Math.max(0, Math.floor(500 * (1 - defDown / 100)));
+    const baseDmg = Math.max(Math.floor(postAtk * 0.1), postAtk - simDef);
+
+    const dmgDealt = (postData.buffs.dmgDealt.max + postData.buffs.dmgDealt.stackSum) / 100;
+    const dmgTarget = (postData.buffs.dmgDealtTarget.max + postData.buffs.dmgDealtTarget.stackSum) / 100;
+    const dmgTaken = (res.enemyDebuffs?.enemyDmgTakenUp?.max || 0) / 100;
+    const mult = (1 + dmgDealt) * (1 + dmgTarget) * (1 + dmgTaken);
+    const postDmg = Math.floor(baseDmg * mult);
+
+    const soloDmg = Math.max(Math.floor(soloBaseAtk * 0.1), soloBaseAtk - (isMagic ? 0 : 500));
+    const diffDmg = postDmg - soloDmg;
+
+    if (diffAtk > 0 || diffDmg > 0) {
+      const isOwned = ownership.owned.has(p.id);
+      results.push({
+        castle: p,
+        diffAtk,
+        diffDmg,
+        isOwned,
+        score: diffDmg * 1.5 + diffAtk
+      });
+    }
+  });
+
+  results.sort((a, b) => b.score - a.score);
+  const top5 = results.slice(0, 5);
+  romanAssistCache.set(cacheKey, top5);
+
+  renderRomanAssistCards(top5, assistContainer);
+}
+
+function renderRomanAssistCards(topList, container) {
+  if (!topList || topList.length === 0) {
+    container.innerHTML = `<div style="font-size:11.5px; color:var(--text-sub); padding:6px;">候補となる支援役が見つかりませんでした。</div>`;
+    return;
+  }
+
+  container.innerHTML = topList.map(({ castle: p, diffAtk, diffDmg, isOwned }, rankIdx) => {
+    const inParty = party.some(slot => slot && slot.id === p.id);
+    return `
+      <div class="roman-assist-card" onclick="openCastleDetail('${escapeHtml(p.id)}')" title="クリックで詳細モーダルを表示">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:10px; font-weight:bold; color:#e67e22; background:#fdf2e9; padding:1px 6px; border-radius:10px;">TOP ${rankIdx + 1}</span>
+          ${isOwned ? '<span style="font-size:9.5px; color:#27ae60; font-weight:bold;">✓所持</span>' : ''}
+          ${inParty ? '<span style="font-size:9.5px; color:#2980b9;">(編成中)</span>' : ''}
+        </div>
+        <div style="display:flex; align-items:center; gap:6px; margin-top:2px;">
+          ${getIconHtml(p, 28)}
+          <div style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+            <strong style="font-size:11.5px; color:var(--text-main);">${escapeHtml(p.name)}</strong>
+            <div style="font-size:10px; color:var(--text-sub);">★${p.rarity} ${escapeHtml(p.weapon)}</div>
+          </div>
+        </div>
+        <div style="margin-top:4px; font-size:10.5px; display:flex; flex-direction:column; gap:2px;">
+          <div style="color:#27ae60; font-weight:bold;">⚔️ 攻撃 +${diffAtk.toLocaleString()}</div>
+          <div style="color:#e67e22; font-weight:bold;">💥 ダメージ +${diffDmg.toLocaleString()}</div>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
 // --- A5: ダメージチェッカー (Damage Simulator) ---
 function toggleDamageChecker() {
   const body = document.getElementById("dmgCheckerBody");
@@ -7945,6 +8459,54 @@ function showQuizResult() {
   const btnClearChal = document.getElementById("btnClearChallenge");
   if (btnClearChal) btnClearChal.addEventListener("click", clearChallenge);
 
+  
+  // Prompt 9: Roman Cannon Simulator
+  const btnTogRoman = document.getElementById("btnToggleRomanSimulator");
+  if (btnTogRoman) btnTogRoman.addEventListener("click", toggleRomanSimulator);
+  const hdrRoman = document.getElementById("romanSimulatorHeader");
+  if (hdrRoman) hdrRoman.addEventListener("click", toggleRomanSimulator);
+
+  const selRomanCannon = document.getElementById("romanCannonSelect");
+  if (selRomanCannon) {
+    selRomanCannon.addEventListener("change", function() {
+      setRomanCannonSlot(this.value);
+    });
+  }
+
+  const togRomanStrat = document.getElementById("romanStrategyToggle");
+  if (togRomanStrat) {
+    togRomanStrat.addEventListener("change", function() {
+      romanStratMode = this.checked;
+      renderRomanSimulator();
+    });
+  }
+
+  ["romanEnemyDef", "romanEnemyHp", "romanEnemyRed"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("input", () => renderRomanSimulator());
+  });
+
+  document.querySelectorAll(".roman-preset-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+      const defVal = this.dataset.def;
+      const defInput = document.getElementById("romanEnemyDef");
+      if (defInput) {
+        defInput.value = defVal;
+        renderRomanSimulator();
+      }
+    });
+  });
+
+  const supWrap = document.getElementById("romanSupportersWrap");
+  if (supWrap) {
+    supWrap.addEventListener("change", function(e) {
+      if (e.target && e.target.classList.contains("roman-supporter-check")) {
+        const slotIdx = parseInt(e.target.dataset.slotIdx, 10);
+        toggleRomanSupporter(slotIdx);
+      }
+    });
+  }
+
   // A5: Damage Checker buttons & inputs
   const btnTogDmg = document.getElementById("btnToggleDamageChecker");
   if (btnTogDmg) btnTogDmg.addEventListener("click", toggleDamageChecker);
@@ -8015,6 +8577,11 @@ function showQuizResult() {
   window.clearChallenge = clearChallenge;
   window.autoFillChallenge = autoFillChallenge;
   window.getActiveChallenge = () => activeChallenge;
+    window.renderRomanSimulator = renderRomanSimulator;
+  window.toggleRomanSimulator = toggleRomanSimulator;
+  window.setRomanCannonSlot = setRomanCannonSlot;
+  window.toggleRomanSupporter = toggleRomanSupporter;
+  window.extractDamageMultiplier = extractDamageMultiplier;
   window.renderDamageChecker = renderDamageChecker;
   window.toggleDamageChecker = toggleDamageChecker;
   window.selectMapPrefecture = selectMapPrefecture;

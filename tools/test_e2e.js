@@ -877,7 +877,7 @@ async function runTests() {
     document.getElementById('sectionGiantizeSim').scrollIntoView();
   });
   await new Promise(r => setTimeout(r, 200));
-  await page.click('#btnToggleGiantizeSim');
+  await page.evaluate(() => document.getElementById('btnToggleGiantizeSim')?.click());
   await new Promise(r => setTimeout(r, 400));
 
   const bodyDisplay = await page.$eval('#giantizeSimBody', el => el.style.display);
@@ -2983,6 +2983,114 @@ async function runTests() {
     console.log('=> TEST 55 PASSED');
   }
 
+
+  // Test 56: ロマン砲シミュレータ (Prompt 9: Roman Cannon Simulator)
+  // -------------------------------------------------------------
+  {
+    console.log('\n[TEST 56] Testing ロマン砲シミュレータ (Prompt 9 Roman Cannon Simulator)...');
+    await page.evaluate(() => document.querySelector('.tab-btn[data-tab="tab-dashboard"]')?.click());
+    await new Promise(r => setTimeout(r, 300));
+
+    // Verify section rendered
+    const simSection = await page.$('#sectionRomanSimulator');
+    if (!simSection) throw new Error('TEST 56 FAILED: #sectionRomanSimulator not found');
+
+    // 1. Select main cannon
+    const cannonOptions = await page.$$eval('#romanCannonSelect option', opts => opts.map(o => ({ value: o.value, text: o.textContent })));
+    console.log('Roman cannon select options count:', cannonOptions.length);
+    if (cannonOptions.length === 0) throw new Error('TEST 56 FAILED: No options in #romanCannonSelect');
+
+    // Select slot 0
+    await page.select('#romanCannonSelect', '0');
+    await new Promise(r => setTimeout(r, 200));
+
+    // Verify headline banner has damage
+    const headlineText = await page.$eval('#romanHeadlineBanner', el => el.textContent.replace(/\s+/g, ' '));
+    console.log('Headline banner text:', headlineText);
+    if (!headlineText.includes('ダメージ') || !headlineText.includes('hit')) {
+      throw new Error(`TEST 56 FAILED: Headline banner missing damage or hit: ${headlineText}`);
+    }
+
+    // Verify waterfall list has steps
+    const waterfallSteps = await page.$$eval('#romanWaterfallList .roman-waterfall-step', els => els.length);
+    console.log('Waterfall steps count:', waterfallSteps);
+    if (waterfallSteps < 4) {
+      throw new Error(`TEST 56 FAILED: Expected at least 4 waterfall steps, got ${waterfallSteps}`);
+    }
+
+    // 2. Uncheck supporter, verify damage calculation
+    const initialDmgStr = await page.$eval('.roman-headline-dmg span:first-child', el => el.textContent.replace(/[^0-9]/g, ''));
+    const initialDmg = parseInt(initialDmgStr, 10);
+    console.log('Initial 1-hit damage with all supporters:', initialDmg);
+
+    // Uncheck first available supporter checkbox
+    const supporterChecks = await page.$$('.roman-supporter-check');
+    if (supporterChecks.length > 0) {
+      await supporterChecks[0].click();
+      await new Promise(r => setTimeout(r, 200));
+
+      const updatedDmgStr = await page.$eval('.roman-headline-dmg span:first-child', el => el.textContent.replace(/[^0-9]/g, ''));
+      const updatedDmg = parseInt(updatedDmgStr, 10);
+      console.log('Updated 1-hit damage after unchecking supporter:', updatedDmg);
+
+      if (updatedDmg > initialDmg) {
+        throw new Error(`TEST 56 FAILED: Expected damage to decrease or stay same after unchecking supporter, went from ${initialDmg} to ${updatedDmg}`);
+      }
+
+      // Re-check supporter to restore
+      await page.evaluate(() => document.querySelector('.roman-supporter-check')?.click());
+      await new Promise(r => setTimeout(r, 200));
+    }
+
+    // 3. Test castle with strategy multiplier (e.g. 名古屋城)
+    await page.evaluate(() => {
+      document.getElementById('bulkInputText').value = '名古屋城, 彦根城, 大坂城, 江戸城';
+      document.getElementById('btnBulkLoad').click();
+    });
+    await new Promise(r => setTimeout(r, 300));
+
+    // Ensure slot 0 is selected
+    await page.select('#romanCannonSelect', '0');
+    await new Promise(r => setTimeout(r, 200));
+
+    const stratDmgPill = await page.$eval('#romanHeadlineBanner', el => el.textContent);
+    console.log('Headline with multiplier cannon:', stratDmgPill.replace(/\s+/g, ' '));
+    if (!stratDmgPill.includes('計略一撃')) {
+      throw new Error(`TEST 56 FAILED: Strategy multiplier blast damage not rendered for multiplier cannon: ${stratDmgPill}`);
+    }
+
+    // 4. Test Maximization Assist
+    const assistCards = await page.$$eval('#romanAssistList .roman-assist-card', els => els.length);
+    console.log('Maximization assist cards count:', assistCards);
+    if (assistCards === 0) {
+      throw new Error('TEST 56 FAILED: Expected at least 1 maximization assist card');
+    }
+
+    // Test clicking an assist card opens castle detail modal
+    await page.evaluate(() => document.querySelector('#romanAssistList .roman-assist-card')?.click());
+    await new Promise(r => setTimeout(r, 400));
+    const modalIsOpen = await page.evaluate(() => {
+      const m = document.getElementById('modalCastleDetail');
+      return m && m.classList.contains('open');
+    });
+    console.log('Detail modal opened from assist card:', modalIsOpen);
+    if (!modalIsOpen) {
+      throw new Error('TEST 56 FAILED: Clicking assist card did not open castle detail modal');
+    }
+    // Close modal
+    await page.evaluate(() => document.getElementById('modalDetailCloseBtn')?.click());
+    await new Promise(r => setTimeout(r, 300));
+
+    // Save screenshot of Roman Cannon Simulator
+    const romanBox = await page.$('#sectionRomanSimulator');
+    if (romanBox) {
+      await romanBox.screenshot({ path: path.resolve(__dirname, 'screenshots', 'roman_simulator_screenshot.png') });
+      console.log('Saved roman_simulator_screenshot.png');
+    }
+
+    console.log('=> TEST 56 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -2994,7 +3102,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (55/55)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (56/56)!');
   console.log('=====================================');
 }
 

@@ -212,6 +212,92 @@
         </div>
       </section>
 
+      <!-- 第9弾: ロマン砲シミュレータ (最大火力ダメージ算出) -->
+      <section class="section-box" id="sectionRomanSimulator" style="margin-top: 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" id="romanSimulatorHeader">
+          <div class="section-title" style="margin-bottom:0;">
+            💥 ロマン砲シミュレータ
+            <span style="font-size:11px; font-weight:normal; color:var(--text-sub); margin-left:6px;">編成の全バフを主砲1体に集中させた時の最大ダメージと内訳を算出</span>
+          </div>
+          <button type="button" class="btn btn-sm" id="btnToggleRomanSimulator" style="font-size:11px; padding:2px 8px;">閉じる ▴</button>
+        </div>
+        <div id="romanSimulatorBody" style="margin-top:12px;">
+          <!-- Controls Panel -->
+          <div class="roman-controls-card">
+            <!-- Row 1: Main cannon select & Strategy toggle -->
+            <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <label for="romanCannonSelect" style="font-size:12px; font-weight:bold; color:var(--text-main);">🎯 主砲 (アタッカー):</label>
+                <select id="romanCannonSelect" class="btn btn-sm" style="font-size:12px; font-weight:bold; min-width:180px; padding:4px 8px; border:1px solid #c8d6e5; border-radius:4px;"></select>
+              </div>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <label style="font-size:12px; font-weight:bold; cursor:pointer; display:flex; align-items:center; gap:4px;">
+                  <input type="checkbox" id="romanStrategyToggle" checked> 計略使用時（最大火力）
+                </label>
+              </div>
+            </div>
+
+            <!-- Row 2: Supporters Selection Checkboxes -->
+            <div style="margin-bottom:12px;">
+              <div style="font-size:11.5px; font-weight:bold; color:var(--text-sub); margin-bottom:6px;">
+                🤝 支援役 (チェックを外すとその城娘のバフを除外):
+              </div>
+              <div id="romanSupportersWrap" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+            </div>
+
+            <!-- Row 3: Enemy Parameters & Presets -->
+            <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap; background:#fff; padding:8px 12px; border-radius:6px; border:1px solid #e1e8ed;">
+              <div style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
+                <strong>敵防御:</strong>
+                <input type="number" id="romanEnemyDef" class="input-text" value="500" min="0" max="9999" step="50" style="width:65px; padding:2px 6px; font-size:11.5px;">
+              </div>
+              <div style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
+                <strong>敵耐久:</strong>
+                <input type="number" id="romanEnemyHp" class="input-text" value="50000" min="1" max="999999" step="1000" style="width:75px; padding:2px 6px; font-size:11.5px;">
+              </div>
+              <div style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
+                <strong>被ダメ軽減:</strong>
+                <input type="number" id="romanEnemyRed" class="input-text" value="0" min="0" max="90" step="5" style="width:50px; padding:2px 6px; font-size:11.5px;"> %
+              </div>
+              <div style="display:flex; gap:4px; align-items:center;">
+                <span style="font-size:11px; color:var(--text-sub); margin-right:2px;">プリセット:</span>
+                <button type="button" class="btn btn-sm roman-preset-btn" data-def="0" style="padding:2px 6px; font-size:10.5px;">防御0</button>
+                <button type="button" class="btn btn-sm roman-preset-btn" data-def="500" style="padding:2px 6px; font-size:10.5px;">防御500</button>
+                <button type="button" class="btn btn-sm roman-preset-btn" data-def="1000" style="padding:2px 6px; font-size:10.5px;">防御1000</button>
+                <button type="button" class="btn btn-sm roman-preset-btn" data-def="2500" style="padding:2px 6px; font-size:10.5px;">防御2500</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Headline Banner: 最大の一撃 -->
+          <div id="romanHeadlineBanner" class="roman-headline-banner" style="margin-top:12px;"></div>
+
+          <!-- Waterfall Breakdown -->
+          <div style="margin-top:14px;">
+            <div style="font-size:12.5px; font-weight:bold; color:var(--text-main); margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+              <span>🌊 ダメージ算出ウォーターフォール (計算内訳)</span>
+            </div>
+            <div id="romanWaterfallList" class="roman-waterfall-container"></div>
+          </div>
+
+          <!-- Disclaimer Note (Mandatory) -->
+          <div style="margin-top:10px; font-size:11px; color:var(--text-sub); line-height:1.45; background:#fbf9f6; padding:6px 10px; border-radius:4px; border-left:3px solid #e67e22;">
+            ※この数値はツールの計算モデルによる概算です。敵固有の特殊軽減・バリア等は未対応です。
+          </div>
+
+          <!-- Maximization Assist Panel -->
+          <div id="romanAssistPanel" style="margin-top:14px; background:#fdfefe; border:1px solid #e1e8ed; border-radius:6px; padding:10px 12px;">
+            <div style="font-size:12px; font-weight:bold; color:var(--text-main); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span>🔥 入れるともっと伸びる支援役 (TOP 5)</span>
+                <span style="font-size:10.5px; font-weight:normal; color:var(--text-sub);">未編成の中から主砲の火力を最も引き上げる候補</span>
+              </div>
+            </div>
+            <div id="romanAssistList" style="display:flex; gap:10px; flex-wrap:wrap;"></div>
+          </div>
+        </div>
+      </section>
+
       <!-- A5: ダメージチェッカー (仮想敵シミュレーター) -->
       <section class="section-box" id="sectionDamageChecker" style="margin-top: 14px;">
         <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" id="dmgCheckerHeader">
