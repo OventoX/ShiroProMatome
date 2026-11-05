@@ -1719,7 +1719,7 @@ async function runTests() {
 
     const exRowText = await page.$eval('#tierCuratedBoard .tier-row:first-child', el => el.textContent);
     console.log('EX Row snippet:', exRowText.slice(0, 100).replace(/\s+/g, ' '));
-    if (!exRowText.includes('四代目江戸城') || !exRowText.includes('大宰府')) {
+    if (!exRowText.includes('崑崙') || !exRowText.includes('［無疆］江戸城')) {
       throw new Error('TEST 36 FAILED: Curated EX row missing key meta castles');
     }
 
