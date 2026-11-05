@@ -23,3 +23,5 @@ tools/*.png
 *.png
 !app/icons/
 !app/icons/**
+
+tools/screenshots/

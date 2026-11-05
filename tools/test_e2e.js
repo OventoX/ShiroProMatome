@@ -1940,6 +1940,16 @@ async function runTests() {
       throw new Error('TEST 37 FAILED: Search for "江戸" returned no matching chips');
     }
 
+    // Test hiragana ruby search "なごや" (Item 1: ruby search verification)
+    console.log('Testing hiragana ruby search "なごや"...');
+    await page.$eval('#tierAutoSearchInput', el => { el.value = 'なごや'; el.dispatchEvent(new Event('input')); });
+    await new Promise(r => setTimeout(r, 300));
+    const nagoyaChips = await page.$$eval('#tierAutoBoard .tier-auto-chip-name', names => names.map(n => n.textContent));
+    console.log('Search "なごや" results:', nagoyaChips);
+    if (!nagoyaChips.includes('名古屋城')) {
+      throw new Error('TEST 37 FAILED: Search for "なごや" did not hit 名古屋城');
+    }
+
     // Reset search
     await page.$eval('#tierAutoSearchInput', el => { el.value = ''; el.dispatchEvent(new Event('input')); });
     await new Promise(r => setTimeout(r, 200));
@@ -2028,10 +2038,14 @@ async function runTests() {
       throw new Error('TEST 37 FAILED: Overrides not cleared properly');
     }
 
-    // 8. Screenshot verification
-    const artifactsDir = 'C:\\Users\\ar265\\.gemini\\antigravity\\brain\\5355bd08-df05-4fee-b014-8a5e518ef73b';
-    await page.screenshot({ path: path.join(artifactsDir, 'tier_auto_scoring_screenshot.png'), fullPage: false });
-    console.log('Saved tier_auto_scoring_screenshot.png');
+    // 8. Screenshot verification (Item 5: relative path)
+    const screenshotDir = path.resolve(__dirname, 'screenshots');
+    if (!fs.existsSync(screenshotDir)) {
+      fs.mkdirSync(screenshotDir, { recursive: true });
+    }
+    const screenshotPath = path.join(screenshotDir, 'tier_auto_scoring_screenshot.png');
+    await page.screenshot({ path: screenshotPath, fullPage: false });
+    console.log('Saved tier_auto_scoring_screenshot.png to:', screenshotPath);
 
     // Return to dashboard
     await page.click('button[data-tab="tab-dashboard"]');

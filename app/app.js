@@ -302,6 +302,16 @@
   }
 
   // ==========================================
+    function escapeHtml(str) {
+    if (str == null) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
   // Kana Normalization & Search Matcher (プロンプト1)
   // ==========================================
   function toHiragana(str) {
@@ -4270,7 +4280,7 @@
       const allyNorm = Math.min(25.0, ally_raw) / 25.0;
 
       // 4. Debuffs (normalized to 15 max)
-      const enemy_effects = all_effects.filter(e => (e.stat && e.stat.startsWith('enemy')) || ['enemy', 'inRangeEnemies'].includes(e.target));
+      const enemy_effects = all_effects.filter(e => Boolean(e.stat && e.stat.startsWith('enemy')));
       let debuff_raw = 0.0;
       enemy_effects.forEach(e => {
         const stat = e.stat;
@@ -4335,14 +4345,17 @@
     if (!cachedRawNormScores) precomputeRawNormScores();
     if (!window.SCRE_DATA) return [];
 
+    const totalWeight = Object.values(weights).reduce((a, b) => a + b, 0);
+    const scale = totalWeight > 0 ? (100.0 / totalWeight) : 1.0;
+
     const result = window.SCRE_DATA.map(c => {
       const raw = (cachedRawNormScores && cachedRawNormScores[c.id]) || { baseNorm: 0.5, selfNorm: 0, allyNorm: 0, debuffNorm: 0, stratNorm: 0, specNorm: 0 };
-      const sBase = Math.round(raw.baseNorm * weights.base * 10) / 10;
-      const sSelf = Math.round(raw.selfNorm * weights.self * 10) / 10;
-      const sAlly = Math.round(raw.allyNorm * weights.ally * 10) / 10;
-      const sDebuff = Math.round(raw.debuffNorm * weights.debuff * 10) / 10;
-      const sStrat = Math.round(raw.stratNorm * weights.strat * 10) / 10;
-      const sSpec = Math.round(raw.specNorm * weights.spec * 10) / 10;
+      const sBase = Math.round(raw.baseNorm * weights.base * scale * 10) / 10;
+      const sSelf = Math.round(raw.selfNorm * weights.self * scale * 10) / 10;
+      const sAlly = Math.round(raw.allyNorm * weights.ally * scale * 10) / 10;
+      const sDebuff = Math.round(raw.debuffNorm * weights.debuff * scale * 10) / 10;
+      const sStrat = Math.round(raw.stratNorm * weights.strat * scale * 10) / 10;
+      const sSpec = Math.round(raw.specNorm * weights.spec * scale * 10) / 10;
       const total = Math.round((sBase + sSelf + sAlly + sDebuff + sStrat + sSpec) * 10) / 10;
 
       return {
@@ -4479,6 +4492,14 @@
     initAutoTierTooltip();
     const bd = item.breakdown;
     const c = item.castle;
+    const totalWeight = Object.values(tierWeights).reduce((a, b) => a + b, 0);
+    const scale = totalWeight > 0 ? (100.0 / totalWeight) : 1.0;
+    const maxBase = (tierWeights.base * scale).toFixed(1);
+    const maxSelf = (tierWeights.self * scale).toFixed(1);
+    const maxAlly = (tierWeights.ally * scale).toFixed(1);
+    const maxDebuff = (tierWeights.debuff * scale).toFixed(1);
+    const maxStrat = (tierWeights.strat * scale).toFixed(1);
+    const maxSpec = (tierWeights.spec * scale).toFixed(1);
     autoTierTooltipEl.innerHTML = `
       <div class="tier-tooltip-title">
         <span>★${c.rarity || 7} ${c.name}</span>
@@ -4491,27 +4512,27 @@
       <div class="tier-tooltip-breakdown">
         <div class="tier-tooltip-row">
           <span class="label">1. 基礎性能 (巨5ステ)</span>
-          <span class="val">${bd.base} / ${tierWeights.base} pt</span>
+          <span class="val">${bd.base} / ${maxBase} pt</span>
         </div>
         <div class="tier-tooltip-row">
           <span class="label">2. 自己強化バフ</span>
-          <span class="val">${bd.self} / ${tierWeights.self} pt</span>
+          <span class="val">${bd.self} / ${maxSelf} pt</span>
         </div>
         <div class="tier-tooltip-row">
           <span class="label">3. 味方支援・鼓舞・気</span>
-          <span class="val">${bd.ally} / ${tierWeights.ally} pt</span>
+          <span class="val">${bd.ally} / ${maxAlly} pt</span>
         </div>
         <div class="tier-tooltip-row">
           <span class="label">4. 敵妨害・デバフ</span>
-          <span class="val">${bd.debuff} / ${tierWeights.debuff} pt</span>
+          <span class="val">${bd.debuff} / ${maxDebuff} pt</span>
         </div>
         <div class="tier-tooltip-row">
           <span class="label">5. 計略効率・追加効果</span>
-          <span class="val">${bd.strat} / ${tierWeights.strat} pt</span>
+          <span class="val">${bd.strat} / ${maxStrat} pt</span>
         </div>
         <div class="tier-tooltip-row">
           <span class="label">6. 汎用・複合・特殊</span>
-          <span class="val">${bd.spec} / ${tierWeights.spec} pt</span>
+          <span class="val">${bd.spec} / ${maxSpec} pt</span>
         </div>
       </div>
       ${item.isOverridden ? `<div style="margin-top:6px; color:#ffeaa7; font-size:10px; border-top:1px dashed rgba(255,255,255,0.2); padding-top:4px;">✏️ 手動上書き中 (${item.effectiveTier})</div>` : ""}
@@ -4560,6 +4581,9 @@
   }
 
   function syncWeightSlidersUI() {
+    const total = Object.values(tierWeights).reduce((a, b) => a + b, 0);
+    const scale = total > 0 ? (100.0 / total) : 1.0;
+
     const sliderDefs = [
       { id: "sliderWeightBase", lbl: "lblWeightBase", key: "base" },
       { id: "sliderWeightSelf", lbl: "lblWeightSelf", key: "self" },
@@ -4571,12 +4595,21 @@
     sliderDefs.forEach(def => {
       const slider = document.getElementById(def.id);
       const lbl = document.getElementById(def.lbl);
-      if (slider) slider.value = tierWeights[def.key];
-      if (lbl) lbl.textContent = `${tierWeights[def.key]}点`;
+      const w = tierWeights[def.key];
+      const scaled = (w * scale).toFixed(1);
+      if (slider) slider.value = w;
+      if (lbl) {
+        lbl.textContent = total === 100 ? `${w}点` : `${w}点 (${scaled}%)`;
+      }
     });
-    const total = Object.values(tierWeights).reduce((a, b) => a + b, 0);
     const badge = document.getElementById("tierTotalWeightBadge");
-    if (badge) badge.textContent = `合計: ${total}点`;
+    if (badge) {
+      if (total === 100) {
+        badge.textContent = `合計: 100点 (100点満点)`;
+      } else {
+        badge.textContent = `合計重み: ${total} (100点満点に自動正規化)`;
+      }
+    }
   }
 
   function renderTierAuto() {
@@ -4614,9 +4647,7 @@
       if (filterOwnership === "unowned" && (ownership.owned && ownership.owned[c.id])) return false;
       if (filterOwnership === "favorites" && (!ownership.favorites || !ownership.favorites[c.id])) return false;
       if (filterSearch) {
-        const matchName = (c.name || "").toLowerCase().includes(filterSearch);
-        const matchKana = (c.reading || "").toLowerCase().includes(filterSearch);
-        if (!matchName && !matchKana) return false;
+        if (!matchCastleNameOrRuby(c, filterSearch)) return false;
       }
       return true;
     });
@@ -4879,8 +4910,8 @@
       labelCol.style.background = row.color || "#b33939";
 
       labelCol.innerHTML = `
-        <div class="tier-row-letter" title="クリックして行の名前を変更">${row.letter}</div>
-        <div class="tier-row-sub" title="クリックしてサブテキストを変更">${row.sub || ''}</div>
+        <div class="tier-row-letter" title="クリックして行の名前を変更"></div>
+        <div class="tier-row-sub" title="クリックしてサブテキストを変更"></div>
         <div class="tier-row-controls">
           <button type="button" class="tier-row-ctrl-btn" data-action="up" title="上へ移動">▲</button>
           <button type="button" class="tier-row-ctrl-btn" data-action="down" title="下へ移動">▼</button>
@@ -4889,6 +4920,10 @@
           <button type="button" class="tier-row-ctrl-btn" data-action="del" title="行を削除">✖</button>
         </div>
       `;
+      const letterNode = labelCol.querySelector(".tier-row-letter");
+      const subNode = labelCol.querySelector(".tier-row-sub");
+      if (letterNode) letterNode.textContent = row.letter;
+      if (subNode) subNode.textContent = row.sub || "";
 
       // Label events
       labelCol.querySelector(".tier-row-letter").addEventListener("click", () => {
@@ -5050,20 +5085,20 @@
       board.appendChild(rowEl);
     });
 
-    // Update target select dropdown
+    // Update target select dropdown (escaped)
     const targetSel = document.getElementById("tierPoolTargetSelect");
     if (targetSel) {
       targetSel.innerHTML = customTierRows.map(r => `
-        <option value="${r.id}">${r.letter} (${r.sub || '行'})</option>
+        <option value="${escapeHtml(r.id)}">${escapeHtml(r.letter)} (${escapeHtml(r.sub || '行')})</option>
       `).join("");
     }
 
-    // Update saved tiers dropdown
+    // Update saved tiers dropdown (escaped)
     const savedSel = document.getElementById("savedTiersSelect");
     if (savedSel) {
       const savedKeys = Object.keys(customTiersStorage);
       savedSel.innerHTML = `<option value="">-- 保存済みティア (${savedKeys.length}件) --</option>` +
-        savedKeys.map(k => `<option value="${k}">${k}</option>`).join("");
+        savedKeys.map(k => `<option value="${escapeHtml(k)}">${escapeHtml(k)}</option>`).join("");
     }
 
     renderTierPool();
@@ -5195,14 +5230,21 @@
     const rowsHtml = rowsToExport.map(r => {
       const chipsHtml = r.castles.map(name => {
         const c = getCastleByName(name);
-        const fallbackSrc = `icons/${encodeURIComponent(name)}.png`;
-        const iconSrc = c && c.illustUrl ? c.illustUrl : fallbackSrc;
+        const safeName = name.replace(/[\\/:*?"<>|]/g, "_");
+        const localIconByName = `icons/${encodeURIComponent(safeName)}.png`;
+        const localIconById = c ? `icons/${c.id}.png` : localIconByName;
+        const initial = (c && c.weapon ? c.weapon[0] : (name[0] || "城"));
         return `
           <div style="display:flex; flex-direction:column; align-items:center; width:54px; margin:2px;">
-            <div style="width:48px; height:48px; border-radius:6px; overflow:hidden; border:1px solid rgba(255,255,255,0.2); box-shadow:0 1px 3px rgba(0,0,0,0.5);">
-              <img src="${iconSrc}" onerror="this.src='${fallbackSrc}'" style="width:100%; height:100%; object-fit:cover;" crossOrigin="anonymous">
+            <div style="width:48px; height:48px; border-radius:6px; overflow:hidden; border:1px solid rgba(255,255,255,0.2); box-shadow:0 1px 3px rgba(0,0,0,0.5); background:#2c3e50; position:relative;">
+              <img src="${localIconByName}"
+                   onerror="this.onerror=null; this.src='${localIconById}'; this.onerror=() => { this.style.display='none'; if (this.nextElementSibling) this.nextElementSibling.style.display='flex'; };"
+                   style="width:100%; height:100%; object-fit:cover; display:block;"
+                   crossOrigin="anonymous"
+                   alt="${escapeHtml(name)}">
+              <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:#4a5568; color:#fff; font-size:13px; font-weight:bold;">${escapeHtml(initial)}</div>
             </div>
-            <div style="font-size:9px; color:#ddd; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%; margin-top:2px;">${name}</div>
+            <div style="font-size:9px; color:#ddd; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%; margin-top:2px;">${escapeHtml(name)}</div>
           </div>
         `;
       }).join("");
@@ -5210,8 +5252,8 @@
       return `
         <div style="display:flex; min-height:80px; margin-bottom:6px; background:#222; border:1px solid #3a3a3a; border-radius:6px; overflow:hidden;">
           <div style="width:130px; min-width:110px; background:${r.color || '#555'}; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; padding:6px; text-align:center;">
-            <div style="font-size:22px; font-weight:900; letter-spacing:1px; text-shadow:0 1px 3px rgba(0,0,0,0.5);">${r.letter}</div>
-            ${r.sub ? `<div style="font-size:10px; font-weight:bold; opacity:0.95; margin-top:2px;">${r.sub}</div>` : ''}
+            <div style="font-size:22px; font-weight:900; letter-spacing:1px; text-shadow:0 1px 3px rgba(0,0,0,0.5);">${escapeHtml(r.letter)}</div>
+            ${r.sub ? `<div style="font-size:10px; font-weight:bold; opacity:0.95; margin-top:2px;">${escapeHtml(r.sub)}</div>` : ''}
           </div>
           <div style="flex:1; display:flex; flex-wrap:wrap; align-items:center; gap:6px; padding:8px 12px; background:#1e1e1e;">
             ${chipsHtml || '<div style="color:#666; font-size:11px; font-style:italic;">(城娘なし)</div>'}
@@ -5223,7 +5265,7 @@
     exportArea.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid #b85d19; padding-bottom:10px; margin-bottom:14px;">
         <div>
-          <h2 style="font-size:22px; font-weight:bold; color:#f1c40f; margin:0 0 4px 0;">👑 ${title}</h2>
+          <h2 style="font-size:22px; font-weight:bold; color:#f1c40f; margin:0 0 4px 0;">👑 ${escapeHtml(title)}</h2>
           <div style="font-size:11.5px; color:#aaa;">城プロRE 編成・バフ/デバフ統合ダッシュボード ｜ 性能ティア出力</div>
         </div>
         <div style="text-align:right; font-size:11px; color:#888;">
@@ -5246,7 +5288,18 @@
       scale: 2,
       useCORS: true,
       backgroundColor: "#161616",
-      logging: false
+      logging: false,
+      onclone: (clonedDoc) => {
+        clonedDoc.querySelectorAll("img").forEach(img => {
+          if (!img.complete || img.naturalWidth === 0) {
+            const fallbackDiv = img.nextElementSibling;
+            if (fallbackDiv) {
+              img.style.display = "none";
+              fallbackDiv.style.display = "flex";
+            }
+          }
+        });
+      }
     }).then(canvas => {
       canvas.toBlob(blob => {
         if (!blob) {
@@ -5343,10 +5396,7 @@
       slider.addEventListener("input", () => {
         const val = parseInt(slider.value, 10);
         tierWeights[def.key] = val;
-        lbl.textContent = `${val}点`;
-        const total = Object.values(tierWeights).reduce((a, b) => a + b, 0);
-        const badge = document.getElementById("tierTotalWeightBadge");
-        if (badge) badge.textContent = `合計: ${total}点`;
+        syncWeightSlidersUI();
         saveTierWeights();
         computeCastleScores(tierWeights);
         renderTierAutoBoard();
@@ -5407,7 +5457,19 @@
       html2canvas(board, {
         scale: 2,
         useCORS: true,
-        backgroundColor: "#f5f3f0"
+        backgroundColor: "#f5f3f0",
+        onclone: (clonedDoc) => {
+          clonedDoc.querySelectorAll(".tier-auto-chip-icon img, img").forEach(img => {
+            if (!img.complete || img.naturalWidth === 0) {
+              const castleName = img.alt || "";
+              const parent = img.parentElement;
+              if (parent) {
+                const initial = castleName.slice(0, 2) || "城";
+                parent.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#718096;color:#fff;font-size:11px;font-weight:bold;border-radius:4px;">${escapeHtml(initial)}</div>`;
+              }
+            }
+          });
+        }
       }).then(canvas => {
         const a = document.createElement("a");
         a.download = `shiropro_auto_tier_${autoTierScope}.png`;
