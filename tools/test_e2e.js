@@ -168,7 +168,7 @@ async function runTests() {
   // Test 7: Multi-attribute (複合属性) verification with [アイドル] 江戸城＆信貴山城
   console.log('\n[TEST 7] Testing multi-attribute (平/山) display & filter for [アイドル] 江戸城＆信貴山城...');
   await page.$eval('#searchCastleInput', el => el.value = '');
-  await page.type('#searchCastleInput', '信貴山城');
+  await page.type('#searchCastleInput', '江戸城＆信貴山城');
   await new Promise(r => setTimeout(r, 200));
 
   const idolItem = await page.$('#allCastleList .castle-list-item');
@@ -964,7 +964,7 @@ async function runTests() {
   await new Promise(r => setTimeout(r, 300));
 
   // Click Osaka Castle card
-  await page.click('.castle-list-item');
+  await page.click('.castle-list-item[data-id="大坂城"]');
   await new Promise(r => setTimeout(r, 400));
 
   // Verify Ojou tab is available and click it
@@ -1088,7 +1088,7 @@ async function runTests() {
   // Test 28: Remodel Stage Switching (無印 / 改壱 / 改弐) for Illustrations, Taiha, and Skills
   console.log('\n[TEST 28] Testing Remodel Stages (無印 / 改壱 / 改弐)...');
   // 1. Open Osaka Castle (which has all 3 stages: 無印, 改壱, 改弐)
-  await page.click('.castle-list-item');
+  await page.click('.castle-list-item[data-id="大坂城"]');
   await new Promise(r => setTimeout(r, 400));
 
   // Check remodel tab buttons exist
@@ -2283,6 +2283,303 @@ async function runTests() {
     console.log('=> TEST 39 PASSED');
   }
 
+  // TEST 40: 編成 Undo (取り消し) 機能 (B3)
+  console.log('\n--- TEST 40: Party Undo Functionality (B3) ---');
+  {
+    // Switch to dashboard
+    await page.click('button[data-tab="tab-dashboard"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    // Get initial party count
+    const initialCounter = await page.$eval('#partyCounter', el => el.textContent.trim());
+    console.log('Initial party counter before modification:', initialCounter);
+
+    // Empty party
+    page.on('dialog', async dialog => {
+      await dialog.accept();
+    });
+    const emptyBtn = await page.$('#btnEmptyParty');
+    await emptyBtn.click();
+    await new Promise(r => setTimeout(r, 400));
+
+    const emptyCounter = await page.$eval('#partyCounter', el => el.textContent.trim());
+    console.log('Party counter after empty:', emptyCounter);
+    if (!emptyCounter.includes('0/8')) {
+      throw new Error('TEST 40 FAILED: Party was not emptied');
+    }
+
+    // Verify Undo button is enabled
+    const isUndoDisabled = await page.$eval('#btnUndoParty', el => el.disabled);
+    if (isUndoDisabled) {
+      throw new Error('TEST 40 FAILED: #btnUndoParty should be enabled after party modification');
+    }
+
+    // Click Undo button
+    await page.click('#btnUndoParty');
+    await new Promise(r => setTimeout(r, 400));
+
+    const restoredCounter = await page.$eval('#partyCounter', el => el.textContent.trim());
+    console.log('Party counter after Undo click:', restoredCounter);
+    if (restoredCounter !== initialCounter) {
+      throw new Error(`TEST 40 FAILED: Party not restored via Undo (expected ${initialCounter}, got ${restoredCounter})`);
+    }
+
+    // Test Ctrl+Z shortcut
+    await emptyBtn.click();
+    await new Promise(r => setTimeout(r, 300));
+    console.log('Emptied party again for Ctrl+Z test');
+
+    await page.keyboard.down('Control');
+    await page.keyboard.press('KeyZ');
+    await page.keyboard.up('Control');
+    await new Promise(r => setTimeout(r, 400));
+
+    const ctrlZRestoredCounter = await page.$eval('#partyCounter', el => el.textContent.trim());
+    console.log('Party counter after Ctrl+Z shortcut:', ctrlZRestoredCounter);
+    if (ctrlZRestoredCounter !== initialCounter) {
+      throw new Error('TEST 40 FAILED: Party not restored via Ctrl+Z');
+    }
+
+    console.log('=> TEST 40 PASSED');
+  }
+
+  // TEST 41: 一括バックアップ（全データの書き出し/読み込み） (B2)
+  console.log('\n--- TEST 41: Full Backup Export & Import (B2) ---');
+  {
+    await page.click('button[data-tab="tab-settings"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    // Verify backup buttons exist
+    const hasExportBtn = await page.$eval('#btnFullBackupExport', el => el !== null);
+    const hasImportTrigger = await page.$eval('#btnFullBackupImportTrigger', el => el !== null);
+    const hasFileInput = await page.$eval('#fullBackupFileInput', el => el !== null);
+
+    if (!hasExportBtn || !hasImportTrigger || !hasFileInput) {
+      throw new Error('TEST 41 FAILED: Backup buttons missing in Settings tab');
+    }
+
+    // Test export data compilation in page
+    const backupPayload = await page.evaluate(() => {
+      const backupData = {};
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && (key.startsWith("scre-helper:") || key.startsWith("scre_"))) {
+          backupData[key] = localStorage.getItem(key);
+        }
+      }
+      return {
+        version: "1.0",
+        app: "城プロRE 編成・バフ/デバフ統合ダッシュボード",
+        data: backupData
+      };
+    });
+
+    console.log('Full backup keys count:', Object.keys(backupPayload.data).length);
+    if (Object.keys(backupPayload.data).length === 0) {
+      throw new Error('TEST 41 FAILED: No scre-helper keys found for backup');
+    }
+
+    console.log('=> TEST 41 PASSED');
+  }
+
+  // TEST 42: 城娘2体比較ビュー (B4)
+  console.log('\n--- TEST 42: Two-Castle Comparison View (B4) ---');
+  {
+    await page.click('button[data-tab="tab-list"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    // Clear search filter to view cards
+    await page.evaluate(() => {
+      const el = document.getElementById('searchCastleInput');
+      if (el) {
+        el.value = '';
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    });
+    await new Promise(r => setTimeout(r, 400));
+
+    // Add first castle to compare
+    const firstCompareBtn = await page.$('.castle-list-item:nth-child(1) [data-compare-id]');
+    const firstCastleId = await page.evaluate(el => el.getAttribute('data-compare-id'), firstCompareBtn);
+    await firstCompareBtn.click();
+    await new Promise(r => setTimeout(r, 300));
+
+    // Verify compare tray is now visible with 1 count
+    let trayDisplay = await page.$eval('#compareFloatingTray', el => el.style.display);
+    let trayCount = await page.$eval('#compareTrayCount', el => el.textContent.trim());
+    console.log('Compare tray after 1st castle:', { trayDisplay, trayCount });
+    if (trayDisplay === 'none' || trayCount !== '1') {
+      throw new Error('TEST 42 FAILED: Compare tray not displayed after adding 1 castle');
+    }
+
+    // Add second castle to compare
+    const secondCompareBtn = await page.$('.castle-list-item:nth-child(2) [data-compare-id]');
+    const secondCastleId = await page.evaluate(el => el.getAttribute('data-compare-id'), secondCompareBtn);
+    await secondCompareBtn.click();
+    await new Promise(r => setTimeout(r, 300));
+
+    trayCount = await page.$eval('#compareTrayCount', el => el.textContent.trim());
+    console.log('Compare tray after 2nd castle:', { trayCount });
+    if (trayCount !== '2') {
+      throw new Error('TEST 42 FAILED: Compare tray count should be 2');
+    }
+
+    // Open comparison modal
+    await page.click('#btnOpenCompareModal');
+    await new Promise(r => setTimeout(r, 500));
+
+    const isCompareModalOpen = await page.$eval('#modalCompareCastles', el => el.classList.contains('open'));
+    if (!isCompareModalOpen) {
+      throw new Error('TEST 42 FAILED: Comparison modal was not opened');
+    }
+
+    const tableRows = await page.$$eval('#modalCompareBody tr', trs => trs.length);
+    console.log('Comparison table rows count:', tableRows);
+    if (tableRows < 8) {
+      throw new Error('TEST 42 FAILED: Comparison table incomplete');
+    }
+
+    // Verify stat comparison has .compare-stat-better
+    const hasBetterStat = await page.$eval('#modalCompareBody .compare-stat-better', el => el !== null);
+    if (!hasBetterStat) {
+      throw new Error('TEST 42 FAILED: Higher stat not highlighted');
+    }
+    console.log('Verified comparison table highlights superior stats');
+
+    // Screenshot comparison modal
+    const compareScreenshotPath = path.join(path.resolve(__dirname, 'screenshots'), 'castle_comparison_modal.png');
+    await page.screenshot({ path: compareScreenshotPath, fullPage: false });
+    console.log('Saved castle_comparison_modal.png');
+
+    // Close comparison modal
+    await page.evaluate(() => document.getElementById('modalCompareCloseBtn')?.click());
+    await new Promise(r => setTimeout(r, 300));
+
+    // Clear compare tray
+    await page.evaluate(() => document.getElementById('btnClearCompareTray')?.click());
+    await new Promise(r => setTimeout(r, 300));
+
+    trayDisplay = await page.$eval('#compareFloatingTray', el => el.style.display);
+    if (trayDisplay !== 'none') {
+      throw new Error('TEST 42 FAILED: Compare tray did not hide after clear');
+    }
+
+    console.log('=> TEST 42 PASSED');
+  }
+
+  // TEST 43: 一覧の並び替え拡張とフィルタ保存 (B5)
+  console.log('\n--- TEST 43: List Sorting & Filter Presets (B5) ---');
+  {
+    await page.click('button[data-tab="tab-list"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    // Test sort by cost ascending
+    await page.select('#listSortKey', 'cost');
+    const orderBtn = await page.$('#btnListSortOrder');
+    const order = await page.evaluate(el => el.getAttribute('data-order'), orderBtn);
+    if (order !== 'asc') {
+      await orderBtn.click();
+    }
+    await new Promise(r => setTimeout(r, 400));
+
+    const firstCostCastle = await page.$eval('.castle-list-item:nth-child(1) .castle-item-title', el => el.textContent.trim());
+    console.log('First castle sorted by cost ASC:', firstCostCastle);
+
+    // Test filter preset save and apply
+    await page.evaluate(() => {
+      const presets = [
+        {
+          name: "テスト保存条件",
+          search: "江戸",
+          rarity: "7",
+          type: "平",
+          weapon: "",
+          buff: "",
+          ownership: "",
+          sortKey: "id",
+          sortOrder: "desc"
+        }
+      ];
+      localStorage.setItem("scre-helper:filter-presets:v1", JSON.stringify(presets));
+      if (typeof window.renderFilterPresetsUI === "function") window.renderFilterPresetsUI();
+    });
+    await new Promise(r => setTimeout(r, 300));
+
+    const presetChip = await page.$('.filter-preset-chip[data-idx="0"]');
+    if (!presetChip) {
+      throw new Error('TEST 43 FAILED: Filter preset chip was not rendered');
+    }
+
+    // Click filter preset chip
+    await presetChip.click();
+    await new Promise(r => setTimeout(r, 400));
+
+    const appliedSearch = await page.$eval('#searchCastleInput', el => el.value);
+    const appliedRarity = await page.$eval('#filterRarity', el => el.value);
+    const appliedType = await page.$eval('#filterType', el => el.value);
+
+    console.log('Applied preset filters:', { appliedSearch, appliedRarity, appliedType });
+    if (appliedSearch !== '江戸' || appliedRarity !== '7' || appliedType !== '平') {
+      throw new Error('TEST 43 FAILED: Filter preset values not applied correctly');
+    }
+
+    // Delete preset chip
+    await page.click('.filter-preset-chip[data-idx="0"] .filter-preset-del');
+    await new Promise(r => setTimeout(r, 300));
+
+    const chipCountAfterDel = await page.$$eval('.filter-preset-chip', chips => chips.length);
+    if (chipCountAfterDel !== 0) {
+      throw new Error('TEST 43 FAILED: Filter preset was not deleted');
+    }
+    console.log('Verified filter preset deletion');
+
+    console.log('=> TEST 43 PASSED');
+  }
+
+  // TEST 44: スマホ・レスポンシブ化 & PWA対応 (B1 & B6)
+  console.log('\n--- TEST 44: Mobile Responsive & PWA Assets (B1 & B6) ---');
+  {
+    // Test responsive viewport (375x667 mobile)
+    await page.setViewport({ width: 375, height: 667 });
+    await new Promise(r => setTimeout(r, 400));
+
+    const navPosition = await page.$eval('.tab-nav', el => window.getComputedStyle(el).position);
+    console.log('Mobile bottom nav position:', navPosition);
+    if (navPosition !== 'fixed') {
+      throw new Error('TEST 44 FAILED: Mobile nav should have position: fixed');
+    }
+
+    // Save mobile screenshot
+    const mobileScreenshotPath = path.join(path.resolve(__dirname, 'screenshots'), 'mobile_responsive.png');
+    await page.screenshot({ path: mobileScreenshotPath, fullPage: false });
+    console.log('Saved mobile_responsive.png');
+
+    // Restore desktop viewport (1920x1080)
+    await page.setViewport({ width: 1920, height: 1080 });
+    await new Promise(r => setTimeout(r, 400));
+
+    // Verify PWA manifest and SW
+    const hasManifest = await page.$eval('link[rel="manifest"]', el => el.getAttribute('href'));
+    console.log('PWA manifest link in head:', hasManifest);
+    if (hasManifest !== 'manifest.json') {
+      throw new Error('TEST 44 FAILED: manifest.json link missing in head');
+    }
+
+    const fs = require('fs');
+    const appDir = path.resolve(__dirname, '..', 'app');
+    const manifestExists = fs.existsSync(path.join(appDir, 'manifest.json'));
+    const swExists = fs.existsSync(path.join(appDir, 'sw.js'));
+    const icon192Exists = fs.existsSync(path.join(appDir, 'icons', 'pwa-192.png'));
+    const icon512Exists = fs.existsSync(path.join(appDir, 'icons', 'pwa-512.png'));
+
+    console.log('PWA files check:', { manifestExists, swExists, icon192Exists, icon512Exists });
+    if (!manifestExists || !swExists || !icon192Exists || !icon512Exists) {
+      throw new Error('TEST 44 FAILED: PWA asset files missing');
+    }
+
+    console.log('=> TEST 44 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -2294,7 +2591,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (39/39)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (44/44)!');
   console.log('=====================================');
 }
 

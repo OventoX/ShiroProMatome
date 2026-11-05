@@ -75,6 +75,62 @@
   }
 
   // ==========================================
+  // B3: 編成 Undo 履歴スタック (最大50件)
+  // ==========================================
+  const undoStack = [];
+  const MAX_UNDO = 50;
+  let isUndoing = false;
+
+  function pushUndoSnapshot() {
+    if (isUndoing) return;
+    try {
+      const snapshot = {
+        presets: JSON.parse(JSON.stringify(partyPresets)),
+        currentPresetIdx: currentPresetIdx,
+        currentTerrain: currentTerrain
+      };
+      undoStack.push(snapshot);
+      if (undoStack.length > MAX_UNDO) {
+        undoStack.shift();
+      }
+      updateUndoButtonUI();
+    } catch (e) {
+      console.warn("pushUndoSnapshot failed:", e);
+    }
+  }
+
+  function performUndo() {
+    if (undoStack.length === 0) {
+      showNotification("これ以上元に戻せません");
+      return;
+    }
+    const snapshot = undoStack.pop();
+    isUndoing = true;
+    try {
+      partyPresets = snapshot.presets;
+      currentPresetIdx = snapshot.currentPresetIdx;
+      currentTerrain = snapshot.currentTerrain;
+      party = partyPresets[currentPresetIdx].party;
+      savePresets();
+      renderPresetBar();
+      renderDashboard();
+      if (typeof updateCoveragePanel === "function") updateCoveragePanel();
+      updateUndoButtonUI();
+      showNotification("直前の編成変更を取り消しました ↺");
+    } finally {
+      isUndoing = false;
+    }
+  }
+
+  function updateUndoButtonUI() {
+    const btn = document.getElementById("btnUndoParty");
+    if (btn) {
+      btn.disabled = (undoStack.length === 0);
+      btn.title = undoStack.length > 0 ? `編成変更を取り消す (Ctrl+Z) [履歴${undoStack.length}件]` : "取り消せる履歴がありません (Ctrl+Z)";
+    }
+  }
+
+  // ==========================================
   // Ownership & Favorites Management (Feature 1)
   // ==========================================
   const OWNERSHIP_STORAGE_KEY = "scre-helper:ownership:v1";
@@ -165,7 +221,8 @@
   }
 
   function switchPreset(idx) {
-    if (idx < 0 || idx >= partyPresets.length) return;
+    if (idx < 0 || idx >= partyPresets.length || idx === currentPresetIdx) return;
+    pushUndoSnapshot();
     currentPresetIdx = idx;
     if (!Array.isArray(partyPresets[currentPresetIdx].party)) {
       partyPresets[currentPresetIdx].party = [];
@@ -294,6 +351,7 @@
       showToast(`⚠️ 一部未存在の城娘を除外して復元しました: ${missingIds.join('、')}`);
     }
 
+    pushUndoSnapshot();
     party = validCastles.slice(0, 8).map(c => ({
       id: c.id,
       strategyOn: true,
@@ -1297,6 +1355,7 @@
   // Empty party
   document.getElementById("btnEmptyParty").addEventListener("click", () => {
     if (confirm("現在の部隊を空にしますか？")) {
+      pushUndoSnapshot();
       party = [];
       saveParty();
       renderDashboard();
@@ -1306,6 +1365,7 @@
 
   // Terrain select change
   document.getElementById("mapTerrainSelect").addEventListener("change", e => {
+    pushUndoSnapshot();
     currentTerrain = e.target.value;
     savePresets();
     renderDashboard();
@@ -1503,6 +1563,46 @@
       return true;
     });
 
+    // B5: 並び替え (Sort)
+    const sortKeyEl = document.getElementById("listSortKey");
+    const sortOrderBtn = document.getElementById("btnListSortOrder");
+    const sortKey = (sortKeyEl && sortKeyEl.value) || "id";
+    const sortOrder = (sortOrderBtn && sortOrderBtn.getAttribute("data-order")) || "desc";
+
+    filtered.sort((a, b) => {
+      let diff = 0;
+      if (sortKey === "id") {
+        const noA = parseInt(a.bookNo, 10) || 0;
+        const noB = parseInt(b.bookNo, 10) || 0;
+        diff = noB - noA;
+      } else if (sortKey === "tierScore") {
+        const scoreA = getCastleTierScore(a);
+        const scoreB = getCastleTierScore(b);
+        diff = scoreB - scoreA;
+      } else if (sortKey === "cost") {
+        const costA = a.cost || a.statsDetail?.initial?.cost || 999;
+        const costB = b.cost || b.statsDetail?.initial?.cost || 999;
+        diff = costB - costA;
+      } else if (sortKey === "giantAtk") {
+        const atkA = a.statsDetail?.giant5?.atk || 0;
+        const atkB = b.statsDetail?.giant5?.atk || 0;
+        diff = atkB - atkA;
+      } else if (sortKey === "giantHp") {
+        const hpA = a.statsDetail?.giant5?.hp || 0;
+        const hpB = b.statsDetail?.giant5?.hp || 0;
+        diff = hpB - hpA;
+      } else if (sortKey === "giantDef") {
+        const defA = a.statsDetail?.giant5?.def || 0;
+        const defB = b.statsDetail?.giant5?.def || 0;
+        diff = defB - defA;
+      } else if (sortKey === "nameRuby") {
+        const rA = a.ruby || a.name || "";
+        const rB = b.ruby || b.name || "";
+        diff = rB.localeCompare(rA, "ja");
+      }
+      return sortOrder === "asc" ? -diff : diff;
+    });
+
     currentFilteredCastles = filtered;
     const totalCount = filtered.length;
     const totalPages = Math.max(1, Math.ceil(totalCount / listPageSize));
@@ -1612,6 +1712,9 @@
               ${stratSnippet}
             </div>
             <div class="castle-item-actions">
+              <button class="btn btn-sm btn-compare ${compareCastles.some(x => x.id === c.id) ? 'active' : ''}" data-compare-id="${c.id}" style="padding:4px 7px;font-size:11px;${compareCastles.some(x => x.id === c.id) ? 'background:#2980b9;color:#fff;border-color:#20638f;' : ''}" title="城娘比較に追加">
+                ${compareCastles.some(x => x.id === c.id) ? '✓ 比較中' : '⚖️ 比較'}
+              </button>
               <button class="btn" data-detail="${c.id}" style="padding:4px 8px;font-size:11px;background:#f5f2eb;border:1px solid #d8cfc4;color:#444;">詳細 ↗</button>
               <button class="btn ${inParty ? '' : 'btn-primary'}" data-toggle-party="${c.id}" style="padding:4px 10px;font-size:11px;font-weight:bold;${inParty ? 'background:#c93434;color:#fff;border-color:#c93434;' : ''}">
                 ${inParty ? '✓ 編成中' : '+ 編成'}
@@ -1680,9 +1783,19 @@
       return;
     }
 
+    // 0.5 Toggle Compare (B4)
+    const compareBtn = e.target.closest('[data-compare-id]');
+    if (compareBtn) {
+      e.stopPropagation();
+      toggleCompareCastle(compareBtn.getAttribute('data-compare-id'));
+      renderAllCastles();
+      return;
+    }
+
     // 1. Toggle party button
     const togglePartyId = e.target.getAttribute("data-toggle-party");
     if (togglePartyId) {
+      pushUndoSnapshot();
       const existingIdx = party.findIndex(p => p.id === togglePartyId);
       if (existingIdx !== -1) {
         party.splice(existingIdx, 1);
@@ -2148,6 +2261,7 @@
           <span style="margin-left:auto;font-size:11px;color:var(--text-sub);">[${c.subType || c.castleType}] ★${c.rarity}・${c.weapon}</span>
         `;
         item.addEventListener("click", () => {
+          pushUndoSnapshot();
           if (selectingSlotIndex !== null) {
             party[selectingSlotIndex] = { id: c.id, strategyOn: true, specialOn: !!c.special };
           } else if (party.length < 8) {
@@ -2215,6 +2329,443 @@
       alert("JSON読み込み失敗: " + e.message);
     }
   });
+
+  // ==========================================
+  // B2: 一括バックアップ（全データの書き出し/読み込み）
+  // ==========================================
+  document.getElementById("btnFullBackupExport")?.addEventListener("click", () => {
+    const backupData = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && (key.startsWith("scre-helper:") || key.startsWith("scre_"))) {
+        backupData[key] = localStorage.getItem(key);
+      }
+    }
+    const payload = {
+      version: "1.0",
+      exportedAt: new Date().toISOString(),
+      app: "城プロRE 編成・バフ/デバフ統合ダッシュボード",
+      data: backupData
+    };
+    const jsonStr = JSON.stringify(payload, null, 2);
+    const blob = new Blob([jsonStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    const dateStr = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 16);
+    a.href = url;
+    a.download = `scre_helper_full_backup_${dateStr}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    const statusEl = document.getElementById("fullBackupStatus");
+    if (statusEl) statusEl.textContent = `✅ 一括バックアップ（${Object.keys(backupData).length}項目）をダウンロードしました (${new Date().toLocaleTimeString()})`;
+    showNotification(`全データ（${Object.keys(backupData).length}項目）を一括書き出しました！💾`);
+  });
+
+  const fullBackupTrigger = document.getElementById("btnFullBackupImportTrigger");
+  const fullBackupFileInput = document.getElementById("fullBackupFileInput");
+  if (fullBackupTrigger && fullBackupFileInput) {
+    fullBackupTrigger.addEventListener("click", () => {
+      fullBackupFileInput.value = "";
+      fullBackupFileInput.click();
+    });
+    fullBackupFileInput.addEventListener("change", (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const parsed = JSON.parse(ev.target.result);
+          if (!parsed || typeof parsed !== "object" || !parsed.data) {
+            alert("バックアップファイルの形式が無効です（dataプロパティが見つかりません）。");
+            return;
+          }
+          const dataKeys = Object.keys(parsed.data);
+          const validKeys = dataKeys.filter(k => k.startsWith("scre-helper:") || k.startsWith("scre_"));
+          if (validKeys.length === 0) {
+            alert("有効な城プロRE設定データが含まれていません。");
+            return;
+          }
+          const confirmMsg = `【一括バックアップ復元の確認】\n対象データ項目数: ${validKeys.length}件\n作成日時: ${parsed.exportedAt || '不明'}\n\n現在のすべての編成・所持情報・設定がこのバックアップで上書きされます。\nよろしいですか？`;
+          if (!window.confirm(confirmMsg)) {
+            return;
+          }
+          validKeys.forEach(k => {
+            localStorage.setItem(k, parsed.data[k]);
+          });
+          alert(`一括バックアップの復元が完了しました（${validKeys.length}項目）。\nページを再読み込みします。`);
+          window.location.reload();
+        } catch (err) {
+          alert("JSONファイルの解析に失敗しました: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+    });
+  }
+
+  // ==========================================
+  // B4: 城娘2体比較ビュー
+  // ==========================================
+  let compareCastles = [];
+
+  function getCastleTierScore(c) {
+    if (!c) return 0;
+    if (!cachedComputedScores && typeof computeCastleScores === "function") {
+      cachedComputedScores = computeCastleScores(tierWeights);
+    }
+    if (cachedComputedScores) {
+      const found = cachedComputedScores.find(s => s.id === c.id);
+      if (found) return found.total;
+    }
+    return 0;
+  }
+
+  function toggleCompareCastle(castleId) {
+    const c = getCastleById(castleId);
+    if (!c) return;
+
+    const existingIdx = compareCastles.findIndex(x => x.id === c.id);
+    if (existingIdx !== -1) {
+      compareCastles.splice(existingIdx, 1);
+      showNotification(`「${c.name}」を比較から外しました`);
+    } else {
+      if (compareCastles.length >= 2) {
+        compareCastles.shift();
+      }
+      compareCastles.push(c);
+      showNotification(`「${c.name}」を比較に追加しました (${compareCastles.length}/2)`);
+    }
+    updateCompareTrayUI();
+    updateDetailCompareButton();
+  }
+
+  function updateCompareTrayUI() {
+    const tray = document.getElementById("compareFloatingTray");
+    const slotsEl = document.getElementById("compareTraySlots");
+    const countEl = document.getElementById("compareTrayCount");
+    if (!tray || !slotsEl) return;
+
+    if (countEl) countEl.textContent = String(compareCastles.length);
+
+    if (compareCastles.length === 0) {
+      tray.style.display = "none";
+      slotsEl.innerHTML = "";
+      return;
+    }
+
+    tray.style.display = "block";
+    slotsEl.innerHTML = compareCastles.map(c => `
+      <div class="compare-tray-chip">
+        ${getIconHtml(c, 24)}
+        <strong>${escapeHtml(c.name)}</strong>
+        <span class="compare-tray-remove" data-remove-compare="${escapeHtml(c.id)}" title="解除">&times;</span>
+      </div>
+    `).join("");
+  }
+
+  function updateDetailCompareButton() {
+    const btn = document.getElementById("btnDetailToggleCompare");
+    if (!btn || !activeDetailCastleId) return;
+    const inCompare = compareCastles.some(c => c.id === activeDetailCastleId);
+    btn.textContent = inCompare ? "✓ 比較中" : "⚖️ 比較";
+    btn.style.background = inCompare ? "#2980b9" : "";
+    btn.style.color = inCompare ? "#fff" : "";
+  }
+
+  function openCompareModal() {
+    if (compareCastles.length < 2) {
+      alert("城娘を2体選択すると詳細な比較表を表示できます。\n一覧または詳細画面の「⚖️ 比較」ボタンから2体選んでください。");
+      return;
+    }
+    const c1 = compareCastles[0];
+    const c2 = compareCastles[1];
+    const modal = document.getElementById("modalCompareCastles");
+    const body = document.getElementById("modalCompareBody");
+    if (!modal || !body) return;
+
+    const s1 = c1.statsDetail?.giant5 || {};
+    const s2 = c2.statsDetail?.giant5 || {};
+    const cost1 = c1.cost || c1.statsDetail?.initial?.cost || 0;
+    const cost2 = c2.cost || c2.statsDetail?.initial?.cost || 0;
+    const score1 = getCastleTierScore(c1);
+    const score2 = getCastleTierScore(c2);
+
+    function compareNum(v1, v2, lowerIsBetter = false) {
+      const n1 = parseFloat(v1) || 0;
+      const n2 = parseFloat(v2) || 0;
+      if (n1 === n2) return ["", ""];
+      if (lowerIsBetter) {
+        return n1 < n2 ? ["compare-stat-better", ""] : ["", "compare-stat-better"];
+      }
+      return n1 > n2 ? ["compare-stat-better", ""] : ["", "compare-stat-better"];
+    }
+
+    const [clsCost1, clsCost2] = compareNum(cost1, cost2, true);
+    const [clsHp1, clsHp2] = compareNum(s1.hp, s2.hp);
+    const [clsAtk1, clsAtk2] = compareNum(s1.atk, s2.atk);
+    const [clsDef1, clsDef2] = compareNum(s1.def, s2.def);
+    const [clsRange1, clsRange2] = compareNum(s1.range, s2.range);
+    const [clsRec1, clsRec2] = compareNum(s1.recovery, s2.recovery);
+    const [clsScore1, clsScore2] = compareNum(score1, score2);
+
+    const sk1 = c1.allSkills ? c1.allSkills[c1.allSkills.length - 1] : c1.skill;
+    const sk2 = c2.allSkills ? c2.allSkills[c2.allSkills.length - 1] : c2.skill;
+    const st1 = c1.allStrategies ? c1.allStrategies[c1.allStrategies.length - 1] : c1.strategy;
+    const st2 = c2.allStrategies ? c2.allStrategies[c2.allStrategies.length - 1] : c2.strategy;
+
+    body.innerHTML = `
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>比較項目</th>
+            <th class="compare-castle-col">
+              <div style="display:flex; align-items:center; gap:8px;">
+                ${getIconHtml(c1, 40)}
+                <div>
+                  <div style="font-weight:bold; font-size:14px;">${escapeHtml(c1.name)}</div>
+                  <div style="font-size:11px; color:var(--text-sub);">★${c1.rarity} [${c1.castleType}] ${c1.weapon} (${c1.rangeKind || '近'})</div>
+                </div>
+                <button class="btn btn-sm" data-open-detail="${escapeHtml(c1.id)}" style="margin-left:auto; font-size:11px; padding:2px 7px;">詳細 ↗</button>
+              </div>
+            </th>
+            <th class="compare-castle-col">
+              <div style="display:flex; align-items:center; gap:8px;">
+                ${getIconHtml(c2, 40)}
+                <div>
+                  <div style="font-weight:bold; font-size:14px;">${escapeHtml(c2.name)}</div>
+                  <div style="font-size:11px; color:var(--text-sub);">★${c2.rarity} [${c2.castleType}] ${c2.weapon} (${c2.rangeKind || '近'})</div>
+                </div>
+                <button class="btn btn-sm" data-open-detail="${escapeHtml(c2.id)}" style="margin-left:auto; font-size:11px; padding:2px 7px;">詳細 ↗</button>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>配置気コスト</th>
+            <td class="${clsCost1}">${cost1}気 ${clsCost1 ? '★低コスト優位' : ''}</td>
+            <td class="${clsCost2}">${cost2}気 ${clsCost2 ? '★低コスト優位' : ''}</td>
+          </tr>
+          <tr>
+            <th>巨大化5回 攻撃</th>
+            <td class="${clsAtk1}">${s1.atk || '-'} ${clsAtk1 ? '▲優位' : ''}</td>
+            <td class="${clsAtk2}">${s2.atk || '-'} ${clsAtk2 ? '▲優位' : ''}</td>
+          </tr>
+          <tr>
+            <th>巨大化5回 防御</th>
+            <td class="${clsDef1}">${s1.def || '-'} ${clsDef1 ? '▲優位' : ''}</td>
+            <td class="${clsDef2}">${s2.def || '-'} ${clsDef2 ? '▲優位' : ''}</td>
+          </tr>
+          <tr>
+            <th>巨大化5回 耐久</th>
+            <td class="${clsHp1}">${s1.hp || '-'} ${clsHp1 ? '▲優位' : ''}</td>
+            <td class="${clsHp2}">${s2.hp || '-'} ${clsHp2 ? '▲優位' : ''}</td>
+          </tr>
+          <tr>
+            <th>巨大化5回 射程</th>
+            <td class="${clsRange1}">${s1.range || '-'} ${clsRange1 ? '▲優位' : ''}</td>
+            <td class="${clsRange2}">${s2.range || '-'} ${clsRange2 ? '▲優位' : ''}</td>
+          </tr>
+          <tr>
+            <th>巨大化5回 回復</th>
+            <td class="${clsRec1}">${s1.recovery || '-'} ${clsRec1 ? '▲優位' : ''}</td>
+            <td class="${clsRec2}">${s2.recovery || '-'} ${clsRec2 ? '▲優位' : ''}</td>
+          </tr>
+          <tr>
+            <th>自動スコア (100pt)</th>
+            <td class="${clsScore1}"><strong>${score1} pt</strong></td>
+            <td class="${clsScore2}"><strong>${score2} pt</strong></td>
+          </tr>
+          <tr>
+            <th>特技 (改築最新)</th>
+            <td style="font-size:11.5px; line-height:1.4;">
+              ${sk1 ? `<strong style="color:var(--primary-color);">${escapeHtml(sk1.name)}:</strong><br>${escapeHtml(sk1.text)}` : '特技なし'}
+            </td>
+            <td style="font-size:11.5px; line-height:1.4;">
+              ${sk2 ? `<strong style="color:var(--primary-color);">${escapeHtml(sk2.name)}:</strong><br>${escapeHtml(sk2.text)}` : '特技なし'}
+            </td>
+          </tr>
+          <tr>
+            <th>計略 (改築最新)</th>
+            <td style="font-size:11.5px; line-height:1.4;">
+              ${st1 ? `<strong style="color:#2980b9;">${escapeHtml(st1.name)}:</strong><br>${escapeHtml(st1.text)}` : '計略なし'}
+            </td>
+            <td style="font-size:11.5px; line-height:1.4;">
+              ${st2 ? `<strong style="color:#2980b9;">${escapeHtml(st2.name)}:</strong><br>${escapeHtml(st2.text)}` : '計略なし'}
+            </td>
+          </tr>
+          <tr>
+            <th>特殊能力</th>
+            <td style="font-size:11.5px; line-height:1.4;">
+              ${c1.special ? `<strong style="color:#8e44ad;">${escapeHtml(c1.special.name)}:</strong><br>${escapeHtml(c1.special.text)}` : '特殊能力なし'}
+            </td>
+            <td style="font-size:11.5px; line-height:1.4;">
+              ${c2.special ? `<strong style="color:#8e44ad;">${escapeHtml(c2.special.name)}:</strong><br>${escapeHtml(c2.special.text)}` : '特殊能力なし'}
+            </td>
+          </tr>
+          <tr>
+            <th>絵師 / 声優</th>
+            <td style="font-size:11px;">
+              <div>絵師: ${escapeHtml(c1.illustrator || '未登録')}</div>
+              <div>CV: ${escapeHtml(c1.voiceActor || '未登録')}</div>
+            </td>
+            <td style="font-size:11px;">
+              <div>絵師: ${escapeHtml(c2.illustrator || '未登録')}</div>
+              <div>CV: ${escapeHtml(c2.voiceActor || '未登録')}</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+
+    modal.classList.add("open");
+  }
+
+  // Wire Compare tray and modal events
+  document.getElementById("btnOpenCompareModal")?.addEventListener("click", openCompareModal);
+  document.getElementById("btnClearCompareTray")?.addEventListener("click", () => {
+    compareCastles = [];
+    updateCompareTrayUI();
+    updateDetailCompareButton();
+    renderAllCastles();
+    showNotification("比較リストをクリアしました");
+  });
+  document.getElementById("modalCompareCloseBtn")?.addEventListener("click", () => {
+    document.getElementById("modalCompareCastles")?.classList.remove("open");
+  });
+  document.getElementById("compareTraySlots")?.addEventListener("click", (e) => {
+    const removeId = e.target.getAttribute("data-remove-compare");
+    if (removeId) {
+      toggleCompareCastle(removeId);
+      renderAllCastles();
+    }
+  });
+  document.getElementById("modalCompareBody")?.addEventListener("click", (e) => {
+    const detailId = e.target.getAttribute("data-open-detail");
+    if (detailId) {
+      document.getElementById("modalCompareCastles")?.classList.remove("open");
+      openCastleDetail(detailId);
+    }
+  });
+  document.getElementById("btnDetailToggleCompare")?.addEventListener("click", () => {
+    if (activeDetailCastleId) {
+      toggleCompareCastle(activeDetailCastleId);
+      renderAllCastles();
+    }
+  });
+
+  // ==========================================
+  // B5: 並び替え拡張とフィルタ保存
+  // ==========================================
+  const FILTER_PRESETS_STORAGE_KEY = "scre-helper:filter-presets:v1";
+
+  function loadFilterPresets() {
+    try {
+      const saved = localStorage.getItem(FILTER_PRESETS_STORAGE_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveFilterPresets(presets) {
+    try {
+      localStorage.setItem(FILTER_PRESETS_STORAGE_KEY, JSON.stringify(presets.slice(0, 10)));
+    } catch (e) {
+      console.warn("saveFilterPresets error:", e);
+    }
+  }
+
+  function renderFilterPresetsUI() {
+    const container = document.getElementById("filterPresetPills");
+    if (!container) return;
+    const presets = loadFilterPresets();
+    container.innerHTML = presets.map((p, idx) => `
+      <span class="filter-preset-chip" data-idx="${idx}" title="クリックしてこの条件を適用">
+        <span class="filter-preset-name">${escapeHtml(p.name)}</span>
+        <span class="filter-preset-del" data-del-idx="${idx}" title="削除">&times;</span>
+      </span>
+    `).join("");
+  }
+  window.renderFilterPresetsUI = renderFilterPresetsUI;
+
+  document.getElementById("listSortKey")?.addEventListener("change", () => {
+    listCurrentPage = 1;
+    renderAllCastles();
+  });
+
+  document.getElementById("btnListSortOrder")?.addEventListener("click", (e) => {
+    const btn = e.currentTarget;
+    const cur = btn.getAttribute("data-order") || "desc";
+    const next = cur === "desc" ? "asc" : "desc";
+    btn.setAttribute("data-order", next);
+    btn.textContent = next === "asc" ? "▲ 昇順" : "▼ 降順";
+    listCurrentPage = 1;
+    renderAllCastles();
+  });
+
+  document.getElementById("btnSaveFilterPreset")?.addEventListener("click", () => {
+    const name = prompt("保存する絞り込み条件の名前を入力してください (例: ★7平近接):");
+    if (!name || !name.trim()) return;
+
+    const preset = {
+      name: name.trim(),
+      search: document.getElementById("searchCastleInput")?.value || "",
+      rarity: document.getElementById("filterRarity")?.value || "",
+      type: document.getElementById("filterType")?.value || "",
+      weapon: document.getElementById("filterWeapon")?.value || "",
+      buff: document.getElementById("filterBuffCategory")?.value || "",
+      ownership: document.getElementById("filterOwnership")?.value || "",
+      sortKey: document.getElementById("listSortKey")?.value || "id",
+      sortOrder: document.getElementById("btnListSortOrder")?.getAttribute("data-order") || "desc"
+    };
+
+    const presets = loadFilterPresets();
+    presets.push(preset);
+    saveFilterPresets(presets);
+    renderFilterPresetsUI();
+    showNotification(`絞り込み条件「${preset.name}」を保存しました！💾`);
+  });
+
+  document.getElementById("filterPresetPills")?.addEventListener("click", (e) => {
+    const delIdx = e.target.getAttribute("data-del-idx");
+    if (delIdx !== null) {
+      e.stopPropagation();
+      const presets = loadFilterPresets();
+      const removed = presets.splice(parseInt(delIdx, 10), 1);
+      saveFilterPresets(presets);
+      renderFilterPresetsUI();
+      if (removed.length > 0) showNotification(`条件「${removed[0].name}」を削除しました`);
+      return;
+    }
+    const chip = e.target.closest(".filter-preset-chip");
+    if (chip) {
+      const idx = parseInt(chip.getAttribute("data-idx"), 10);
+      const presets = loadFilterPresets();
+      const p = presets[idx];
+      if (p) {
+        if (document.getElementById("searchCastleInput")) document.getElementById("searchCastleInput").value = p.search || "";
+        if (document.getElementById("filterRarity")) document.getElementById("filterRarity").value = p.rarity || "";
+        if (document.getElementById("filterType")) document.getElementById("filterType").value = p.type || "";
+        if (document.getElementById("filterWeapon")) document.getElementById("filterWeapon").value = p.weapon || "";
+        if (document.getElementById("filterBuffCategory")) document.getElementById("filterBuffCategory").value = p.buff || "";
+        if (document.getElementById("filterOwnership")) document.getElementById("filterOwnership").value = p.ownership || "";
+        if (document.getElementById("listSortKey")) document.getElementById("listSortKey").value = p.sortKey || "id";
+        if (document.getElementById("btnListSortOrder")) {
+          const ord = p.sortOrder || "desc";
+          document.getElementById("btnListSortOrder").setAttribute("data-order", ord);
+          document.getElementById("btnListSortOrder").textContent = ord === "asc" ? "▲ 昇順" : "▼ 降順";
+        }
+        listCurrentPage = 1;
+        renderAllCastles();
+        showNotification(`保存条件「${p.name}」を適用しました 🎯`);
+      }
+    }
+  });
+
+  // Undo button click
+  document.getElementById("btnUndoParty")?.addEventListener("click", performUndo);
 
   // Bulk Ownership Buttons
   const btnBulkOwnR7 = document.getElementById("btnBulkOwnR7");
@@ -2931,6 +3482,7 @@
 
   document.getElementById("btnDetailToggleParty").addEventListener("click", () => {
     if (!activeDetailCastleId) return;
+    pushUndoSnapshot();
     const idx = party.findIndex(p => p.id === activeDetailCastleId);
     if (idx !== -1) {
       party.splice(idx, 1);
@@ -3190,8 +3742,19 @@
     });
   }
 
-  // Keyboard navigation (Esc to close, ArrowLeft / ArrowRight to navigate)
+  // Keyboard navigation (Esc to close, ArrowLeft / ArrowRight to navigate, Ctrl+Z to Undo)
   window.addEventListener("keydown", e => {
+    // Ctrl+Z / Cmd+Z for Party Undo
+    if ((e.ctrlKey || e.metaKey) && (e.key === "z" || e.key === "Z") && !e.shiftKey) {
+      const activeEl = document.activeElement;
+      if (activeEl && (activeEl.tagName === "INPUT" || activeEl.tagName === "TEXTAREA" || activeEl.isContentEditable)) {
+        return;
+      }
+      e.preventDefault();
+      performUndo();
+      return;
+    }
+
     if (e.key === "Escape") {
       const zoomModal = document.getElementById("modalImageZoom");
       if (zoomModal && zoomModal.style.display !== "none") {
@@ -3204,6 +3767,8 @@
       if (diagModal) diagModal.classList.remove("open");
       const compModal = document.getElementById("modalPresetCompare");
       if (compModal) compModal.classList.remove("open");
+      const compareCastlesModal = document.getElementById("modalCompareCastles");
+      if (compareCastlesModal) compareCastlesModal.classList.remove("open");
       return;
     }
 
@@ -3833,6 +4398,7 @@
       return;
     }
 
+    pushUndoSnapshot();
     party = validMembers;
     partyPresets[currentPresetIdx].party = party;
     if (st.terrain && st.terrain !== "無") {
@@ -4014,6 +4580,7 @@
           return;
         }
 
+        pushUndoSnapshot();
         party = validParty;
         partyPresets[currentPresetIdx].party = party;
         if (data.t !== undefined) {
@@ -6093,6 +6660,9 @@
   loadOwnership();
   populateDashboardStageSelect();
   checkShareUrlOnLoad();
+  renderFilterPresetsUI();
+  updateUndoButtonUI();
+  updateCompareTrayUI();
   const appInfoCountEl = document.getElementById("appInfoCastleCount");
   if (appInfoCountEl && window.SCRE_DATA) {
     appInfoCountEl.textContent = window.SCRE_DATA.length.toLocaleString();

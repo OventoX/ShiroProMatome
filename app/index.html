@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>城プロRE 編成・バフデバフ統合計算機</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/pwa-192.png">
+  <meta name="theme-color" content="#7a1a1a">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -63,6 +66,7 @@
           <button class="btn btn-primary btn-sm" id="btnExportImage" style="font-size: 11.5px; font-weight: bold; background: #2c6f4f; border-color: #24583e;" title="Twitter/X共有用の高画質編成サマリー画像を保存">📸 画像書き出し</button>
           <button class="btn btn-sm" id="btnShareLink" style="font-size: 11px; padding: 3px 8px;" title="現在の編成・地形・計略状態をURLハッシュで共有">🔗 共有リンク</button>
           <button class="btn btn-sm" id="btnEmptyParty" style="font-size: 11px; padding: 3px 8px;">空にする</button>
+          <button class="btn btn-sm btn-undo" id="btnUndoParty" disabled title="編成変更を取り消す (Ctrl+Z)" style="font-size: 11px; padding: 3px 8px;">↺ 元に戻す</button>
         </div>
       </div>
 
@@ -259,6 +263,28 @@
             <option value="not_owned">未所持のみ</option>
             <option value="fav">★お気に入りのみ</option>
           </select>
+        </div>
+
+        <!-- B5: ソート順と条件保存プリセット -->
+        <div class="list-sort-and-preset-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-top:8px; padding-top:8px; border-top:1px dashed #e2d7c7;">
+          <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+            <span style="font-size:11.5px; font-weight:bold; color:var(--text-sub);">並び替え:</span>
+            <select id="listSortKey" class="btn btn-sm" style="font-size:11.5px; font-weight:bold;">
+              <option value="id">登録順 (図鑑No)</option>
+              <option value="tierScore">自動ティアスコア</option>
+              <option value="cost">配置気コスト</option>
+              <option value="giantAtk">巨大化後 攻撃</option>
+              <option value="giantHp">巨大化後 耐久</option>
+              <option value="giantDef">巨大化後 防御</option>
+              <option value="nameRuby">五十音順 (ふりがな)</option>
+            </select>
+            <button id="btnListSortOrder" class="btn btn-sm" style="font-size:11px; padding:2px 7px;" data-order="desc" title="昇順/降順を切り替え">▼ 降順</button>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+            <span style="font-size:11.5px; font-weight:bold; color:var(--text-sub);">条件保存:</span>
+            <div id="filterPresetPills" style="display:inline-flex; gap:4px; flex-wrap:wrap;"></div>
+            <button id="btnSaveFilterPreset" class="btn btn-sm" style="font-size:11px; padding:2px 8px; background:#f4f0e6;" title="現在の検索条件とソート順をプリセットとして保存">💾 条件を保存</button>
+          </div>
         </div>
       </div>
 
@@ -618,7 +644,7 @@
         </section>
 
         <section class="section-box">
-          <div class="section-title">データ・バックアップ</div>
+          <div class="section-title">データ・バックアップ (個別)</div>
           <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 8px;">
             現在の編成や所持設定をJSONで保存・復元できます。
           </p>
@@ -627,6 +653,20 @@
             <button class="btn" id="btnImportData">設定を読み込み</button>
           </div>
           <textarea id="settingsJsonArea" class="input-text" rows="5" placeholder="JSONデータ"></textarea>
+        </section>
+
+        <!-- B2: 一括バックアップ（全データの書き出し/読み込み） -->
+        <section class="section-box">
+          <div class="section-title">📦 一括バックアップ（全データ）</div>
+          <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 8px;">
+            編成・プリセット・所持・クリア進捗・ティア設定など、localStorage内の全データを単一JSONファイルに書き出し・復元します。
+          </p>
+          <div class="btn-group" style="margin-bottom:8px;">
+            <button class="btn btn-primary" id="btnFullBackupExport">全データを一括書き出し 💾</button>
+            <button class="btn" id="btnFullBackupImportTrigger">一括バックアップから復元 📂</button>
+            <input type="file" id="fullBackupFileInput" accept=".json" style="display:none;" />
+          </div>
+          <div id="fullBackupStatus" style="font-size:11.5px; color:var(--text-sub);"></div>
         </section>
 
         <section class="section-box">
@@ -712,6 +752,7 @@
           </div>
           <button id="modalDetailFavBtn" class="btn btn-fav" style="font-size: 18px; padding: 3px 6px;" title="お気に入り切替">☆</button>
           <button id="modalDetailOwnedBtn" class="btn btn-owned" style="font-size: 11px; padding: 4px 8px;" title="所持切替">未所持</button>
+          <button id="btnDetailToggleCompare" class="btn btn-sm" style="font-size: 11px; padding: 4px 8px;" title="この城娘を比較リストに追加">⚖️ 比較</button>
           <button id="btnDetailToggleParty" class="btn btn-primary" style="font-size: 11.5px; font-weight: bold; padding: 5px 12px;">+ 編成に追加</button>
           <a id="btnDetailWikiLink" href="#" target="_blank" rel="noopener noreferrer" class="btn" style="text-decoration: none; font-size: 11.5px; background: #fff; border: 1px solid #ccc; color: #333; padding: 5px 10px;">Wikiで見る ↗</a>
           <button id="modalDetailCloseBtn" class="modal-close-x">&times;</button>
@@ -965,6 +1006,31 @@
     </div>
   </div>
 
+  <!-- B4: 城娘比較トレイ (画面下部フロートバー) -->
+  <div id="compareFloatingTray" class="compare-floating-tray" style="display:none;">
+    <div class="compare-tray-content">
+      <div class="compare-tray-label">⚖️ 城娘比較 (<span id="compareTrayCount">0</span>/2):</div>
+      <div id="compareTraySlots" class="compare-tray-slots"></div>
+      <div class="compare-tray-actions">
+        <button id="btnOpenCompareModal" class="btn btn-sm btn-primary" style="font-size:11.5px; font-weight:bold;">⚔️ 2体を比較する</button>
+        <button id="btnClearCompareTray" class="btn btn-sm" style="font-size:11px;">クリア</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- B4: 城娘2体比較モーダル -->
+  <div class="modal-overlay" id="modalCompareCastles">
+    <div class="modal-content modal-compare-content">
+      <div class="modal-header">
+        <h2 class="detail-title">⚖️ 城娘2体 性能・能力比較ビュー</h2>
+        <button id="modalCompareCloseBtn" class="modal-close-x">&times;</button>
+      </div>
+      <div class="modal-body modal-compare-body" id="modalCompareBody">
+        <!-- Dynamically rendered comparison table -->
+      </div>
+    </div>
+  </div>
+
   <!-- Hidden Canvas for Party Summary Image Generation -->
   <canvas id="partyCanvas" width="1200" height="675" style="display: none;"></canvas>
 
@@ -978,5 +1044,14 @@
   <script src="guides.js"></script>
   <script src="tier_data.js"></script>
   <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator && (window.location.protocol === "https:" || window.location.hostname === "localhost")) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch(err => {
+          console.warn("[SW] Registration skipped or failed:", err);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
