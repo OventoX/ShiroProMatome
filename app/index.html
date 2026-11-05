@@ -377,6 +377,7 @@
 
   <!-- Modal for Castle Detail (城娘詳細モーダル) -->
   <div class="modal-overlay" id="modalCastleDetail">
+    <button id="btnSideDetailPrev" class="modal-side-nav-btn prev" title="前の城娘へ (←キー)">‹</button>
     <div class="modal-content modal-detail-content">
       <div class="modal-header modal-detail-header">
         <div class="detail-header-left">
@@ -388,6 +389,11 @@
           <div class="detail-badges" id="detailBadges"></div>
         </div>
         <div class="detail-header-actions">
+          <div class="detail-nav-group">
+            <button id="btnDetailPrevCastle" class="btn btn-nav-castle" title="前の城娘へ (←キー)">◀ 前へ</button>
+            <span id="detailNavCounter" class="detail-nav-counter">---</span>
+            <button id="btnDetailNextCastle" class="btn btn-nav-castle" title="次の城娘へ (→キー)">次へ ▶</button>
+          </div>
           <button id="modalDetailFavBtn" class="btn btn-fav" style="font-size: 18px; padding: 3px 6px;" title="お気に入り切替">☆</button>
           <button id="modalDetailOwnedBtn" class="btn btn-owned" style="font-size: 11px; padding: 4px 8px;" title="所持切替">未所持</button>
           <button id="btnDetailToggleParty" class="btn btn-primary" style="font-size: 11.5px; font-weight: bold; padding: 5px 12px;">+ 編成に追加</button>
@@ -459,6 +465,7 @@
         </div>
       </div>
     </div>
+    <button id="btnSideDetailNext" class="modal-side-nav-btn next" title="次の城娘へ (→キー)">›</button>
   </div>
 
   <!-- Modal for Stage Diagnostic (高難易度マップ適合判定モーダル) -->

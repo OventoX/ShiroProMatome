@@ -924,6 +924,113 @@ body {
   gap: 8px;
 }
 
+/* Detail Modal Navigation (Prev / Next) */
+.detail-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 2px 4px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-right: 4px;
+}
+
+.btn-nav-castle {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 11px;
+  padding: 3px 8px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-nav-castle:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.35);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-nav-castle:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.detail-nav-counter {
+  font-size: 11px;
+  color: #ffdede;
+  font-weight: bold;
+  padding: 0 6px;
+  min-width: 48px;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.modal-side-nav-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 64px;
+  background: rgba(30, 39, 46, 0.75);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  font-size: 34px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10000;
+  transition: all 0.2s ease;
+  user-select: none;
+  backdrop-filter: blur(4px);
+}
+
+.modal-side-nav-btn:hover:not(:disabled) {
+  background: rgba(184, 93, 25, 0.95);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.modal-side-nav-btn:disabled {
+  opacity: 0.18;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.modal-side-nav-btn.prev {
+  left: calc(50% - 480px - 58px);
+}
+
+.modal-side-nav-btn.next {
+  right: calc(50% - 480px - 58px);
+}
+
+@media (max-width: 1120px) {
+  .modal-side-nav-btn.prev {
+    left: 8px;
+  }
+  .modal-side-nav-btn.next {
+    right: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-side-nav-btn {
+    display: none;
+  }
+  .detail-header-actions {
+    flex-wrap: wrap;
+  }
+}
+
 .modal-close-x {
   background: none;
   border: none;

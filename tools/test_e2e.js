@@ -903,6 +903,52 @@ async function runTests() {
   console.log('Giantize approximation note confirmed: true');
   console.log('=> TEST 23 PASSED');
 
+  // Test 24: Castle Detail Modal Prev / Next Navigation & Keyboard Shortcuts
+  console.log('\n[TEST 24] Testing Castle Detail Modal Prev / Next Navigation...');
+  // Switch to list tab
+  await page.click('[data-tab="tab-list"]');
+  await new Promise(r => setTimeout(r, 300));
+
+  // Open first castle card (名古屋城)
+  await page.click('.castle-list-item');
+  await new Promise(r => setTimeout(r, 400));
+
+  const initialName = await page.$eval('#detailCastleName', el => el.textContent);
+  const initialCounter = await page.$eval('#detailNavCounter', el => el.textContent);
+  const prevDisabled = await page.$eval('#btnDetailPrevCastle', el => el.disabled);
+  const nextDisabled = await page.$eval('#btnDetailNextCastle', el => el.disabled);
+  console.log('Castle 1:', initialName, initialCounter, 'Prev disabled:', prevDisabled, 'Next disabled:', nextDisabled);
+  if (!prevDisabled) throw new Error('TEST 24 FAILED: Prev button should be disabled for 1st castle');
+
+  // Click Next button in header
+  await page.click('#btnDetailNextCastle');
+  await new Promise(r => setTimeout(r, 300));
+  const c2Name = await page.$eval('#detailCastleName', el => el.textContent);
+  const c2Counter = await page.$eval('#detailNavCounter', el => el.textContent);
+  console.log('Castle 2 (after header next click):', c2Name, c2Counter);
+  if (c2Name === initialName) throw new Error('TEST 24 FAILED: Castle name did not change after clicking Next');
+
+  // Click Side Next button
+  await page.click('#btnSideDetailNext');
+  await new Promise(r => setTimeout(r, 300));
+  const c3Name = await page.$eval('#detailCastleName', el => el.textContent);
+  console.log('Castle 3 (after side next click):', c3Name);
+
+  // Keyboard navigation Left arrow
+  await page.keyboard.press('ArrowLeft');
+  await new Promise(r => setTimeout(r, 300));
+  const cBack = await page.$eval('#detailCastleName', el => el.textContent);
+  console.log('Castle after ArrowLeft keyboard navigation:', cBack);
+  if (cBack !== c2Name) throw new Error('TEST 24 FAILED: Keyboard ArrowLeft did not return to castle 2');
+
+  // Close modal with Esc key
+  await page.keyboard.press('Escape');
+  await new Promise(r => setTimeout(r, 300));
+  const isModalOpenAfterEsc = await page.evaluate(() => document.getElementById('modalCastleDetail').classList.contains('open'));
+  console.log('Modal open after Esc key:', isModalOpenAfterEsc);
+  if (isModalOpenAfterEsc) throw new Error('TEST 24 FAILED: Detail modal did not close on Escape key');
+  console.log('=> TEST 24 PASSED');
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));

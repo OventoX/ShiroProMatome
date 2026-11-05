@@ -864,7 +864,7 @@
       renderDashboard();
     } else if (e.target.classList.contains("castle-name")) {
       const id = e.target.getAttribute("data-id");
-      openCastleDetail(id);
+      openCastleDetail(id, party.map(s => getCastleById(s.id)).filter(Boolean));
     }
   });
 
@@ -1023,6 +1023,7 @@
   // State for Castle List Pagination
   let listCurrentPage = 1;
   let listPageSize = 36;
+  let currentFilteredCastles = [];
 
   // Render All Castles (Large Card View with Full Pagination & Reverse Filter)
   function renderAllCastles() {
@@ -1089,6 +1090,7 @@
       return true;
     });
 
+    currentFilteredCastles = filtered;
     const totalCount = filtered.length;
     const totalPages = Math.max(1, Math.ceil(totalCount / listPageSize));
     if (listCurrentPage > totalPages) listCurrentPage = totalPages;
@@ -1288,7 +1290,7 @@
     // 2. Detail button
     const detailId = e.target.getAttribute("data-detail");
     if (detailId) {
-      openCastleDetail(detailId);
+      openCastleDetail(detailId, currentFilteredCastles);
       return;
     }
 
@@ -1297,7 +1299,7 @@
     if (item) {
       const id = item.getAttribute("data-id");
       if (id) {
-        openCastleDetail(id);
+        openCastleDetail(id, currentFilteredCastles);
       }
     }
   });
@@ -1684,11 +1686,64 @@
 
   // Castle Detail Modal (詳細説明・全身画像ポップアップ)
   let activeDetailCastleId = null;
+  let activeDetailList = [];
+  let activeDetailIndex = -1;
 
-  function openCastleDetail(castleId) {
+  function updateDetailNavUI() {
+    const prevBtn = document.getElementById("btnDetailPrevCastle");
+    const nextBtn = document.getElementById("btnDetailNextCastle");
+    const sidePrevBtn = document.getElementById("btnSideDetailPrev");
+    const sideNextBtn = document.getElementById("btnSideDetailNext");
+    const counterEl = document.getElementById("detailNavCounter");
+
+    const total = activeDetailList ? activeDetailList.length : 0;
+    const current = activeDetailIndex >= 0 ? activeDetailIndex + 1 : 1;
+
+    if (counterEl) {
+      counterEl.textContent = total > 0 ? `${current} / ${total}` : "---";
+    }
+
+    const hasPrev = activeDetailIndex > 0;
+    const hasNext = activeDetailIndex >= 0 && activeDetailIndex < total - 1;
+
+    if (prevBtn) prevBtn.disabled = !hasPrev;
+    if (sidePrevBtn) sidePrevBtn.disabled = !hasPrev;
+    if (nextBtn) nextBtn.disabled = !hasNext;
+    if (sideNextBtn) sideNextBtn.disabled = !hasNext;
+  }
+
+  function navigateDetailCastle(direction) {
+    if (!activeDetailList || activeDetailList.length === 0) return;
+    const nextIdx = activeDetailIndex + direction;
+    if (nextIdx >= 0 && nextIdx < activeDetailList.length) {
+      const nextCastle = activeDetailList[nextIdx];
+      if (nextCastle) {
+        openCastleDetail(nextCastle.id || nextCastle.name, activeDetailList);
+        const modalBody = document.querySelector(".modal-detail-body");
+        if (modalBody) modalBody.scrollTop = 0;
+      }
+    }
+  }
+
+  function openCastleDetail(castleId, customList) {
     const c = getCastleById(castleId);
     if (!c) return;
-    activeDetailCastleId = castleId;
+    activeDetailCastleId = c.id;
+
+    if (customList && Array.isArray(customList) && customList.length > 0) {
+      activeDetailList = customList;
+    } else {
+      if (currentFilteredCastles && currentFilteredCastles.some(item => item && (item.id === c.id || item.name === c.name))) {
+        activeDetailList = currentFilteredCastles;
+      } else if (party && party.some(p => p.id === c.id)) {
+        activeDetailList = party.map(p => getCastleById(p.id)).filter(Boolean);
+      } else {
+        activeDetailList = window.SCRE_DATA || [];
+      }
+    }
+
+    activeDetailIndex = activeDetailList.findIndex(item => item && (item.id === c.id || item.name === c.name));
+    updateDetailNavUI();
 
     const modal = document.getElementById("modalCastleDetail");
 
@@ -1947,6 +2002,24 @@
     });
   }
 
+  // Castle Detail Prev / Next Navigation buttons
+  const btnDetailPrevCastle = document.getElementById("btnDetailPrevCastle");
+  if (btnDetailPrevCastle) {
+    btnDetailPrevCastle.addEventListener("click", () => navigateDetailCastle(-1));
+  }
+  const btnDetailNextCastle = document.getElementById("btnDetailNextCastle");
+  if (btnDetailNextCastle) {
+    btnDetailNextCastle.addEventListener("click", () => navigateDetailCastle(1));
+  }
+  const btnSideDetailPrev = document.getElementById("btnSideDetailPrev");
+  if (btnSideDetailPrev) {
+    btnSideDetailPrev.addEventListener("click", () => navigateDetailCastle(-1));
+  }
+  const btnSideDetailNext = document.getElementById("btnSideDetailNext");
+  if (btnSideDetailNext) {
+    btnSideDetailNext.addEventListener("click", () => navigateDetailCastle(1));
+  }
+
   document.getElementById("modalDetailCloseBtn").addEventListener("click", () => {
     document.getElementById("modalCastleDetail").classList.remove("open");
   });
@@ -1957,13 +2030,28 @@
     }
   });
 
-  // Esc key closes modals
+  // Keyboard navigation (Esc to close, ArrowLeft / ArrowRight to navigate)
   window.addEventListener("keydown", e => {
     if (e.key === "Escape") {
       document.getElementById("modalCastleDetail").classList.remove("open");
       document.getElementById("modalSelector").classList.remove("open");
       const diagModal = document.getElementById("modalStageDiagnostic");
       if (diagModal) diagModal.classList.remove("open");
+      const compModal = document.getElementById("modalPresetCompare");
+      if (compModal) compModal.classList.remove("open");
+      return;
+    }
+
+    const detailModal = document.getElementById("modalCastleDetail");
+    if (detailModal && detailModal.classList.contains("open")) {
+      if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        navigateDetailCastle(-1);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        navigateDetailCastle(1);
+      }
     }
   });
 
