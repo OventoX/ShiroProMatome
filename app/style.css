@@ -33,15 +33,15 @@ body {
   font-size: 13px;
 }
 
-/* PC Wide Container: 1440px maximum with padding */
+/* PC Wide Container: 1800px maximum for 1920x1080 full HD optimization */
 .app-container {
-  max-width: 1440px;
+  max-width: 1800px;
   min-height: 100vh;
   margin: 0 auto;
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.45);
 }
 
 /* Header */
@@ -880,9 +880,10 @@ body {
 
 /* Detail Modal Custom Styles */
 .modal-detail-content {
-  max-width: 960px;
-  max-height: 90vh;
+  max-width: 1120px;
+  max-height: 92vh;
   border-radius: 10px;
+  transition: max-width 0.25s ease;
 }
 
 .modal-detail-header {
@@ -1006,14 +1007,14 @@ body {
 }
 
 .modal-side-nav-btn.prev {
-  left: calc(50% - 480px - 58px);
+  left: 20px;
 }
 
 .modal-side-nav-btn.next {
-  right: calc(50% - 480px - 58px);
+  right: 20px;
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1200px) {
   .modal-side-nav-btn.prev {
     left: 8px;
   }
@@ -1062,7 +1063,7 @@ body {
 
 /* Left Column */
 .detail-col-left {
-  width: 290px;
+  width: 360px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -1173,23 +1174,28 @@ body {
   pointer-events: none;
 }
 
-/* Side-by-side mode expansion */
+/* Side-by-side mode expansion (Optimized for 1920x1080) */
 .modal-detail-content.side-by-side-mode {
-  max-width: 1180px;
+  max-width: 1400px;
 }
 .modal-detail-content.side-by-side-mode .detail-col-left {
-  width: 520px;
+  width: 660px;
 }
 
 /* Triple panorama mode (Ojou + Battle + Taiha) */
 .modal-detail-content.side-by-side-mode.triple-mode {
-  max-width: 1280px;
+  max-width: 1720px;
 }
 .modal-detail-content.side-by-side-mode.triple-mode .detail-col-left {
-  width: 690px;
+  width: 960px;
 }
 
-@media (max-width: 960px) {
+.modal-detail-content.side-by-side-mode .detail-side-columns-wrapper img {
+  max-height: 500px !important;
+  cursor: zoom-in;
+}
+
+@media (max-width: 1100px) {
   .modal-detail-content.side-by-side-mode .detail-col-left,
   .modal-detail-content.side-by-side-mode.triple-mode .detail-col-left {
     width: 100%;
@@ -1209,8 +1215,8 @@ body {
 
 .detail-portrait-frame {
   width: 100%;
-  min-height: 280px;
-  max-height: 420px;
+  min-height: 380px;
+  max-height: 550px;
   background: radial-gradient(circle at center, #f5f0ea 0%, #ebe2d5 100%);
   border-radius: 6px;
   display: flex;
@@ -1223,13 +1229,259 @@ body {
 
 .detail-portrait-img {
   max-width: 100%;
-  max-height: 400px;
+  max-height: 530px;
   object-fit: contain;
   filter: drop-shadow(0 6px 12px rgba(0,0,0,0.18));
   transition: transform 0.25s ease;
+  cursor: zoom-in;
 }
 .detail-portrait-img:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
+}
+
+/* Portrait Zoom trigger button on detail modal */
+.btn-portrait-zoom-trigger {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  transition: all 0.15s ease;
+  z-index: 5;
+}
+
+.btn-portrait-zoom-trigger:hover {
+  background: rgba(0, 0, 0, 0.88);
+  border-color: #fff;
+  transform: scale(1.05);
+}
+
+/* ========================================================
+   Fullscreen Image Zoom Lightbox (城娘・大破 特大拡大ビューア)
+   ======================================================== */
+.image-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 16, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  animation: fadeIn 0.15s ease;
+}
+
+.image-zoom-container {
+  width: 96vw;
+  height: 94vh;
+  max-width: 1760px;
+  max-height: 1020px;
+  background: radial-gradient(circle at center, #232731 0%, #13151a 100%);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-zoom-header {
+  height: 52px;
+  padding: 0 20px;
+  background: rgba(18, 20, 26, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.image-zoom-title-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zoom-title-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.zoom-form-badge {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.zoom-form-tabs {
+  display: flex;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.zoom-tab-btn {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.zoom-tab-btn:hover:not(:disabled) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.zoom-tab-btn.active {
+  background: #fff;
+  color: #111;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.zoom-tab-btn[data-form="taiha"].active {
+  background: #d63031;
+  color: #fff;
+}
+
+.zoom-tab-btn[data-form="ojou"].active {
+  background: #e84393;
+  color: #fff;
+}
+
+.zoom-tab-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-zoom-ctrl {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.btn-zoom-ctrl:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.btn-zoom-fit {
+  width: auto;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.zoom-level-text {
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 48px;
+  text-align: center;
+  font-family: monospace;
+}
+
+.btn-zoom-close {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+  margin-left: 8px;
+  transition: color 0.15s ease;
+}
+
+.btn-zoom-close:hover {
+  color: #fff;
+}
+
+.image-zoom-viewport {
+  flex: 1;
+  width: 100%;
+  height: calc(100% - 52px);
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-zoom-viewport:active {
+  cursor: grabbing;
+}
+
+.image-zoom-stage {
+  position: absolute;
+  transform-origin: center center;
+  will-change: transform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.05s ease-out;
+}
+
+.image-zoom-target {
+  max-width: 90vw;
+  max-height: 84vh;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 36px rgba(0,0,0,0.55));
+  pointer-events: none;
+}
+
+.zoom-drag-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  color: #eee;
+  font-size: 11px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  letter-spacing: 0.5px;
 }
 
 .detail-meta-info {

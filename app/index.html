@@ -414,6 +414,7 @@
             </div>
 
             <div class="detail-portrait-frame" id="detailPortraitFrame">
+              <button class="btn-portrait-zoom-trigger" id="btnPortraitZoom" title="クリックして大破・城娘絵を特大画面で拡大表示">🔍 拡大表示</button>
               <img id="detailPortraitImg" class="detail-portrait-img" src="" alt="城娘立ち絵" />
               <!-- Side-by-side container (supports Ojou x Battle, Battle x Taiha, Ojou x Taiha, and All Three) -->
               <div id="detailSideBySideContainer" style="display:none; width:100%; flex-direction:column; gap:6px;">
@@ -585,6 +586,38 @@
         </div>
 
         <div id="compareContentContainer" style="margin-top:12px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Fullscreen Character Art Zoom Viewer (城娘立ち絵・大破絵 特大拡大ライトボックス) -->
+  <div class="modal-overlay image-zoom-overlay" id="modalImageZoom" style="display:none; z-index: 10000;">
+    <div class="image-zoom-container" id="imageZoomContainer">
+      <div class="image-zoom-header">
+        <div class="image-zoom-title-box">
+          <span id="zoomCastleName" class="zoom-title-name">大坂城</span>
+          <span id="zoomFormBadge" class="zoom-form-badge">💥 大破姿</span>
+        </div>
+        <!-- Form Switcher inside Zoom Viewer -->
+        <div class="zoom-form-tabs" id="zoomFormTabs">
+          <button class="zoom-tab-btn" data-form="battle" id="btnZoomFormBattle">⚔️ 城娘</button>
+          <button class="zoom-tab-btn" data-form="ojou" id="btnZoomFormOjou">🌸 御嬢</button>
+          <button class="zoom-tab-btn" data-form="taiha" id="btnZoomFormTaiha">💥 大破</button>
+        </div>
+        <!-- Zoom Controls -->
+        <div class="zoom-controls">
+          <button class="btn-zoom-ctrl" id="btnZoomOut" title="縮小 (マウスホイール下)">−</button>
+          <span id="zoomLevelIndicator" class="zoom-level-text">100%</span>
+          <button class="btn-zoom-ctrl" id="btnZoomIn" title="拡大 (マウスホイール上)">＋</button>
+          <button class="btn-zoom-ctrl btn-zoom-fit" id="btnZoomReset" title="フィット / 原寸切替">全体表示</button>
+          <button class="btn-zoom-close" id="btnZoomClose" title="閉じる (Esc)">&times;</button>
+        </div>
+      </div>
+      <div class="image-zoom-viewport" id="imageZoomViewport">
+        <div class="image-zoom-stage" id="imageZoomStage">
+          <img id="imageZoomTarget" class="image-zoom-target" src="" alt="城娘拡大イラスト" draggable="false" />
+        </div>
+        <div class="zoom-drag-hint">💡 ドラッグで移動 ｜ ホイールで無段階ズーム ｜ ダブルクリックで原寸切替 ｜ Escで閉じる</div>
       </div>
     </div>
   </div>

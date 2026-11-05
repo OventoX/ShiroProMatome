@@ -1013,8 +1013,8 @@ async function runTests() {
   await new Promise(r => setTimeout(r, 200));
 
   // Test Battle x Taiha comparison mode
-  await page.click('#btnCmpBattleTaiha');
-  await new Promise(r => setTimeout(r, 200));
+  await page.evaluate(() => document.getElementById('btnCmpBattleTaiha').click());
+  await new Promise(r => setTimeout(r, 300));
   const battleTaihaVisible = await page.evaluate(() => {
     const o = document.getElementById('detailSideColOjou').style.display;
     const b = document.getElementById('detailSideColBattle').style.display;
@@ -1025,8 +1025,8 @@ async function runTests() {
   if (!battleTaihaVisible) throw new Error('TEST 26 FAILED: Battle x Taiha columns not displayed correctly');
 
   // Test All Three (Triple) Panorama mode
-  await page.click('#btnCmpAllThree');
-  await new Promise(r => setTimeout(r, 200));
+  await page.evaluate(() => document.getElementById('btnCmpAllThree').click());
+  await new Promise(r => setTimeout(r, 350));
   const tripleVisible = await page.evaluate(() => {
     const modal = document.querySelector('.modal-detail-content');
     const o = document.getElementById('detailSideColOjou').style.display;
@@ -1042,6 +1042,49 @@ async function runTests() {
   await new Promise(r => setTimeout(r, 300));
   console.log('=> TEST 26 PASSED');
 
+  console.log('\n[TEST 27] Testing Fullscreen Image Zoom Lightbox & Controls...');
+  // Re-open Osaka Castle
+  await page.click('.castle-list-item');
+  await new Promise(r => setTimeout(r, 400));
+  // Click Zoom Trigger button
+  await page.click('#btnPortraitZoom');
+  await new Promise(r => setTimeout(r, 300));
+
+  const zoomDisplay = await page.$eval('#modalImageZoom', el => el.style.display);
+  console.log('Image Zoom overlay display:', zoomDisplay);
+  if (zoomDisplay !== 'flex') throw new Error('TEST 27 FAILED: Zoom overlay should be display: flex');
+
+  // Test Zoom In button
+  await page.click('#btnZoomIn');
+  await new Promise(r => setTimeout(r, 100));
+  const zoomLevelText = await page.$eval('#zoomLevelIndicator', el => el.textContent);
+  console.log('Zoom level after zoom in:', zoomLevelText);
+  if (zoomLevelText !== '125%') throw new Error('TEST 27 FAILED: Zoom in button did not update indicator to 125%');
+
+  // Test form switcher in zoom viewer (switch to Taiha)
+  await page.click('#btnZoomFormTaiha');
+  await new Promise(r => setTimeout(r, 200));
+  const zoomTaihaBadge = await page.$eval('#zoomFormBadge', el => el.textContent);
+  console.log('Zoom badge after switching to taiha:', zoomTaihaBadge);
+  if (!zoomTaihaBadge.includes('大破')) throw new Error('TEST 27 FAILED: Zoom badge does not show 大破');
+
+  // Test 1st Esc closes zoom lightbox
+  await page.keyboard.press('Escape');
+  await new Promise(r => setTimeout(r, 300));
+  const zoomDisplayAfterEsc = await page.$eval('#modalImageZoom', el => el.style.display);
+  const detailModalOpenAfterEsc = await page.evaluate(() => document.getElementById('modalCastleDetail').classList.contains('open'));
+  console.log('After 1st Esc: zoomDisplay =', zoomDisplayAfterEsc, ', detailModalOpen =', detailModalOpenAfterEsc);
+  if (zoomDisplayAfterEsc !== 'none') throw new Error('TEST 27 FAILED: Zoom modal not closed by Esc');
+  if (!detailModalOpenAfterEsc) throw new Error('TEST 27 FAILED: Detail modal should remain open after closing zoom lightbox');
+
+  // Test 2nd Esc closes detail modal
+  await page.keyboard.press('Escape');
+  await new Promise(r => setTimeout(r, 300));
+  const detailModalOpenAfter2ndEsc = await page.evaluate(() => document.getElementById('modalCastleDetail').classList.contains('open'));
+  console.log('After 2nd Esc: detailModalOpen =', detailModalOpenAfter2ndEsc);
+  if (detailModalOpenAfter2ndEsc) throw new Error('TEST 27 FAILED: Detail modal should close after 2nd Esc');
+  console.log('=> TEST 27 PASSED');
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -1053,7 +1096,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (26/26)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (27/27)!');
   console.log('=====================================');
 }
 

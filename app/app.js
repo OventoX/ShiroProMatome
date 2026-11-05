@@ -1850,6 +1850,107 @@
     }
   }
 
+  // ==========================================
+  // Image Zoom Lightbox (城娘立ち絵・大破絵 特大拡大ビューア)
+  // ==========================================
+  let zoomCastle = null;
+  let zoomForm = "battle"; // 'battle' | 'ojou' | 'taiha'
+  let zoomScale = 1.0;
+  let zoomPanX = 0;
+  let zoomPanY = 0;
+  let isZoomDragging = false;
+  let zoomDragStartX = 0;
+  let zoomDragStartY = 0;
+  let zoomStartPanX = 0;
+  let zoomStartPanY = 0;
+
+  function updateZoomTransform() {
+    const stage = document.getElementById("imageZoomStage");
+    const indicator = document.getElementById("zoomLevelIndicator");
+    if (stage) {
+      stage.style.transform = `translate(${zoomPanX}px, ${zoomPanY}px) scale(${zoomScale})`;
+    }
+    if (indicator) {
+      indicator.textContent = `${Math.round(zoomScale * 100)}%`;
+    }
+  }
+
+  function resetZoomTransform(fitMode) {
+    zoomScale = fitMode ? 1.0 : 1.0;
+    zoomPanX = 0;
+    zoomPanY = 0;
+    updateZoomTransform();
+  }
+
+  function updateZoomImage() {
+    if (!zoomCastle) return;
+    const targetImg = document.getElementById("imageZoomTarget");
+    const badgeEl = document.getElementById("zoomFormBadge");
+    const nameEl = document.getElementById("zoomCastleName");
+    const typeEl = document.getElementById("zoomCastleType");
+    const fallbackSrc = `icons/${encodeURIComponent(zoomCastle.name)}.png`;
+
+    if (nameEl) nameEl.textContent = zoomCastle.name;
+    if (typeEl) {
+      typeEl.textContent = zoomCastle.castleType || "無";
+      typeEl.className = `type-tag ${zoomCastle.castleType || "無"}`;
+    }
+
+    let src = zoomCastle.illustUrl || fallbackSrc;
+    let badgeText = "⚔️ 城娘姿 (通常)";
+    let badgeColor = "var(--primary-color)";
+
+    if (zoomForm === "ojou") {
+      src = zoomCastle.ojouUrl || fallbackSrc;
+      badgeText = "🌸 御嬢姿 (私服)";
+      badgeColor = "#e84393";
+    } else if (zoomForm === "taiha") {
+      src = zoomCastle.taihaUrl || fallbackSrc;
+      badgeText = "💥 大破姿 (戦闘不能)";
+      badgeColor = "#d63031";
+    }
+
+    if (targetImg) {
+      targetImg.onerror = function() { this.src = fallbackSrc; };
+      targetImg.src = src;
+    }
+    if (badgeEl) {
+      badgeEl.textContent = badgeText;
+      badgeEl.style.color = badgeColor;
+    }
+
+    // Update form buttons disabled/active
+    document.querySelectorAll("#zoomFormTabs .zoom-tab-btn").forEach(btn => {
+      const f = btn.getAttribute("data-form");
+      btn.classList.toggle("active", f === zoomForm);
+      if (f === "ojou") btn.disabled = !zoomCastle.ojouUrl;
+      if (f === "taiha") btn.disabled = !zoomCastle.taihaUrl;
+    });
+  }
+
+  function openImageZoom(castle, form) {
+    const c = castle || getCastleById(activeDetailCastleId);
+    if (!c) return;
+    zoomCastle = c;
+    zoomForm = form || currentDetailForm || "battle";
+    if (zoomForm === "side_by_side") {
+      zoomForm = (currentSideCompareMode === "battle_taiha") ? "taiha" : "battle";
+    }
+    if (zoomForm === "ojou" && !c.ojouUrl) zoomForm = "battle";
+    if (zoomForm === "taiha" && !c.taihaUrl) zoomForm = "battle";
+
+    updateZoomImage();
+    resetZoomTransform(true);
+
+    const modal = document.getElementById("modalImageZoom");
+    if (modal) modal.style.display = "flex";
+  }
+
+  function closeImageZoom() {
+    const modal = document.getElementById("modalImageZoom");
+    if (modal) modal.style.display = "none";
+  }
+
   function openCastleDetail(castleId, customList) {
     const c = getCastleById(castleId);
     if (!c) return;
@@ -2183,9 +2284,130 @@
     }
   });
 
+  // Image Zoom Triggers from Detail Modal
+  const btnPortraitZoom = document.getElementById("btnPortraitZoom");
+  if (btnPortraitZoom) {
+    btnPortraitZoom.addEventListener("click", () => openImageZoom(null, currentDetailForm));
+  }
+  const detailPortraitImg = document.getElementById("detailPortraitImg");
+  if (detailPortraitImg) {
+    detailPortraitImg.addEventListener("click", () => openImageZoom(null, currentDetailForm));
+  }
+  const sideImgOjou = document.getElementById("detailSideImgOjou");
+  if (sideImgOjou) {
+    sideImgOjou.addEventListener("click", () => openImageZoom(null, "ojou"));
+  }
+  const sideImgBattle = document.getElementById("detailSideImgBattle");
+  if (sideImgBattle) {
+    sideImgBattle.addEventListener("click", () => openImageZoom(null, "battle"));
+  }
+  const sideImgTaiha = document.getElementById("detailSideImgTaiha");
+  if (sideImgTaiha) {
+    sideImgTaiha.addEventListener("click", () => openImageZoom(null, "taiha"));
+  }
+
+  // Image Zoom Controls & Interactions
+  const btnZoomClose = document.getElementById("btnZoomClose");
+  if (btnZoomClose) {
+    btnZoomClose.addEventListener("click", closeImageZoom);
+  }
+  const modalImageZoom = document.getElementById("modalImageZoom");
+  if (modalImageZoom) {
+    modalImageZoom.addEventListener("click", e => {
+      if (e.target.id === "modalImageZoom") closeImageZoom();
+    });
+  }
+  const zoomFormTabs = document.getElementById("zoomFormTabs");
+  if (zoomFormTabs) {
+    zoomFormTabs.addEventListener("click", e => {
+      const btn = e.target.closest(".zoom-tab-btn");
+      if (!btn || btn.disabled) return;
+      const f = btn.getAttribute("data-form");
+      if (f) {
+        zoomForm = f;
+        updateZoomImage();
+      }
+    });
+  }
+  const btnZoomIn = document.getElementById("btnZoomIn");
+  if (btnZoomIn) {
+    btnZoomIn.addEventListener("click", () => {
+      zoomScale = Math.min(4.0, zoomScale + 0.25);
+      updateZoomTransform();
+    });
+  }
+  const btnZoomOut = document.getElementById("btnZoomOut");
+  if (btnZoomOut) {
+    btnZoomOut.addEventListener("click", () => {
+      zoomScale = Math.max(0.5, zoomScale - 0.25);
+      updateZoomTransform();
+    });
+  }
+  const btnZoomReset = document.getElementById("btnZoomReset");
+  if (btnZoomReset) {
+    btnZoomReset.addEventListener("click", () => {
+      if (zoomScale > 1.2) {
+        resetZoomTransform(true);
+      } else {
+        zoomScale = 2.0;
+        zoomPanX = 0;
+        zoomPanY = 0;
+        updateZoomTransform();
+      }
+    });
+  }
+
+  // Wheel zoom on viewport
+  const zoomViewport = document.getElementById("imageZoomViewport");
+  if (zoomViewport) {
+    zoomViewport.addEventListener("wheel", e => {
+      e.preventDefault();
+      const delta = e.deltaY < 0 ? 0.15 : -0.15;
+      zoomScale = Math.min(Math.max(0.5, zoomScale + delta), 4.0);
+      updateZoomTransform();
+    }, { passive: false });
+
+    // Drag / Pan on viewport
+    zoomViewport.addEventListener("mousedown", e => {
+      if (e.target.closest(".zoom-controls") || e.target.closest(".zoom-form-tabs")) return;
+      isZoomDragging = true;
+      zoomDragStartX = e.clientX;
+      zoomDragStartY = e.clientY;
+      zoomStartPanX = zoomPanX;
+      zoomStartPanY = zoomPanY;
+    });
+
+    window.addEventListener("mousemove", e => {
+      if (!isZoomDragging) return;
+      zoomPanX = zoomStartPanX + (e.clientX - zoomDragStartX);
+      zoomPanY = zoomStartPanY + (e.clientY - zoomDragStartY);
+      updateZoomTransform();
+    });
+
+    window.addEventListener("mouseup", () => {
+      isZoomDragging = false;
+    });
+
+    zoomViewport.addEventListener("dblclick", () => {
+      if (zoomScale > 1.2) {
+        resetZoomTransform(true);
+      } else {
+        zoomScale = 2.0;
+        zoomPanX = 0;
+        zoomPanY = 0;
+        updateZoomTransform();
+      }
+    });
+  }
+
   // Keyboard navigation (Esc to close, ArrowLeft / ArrowRight to navigate)
   window.addEventListener("keydown", e => {
     if (e.key === "Escape") {
+      const zoomModal = document.getElementById("modalImageZoom");
+      if (zoomModal && zoomModal.style.display !== "none") {
+        closeImageZoom();
+        return;
+      }
       document.getElementById("modalCastleDetail").classList.remove("open");
       document.getElementById("modalSelector").classList.remove("open");
       const diagModal = document.getElementById("modalStageDiagnostic");
