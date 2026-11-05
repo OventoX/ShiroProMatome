@@ -117,6 +117,9 @@
     if (favEl) favEl.textContent = ownership.favorites.size.toLocaleString();
     const totalEl = document.getElementById("ownershipTotal");
     if (totalEl && window.SCRE_DATA) totalEl.textContent = window.SCRE_DATA.length.toLocaleString();
+    if (typeof clearStageSuggestedPartyCache === "function") {
+      clearStageSuggestedPartyCache();
+    }
   }
 
   function toggleOwned(castleId) {
@@ -1913,6 +1916,23 @@
         `;
       }
 
+      const isHellStage = (cat === "地獄" || st.category === "地獄" || st.subCategory === "ハデスの死闘場");
+      const safeStageId = (st.id || st.title).replace(/[^a-zA-Z0-9_　-鿿-]/g, "_");
+
+      let suggestSectionHtml = "";
+      if (isHellStage) {
+        suggestSectionHtml = `
+          <div class="stage-suggest-section" id="suggest-sec-${safeStageId}">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <button class="btn btn-sm btn-toggle-suggest" data-action="toggle-suggest" data-id="${st.id || st.title}" data-title="${st.title}" data-target="suggest-body-${safeStageId}">
+                📋 おすすめ編成 (8体) を見る <span class="suggest-toggle-arrow">▼</span>
+              </button>
+            </div>
+            <div class="suggest-card-body" id="suggest-body-${safeStageId}" style="display:none;"></div>
+          </div>
+        `;
+      }
+
       card.innerHTML = `
         <div class="buff-header" style="flex-wrap:wrap; gap:4px; align-items:flex-start;">
           <div style="flex:1; min-width:200px;">
@@ -1926,6 +1946,7 @@
           ${bossHtml}
           ${delibHtml}
         </div>
+        ${suggestSectionHtml}
         <div style="display:flex; gap:8px; margin-top:10px; padding-top:8px; border-top:1px dashed #d8cfc4; flex-wrap:wrap;">
           <button class="btn btn-sm btn-primary" data-action="diag-stage" data-title="${st.title}" data-id="${st.id}" style="font-size:11px; font-weight:bold; flex:2; min-width:110px;">部隊の適合判定 ⚔</button>
           <button class="btn btn-sm" data-action="filter-stage" data-title="${st.title}" data-terrain="${st.terrain}" style="font-size:11px; flex:2; min-width:110px; background:#f5f0e6; border-color:#d5cbbd;">対策城娘を探す 🔍</button>
@@ -1936,18 +1957,97 @@
     });
   }
 
+  function renderSuggestedPartyHtml(st, result, stageRecord) {
+    const matchCount = result.filter(r => r.isMatch).length;
+    const cardsHtml = result.map(({ castle: c, role, reason, isMatch, isOwned }) => `
+      <div class="suggest-castle-card">
+        <div class="castle-info-row">
+          ${getIconHtml(c, 32)}
+          <div style="overflow:hidden; flex:1;">
+            <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
+              <span style="font-size:11.5px; font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;" title="${c.name}">${c.name}</span>
+              ${!isOwned ? `<span class="badge" style="background:#e74c3c; color:#fff; font-size:9px; padding:0 3px;">未所持</span>` : ''}
+            </div>
+            <div style="display:flex; align-items:center; gap:3px; margin-top:2px;">
+              <span class="suggest-role-tag">${role}</span>
+              ${isMatch ? `<span class="badge" style="background:#2c6f4f; color:#fff; font-size:9px; padding:0 3px;">一致</span>` : ''}
+            </div>
+          </div>
+        </div>
+        <div class="suggest-reason-box" title="${reason}">
+          ${reason}
+        </div>
+      </div>
+    `).join("");
+
+    let clearPartyHtml = "";
+    if (stageRecord && stageRecord.party && stageRecord.party.length > 0) {
+      const userCastles = stageRecord.party.map(id => getCastleById(id)).filter(Boolean);
+      const savedAtStr = stageRecord.savedAt ? new Date(stageRecord.savedAt).toLocaleDateString("ja-JP") : "";
+      if (userCastles.length > 0) {
+        clearPartyHtml = `
+          <div class="user-clear-party-box">
+            <div style="font-size:11.5px; font-weight:bold; color:#844a08; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px;">
+              <span>🏆 あなたのクリア編成 (${userCastles.length}体)</span>
+              ${savedAtStr ? `<span style="font-size:10px; color:#888; font-weight:normal;">${savedAtStr}保存</span>` : ''}
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(130px, 1fr)); gap:6px;">
+              ${userCastles.map(c => `
+                <div style="display:flex; align-items:center; gap:6px; background:#fff; border:1px solid #ebdccb; padding:4px 6px; border-radius:4px;">
+                  ${getIconHtml(c, 26)}
+                  <div style="overflow:hidden;">
+                    <div style="font-size:11px; font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">${c.name}</div>
+                    <div style="font-size:9.5px; color:#888;">★${c.rarity} ${c.weapon}</div>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    return `
+      <div class="stage-suggest-container">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-wrap:wrap; gap:6px;">
+          <div>
+            <strong style="color:#185a9d; font-size:12.5px;">📋 おすすめ編成（8体・自動選出）</strong>
+            <span class="badge" style="background:#2c6f4f; color:#fff; font-size:10px; margin-left:6px;">地形一致: ${matchCount}/8体</span>
+          </div>
+          <button class="btn btn-sm btn-primary" data-action="load-suggested-party" data-title="${st.title}" data-id="${st.id || st.title}" style="font-size:11px; font-weight:bold; background:#2c6f4f; border-color:#20523a;">この編成を読み込む ⚔</button>
+        </div>
+        <div class="suggest-disclaimer">
+          ※ おすすめ編成はデータからの自動生成による目安です。実際の攻略編成とは異なる場合があります
+        </div>
+        <div class="suggest-party-grid">
+          ${cardsHtml}
+        </div>
+        ${clearPartyHtml}
+      </div>
+    `;
+  }
+
   document.getElementById("guideCategorySelect").addEventListener("change", renderGuidesTab);
   const subcatEl = document.getElementById("guideSubCategorySelect");
   if (subcatEl) subcatEl.addEventListener("change", renderGuidesTab);
   document.getElementById("guideSearchInput").addEventListener("input", renderGuidesTab);
   const guideClearFilterEl = document.getElementById("guideClearFilter");
   if (guideClearFilterEl) guideClearFilterEl.addEventListener("change", renderGuidesTab);
+  const guideOwnedOnlyEl = document.getElementById("guideOwnedOnly");
+  if (guideOwnedOnlyEl) {
+    guideOwnedOnlyEl.addEventListener("change", () => {
+      clearStageSuggestedPartyCache();
+      renderGuidesTab();
+    });
+  }
 
   // Guide stage action listeners
   document.getElementById("guidesListContainer").addEventListener("click", e => {
-    const action = e.target.getAttribute("data-action");
-    const title = e.target.getAttribute("data-title");
-    const id = e.target.getAttribute("data-id") || title;
+    const btn = e.target.closest("[data-action]");
+    if (!btn) return;
+    const action = btn.getAttribute("data-action");
+    const title = btn.getAttribute("data-title");
+    const id = btn.getAttribute("data-id") || title;
     if (!action || !title) return;
 
     if (action === "toggle-clear") {
@@ -1955,8 +2055,31 @@
     } else if (action === "diag-stage") {
       openStageDiagnostic(id);
     } else if (action === "filter-stage") {
-      const terrain = e.target.getAttribute("data-terrain");
+      const terrain = btn.getAttribute("data-terrain");
       filterCastlesForStage(title, terrain);
+    } else if (action === "toggle-suggest") {
+      const targetId = btn.getAttribute("data-target");
+      const bodyEl = document.getElementById(targetId);
+      if (!bodyEl) return;
+      const isHidden = (bodyEl.style.display === "none");
+      if (isHidden) {
+        const st = findStage(id) || findStage(title);
+        if (!st) return;
+        const ownedOnly = document.getElementById("guideOwnedOnly")?.checked || false;
+        const result = generateAutoSuggestedParty(st, ownedOnly);
+        const progressData = getStageProgressData();
+        const stageRecord = progressData[st.title] || {};
+        bodyEl.innerHTML = renderSuggestedPartyHtml(st, result, stageRecord);
+        bodyEl.style.display = "block";
+        const arrow = btn.querySelector(".suggest-toggle-arrow");
+        if (arrow) arrow.textContent = "▲";
+      } else {
+        bodyEl.style.display = "none";
+        const arrow = btn.querySelector(".suggest-toggle-arrow");
+        if (arrow) arrow.textContent = "▼";
+      }
+    } else if (action === "load-suggested-party") {
+      loadSuggestedPartyToCurrent(id || title);
     }
   });
 
@@ -3065,6 +3188,15 @@
   // Stage Diagnostic Modal & Filter Action
   let activeDiagStage = null;
 
+  function findStage(stageTitleOrId) {
+    if (!window.SCRE_GUIDES || !stageTitleOrId) return null;
+    for (const g of window.SCRE_GUIDES) {
+      const st = g.stages.find(s => s.id === stageTitleOrId || s.title === stageTitleOrId);
+      if (st) return st;
+    }
+    return null;
+  }
+
   function openStageDiagnostic(stageTitle) {
     if (!window.SCRE_GUIDES) return;
     let foundStage = null;
@@ -3327,58 +3459,159 @@
   }
 
   // ==========================================
-  // Auto-Suggest Party for Stage (Feature 2)
+  // Auto-Suggest Party for Stage (Feature 2 & Prompt 6)
   // ==========================================
+  const stageSuggestedPartyCache = new Map();
+  let cachedScoreMap = null;
   let currentAutoSuggestedParty = [];
+
+  function clearStageSuggestedPartyCache() {
+    stageSuggestedPartyCache.clear();
+  }
+
+  function getCastleBaseScore(c) {
+    if (!cachedComputedScores && typeof computeCastleScores === "function") {
+      computeCastleScores(tierWeights);
+    }
+    if (!cachedScoreMap && cachedComputedScores) {
+      cachedScoreMap = new Map();
+      cachedComputedScores.forEach(item => {
+        cachedScoreMap.set(String(item.id), item.total);
+      });
+    }
+    const val = cachedScoreMap ? cachedScoreMap.get(String(c.id)) : undefined;
+    if (typeof val === "number") return val;
+    return (c.rarity || 1) * 10;
+  }
 
   function generateAutoSuggestedParty(stage, ownedOnly) {
     if (!stage) return [];
-    const stTerrain = stage.terrain;
+    const cacheKey = (stage.id || stage.title) + "_" + (ownedOnly ? "owned" : "all");
+    if (stageSuggestedPartyCache.has(cacheKey)) {
+      return stageSuggestedPartyCache.get(cacheKey);
+    }
+
+    const stTerrain = stage.terrain || "";
     const rulesList = (stage.rules || []).concat((stage.deliberations || []).map(d => `[${d.point}審] ${d.name}: ${d.effect}`));
     const combinedRules = rulesList.join(" ");
-    const isHades = Boolean(stage.hadesMeta || stage.subCategory === "ハデスの死闘場");
+    const combinedBoss = (stage.bossInfo || []).join(" ");
+    const allText = combinedRules + " " + combinedBoss;
 
-    let pool = window.SCRE_DATA.slice();
-    if (ownedOnly && ownership.owned.size > 0) {
+    const isHades = Boolean(stage.hadesMeta || stage.subCategory === "ハデスの死闘場");
+    const isHell = (stage.category === "地獄" || isHades);
+
+    let pool = window.SCRE_DATA ? window.SCRE_DATA.slice() : [];
+    if (ownedOnly && ownership.owned && ownership.owned.size >= 8) {
       const ownedPool = pool.filter(c => ownership.owned.has(c.id));
       if (ownedPool.length >= 8) {
         pool = ownedPool;
       }
     }
 
-    // Filter out fatal deliberation violations
+    // Fatal deliberation filter
+    const hasMeleePenalty = /近接.*(?:与ダメージ99%低下|99%低下)/.test(combinedRules) || combinedRules.includes("近接限定城娘の与ダメージ99%低下");
+    const hasRangedPenalty = /遠隔.*(?:与ダメージ99%低下|99%低下)/.test(combinedRules) || combinedRules.includes("遠隔限定城娘の与ダメージ99%低下");
+
     pool = pool.filter(c => {
       const isMeleeOnly = (c.rangeKind === "近" || c.rangeKind === "近接");
       const isRangedOnly = (c.rangeKind === "遠" || c.rangeKind === "遠隔");
-      if (combinedRules.includes("近接限定城娘の与ダメージ99%低下") && isMeleeOnly) return false;
-      if (combinedRules.includes("遠隔限定城娘の与ダメージ99%低下") && isRangedOnly) return false;
+      if (hasMeleePenalty && isMeleeOnly) return false;
+      if (hasRangedPenalty && isRangedOnly) return false;
       return true;
     });
 
-    function scoreCastle(c) {
-      let score = (c.rarity || 1) * 10;
-      const isMatch = Boolean(stTerrain && stTerrain !== "無" && c.attributes && c.attributes.includes(stTerrain));
-      if (isMatch) score += 100;
+    // Mass restrictions
+    const hasMeleeMassPenalty = /近接配置マス制限|近接マス.*(?:消失|使用不可)|赤マス.*(?:消失|使用不可)/.test(combinedRules);
+    const hasRangedMassPenalty = /遠隔配置マス制限|遠隔マス.*(?:消失|使用不可)|青マス.*(?:消失|使用不可)/.test(combinedRules);
 
-      const descParts = [
+    // Gimmick conditions
+    const hasKiRestriction = combinedRules.includes("気獲得制限") || /気の自然回復量が.*低下|敵撃破時の獲得気が0|気の自然増加.*停止/.test(combinedRules);
+    const needsMagic = /術攻撃以外|術属性以外|術ダメージ以外/.test(allText);
+    const needsPhysical = /物理攻撃以外|物理属性以外|物理ダメージ以外/.test(allText);
+    const hasFlying = /飛行|飛翔|羽|鳥|大鷹/.test(allText);
+    const hasAbnormal = isHades || /暗闇|状態異常|猛毒|毒|火傷|氷結|混乱|麻痺/.test(allText);
+    const hasBossRamp = /時間経過|徐々に攻撃|徐々に.*強化|ゲージが無くなる|大幅に強化/.test(allText);
+
+    function getCastleFullText(c) {
+      const parts = [
         c.skill ? (c.skill.name + " " + c.skill.text) : "",
         c.strategy ? (c.strategy.name + " " + c.strategy.text) : "",
         c.special ? (c.special.name + " " + c.special.text) : ""
       ];
-      if (c.allSkills) c.allSkills.forEach(s => descParts.push(s.name + " " + s.text));
-      if (c.allStrategies) c.allStrategies.forEach(s => descParts.push(s.name + " " + s.text));
-      const full = descParts.join(" ");
+      if (c.allSkills) c.allSkills.forEach(s => parts.push(s.name + " " + s.text));
+      if (c.allStrategies) c.allStrategies.forEach(s => parts.push(s.name + " " + s.text));
+      return parts.join(" ");
+    }
 
-      if (isHades && (full.includes("暗闇") || full.includes("状態異常") || (full.includes("無効") && full.includes("状態")))) {
-        score += 85;
+    function scoreCastle(c) {
+      let score = getCastleBaseScore(c);
+      const full = getCastleFullText(c);
+
+      // Terrain bonus
+      const isMatch = Boolean(stTerrain && stTerrain !== "無" && c.attributes && c.attributes.includes(stTerrain));
+      const isHellAttr = Boolean(c.attributes && c.attributes.includes("地獄"));
+
+      if (isMatch) {
+        if (stTerrain === "地獄" || isHades) {
+          score += 150; // Hades/Hell terrain bonus 1.3x
+        } else {
+          score += 100;
+        }
+      } else if (isHell && isHellAttr) {
+        score += isHades ? 140 : 100;
       }
 
-      if (full.includes("気が") || full.includes("気増加") || full.includes("巨大化に必要な気")) {
-        score += 55;
+      // Ki ability
+      const hasKi = /気が|気増加|巨大化に必要な気|消費気/.test(full) || c.weapon === "陣貝";
+      if (hasKi) {
+        score += hasKiRestriction ? 80 : 45;
       }
-      if (full.includes("与ダメージ") || full.includes("被ダメージ")) {
-        score += 30;
+
+      // Status counter
+      if (hasAbnormal) {
+        if (full.includes("暗闇") || full.includes("状態異常") || (full.includes("無効") && full.includes("状態")) || (full.includes("回復") && full.includes("状態"))) {
+          score += 85;
+        }
       }
+
+      // Magic damage
+      if (needsMagic) {
+        if (["法術", "杖", "祓串", "鈴", "本"].includes(c.weapon) || /術ダメージ|防御無視/.test(full)) {
+          score += 90;
+        }
+      }
+
+      // Physical damage
+      if (needsPhysical) {
+        if (!["法術", "杖", "祓串", "鈴"].includes(c.weapon) || full.includes("物理")) {
+          score += 60;
+        }
+      }
+
+      // Anti-Air
+      if (hasFlying) {
+        if (["弓", "鉄砲", "石弓", "投剣"].includes(c.weapon) || /飛行|対空/.test(full)) {
+          score += 60;
+        }
+      }
+
+      // Boss ramp
+      if (hasBossRamp) {
+        if (score >= 60) score += 30;
+        if (/与ダメージ|攻撃後の隙|攻撃速度/.test(full)) score += 25;
+      }
+
+      // Mass restrictions
+      if (hasMeleeMassPenalty) {
+        if (c.rangeKind === "近" || c.rangeKind === "近接") score -= 30;
+        if (c.rangeKind === "遠近") score += 30;
+      }
+      if (hasRangedMassPenalty) {
+        if (c.rangeKind === "遠" || c.rangeKind === "遠隔") score -= 30;
+        if (c.rangeKind === "遠近") score += 30;
+      }
+
+      score += (c.rarity || 1) * 2;
       return score;
     }
 
@@ -3387,60 +3620,195 @@
     const selected = [];
     const selectedIds = new Set();
 
-    function tryAdd(filterFn, roleLabel) {
-      const match = pool.find(c => !selectedIds.has(c.id) && filterFn(c));
+    function tryAdd(filterFn, roleLabel, reasonFn) {
+      const match = pool.find(c => !selectedIds.has(c.id) && filterFn(c, getCastleFullText(c)));
       if (match) {
-        selected.push({ castle: match, role: roleLabel });
+        const full = getCastleFullText(match);
+        const reason = typeof reasonFn === "function" ? reasonFn(match, full) : reasonFn;
+        selected.push({
+          castle: match,
+          role: roleLabel,
+          reason: reason,
+          isMatch: Boolean(stTerrain && stTerrain !== "無" && match.attributes && match.attributes.includes(stTerrain)),
+          isOwned: Boolean(ownership.owned && ownership.owned.has(match.id))
+        });
         selectedIds.add(match.id);
         return true;
       }
       return false;
     }
 
-    // Role 1: Ki generator / reducer
-    tryAdd(c => {
-      const t = (c.skill ? c.skill.text : '') + ' ' + (c.strategy ? c.strategy.text : '');
-      return t.includes("気") || c.weapon === "陣貝";
-    }, "気生成・消費軽減");
+    // 1. Mandatory Ki Specialist
+    tryAdd((c, full) => {
+      return /気が|気増加|巨大化に必要な気|消費気/.test(full) || c.weapon === "陣貝";
+    }, "気役", (c, full) => {
+      if (c.weapon === "陣貝") return "陣貝・気軽減・全域支援";
+      if (full.includes("撃破")) return "撃破気増加・巨大化支援";
+      return "気生成・消費気軽減";
+    });
 
-    // Role 2: Status counter (if Hades or abnormal status)
-    if (isHades || combinedRules.includes("状態異常") || combinedRules.includes("暗闇")) {
-      tryAdd(c => {
-        const descParts = [
-          c.skill ? (c.skill.name + " " + c.skill.text) : "",
-          c.strategy ? (c.strategy.name + " " + c.strategy.text) : "",
-          c.special ? (c.special.name + " " + c.special.text) : ""
-        ];
-        if (c.allSkills) c.allSkills.forEach(s => descParts.push(s.name + " " + s.text));
-        if (c.allStrategies) c.allStrategies.forEach(s => descParts.push(s.name + " " + s.text));
-        const full = descParts.join(" ");
-        return full.includes("暗闇") || full.includes("状態異常") || (full.includes("無効") && full.includes("状態"));
-      }, "暗闇・状態異常対策");
+    // 2. Status counter if abnormal/Hades
+    if (hasAbnormal) {
+      tryAdd((c, full) => {
+        return full.includes("暗闇") || full.includes("状態異常") || (full.includes("無効") && full.includes("状態")) || (full.includes("回復") && full.includes("状態"));
+      }, "状態異常対策", (c, full) => {
+        if (full.includes("暗闇")) return "暗闇無効・状態異常解除";
+        return "状態異常無効化・回復";
+      });
     }
 
-    // Role 3: Strong Melee / Dual Range
-    tryAdd(c => (c.rangeKind === "近" || c.rangeKind === "遠近") && c.rarity >= 6, "主力前衛・火力");
+    // 3. Magic DPS if needsMagic
+    if (needsMagic) {
+      tryAdd((c, full) => {
+        return ["法術", "杖", "祓串", "鈴", "本"].includes(c.weapon) || /術ダメージ|防御無視/.test(full);
+      }, "術火力", (c, full) => "術ダメージ特効・防御無視");
+    }
 
-    // Role 4: Strong Ranged
-    tryAdd(c => (c.rangeKind === "遠" || c.rangeKind === "遠隔") && c.rarity >= 6, "主力遠隔・対空");
+    // 4. Anti-Air if hasFlying
+    if (hasFlying) {
+      tryAdd((c, full) => {
+        return ["弓", "鉄砲", "石弓", "投剣"].includes(c.weapon) || /飛行|対空/.test(full);
+      }, "対空・遠隔", (c, full) => "飛行兜特効・長射程");
+    }
 
-    // Role 5: Buffer / Healer / Support
-    tryAdd(c => {
-      const t = (c.skill ? c.skill.text : '') + ' ' + (c.strategy ? c.strategy.text : '');
-      return t.includes("与ダメージ") || t.includes("被ダメージ") || t.includes("射程") || c.weapon === "歌舞";
-    }, "支援・バフ・回復");
+    // 5. Melee DPS (at least 1, unless melee penalty)
+    if (!hasMeleePenalty) {
+      const hasMelee = selected.some(x => x.castle.rangeKind === "近" || x.castle.rangeKind === "近接" || x.castle.rangeKind === "遠近");
+      if (!hasMelee) {
+        tryAdd(c => (c.rangeKind === "近" || c.rangeKind === "近接" || c.rangeKind === "遠近") && (c.rarity || 1) >= 6,
+          "主力前衛",
+          (c) => (stTerrain && c.attributes?.includes(stTerrain)) ? `${stTerrain}属性一致・前衛火力` : "高火力・前衛主力"
+        );
+      }
+    }
 
-    // Fill remaining up to 8
+    // 6. Ranged DPS (at least 1, unless ranged penalty)
+    if (!hasRangedPenalty) {
+      const hasRanged = selected.some(x => x.castle.rangeKind === "遠" || x.castle.rangeKind === "遠隔" || x.castle.rangeKind === "遠近");
+      if (!hasRanged) {
+        tryAdd(c => (c.rangeKind === "遠" || c.rangeKind === "遠隔" || c.rangeKind === "遠近") && (c.rarity || 1) >= 6,
+          "主力遠隔",
+          (c) => (stTerrain && c.attributes?.includes(stTerrain)) ? `${stTerrain}属性一致・遠隔火力` : "長射程・遠隔主力"
+        );
+      }
+    }
+
+    // 7. Support / Buffer (at least 1)
+    const hasBuffer = selected.some(x => x.role === "支援・バフ" || x.role === "支援・回復" || x.role === "気役");
+    if (!hasBuffer) {
+      tryAdd((c, full) => c.weapon === "歌舞" || /与ダメージ|被ダメージ|射程|回復/.test(full),
+        "支援・バフ",
+        (c) => c.weapon === "歌舞" ? "歌舞・全体継続回復バフ" : "与ダメ被ダメ強化・支援"
+      );
+    }
+
+    // 8. Fill remaining up to 8 from sorted pool
+    for (const c of pool) {
+      if (selected.length >= 8) break;
+      if (selectedIds.has(c.id)) continue;
+
+      // Check mass limits
+      const meleeCount = selected.filter(x => x.castle.rangeKind === "近" || x.castle.rangeKind === "近接").length;
+      const rangedCount = selected.filter(x => x.castle.rangeKind === "遠" || x.castle.rangeKind === "遠隔").length;
+
+      if (hasMeleeMassPenalty && (c.rangeKind === "近" || c.rangeKind === "近接") && meleeCount >= 3) {
+        continue;
+      }
+      if (hasRangedMassPenalty && (c.rangeKind === "遠" || c.rangeKind === "遠隔") && rangedCount >= 3) {
+        continue;
+      }
+
+      const full = getCastleFullText(c);
+      const isMatch = Boolean(stTerrain && stTerrain !== "無" && c.attributes && c.attributes.includes(stTerrain));
+      const isHellAttr = Boolean(c.attributes && c.attributes.includes("地獄"));
+
+      let role = "主力火力";
+      let reason = "高戦力・総合火力";
+
+      if (isMatch) {
+        role = `${stTerrain}主力`;
+        reason = isHades ? `${stTerrain}ボーナス1.3倍・高打点` : `${stTerrain}属性一致・戦力強化`;
+      } else if (isHell && isHellAttr) {
+        role = "地獄主力";
+        reason = isHades ? "地獄ボーナス1.3倍・高打点" : "地獄属性・戦力強化";
+      } else if (c.weapon === "歌舞" || /与ダメージ|射程/.test(full)) {
+        role = "支援・バフ";
+        reason = "射程バフ・部隊支援";
+      }
+
+      selected.push({
+        castle: c,
+        role: role,
+        reason: reason,
+        isMatch: isMatch,
+        isOwned: Boolean(ownership.owned && ownership.owned.has(c.id))
+      });
+      selectedIds.add(c.id);
+    }
+
+    // Safety fill if any left
     for (const c of pool) {
       if (selected.length >= 8) break;
       if (!selectedIds.has(c.id)) {
-        const isMatch = Boolean(stTerrain && stTerrain !== "無" && c.attributes && c.attributes.includes(stTerrain));
-        selected.push({ castle: c, role: isMatch ? `${stTerrain}一致・主力` : "汎用主力" });
+        selected.push({
+          castle: c,
+          role: "汎用主力",
+          reason: "高スコア枠",
+          isMatch: Boolean(stTerrain && stTerrain !== "無" && c.attributes && c.attributes.includes(stTerrain)),
+          isOwned: Boolean(ownership.owned && ownership.owned.has(c.id))
+        });
         selectedIds.add(c.id);
       }
     }
 
+    stageSuggestedPartyCache.set(cacheKey, selected);
     return selected;
+  }
+
+  function loadSuggestedPartyToCurrent(stageTitleOrId) {
+    const st = findStage(stageTitleOrId);
+    if (!st) return;
+    const ownedOnly = document.getElementById("guideOwnedOnly")?.checked || false;
+    const suggested = generateAutoSuggestedParty(st, ownedOnly);
+    if (!suggested || suggested.length === 0) {
+      alert("おすすめ編成が見つかりませんでした。");
+      return;
+    }
+
+    if (!window.confirm(`「${st.title}」のおすすめ編成を現在の部隊に読み込みます。\n現在の編成が上書きされますが、よろしいですか？`)) {
+      return;
+    }
+
+    const validMembers = [];
+    suggested.forEach(({ castle: c }) => {
+      const verified = getCastleById(c.id);
+      if (verified) {
+        validMembers.push({
+          id: verified.id,
+          strategyOn: true,
+          specialOn: Boolean(verified.special)
+        });
+      } else {
+        console.warn("推奨編成の城娘IDが見つかりません:", c.id);
+      }
+    });
+
+    if (validMembers.length === 0) {
+      alert("有効な城娘が見つかりませんでした。");
+      return;
+    }
+
+    party = validMembers;
+    partyPresets[currentPresetIdx].party = party;
+    if (st.terrain && st.terrain !== "無") {
+      currentTerrain = st.terrain;
+      const sel = document.getElementById("mapTerrainSelect");
+      if (sel) sel.value = currentTerrain;
+    }
+    savePresets();
+    renderDashboard();
+    renderAllCastles();
+    showNotification(`「${st.title}」のおすすめ編成（${validMembers.length}体）を部隊に反映しました！`);
   }
 
   const btnAutoSuggestParty = document.getElementById("btnAutoSuggestParty");
@@ -3457,22 +3825,32 @@
       const badgeEl = document.getElementById("autoSuggestStatsBadge");
 
       if (container && listEl && summaryText) {
-        listEl.innerHTML = result.map(({ castle: c, role }) => `
-          <div style="background:#f4f7fb; border:1px solid #d5e0ee; border-radius:4px; padding:4px 6px; display:flex; align-items:center; gap:6px;">
-            ${getIconHtml(c, 28)}
-            <div style="overflow:hidden;">
-              <div style="font-size:11.5px; font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">${c.name}</div>
-              <div style="font-size:9.5px; color:#185a9d; font-weight:bold;">${role}</div>
+        listEl.innerHTML = result.map(({ castle: c, role, reason, isMatch, isOwned }) => `
+          <div class="suggest-castle-card" style="background:#fff; border:1px solid #bed8f0;">
+            <div class="castle-info-row">
+              ${getIconHtml(c, 28)}
+              <div style="overflow:hidden; flex:1;">
+                <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
+                  <span style="font-size:11.5px; font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;" title="${c.name}">${c.name}</span>
+                  ${!isOwned ? `<span class="badge" style="background:#e74c3c; color:#fff; font-size:9px; padding:0 3px;">未所持</span>` : ''}
+                </div>
+                <div style="display:flex; align-items:center; gap:3px; margin-top:1px;">
+                  <span class="suggest-role-tag">${role}</span>
+                  ${isMatch ? `<span class="badge" style="background:#2c6f4f; color:#fff; font-size:8.5px; padding:0 3px;">一致</span>` : ''}
+                </div>
+              </div>
             </div>
+            <div class="suggest-reason-box" style="font-size:9.5px;" title="${reason}">${reason}</div>
           </div>
         `).join("");
 
-        const matchCount = result.filter(({ castle: c }) => activeDiagStage.terrain && activeDiagStage.terrain !== "無" && c.attributes && c.attributes.includes(activeDiagStage.terrain)).length;
+        const matchCount = result.filter(r => r.isMatch).length;
         if (badgeEl) {
           badgeEl.innerHTML = `<span class="badge" style="background:#2c6f4f; color:#fff;">地形一致: ${matchCount}/8体</span>`;
         }
 
         summaryText.innerHTML = `
+          <div class="suggest-disclaimer" style="margin-bottom:6px;">※ おすすめ編成はデータからの自動生成による目安です。実際の攻略編成とは異なる場合があります</div>
           <strong>編成方針:</strong> ${activeDiagStage.title}の審議ギミック・地形条件（${activeDiagStage.terrain}）に合わせて、気生成役・状態異常対策・前衛火力・遠隔支援の役割バランスを最適配分しました。
         `;
 
@@ -3492,12 +3870,28 @@
   const btnApplyAutoSuggest = document.getElementById("btnApplyAutoSuggest");
   if (btnApplyAutoSuggest) {
     btnApplyAutoSuggest.addEventListener("click", () => {
-      if (currentAutoSuggestedParty.length === 0) return;
-      party = currentAutoSuggestedParty.map(({ castle: c }) => ({
-        id: c.id,
-        strategyOn: true,
-        specialOn: Boolean(c.special)
-      }));
+      if (!currentAutoSuggestedParty || currentAutoSuggestedParty.length === 0) return;
+
+      const validMembers = [];
+      currentAutoSuggestedParty.forEach(({ castle: c }) => {
+        const verified = getCastleById(c.id);
+        if (verified) {
+          validMembers.push({
+            id: verified.id,
+            strategyOn: true,
+            specialOn: Boolean(verified.special)
+          });
+        } else {
+          console.warn("城娘IDが見つかりません:", c.id);
+        }
+      });
+
+      if (validMembers.length === 0) {
+        alert("有効な城娘が見つかりませんでした。");
+        return;
+      }
+
+      party = validMembers;
       partyPresets[currentPresetIdx].party = party;
       if (activeDiagStage && activeDiagStage.terrain && activeDiagStage.terrain !== "無") {
         currentTerrain = activeDiagStage.terrain;
@@ -4437,6 +4831,10 @@
     });
 
     cachedComputedScores = result;
+    cachedScoreMap = null;
+    if (typeof clearStageSuggestedPartyCache === "function") {
+      clearStageSuggestedPartyCache();
+    }
     return result;
   }
 

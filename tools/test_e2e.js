@@ -2054,6 +2054,140 @@ async function runTests() {
     console.log('=> TEST 37 PASSED');
   }
 
+  // Test 38: Hell Stage Recommended Party (Prompt 6)
+  {
+    console.log('\n[TEST 38] Testing Hell Stage Recommended Party (Prompt 6)...');
+    await page.click('button[data-tab="tab-guides"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    // Select 地獄 category and ハデスの死闘場
+    await page.select('#guideCategorySelect', '地獄');
+    await page.select('#guideSubCategorySelect', 'ハデスの死闘場');
+    await new Promise(r => setTimeout(r, 300));
+
+    // Find the Maeda Toshiie card button (has Melee 99% penalty deliberation)
+    const maedaToggleBtn = await page.evaluateHandle(() => {
+      const cards = Array.from(document.querySelectorAll('#guidesListContainer .buff-card'));
+      const maedaCard = cards.find(c => c.textContent.includes('覇・前田利家'));
+      if (!maedaCard) return null;
+      return maedaCard.querySelector('.btn-toggle-suggest');
+    });
+
+    if (!maedaToggleBtn || !maedaToggleBtn.asElement()) {
+      throw new Error('TEST 38 FAILED: Maeda Toshiie suggest toggle button not found in guides list');
+    }
+
+    // Click toggle button to expand suggested party
+    await maedaToggleBtn.click();
+    await new Promise(r => setTimeout(r, 400));
+
+    // Verify suggested container is visible
+    const suggestContainer = await page.evaluate(() => {
+      const cards = Array.from(document.querySelectorAll('#guidesListContainer .buff-card'));
+      const maedaCard = cards.find(c => c.textContent.includes('覇・前田利家'));
+      const body = maedaCard.querySelector('.suggest-card-body');
+      const disclaimer = body ? body.querySelector('.suggest-disclaimer')?.textContent?.trim() : '';
+      const chips = body ? Array.from(body.querySelectorAll('.suggest-castle-card')) : [];
+      const chipData = chips.map(chip => {
+        const name = chip.querySelector('span[title]')?.textContent?.trim() || '';
+        const role = chip.querySelector('.suggest-role-tag')?.textContent?.trim() || '';
+        const reason = chip.querySelector('.suggest-reason-box')?.textContent?.trim() || '';
+        const isUnowned = !!chip.querySelector('.badge[style*="background:#e74c3c"]');
+        return { name, role, reason, isUnowned };
+      });
+      return {
+        display: body ? body.style.display : 'none',
+        disclaimer,
+        chipCount: chips.length,
+        chipData
+      };
+    });
+
+    console.log('Suggested container display:', suggestContainer.display);
+    console.log('Suggested disclaimer:', suggestContainer.disclaimer);
+    console.log('Suggested party chip count:', suggestContainer.chipCount);
+    console.log('Sample chip:', suggestContainer.chipData[0]);
+
+    if (suggestContainer.display !== 'block') {
+      throw new Error('TEST 38 FAILED: Suggested party container not displayed on expand');
+    }
+    if (!suggestContainer.disclaimer.includes('おすすめ編成はデータからの自動生成による目安です。実際の攻略編成とは異なる場合があります')) {
+      throw new Error('TEST 38 FAILED: Mandatory disclaimer text missing or incorrect');
+    }
+    if (suggestContainer.chipCount !== 8) {
+      throw new Error('TEST 38 FAILED: Expected 8 castles in recommended party, got: ' + suggestContainer.chipCount);
+    }
+
+    // Verify that NO melee-only castle was chosen due to 99% penalty
+    const meleeOnlyCheck = await page.evaluate(() => {
+      const cards = Array.from(document.querySelectorAll('#guidesListContainer .buff-card'));
+      const maedaCard = cards.find(c => c.textContent.includes('覇・前田利家'));
+      const body = maedaCard.querySelector('.suggest-card-body');
+      const chipNames = Array.from(body.querySelectorAll('.suggest-castle-card span[title]')).map(el => el.textContent.trim());
+      const meleeOnlyCastles = [];
+      chipNames.forEach(name => {
+        const c = window.SCRE_DATA.find(x => x.name === name);
+        if (c && (c.rangeKind === '近' || c.rangeKind === '近接')) {
+          meleeOnlyCastles.push(c.name);
+        }
+      });
+      return meleeOnlyCastles;
+    });
+
+    console.log('Melee-only castles in Maeda party:', meleeOnlyCheck);
+    if (meleeOnlyCheck.length > 0) {
+      throw new Error('TEST 38 FAILED: Melee-only castles selected despite 99% penalty deliberation: ' + meleeOnlyCheck.join(', '));
+    }
+
+    // Test "この編成を読み込む" button with confirmation dialog
+    console.log('Testing "この編成を読み込む" button...');
+    // Restore native window.confirm in case earlier test monkey-patched it
+    await page.evaluate(() => {
+      const iframe = document.createElement('iframe');
+      document.body.appendChild(iframe);
+      window.confirm = iframe.contentWindow.confirm.bind(window);
+      document.body.removeChild(iframe);
+    });
+
+    let dialogAccepted = false;
+    page.once('dialog', async dialog => {
+      console.log('Confirm dialog message:', dialog.message());
+      dialogAccepted = true;
+      await dialog.accept();
+    });
+
+    const loadBtnHandle = await page.$('#guidesListContainer button[data-action="load-suggested-party"]');
+    if (!loadBtnHandle) {
+      throw new Error('TEST 38 FAILED: load-suggested-party button not found in DOM');
+    }
+    await loadBtnHandle.click();
+    await new Promise(r => setTimeout(r, 400));
+
+    if (!dialogAccepted) {
+      throw new Error('TEST 38 FAILED: Confirmation dialog was not prompted on party load');
+    }
+
+    // Switch to Dashboard to verify loaded party
+    await page.click('button[data-tab="tab-dashboard"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    const activePartyCounter = await page.$eval('#partyCounter', el => el.textContent.trim());
+    console.log('Party counter after loading recommended party:', activePartyCounter);
+    if (!activePartyCounter.includes('8/8')) {
+      throw new Error('TEST 38 FAILED: Party not updated to 8/8 after loading recommended party');
+    }
+
+    // Screenshot of guides tab recommended party
+    await page.click('button[data-tab="tab-guides"]');
+    await new Promise(r => setTimeout(r, 400));
+    const screenshotDir = path.resolve(__dirname, 'screenshots');
+    const screenshotPath = path.join(screenshotDir, 'hell_stage_suggested_party.png');
+    await page.screenshot({ path: screenshotPath, fullPage: false });
+    console.log('Saved hell_stage_suggested_party.png to:', screenshotPath);
+
+    console.log('=> TEST 38 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -2065,7 +2199,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (37/37)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (38/38)!');
   console.log('=====================================');
 }
 
