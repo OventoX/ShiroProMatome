@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>城プロRE 編成・バフデバフ統合計算機</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="app-title">城プロRE 編成・バフ/デバフ統合ダッシュボード</div>
+      <div class="party-counter" id="partyCounter">編成 0/8</div>
+    </header>
+
+    <!-- Tab Bar -->
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="tab-dashboard">統合ダッシュボード</button>
+      <button class="tab-btn" data-tab="tab-list">城娘一覧・検索</button>
+      <button class="tab-btn" data-tab="tab-guides">高難易度マップ攻略</button>
+      <button class="tab-btn" data-tab="tab-special">特殊効果テキスト</button>
+      <button class="tab-btn" data-tab="tab-settings">設定・保存</button>
+    </nav>
+
+    <!-- Tab 1: 統合ダッシュボード (PC 3カラム横並び配置) -->
+    <main id="tab-dashboard" class="tab-content active">
+      <!-- Preset and Terrain Control Bar -->
+      <div class="dashboard-control-bar">
+        <!-- Preset Selector Tabs -->
+        <div class="preset-selector-group">
+          <span style="font-weight:bold; font-size:12px; color:var(--text-sub); display:flex; align-items:center;">部隊:</span>
+          <div id="presetButtonsList" class="preset-buttons-container"></div>
+          <button class="btn btn-sm" id="btnRenamePreset" title="現在の編成プリセット名を変更" style="padding: 2px 7px; font-size: 11px;">✏️ 名前変更</button>
+        </div>
+
+        <!-- Terrain and Summary Controls -->
+        <div class="terrain-and-actions-group">
+          <div class="terrain-select-wrapper">
+            <span style="font-size:11.5px; font-weight:bold; color:var(--text-sub);">出撃地形:</span>
+            <select id="mapTerrainSelect" class="btn btn-sm" style="font-weight:bold;">
+              <option value="">指定なし (補正なし)</option>
+              <option value="平">平 (平属性一致)</option>
+              <option value="平山">平山 (平山属性一致)</option>
+              <option value="山">山 (山属性一致)</option>
+              <option value="水">水 (水属性一致)</option>
+              <option value="地獄">地獄 (地獄属性一致)</option>
+            </select>
+          </div>
+          <div class="stage-diag-select-wrapper" style="display:flex; align-items:center; gap:4px;">
+            <span style="font-size:11.5px; font-weight:bold; color:var(--text-sub);">ステージ:</span>
+            <select id="dashboardStageSelect" class="btn btn-sm" style="max-width:170px; font-weight:bold;">
+              <option value="">-- ステージ選択 --</option>
+            </select>
+            <button class="btn btn-sm btn-primary" id="btnDashboardDiag" style="font-size:11px; font-weight:bold; padding:2px 8px;" title="現在の編成でステージ審議・特別ルールを診断">⚔️ 適合判定</button>
+          </div>
+          <div class="cost-summary-pill" id="totalCostSummary" title="部隊全員の初期配置＋最大巨大化に必要な気の合計">
+            総消費気: <strong>---</strong>
+          </div>
+          <button class="btn btn-primary btn-sm" id="btnExportImage" style="font-size: 11.5px; font-weight: bold; background: #2c6f4f; border-color: #24583e;" title="Twitter/X共有用の高画質編成サマリー画像を保存">📸 画像書き出し</button>
+          <button class="btn btn-sm" id="btnEmptyParty" style="font-size: 11px; padding: 3px 8px;">空にする</button>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Column 1: 編成スロット & 一括読み込み -->
+        <div class="dashboard-col">
+          <div class="section-title">
+            部隊メンバー (最大8体)
+          </div>
+          <div class="party-slot-list" id="partySlotList">
+            <!-- party slots -->
+          </div>
+
+          <section class="section-box" style="margin-top: 10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+              <div class="section-title" style="margin-bottom:0;">名前でまとめて読み込み / 書き出し</div>
+              <button class="btn btn-sm" id="btnExportPartyNames" style="font-size: 11px; padding: 2px 7px;" title="現在の編成城娘名をカンマ区切りで書き出し・クリップボードにコピー">現在の編成を書き出す</button>
+            </div>
+            <div style="display: flex; gap: 6px; margin-top: 4px;">
+              <input type="text" id="bulkInputText" class="input-text" placeholder="名前をカンマやスペース区切りで入力...">
+              <button class="btn btn-primary" id="btnBulkLoad" style="flex-shrink: 0;">反映</button>
+            </div>
+            <div style="font-size: 11px; color: var(--text-sub); margin-top: 4px;">
+              空き枠をクリックすると検索ウィンドウから城娘を直接選べます。
+            </div>
+          </section>
+
+          <!-- 敵デバフを左列下部にも配置 -->
+          <div id="enemyDebuffContainer">
+            <!-- Enemy debuffs -->
+          </div>
+        </div>
+
+        <!-- Column 2: バフ/デバフ計算結果 (中央メイン) -->
+        <div class="dashboard-col">
+          <div class="section-title">
+            各城娘が受けているバフ・合算値
+            <span style="font-size: 11px; font-weight: normal; color: var(--text-sub);">※互いの射程内前提</span>
+          </div>
+          <div class="buff-card-grid" id="buffCalculatedList">
+            <!-- Buff cards grid -->
+          </div>
+        </div>
+
+        <!-- Column 3: 不足と候補 (右列サイドバー) -->
+        <div class="dashboard-col dashboard-sidebar-right">
+          <div class="section-title">バフ/デバフ網羅状況 & 候補</div>
+          <div id="missingChecklist" class="checklist-grid" style="display: flex; flex-direction: column; gap: 6px;">
+            <!-- Missing checklist -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Tab 2: 一覧 -->
+    <main id="tab-list" class="tab-content">
+      <div class="section-box" style="margin-top: 0; margin-bottom: 10px;">
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <input type="text" id="searchCastleInput" class="input-text" placeholder="城娘名・特技・武器で検索..." style="flex: 2; min-width: 200px;">
+          <select id="filterRarity" class="btn" style="flex: 1; min-width: 100px;">
+            <option value="">レア度 (すべて)</option>
+            <option value="7">★7</option>
+            <option value="6">★6</option>
+            <option value="5">★5</option>
+            <option value="4">★4</option>
+            <option value="3">★3</option>
+            <option value="2">★2</option>
+            <option value="1">★1</option>
+          </select>
+          <select id="filterType" class="btn" style="flex: 1; min-width: 110px;">
+            <option value="">属性 (すべて)</option>
+            <option value="平">平 (複合含む)</option>
+            <option value="平山">平山 (複合含む)</option>
+            <option value="山">山 (複合含む)</option>
+            <option value="水">水 (複合含む)</option>
+            <option value="地獄">地獄 (複合含む)</option>
+            <option value="無">無</option>
+            <option value="複合">★複合属性のみ (240体)</option>
+          </select>
+          <select id="filterWeapon" class="btn" style="flex: 1; min-width: 120px;">
+            <option value="">武器 (すべて)</option>
+            <option value="刀">刀</option>
+            <option value="槍">槍</option>
+            <option value="槌">槌</option>
+            <option value="盾">盾</option>
+            <option value="拳">拳</option>
+            <option value="弓">弓</option>
+            <option value="鉄砲">鉄砲</option>
+            <option value="歌舞">歌舞</option>
+            <option value="法術">法術</option>
+            <option value="陣貝">陣貝</option>
+            <option value="鞭">鞭</option>
+          </select>
+          <select id="filterBuffCategory" class="btn" style="flex: 1.2; min-width: 150px; font-weight: bold; background: #fdfaf6; border-color: #baa793;">
+            <option value="">効果・バフ逆引き (すべて)</option>
+            <optgroup label="味方強化バフ">
+              <option value="atkFlat">攻撃(固定値) 上昇</option>
+              <option value="atkPercent">攻撃(%) 上昇</option>
+              <option value="rangeFlat">射程(固定値) 上昇</option>
+              <option value="rangePercent">射程(%) 上昇</option>
+              <option value="dmgDealt">与ダメージ 上昇</option>
+              <option value="atkSpeed">攻撃速度 上昇</option>
+              <option value="gapShorten">隙短縮</option>
+              <option value="dmgTakenDown">被ダメージ 軽減</option>
+              <option value="defIgnore">防御無視 攻撃</option>
+            </optgroup>
+            <optgroup label="敵弱体化デバフ">
+              <option value="enemyDefDown">敵防御 低下</option>
+              <option value="enemyAtkDown">敵攻撃 低下</option>
+              <option value="enemySlow">敵移動速度 低下(鈍足)</option>
+              <option value="enemyDmgTakenUp">敵被ダメージ 上昇</option>
+            </optgroup>
+            <optgroup label="特殊・補助効果">
+              <option value="special_stop">足止め 付与</option>
+              <option value="special_ct">計略再使用時間 短縮</option>
+              <option value="special_ki">気増加 / 気消費軽減</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+
+      <!-- Top Pagination Bar -->
+      <div id="listPaginationTop" class="pagination-bar"></div>
+
+      <!-- Castles Grid -->
+      <div id="allCastleList" class="all-castles-grid"></div>
+
+      <!-- Bottom Pagination Bar -->
+      <div id="listPaginationBottom" class="pagination-bar" style="margin-top: 14px;"></div>
+    </main>
+
+    <!-- Tab 3: 高難易度マップ攻略 -->
+    <main id="tab-guides" class="tab-content">
+      <div class="banner-notice">
+        地獄（審議・特別ルール）、武神降臨（ボス特性・戦場効果）、四季御殿、群雄割拠などの攻略情報をまとめています。
+      </div>
+      <div style="display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+        <select id="guideCategorySelect" class="btn" style="flex: 1; min-width: 150px; font-weight: bold;">
+          <option value="地獄">地獄 (審議・特殊ルール)</option>
+          <option value="武神降臨">武神降臨 (ボス武将兜・戦場効果)</option>
+          <option value="四季御殿">四季御殿 (季節回廊)</option>
+          <option value="群雄割拠">群雄割拠 (挑戦絵巻)</option>
+        </select>
+        <select id="guideSubCategorySelect" class="btn" style="flex: 1; min-width: 170px;">
+          <option value="">地獄エリア（すべて）</option>
+          <option value="ハデスの死闘場" selected>🔥 ハデスの死闘場 (超難・全11深層)</option>
+          <option value="閻魔の闘技場">👹 閻魔の闘技場 (等活/針山/焦熱/極寒/無間/賽の河原)</option>
+          <option value="ヘルの遊戯場">❄️ ヘルの遊戯場 (ヘルヘイム/ニヴル/アスガルド等)</option>
+          <option value="オシリスの審判場">⚖️ オシリスの審判場 (マアト/アケト/オンボス等)</option>
+        </select>
+        <input type="text" id="guideSearchInput" class="input-text" placeholder="マップ名・ボス名・審議・効果で検索..." style="flex: 2; min-width: 200px;">
+      </div>
+      <div id="guidesListContainer" class="buff-card-grid">
+        <!-- Guides rendered here -->
+      </div>
+    </main>
+
+    <!-- Tab 4: 特殊効果 -->
+    <main id="tab-special" class="tab-content">
+      <div class="banner-notice">
+        数値集計できない特殊な能力（足止め、計略時間短縮、気増加など）を一覧表示します。
+      </div>
+      <div id="specialAbilitiesList" class="buff-card-grid">
+        <!-- Special effects list -->
+      </div>
+    </main>
+
+    <!-- Tab 4: 設定 -->
+    <main id="tab-settings" class="tab-content">
+      <div style="max-width: 600px;">
+        <section class="section-box" style="margin-top: 0;">
+          <div class="section-title">Wiki差分更新 (ルーティン)</div>
+          <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 8px;">
+            Wikiの「RecentChanges」から直近更新されたページのみを自動取得し、城娘データや攻略情報を最新化します。
+          </p>
+          <div style="font-size: 11.5px; background: #fdf6ec; border: 1px solid #ebd3a8; padding: 6px 10px; border-radius: 4px; color: #8c5b10; line-height: 1.5; margin-bottom: 8px;">
+            <strong>定期更新スケジュール:</strong> 毎週金曜日 18:00 定期チェック<br>
+            手動で今すぐ更新したい場合は、フォルダ内の <code>update_weekly.bat</code> をダブルクリックしてください。
+          </div>
+        </section>
+
+        <section class="section-box">
+          <div class="section-title">データ・バックアップ</div>
+          <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 8px;">
+            現在の編成や所持設定をJSONで保存・復元できます。
+          </p>
+          <div class="btn-group">
+            <button class="btn btn-primary" id="btnExportData">設定を書き出し</button>
+            <button class="btn" id="btnImportData">設定を読み込み</button>
+          </div>
+          <textarea id="settingsJsonArea" class="input-text" rows="5" placeholder="JSONデータ"></textarea>
+        </section>
+
+        <section class="section-box">
+          <div class="section-title">アプリ情報</div>
+          <div style="font-size: 12px; color: var(--text-sub); line-height: 1.6;">
+            ・城プロRE 編成補助ツール (PCワイド統合版)<br>
+            ・収録データ: <span id="appInfoCastleCount">1,161</span>体<br>
+            ・完全オフライン / ローカル動作
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal for Castle Selector -->
+  <div class="modal-overlay" id="modalSelector">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="modalTitle">城娘を選択</span>
+        <button id="modalCloseBtn" style="background:none;border:none;color:#fff;font-size:18px;cursor:pointer;">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap;">
+          <input type="text" id="modalSearchInput" class="input-text" placeholder="名前で絞り込み..." style="flex: 2; margin-bottom: 0; min-width: 130px;">
+          <select id="modalFilterRarity" class="btn" style="flex: 1; min-width: 80px;">
+            <option value="">★ (すべて)</option>
+            <option value="7">★7</option>
+            <option value="6">★6</option>
+            <option value="5">★5</option>
+            <option value="4">★4</option>
+            <option value="3">★3</option>
+            <option value="2">★2</option>
+            <option value="1">★1</option>
+          </select>
+          <select id="modalFilterType" class="btn" style="flex: 1; min-width: 90px;">
+            <option value="">属性 (すべて)</option>
+            <option value="平">平</option>
+            <option value="平山">平山</option>
+            <option value="山">山</option>
+            <option value="水">水</option>
+            <option value="地獄">地獄</option>
+            <option value="無">無</option>
+            <option value="複合">複合属性</option>
+          </select>
+        </div>
+        <div id="modalCastleList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Castle Detail (城娘詳細モーダル) -->
+  <div class="modal-overlay" id="modalCastleDetail">
+    <div class="modal-content modal-detail-content">
+      <div class="modal-header modal-detail-header">
+        <div class="detail-header-left">
+          <div style="display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;">
+            <h2 id="detailCastleName" class="detail-title">城娘名</h2>
+            <span id="detailCastleRuby" class="detail-ruby">ふりがな</span>
+            <span id="detailCastleNo" class="badge" style="background:rgba(0,0,0,0.35); color:#fff; font-size:11px;">No.---</span>
+          </div>
+          <div class="detail-badges" id="detailBadges"></div>
+        </div>
+        <div class="detail-header-actions">
+          <button id="btnDetailToggleParty" class="btn btn-primary" style="font-size: 11.5px; font-weight: bold; padding: 5px 12px;">+ 編成に追加</button>
+          <a id="btnDetailWikiLink" href="#" target="_blank" rel="noopener noreferrer" class="btn" style="text-decoration: none; font-size: 11.5px; background: #fff; border: 1px solid #ccc; color: #333; padding: 5px 10px;">Wikiで見る ↗</a>
+          <button id="modalDetailCloseBtn" class="modal-close-x">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body modal-detail-body">
+        <!-- Left: Fullbody Character Art & Lore -->
+        <div class="detail-col-left">
+          <div class="detail-portrait-card">
+            <div class="detail-portrait-frame">
+              <img id="detailPortraitImg" class="detail-portrait-img" src="" alt="城娘立ち絵" />
+            </div>
+            <div class="detail-meta-info" id="detailMetaInfo"></div>
+          </div>
+          <div class="detail-lore-box">
+            <div class="detail-section-title">図鑑文章</div>
+            <div id="detailLoreText" class="detail-lore-content"></div>
+          </div>
+        </div>
+
+        <!-- Right: Stats & Abilities -->
+        <div class="detail-col-right">
+          <!-- Stats Table -->
+          <div class="detail-box">
+            <div class="detail-section-title">ステータス (初期配置 / 巨大化最大)</div>
+            <div style="overflow-x: auto;">
+              <table class="detail-stats-table">
+                <thead>
+                  <tr>
+                    <th>段階</th>
+                    <th>消費気</th>
+                    <th>耐久</th>
+                    <th>攻撃</th>
+                    <th>防御</th>
+                    <th>射程</th>
+                    <th>回復</th>
+                  </tr>
+                </thead>
+                <tbody id="detailStatsTbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Skills (特技) -->
+          <div class="detail-box">
+            <div class="detail-section-title">特技</div>
+            <div id="detailSkillContainer"></div>
+          </div>
+
+          <!-- Strategies (計略) -->
+          <div class="detail-box" id="detailStrategyBox">
+            <div class="detail-section-title">計略</div>
+            <div id="detailStrategyContainer"></div>
+          </div>
+
+          <!-- Special Ability (特殊能力) -->
+          <div class="detail-box" id="detailSpecialBox" style="display:none;">
+            <div class="detail-section-title">特殊能力 / 特殊攻撃</div>
+            <div id="detailSpecialContainer"></div>
+          </div>
+
+          <!-- Buff Analysis -->
+          <div class="detail-box">
+            <div class="detail-section-title">発動バフ・効果カテゴリ</div>
+            <div id="detailBuffAnalysis" class="detail-buff-tags"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Stage Diagnostic (高難易度マップ適合判定モーダル) -->
+  <div class="modal-overlay" id="modalStageDiagnostic">
+    <div class="modal-content" style="max-width: 750px;">
+      <div class="modal-header" style="background: linear-gradient(135deg, #1f4068 0%, #162447 100%);">
+        <div>
+          <span style="font-weight:bold; font-size:16px;" id="diagStageTitle">ステージ適合診断</span>
+          <span id="diagStageCat" class="badge" style="background: rgba(255,255,255,0.25); color:#fff; margin-left: 6px;">地獄</span>
+        </div>
+        <button id="modalDiagCloseBtn" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 16px;">
+        <!-- Stage Notice / Rules Summary -->
+        <div id="diagStageRules" style="background:#f4f6fa; border:1px solid #d5dce6; border-radius:6px; padding:10px 12px; margin-bottom:12px; font-size:12px; line-height:1.5;"></div>
+
+        <!-- Party Evaluation List -->
+        <div class="section-title" style="margin-bottom:8px;">編成メンバーの適格性判定</div>
+        <div id="diagPartyEvaluation" style="display:flex; flex-direction:column; gap:6px; margin-bottom:14px;"></div>
+
+        <!-- Recommended Castle Filter Action -->
+        <div style="background:#fdfaf3; border:1px solid #ebd3a8; border-radius:6px; padding:10px 12px; display:flex; justify-content:space-between; align-items:center;">
+          <div style="font-size:12px; color:#8c5b10;">
+            <strong>このマップで有利な城娘を探す:</strong> 地形一致・適格な城娘を一覧から抽出します。
+          </div>
+          <button class="btn btn-primary btn-sm" id="btnFilterForStage" style="font-weight:bold; flex-shrink:0;">おすすめ城娘を絞り込む 🔍</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden Canvas for Party Summary Image Generation -->
+  <canvas id="partyCanvas" width="1200" height="675" style="display: none;"></canvas>
+
+  <script src="data.js"></script>
+  <script src="guides.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

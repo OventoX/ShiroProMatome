@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+tools/node_modules/
+
+# Cache and raw downloads (large wiki dumps)
+tools/cache/
+__pycache__/
+tools/__pycache__/
+*.pyc
+
+# Logs & temp files
+*.log
+tools/*.log
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test artifacts
+*.png
