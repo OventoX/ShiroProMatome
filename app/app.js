@@ -625,6 +625,7 @@
       document.getElementById(targetId).classList.add("active");
 
       if (targetId === "tab-dashboard") renderDashboard();
+      if (targetId === "tab-tier") renderTierTab();
       if (targetId === "tab-guides") renderGuidesTab();
       if (targetId === "tab-special") renderSpecialTab();
       if (targetId === "tab-list") renderAllCastles();
@@ -4059,6 +4060,770 @@
   if (btnExportImg) {
     btnExportImg.addEventListener("click", exportPartyImage);
   }
+
+  // ==========================================
+  // Feature: 性能ティア表 ＆ ティアメーカー (Tier Browser & Tier Maker)
+  // ==========================================
+  let currentTierMode = "curated"; // 'curated' | 'custom'
+  let currentCuratedCat = "overall";
+  const DEFAULT_ROW_COLORS = [
+    "#b33939", "#d35400", "#e67e22", "#2980b9", "#27ae60", "#6c5ce7", "#e84393", "#7f8c8d"
+  ];
+  let customTierRows = [
+    { id: "row_ex", letter: "EX", sub: "人権・最優先", color: "#b33939", castles: ["四代目江戸城", "［裏］大宰府", "［絢爛］小谷城", "プレッドヤマ城", "［裏］坂本城", "［絢爛］アラゴネーゼ城", "［正月］江戸城", "［お月見］鹿野城"] },
+    { id: "row_sp", letter: "S+", sub: "超主力", color: "#d35400", castles: ["江戸城", "肥前名護屋城", "カルルシュテイン城", "彦根城", "［絢爛］彦根城", "白鷺城", "枉死城", "チャンドラ・マハル", "モン・サン＝ミッシェル", "竜宮城"] },
+    { id: "row_s", letter: "S", sub: "主力級", color: "#2980b9", castles: ["大坂城", "都於郡城", "平井城", "千早城", "紫禁城", "姫路城", "ノイシュヴァンシュタイン城", "城塞都市ディーテ", "城塞都市ウルク", "［聖夜］冬宮殿"] },
+    { id: "row_ap", letter: "A+", sub: "準主力", color: "#27ae60", castles: ["名古屋城", "金亀城", "聚楽第", "プラハ城", "ヴァイジャヤンタ", "安平城", "［裏］小牧山城", "［裏］真田丸", "［裏］佐和山城"] },
+    { id: "row_a", letter: "A", sub: "優秀", color: "#6c5ce7", castles: ["安土城", "指月伏見城", "万里の長城", "ウィンザー城", "シェーンブルン宮殿", "［正月］熊本城", "シャンボール城", "烏城"] }
+  ];
+  let customTiersStorage = {};
+  let draggedCastleName = null;
+  let draggedSourceRowId = null;
+
+  function getCastleByName(name) {
+    if (!name || !window.SCRE_DATA) return null;
+    return window.SCRE_DATA.find(c => c.name === name || c.id === name) || null;
+  }
+
+  function loadSavedCustomTiers() {
+    try {
+      const saved = localStorage.getItem("scre_custom_tiers");
+      if (saved) {
+        customTiersStorage = JSON.parse(saved);
+      }
+    } catch (e) {
+      console.warn("Failed to load scre_custom_tiers:", e);
+    }
+  }
+
+  function saveCustomTiersToStorage() {
+    try {
+      localStorage.setItem("scre_custom_tiers", JSON.stringify(customTiersStorage));
+    } catch (e) {
+      console.warn("Failed to save scre_custom_tiers:", e);
+    }
+  }
+
+  function renderTierTab() {
+    loadSavedCustomTiers();
+    const btnCurated = document.getElementById("btnTierModeCurated");
+    const btnCustom = document.getElementById("btnTierModeCustom");
+    const viewCurated = document.getElementById("tierViewCurated");
+    const viewCustom = document.getElementById("tierViewCustom");
+
+    if (btnCurated) btnCurated.classList.toggle("active", currentTierMode === "curated");
+    if (btnCustom) btnCustom.classList.toggle("active", currentTierMode === "custom");
+
+    if (currentTierMode === "curated") {
+      if (viewCurated) viewCurated.style.display = "block";
+      if (viewCustom) viewCustom.style.display = "none";
+      renderTierCurated();
+    } else {
+      if (viewCurated) viewCurated.style.display = "none";
+      if (viewCustom) viewCustom.style.display = "block";
+      renderTierCustomMaker();
+    }
+  }
+
+  function renderTierCurated() {
+    if (!window.SCRE_TIERS) return;
+    const catData = window.SCRE_TIERS[currentCuratedCat] || window.SCRE_TIERS["overall"];
+    if (!catData) return;
+
+    // Update info header
+    const infoEl = document.getElementById("tierCuratedInfo");
+    if (infoEl) {
+      infoEl.innerHTML = `<strong>${catData.title}</strong> ｜ ${catData.description}`;
+    }
+
+    // Update active category pill
+    document.querySelectorAll("#tierCatPills .tier-pill-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-cat") === currentCuratedCat);
+    });
+
+    const board = document.getElementById("tierCuratedBoard");
+    if (!board) return;
+    board.innerHTML = "";
+
+    catData.rows.forEach(r => {
+      const rowEl = document.createElement("div");
+      rowEl.className = "tier-row";
+
+      // Label column
+      const labelCol = document.createElement("div");
+      labelCol.className = "tier-row-label-col";
+      labelCol.style.background = r.color || "#b33939";
+      labelCol.innerHTML = `
+        <div class="tier-row-letter">${r.tier}</div>
+        <div class="tier-row-sub">${r.label}</div>
+      `;
+
+      // Content column
+      const contentCol = document.createElement("div");
+      contentCol.className = "tier-row-content";
+
+      r.castles.forEach(item => {
+        const c = getCastleByName(item.name);
+        if (!c) return;
+
+        const inParty = party.some(p => p.id === c.id);
+        const cardEl = document.createElement("div");
+        cardEl.className = "tier-castle-card";
+
+        const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
+        const iconSrc = c.illustUrl ? c.illustUrl : fallbackSrc;
+
+        cardEl.innerHTML = `
+          <div class="tier-card-icon-col" data-action="detail" data-id="${c.id}" title="クリックで詳細・立ち絵を表示">
+            <img src="${iconSrc}" onerror="this.src='${fallbackSrc}'" style="width:100%; height:100%; object-fit:cover; border-radius:4px; border:1px solid #dcd5cb;" alt="${c.name}">
+          </div>
+          <div class="tier-card-info-col">
+            <div class="tier-card-header">
+              <span class="tier-card-title" data-action="detail" data-id="${c.id}" title="クリックで詳細表示">${c.name}</span>
+              <span class="badge" style="background:#b85d19;color:#fff;font-size:10px;">★${c.rarity}</span>
+              ${getAttrBadgeHtml(c)}
+              <span class="badge" style="background:#555;color:#fff;font-size:10px;">${c.weapon}</span>
+            </div>
+            ${item.tag ? `<div class="tier-card-tag">${item.tag}</div>` : ''}
+            <div class="tier-card-actions">
+              <button class="btn btn-sm tier-btn-xs" data-action="detail" data-id="${c.id}" style="font-size:10px; padding:2px 7px;">詳細 ↗</button>
+              <button class="btn btn-sm ${inParty ? 'btn-secondary' : 'btn-primary'} tier-btn-xs" data-action="add-party" data-id="${c.id}" ${inParty ? 'disabled' : (party.length >= 8 ? 'disabled' : '')} style="font-size:10px; padding:2px 7px;">
+                ${inParty ? '✓ 編成中' : (party.length >= 8 ? '満員' : '+ 編成')}
+              </button>
+            </div>
+          </div>
+        `;
+
+        cardEl.addEventListener("click", e => {
+          const detailBtn = e.target.closest('[data-action="detail"]');
+          if (detailBtn) {
+            openCastleDetail(c.id);
+            return;
+          }
+          const addBtn = e.target.closest('[data-action="add-party"]');
+          if (addBtn) {
+            if (party.length >= 8) {
+              showToast("部隊が満員です（最大8体）");
+              return;
+            }
+            if (!party.some(p => p.id === c.id)) {
+              party.push({ id: c.id, strategyOn: true, specialOn: !!c.special });
+              saveParty();
+              renderDashboard();
+              renderTierCurated();
+              showToast(`「${c.name}」を編成に追加しました！`);
+            }
+          }
+        });
+
+        contentCol.appendChild(cardEl);
+      });
+
+      rowEl.appendChild(labelCol);
+      rowEl.appendChild(contentCol);
+      board.appendChild(rowEl);
+    });
+  }
+
+  function renderTierCustomMaker() {
+    const board = document.getElementById("tierCustomBoard");
+    if (!board) return;
+    board.innerHTML = "";
+
+    customTierRows.forEach((row, rowIdx) => {
+      const rowEl = document.createElement("div");
+      rowEl.className = "tier-row";
+
+      // Label column
+      const labelCol = document.createElement("div");
+      labelCol.className = "tier-row-label-col";
+      labelCol.style.background = row.color || "#b33939";
+
+      labelCol.innerHTML = `
+        <div class="tier-row-letter" title="クリックして行の名前を変更">${row.letter}</div>
+        <div class="tier-row-sub" title="クリックしてサブテキストを変更">${row.sub || ''}</div>
+        <div class="tier-row-controls">
+          <button type="button" class="tier-row-ctrl-btn" data-action="up" title="上へ移動">▲</button>
+          <button type="button" class="tier-row-ctrl-btn" data-action="down" title="下へ移動">▼</button>
+          <button type="button" class="tier-row-ctrl-btn" data-action="color" title="色を変更">🎨</button>
+          <button type="button" class="tier-row-ctrl-btn" data-action="clear" title="この行のキャラをクリア">🗑️</button>
+          <button type="button" class="tier-row-ctrl-btn" data-action="del" title="行を削除">✖</button>
+        </div>
+      `;
+
+      // Label events
+      labelCol.querySelector(".tier-row-letter").addEventListener("click", () => {
+        const newLetter = prompt("ティア名を入力してください（例: EX, S+, 神）", row.letter);
+        if (newLetter && newLetter.trim()) {
+          row.letter = newLetter.trim();
+          renderTierCustomMaker();
+        }
+      });
+
+      labelCol.querySelector(".tier-row-sub").addEventListener("click", () => {
+        const newSub = prompt("サブテキストを入力してください（例: 最優先, 気役, 推し）", row.sub || "");
+        if (newSub !== null) {
+          row.sub = newSub.trim();
+          renderTierCustomMaker();
+        }
+      });
+
+      labelCol.querySelector('[data-action="up"]').addEventListener("click", () => {
+        if (rowIdx > 0) {
+          const temp = customTierRows[rowIdx];
+          customTierRows[rowIdx] = customTierRows[rowIdx - 1];
+          customTierRows[rowIdx - 1] = temp;
+          renderTierCustomMaker();
+        }
+      });
+
+      labelCol.querySelector('[data-action="down"]').addEventListener("click", () => {
+        if (rowIdx < customTierRows.length - 1) {
+          const temp = customTierRows[rowIdx];
+          customTierRows[rowIdx] = customTierRows[rowIdx + 1];
+          customTierRows[rowIdx + 1] = temp;
+          renderTierCustomMaker();
+        }
+      });
+
+      labelCol.querySelector('[data-action="color"]').addEventListener("click", () => {
+        const curIdx = DEFAULT_ROW_COLORS.indexOf(row.color);
+        const nextColor = DEFAULT_ROW_COLORS[(curIdx + 1) % DEFAULT_ROW_COLORS.length];
+        row.color = nextColor;
+        renderTierCustomMaker();
+      });
+
+      labelCol.querySelector('[data-action="clear"]').addEventListener("click", () => {
+        if (confirm(`「${row.letter}」の全城娘（${row.castles.length}体）をクリアしますか？`)) {
+          row.castles = [];
+          renderTierCustomMaker();
+        }
+      });
+
+      labelCol.querySelector('[data-action="del"]').addEventListener("click", () => {
+        if (customTierRows.length <= 1) {
+          showToast("これ以上行を削除できません");
+          return;
+        }
+        if (confirm(`ティア行「${row.letter}」を削除しますか？`)) {
+          customTierRows.splice(rowIdx, 1);
+          renderTierCustomMaker();
+        }
+      });
+
+      // Content drop zone
+      const contentCol = document.createElement("div");
+      contentCol.className = `tier-row-content ${row.castles.length === 0 ? 'empty' : ''}`;
+      contentCol.setAttribute("data-row-id", row.id);
+
+      if (row.castles.length === 0) {
+        contentCol.textContent = "（ここに城娘をドラッグ＆ドロップ、または下のプールから追加）";
+      } else {
+        row.castles.forEach((castleName, cIdx) => {
+          const c = getCastleByName(castleName);
+          if (!c) return;
+
+          const chip = document.createElement("div");
+          chip.className = "tier-chip";
+          chip.setAttribute("draggable", "true");
+          chip.setAttribute("data-castle-name", c.name);
+          chip.setAttribute("data-row-id", row.id);
+
+          const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
+          const iconSrc = c.illustUrl || fallbackSrc;
+
+          chip.innerHTML = `
+            <div class="tier-chip-icon">
+              <img src="${iconSrc}" onerror="this.src='${fallbackSrc}'" style="width:100%;height:100%;object-fit:cover;" alt="${c.name}">
+            </div>
+            <div class="tier-chip-name" title="${c.name}">${c.name}</div>
+            <div class="tier-chip-del" title="削除">×</div>
+          `;
+
+          // Drag events on chip
+          chip.addEventListener("dragstart", e => {
+            draggedCastleName = c.name;
+            draggedSourceRowId = row.id;
+            chip.classList.add("dragging");
+            e.dataTransfer.setData("text/plain", c.name);
+          });
+
+          chip.addEventListener("dragend", () => {
+            chip.classList.remove("dragging");
+            draggedCastleName = null;
+            draggedSourceRowId = null;
+          });
+
+          // Delete chip
+          chip.querySelector(".tier-chip-del").addEventListener("click", e => {
+            e.stopPropagation();
+            row.castles.splice(cIdx, 1);
+            renderTierCustomMaker();
+          });
+
+          // Click chip to view detail
+          chip.addEventListener("click", e => {
+            if (e.target.classList.contains("tier-chip-del")) return;
+            openCastleDetail(c.id);
+          });
+
+          contentCol.appendChild(chip);
+        });
+      }
+
+      // Drag & drop listeners on row content
+      contentCol.addEventListener("dragover", e => {
+        e.preventDefault();
+        contentCol.classList.add("drag-over");
+      });
+
+      contentCol.addEventListener("dragleave", () => {
+        contentCol.classList.remove("drag-over");
+      });
+
+      contentCol.addEventListener("drop", e => {
+        e.preventDefault();
+        contentCol.classList.remove("drag-over");
+        const name = e.dataTransfer.getData("text/plain") || draggedCastleName;
+        if (!name) return;
+
+        // If from another row, remove it first
+        if (draggedSourceRowId) {
+          const srcRow = customTierRows.find(r => r.id === draggedSourceRowId);
+          if (srcRow) {
+            const idx = srcRow.castles.indexOf(name);
+            if (idx !== -1) srcRow.castles.splice(idx, 1);
+          }
+        }
+
+        // Add to this row if not already in it
+        if (!row.castles.includes(name)) {
+          row.castles.push(name);
+        }
+
+        draggedCastleName = null;
+        draggedSourceRowId = null;
+        renderTierCustomMaker();
+      });
+
+      rowEl.appendChild(labelCol);
+      rowEl.appendChild(contentCol);
+      board.appendChild(rowEl);
+    });
+
+    // Update target select dropdown
+    const targetSel = document.getElementById("tierPoolTargetSelect");
+    if (targetSel) {
+      targetSel.innerHTML = customTierRows.map(r => `
+        <option value="${r.id}">${r.letter} (${r.sub || '行'})</option>
+      `).join("");
+    }
+
+    // Update saved tiers dropdown
+    const savedSel = document.getElementById("savedTiersSelect");
+    if (savedSel) {
+      const savedKeys = Object.keys(customTiersStorage);
+      savedSel.innerHTML = `<option value="">-- 保存済みティア (${savedKeys.length}件) --</option>` +
+        savedKeys.map(k => `<option value="${k}">${k}</option>`).join("");
+    }
+
+    renderTierPool();
+  }
+
+  function renderTierPool() {
+    const grid = document.getElementById("tierPoolGrid");
+    if (!grid || !window.SCRE_DATA) return;
+
+    const searchVal = document.getElementById("tierPoolSearch")?.value?.trim() || "";
+    const filterRarity = document.getElementById("tierPoolRarity")?.value || "";
+    const filterType = document.getElementById("tierPoolType")?.value || "";
+    const filterWeapon = document.getElementById("tierPoolWeapon")?.value || "";
+    const filterOwnership = document.getElementById("tierPoolOwnership")?.value || "";
+
+    const placedSet = new Set(customTierRows.flatMap(r => r.castles));
+
+    const filtered = window.SCRE_DATA.filter(c => {
+      if (searchVal && !matchCastleNameOrRuby(c, searchVal)) return false;
+      if (filterRarity) {
+        if (filterRarity === "7" && c.rarity !== 7) return false;
+        if (filterRarity === "6" && c.rarity < 6) return false;
+        if (filterRarity === "5" && c.rarity < 5) return false;
+      }
+      if (filterType && !(c.castleType || "").includes(filterType) && !(c.subType || "").includes(filterType)) return false;
+      if (filterWeapon && c.weapon !== filterWeapon) return false;
+      if (filterOwnership === "owned" && !ownership.owned.has(c.id)) return false;
+      if (filterOwnership === "fav" && !ownership.favorites.has(c.id)) return false;
+      return true;
+    });
+
+    const countEl = document.getElementById("tierPoolCount");
+    if (countEl) countEl.textContent = `(${filtered.length}体)`;
+
+    grid.innerHTML = "";
+    if (filtered.length === 0) {
+      grid.innerHTML = `<div style="font-size:11.5px;color:var(--text-sub);padding:12px;">条件に一致する城娘がいません</div>`;
+      return;
+    }
+
+    // Limit to first 120 in pool for fast responsiveness
+    const displayItems = filtered.slice(0, 150);
+
+    displayItems.forEach(c => {
+      const isPlaced = placedSet.has(c.name);
+      const itemEl = document.createElement("div");
+      itemEl.className = `tier-pool-item ${isPlaced ? 'is-placed' : ''}`;
+      itemEl.setAttribute("draggable", "true");
+      itemEl.setAttribute("data-name", c.name);
+      itemEl.title = `${c.name} (★${c.rarity} ${c.castleType} ${c.weapon})
+クリックで選択中ティアへ追加、またはドラッグ`;
+
+      const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
+      const iconSrc = c.illustUrl || fallbackSrc;
+
+      itemEl.innerHTML = `
+        <div class="tier-pool-item-icon">
+          <img src="${iconSrc}" onerror="this.src='${fallbackSrc}'" style="width:100%;height:100%;object-fit:cover;" alt="${c.name}">
+        </div>
+        <div class="tier-pool-item-name">${c.name}</div>
+      `;
+
+      itemEl.addEventListener("dragstart", e => {
+        draggedCastleName = c.name;
+        draggedSourceRowId = null;
+        e.dataTransfer.setData("text/plain", c.name);
+      });
+
+      itemEl.addEventListener("dragend", () => {
+        draggedCastleName = null;
+        draggedSourceRowId = null;
+      });
+
+      itemEl.addEventListener("click", () => {
+        const targetSel = document.getElementById("tierPoolTargetSelect");
+        const targetRowId = targetSel?.value;
+        if (!targetRowId) return;
+
+        const row = customTierRows.find(r => r.id === targetRowId);
+        if (row) {
+          if (row.castles.includes(c.name)) {
+            showToast(`「${c.name}」は既に「${row.letter}」に配置されています`);
+            return;
+          }
+          row.castles.push(c.name);
+          renderTierCustomMaker();
+          showToast(`「${c.name}」を「${row.letter}」に追加しました！`);
+        }
+      });
+
+      grid.appendChild(itemEl);
+    });
+  }
+
+  function exportTierToImage(mode) {
+    if (typeof window.html2canvas !== "function") {
+      showToast("⚠️ html2canvas ライブラリが読み込まれていません");
+      return;
+    }
+
+    const exportArea = document.getElementById("tierExportArea");
+    if (!exportArea) return;
+
+    let title = "城娘性能ティア表";
+    let rowsToExport = [];
+
+    if (mode === "curated") {
+      const catData = window.SCRE_TIERS[currentCuratedCat] || window.SCRE_TIERS["overall"];
+      title = catData.title;
+      rowsToExport = catData.rows.map(r => ({
+        letter: r.tier,
+        sub: r.label,
+        color: r.color,
+        castles: r.castles.map(item => item.name)
+      }));
+    } else {
+      const customName = document.getElementById("tierSaveNameInput")?.value?.trim();
+      title = customName ? `カスタムティア表 - ${customName}` : "マイ城娘ティア表";
+      rowsToExport = customTierRows.map(r => ({
+        letter: r.letter,
+        sub: r.sub,
+        color: r.color,
+        castles: [...r.castles]
+      }));
+    }
+
+    const dateStr = new Date().toLocaleString("ja-JP", { year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" });
+
+    const rowsHtml = rowsToExport.map(r => {
+      const chipsHtml = r.castles.map(name => {
+        const c = getCastleByName(name);
+        const fallbackSrc = `icons/${encodeURIComponent(name)}.png`;
+        const iconSrc = c && c.illustUrl ? c.illustUrl : fallbackSrc;
+        return `
+          <div style="display:flex; flex-direction:column; align-items:center; width:54px; margin:2px;">
+            <div style="width:48px; height:48px; border-radius:6px; overflow:hidden; border:1px solid rgba(255,255,255,0.2); box-shadow:0 1px 3px rgba(0,0,0,0.5);">
+              <img src="${iconSrc}" onerror="this.src='${fallbackSrc}'" style="width:100%; height:100%; object-fit:cover;" crossOrigin="anonymous">
+            </div>
+            <div style="font-size:9px; color:#ddd; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%; margin-top:2px;">${name}</div>
+          </div>
+        `;
+      }).join("");
+
+      return `
+        <div style="display:flex; min-height:80px; margin-bottom:6px; background:#222; border:1px solid #3a3a3a; border-radius:6px; overflow:hidden;">
+          <div style="width:130px; min-width:110px; background:${r.color || '#555'}; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; padding:6px; text-align:center;">
+            <div style="font-size:22px; font-weight:900; letter-spacing:1px; text-shadow:0 1px 3px rgba(0,0,0,0.5);">${r.letter}</div>
+            ${r.sub ? `<div style="font-size:10px; font-weight:bold; opacity:0.95; margin-top:2px;">${r.sub}</div>` : ''}
+          </div>
+          <div style="flex:1; display:flex; flex-wrap:wrap; align-items:center; gap:6px; padding:8px 12px; background:#1e1e1e;">
+            ${chipsHtml || '<div style="color:#666; font-size:11px; font-style:italic;">(城娘なし)</div>'}
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    exportArea.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid #b85d19; padding-bottom:10px; margin-bottom:14px;">
+        <div>
+          <h2 style="font-size:22px; font-weight:bold; color:#f1c40f; margin:0 0 4px 0;">👑 ${title}</h2>
+          <div style="font-size:11.5px; color:#aaa;">城プロRE 編成・バフ/デバフ統合ダッシュボード ｜ 性能ティア出力</div>
+        </div>
+        <div style="text-align:right; font-size:11px; color:#888;">
+          <div>出力日時: ${dateStr}</div>
+          <div>収録城娘: 全${window.SCRE_DATA?.length || 1161}体対応</div>
+        </div>
+      </div>
+      <div>
+        ${rowsHtml}
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; color:#777; border-top:1px solid #333; padding-top:8px; margin-top:10px;">
+        <div>城プロRE 攻略・編成支援ツール (GitHub: OventoX/ShiroProMatome)</div>
+        <div>※ 個別合戦の審議や施設によって最適な城娘は変動します</div>
+      </div>
+    `;
+
+    showToast("📸 ティア画像を生成中...");
+
+    window.html2canvas(exportArea, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: "#161616",
+      logging: false
+    }).then(canvas => {
+      canvas.toBlob(blob => {
+        if (!blob) {
+          showToast("⚠️ 画像の生成に失敗しました");
+          return;
+        }
+        const now = new Date();
+        const pad = n => String(n).padStart(2, '0');
+        const yyyymmdd = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}`;
+        const hhmm = `${pad(now.getHours())}${pad(now.getMinutes())}`;
+        const filename = `shiropro-tier-${yyyymmdd}-${hhmm}.png`;
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast(`📸 ティア画像を保存しました: ${filename}`);
+      }, "image/png");
+    }).catch(err => {
+      console.error("html2canvas export error:", err);
+      showToast("⚠️ 画像の書き出し中にエラーが発生しました: " + (err.message || err));
+    });
+  }
+
+  // Tier Event Listeners Initialization
+  const btnTierCurated = document.getElementById("btnTierModeCurated");
+  const btnTierCustom = document.getElementById("btnTierModeCustom");
+  if (btnTierCurated) {
+    btnTierCurated.addEventListener("click", () => {
+      currentTierMode = "curated";
+      renderTierTab();
+    });
+  }
+  if (btnTierCustom) {
+    btnTierCustom.addEventListener("click", () => {
+      currentTierMode = "custom";
+      renderTierTab();
+    });
+  }
+
+  const tierCatPills = document.getElementById("tierCatPills");
+  if (tierCatPills) {
+    tierCatPills.addEventListener("click", e => {
+      const btn = e.target.closest(".tier-pill-btn");
+      if (!btn) return;
+      const cat = btn.getAttribute("data-cat");
+      if (cat) {
+        currentCuratedCat = cat;
+        renderTierCurated();
+      }
+    });
+  }
+
+  // Copy curated to maker
+  const btnCopyCurated = document.getElementById("btnCopyCuratedToMaker");
+  if (btnCopyCurated) {
+    btnCopyCurated.addEventListener("click", () => {
+      if (!window.SCRE_TIERS) return;
+      const catData = window.SCRE_TIERS[currentCuratedCat] || window.SCRE_TIERS["overall"];
+      if (catData) {
+        customTierRows = catData.rows.map((r, idx) => ({
+          id: `row_${idx}_${Date.now()}`,
+          letter: r.tier,
+          sub: r.label,
+          color: r.color || DEFAULT_ROW_COLORS[idx % DEFAULT_ROW_COLORS.length],
+          castles: r.castles.map(item => item.name)
+        }));
+        currentTierMode = "custom";
+        renderTierTab();
+        showToast(`「${catData.title}」をティアメーカーにコピーしました！自由に編集できます`);
+      }
+    });
+  }
+
+  // Export curated image
+  const btnExpCurated = document.getElementById("btnExportCuratedImage");
+  if (btnExpCurated) {
+    btnExpCurated.addEventListener("click", () => exportTierToImage("curated"));
+  }
+
+  // Maker: Apply template
+  const btnApplyTmpl = document.getElementById("btnApplyTierTemplate");
+  if (btnApplyTmpl) {
+    btnApplyTmpl.addEventListener("click", () => {
+      const val = document.getElementById("tierTemplateSelect")?.value;
+      if (val === "blank") {
+        customTierRows = [
+          { id: "row_1", letter: "EX", sub: "人権", color: "#b33939", castles: [] },
+          { id: "row_2", letter: "S+", sub: "超主力", color: "#d35400", castles: [] },
+          { id: "row_3", letter: "S", sub: "主力", color: "#2980b9", castles: [] },
+          { id: "row_4", letter: "A", sub: "優秀", color: "#27ae60", castles: [] }
+        ];
+        renderTierCustomMaker();
+        showToast("新規の空白ティア表を作成しました");
+        return;
+      }
+      if (window.SCRE_TIERS && window.SCRE_TIERS[val]) {
+        const catData = window.SCRE_TIERS[val];
+        customTierRows = catData.rows.map((r, idx) => ({
+          id: `row_${idx}_${Date.now()}`,
+          letter: r.tier,
+          sub: r.label,
+          color: r.color || DEFAULT_ROW_COLORS[idx % DEFAULT_ROW_COLORS.length],
+          castles: r.castles.map(item => item.name)
+        }));
+        renderTierCustomMaker();
+        showToast(`テンプレート「${catData.title}」を適用しました`);
+      }
+    });
+  }
+
+  // Maker: Add row
+  const btnAddRow = document.getElementById("btnAddTierRow");
+  if (btnAddRow) {
+    btnAddRow.addEventListener("click", () => {
+      const letter = prompt("新しい行のティア名を入力してください（例: SS, B, 推し）", "B");
+      if (letter && letter.trim()) {
+        const nextColor = DEFAULT_ROW_COLORS[customTierRows.length % DEFAULT_ROW_COLORS.length];
+        customTierRows.push({
+          id: `row_${Date.now()}`,
+          letter: letter.trim(),
+          sub: "",
+          color: nextColor,
+          castles: []
+        });
+        renderTierCustomMaker();
+        showToast(`行「${letter.trim()}」を追加しました`);
+      }
+    });
+  }
+
+  // Maker: Clear all rows
+  const btnClearAllRows = document.getElementById("btnClearAllTierRows");
+  if (btnClearAllRows) {
+    btnClearAllRows.addEventListener("click", () => {
+      if (confirm("ティア表の全行から城娘をクリアしますか？")) {
+        customTierRows.forEach(r => r.castles = []);
+        renderTierCustomMaker();
+        showToast("全行の城娘をクリアしました");
+      }
+    });
+  }
+
+  // Maker: Save tier
+  const btnSaveTier = document.getElementById("btnSaveCustomTier");
+  if (btnSaveTier) {
+    btnSaveTier.addEventListener("click", () => {
+      const nameInput = document.getElementById("tierSaveNameInput");
+      const name = nameInput?.value?.trim();
+      if (!name) {
+        showToast("⚠️ 保存するティア表名を入力してください");
+        nameInput?.focus();
+        return;
+      }
+      customTiersStorage[name] = JSON.parse(JSON.stringify(customTierRows));
+      saveCustomTiersToStorage();
+      renderTierCustomMaker();
+      showToast(`💾 ティア表「${name}」を保存しました！`);
+    });
+  }
+
+  // Maker: Load tier
+  const btnLoadTier = document.getElementById("btnLoadCustomTier");
+  if (btnLoadTier) {
+    btnLoadTier.addEventListener("click", () => {
+      const sel = document.getElementById("savedTiersSelect");
+      const name = sel?.value;
+      if (!name || !customTiersStorage[name]) {
+        showToast("⚠️ 読み込む保存済みティアを選択してください");
+        return;
+      }
+      customTierRows = JSON.parse(JSON.stringify(customTiersStorage[name]));
+      const nameInput = document.getElementById("tierSaveNameInput");
+      if (nameInput) nameInput.value = name;
+      renderTierCustomMaker();
+      showToast(`📂 ティア表「${name}」を読み込みました！`);
+    });
+  }
+
+  // Maker: Delete tier
+  const btnDeleteTier = document.getElementById("btnDeleteCustomTier");
+  if (btnDeleteTier) {
+    btnDeleteTier.addEventListener("click", () => {
+      const sel = document.getElementById("savedTiersSelect");
+      const name = sel?.value;
+      if (!name || !customTiersStorage[name]) {
+        showToast("⚠️ 削除する保存済みティアを選択してください");
+        return;
+      }
+      if (confirm(`保存済みティア表「${name}」を削除しますか？`)) {
+        delete customTiersStorage[name];
+        saveCustomTiersToStorage();
+        renderTierCustomMaker();
+        showToast(`❌ ティア表「${name}」を削除しました`);
+      }
+    });
+  }
+
+  // Maker: Export custom image
+  const btnExpCustom = document.getElementById("btnExportCustomTierImage");
+  if (btnExpCustom) {
+    btnExpCustom.addEventListener("click", () => exportTierToImage("custom"));
+  }
+
+  // Pool Filters oninput / onchange
+  ["tierPoolSearch", "tierPoolRarity", "tierPoolType", "tierPoolWeapon", "tierPoolOwnership"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener(el.tagName === "INPUT" ? "input" : "change", renderTierPool);
+    }
+  });
+
 
   // Initial render
   loadOwnership();

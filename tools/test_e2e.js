@@ -1684,6 +1684,168 @@ async function runTests() {
     console.log('=> TEST 35 PASSED');
 }
 
+  // -------------------------------------------------------------
+  // Test 36: 性能ティア表 ＆ カスタムティアメーカー (Curated & Interactive Tier)
+  // -------------------------------------------------------------
+  {
+    console.log('\n[TEST 36] Testing Character Performance Tier & Tier Maker...');
+
+    // 1. Switch to Tier Tab
+    await page.click('button[data-tab="tab-tier"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    const isTierActive = await page.$eval('#tab-tier', el => el.classList.contains('active'));
+    console.log('Tier Tab active:', isTierActive);
+    if (!isTierActive) {
+      throw new Error('TEST 36 FAILED: tab-tier did not activate on click');
+    }
+
+    // 2. Curated View Checks
+    const curatedVisible = await page.$eval('#tierViewCurated', el => el.style.display !== 'none');
+    console.log('Curated Tier View visible:', curatedVisible);
+    if (!curatedVisible) {
+      throw new Error('TEST 36 FAILED: tierViewCurated should be visible by default');
+    }
+
+    const curatedRowsCount = await page.$$eval('#tierCuratedBoard .tier-row', rows => rows.length);
+    console.log('Curated Tier Rows count:', curatedRowsCount);
+    if (curatedRowsCount < 4) {
+      throw new Error(`TEST 36 FAILED: Expected at least 4 curated tier rows, got ${curatedRowsCount}`);
+    }
+
+    const exRowText = await page.$eval('#tierCuratedBoard .tier-row:first-child', el => el.textContent);
+    console.log('EX Row snippet:', exRowText.slice(0, 100).replace(/\s+/g, ' '));
+    if (!exRowText.includes('四代目江戸城') || !exRowText.includes('大宰府')) {
+      throw new Error('TEST 36 FAILED: Curated EX row missing key meta castles');
+    }
+
+    // Save screenshot of Curated Tier View
+    const artifactsDir = 'C:\\Users\\ar265\\.gemini\\antigravity\\brain\\5355bd08-df05-4fee-b014-8a5e518ef73b';
+    await page.screenshot({ path: path.join(artifactsDir, 'tier_curated_overall_screenshot.png'), fullPage: false });
+    console.log('Saved tier_curated_overall_screenshot.png');
+
+    // 3. Category Switching (Roles & Terrains)
+    console.log('Testing category switching to role_ki and terrain_hell...');
+    await page.click('#tierCatPills button[data-cat="role_ki"]');
+    await new Promise(r => setTimeout(r, 300));
+
+    const kiInfoText = await page.$eval('#tierCuratedInfo', el => el.textContent);
+    console.log('role_ki info:', kiInfoText);
+    if (!kiInfoText.includes('気生成')) {
+      throw new Error('TEST 36 FAILED: Category role_ki did not update info header');
+    }
+
+    await page.click('#tierCatPills button[data-cat="terrain_hell"]');
+    await new Promise(r => setTimeout(r, 300));
+
+    const hellInfoText = await page.$eval('#tierCuratedInfo', el => el.textContent);
+    console.log('terrain_hell info:', hellInfoText);
+    if (!hellInfoText.includes('地獄')) {
+      throw new Error('TEST 36 FAILED: Category terrain_hell did not update info header');
+    }
+
+    // Verify detail button inside curated card
+    await page.click('#tierCuratedBoard .tier-castle-card:first-child [data-action="detail"]');
+    await new Promise(r => setTimeout(r, 400));
+    const modalOpenedFromTier = await page.evaluate(() => document.getElementById('modalCastleDetail').classList.contains('open'));
+    console.log('Detail modal opened from tier card:', modalOpenedFromTier);
+    if (!modalOpenedFromTier) {
+      throw new Error('TEST 36 FAILED: Detail modal did not open from tier card');
+    }
+    await page.click('#modalDetailCloseBtn');
+    await new Promise(r => setTimeout(r, 300));
+
+    // 4. Test "📋 ティアメーカーで編集" (Copy to Maker)
+    console.log('Testing Copy Curated Tier to Tier Maker...');
+    await page.click('#btnCopyCuratedToMaker');
+    await new Promise(r => setTimeout(r, 400));
+
+    const customVisible = await page.$eval('#tierViewCustom', el => el.style.display !== 'none');
+    console.log('Custom Tier View visible after copy:', customVisible);
+    if (!customVisible) {
+      throw new Error('TEST 36 FAILED: tierViewCustom should be visible after copying');
+    }
+
+    const customRowsCount = await page.$$eval('#tierCustomBoard .tier-row', rows => rows.length);
+    console.log('Custom Tier Rows count after copy:', customRowsCount);
+    if (customRowsCount < 3) {
+      throw new Error(`TEST 36 FAILED: Expected custom tier rows, got ${customRowsCount}`);
+    }
+
+    // 5. Test Adding a New Row in Tier Maker
+    console.log('Testing adding a new custom tier row...');
+    await page.evaluate(() => {
+      window.prompt = () => 'GOD';
+    });
+    await page.click('#btnAddTierRow');
+    await new Promise(r => setTimeout(r, 300));
+
+    const lastRowLetter = await page.$eval('#tierCustomBoard .tier-row:last-child .tier-row-letter', el => el.textContent);
+    console.log('Newly added row letter:', lastRowLetter);
+    if (lastRowLetter !== 'GOD') {
+      throw new Error(`TEST 36 FAILED: Expected newly added row letter to be 'GOD', got '${lastRowLetter}'`);
+    }
+
+    // 6. Test Castle Pool & Adding castle to selected tier row
+    const poolChipsCount = await page.$$eval('#tierPoolGrid .tier-pool-item', items => items.length);
+    console.log('Castle pool items count:', poolChipsCount);
+    if (poolChipsCount === 0) {
+      throw new Error('TEST 36 FAILED: Castle pool grid is empty');
+    }
+
+    // Select the last row in dropdown and click a pool item
+    await page.evaluate(() => {
+      const targetSel = document.getElementById('tierPoolTargetSelect');
+      targetSel.selectedIndex = targetSel.options.length - 1; // select GOD row
+    });
+
+    const firstPoolCastleName = await page.$eval('#tierPoolGrid .tier-pool-item:first-child', el => el.getAttribute('data-name'));
+    console.log('Adding pool castle to GOD row:', firstPoolCastleName);
+    await page.click('#tierPoolGrid .tier-pool-item:first-child');
+    await new Promise(r => setTimeout(r, 300));
+
+    const godRowCastles = await page.$eval('#tierCustomBoard .tier-row:last-child .tier-row-content', el => el.textContent);
+    console.log('GOD row content after adding:', godRowCastles);
+    if (!godRowCastles.includes(firstPoolCastleName)) {
+      throw new Error(`TEST 36 FAILED: GOD row does not contain added castle '${firstPoolCastleName}'`);
+    }
+
+    // 7. Test Save & Load Tier List
+    console.log('Testing Save & Load custom tier in localStorage...');
+    await page.$eval('#tierSaveNameInput', el => el.value = 'テスト用マイティア');
+    await page.click('#btnSaveCustomTier');
+    await new Promise(r => setTimeout(r, 300));
+
+    const savedOptions = await page.$$eval('#savedTiersSelect option', opts => opts.map(o => o.value));
+    console.log('Saved tiers options:', savedOptions);
+    if (!savedOptions.includes('テスト用マイティア')) {
+      throw new Error('TEST 36 FAILED: Saved tier list option not found in #savedTiersSelect');
+    }
+
+    // Save screenshot of Custom Tier Maker
+    await page.screenshot({ path: path.join(artifactsDir, 'tier_maker_custom_screenshot.png'), fullPage: false });
+    console.log('Saved tier_maker_custom_screenshot.png');
+
+    // 8. Test html2canvas Tier Image Export
+    console.log('Testing html2canvas Tier Image Export...');
+    await page.click('#btnExportCustomTierImage');
+    await new Promise(r => setTimeout(r, 600));
+
+    const tierExportAreaContent = await page.$eval('#tierExportArea', el => el.innerHTML);
+    console.log('tierExportArea populated:', tierExportAreaContent.length > 50);
+    if (tierExportAreaContent.length < 50 || !tierExportAreaContent.includes('テスト用マイティア')) {
+      throw new Error('TEST 36 FAILED: #tierExportArea was not properly populated with custom tier markup');
+    }
+
+    // Switch back to curated mode and dashboard
+    await page.click('#btnTierModeCurated');
+    await new Promise(r => setTimeout(r, 300));
+    await page.click('button[data-tab="tab-dashboard"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    console.log('=> TEST 36 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -1695,7 +1857,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (35/35)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (36/36)!');
   console.log('=====================================');
 }
 

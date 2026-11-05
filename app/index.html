@@ -19,6 +19,7 @@
     <nav class="tab-nav">
       <button class="tab-btn active" data-tab="tab-dashboard">統合ダッシュボード</button>
       <button class="tab-btn" data-tab="tab-list">城娘一覧・検索</button>
+      <button class="tab-btn" data-tab="tab-tier">👑 性能ティア表</button>
       <button class="tab-btn" data-tab="tab-guides">高難易度マップ攻略</button>
       <button class="tab-btn" data-tab="tab-special">特殊効果テキスト</button>
       <button class="tab-btn" data-tab="tab-settings">設定・保存</button>
@@ -271,7 +272,152 @@
       <div id="listPaginationBottom" class="pagination-bar" style="margin-top: 14px;"></div>
     </main>
 
-    <!-- Tab 3: 高難易度マップ攻略 -->
+    <!-- Tab 3: 性能ティア表 ＆ ティアメーカー -->
+    <main id="tab-tier" class="tab-content">
+      <!-- Tier Header & Mode Switcher -->
+      <div class="tier-header-bar">
+        <div class="tier-title-group">
+          <h2 class="tier-title">👑 城娘性能ティア表 ＆ ティアメーカー</h2>
+          <div class="tier-subtitle">環境メタ・高難易度攻略に基づくおすすめティアの閲覧から、自分好みのカスタムティア表作成・画像保存まで対応</div>
+        </div>
+        <div class="tier-mode-toggle">
+          <button type="button" class="tier-mode-btn active" id="btnTierModeCurated" data-mode="curated">🌟 環境おすすめティア</button>
+          <button type="button" class="tier-mode-btn" id="btnTierModeCustom" data-mode="custom">🎨 カスタムティアメーカー</button>
+        </div>
+      </div>
+
+      <!-- VIEW 1: 環境おすすめティア (Curated Tier Browser) -->
+      <div id="tierViewCurated" class="tier-view-panel">
+        <!-- Curated Category Nav Pills -->
+        <div class="tier-cat-pills" id="tierCatPills">
+          <button type="button" class="tier-pill-btn active" data-cat="overall">👑 総合評価</button>
+          <span class="tier-pill-sep">｜</span>
+          <span class="tier-pill-label">役割別:</span>
+          <button type="button" class="tier-pill-btn" data-cat="role_ki">⚡ 気生成・軽減</button>
+          <button type="button" class="tier-pill-btn" data-cat="role_buffer">🛡️ バフ・支援</button>
+          <button type="button" class="tier-pill-btn" data-cat="role_dps">⚔️ メイン火力</button>
+          <button type="button" class="tier-pill-btn" data-cat="role_tank_cc">🧱 耐久・妨害</button>
+          <span class="tier-pill-sep">｜</span>
+          <span class="tier-pill-label">地形属性別:</span>
+          <button type="button" class="tier-pill-btn" data-cat="terrain_plain">🌾 平</button>
+          <button type="button" class="tier-pill-btn" data-cat="terrain_plain_mountain">🏯 平山</button>
+          <button type="button" class="tier-pill-btn" data-cat="terrain_mountain">⛰️ 山</button>
+          <button type="button" class="tier-pill-btn" data-cat="terrain_water">🌊 水</button>
+          <button type="button" class="tier-pill-btn" data-cat="terrain_hell">🌋 地獄</button>
+        </div>
+
+        <!-- Curated Actions Bar -->
+        <div class="tier-curated-actions">
+          <div id="tierCuratedInfo" class="tier-curated-info"></div>
+          <div class="tier-curated-btn-group">
+            <button type="button" class="btn btn-sm btn-primary" id="btnCopyCuratedToMaker" title="このティア表の内容をカスタムティアメーカーにコピーして自由に編集">📋 ティアメーカーで編集</button>
+            <button type="button" class="btn btn-sm" id="btnExportCuratedImage" title="このティア表をPNG画像として保存">📸 画像保存</button>
+          </div>
+        </div>
+
+        <!-- Tier Board (Rendered Container) -->
+        <div id="tierCuratedBoard" class="tier-board"></div>
+      </div>
+
+      <!-- VIEW 2: カスタムティアメーカー (Interactive Tier Maker) -->
+      <div id="tierViewCustom" class="tier-view-panel" style="display:none;">
+        <!-- Maker Controls Toolbar -->
+        <div class="tier-maker-toolbar">
+          <div class="tier-maker-tool-group">
+            <label style="font-size:11.5px; font-weight:bold; color:var(--text-sub);">テンプレート:</label>
+            <select id="tierTemplateSelect" class="btn btn-sm" style="font-weight:bold;">
+              <option value="overall">総合ティアから作成</option>
+              <option value="role_ki">気生成・軽減ティアから作成</option>
+              <option value="role_buffer">バフ・支援役ティアから作成</option>
+              <option value="role_dps">メイン火力役ティアから作成</option>
+              <option value="role_tank_cc">耐久・妨害役ティアから作成</option>
+              <option value="terrain_plain">平属性ティアから作成</option>
+              <option value="terrain_plain_mountain">平山属性ティアから作成</option>
+              <option value="terrain_mountain">山属性ティアから作成</option>
+              <option value="terrain_water">水属性ティアから作成</option>
+              <option value="terrain_hell">地獄属性ティアから作成</option>
+              <option value="blank">空白の新規ティア表</option>
+            </select>
+            <button type="button" class="btn btn-sm" id="btnApplyTierTemplate">適用 ↺</button>
+            <button type="button" class="btn btn-sm" id="btnAddTierRow">＋ 行を追加</button>
+            <button type="button" class="btn btn-sm" id="btnClearAllTierRows">🗑️ 全クリア</button>
+          </div>
+
+          <div class="tier-maker-tool-group">
+            <input type="text" id="tierSaveNameInput" class="input-text" placeholder="ティア表名 (例: マイ地獄おすすめ)" style="font-size:11.5px; padding:3px 8px; width:160px;">
+            <button type="button" class="btn btn-sm btn-primary" id="btnSaveCustomTier">💾 保存</button>
+            <select id="savedTiersSelect" class="btn btn-sm" style="max-width:140px;">
+              <option value="">-- 保存済みティア --</option>
+            </select>
+            <button type="button" class="btn btn-sm" id="btnLoadCustomTier">📂 読込</button>
+            <button type="button" class="btn btn-sm" id="btnDeleteCustomTier" title="選択中の保存済みティアを削除">❌ 削除</button>
+            <button type="button" class="btn btn-sm" id="btnExportCustomTierImage" style="background:#2d3436; color:#fff;" title="作成したティア表を高解像度画像で保存">📸 画像エクスポート</button>
+          </div>
+        </div>
+
+        <!-- Custom Tier Board (Drag & Drop Zone) -->
+        <div id="tierCustomBoard" class="tier-board"></div>
+
+        <!-- Castle Selection Pool (キャラ選択パレット) -->
+        <div class="tier-pool-section">
+          <div class="tier-pool-header">
+            <div style="font-weight:bold; font-size:12.5px; display:flex; align-items:center; gap:6px;">
+              <span>🏯 城娘選択プール</span>
+              <span id="tierPoolCount" style="font-size:11px; color:var(--text-sub);">(0体)</span>
+            </div>
+            <div class="tier-pool-target-select">
+              <span style="font-size:11px; font-weight:bold;">追加先ティア:</span>
+              <select id="tierPoolTargetSelect" class="btn btn-sm" style="font-weight:bold;"></select>
+              <span style="font-size:10.5px; color:var(--text-sub);">💡 クリックで選択中ティアへ追加、または直接ドラッグ＆ドロップ</span>
+            </div>
+          </div>
+
+          <!-- Pool Filter Controls -->
+          <div class="tier-pool-filters">
+            <input type="text" id="tierPoolSearch" class="input-text" placeholder="名前・ふりがなで検索..." style="flex:1.5; min-width:160px; font-size:11.5px;">
+            <select id="tierPoolRarity" class="btn btn-sm" style="font-size:11px;">
+              <option value="">レア度 (すべて)</option>
+              <option value="7" selected>★7のみ</option>
+              <option value="6">★6以上</option>
+              <option value="5">★5以上</option>
+            </select>
+            <select id="tierPoolType" class="btn btn-sm" style="font-size:11px;">
+              <option value="">属性 (すべて)</option>
+              <option value="平">平</option>
+              <option value="平山">平山</option>
+              <option value="山">山</option>
+              <option value="水">水</option>
+              <option value="地獄">地獄</option>
+              <option value="無">無</option>
+            </select>
+            <select id="tierPoolWeapon" class="btn btn-sm" style="font-size:11px;">
+              <option value="">武器 (すべて)</option>
+              <option value="刀">刀</option>
+              <option value="槍">槍</option>
+              <option value="槌">槌</option>
+              <option value="盾">盾</option>
+              <option value="拳">拳</option>
+              <option value="弓">弓</option>
+              <option value="鉄砲">鉄砲</option>
+              <option value="歌舞">歌舞</option>
+              <option value="法術">法術</option>
+              <option value="陣貝">陣貝</option>
+              <option value="投剣">投剣</option>
+            </select>
+            <select id="tierPoolOwnership" class="btn btn-sm" style="font-size:11px;">
+              <option value="">所持状態 (すべて)</option>
+              <option value="owned">所持のみ</option>
+              <option value="fav">お気に入りのみ</option>
+            </select>
+          </div>
+
+          <!-- Pool Castle Grid -->
+          <div id="tierPoolGrid" class="tier-pool-grid"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Tab 4: 高難易度マップ攻略 -->
     <main id="tab-guides" class="tab-content">
       <!-- Category Clear Progress Banner (プロンプト2) -->
       <div id="guidesProgressBanner" style="margin-bottom: 10px;"></div>
@@ -674,8 +820,12 @@
   <!-- Dedicated Party Image Export Container for html2canvas (プロンプト6) -->
   <div id="partyExportArea" style="position: absolute; left: -9999px; top: 0; width: 1100px; background: #fffcf7; color: #333; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 24px 28px; border: 1px solid #e0d5c1; border-radius: 8px; box-sizing: border-box;"></div>
 
+  <!-- Dedicated Tier Image Export Container for html2canvas -->
+  <div id="tierExportArea" style="position: absolute; left: -9999px; top: 0; width: 1160px; background: #1a1a1a; color: #eee; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 24px 28px; border: 1px solid #333; border-radius: 8px; box-sizing: border-box;"></div>
+
   <script src="data.js"></script>
   <script src="guides.js"></script>
+  <script src="tier_data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
