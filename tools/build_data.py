@@ -92,6 +92,8 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
         "illustUrl": "",
         "ojouUrl": "",
         "taihaUrl": "",
+        "remodelStages": ["無印"],
+        "remodelForms": {},
         "illustrator": "",
         "voiceActor": "",
         "lore": "",
@@ -133,47 +135,126 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
         castle["illustFile"] = m_img.group(1).strip()
         castle["illustUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(page_name)}&src={quote(castle['illustFile'])}"
 
-    # Ojou (御嬢) illustration
-    m_ojou = re.search(r'\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*御嬢[^\n|]*\|[^\n|]*城娘[^\n|]*\|', src, re.I)
-    if m_ojou:
-        castle["ojouUrl"] = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_ojou.group(1)}"
-    else:
-        m_ojou2 = re.search(r'\|[^\n|]*御嬢[^\n|]*\|[^\n|]*城娘[^\n|]*\|[\r\n]+\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|', src, re.I)
-        if m_ojou2:
-            castle["ojouUrl"] = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_ojou2.group(1)}"
+    # Extract standing art, Ojou, and Taiha per remodel stage (無印 / 改壱 / 改弐)
+    def extract_images_from_block(text, p_name):
+        oj = ""
+        bat = ""
+        th = ""
+        # 1. &uploader for Ojou / Battle
+        m1 = re.search(r'\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*御嬢[^\n|]*\|[^\n|]*城娘[^\n|]*\|', text, re.I)
+        if m1:
+            oj = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m1.group(1)}"
+            bat = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m1.group(2)}"
         else:
-            m_ojou_ref = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*御嬢[^\./,\)]*\.(?:png|jpg))', src, re.I)
-            if m_ojou_ref:
-                p_part = m_ojou_ref.group(1) or page_name
-                f_part = m_ojou_ref.group(2)
-                castle["ojouUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p_part)}&src={quote(f_part)}"
+            m1_rev = re.search(r'\|[^\n|]*御嬢[^\n|]*\|[^\n|]*城娘[^\n|]*\|[\r\n]+\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|', text, re.I)
+            if m1_rev:
+                oj = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m1_rev.group(1)}"
+                bat = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m1_rev.group(2)}"
             else:
-                m_ojou_tab = re.search(r'\|[^\n|]*&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]+\.(?:png|jpg))[^\)]*\)[^\n|]*\|[^\n|]*&(?:attach)?ref\([^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*御嬢', src, re.I)
-                if m_ojou_tab:
-                    p_part = m_ojou_tab.group(1) or page_name
-                    f_part = m_ojou_tab.group(2)
-                    castle["ojouUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p_part)}&src={quote(f_part)}"
+                m_b = re.search(r'\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*城娘[^\n|]*\|', text, re.I)
+                if m_b:
+                    bat = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_b.group(1)}"
 
-    # Taiha (大破) illustration
-    m_taiha = re.search(r'\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*大破[^\n|]*\|', src, re.I)
-    if m_taiha:
-        castle["taihaUrl"] = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_taiha.group(1)}"
-    else:
-        m_taiha_rev = re.search(r'\|[^\n|]*大破[^\n|]*\|[^\n|]*特技[^\n|]*\|[\r\n]+\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)', src, re.I)
-        if m_taiha_rev:
-            castle["taihaUrl"] = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_taiha_rev.group(1)}"
+        # 2. &uploader for Taiha
+        m2 = re.search(r'\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*大破[^\n|]*\|', text, re.I)
+        if m2:
+            th = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m2.group(1)}"
         else:
-            m_taiha_tab = re.search(r'\|[^\n|]*&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]+\.(?:png|jpg))[^\)]*\)[^\n|]*\|[^\n|]*&(?:attach)?ref\([^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*大破', src, re.I)
-            if m_taiha_tab:
-                p_part = m_taiha_tab.group(1) or page_name
-                f_part = m_taiha_tab.group(2)
-                castle["taihaUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p_part)}&src={quote(f_part)}"
+            m2_rev = re.search(r'\|[^\n|]*大破[^\n|]*\|[^\n|]*特技[^\n|]*\|[\r\n]+\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)', text, re.I)
+            if m2_rev:
+                th = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m2_rev.group(1)}"
+
+        # 3. &attachref / &ref fallbacks
+        if not bat:
+            m_bat_ref = re.search(r'\|[^\n|]*&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]+\.(?:png|jpg))[^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*城娘', text, re.I)
+            if m_bat_ref:
+                p = m_bat_ref.group(1) or p_name
+                f = m_bat_ref.group(2)
+                bat = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p)}&src={quote(f)}"
+
+        if not oj:
+            m_oj_ref = re.search(r'\|[^\n|]*&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]+\.(?:png|jpg))[^\)]*\)[^\n|]*\|[^\n|]*&(?:attach)?ref\([^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*御嬢', text, re.I)
+            if m_oj_ref:
+                p = m_oj_ref.group(1) or p_name
+                f = m_oj_ref.group(2)
+                oj = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p)}&src={quote(f)}"
             else:
-                m_taiha_ref = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*大破[^\./,\)]*\.(?:png|jpg))', src, re.I)
-                if m_taiha_ref:
-                    p_part = m_taiha_ref.group(1) or page_name
-                    f_part = m_taiha_ref.group(2)
-                    castle["taihaUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p_part)}&src={quote(f_part)}"
+                m_oj_ref2 = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*御嬢[^\./,\)]*\.(?:png|jpg))', text, re.I)
+                if m_oj_ref2:
+                    p = m_oj_ref2.group(1) or p_name
+                    f = m_oj_ref2.group(2)
+                    oj = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p)}&src={quote(f)}"
+
+        if not th:
+            m_th_ref = re.search(r'\|[^\n|]*&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]+\.(?:png|jpg))[^\)]*\)[^\n|]*\|[^\n|]*&(?:attach)?ref\([^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*大破', text, re.I)
+            if m_th_ref:
+                p = m_th_ref.group(1) or p_name
+                f = m_th_ref.group(2)
+                th = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p)}&src={quote(f)}"
+            else:
+                m_th_ref2 = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*大破[^\./,\)]*\.(?:png|jpg))', text, re.I)
+                if m_th_ref2:
+                    p = m_th_ref2.group(1) or p_name
+                    f = m_th_ref2.group(2)
+                    th = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p)}&src={quote(f)}"
+
+        return {"illustUrl": bat, "ojouUrl": oj, "taihaUrl": th}
+
+    # Split wiki into remodel stages under **画像
+    img_idx = src.find("**画像")
+    if img_idx == -1:
+        img_idx = src.find("** 画像")
+    img_text = src[img_idx:] if img_idx != -1 else src
+
+    parts = re.split(r'(\*\*\*+\s*改[壱弐][^\n]*)', img_text)
+    stage_texts = {"無印": parts[0]}
+    cur_stage_name = "無印"
+    for i in range(1, len(parts), 2):
+        hdr = parts[i]
+        cnt = parts[i+1] if i+1 < len(parts) else ""
+        if "改弐" in hdr:
+            cur_stage_name = "改弐"
+        elif "改壱" in hdr:
+            cur_stage_name = "改壱"
+        stage_texts[cur_stage_name] = cnt
+
+    stage_forms = {}
+    for st_name, st_txt in stage_texts.items():
+        imgs = extract_images_from_block(st_txt, page_name)
+        stage_forms[st_name] = imgs
+
+    # Fallbacks: base inherits top header image if missing
+    base_form = stage_forms.get("無印", {})
+    if not base_form.get("illustUrl") and castle["illustUrl"]:
+        base_form["illustUrl"] = castle["illustUrl"]
+
+    # Kai stages inherit base form images if not specially redrawn
+    for st_key in ["改壱", "改弐"]:
+        if st_key in stage_forms:
+            sf = stage_forms[st_key]
+            if not sf.get("illustUrl"):
+                sf["illustUrl"] = base_form.get("illustUrl", "")
+            if not sf.get("ojouUrl"):
+                sf["ojouUrl"] = base_form.get("ojouUrl", "")
+            if not sf.get("taihaUrl"):
+                sf["taihaUrl"] = base_form.get("taihaUrl", "")
+
+    # Check which stages are applicable (from image sections and text mentions)
+    applicable_stages = ["無印"]
+    if "改壱" in stage_forms and (any(stage_forms["改壱"].values()) or "[改壱]" in src or "改壱" in src):
+        applicable_stages.append("改壱")
+    if "改弐" in stage_forms and (any(stage_forms["改弐"].values()) or "[改弐]" in src or "改弐" in src):
+        applicable_stages.append("改弐")
+
+    castle["remodelStages"] = applicable_stages
+    castle["remodelForms"] = stage_forms
+
+    # Set default top-level images to latest stage's images (e.g. Kai2 or Kai1)
+    latest_st = applicable_stages[-1]
+    latest_form = stage_forms.get(latest_st, base_form)
+    castle["illustUrl"] = latest_form.get("illustUrl") or base_form.get("illustUrl") or castle["illustUrl"]
+    castle["ojouUrl"] = latest_form.get("ojouUrl") or base_form.get("ojouUrl") or ""
+    castle["taihaUrl"] = latest_form.get("taihaUrl") or base_form.get("taihaUrl") or ""
 
     # Lore
     m_lore = re.search(r"BGCOLOR\(#[A-Fa-f0-9]+\):CENTER:\'\'図鑑文章\'\'\|[\r\n]+\|>\|>\|>\|>\|([^\n|]+(?:\n[^\n|]+)*)", src)

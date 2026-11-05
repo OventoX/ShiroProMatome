@@ -405,6 +405,16 @@
         <!-- Left: Fullbody Character Art & Lore -->
         <div class="detail-col-left">
           <div class="detail-portrait-card">
+            <!-- Remodel Stage Switcher (無印 / 改壱 / 改弐) -->
+            <div class="remodel-stage-tabs" id="remodelStageTabs">
+              <span class="remodel-tabs-label">改築段階:</span>
+              <div class="remodel-btn-group" id="remodelBtnGroup">
+                <button class="remodel-tab-btn" data-stage="無印">無印</button>
+                <button class="remodel-tab-btn" data-stage="改壱">改壱</button>
+                <button class="remodel-tab-btn active" data-stage="改弐">改弐</button>
+              </div>
+            </div>
+
             <!-- Appearance / Form Switcher Tabs -->
             <div class="portrait-form-tabs" id="portraitFormTabs">
               <button class="form-tab-btn active" data-form="battle" id="btnFormBattle">⚔️ 城娘</button>
@@ -596,7 +606,14 @@
       <div class="image-zoom-header">
         <div class="image-zoom-title-box">
           <span id="zoomCastleName" class="zoom-title-name">大坂城</span>
+          <span id="zoomCastleType" class="type-tag" style="margin-left:6px;">平</span>
           <span id="zoomFormBadge" class="zoom-form-badge">💥 大破姿</span>
+          <!-- Remodel stage in zoom viewer -->
+          <div class="zoom-remodel-group" id="zoomRemodelGroup">
+            <button class="zoom-remodel-btn" data-stage="無印">無印</button>
+            <button class="zoom-remodel-btn" data-stage="改壱">改壱</button>
+            <button class="zoom-remodel-btn active" data-stage="改弐">改弐</button>
+          </div>
         </div>
         <!-- Form Switcher inside Zoom Viewer -->
         <div class="zoom-form-tabs" id="zoomFormTabs">

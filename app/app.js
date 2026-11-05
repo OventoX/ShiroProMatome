@@ -1718,7 +1718,7 @@
     if (nextIdx >= 0 && nextIdx < activeDetailList.length) {
       const nextCastle = activeDetailList[nextIdx];
       if (nextCastle) {
-        openCastleDetail(nextCastle.id || nextCastle.name, activeDetailList);
+        openCastleDetail(nextCastle.id || nextCastle.name, activeDetailList, true);
         const modalBody = document.querySelector(".modal-detail-body");
         if (modalBody) modalBody.scrollTop = 0;
       }
@@ -1727,11 +1727,116 @@
 
   let currentDetailForm = "battle"; // 'battle' | 'ojou' | 'taiha' | 'side_by_side'
   let currentSideCompareMode = "ojou_battle"; // 'ojou_battle' | 'battle_taiha' | 'ojou_taiha' | 'all_three'
+  let currentDetailRemodelStage = "無印"; // '無印' | '改壱' | '改弐'
 
-  function setDetailPortraitForm(form, castle) {
+  function getCastleStageImages(castle, stage) {
+    if (!castle) return { illustUrl: "", ojouUrl: "", taihaUrl: "" };
+    const st = stage || currentDetailRemodelStage || "無印";
+    const forms = castle.remodelForms || {};
+    const stageData = forms[st] || {};
+    const baseData = forms["無印"] || {};
+    return {
+      illustUrl: stageData.illustUrl || baseData.illustUrl || castle.illustUrl || "",
+      ojouUrl: stageData.ojouUrl || baseData.ojouUrl || castle.ojouUrl || "",
+      taihaUrl: stageData.taihaUrl || baseData.taihaUrl || castle.taihaUrl || ""
+    };
+  }
+
+  function renderDetailSkills(c, currentStage) {
+    const skillContainer = document.getElementById("detailSkillContainer");
+    if (!skillContainer) return;
+    const skills = (c.allSkills && c.allSkills.length > 0) ? c.allSkills : (c.skill ? [c.skill] : []);
+    if (skills.length > 0) {
+      let activeIdx = skills.findIndex(s => (s.stage || "無印") === currentStage);
+      if (activeIdx === -1) {
+        if (currentStage === "改弐") activeIdx = skills.findIndex(s => (s.stage || "無印") === "改壱");
+        if (activeIdx === -1) activeIdx = skills.length - 1;
+      }
+      skillContainer.innerHTML = `
+        <div class="ability-stage-list">
+          ${skills.map((sk, idx) => {
+            const isActive = idx === activeIdx;
+            const badgeClass = sk.stage === "改弐" ? "stage-badge kai-2" : (sk.stage === "改壱" ? "stage-badge kai-1" : "stage-badge");
+            return `
+              <div class="ability-stage-card ${isActive ? 'is-latest' : ''}" data-stage="${sk.stage || '無印'}" title="クリックでこの改築段階に切り替え">
+                <div class="ability-stage-header">
+                  <span class="${badgeClass}">[${sk.stage || '無印'}]</span>
+                  <span class="ability-stage-name">${sk.name}</span>
+                  ${isActive ? '<span style="font-size:10px;color:var(--primary-color);margin-left:auto;font-weight:bold;">★適用中</span>' : ''}
+                </div>
+                <div class="ability-stage-text">${sk.text}</div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    } else {
+      skillContainer.innerHTML = `<div style="font-size:11.5px;color:var(--text-muted);">特技なし</div>`;
+    }
+  }
+
+  function renderDetailStrategies(c, currentStage) {
+    const stratBox = document.getElementById("detailStrategyBox");
+    const stratContainer = document.getElementById("detailStrategyContainer");
+    if (!stratContainer) return;
+    const strats = (c.allStrategies && c.allStrategies.length > 0) ? c.allStrategies : (c.strategy ? [c.strategy] : []);
+    if (strats.length > 0) {
+      if (stratBox) stratBox.style.display = "block";
+      let activeIdx = strats.findIndex(s => (s.stage || "無印") === currentStage);
+      if (activeIdx === -1) {
+        if (currentStage === "改弐") activeIdx = strats.findIndex(s => (s.stage || "無印") === "改壱");
+        if (activeIdx === -1) activeIdx = strats.length - 1;
+      }
+      stratContainer.innerHTML = `
+        <div class="ability-stage-list">
+          ${strats.map((st, idx) => {
+            const isActive = idx === activeIdx;
+            const badgeClass = st.stage === "改弐" ? "stage-badge kai-2" : (st.stage === "改壱" ? "stage-badge kai-1" : "stage-badge");
+            return `
+              <div class="ability-stage-card ${isActive ? 'is-latest' : ''}" data-stage="${st.stage || '無印'}" title="クリックでこの改築段階に切り替え">
+                <div class="ability-stage-header">
+                  <span class="${badgeClass}">[${st.stage || '無印'}]</span>
+                  <span class="ability-stage-name">${st.name}</span>
+                  ${isActive ? '<span style="font-size:10px;color:var(--primary-color);margin-left:auto;font-weight:bold;">★適用中</span>' : ''}
+                </div>
+                <div class="ability-stage-text">${st.text}</div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    } else {
+      stratContainer.innerHTML = `<div style="font-size:11.5px;color:var(--text-muted);">計略なし</div>`;
+    }
+  }
+
+  function setDetailRemodelStage(stage) {
+    const c = getCastleById(activeDetailCastleId);
+    if (!c) return;
+    currentDetailRemodelStage = stage;
+    document.querySelectorAll("#remodelBtnGroup .remodel-tab-btn").forEach(b => {
+      b.classList.toggle("active", b.getAttribute("data-stage") === stage);
+    });
+    document.querySelectorAll("#zoomRemodelGroup .zoom-remodel-btn").forEach(b => {
+      b.classList.toggle("active", b.getAttribute("data-stage") === stage);
+    });
+    setDetailPortraitForm(currentDetailForm, c, stage);
+    renderDetailSkills(c, stage);
+    renderDetailStrategies(c, stage);
+    if (zoomCastle && zoomCastle.id === c.id) {
+      updateZoomImage();
+    }
+  }
+
+  function setDetailPortraitForm(form, castle, remodelStage) {
     const c = castle || getCastleById(activeDetailCastleId);
     if (!c) return;
     currentDetailForm = form;
+    if (remodelStage) {
+      currentDetailRemodelStage = remodelStage;
+    }
+    const st = currentDetailRemodelStage || "無印";
+    const imgSet = getCastleStageImages(c, st);
 
     const modalContent = document.querySelector(".modal-detail-content");
     const imgEl = document.getElementById("detailPortraitImg");
@@ -1750,15 +1855,27 @@
       btn.classList.toggle("active", btn.getAttribute("data-form") === form);
     });
 
+    // Update remodel tab buttons
+    document.querySelectorAll("#remodelBtnGroup .remodel-tab-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-stage") === st);
+    });
+
+    const hasOjou = Boolean(imgSet.ojouUrl);
+    const hasTaiha = Boolean(imgSet.taihaUrl);
+
+    // Disable / enable form tabs based on available images for this stage
+    const btnOjou = document.getElementById("btnFormOjou");
+    const btnTaiha = document.getElementById("btnFormTaiha");
+    const btnSideBySide = document.getElementById("btnFormSideBySide");
+    if (btnOjou) btnOjou.disabled = !hasOjou;
+    if (btnTaiha) btnTaiha.disabled = !hasTaiha;
+    if (btnSideBySide) btnSideBySide.disabled = !hasOjou && !hasTaiha;
+
     if (form === "side_by_side") {
       if (modalContent) modalContent.classList.add("side-by-side-mode");
       if (imgEl) imgEl.style.display = "none";
       if (sideContainer) {
         sideContainer.style.display = "flex";
-
-        // Validate current compare mode against castle's available images
-        const hasOjou = Boolean(c.ojouUrl);
-        const hasTaiha = Boolean(c.taihaUrl);
 
         const btnCmpOjouBattle = document.getElementById("btnCmpOjouBattle");
         const btnCmpBattleTaiha = document.getElementById("btnCmpBattleTaiha");
@@ -1789,16 +1906,18 @@
         // Set images
         if (sideImgOjou) {
           sideImgOjou.onerror = function() { this.src = fallbackSrc; };
-          sideImgOjou.src = c.ojouUrl || fallbackSrc;
+          sideImgOjou.src = imgSet.ojouUrl || fallbackSrc;
         }
         if (sideImgBattle) {
           sideImgBattle.onerror = function() { this.src = fallbackSrc; };
-          sideImgBattle.src = c.illustUrl || fallbackSrc;
+          sideImgBattle.src = imgSet.illustUrl || fallbackSrc;
         }
         if (sideImgTaiha) {
           sideImgTaiha.onerror = function() { this.src = fallbackSrc; };
-          sideImgTaiha.src = c.taihaUrl || fallbackSrc;
+          sideImgTaiha.src = imgSet.taihaUrl || fallbackSrc;
         }
+
+        const stageLabel = st ? ` [${st}]` : '';
 
         // Layout display based on currentSideCompareMode
         if (currentSideCompareMode === "all_three") {
@@ -1806,25 +1925,25 @@
           if (colOjou) colOjou.style.display = "block";
           if (colBattle) colBattle.style.display = "block";
           if (colTaiha) colTaiha.style.display = "block";
-          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393;">🌸 御嬢姿</span> ＆ <span style="color:var(--primary-color);">⚔️ 城娘姿</span> ＆ <span style="color:#d63031;">💥 大破姿 (全3形態パノラマ)</span>`;
+          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393;">🌸 御嬢${stageLabel}</span> ＆ <span style="color:var(--primary-color);">⚔️ 城娘${stageLabel}</span> ＆ <span style="color:#d63031;">💥 大破${stageLabel}</span>`;
         } else if (currentSideCompareMode === "battle_taiha") {
           if (modalContent) modalContent.classList.remove("triple-mode");
           if (colOjou) colOjou.style.display = "none";
           if (colBattle) colBattle.style.display = "block";
           if (colTaiha) colTaiha.style.display = "block";
-          if (captionEl) captionEl.innerHTML = `<span style="color:var(--primary-color);">⚔️ 城娘姿 (通常)</span> ＆ <span style="color:#d63031;">💥 大破姿 (被弾)</span>`;
+          if (captionEl) captionEl.innerHTML = `<span style="color:var(--primary-color);">⚔️ 城娘姿${stageLabel} (通常)</span> ＆ <span style="color:#d63031;">💥 大破姿${stageLabel} (被弾)</span>`;
         } else if (currentSideCompareMode === "ojou_taiha") {
           if (modalContent) modalContent.classList.remove("triple-mode");
           if (colOjou) colOjou.style.display = "block";
           if (colBattle) colBattle.style.display = "none";
           if (colTaiha) colTaiha.style.display = "block";
-          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393;">🌸 御嬢姿 (私服)</span> ＆ <span style="color:#d63031;">💥 大破姿 (被弾)</span>`;
+          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393;">🌸 御嬢姿${stageLabel} (私服)</span> ＆ <span style="color:#d63031;">💥 大破姿${stageLabel} (被弾)</span>`;
         } else { // ojou_battle
           if (modalContent) modalContent.classList.remove("triple-mode");
           if (colOjou) colOjou.style.display = "block";
           if (colBattle) colBattle.style.display = "block";
           if (colTaiha) colTaiha.style.display = "none";
-          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393;">🌸 御嬢姿 (私服)</span> ＆ <span style="color:var(--primary-color);">⚔️ 城娘姿 (戦闘)</span>`;
+          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393;">🌸 御嬢姿${stageLabel} (私服)</span> ＆ <span style="color:var(--primary-color);">⚔️ 城娘姿${stageLabel} (戦闘)</span>`;
         }
       }
     } else {
@@ -1836,15 +1955,16 @@
       if (imgEl) {
         imgEl.style.display = "block";
         imgEl.onerror = function() { this.src = fallbackSrc; };
+        const stageLabel = st ? ` [${st}]` : '';
         if (form === "ojou") {
-          imgEl.src = c.ojouUrl || fallbackSrc;
-          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393; font-weight:bold;">🌸 御嬢姿 (私服・日常)</span>`;
+          imgEl.src = imgSet.ojouUrl || fallbackSrc;
+          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393; font-weight:bold;">🌸 御嬢姿${stageLabel} (私服・日常)</span>`;
         } else if (form === "taiha") {
-          imgEl.src = c.taihaUrl || fallbackSrc;
-          if (captionEl) captionEl.innerHTML = `<span style="color:#d63031; font-weight:bold;">💥 大破姿 (戦闘不能)</span>`;
+          imgEl.src = imgSet.taihaUrl || fallbackSrc;
+          if (captionEl) captionEl.innerHTML = `<span style="color:#d63031; font-weight:bold;">💥 大破姿${stageLabel} (戦闘不能)</span>`;
         } else {
-          imgEl.src = c.illustUrl || fallbackSrc;
-          if (captionEl) captionEl.innerHTML = `<span style="color:var(--primary-color); font-weight:bold;">⚔️ 城娘姿 (通常・戦闘)</span>`;
+          imgEl.src = imgSet.illustUrl || fallbackSrc;
+          if (captionEl) captionEl.innerHTML = `<span style="color:var(--primary-color); font-weight:bold;">⚔️ 城娘姿${stageLabel} (通常・戦闘)</span>`;
         }
       }
     }
@@ -1896,17 +2016,21 @@
       typeEl.className = `type-tag ${zoomCastle.castleType || "無"}`;
     }
 
-    let src = zoomCastle.illustUrl || fallbackSrc;
-    let badgeText = "⚔️ 城娘姿 (通常)";
+    const st = currentDetailRemodelStage || "無印";
+    const imgSet = getCastleStageImages(zoomCastle, st);
+    const stageLabel = st ? ` [${st}]` : '';
+
+    let src = imgSet.illustUrl || fallbackSrc;
+    let badgeText = `⚔️ 城娘姿${stageLabel} (通常)`;
     let badgeColor = "var(--primary-color)";
 
     if (zoomForm === "ojou") {
-      src = zoomCastle.ojouUrl || fallbackSrc;
-      badgeText = "🌸 御嬢姿 (私服)";
+      src = imgSet.ojouUrl || fallbackSrc;
+      badgeText = `🌸 御嬢姿${stageLabel} (私服)`;
       badgeColor = "#e84393";
     } else if (zoomForm === "taiha") {
-      src = zoomCastle.taihaUrl || fallbackSrc;
-      badgeText = "💥 大破姿 (戦闘不能)";
+      src = imgSet.taihaUrl || fallbackSrc;
+      badgeText = `💥 大破姿${stageLabel} (戦闘不能)`;
       badgeColor = "#d63031";
     }
 
@@ -1923,8 +2047,13 @@
     document.querySelectorAll("#zoomFormTabs .zoom-tab-btn").forEach(btn => {
       const f = btn.getAttribute("data-form");
       btn.classList.toggle("active", f === zoomForm);
-      if (f === "ojou") btn.disabled = !zoomCastle.ojouUrl;
-      if (f === "taiha") btn.disabled = !zoomCastle.taihaUrl;
+      if (f === "ojou") btn.disabled = !imgSet.ojouUrl;
+      if (f === "taiha") btn.disabled = !imgSet.taihaUrl;
+    });
+
+    // Update zoom remodel buttons
+    document.querySelectorAll("#zoomRemodelGroup .zoom-remodel-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-stage") === st);
     });
   }
 
@@ -1936,8 +2065,22 @@
     if (zoomForm === "side_by_side") {
       zoomForm = (currentSideCompareMode === "battle_taiha") ? "taiha" : "battle";
     }
-    if (zoomForm === "ojou" && !c.ojouUrl) zoomForm = "battle";
-    if (zoomForm === "taiha" && !c.taihaUrl) zoomForm = "battle";
+
+    const stages = (c.remodelStages && c.remodelStages.length > 0) ? c.remodelStages : ["無印"];
+    if (!currentDetailRemodelStage || !stages.includes(currentDetailRemodelStage)) {
+      currentDetailRemodelStage = stages[stages.length - 1];
+    }
+
+    const zoomRemodelGroup = document.getElementById("zoomRemodelGroup");
+    if (zoomRemodelGroup) {
+      zoomRemodelGroup.innerHTML = stages.map(st => `
+        <button type="button" class="zoom-remodel-btn ${st === currentDetailRemodelStage ? 'active' : ''}" data-stage="${st}">${st}</button>
+      `).join("");
+    }
+
+    const imgSet = getCastleStageImages(c, currentDetailRemodelStage);
+    if (zoomForm === "ojou" && !imgSet.ojouUrl) zoomForm = "battle";
+    if (zoomForm === "taiha" && !imgSet.taihaUrl) zoomForm = "battle";
 
     updateZoomImage();
     resetZoomTransform(true);
@@ -1951,10 +2094,14 @@
     if (modal) modal.style.display = "none";
   }
 
-  function openCastleDetail(castleId, customList) {
+  function openCastleDetail(castleId, customList, keepForm) {
     const c = getCastleById(castleId);
     if (!c) return;
     activeDetailCastleId = c.id;
+
+    if (!keepForm) {
+      currentDetailForm = "battle";
+    }
 
     if (customList && Array.isArray(customList) && customList.length > 0) {
       activeDetailList = customList;
@@ -1996,24 +2143,43 @@
     const wikiBtn = document.getElementById("btnDetailWikiLink");
     wikiBtn.href = `https://scre.swiki.jp/index.php?${encodeURIComponent(c.name)}`;
 
+    // Remodel Stage Switcher (無印 / 改壱 / 改弐)
+    const stages = (c.remodelStages && c.remodelStages.length > 0) ? c.remodelStages : ["無印"];
+    currentDetailRemodelStage = stages[stages.length - 1];
+
+    const remodelGroup = document.getElementById("remodelBtnGroup");
+    if (remodelGroup) {
+      remodelGroup.innerHTML = stages.map(st => `
+        <button type="button" class="remodel-tab-btn ${st === currentDetailRemodelStage ? 'active' : ''}" data-stage="${st}">${st}</button>
+      `).join("");
+    }
+    const zoomRemodelGroup = document.getElementById("zoomRemodelGroup");
+    if (zoomRemodelGroup) {
+      zoomRemodelGroup.innerHTML = stages.map(st => `
+        <button type="button" class="zoom-remodel-btn ${st === currentDetailRemodelStage ? 'active' : ''}" data-stage="${st}">${st}</button>
+      `).join("");
+    }
+
+    const imgSet = getCastleStageImages(c, currentDetailRemodelStage);
+
     // Left Column: Fullbody Illustration & Form Switcher (城娘 / 御嬢 / 大破)
     const btnBattle = document.getElementById("btnFormBattle");
     const btnOjou = document.getElementById("btnFormOjou");
     const btnTaiha = document.getElementById("btnFormTaiha");
     const btnSideBySide = document.getElementById("btnFormSideBySide");
 
-    if (btnOjou) btnOjou.disabled = !c.ojouUrl;
-    if (btnTaiha) btnTaiha.disabled = !c.taihaUrl;
-    if (btnSideBySide) btnSideBySide.disabled = !c.ojouUrl && !c.taihaUrl;
+    if (btnOjou) btnOjou.disabled = !imgSet.ojouUrl;
+    if (btnTaiha) btnTaiha.disabled = !imgSet.taihaUrl;
+    if (btnSideBySide) btnSideBySide.disabled = !imgSet.ojouUrl && !imgSet.taihaUrl;
 
     // Reset to battle form if current mode is unavailable
-    if ((currentDetailForm === "ojou" && !c.ojouUrl) ||
-        (currentDetailForm === "taiha" && !c.taihaUrl) ||
-        (currentDetailForm === "side_by_side" && !c.ojouUrl && !c.taihaUrl)) {
+    if ((currentDetailForm === "ojou" && !imgSet.ojouUrl) ||
+        (currentDetailForm === "taiha" && !imgSet.taihaUrl) ||
+        (currentDetailForm === "side_by_side" && !imgSet.ojouUrl && !imgSet.taihaUrl)) {
       currentDetailForm = "battle";
     }
 
-    setDetailPortraitForm(currentDetailForm, c);
+    setDetailPortraitForm(currentDetailForm, c, currentDetailRemodelStage);
 
     // Meta Info (イラストレーター / 声優 / 令制国)
     const metaEl = document.getElementById("detailMetaInfo");
@@ -2054,58 +2220,10 @@
     `;
 
     // Skills (特技一覧: [無印], [改壱], [改弐])
-    const skillContainer = document.getElementById("detailSkillContainer");
-    const skills = (c.allSkills && c.allSkills.length > 0) ? c.allSkills : (c.skill ? [c.skill] : []);
-    if (skills.length > 0) {
-      skillContainer.innerHTML = `
-        <div class="ability-stage-list">
-          ${skills.map((sk, idx) => {
-            const isLatest = idx === skills.length - 1;
-            const badgeClass = sk.stage === "改弐" ? "stage-badge kai-2" : (sk.stage === "改壱" ? "stage-badge kai-1" : "stage-badge");
-            return `
-              <div class="ability-stage-card ${isLatest ? 'is-latest' : ''}">
-                <div class="ability-stage-header">
-                  <span class="${badgeClass}">[${sk.stage || '無印'}]</span>
-                  <span class="ability-stage-name">${sk.name}</span>
-                  ${isLatest ? '<span style="font-size:10px;color:var(--primary-color);margin-left:auto;font-weight:bold;">★適用中</span>' : ''}
-                </div>
-                <div class="ability-stage-text">${sk.text}</div>
-              </div>
-            `;
-          }).join("")}
-        </div>
-      `;
-    } else {
-      skillContainer.innerHTML = `<div style="font-size:11.5px;color:var(--text-muted);">特技なし</div>`;
-    }
+    renderDetailSkills(c, currentDetailRemodelStage);
 
     // Strategies (計略一覧)
-    const stratBox = document.getElementById("detailStrategyBox");
-    const stratContainer = document.getElementById("detailStrategyContainer");
-    const strats = (c.allStrategies && c.allStrategies.length > 0) ? c.allStrategies : (c.strategy ? [c.strategy] : []);
-    if (strats.length > 0) {
-      stratBox.style.display = "block";
-      stratContainer.innerHTML = `
-        <div class="ability-stage-list">
-          ${strats.map((st, idx) => {
-            const isLatest = idx === strats.length - 1;
-            const badgeClass = st.stage === "改弐" ? "stage-badge kai-2" : (st.stage === "改壱" ? "stage-badge kai-1" : "stage-badge");
-            return `
-              <div class="ability-stage-card ${isLatest ? 'is-latest' : ''}">
-                <div class="ability-stage-header">
-                  <span class="${badgeClass}">[${st.stage || '無印'}]</span>
-                  <span class="ability-stage-name">${st.name}</span>
-                  ${isLatest ? '<span style="font-size:10px;color:var(--primary-color);margin-left:auto;font-weight:bold;">★適用中</span>' : ''}
-                </div>
-                <div class="ability-stage-text">${st.text}</div>
-              </div>
-            `;
-          }).join("")}
-        </div>
-      `;
-    } else {
-      stratContainer.innerHTML = `<div style="font-size:11.5px;color:var(--text-muted);">計略なし</div>`;
-    }
+    renderDetailStrategies(c, currentDetailRemodelStage);
 
     // Specials (特殊能力)
     const specBox = document.getElementById("detailSpecialBox");
@@ -2228,6 +2346,48 @@
   if (modalDetailOwnedBtn) {
     modalDetailOwnedBtn.addEventListener("click", () => {
       if (activeDetailCastleId) toggleOwned(activeDetailCastleId);
+    });
+  }
+
+  // Remodel Stage Switcher Tabs (無印 / 改壱 / 改弐)
+  const remodelBtnGroup = document.getElementById("remodelBtnGroup");
+  if (remodelBtnGroup) {
+    remodelBtnGroup.addEventListener("click", e => {
+      const btn = e.target.closest(".remodel-tab-btn");
+      if (!btn || btn.disabled) return;
+      const st = btn.getAttribute("data-stage");
+      if (st) setDetailRemodelStage(st);
+    });
+  }
+
+  // Remodel Stage Switcher in Fullscreen Zoom Viewer
+  const zoomRemodelGroup = document.getElementById("zoomRemodelGroup");
+  if (zoomRemodelGroup) {
+    zoomRemodelGroup.addEventListener("click", e => {
+      const btn = e.target.closest(".zoom-remodel-btn");
+      if (!btn || btn.disabled) return;
+      const st = btn.getAttribute("data-stage");
+      if (st) setDetailRemodelStage(st);
+    });
+  }
+
+  // Click on ability stage card in detail modal to switch remodel stage
+  const detailSkillContainer = document.getElementById("detailSkillContainer");
+  if (detailSkillContainer) {
+    detailSkillContainer.addEventListener("click", e => {
+      const card = e.target.closest(".ability-stage-card");
+      if (!card) return;
+      const st = card.getAttribute("data-stage");
+      if (st) setDetailRemodelStage(st);
+    });
+  }
+  const detailStrategyContainer = document.getElementById("detailStrategyContainer");
+  if (detailStrategyContainer) {
+    detailStrategyContainer.addEventListener("click", e => {
+      const card = e.target.closest(".ability-stage-card");
+      if (!card) return;
+      const st = card.getAttribute("data-stage");
+      if (st) setDetailRemodelStage(st);
     });
   }
 

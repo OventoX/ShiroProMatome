@@ -1071,6 +1071,100 @@ body {
   transition: width 0.25s ease;
 }
 
+/* Remodel Stage Switcher (無印 / 改壱 / 改弐) */
+.remodel-stage-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 6px;
+  background: #fdfaf6;
+  border: 1px solid #e8dbcf;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.remodel-tabs-label {
+  font-size: 11px;
+  font-weight: bold;
+  color: #8c5b3f;
+  margin-right: 6px;
+  white-space: nowrap;
+}
+
+.remodel-btn-group {
+  display: flex;
+  gap: 4px;
+}
+
+.remodel-tab-btn {
+  border: 1px solid #d4bda8;
+  background: #fff;
+  color: #665;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.remodel-tab-btn:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: #fffdfb;
+}
+
+.remodel-tab-btn.active {
+  background: linear-gradient(135deg, #b83b3b 0%, #8b1e1e 100%);
+  color: #fff;
+  border-color: #8b1e1e;
+  box-shadow: 0 1px 4px rgba(139, 30, 30, 0.3);
+}
+
+.remodel-tab-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Remodel Stage Switcher inside Fullscreen Zoom Viewer */
+.zoom-remodel-group {
+  display: flex;
+  gap: 4px;
+  margin-left: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 2px 4px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.zoom-remodel-btn {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.zoom-remodel-btn:hover:not(:disabled) {
+  color: #fff;
+}
+
+.zoom-remodel-btn.active {
+  background: #b83b3b;
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.zoom-remodel-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
 /* Portrait Form Switcher Tabs (城娘 / 御嬢 / 大破 / 並べて表示) */
 .portrait-form-tabs {
   display: flex;
@@ -1584,6 +1678,13 @@ body {
   padding: 8px 10px;
   background: #fdfdfc;
   line-height: 1.45;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.ability-stage-card:hover {
+  border-color: #c49c74;
+  background: #fffdf9;
 }
 
 .ability-stage-card.is-latest {
