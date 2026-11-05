@@ -3351,6 +3351,10 @@
       src = imgSet.tokugiUrl || fallbackSrc;
       badgeText = `⚡ 特技姿${stageLabel} (カットイン)`;
       badgeColor = "#d97706";
+    } else if (zoomForm === "photo") {
+      src = (zoomCastle.realCastle && zoomCastle.realCastle.photoUrl) || fallbackSrc;
+      badgeText = `🏯 実在の城: ${zoomCastle.realCastle ? zoomCastle.realCastle.name : zoomCastle.name}`;
+      badgeColor = "#2980b9";
     }
 
     if (targetImg) {
@@ -3531,7 +3535,7 @@
         realContent.innerHTML = `
           <div class="real-castle-card">
             <div class="real-castle-photo-wrap">
-              <a href="${escapeHtml(rc.photoUrl)}" target="_blank" rel="noopener noreferrer" title="クリックで写真を開く">
+              <a href="${escapeHtml(rc.photoUrl)}" data-action="zoom-real-castle" title="クリックで写真の拡大ビューアを開く">
                 <img src="${escapeHtml(rc.photoUrl)}" alt="${escapeHtml(rc.name)}" class="real-castle-photo" loading="lazy" onerror="const box = document.getElementById('detailRealCastleBox'); if(box) box.style.display='none';" />
               </a>
             </div>
@@ -3811,6 +3815,17 @@
   if (btnPortraitZoom) {
     btnPortraitZoom.addEventListener("click", () => openImageZoom(null, currentDetailForm));
   }
+  const detailRealCastleBox = document.getElementById("detailRealCastleBox");
+  if (detailRealCastleBox) {
+    detailRealCastleBox.addEventListener("click", e => {
+      const a = e.target.closest('[data-action="zoom-real-castle"]');
+      if (a) {
+        e.preventDefault();
+        openImageZoom(null, "photo");
+      }
+    });
+  }
+
   const detailPortraitImg = document.getElementById("detailPortraitImg");
   if (detailPortraitImg) {
     detailPortraitImg.addEventListener("click", () => openImageZoom(null, currentDetailForm));

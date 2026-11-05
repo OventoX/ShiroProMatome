@@ -2242,6 +2242,18 @@ async function runTests() {
     await page.screenshot({ path: realModalScreenshotPath, fullPage: false });
     console.log('Saved real_castle_modal.png');
 
+    // Test clicking photo to open existing zoom lightbox
+    await page.click('#detailRealCastleContent [data-action="zoom-real-castle"]');
+    await new Promise(r => setTimeout(r, 400));
+    const isZoomOpen = await page.$eval('#modalImageZoom', el => el.style.display !== 'none');
+    const zoomBadgeText = await page.$eval('#zoomFormBadge', el => el.textContent.trim());
+    console.log('Real castle zoom lightbox open:', isZoomOpen, 'badge:', zoomBadgeText);
+    if (!isZoomOpen || !zoomBadgeText.includes('姫路城')) {
+      throw new Error('TEST 39 FAILED: Real castle photo zoom lightbox not opened properly');
+    }
+    await page.keyboard.press('Escape');
+    await new Promise(r => setTimeout(r, 300));
+
     // Close modal
     await page.click('#modalDetailCloseBtn');
     await new Promise(r => setTimeout(r, 300));
