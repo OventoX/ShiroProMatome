@@ -32,6 +32,7 @@
           <span style="font-weight:bold; font-size:12px; color:var(--text-sub); display:flex; align-items:center;">部隊:</span>
           <div id="presetButtonsList" class="preset-buttons-container"></div>
           <button class="btn btn-sm" id="btnRenamePreset" title="現在の編成プリセット名を変更" style="padding: 2px 7px; font-size: 11px;">✏️ 名前変更</button>
+          <button class="btn btn-sm" id="btnOpenPresetCompare" title="2つの部隊プリセットのバフやコストを並べて比較" style="padding: 2px 7px; font-size: 11px;">⚖️ 部隊比較</button>
         </div>
 
         <!-- Terrain and Summary Controls -->
@@ -58,6 +59,7 @@
             総消費気: <strong>---</strong>
           </div>
           <button class="btn btn-primary btn-sm" id="btnExportImage" style="font-size: 11.5px; font-weight: bold; background: #2c6f4f; border-color: #24583e;" title="Twitter/X共有用の高画質編成サマリー画像を保存">📸 画像書き出し</button>
+          <button class="btn btn-sm" id="btnShareLink" style="font-size: 11px; padding: 3px 8px;" title="現在の編成・地形・計略状態をURLハッシュで共有">🔗 共有リンク</button>
           <button class="btn btn-sm" id="btnEmptyParty" style="font-size: 11px; padding: 3px 8px;">空にする</button>
         </div>
       </div>
@@ -111,6 +113,57 @@
           </div>
         </div>
       </div>
+
+      <!-- Giantize Timeline Simulation Section -->
+      <section class="section-box" id="sectionGiantizeSim" style="margin-top: 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" id="giantizeSimHeader">
+          <div class="section-title" style="margin-bottom:0;">
+            ⏱️ 出撃・配置順 & 巨大化シミュレータ
+            <span style="font-size:11px; font-weight:normal; color:var(--text-sub); margin-left:6px;">気の自然増加と巨大化タイミングを時系列でシミュレーション</span>
+          </div>
+          <button class="btn btn-sm" id="btnToggleGiantizeSim" style="font-size:11px; padding:2px 8px;">展開 ▾</button>
+        </div>
+        <div id="giantizeSimBody" style="display:none; margin-top:10px;">
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; background:#f7f9fa; padding:8px 12px; border-radius:6px; margin-bottom:10px;">
+            <div style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
+              <strong>初期気:</strong>
+              <input type="number" id="simInitialKi" class="input-text" value="30" style="width:60px; padding:2px 6px; font-size:11.5px;">
+            </div>
+            <div style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
+              <strong>自然気増加速度:</strong>
+              <select id="simKiRate" class="btn btn-sm" style="font-size:11px;">
+                <option value="1">通常 (1気 / 秒)</option>
+                <option value="1.2">気生成トークン有 (1.2気 / 秒)</option>
+                <option value="1.5">気生成重複 (1.5気 / 秒)</option>
+              </select>
+            </div>
+            <div style="font-size:11.5px; display:flex; align-items:center; gap:4px;">
+              <strong>優先手順:</strong>
+              <select id="simPriorityMode" class="btn btn-sm" style="font-size:11px;">
+                <option value="ki_first">気生成・軽減役を最優先巨大化 (推奨)</option>
+                <option value="order">スロット配置順 (1〜8)</option>
+              </select>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnRunGiantizeSim" style="font-size:11px; font-weight:bold; padding:3px 10px;">再計算 ⚡</button>
+          </div>
+          <div id="giantizeSimSummary" style="font-size:12px; font-weight:bold; color:var(--primary-color); margin-bottom:8px;"></div>
+          <div style="max-height:260px; overflow-y:auto; border:1px solid #e1e8ed; border-radius:4px;">
+            <table class="giantize-sim-table">
+              <thead>
+                <tr>
+                  <th style="width:70px;">経過時間</th>
+                  <th style="width:85px;">種別</th>
+                  <th>城娘</th>
+                  <th style="width:70px;">消費気</th>
+                  <th style="width:70px;">残気</th>
+                  <th>状況・効果</th>
+                </tr>
+              </thead>
+              <tbody id="giantizeSimTbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Tab 2: 一覧 -->
@@ -176,6 +229,12 @@
               <option value="special_ct">計略再使用時間 短縮</option>
               <option value="special_ki">気増加 / 気消費軽減</option>
             </optgroup>
+          </select>
+          <select id="filterOwnership" class="btn" style="flex: 1; min-width: 110px; font-weight: bold; background: #fdfaf6;">
+            <option value="">所持 (すべて)</option>
+            <option value="owned">所持のみ</option>
+            <option value="not_owned">未所持のみ</option>
+            <option value="fav">★お気に入りのみ</option>
           </select>
         </div>
       </div>
@@ -253,6 +312,19 @@
         </section>
 
         <section class="section-box">
+          <div class="section-title">所持城娘・お気に入り管理</div>
+          <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 8px;">
+            現在の所持状況: <strong><span id="ownershipCount" style="color:var(--primary-color);">0</span> / <span id="ownershipTotal">1,161</span>体</strong> (★お気に入り: <strong><span id="favoritesCount" style="color:#f39c12;">0</span>体</strong>)
+          </p>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="btn btn-sm btn-primary" id="btnBulkOwnR7" style="font-size:11px;">★7城娘を一括所持</button>
+            <button class="btn btn-sm" id="btnBulkOwnR6R7" style="font-size:11px;">★6〜★7を一括所持</button>
+            <button class="btn btn-sm" id="btnBulkOwnAll" style="font-size:11px;">全城娘を所持に設定</button>
+            <button class="btn btn-sm" id="btnBulkClearOwned" style="font-size:11px; color:#c93434;">所持状態を全解除</button>
+          </div>
+        </section>
+
+        <section class="section-box">
           <div class="section-title">アプリ情報</div>
           <div style="font-size: 12px; color: var(--text-sub); line-height: 1.6;">
             ・城プロRE 編成補助ツール (PCワイド統合版)<br>
@@ -313,6 +385,8 @@
           <div class="detail-badges" id="detailBadges"></div>
         </div>
         <div class="detail-header-actions">
+          <button id="modalDetailFavBtn" class="btn btn-fav" style="font-size: 18px; padding: 3px 6px;" title="お気に入り切替">☆</button>
+          <button id="modalDetailOwnedBtn" class="btn btn-owned" style="font-size: 11px; padding: 4px 8px;" title="所持切替">未所持</button>
           <button id="btnDetailToggleParty" class="btn btn-primary" style="font-size: 11.5px; font-weight: bold; padding: 5px 12px;">+ 編成に追加</button>
           <a id="btnDetailWikiLink" href="#" target="_blank" rel="noopener noreferrer" class="btn" style="text-decoration: none; font-size: 11.5px; background: #fff; border: 1px solid #ccc; color: #333; padding: 5px 10px;">Wikiで見る ↗</a>
           <button id="modalDetailCloseBtn" class="modal-close-x">&times;</button>
@@ -409,6 +483,62 @@
           </div>
           <button class="btn btn-primary btn-sm" id="btnFilterForStage" style="font-weight:bold; flex-shrink:0;">おすすめ城娘を絞り込む 🔍</button>
         </div>
+
+        <!-- Auto Suggest Party Section -->
+        <div style="background:#eef6fc; border:1px solid #bed8f0; border-radius:6px; padding:10px 12px; margin-top:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <div>
+              <div style="font-weight:bold; color:#185a9d; font-size:12.5px;">✨ ステージ適合 自動編成サジェスト</div>
+              <div style="font-size:11px; color:#555;">地形一致・審議回避・必須役割（気生成・状態異常対策・火力・支援）を満たす8体を自動選出します。</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <label style="font-size:11px; color:#333; display:inline-flex; align-items:center; gap:4px; cursor:pointer;">
+                <input type="checkbox" id="chkAutoSuggestOwnedOnly"> 所持内から優先
+              </label>
+              <button class="btn btn-primary btn-sm" id="btnAutoSuggestParty" style="font-weight:bold; background:#185a9d; border-color:#134475;">自動編成を生成 ⚡</button>
+            </div>
+          </div>
+          <div id="autoSuggestResultContainer" style="display:none; margin-top:10px; background:#fff; border:1px solid #bed8f0; border-radius:6px; padding:10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <strong style="font-size:12px; color:#185a9d;">自動選出された8体編成:</strong>
+              <div id="autoSuggestStatsBadge" style="font-size:11px; color:#666;"></div>
+            </div>
+            <div id="autoSuggestPartyList" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:6px; margin-bottom:8px;"></div>
+            <div id="autoSuggestSummaryText" style="font-size:11px; color:#444; line-height:1.4; margin-bottom:10px; background:#f9fbfe; padding:6px 8px; border-radius:4px;"></div>
+            <div style="display:flex; justify-content:flex-end; gap:8px;">
+              <button class="btn btn-sm" id="btnCancelAutoSuggest">キャンセル</button>
+              <button class="btn btn-primary btn-sm" id="btnApplyAutoSuggest" style="background:#2c6f4f; font-weight:bold;">この編成を反映する ✓</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Preset Comparison (部隊プリセット比較モーダル) -->
+  <div class="modal-overlay" id="modalPresetCompare">
+    <div class="modal-content" style="max-width: 820px;">
+      <div class="modal-header" style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);">
+        <div>
+          <span style="font-weight:bold; font-size:16px;">部隊プリセット比較</span>
+          <span style="font-size:11.5px; color:#bdc3c7; margin-left:8px;">2つの部隊のバフ・ステータス・消費気を差分比較</span>
+        </div>
+        <button id="modalCompareCloseBtn" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 16px;">
+        <div class="compare-selector-row">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <strong style="font-size:12px; color:#2980b9;">比較元 (A):</strong>
+            <select id="comparePresetA" class="btn btn-sm" style="font-weight:bold;"></select>
+          </div>
+          <div style="font-size:16px; font-weight:bold; color:#7f8c8d;">VS</div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <strong style="font-size:12px; color:#e67e22;">比較先 (B):</strong>
+            <select id="comparePresetB" class="btn btn-sm" style="font-weight:bold;"></select>
+          </div>
+        </div>
+
+        <div id="compareContentContainer" style="margin-top:12px;"></div>
       </div>
     </div>
   </div>

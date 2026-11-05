@@ -74,6 +74,92 @@
     }
   }
 
+  // ==========================================
+  // Ownership & Favorites Management (Feature 1)
+  // ==========================================
+  const OWNERSHIP_STORAGE_KEY = "scre-helper:ownership:v1";
+  let ownership = {
+    owned: new Set(),
+    favorites: new Set()
+  };
+
+  function loadOwnership() {
+    try {
+      const saved = localStorage.getItem(OWNERSHIP_STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed.owned)) ownership.owned = new Set(parsed.owned);
+        if (Array.isArray(parsed.favorites)) ownership.favorites = new Set(parsed.favorites);
+      }
+    } catch (e) {
+      console.warn("Ownership load error:", e);
+    }
+    updateOwnershipUI();
+  }
+
+  function saveOwnership() {
+    try {
+      const data = {
+        owned: Array.from(ownership.owned),
+        favorites: Array.from(ownership.favorites)
+      };
+      localStorage.setItem(OWNERSHIP_STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {
+      console.warn("Ownership save error:", e);
+    }
+    updateOwnershipUI();
+  }
+
+  function updateOwnershipUI() {
+    const countEl = document.getElementById("ownershipCount");
+    if (countEl) countEl.textContent = ownership.owned.size.toLocaleString();
+    const favEl = document.getElementById("favoritesCount");
+    if (favEl) favEl.textContent = ownership.favorites.size.toLocaleString();
+    const totalEl = document.getElementById("ownershipTotal");
+    if (totalEl && window.SCRE_DATA) totalEl.textContent = window.SCRE_DATA.length.toLocaleString();
+  }
+
+  function toggleOwned(castleId) {
+    if (ownership.owned.has(castleId)) {
+      ownership.owned.delete(castleId);
+    } else {
+      ownership.owned.add(castleId);
+    }
+    saveOwnership();
+    renderAllCastles();
+    if (activeDetailCastleId === castleId) {
+      const c = getCastleById(castleId);
+      if (c) updateModalDetailOwnershipUI(c);
+    }
+  }
+
+  function toggleFavorite(castleId) {
+    if (ownership.favorites.has(castleId)) {
+      ownership.favorites.delete(castleId);
+    } else {
+      ownership.favorites.add(castleId);
+    }
+    saveOwnership();
+    renderAllCastles();
+    if (activeDetailCastleId === castleId) {
+      const c = getCastleById(castleId);
+      if (c) updateModalDetailOwnershipUI(c);
+    }
+  }
+
+  // Toast Notification Helper
+  function showNotification(msg) {
+    let toast = document.querySelector(".toast-notification");
+    if (toast) toast.remove();
+    toast = document.createElement("div");
+    toast.className = "toast-notification";
+    toast.innerHTML = `<span>✓</span><span>${msg}</span>`;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      if (toast.parentNode) toast.remove();
+    }, 2800);
+  }
+
   function switchPreset(idx) {
     if (idx < 0 || idx >= partyPresets.length) return;
     currentPresetIdx = idx;
@@ -174,8 +260,8 @@
   // ==========================================
   // Calculation Engine
   // ==========================================
-  function calculateBuffs() {
-    const activePartyMembers = party.map(slot => {
+  function calculateBuffs(targetParty = party, targetTerrain = currentTerrain) {
+    const activePartyMembers = targetParty.map(slot => {
       const castle = getCastleById(slot.id);
       return { slot, castle };
     }).filter(x => x.castle !== null);
@@ -301,7 +387,7 @@
       });
 
       // Terrain matching check
-      const isTerrainMatch = Boolean(currentTerrain && castle.attributes && castle.attributes.includes(currentTerrain));
+      const isTerrainMatch = Boolean(targetTerrain && castle.attributes && castle.attributes.includes(targetTerrain));
       const terrainMult = isTerrainMatch ? 1.25 : 1.0;
 
       const effectiveAtk = Math.floor((base.atk * terrainMult) * (1 + atkPerc) + b.atkFlat.sum + shareAtk);
@@ -352,7 +438,7 @@
       }
     }
 
-    return { perCastle, enemyDebuffs, activePartyMembers, totalDeployCost, totalGiantCost, matchCount, currentTerrain };
+    return { perCastle, enemyDebuffs, activePartyMembers, totalDeployCost, totalGiantCost, matchCount, terrainMatchCount: matchCount, currentTerrain: targetTerrain };
   }
 
   // ==========================================
@@ -382,6 +468,10 @@
     renderPartyTab(calcResult);
     renderBuffGrid(calcResult);
     renderMissingSidebar(calcResult);
+    const simBody = document.getElementById("giantizeSimBody");
+    if (simBody && simBody.style.display !== "none") {
+      calculateGiantizeSimulation();
+    }
   }
 
   // 1. Render Party Slots (Showing dynamic live stats & Terrain Matching)
@@ -944,6 +1034,7 @@
     const filterType = document.getElementById("filterType").value;
     const filterWeapon = document.getElementById("filterWeapon").value;
     const filterBuff = document.getElementById("filterBuffCategory") ? document.getElementById("filterBuffCategory").value : "";
+    const filterOwnership = document.getElementById("filterOwnership") ? document.getElementById("filterOwnership").value : "";
 
     listEl.innerHTML = "";
 
@@ -961,6 +1052,13 @@
         }
       }
       if (filterWeapon && c.weapon !== filterWeapon) return false;
+
+      // Ownership & Favorites Filter
+      if (filterOwnership) {
+        if (filterOwnership === "owned" && !ownership.owned.has(c.id)) return false;
+        if (filterOwnership === "not_owned" && ownership.owned.has(c.id)) return false;
+        if (filterOwnership === "fav" && !ownership.favorites.has(c.id)) return false;
+      }
 
       // Reverse Buff / Effect Filter
       if (filterBuff) {
@@ -1057,6 +1155,9 @@
 
     pageItems.forEach(c => {
       const inParty = party.some(p => p.id === c.id);
+      const isFav = ownership.favorites.has(c.id);
+      const isOwned = ownership.owned.has(c.id);
+
       const row = document.createElement("div");
       row.className = "castle-list-item";
       row.setAttribute("data-id", c.id);
@@ -1080,6 +1181,8 @@
           <div class="castle-item-header">
             <div class="castle-item-title">${c.name}</div>
             <div class="castle-item-badges">
+              <button class="btn-fav ${isFav ? 'active' : ''}" data-action="toggle-fav" data-id="${c.id}" title="お気に入り切替">${isFav ? '★' : '☆'}</button>
+              <button class="btn-owned ${isOwned ? 'active' : ''}" data-action="toggle-owned" data-id="${c.id}" title="所持切替">${isOwned ? '所持' : '未所持'}</button>
               <span class="badge" style="background:#b85d19;color:#fff;">★${c.rarity}</span>
               ${getAttrBadgeHtml(c)}
               <span class="badge" style="background:#555;color:#fff;">${c.weapon}</span>
@@ -1142,8 +1245,26 @@
   document.getElementById("filterRarity").addEventListener("change", resetPageAndRenderAll);
   document.getElementById("filterType").addEventListener("change", resetPageAndRenderAll);
   document.getElementById("filterWeapon").addEventListener("change", resetPageAndRenderAll);
+  const filterOwnershipEl = document.getElementById("filterOwnership");
+  if (filterOwnershipEl) filterOwnershipEl.addEventListener("change", resetPageAndRenderAll);
 
   document.getElementById("allCastleList").addEventListener("click", e => {
+    // 0. Toggle Favorite
+    const favBtn = e.target.closest('[data-action="toggle-fav"]');
+    if (favBtn) {
+      e.stopPropagation();
+      toggleFavorite(favBtn.getAttribute('data-id'));
+      return;
+    }
+
+    // 0. Toggle Owned
+    const ownedBtn = e.target.closest('[data-action="toggle-owned"]');
+    if (ownedBtn) {
+      e.stopPropagation();
+      toggleOwned(ownedBtn.getAttribute('data-id'));
+      return;
+    }
+
     // 1. Toggle party button
     const togglePartyId = e.target.getAttribute("data-toggle-party");
     if (togglePartyId) {
@@ -1471,22 +1592,95 @@
 
   // Settings export/import
   document.getElementById("btnExportData").addEventListener("click", () => {
-    document.getElementById("settingsJsonArea").value = JSON.stringify({ party }, null, 2);
+    const exportData = {
+      version: 2,
+      presets: partyPresets,
+      activePresetIdx: currentPresetIdx,
+      terrain: currentTerrain,
+      ownership: {
+        owned: Array.from(ownership.owned),
+        favorites: Array.from(ownership.favorites)
+      }
+    };
+    document.getElementById("settingsJsonArea").value = JSON.stringify(exportData, null, 2);
+    showNotification("設定と所持データを書き出しました！");
   });
 
   document.getElementById("btnImportData").addEventListener("click", () => {
     try {
       const data = JSON.parse(document.getElementById("settingsJsonArea").value);
-      if (data && Array.isArray(data.party)) {
-        party = data.party;
-        saveParty();
+      if (data) {
+        if (Array.isArray(data.presets)) {
+          partyPresets = data.presets;
+          party = partyPresets[currentPresetIdx].party;
+        } else if (Array.isArray(data.party)) {
+          party = data.party;
+          partyPresets[currentPresetIdx].party = party;
+        }
+        if (typeof data.activePresetIdx === "number") currentPresetIdx = data.activePresetIdx;
+        if (data.terrain !== undefined) currentTerrain = data.terrain;
+        if (data.ownership) {
+          if (Array.isArray(data.ownership.owned)) ownership.owned = new Set(data.ownership.owned);
+          if (Array.isArray(data.ownership.favorites)) ownership.favorites = new Set(data.ownership.favorites);
+          saveOwnership();
+        }
+        savePresets();
+        renderPresetBar();
         renderDashboard();
-        alert("設定を読み込みました。");
+        renderAllCastles();
+        showNotification("設定と所持データを復元しました！");
       }
     } catch (e) {
       alert("JSON読み込み失敗: " + e.message);
     }
   });
+
+  // Bulk Ownership Buttons
+  const btnBulkOwnR7 = document.getElementById("btnBulkOwnR7");
+  if (btnBulkOwnR7) {
+    btnBulkOwnR7.addEventListener("click", () => {
+      window.SCRE_DATA.forEach(c => {
+        if (c.rarity === 7) ownership.owned.add(c.id);
+      });
+      saveOwnership();
+      renderAllCastles();
+      showNotification(`★7城娘を一括所持に設定しました (所持: ${ownership.owned.size}体)`);
+    });
+  }
+
+  const btnBulkOwnR6R7 = document.getElementById("btnBulkOwnR6R7");
+  if (btnBulkOwnR6R7) {
+    btnBulkOwnR6R7.addEventListener("click", () => {
+      window.SCRE_DATA.forEach(c => {
+        if (c.rarity >= 6) ownership.owned.add(c.id);
+      });
+      saveOwnership();
+      renderAllCastles();
+      showNotification(`★6〜★7城娘を一括所持に設定しました (所持: ${ownership.owned.size}体)`);
+    });
+  }
+
+  const btnBulkOwnAll = document.getElementById("btnBulkOwnAll");
+  if (btnBulkOwnAll) {
+    btnBulkOwnAll.addEventListener("click", () => {
+      window.SCRE_DATA.forEach(c => ownership.owned.add(c.id));
+      saveOwnership();
+      renderAllCastles();
+      showNotification(`全城娘を所持に設定しました (所持: ${ownership.owned.size}体)`);
+    });
+  }
+
+  const btnBulkClearOwned = document.getElementById("btnBulkClearOwned");
+  if (btnBulkClearOwned) {
+    btnBulkClearOwned.addEventListener("click", () => {
+      if (confirm("所持設定をすべて解除しますか？")) {
+        ownership.owned.clear();
+        saveOwnership();
+        renderAllCastles();
+        showNotification("所持設定を全解除しました。");
+      }
+    });
+  }
 
   // Castle Detail Modal (詳細説明・全身画像ポップアップ)
   let activeDetailCastleId = null;
@@ -1515,6 +1709,7 @@
 
     // Action button state (+ 編成に追加 / ✓ 編成中)
     updateDetailPartyButton();
+    updateModalDetailOwnershipUI(c);
 
     // Wiki external link
     const wikiBtn = document.getElementById("btnDetailWikiLink");
@@ -1719,6 +1914,38 @@
     renderDashboard();
     updateDetailPartyButton();
   });
+
+  function updateModalDetailOwnershipUI(c) {
+    if (!c) return;
+    const favBtn = document.getElementById("modalDetailFavBtn");
+    const ownedBtn = document.getElementById("modalDetailOwnedBtn");
+    const isFav = ownership.favorites.has(c.id);
+    const isOwned = ownership.owned.has(c.id);
+
+    if (favBtn) {
+      favBtn.className = `btn btn-fav ${isFav ? 'active' : ''}`;
+      favBtn.textContent = isFav ? '★' : '☆';
+      favBtn.title = isFav ? 'お気に入り登録中' : 'お気に入りに追加';
+    }
+    if (ownedBtn) {
+      ownedBtn.className = `btn btn-owned ${isOwned ? 'active' : ''}`;
+      ownedBtn.textContent = isOwned ? '✓ 所持中' : '+ 所持にする';
+      ownedBtn.title = isOwned ? '未所持にする' : '所持済みにする';
+    }
+  }
+
+  const modalDetailFavBtn = document.getElementById("modalDetailFavBtn");
+  if (modalDetailFavBtn) {
+    modalDetailFavBtn.addEventListener("click", () => {
+      if (activeDetailCastleId) toggleFavorite(activeDetailCastleId);
+    });
+  }
+  const modalDetailOwnedBtn = document.getElementById("modalDetailOwnedBtn");
+  if (modalDetailOwnedBtn) {
+    modalDetailOwnedBtn.addEventListener("click", () => {
+      if (activeDetailCastleId) toggleOwned(activeDetailCastleId);
+    });
+  }
 
   document.getElementById("modalDetailCloseBtn").addEventListener("click", () => {
     document.getElementById("modalCastleDetail").classList.remove("open");
@@ -1950,6 +2177,576 @@
       }
     });
   }
+
+  // ==========================================
+  // Auto-Suggest Party for Stage (Feature 2)
+  // ==========================================
+  let currentAutoSuggestedParty = [];
+
+  function generateAutoSuggestedParty(stage, ownedOnly) {
+    if (!stage) return [];
+    const stTerrain = stage.terrain;
+    const rulesList = (stage.rules || []).concat((stage.deliberations || []).map(d => `[${d.point}審] ${d.name}: ${d.effect}`));
+    const combinedRules = rulesList.join(" ");
+    const isHades = Boolean(stage.hadesMeta || stage.subCategory === "ハデスの死闘場");
+
+    let pool = window.SCRE_DATA.slice();
+    if (ownedOnly && ownership.owned.size > 0) {
+      const ownedPool = pool.filter(c => ownership.owned.has(c.id));
+      if (ownedPool.length >= 8) {
+        pool = ownedPool;
+      }
+    }
+
+    // Filter out fatal deliberation violations
+    pool = pool.filter(c => {
+      const isMeleeOnly = (c.rangeKind === "近" || c.rangeKind === "近接");
+      const isRangedOnly = (c.rangeKind === "遠" || c.rangeKind === "遠隔");
+      if (combinedRules.includes("近接限定城娘の与ダメージ99%低下") && isMeleeOnly) return false;
+      if (combinedRules.includes("遠隔限定城娘の与ダメージ99%低下") && isRangedOnly) return false;
+      return true;
+    });
+
+    function scoreCastle(c) {
+      let score = (c.rarity || 1) * 10;
+      const isMatch = Boolean(stTerrain && stTerrain !== "無" && c.attributes && c.attributes.includes(stTerrain));
+      if (isMatch) score += 100;
+
+      const descParts = [
+        c.skill ? (c.skill.name + " " + c.skill.text) : "",
+        c.strategy ? (c.strategy.name + " " + c.strategy.text) : "",
+        c.special ? (c.special.name + " " + c.special.text) : ""
+      ];
+      if (c.allSkills) c.allSkills.forEach(s => descParts.push(s.name + " " + s.text));
+      if (c.allStrategies) c.allStrategies.forEach(s => descParts.push(s.name + " " + s.text));
+      const full = descParts.join(" ");
+
+      if (isHades && (full.includes("暗闇") || full.includes("状態異常") || (full.includes("無効") && full.includes("状態")))) {
+        score += 85;
+      }
+
+      if (full.includes("気が") || full.includes("気増加") || full.includes("巨大化に必要な気")) {
+        score += 55;
+      }
+      if (full.includes("与ダメージ") || full.includes("被ダメージ")) {
+        score += 30;
+      }
+      return score;
+    }
+
+    pool.sort((a, b) => scoreCastle(b) - scoreCastle(a));
+
+    const selected = [];
+    const selectedIds = new Set();
+
+    function tryAdd(filterFn, roleLabel) {
+      const match = pool.find(c => !selectedIds.has(c.id) && filterFn(c));
+      if (match) {
+        selected.push({ castle: match, role: roleLabel });
+        selectedIds.add(match.id);
+        return true;
+      }
+      return false;
+    }
+
+    // Role 1: Ki generator / reducer
+    tryAdd(c => {
+      const t = (c.skill ? c.skill.text : '') + ' ' + (c.strategy ? c.strategy.text : '');
+      return t.includes("気") || c.weapon === "陣貝";
+    }, "気生成・消費軽減");
+
+    // Role 2: Status counter (if Hades or abnormal status)
+    if (isHades || combinedRules.includes("状態異常") || combinedRules.includes("暗闇")) {
+      tryAdd(c => {
+        const descParts = [
+          c.skill ? (c.skill.name + " " + c.skill.text) : "",
+          c.strategy ? (c.strategy.name + " " + c.strategy.text) : "",
+          c.special ? (c.special.name + " " + c.special.text) : ""
+        ];
+        if (c.allSkills) c.allSkills.forEach(s => descParts.push(s.name + " " + s.text));
+        if (c.allStrategies) c.allStrategies.forEach(s => descParts.push(s.name + " " + s.text));
+        const full = descParts.join(" ");
+        return full.includes("暗闇") || full.includes("状態異常") || (full.includes("無効") && full.includes("状態"));
+      }, "暗闇・状態異常対策");
+    }
+
+    // Role 3: Strong Melee / Dual Range
+    tryAdd(c => (c.rangeKind === "近" || c.rangeKind === "遠近") && c.rarity >= 6, "主力前衛・火力");
+
+    // Role 4: Strong Ranged
+    tryAdd(c => (c.rangeKind === "遠" || c.rangeKind === "遠隔") && c.rarity >= 6, "主力遠隔・対空");
+
+    // Role 5: Buffer / Healer / Support
+    tryAdd(c => {
+      const t = (c.skill ? c.skill.text : '') + ' ' + (c.strategy ? c.strategy.text : '');
+      return t.includes("与ダメージ") || t.includes("被ダメージ") || t.includes("射程") || c.weapon === "歌舞";
+    }, "支援・バフ・回復");
+
+    // Fill remaining up to 8
+    for (const c of pool) {
+      if (selected.length >= 8) break;
+      if (!selectedIds.has(c.id)) {
+        const isMatch = Boolean(stTerrain && stTerrain !== "無" && c.attributes && c.attributes.includes(stTerrain));
+        selected.push({ castle: c, role: isMatch ? `${stTerrain}一致・主力` : "汎用主力" });
+        selectedIds.add(c.id);
+      }
+    }
+
+    return selected;
+  }
+
+  const btnAutoSuggestParty = document.getElementById("btnAutoSuggestParty");
+  if (btnAutoSuggestParty) {
+    btnAutoSuggestParty.addEventListener("click", () => {
+      if (!activeDiagStage) return;
+      const ownedOnly = document.getElementById("chkAutoSuggestOwnedOnly")?.checked;
+      const result = generateAutoSuggestedParty(activeDiagStage, ownedOnly);
+      currentAutoSuggestedParty = result;
+
+      const container = document.getElementById("autoSuggestResultContainer");
+      const listEl = document.getElementById("autoSuggestPartyList");
+      const summaryText = document.getElementById("autoSuggestSummaryText");
+      const badgeEl = document.getElementById("autoSuggestStatsBadge");
+
+      if (container && listEl && summaryText) {
+        listEl.innerHTML = result.map(({ castle: c, role }) => `
+          <div style="background:#f4f7fb; border:1px solid #d5e0ee; border-radius:4px; padding:4px 6px; display:flex; align-items:center; gap:6px;">
+            ${getIconHtml(c, 28)}
+            <div style="overflow:hidden;">
+              <div style="font-size:11.5px; font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">${c.name}</div>
+              <div style="font-size:9.5px; color:#185a9d; font-weight:bold;">${role}</div>
+            </div>
+          </div>
+        `).join("");
+
+        const matchCount = result.filter(({ castle: c }) => activeDiagStage.terrain && activeDiagStage.terrain !== "無" && c.attributes && c.attributes.includes(activeDiagStage.terrain)).length;
+        if (badgeEl) {
+          badgeEl.innerHTML = `<span class="badge" style="background:#2c6f4f; color:#fff;">地形一致: ${matchCount}/8体</span>`;
+        }
+
+        summaryText.innerHTML = `
+          <strong>編成方針:</strong> ${activeDiagStage.title}の審議ギミック・地形条件（${activeDiagStage.terrain}）に合わせて、気生成役・状態異常対策・前衛火力・遠隔支援の役割バランスを最適配分しました。
+        `;
+
+        container.style.display = "block";
+      }
+    });
+  }
+
+  const btnCancelAutoSuggest = document.getElementById("btnCancelAutoSuggest");
+  if (btnCancelAutoSuggest) {
+    btnCancelAutoSuggest.addEventListener("click", () => {
+      const container = document.getElementById("autoSuggestResultContainer");
+      if (container) container.style.display = "none";
+    });
+  }
+
+  const btnApplyAutoSuggest = document.getElementById("btnApplyAutoSuggest");
+  if (btnApplyAutoSuggest) {
+    btnApplyAutoSuggest.addEventListener("click", () => {
+      if (currentAutoSuggestedParty.length === 0) return;
+      party = currentAutoSuggestedParty.map(({ castle: c }) => ({
+        id: c.id,
+        strategyOn: true,
+        specialOn: Boolean(c.special)
+      }));
+      partyPresets[currentPresetIdx].party = party;
+      if (activeDiagStage && activeDiagStage.terrain && activeDiagStage.terrain !== "無") {
+        currentTerrain = activeDiagStage.terrain;
+        const sel = document.getElementById("mapTerrainSelect");
+        if (sel) sel.value = currentTerrain;
+      }
+      savePresets();
+      renderDashboard();
+      renderAllCastles();
+      document.getElementById("modalStageDiagnostic").classList.remove("open");
+      showNotification("おすすめ編成を現在の部隊に適用しました！");
+    });
+  }
+
+  // ==========================================
+  // Party Share Link (Feature 3)
+  // ==========================================
+  function getShareUrl() {
+    const data = {
+      v: 1,
+      t: currentTerrain || "",
+      p: party.map(s => ({ id: s.id, s: s.strategyOn ? 1 : 0 }))
+    };
+    const jsonStr = JSON.stringify(data);
+    const b64 = btoa(unescape(encodeURIComponent(jsonStr)));
+    return window.location.href.split("#")[0] + "#share=" + b64;
+  }
+
+  function copyShareUrl() {
+    const url = getShareUrl();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(() => {
+        showNotification("共有リンクをクリップボードにコピーしました！");
+      }).catch(() => {
+        prompt("共有リンクです（コピーして共有してください）:", url);
+      });
+    } else {
+      prompt("共有リンクです（コピーして共有してください）:", url);
+    }
+  }
+
+  function checkShareUrlOnLoad() {
+    if (!window.location.hash || !window.location.hash.startsWith("#share=")) return;
+    try {
+      const b64 = window.location.hash.replace("#share=", "");
+      const jsonStr = decodeURIComponent(escape(atob(b64)));
+      const data = JSON.parse(jsonStr);
+      if (data && Array.isArray(data.p)) {
+        party = data.p.map(item => ({ id: item.id, strategyOn: Boolean(item.s) }));
+        partyPresets[currentPresetIdx].party = party;
+        if (data.t !== undefined) {
+          currentTerrain = data.t;
+          const sel = document.getElementById("mapTerrainSelect");
+          if (sel) sel.value = currentTerrain;
+        }
+        savePresets();
+        renderDashboard();
+        renderAllCastles();
+        showNotification("共有リンクから部隊編成を復元しました！");
+      }
+    } catch (err) {
+      console.warn("Error parsing share hash:", err);
+    }
+  }
+
+  const btnShareLink = document.getElementById("btnShareLink");
+  if (btnShareLink) {
+    btnShareLink.addEventListener("click", copyShareUrl);
+  }
+
+  // ==========================================
+  // Preset Comparison View (Feature 4)
+  // ==========================================
+  function openPresetCompareModal() {
+    const modal = document.getElementById("modalPresetCompare");
+    if (!modal) return;
+    const selA = document.getElementById("comparePresetA");
+    const selB = document.getElementById("comparePresetB");
+    if (selA && selB) {
+      selA.innerHTML = partyPresets.map((p, idx) => `<option value="${idx}" ${idx === currentPresetIdx ? 'selected' : ''}>${p.name} (${p.party.length}体)</option>`).join("");
+      const defaultB = currentPresetIdx === 0 ? 1 : 0;
+      selB.innerHTML = partyPresets.map((p, idx) => `<option value="${idx}" ${idx === defaultB ? 'selected' : ''}>${p.name} (${p.party.length}体)</option>`).join("");
+    }
+    updatePresetComparison();
+    modal.classList.add("open");
+  }
+
+  function updatePresetComparison() {
+    const selA = document.getElementById("comparePresetA");
+    const selB = document.getElementById("comparePresetB");
+    if (!selA || !selB) return;
+    const idxA = parseInt(selA.value, 10) || 0;
+    const idxB = parseInt(selB.value, 10) || 0;
+    renderPresetComparison(idxA, idxB);
+  }
+
+  function renderPresetComparison(idxA, idxB) {
+    const container = document.getElementById("compareContentContainer");
+    if (!container) return;
+
+    const pA = partyPresets[idxA];
+    const pB = partyPresets[idxB];
+
+    const calcA = calculateBuffs(pA.party, currentTerrain);
+    const calcB = calculateBuffs(pB.party, currentTerrain);
+
+    const kiDiff = calcB.totalGiantCost - calcA.totalGiantCost;
+    const deployDiff = calcB.totalDeployCost - calcA.totalDeployCost;
+
+    const statsList = [
+      { key: "atkPercent", label: "攻撃(%) 上昇", unit: "%" },
+      { key: "atkFlat", label: "攻撃(固定値) 上昇", unit: "" },
+      { key: "defPercent", label: "防御(%) 上昇", unit: "%" },
+      { key: "defFlat", label: "防御(固定値) 上昇", unit: "" },
+      { key: "hpPercent", label: "耐久(%) 上昇", unit: "%" },
+      { key: "rangeFlat", label: "射程(固定値) 上昇", unit: "" },
+      { key: "rangePercent", label: "射程(%) 上昇", unit: "%" },
+      { key: "dmgDealt", label: "与ダメージ 上昇", unit: "%" },
+      { key: "dmgTakenDown", label: "被ダメージ 軽減", unit: "%" },
+      { key: "atkSpeed", label: "攻撃速度 上昇", unit: "%" },
+      { key: "gapShorten", label: "隙短縮", unit: "%" },
+      { key: "recoveryFlat", label: "回復(固定値) 上昇", unit: "" }
+    ];
+
+    function getBuffAvg(calc, statKey) {
+      let sum = 0;
+      let count = 0;
+      Object.values(calc.perCastle).forEach(pc => {
+        const b = pc.buffs[statKey];
+        if (b) {
+          sum += (b.sum !== undefined ? b.sum : (b.max + (b.stackSum || 0)));
+          count++;
+        }
+      });
+      return count > 0 ? Math.round(sum / count) : 0;
+    }
+
+    function renderSlotsMini(partyList) {
+      if (!partyList || partyList.length === 0) return '<div style="color:#999;font-size:11px;padding:6px;">メンバーなし</div>';
+      return partyList.map(s => {
+        const c = getCastleById(s.id);
+        if (!c) return '';
+        return `<div style="display:inline-flex; align-items:center; gap:4px; background:#fff; border:1px solid #ddd; border-radius:4px; padding:2px 6px; font-size:11px; margin:2px;">
+          ${getIconHtml(c, 20)}
+          <span>${c.name}</span>
+        </div>`;
+      }).join("");
+    }
+
+    const tableRows = statsList.map(st => {
+      const valA = getBuffAvg(calcA, st.key);
+      const valB = getBuffAvg(calcB, st.key);
+      const diff = valB - valA;
+      let diffClass = "diff-zero";
+      let diffText = "±0";
+      if (diff > 0) {
+        diffClass = "diff-plus";
+        diffText = `+${diff}${st.unit}`;
+      } else if (diff < 0) {
+        diffClass = "diff-minus";
+        diffText = `${diff}${st.unit}`;
+      }
+      return `
+        <tr>
+          <td style="font-weight:bold; text-align:left;">${st.label}</td>
+          <td>+${valA}${st.unit}</td>
+          <td>+${valB}${st.unit}</td>
+          <td class="${diffClass}">${diffText}</td>
+        </tr>
+      `;
+    }).join("");
+
+    container.innerHTML = `
+      <div class="compare-container">
+        <div class="compare-summary-cards">
+          <div class="compare-card">
+            <div class="compare-card-title">総消費気 (配置+最大巨大化)</div>
+            <div class="compare-card-value">
+              <span style="color:#2980b9;">${calcA.totalGiantCost}気</span> vs <span style="color:#e67e22;">${calcB.totalGiantCost}気</span>
+              <div style="font-size:11px; margin-top:2px;" class="${kiDiff < 0 ? 'diff-plus' : (kiDiff > 0 ? 'diff-minus' : 'diff-zero')}">
+                差分: ${kiDiff > 0 ? '+' + kiDiff : kiDiff}気
+              </div>
+            </div>
+          </div>
+          <div class="compare-card">
+            <div class="compare-card-title">初期配置気</div>
+            <div class="compare-card-value">
+              <span style="color:#2980b9;">${calcA.totalDeployCost}気</span> vs <span style="color:#e67e22;">${calcB.totalDeployCost}気</span>
+              <div style="font-size:11px; margin-top:2px;" class="${deployDiff < 0 ? 'diff-plus' : (deployDiff > 0 ? 'diff-minus' : 'diff-zero')}">
+                差分: ${deployDiff > 0 ? '+' + deployDiff : deployDiff}気
+              </div>
+            </div>
+          </div>
+          <div class="compare-card">
+            <div class="compare-card-title">出撃地形一致 (${currentTerrain || '指定なし'})</div>
+            <div class="compare-card-value">
+              <span style="color:#2980b9;">${calcA.terrainMatchCount}/8体</span> vs <span style="color:#e67e22;">${calcB.terrainMatchCount}/8体</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; background:#f7f9fa; border:1px solid #e1e8ed; border-radius:6px; padding:8px;">
+          <div>
+            <strong style="font-size:11.5px; color:#2980b9;">[A] ${pA.name} メンバー:</strong>
+            <div style="margin-top:4px;">${renderSlotsMini(pA.party)}</div>
+          </div>
+          <div>
+            <strong style="font-size:11.5px; color:#e67e22;">[B] ${pB.name} メンバー:</strong>
+            <div style="margin-top:4px;">${renderSlotsMini(pB.party)}</div>
+          </div>
+        </div>
+
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th style="text-align:left;">バフ効果 (部隊平均値)</th>
+              <th style="color:#2980b9;">[A] ${pA.name}</th>
+              <th style="color:#e67e22;">[B] ${pB.name}</th>
+              <th>差分 (B - A)</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tableRows}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  const btnOpenPresetCompare = document.getElementById("btnOpenPresetCompare");
+  if (btnOpenPresetCompare) {
+    btnOpenPresetCompare.addEventListener("click", openPresetCompareModal);
+  }
+  const modalCompareCloseBtn = document.getElementById("modalCompareCloseBtn");
+  if (modalCompareCloseBtn) {
+    modalCompareCloseBtn.addEventListener("click", () => {
+      document.getElementById("modalPresetCompare").classList.remove("open");
+    });
+  }
+  const selCompareA = document.getElementById("comparePresetA");
+  const selCompareB = document.getElementById("comparePresetB");
+  if (selCompareA) selCompareA.addEventListener("change", updatePresetComparison);
+  if (selCompareB) selCompareB.addEventListener("change", updatePresetComparison);
+
+  // ==========================================
+  // Placement Order & Giantize Simulation (Feature 5)
+  // ==========================================
+  function calculateGiantizeSimulation() {
+    const tbody = document.getElementById("giantizeSimTbody");
+    const summaryEl = document.getElementById("giantizeSimSummary");
+    if (!tbody || !summaryEl) return;
+
+    const initialKi = Math.max(0, parseInt(document.getElementById("simInitialKi")?.value, 10) || 30);
+    const kiRate = parseFloat(document.getElementById("simKiRate")?.value) || 1.0;
+    const priorityMode = document.getElementById("simPriorityMode")?.value || "ki_first";
+
+    if (party.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:12px;color:#999;">部隊に城娘が編成されていません。</td></tr>`;
+      summaryEl.textContent = "";
+      return;
+    }
+
+    const partyCastles = party.map((s, idx) => {
+      const c = getCastleById(s.id);
+      if (!c) return null;
+      const isTerrainMatch = Boolean(currentTerrain && c.attributes && c.attributes.includes(currentTerrain));
+      const deployCost = c.cost || 10;
+      const rawGiantCost = (c.statsDetail && c.statsDetail.giant5 && c.statsDetail.giant5.cost) ? parseInt(c.statsDetail.giant5.cost, 10) : 60;
+      const giantTotal = isTerrainMatch ? Math.round(deployCost + (rawGiantCost - deployCost) * 0.65) : rawGiantCost;
+      const giantPerStep = Math.max(1, Math.round((giantTotal - deployCost) / 5));
+
+      const allText = (c.skill ? c.skill.text : '') + ' ' + (c.strategy ? c.strategy.text : '');
+      const isKiProducer = allText.includes("気が") || allText.includes("気増加") || allText.includes("巨大化に必要な気");
+
+      return {
+        slotIdx: idx,
+        castle: c,
+        deployCost,
+        giantTotal,
+        giantPerStep,
+        isTerrainMatch,
+        isKiProducer
+      };
+    }).filter(Boolean);
+
+    if (partyCastles.length === 0) return;
+
+    let deployOrder = partyCastles.slice();
+    if (priorityMode === "ki_first") {
+      deployOrder.sort((a, b) => {
+        if (a.isKiProducer && !b.isKiProducer) return -1;
+        if (!a.isKiProducer && b.isKiProducer) return 1;
+        return a.deployCost - b.deployCost;
+      });
+    }
+
+    let currentSec = 0;
+    let currentKi = initialKi;
+    const timeline = [];
+
+    function waitForKi(neededKi) {
+      if (currentKi < neededKi) {
+        const deficit = neededKi - currentKi;
+        const waitSec = Math.ceil(deficit / kiRate);
+        currentSec += waitSec;
+        currentKi += waitSec * kiRate;
+      }
+    }
+
+    deployOrder.forEach(item => {
+      waitForKi(item.deployCost);
+      currentKi -= item.deployCost;
+      timeline.push({
+        sec: currentSec,
+        typeBadge: '<span class="timeline-badge-deploy">配置</span>',
+        castleName: item.castle.name,
+        costSpent: item.deployCost,
+        kiRemaining: Math.floor(currentKi),
+        note: item.isKiProducer ? "★気生成役を優先配置" : (item.isTerrainMatch ? `${currentTerrain}一致配置` : "通常配置")
+      });
+    });
+
+    const deployFinishSec = currentSec;
+
+    let giantizeOrder = deployOrder.slice();
+    if (priorityMode === "ki_first") {
+      giantizeOrder.sort((a, b) => {
+        if (a.isKiProducer && !b.isKiProducer) return -1;
+        if (!a.isKiProducer && b.isKiProducer) return 1;
+        return a.giantPerStep - b.giantPerStep;
+      });
+    }
+
+    giantizeOrder.forEach(item => {
+      for (let step = 1; step <= 5; step++) {
+        waitForKi(item.giantPerStep);
+        currentKi -= item.giantPerStep;
+        timeline.push({
+          sec: currentSec,
+          typeBadge: `<span class="timeline-badge-giant">巨大化 ${step}/5</span>`,
+          castleName: item.castle.name,
+          costSpent: item.giantPerStep,
+          kiRemaining: Math.floor(currentKi),
+          note: step === 5 ? (item.isKiProducer ? "★特技全開・気加速完了" : "最大巨大化完了") : `巨大化段階 ${step}`
+        });
+      }
+    });
+
+    const totalFinishSec = currentSec;
+
+    function formatSec(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    summaryEl.innerHTML = `
+      🏁 全${partyCastles.length}体 配置完了: <strong>${formatSec(deployFinishSec)}</strong> ｜ 
+      ✨ 全員最大巨大化完了: <strong>${formatSec(totalFinishSec)}</strong> (所要時間: 約${Math.ceil(totalFinishSec / 60)}分)
+    `;
+
+    tbody.innerHTML = timeline.map(row => `
+      <tr>
+        <td style="font-weight:bold; color:#555;">${formatSec(row.sec)}</td>
+        <td>${row.typeBadge}</td>
+        <td><strong>${row.castleName}</strong></td>
+        <td style="color:#c93434; font-weight:bold;">-${row.costSpent}</td>
+        <td style="color:#27ae60; font-weight:bold;">${row.kiRemaining}</td>
+        <td style="color:#666; font-size:11px;">${row.note}</td>
+      </tr>
+    `).join("");
+  }
+
+  const giantizeSimHeader = document.getElementById("giantizeSimHeader");
+  const btnToggleGiantizeSim = document.getElementById("btnToggleGiantizeSim");
+  function toggleGiantizeSim() {
+    const body = document.getElementById("giantizeSimBody");
+    const btn = document.getElementById("btnToggleGiantizeSim");
+    if (!body) return;
+    const isHidden = (body.style.display === "none" || getComputedStyle(body).display === "none");
+    body.style.display = isHidden ? "block" : "none";
+    if (btn) btn.textContent = isHidden ? "閉じる ▴" : "展開 ▾";
+    if (isHidden) calculateGiantizeSimulation();
+  }
+  if (giantizeSimHeader) {
+    giantizeSimHeader.addEventListener("click", () => {
+      toggleGiantizeSim();
+    });
+  }
+  if (btnToggleGiantizeSim) {
+    btnToggleGiantizeSim.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleGiantizeSim();
+    });
+  }
+  const btnRunGiantizeSim = document.getElementById("btnRunGiantizeSim");
+  if (btnRunGiantizeSim) btnRunGiantizeSim.addEventListener("click", calculateGiantizeSimulation);
 
   // Export Party Summary Image (Canvas 1200x675)
   function exportPartyImage() {
@@ -2183,7 +2980,9 @@
   }
 
   // Initial render
+  loadOwnership();
   populateDashboardStageSelect();
+  checkShareUrlOnLoad();
   const appInfoCountEl = document.getElementById("appInfoCastleCount");
   if (appInfoCountEl && window.SCRE_DATA) {
     appInfoCountEl.textContent = window.SCRE_DATA.length.toLocaleString();

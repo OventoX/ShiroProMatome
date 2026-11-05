@@ -685,6 +685,184 @@ async function runTests() {
   await new Promise(r => setTimeout(r, 200));
   console.log('=> TEST 18 PASSED');
 
+  // Test 19: Ownership & Favorites Management (Feature 1)
+  console.log('\n[TEST 19] Testing Ownership & Favorites Management...');
+  await page.click('button[data-tab="tab-settings"]');
+  await new Promise(r => setTimeout(r, 200));
+
+  // Bulk Own ★7
+  await page.click('#btnBulkOwnR7');
+  await new Promise(r => setTimeout(r, 200));
+  const ownedCountText = await page.$eval('#ownershipCount', el => el.textContent);
+  console.log('Ownership count after ★7 bulk own:', ownedCountText);
+  const ownedNum = parseInt(ownedCountText.replace(/,/g, ''), 10);
+  if (isNaN(ownedNum) || ownedNum < 150) {
+    throw new Error('TEST 19 FAILED: Bulk own ★7 did not register expected owned count: ' + ownedCountText);
+  }
+
+  // Go to List Tab, toggle favorite on first card
+  await page.click('button[data-tab="tab-list"]');
+  await new Promise(r => setTimeout(r, 300));
+  const firstFavBtn = await page.$('#allCastleList .castle-list-item [data-action="toggle-fav"]');
+  if (!firstFavBtn) throw new Error('TEST 19 FAILED: No toggle-fav button in castle list');
+  await firstFavBtn.click();
+  await new Promise(r => setTimeout(r, 200));
+
+  // Test filterOwnership with "fav"
+  await page.select('#filterOwnership', 'fav');
+  await new Promise(r => setTimeout(r, 300));
+  const favItemsCount = await page.$$eval('#allCastleList .castle-list-item', els => els.length);
+  console.log('Items displayed when filtered by ★fav:', favItemsCount);
+  if (favItemsCount !== 1) {
+    throw new Error('TEST 19 FAILED: Expected exactly 1 favorite item, found: ' + favItemsCount);
+  }
+
+  // Test Castle Detail Modal favorite & owned buttons
+  await page.click('#allCastleList .castle-list-item [data-detail]');
+  await new Promise(r => setTimeout(r, 300));
+  const isModalFavActive = await page.$eval('#modalDetailFavBtn', el => el.classList.contains('active'));
+  console.log('Modal detail favorite button active:', isModalFavActive);
+  if (!isModalFavActive) {
+    throw new Error('TEST 19 FAILED: Modal detail favorite button not active for favorite castle');
+  }
+  await page.click('#modalDetailCloseBtn');
+  await new Promise(r => setTimeout(r, 200));
+
+  // Reset filterOwnership
+  await page.select('#filterOwnership', '');
+  await new Promise(r => setTimeout(r, 200));
+  console.log('=> TEST 19 PASSED');
+
+  // Test 20: Stage-Driven Auto Party Suggest (Feature 2)
+  console.log('\n[TEST 20] Testing Stage-Driven Auto Party Suggest...');
+  await page.click('button[data-tab="tab-dashboard"]');
+  await new Promise(r => setTimeout(r, 200));
+
+  // Open diagnostic for Maeda Toshiie
+  await page.evaluate(() => {
+    const sel = document.getElementById('dashboardStageSelect');
+    const opt = Array.from(sel.options).find(o => o.value.includes('覇・前田利家'));
+    if (opt) {
+      sel.value = opt.value;
+      sel.dispatchEvent(new Event('change'));
+    }
+  });
+  await page.click('#btnDashboardDiag');
+  await new Promise(r => setTimeout(r, 300));
+
+  // Click btnAutoSuggestParty
+  await page.click('#btnAutoSuggestParty');
+  await new Promise(r => setTimeout(r, 300));
+  const autoSuggestSlots = await page.$$eval('#autoSuggestPartyList > div', els => els.length);
+  console.log('Auto suggested party members count:', autoSuggestSlots);
+  if (autoSuggestSlots !== 8) {
+    throw new Error('TEST 20 FAILED: Auto suggest did not produce 8 party members: ' + autoSuggestSlots);
+  }
+
+  // Apply auto suggest
+  await page.click('#btnApplyAutoSuggest');
+  await new Promise(r => setTimeout(r, 300));
+  const autoAppliedCounter = await page.$eval('#partyCounter', el => el.textContent);
+  console.log('Party counter after applying auto suggest:', autoAppliedCounter);
+  if (!autoAppliedCounter.includes('8/8')) {
+    throw new Error('TEST 20 FAILED: Auto suggested party not applied to active party (8/8)');
+  }
+  console.log('=> TEST 20 PASSED');
+
+  // Test 21: Party Share Link (Feature 3)
+  console.log('\n[TEST 21] Testing Party Share Link...');
+  // Click btnShareLink
+  await page.click('#btnShareLink');
+  await new Promise(r => setTimeout(r, 200));
+
+  // Get share URL hash from page evaluate
+  const shareHash = await page.evaluate(() => {
+    const data = {
+      v: 1,
+      t: '地獄',
+      p: [
+        { id: '名古屋城', s: 1 },
+        { id: '大坂城', s: 1 },
+        { id: '彦根城', s: 0 }
+      ]
+    };
+    return '#share=' + btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+  });
+
+  // Navigate to share hash
+  await page.evaluate(h => {
+    window.location.hash = h;
+    window.location.reload();
+  }, shareHash);
+  await page.waitForNavigation({ waitUntil: 'load' });
+  await new Promise(r => setTimeout(r, 400));
+
+  const restoredHashCounter = await page.$eval('#partyCounter', el => el.textContent);
+  console.log('Party counter after loading share hash:', restoredHashCounter);
+  if (!restoredHashCounter.includes('3/8')) {
+    throw new Error('TEST 21 FAILED: Party not restored from URL share hash (expected 3/8): ' + restoredHashCounter);
+  }
+  // Clear hash
+  await page.evaluate(() => { history.replaceState(null, '', window.location.pathname); });
+  console.log('=> TEST 21 PASSED');
+
+  // Test 22: Preset Comparison View (Feature 4)
+  console.log('\n[TEST 22] Testing Preset Comparison View...');
+  await page.click('#btnOpenPresetCompare');
+  await new Promise(r => setTimeout(r, 300));
+
+  const isCompareModalOpen = await page.evaluate(() => {
+    const modal = document.getElementById('modalPresetCompare');
+    return modal && modal.classList.contains('open');
+  });
+  console.log('Preset comparison modal open:', isCompareModalOpen);
+  if (!isCompareModalOpen) throw new Error('TEST 22 FAILED: Preset compare modal did not open');
+
+  const compareRowsCount = await page.$$eval('#compareContentContainer .compare-table tbody tr', els => els.length);
+  console.log('Comparison metric rows rendered:', compareRowsCount);
+  if (compareRowsCount === 0) throw new Error('TEST 22 FAILED: No comparison rows rendered');
+
+  await page.click('#modalCompareCloseBtn');
+  await new Promise(r => setTimeout(r, 400));
+  console.log('=> TEST 22 PASSED');
+
+  // Test 23: Placement Order & Giantize Simulation (Feature 5)
+  console.log('\n[TEST 23] Testing Placement Order & Giantize Simulation...');
+  // Ensure party has units (switch to preset 1 or bulk load)
+  await page.evaluate(() => {
+    document.getElementById('bulkInputText').value = '彦根城, 名古屋城, 大坂城, 江戸城';
+  });
+  await page.click('#btnBulkLoad');
+  await new Promise(r => setTimeout(r, 400));
+
+  const partyCounterInTest23 = await page.$eval('#partyCounter', el => el.textContent);
+  console.log('Party counter in Test 23:', partyCounterInTest23);
+
+  // Scroll to giantize simulation section and click toggle
+  await page.evaluate(() => {
+    document.getElementById('sectionGiantizeSim').scrollIntoView();
+  });
+  await new Promise(r => setTimeout(r, 200));
+  await page.click('#btnToggleGiantizeSim');
+  await new Promise(r => setTimeout(r, 400));
+
+  const bodyDisplay = await page.$eval('#giantizeSimBody', el => el.style.display);
+  console.log('Body display in Test 23:', bodyDisplay);
+
+  const simSummaryText = await page.$eval('#giantizeSimSummary', el => el.textContent);
+  console.log('Giantize sim summary:', simSummaryText);
+  if (!simSummaryText.includes('配置完了') || !simSummaryText.includes('最大巨大化完了')) {
+    throw new Error('TEST 23 FAILED: Giantize sim summary missing expected progress milestones');
+  }
+
+  const simStepsCount = await page.$$eval('#giantizeSimTbody tr', els => els.length);
+  console.log('Giantize simulation timeline steps count:', simStepsCount);
+  // 4 castles = 4 deploys + 4 * 5 giantize steps = 24 steps
+  if (simStepsCount < 20) {
+    throw new Error('TEST 23 FAILED: Simulation steps count too low: ' + simStepsCount);
+  }
+  console.log('=> TEST 23 PASSED');
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
