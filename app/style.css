@@ -1108,7 +1108,66 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
+.form-tab-btn[data-form="taiha"].active {
+  background: #fff5f5;
+  color: #d63031;
+  box-shadow: 0 1px 3px rgba(214, 48, 49, 0.18);
+}
+
+.form-tab-btn[data-form="ojou"].active {
+  background: #fff0f6;
+  color: #e84393;
+  box-shadow: 0 1px 3px rgba(232, 67, 147, 0.18);
+}
+
 .form-tab-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Compare Sub-Selector inside Side-by-Side container */
+.side-compare-selector {
+  display: flex;
+  width: 100%;
+  gap: 3px;
+  background: #edf2f7;
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.compare-sub-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 4px 2px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #64748b;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.compare-sub-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.7);
+  color: #1e293b;
+}
+
+.compare-sub-btn.active {
+  background: #ffffff;
+  color: var(--primary-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.compare-sub-btn[data-compare="battle_taiha"].active {
+  color: #d63031;
+}
+
+.compare-sub-btn:disabled {
   opacity: 0.35;
   cursor: not-allowed;
   pointer-events: none;
@@ -1121,8 +1180,18 @@ body {
 .modal-detail-content.side-by-side-mode .detail-col-left {
   width: 520px;
 }
-@media (max-width: 900px) {
-  .modal-detail-content.side-by-side-mode .detail-col-left {
+
+/* Triple panorama mode (Ojou + Battle + Taiha) */
+.modal-detail-content.side-by-side-mode.triple-mode {
+  max-width: 1280px;
+}
+.modal-detail-content.side-by-side-mode.triple-mode .detail-col-left {
+  width: 690px;
+}
+
+@media (max-width: 960px) {
+  .modal-detail-content.side-by-side-mode .detail-col-left,
+  .modal-detail-content.side-by-side-mode.triple-mode .detail-col-left {
     width: 100%;
   }
 }

@@ -159,11 +159,21 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
     if m_taiha:
         castle["taihaUrl"] = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_taiha.group(1)}"
     else:
-        m_taiha_ref = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*大破[^\./,\)]*\.(?:png|jpg))', src, re.I)
-        if m_taiha_ref:
-            p_part = m_taiha_ref.group(1) or page_name
-            f_part = m_taiha_ref.group(2)
-            castle["taihaUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p_part)}&src={quote(f_part)}"
+        m_taiha_rev = re.search(r'\|[^\n|]*大破[^\n|]*\|[^\n|]*特技[^\n|]*\|[\r\n]+\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)', src, re.I)
+        if m_taiha_rev:
+            castle["taihaUrl"] = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_taiha_rev.group(1)}"
+        else:
+            m_taiha_tab = re.search(r'\|[^\n|]*&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]+\.(?:png|jpg))[^\)]*\)[^\n|]*\|[^\n|]*&(?:attach)?ref\([^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*大破', src, re.I)
+            if m_taiha_tab:
+                p_part = m_taiha_tab.group(1) or page_name
+                f_part = m_taiha_tab.group(2)
+                castle["taihaUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p_part)}&src={quote(f_part)}"
+            else:
+                m_taiha_ref = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*大破[^\./,\)]*\.(?:png|jpg))', src, re.I)
+                if m_taiha_ref:
+                    p_part = m_taiha_ref.group(1) or page_name
+                    f_part = m_taiha_ref.group(2)
+                    castle["taihaUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p_part)}&src={quote(f_part)}"
 
     # Lore
     m_lore = re.search(r"BGCOLOR\(#[A-Fa-f0-9]+\):CENTER:\'\'図鑑文章\'\'\|[\r\n]+\|>\|>\|>\|>\|([^\n|]+(?:\n[^\n|]+)*)", src)

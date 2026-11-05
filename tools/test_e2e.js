@@ -992,14 +992,55 @@ async function runTests() {
   // Click Taiha (大破) tab
   await page.click('#btnFormTaiha');
   await new Promise(r => setTimeout(r, 200));
+  const taihaSrc = await page.$eval('#detailPortraitImg', el => el.src);
   const taihaCaption = await page.$eval('#detailPortraitCaption', el => el.textContent);
+  console.log('Taiha image src:', taihaSrc);
   console.log('Taiha caption:', taihaCaption);
-  if (!taihaCaption.includes('大破')) throw new Error('TEST 25 FAILED: Taiha caption not shown');
+  if (!taihaSrc.includes('0dbeec1d80c572ddc400a35f2d5c069e53962bc5') || !taihaCaption.includes('大破')) {
+    throw new Error('TEST 25 FAILED: Taiha image src or caption did not match expected Taiha form');
+  }
 
   // Close modal
   await page.keyboard.press('Escape');
   await new Promise(r => setTimeout(r, 300));
   console.log('=> TEST 25 PASSED');
+
+  console.log('\n[TEST 26] Testing Taiha Comparisons & 3-Form Panorama...');
+  // Re-open Osaka Castle
+  await page.click('.castle-list-item');
+  await new Promise(r => setTimeout(r, 400));
+  await page.click('#btnFormSideBySide');
+  await new Promise(r => setTimeout(r, 200));
+
+  // Test Battle x Taiha comparison mode
+  await page.click('#btnCmpBattleTaiha');
+  await new Promise(r => setTimeout(r, 200));
+  const battleTaihaVisible = await page.evaluate(() => {
+    const o = document.getElementById('detailSideColOjou').style.display;
+    const b = document.getElementById('detailSideColBattle').style.display;
+    const t = document.getElementById('detailSideColTaiha').style.display;
+    return o === 'none' && b === 'block' && t === 'block';
+  });
+  console.log('Battle x Taiha display verified:', battleTaihaVisible);
+  if (!battleTaihaVisible) throw new Error('TEST 26 FAILED: Battle x Taiha columns not displayed correctly');
+
+  // Test All Three (Triple) Panorama mode
+  await page.click('#btnCmpAllThree');
+  await new Promise(r => setTimeout(r, 200));
+  const tripleVisible = await page.evaluate(() => {
+    const modal = document.querySelector('.modal-detail-content');
+    const o = document.getElementById('detailSideColOjou').style.display;
+    const b = document.getElementById('detailSideColBattle').style.display;
+    const t = document.getElementById('detailSideColTaiha').style.display;
+    return modal.classList.contains('triple-mode') && o === 'block' && b === 'block' && t === 'block';
+  });
+  console.log('All Three Panorama display verified:', tripleVisible);
+  if (!tripleVisible) throw new Error('TEST 26 FAILED: Triple panorama mode not displayed correctly');
+
+  // Close modal
+  await page.keyboard.press('Escape');
+  await new Promise(r => setTimeout(r, 300));
+  console.log('=> TEST 26 PASSED');
 
   // Final check for console errors
   if (pageErrors.length > 0) {
@@ -1012,7 +1053,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (5/5)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (26/26)!');
   console.log('=====================================');
 }
 

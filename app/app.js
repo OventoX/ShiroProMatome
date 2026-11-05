@@ -1726,6 +1726,7 @@
   }
 
   let currentDetailForm = "battle"; // 'battle' | 'ojou' | 'taiha' | 'side_by_side'
+  let currentSideCompareMode = "ojou_battle"; // 'ojou_battle' | 'battle_taiha' | 'ojou_taiha' | 'all_three'
 
   function setDetailPortraitForm(form, castle) {
     const c = castle || getCastleById(activeDetailCastleId);
@@ -1737,6 +1738,10 @@
     const sideContainer = document.getElementById("detailSideBySideContainer");
     const sideImgOjou = document.getElementById("detailSideImgOjou");
     const sideImgBattle = document.getElementById("detailSideImgBattle");
+    const sideImgTaiha = document.getElementById("detailSideImgTaiha");
+    const colOjou = document.getElementById("detailSideColOjou");
+    const colBattle = document.getElementById("detailSideColBattle");
+    const colTaiha = document.getElementById("detailSideColTaiha");
     const captionEl = document.getElementById("detailPortraitCaption");
     const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
 
@@ -1750,6 +1755,38 @@
       if (imgEl) imgEl.style.display = "none";
       if (sideContainer) {
         sideContainer.style.display = "flex";
+
+        // Validate current compare mode against castle's available images
+        const hasOjou = Boolean(c.ojouUrl);
+        const hasTaiha = Boolean(c.taihaUrl);
+
+        const btnCmpOjouBattle = document.getElementById("btnCmpOjouBattle");
+        const btnCmpBattleTaiha = document.getElementById("btnCmpBattleTaiha");
+        const btnCmpOjouTaiha = document.getElementById("btnCmpOjouTaiha");
+        const btnCmpAllThree = document.getElementById("btnCmpAllThree");
+
+        if (btnCmpOjouBattle) btnCmpOjouBattle.disabled = !hasOjou;
+        if (btnCmpBattleTaiha) btnCmpBattleTaiha.disabled = !hasTaiha;
+        if (btnCmpOjouTaiha) btnCmpOjouTaiha.disabled = !hasOjou || !hasTaiha;
+        if (btnCmpAllThree) btnCmpAllThree.disabled = !hasOjou || !hasTaiha;
+
+        // Auto fallback if current mode is unavailable
+        if (currentSideCompareMode === "all_three" && (!hasOjou || !hasTaiha)) {
+          currentSideCompareMode = hasOjou ? "ojou_battle" : (hasTaiha ? "battle_taiha" : "ojou_battle");
+        } else if (currentSideCompareMode === "ojou_taiha" && (!hasOjou || !hasTaiha)) {
+          currentSideCompareMode = hasOjou ? "ojou_battle" : "battle_taiha";
+        } else if (currentSideCompareMode === "battle_taiha" && !hasTaiha) {
+          currentSideCompareMode = "ojou_battle";
+        } else if (currentSideCompareMode === "ojou_battle" && !hasOjou) {
+          currentSideCompareMode = hasTaiha ? "battle_taiha" : "ojou_battle";
+        }
+
+        // Highlight active sub compare button
+        document.querySelectorAll("#sideCompareSelector .compare-sub-btn").forEach(b => {
+          b.classList.toggle("active", b.getAttribute("data-compare") === currentSideCompareMode);
+        });
+
+        // Set images
         if (sideImgOjou) {
           sideImgOjou.onerror = function() { this.src = fallbackSrc; };
           sideImgOjou.src = c.ojouUrl || fallbackSrc;
@@ -1758,23 +1795,56 @@
           sideImgBattle.onerror = function() { this.src = fallbackSrc; };
           sideImgBattle.src = c.illustUrl || fallbackSrc;
         }
+        if (sideImgTaiha) {
+          sideImgTaiha.onerror = function() { this.src = fallbackSrc; };
+          sideImgTaiha.src = c.taihaUrl || fallbackSrc;
+        }
+
+        // Layout display based on currentSideCompareMode
+        if (currentSideCompareMode === "all_three") {
+          if (modalContent) modalContent.classList.add("triple-mode");
+          if (colOjou) colOjou.style.display = "block";
+          if (colBattle) colBattle.style.display = "block";
+          if (colTaiha) colTaiha.style.display = "block";
+          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393;">🌸 御嬢姿</span> ＆ <span style="color:var(--primary-color);">⚔️ 城娘姿</span> ＆ <span style="color:#d63031;">💥 大破姿 (全3形態パノラマ)</span>`;
+        } else if (currentSideCompareMode === "battle_taiha") {
+          if (modalContent) modalContent.classList.remove("triple-mode");
+          if (colOjou) colOjou.style.display = "none";
+          if (colBattle) colBattle.style.display = "block";
+          if (colTaiha) colTaiha.style.display = "block";
+          if (captionEl) captionEl.innerHTML = `<span style="color:var(--primary-color);">⚔️ 城娘姿 (通常)</span> ＆ <span style="color:#d63031;">💥 大破姿 (被弾)</span>`;
+        } else if (currentSideCompareMode === "ojou_taiha") {
+          if (modalContent) modalContent.classList.remove("triple-mode");
+          if (colOjou) colOjou.style.display = "block";
+          if (colBattle) colBattle.style.display = "none";
+          if (colTaiha) colTaiha.style.display = "block";
+          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393;">🌸 御嬢姿 (私服)</span> ＆ <span style="color:#d63031;">💥 大破姿 (被弾)</span>`;
+        } else { // ojou_battle
+          if (modalContent) modalContent.classList.remove("triple-mode");
+          if (colOjou) colOjou.style.display = "block";
+          if (colBattle) colBattle.style.display = "block";
+          if (colTaiha) colTaiha.style.display = "none";
+          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393;">🌸 御嬢姿 (私服)</span> ＆ <span style="color:var(--primary-color);">⚔️ 城娘姿 (戦闘)</span>`;
+        }
       }
-      if (captionEl) captionEl.innerHTML = `<span style="color:#e84393;">🌸 御嬢姿 (私服)</span> ＆ <span style="color:var(--primary-color);">⚔️ 城娘姿 (戦闘)</span>`;
     } else {
-      if (modalContent) modalContent.classList.remove("side-by-side-mode");
+      if (modalContent) {
+        modalContent.classList.remove("side-by-side-mode");
+        modalContent.classList.remove("triple-mode");
+      }
       if (sideContainer) sideContainer.style.display = "none";
       if (imgEl) {
         imgEl.style.display = "block";
         imgEl.onerror = function() { this.src = fallbackSrc; };
         if (form === "ojou") {
           imgEl.src = c.ojouUrl || fallbackSrc;
-          if (captionEl) captionEl.innerHTML = `🌸 御嬢姿 (私服・日常)`;
+          if (captionEl) captionEl.innerHTML = `<span style="color:#e84393; font-weight:bold;">🌸 御嬢姿 (私服・日常)</span>`;
         } else if (form === "taiha") {
           imgEl.src = c.taihaUrl || fallbackSrc;
-          if (captionEl) captionEl.innerHTML = `💥 大破姿 (戦闘不能)`;
+          if (captionEl) captionEl.innerHTML = `<span style="color:#d63031; font-weight:bold;">💥 大破姿 (戦闘不能)</span>`;
         } else {
           imgEl.src = c.illustUrl || fallbackSrc;
-          if (captionEl) captionEl.innerHTML = `⚔️ 城娘姿 (通常・戦闘)`;
+          if (captionEl) captionEl.innerHTML = `<span style="color:var(--primary-color); font-weight:bold;">⚔️ 城娘姿 (通常・戦闘)</span>`;
         }
       }
     }
@@ -1833,12 +1903,12 @@
 
     if (btnOjou) btnOjou.disabled = !c.ojouUrl;
     if (btnTaiha) btnTaiha.disabled = !c.taihaUrl;
-    if (btnSideBySide) btnSideBySide.disabled = !c.ojouUrl;
+    if (btnSideBySide) btnSideBySide.disabled = !c.ojouUrl && !c.taihaUrl;
 
     // Reset to battle form if current mode is unavailable
     if ((currentDetailForm === "ojou" && !c.ojouUrl) ||
         (currentDetailForm === "taiha" && !c.taihaUrl) ||
-        (currentDetailForm === "side_by_side" && !c.ojouUrl)) {
+        (currentDetailForm === "side_by_side" && !c.ojouUrl && !c.taihaUrl)) {
       currentDetailForm = "battle";
     }
 
@@ -2068,6 +2138,20 @@
       if (!btn || btn.disabled) return;
       const form = btn.getAttribute("data-form");
       if (form) setDetailPortraitForm(form);
+    });
+  }
+
+  // Side-by-side comparison mode sub-selector (御嬢×城娘 / 城娘×大破 / 御嬢×大破 / 3姿すべて)
+  const sideCompareSelector = document.getElementById("sideCompareSelector");
+  if (sideCompareSelector) {
+    sideCompareSelector.addEventListener("click", e => {
+      const btn = e.target.closest(".compare-sub-btn");
+      if (!btn || btn.disabled) return;
+      const mode = btn.getAttribute("data-compare");
+      if (mode) {
+        currentSideCompareMode = mode;
+        setDetailPortraitForm("side_by_side");
+      }
     });
   }
 

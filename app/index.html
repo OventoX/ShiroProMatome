@@ -415,15 +415,31 @@
 
             <div class="detail-portrait-frame" id="detailPortraitFrame">
               <img id="detailPortraitImg" class="detail-portrait-img" src="" alt="城娘立ち絵" />
-              <!-- Side-by-side container -->
-              <div id="detailSideBySideContainer" style="display:none; width:100%; gap:8px;">
-                <div style="flex:1; text-align:center;">
-                  <div style="font-size:11px; font-weight:bold; color:#e84393; margin-bottom:4px; background:#fff0f6; border:1px solid #ffd1e3; border-radius:4px; padding:2px;">🌸 御嬢姿</div>
-                  <img id="detailSideImgOjou" style="max-width:100%; max-height:380px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.15));" src="" alt="御嬢立ち絵" />
+              <!-- Side-by-side container (supports Ojou x Battle, Battle x Taiha, Ojou x Taiha, and All Three) -->
+              <div id="detailSideBySideContainer" style="display:none; width:100%; flex-direction:column; gap:6px;">
+                <!-- Compare Mode Sub-Selector -->
+                <div class="side-compare-selector" id="sideCompareSelector">
+                  <button class="compare-sub-btn active" data-compare="ojou_battle" id="btnCmpOjouBattle" title="御嬢と城娘を比較">🌸×⚔️ 御嬢・城娘</button>
+                  <button class="compare-sub-btn" data-compare="battle_taiha" id="btnCmpBattleTaiha" title="通常と大破を比較">⚔️×💥 城娘・大破</button>
+                  <button class="compare-sub-btn" data-compare="ojou_taiha" id="btnCmpOjouTaiha" title="日常と大破を比較">🌸×💥 御嬢・大破</button>
+                  <button class="compare-sub-btn" data-compare="all_three" id="btnCmpAllThree" title="御嬢・城娘・大破の3姿を同時表示">✨ 3姿すべて</button>
                 </div>
-                <div style="flex:1; text-align:center;">
-                  <div style="font-size:11px; font-weight:bold; color:var(--primary-color); margin-bottom:4px; background:#fdf0f0; border:1px solid #fed2d2; border-radius:4px; padding:2px;">⚔️ 城娘姿</div>
-                  <img id="detailSideImgBattle" style="max-width:100%; max-height:380px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.15));" src="" alt="城娘立ち絵" />
+                <div class="detail-side-columns-wrapper" id="detailSideColumnsWrapper" style="display:flex; width:100%; gap:8px;">
+                  <!-- Ojou Column -->
+                  <div class="detail-side-col" id="detailSideColOjou" style="flex:1; text-align:center;">
+                    <div class="detail-side-badge badge-ojou" style="font-size:11px; font-weight:bold; color:#e84393; margin-bottom:4px; background:#fff0f6; border:1px solid #ffd1e3; border-radius:4px; padding:2px;">🌸 御嬢姿</div>
+                    <img id="detailSideImgOjou" style="max-width:100%; max-height:380px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.15));" src="" alt="御嬢立ち絵" />
+                  </div>
+                  <!-- Battle Column -->
+                  <div class="detail-side-col" id="detailSideColBattle" style="flex:1; text-align:center;">
+                    <div class="detail-side-badge badge-battle" style="font-size:11px; font-weight:bold; color:var(--primary-color); margin-bottom:4px; background:#fdf0f0; border:1px solid #fed2d2; border-radius:4px; padding:2px;">⚔️ 城娘姿</div>
+                    <img id="detailSideImgBattle" style="max-width:100%; max-height:380px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.15));" src="" alt="城娘立ち絵" />
+                  </div>
+                  <!-- Taiha Column -->
+                  <div class="detail-side-col" id="detailSideColTaiha" style="flex:1; text-align:center; display:none;">
+                    <div class="detail-side-badge badge-taiha" style="font-size:11px; font-weight:bold; color:#d63031; margin-bottom:4px; background:#fff0f0; border:1px solid #ffcccc; border-radius:4px; padding:2px;">💥 大破姿</div>
+                    <img id="detailSideImgTaiha" style="max-width:100%; max-height:380px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.15));" src="" alt="大破立ち絵" />
+                  </div>
                 </div>
               </div>
             </div>
