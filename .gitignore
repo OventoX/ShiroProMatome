@@ -18,5 +18,8 @@ tools/*.log
 Thumbs.db
 desktop.ini
 
-# Test artifacts
+# Test artifacts & screenshots
+tools/*.png
 *.png
+!app/icons/
+!app/icons/**

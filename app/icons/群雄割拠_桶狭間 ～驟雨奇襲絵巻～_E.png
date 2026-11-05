@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta content='IE=EmulateIE7; IE=EmulateIE8' http-equiv='X-UA-Compatible' />
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="content-script-type" content="text/javascript" />
+
+	<title>Attach file not found - 御城プロジェクトRE 城プロRE 攻略 Wiki</title>
+<meta name="description" content="再開された城プロ、御城プロジェクト：RE（城プロRE） - DMM.comの攻略wikiです。" />
+
+
+<link rel="stylesheet" href="https://wikibase.swiki.jp/skin/default.css.php?20260918" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://wikibase.swiki.jp/skin/xwikioriginal/WhiteGray/color.css.php?20220824" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" media="screen" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<!--  <link rel="stylesheet" href="https://wikibase.swiki.jp/skin/print.css" type="text/css" media="print" charset="Shift_JIS" /> -->
+<link rel="shortcut icon" href="//scre.swiki.jp/favicon.ico" type="image/x-icon" />
+
+<script type="text/javascript">
+<!--
+	var SKIN_DIR="https://wikibase.swiki.jp/skin/";
+var IMAGE_DIR="https://wikibase.swiki.jp/image/";
+var DEFAULT_LANG="ja_JP";
+var LANG="ja_JP";
+
+	// Cookie制御（ユーザーエージェント制御に使用）
+	function setCookie(name, value, expires, domain, path, secure){
+		var c = '';
+		c += name + '=' + encodeURIComponent(value);
+		if(expires){
+			var exp = new Date();
+			exp.setDate(exp.getDate() + expires);
+			c += '; expires=' + exp.toGMTString();
+		}
+		if(domain){ c += '; domain=' + domain; }
+		if(path)	{ c += '; path=' + path; }
+		if(secure){ c += '; secure'; }
+		document.cookie = c;
+	}
+-->
+</script>
+
+<script type="text/javascript" src="https://wikibase.swiki.jp/skin/lang/ja_JP.js"></script>
+<script type="text/javascript" src="https://wikibase.swiki.jp/skin/default.js"></script>
+<script type="text/javascript" src="https://wikibase.swiki.jp/skin/ajax/textloader.js"></script>
+<script type="text/javascript" src="https://wikibase.swiki.jp/skin/ajax/glossary.js"></script>
+	<script type="text/javascript" src="https://wikibase.swiki.jp/skin/tzCalculation_LocalTimeZone.js"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: 'ja'}</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://wikibase.swiki.jp/skin/jquery/scrolltopcontrol.js"></script>
+<script type="text/javascript" src="https://wikibase.swiki.jp/skin/ajax/jquery.tablesorter.js"></script>
+
+
+
+
+	<!-- Adsense自動広告 20231011版 -->
+	<!-- Adsense アンカー広告を画面上部に表示を禁止するタグ 2024/12/30仮置き data-overlays="bottom" -->
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2811588594492819" data-overlays="bottom" crossorigin="anonymous"></script>
+
+
+
+
+
+<!--
+<script async src="https://fundingchoicesmessages.google.com/i/pub-2811588594492819?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+-->
+
+
+
+
+</head>
+<body>
+
+	<div id="popUpContainer"></div>
+
+
+	<div id="contents_frame" class="glossymenu" style="width: 100%; border-width: 0;">
+
+
+	<div id="header">
+	<h1 class="title">
+		<a href="https://scre.swiki.jp/index.php">
+		御城プロジェクトRE 城プロRE 攻略 Wiki		</a>
+	</h1>
+	</div>
+
+
+
+<div id="naviframe">
+<div id="navigator">[ <a href="https://scre.swiki.jp/index.php?FrontPage">ホーム</a>  | <a href="https://scre.swiki.jp/index.php?%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE">リロード</a>   | <a href="https://scre.swiki.jp/index.php?cmd=newpage&amp;refer=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE">新規</a>   ]
+
+</div>
+<div id="toolbar2"><a href="https://scre.swiki.jp/index.php?cmd=template&amp;refer=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/copy.png" width="20" height="20" alt="コピー" title="コピー" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=list" rel="nofollow"><img src="https://wikibase.swiki.jp/image/list.png" width="20" height="20" alt="一覧" title="一覧" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=diff&amp;page=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/diff.png" width="20" height="20" alt="差分" title="差分" /></a>
+<a href="https://scre.swiki.jp/index.php?RecentChanges" rel="nofollow"><img src="https://wikibase.swiki.jp/image/recentchanges.png" width="20" height="20" alt="最終更新" title="最終更新" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=backup&amp;page=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/backup.png" width="20" height="20" alt="バックアップ" title="バックアップ" /></a>
+&nbsp;
+
+<a href="https://scre.swiki.jp/index.php?cmd=freeze&amp;page=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/freeze.png" width="20" height="20" alt="凍結" title="凍結" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=rename&amp;refer=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/rename.png" width="20" height="20" alt="名前変更" title="名前変更" /></a></div>
+
+<div id="changemirrorwiki">
+</div>
+
+
+
+
+	<div id="search_box">
+		<form method="get" action="./">
+			<div id="naviframe3" class="navimenu3">
+				<a href="./?cmd=search">サイト内検索</a>:　
+				<input type="hidden" value="ぷ" name="encode_hint">
+				<input type="hidden" value="search" name="cmd">
+				<input type="text" size="22" value="" name="word">
+				<input type="submit" value="検索">
+			</div>
+		</form>
+	</div>
+</div>
+
+
+
+<div id="notificationframe" class="floatclear">
+
+	<div id="difference_announce">
+	</div>
+
+	<div id="adv">
+
+
+<ul>
+<li class="checker">[ <a href="https://menu.swiki.jp/diff/recent/host_name/scre" target="_blank">差分チェッカー</a> ]</li>
+<li class="uploader">[ <a href="https://uploader.swiki.jp/log/index/host_name/scre" target="_blank">アップローダー</a> ]</li>
+<li class="rk_mark"><a href="https://hb.afl.rakuten.co.jp/hgc/05d3e211.22e00a4a.08fb8fe0.bfa3dad6/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Fsuperdeal%2F" target="_blank"><img src="https://wikibase.swiki.jp/skin//rakuten.png" width="19" height="19"></a></li><li class="rk_link"><a href="https://hb.afl.rakuten.co.jp/hgc/05d3e211.22e00a4a.08fb8fe0.bfa3dad6/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Fsuperdeal%2F" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  >【楽天スーパーDEAL】毎日更新・最大50％ポイントバック！！（広告）</a></li></ul>
+
+
+	</div>
+
+
+	<div id="follow">
+		<ul>
+			<li id="twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-url="https://scre.swiki.jp/index.php?plugin=ref&host=scre&page=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE&src=%E7%BE%A4%E9%9B%84%E5%89%B2%E6%8B%A0/%E6%A1%B6%E7%8B%AD%E9%96%93%20%EF%BD%9E%E9%A9%9F%E9%9B%A8%E5%A5%87%E8%A5%B2%E7%B5%B5%E5%B7%BB%EF%BD%9E/E.png" data-text=" " data-count="none">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li>
+		</ul>
+	</div>
+
+
+</div>
+
+<div id ="topicpath"><a href="https://scre.swiki.jp/index.php?FrontPage" title="FrontPage (17h)">Top</a> &gt; 画像で一覧RE</div>
+<hr class="layout_hr floatclear" />
+
+
+
+<div id="contents">
+
+	<table class="contents wordBreak">
+	<tr>
+
+				
+
+	<td class="ctable" valign="top">
+	<div id="body">
+
+<!--
+<div id="announce">
+<font color="red">【sWIKI】からのお知らせ</font><br />
+php の脆弱性対応を行いました <a href="https://www.swiki.jp/notice.html" target="_blank">詳細はこちら</a>をご覧下さい。
+</div>
+-->
+
+
+
+		
+		
+
+
+
+		<div id="page_title">
+
+		Attach file not found
+		
+		</div>
+
+		Usage: plugin=ref&amp;page=page_name&amp;src=attached_image_name
+
+<!-- PC body下 -->
+<div id="adsense_under_pc">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2811588594492819"
+		     crossorigin="anonymous"></script>
+		<!-- sWIKI（PC用下段） -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-2811588594492819"
+		     data-ad-slot="4509757390"
+		     data-ad-format="auto"></ins>
+		<script>
+		     (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2811588594492819"
+		     crossorigin="anonymous"></script>
+		<!-- sWIKI（PC用下段） -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-2811588594492819"
+		     data-ad-slot="4509757390"
+		     data-ad-format="auto"></ins>
+		<script>
+		     (adsbygoogle = window.adsbygoogle || []).push({});
+		</script></div>
+<!-- PC body下 ここまで -->
+
+
+	</div>
+	</td>
+
+
+
+		
+	</tr>
+	</table>
+</div>
+
+
+
+	
+	<hr class="layout_hr" />
+
+			<div id="footer">
+	<p>Published by (C)DMMゲームズ</p>		</div>
+		<hr class="layout_hr" />
+	
+
+
+	
+
+
+	
+
+<script type="text/javascript">
+<!--
+    tzCalculation_LocalTimeZone ('scre.swiki.jp',false);
+-->
+</script>
+
+
+	<div id="footframe">
+		<div id="footeraria">
+
+			<div id="fotter-toolbar">
+			<div id="toolbar"><a href="https://scre.swiki.jp/index.php?FrontPage" rel="nofollow"><img src="https://wikibase.swiki.jp/image/plus/home.png" width="20" height="20" alt="ホーム" title="ホーム" /></a>
+<a href="https://scre.swiki.jp/index.php?%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/reload.png" width="20" height="20" alt="リロード" title="リロード" /></a>
+&nbsp;
+
+<a href="https://scre.swiki.jp/index.php?cmd=newpage&amp;refer=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/new.png" width="20" height="20" alt="新規" title="新規" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=newpage_subdir&amp;directory=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/new_sub.png" width="20" height="20" alt="下位ページ作成" title="下位ページ作成" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=template&amp;refer=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/copy.png" width="20" height="20" alt="コピー" title="コピー" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=edit&amp;page=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/edit.png" width="20" height="20" alt="編集" title="編集" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=attach&amp;page=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE&amp;pcmd=upload" rel="nofollow"><img src="https://wikibase.swiki.jp/image/file.png" width="20" height="20" alt="添付" title="添付" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=list" rel="nofollow"><img src="https://wikibase.swiki.jp/image/list.png" width="20" height="20" alt="一覧" title="一覧" /></a>
+<a href="https://scre.swiki.jp/index.php?RecentChanges" rel="nofollow"><img src="https://wikibase.swiki.jp/image/recentchanges.png" width="20" height="20" alt="最終更新" title="最終更新" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=diff&amp;page=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/diff.png" width="20" height="20" alt="差分" title="差分" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=backup&amp;page=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/backup.png" width="20" height="20" alt="バックアップ" title="バックアップ" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=search" rel="nofollow"><img src="https://wikibase.swiki.jp/image/search.png" width="20" height="20" alt="検索" title="検索" /></a>
+&nbsp;
+
+<a href="https://scre.swiki.jp/index.php?cmd=freeze&amp;page=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/freeze.png" width="20" height="20" alt="凍結" title="凍結" /></a>
+<a href="https://scre.swiki.jp/index.php?cmd=rename&amp;refer=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE" rel="nofollow"><img src="https://wikibase.swiki.jp/image/rename.png" width="20" height="20" alt="名前変更" title="名前変更" /></a>
+&nbsp;
+</div>			</div>
+
+			<div id="foot_signature" class="link">
+			無料レンタルWIKIシステム <a href="https://www.swiki.jp" title="無料総合WIKIシステム">swiki.jp</a>&nbsp;/&nbsp;
+			Powered by PukiWiki Plus!!
+			</div>
+
+			<div id="sigunature">
+			<span id="neweditwiki">
+
+
+			</span>
+		</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	isValidCountComment = false;
+	//コメント投稿欄がある場合、投稿先のコメントページのコメント件数をチェック
+	$(".pcomment form textarea").focus(function() {
+		if (false == isValidCountComment) {
+			var msg = '<div class="valid_msg">コメント件数の上限近づいています。ページを新設して下さい。</div>';
+			var msglimit = '<div class="valid_msglimit">コメント数が限界です、至急ページを新設して下さい。</div>';
+			var page = $(".pcomment form input[name=page]").val();
+			$.ajax({
+				url: "/count_comment.php",
+				type: "POST",
+				data: {
+					page: page
+				},
+				dataType: "text",
+				cache: false,
+				success: function(data) {
+					if (data >= 1200 && data < 1300) {
+						$(".pcomment form .pcommentform").prepend(msg);
+					} else if (data >= 1300) {
+						$(".pcomment form .pcommentform").prepend(msglimit);
+					}
+				},
+				error: function(data) {
+					//なにもしない
+				}
+			});
+			isValidCountComment = true;
+		}
+	});
+
+	//ページ編集
+	$("form#form input[name=write]").click(function() {
+		var btnObj  = $(this);
+		var formObj = $(this).closest("form");
+		var content = $("textarea#msg", formObj).val();
+		$.ajax({
+			url: "/ngword.php",
+			type: "POST",
+			data: {
+				host_name: "scre",
+				str: content
+			},
+			dataType: "text",
+			cache: false,
+			success: function(data) {
+				if ("" != data) {
+					alert("送信内容にNGワードが含まれています。\n" + data);
+				}
+				else {
+					$('<input />').attr('type', 'hidden').attr("name", "write").appendTo(formObj);
+					formObj.submit();
+				}
+			},
+			error: function(data) {
+				$('<input />').attr('type', 'hidden').attr("name", "write").appendTo(formObj);
+				formObj.submit();
+			}
+		});
+		return false;
+	});
+
+	//コメント
+	$(".pcomment input:submit").click(function() {
+		var btnObj  = $(this);
+		var formObj = $(this).closest("form");
+		var content = "";
+		content += $("input[name=name]", formObj).val();
+		content += $("textarea[name=msg]", formObj).val();
+		$.ajax({
+			url: "/ngword.php",
+			type: "POST",
+			data: {
+				host_name: "scre",
+				str: content
+			},
+			dataType: "text",
+			cache: false,
+			success: function(data) {
+				if ("" != data) {
+					alert("送信内容にNGワードが含まれています。\n" + data);
+				}
+				else {
+					formObj.submit();
+				}
+			},
+			error: function(data) {
+				formObj.submit();
+			}
+		});
+		return false;
+	});
+
+	//table_edit2
+	$("form input[name=write]").click(function() {
+		var btnObj     = $(this);
+		var formObj    = $(this).closest("form");
+		var pluginName = $("input[name=plugin]", formObj).val();
+		if ("table_edit2" == pluginName) {
+			var content = "";
+			$("input:text", formObj).each(function() {
+				content += $(this).val();
+			});
+			$.ajax({
+				url: "/ngword.php",
+				type: "POST",
+				data: {
+					host_name: "scre",
+					str: content
+				},
+				dataType: "text",
+				cache: false,
+				success: function(data) {
+					if ("" != data) {
+						alert("送信内容にNGワードが含まれています。\n" + data);
+					}
+					else {
+						$('<input />').attr('type', 'hidden').attr("name", "write").appendTo(formObj);
+						formObj.submit();
+					}
+				},
+				error: function(data) {
+					$('<input />').attr('type', 'hidden').attr("name", "write").appendTo(formObj);
+					formObj.submit();
+				}
+			});
+			return false;
+		}
+		else {
+			return true;
+		}
+	});
+
+	//ページ新規作成
+	$("form input:submit").click(function() {
+		var btnObj     = $(this);
+		var formObj    = $(this).closest("form");
+		var pluginName = $("input[name=plugin]", formObj).val();
+		if ("newpage" == pluginName) {
+			var content = $("input[name=page]", formObj).val();
+			$.ajax({
+				url: "/ngword.php",
+				type: "POST",
+				data: {
+					host_name: "scre",
+					str: content
+				},
+				dataType: "text",
+				cache: false,
+				success: function(data) {
+					if ("" != data) {
+						alert("送信内容にNGワードが含まれています。\n" + data);
+					}
+					else {
+						formObj.submit();
+					}
+				},
+				error: function(data) {
+					formObj.submit();
+				}
+			});
+			return false;
+		}
+		else {
+			return true;
+		}
+	});
+});
+</script>
+
+
+	<!-- Twitter ウイジェットの幅を強制的に拡大 -->
+
+	<script type="text/javascript">
+	  $(window).load(function() {
+	    function changeWidget() {
+	      var twFrame = $('iframe.twitter-timeline');
+	      if (twFrame.length > 0) {
+	        twFrame.contents()
+	          .find('head').append('<link href="//wikibase.swiki.jp/skin/twitter_widget.css" rel="stylesheet" type="text/css" media="all" />');
+	        } else {
+	          setTimeout(changeWidget, 1500);
+	        }
+	      }
+	      changeWidget();
+	    });
+	</script>
+
+</body>
+</html>
