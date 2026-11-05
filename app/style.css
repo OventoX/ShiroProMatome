@@ -1226,6 +1226,10 @@ body {
   pointer-events: none;
   animation: toastFadeIn 0.25s ease-out;
 }
+.toast-notification.toast-warning {
+  background: rgba(192, 57, 43, 0.95);
+  border: 1px solid #e74c3c;
+}
 @keyframes toastFadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }

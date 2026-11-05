@@ -769,39 +769,73 @@ async function runTests() {
   }
   console.log('=> TEST 20 PASSED');
 
-  // Test 21: Party Share Link (Feature 3)
+  // Test 21: Party Share Link (Feature 3) with Validation & Confirmation
   console.log('\n[TEST 21] Testing Party Share Link...');
   // Click btnShareLink
   await page.click('#btnShareLink');
   await new Promise(r => setTimeout(r, 200));
 
-  // Get share URL hash from page evaluate
-  const shareHash = await page.evaluate(() => {
+  // 1. Test restoration with confirmation and exclusion of invalid IDs
+  const shareHashWithInvalid = await page.evaluate(() => {
     const data = {
       v: 1,
       t: '地獄',
       p: [
         { id: '名古屋城', s: 1 },
         { id: '大坂城', s: 1 },
-        { id: '彦根城', s: 0 }
+        { id: '彦根城', s: 0 },
+        { id: '存在しない架空城娘999', s: 0 }
       ]
     };
     return '#share=' + btoa(unescape(encodeURIComponent(JSON.stringify(data))));
   });
 
-  // Navigate to share hash
-  await page.evaluate(h => {
-    window.location.hash = h;
-    window.location.reload();
-  }, shareHash);
-  await page.waitForNavigation({ waitUntil: 'load' });
+  let dialogMessageReceived = '';
+  page.once('dialog', async dialog => {
+    dialogMessageReceived = dialog.message();
+    console.log('Dialog intercepted with message preview:', dialogMessageReceived.substring(0, 60));
+    await dialog.accept();
+  });
+
+  await page.goto(HTML_FILE + shareHashWithInvalid, { waitUntil: 'load' });
   await new Promise(r => setTimeout(r, 400));
 
-  const restoredHashCounter = await page.$eval('#partyCounter', el => el.textContent);
-  console.log('Party counter after loading share hash:', restoredHashCounter);
-  if (!restoredHashCounter.includes('3/8')) {
-    throw new Error('TEST 21 FAILED: Party not restored from URL share hash (expected 3/8): ' + restoredHashCounter);
+  if (!dialogMessageReceived.includes('存在しない城娘は除外') || !dialogMessageReceived.includes('上書き')) {
+    throw new Error('TEST 21 FAILED: Confirmation dialog did not mention invalid castle exclusion or overwrite warning');
   }
+
+  const restoredHashCounter = await page.$eval('#partyCounter', el => el.textContent);
+  console.log('Party counter after loading share hash (with invalid ID excluded):', restoredHashCounter);
+  if (!restoredHashCounter.includes('3/8')) {
+    throw new Error('TEST 21 FAILED: Party not restored correctly (expected 3/8 valid castles): ' + restoredHashCounter);
+  }
+
+  const warningToast = await page.$eval('.toast-notification', el => el.textContent);
+  console.log('Toast notification text:', warningToast);
+  if (!warningToast.includes('未存在の城娘を除外')) {
+    throw new Error('TEST 21 FAILED: Warning toast not shown for excluded castle ID');
+  }
+
+  // 2. Test cancellation: party should not be overwritten
+  const shareHashCancel = await page.evaluate(() => {
+    const data = { v: 1, t: '水', p: [{ id: '小早川城', s: 1 }] };
+    return '#share=' + btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+  });
+
+  page.once('dialog', async dialog => {
+    console.log('Dismissing confirmation dialog (user clicks cancel)...');
+    await dialog.dismiss();
+  });
+
+  await page.goto(HTML_FILE + shareHashCancel, { waitUntil: 'load' });
+  await new Promise(r => setTimeout(r, 400));
+
+  const counterAfterCancel = await page.$eval('#partyCounter', el => el.textContent);
+  console.log('Party counter after user cancelled share link restore:', counterAfterCancel);
+  if (!counterAfterCancel.includes('3/8')) {
+    throw new Error('TEST 21 FAILED: Party was altered despite user cancelling confirmation: ' + counterAfterCancel);
+  }
+
   // Clear hash
   await page.evaluate(() => { history.replaceState(null, '', window.location.pathname); });
   console.log('=> TEST 21 PASSED');
@@ -861,6 +895,12 @@ async function runTests() {
   if (simStepsCount < 20) {
     throw new Error('TEST 23 FAILED: Simulation steps count too low: ' + simStepsCount);
   }
+
+  const approxNoteText = await page.$eval('#sectionGiantizeSim', el => el.textContent);
+  if (!approxNoteText.includes('近似計算に関する注記')) {
+    throw new Error('TEST 23 FAILED: Giantize simulation missing approximation note');
+  }
+  console.log('Giantize approximation note confirmed: true');
   console.log('=> TEST 23 PASSED');
 
   // Final check for console errors

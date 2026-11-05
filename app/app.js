@@ -148,16 +148,16 @@
   }
 
   // Toast Notification Helper
-  function showNotification(msg) {
+  function showNotification(msg, isWarning = false) {
     let toast = document.querySelector(".toast-notification");
     if (toast) toast.remove();
     toast = document.createElement("div");
-    toast.className = "toast-notification";
-    toast.innerHTML = `<span>✓</span><span>${msg}</span>`;
+    toast.className = "toast-notification" + (isWarning ? " toast-warning" : "");
+    toast.innerHTML = `<span>${isWarning ? '⚠️' : '✓'}</span><span>${msg}</span>`;
     document.body.appendChild(toast);
     setTimeout(() => {
       if (toast.parentNode) toast.remove();
-    }, 2800);
+    }, isWarning ? 4200 : 2800);
   }
 
   function switchPreset(idx) {
@@ -2398,7 +2398,46 @@
       const jsonStr = decodeURIComponent(escape(atob(b64)));
       const data = JSON.parse(jsonStr);
       if (data && Array.isArray(data.p)) {
-        party = data.p.map(item => ({ id: item.id, strategyOn: Boolean(item.s) }));
+        // (1) Validate existence of IDs via getCastleById
+        const validParty = [];
+        const invalidIds = [];
+        data.p.forEach(item => {
+          if (item && item.id) {
+            const castle = getCastleById(item.id);
+            if (castle) {
+              validParty.push({ id: item.id, strategyOn: Boolean(item.s) });
+            } else {
+              invalidIds.push(item.id);
+            }
+          }
+        });
+
+        if (validParty.length === 0) {
+          showNotification("共有リンク内に有効な城娘データが見つかりませんでした。", true);
+          history.replaceState(null, "", window.location.pathname + window.location.search);
+          return;
+        }
+
+        // (2) Confirm dialog before overwriting current preset
+        const currentPresetName = partyPresets[currentPresetIdx]?.name || `部隊${currentPresetIdx + 1}`;
+        const validNames = validParty.map(p => {
+          const c = getCastleById(p.id);
+          return c ? c.name : p.id;
+        }).join("、");
+
+        let confirmMsg = `共有リンクから部隊編成を復元しますか？\n\n【読み込む城娘 (${validParty.length}体)】\n${validNames}`;
+        if (invalidIds.length > 0) {
+          confirmMsg += `\n\n※以下の未収録・存在しない城娘は除外されます:\n${invalidIds.join("、")}`;
+        }
+        confirmMsg += `\n\n※現在の編成「${currentPresetName}」は上書きされます。`;
+
+        if (!confirm(confirmMsg)) {
+          // Cancelled: do not modify party or saved presets
+          history.replaceState(null, "", window.location.pathname + window.location.search);
+          return;
+        }
+
+        party = validParty;
         partyPresets[currentPresetIdx].party = party;
         if (data.t !== undefined) {
           currentTerrain = data.t;
@@ -2408,12 +2447,22 @@
         savePresets();
         renderDashboard();
         renderAllCastles();
-        showNotification("共有リンクから部隊編成を復元しました！");
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+
+        if (invalidIds.length > 0) {
+          showNotification(`共有リンクを復元しました（未存在の城娘を除外: ${invalidIds.join("、")}）`, true);
+        } else {
+          showNotification("共有リンクから部隊編成を復元しました！");
+        }
       }
     } catch (err) {
       console.warn("Error parsing share hash:", err);
+      showNotification("共有リンクの解析に失敗しました。", true);
+      history.replaceState(null, "", window.location.pathname + window.location.search);
     }
   }
+
+  window.addEventListener("hashchange", checkShareUrlOnLoad);
 
   const btnShareLink = document.getElementById("btnShareLink");
   if (btnShareLink) {
