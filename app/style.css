@@ -2902,3 +2902,123 @@ body {
   border: 1px solid #ebdccb;
   border-radius: 4px;
 }
+
+/* 🏯 実在の城（モチーフ）バッジ＆詳細セクション */
+.real-castle-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  line-height: 1;
+  margin-left: 4px;
+  cursor: help;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+  transition: transform 0.15s ease;
+}
+.real-castle-badge:hover {
+  transform: scale(1.2);
+}
+
+.detail-real-castle-box {
+  margin-top: 10px;
+  background: #fdfaf6;
+  border: 1px solid #e8decb;
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+.detail-real-castle-box .detail-section-title {
+  font-size: 11.5px;
+  font-weight: bold;
+  color: #7a4e1d;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.real-castle-card {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ecd8be;
+  border-radius: 5px;
+  padding: 6px;
+}
+.real-castle-photo-wrap {
+  flex-shrink: 0;
+  width: 90px;
+  height: 68px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #eae3d2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+.real-castle-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+  display: block;
+}
+.real-castle-photo:hover {
+  transform: scale(1.06);
+}
+.real-castle-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.real-castle-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+.real-castle-title {
+  font-size: 13px;
+  color: #2c221e;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.real-castle-wiki-link {
+  font-size: 10.5px;
+  color: #2980b9;
+  text-decoration: none;
+  background: #ebf5fb;
+  border: 1px solid #d4e6f1;
+  padding: 1px 5px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.real-castle-wiki-link:hover {
+  text-decoration: underline;
+  background: #d4e6f1;
+}
+.real-castle-meta {
+  font-size: 9.5px;
+  color: #7f8c8d;
+  line-height: 1.35;
+  word-break: break-all;
+}
+.real-castle-credit {
+  color: #555;
+  max-height: 2.7em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.real-castle-license {
+  color: #8c7b64;
+  font-weight: 500;
+}
+

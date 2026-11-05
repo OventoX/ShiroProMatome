@@ -2188,6 +2188,101 @@ async function runTests() {
     console.log('=> TEST 38 PASSED');
   }
 
+  // TEST 39: 実在の城（モチーフ）の写真・解説・帰属表示 (Prompt 7)
+  console.log('\n--- TEST 39: Real Castle Motif Photo & Attribution ---');
+  {
+    // Switch to castle list tab
+    await page.click('button[data-tab="tab-list"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    // Search for 姫路城 (which has realCastle)
+    await page.evaluate(() => {
+      const el = document.getElementById('searchCastleInput');
+      if (el) {
+        el.value = '姫路城';
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    });
+    await new Promise(r => setTimeout(r, 400));
+
+    // Verify 🏯 badge in castle list item
+    const hasBadge = await page.$eval('.castle-list-item[data-id="姫路城"] .real-castle-badge', el => el !== null);
+    if (!hasBadge) {
+      throw new Error('TEST 39 FAILED: 🏯 badge not found on 姫路城 list item');
+    }
+    console.log('Verified 🏯 badge appears on 姫路城 list item');
+
+    // Open detail modal for 姫路城
+    await page.evaluate(() => {
+      const btn = document.querySelector('.castle-list-item[data-id="姫路城"] button[data-detail="姫路城"]');
+      if (btn) btn.click();
+    });
+    await new Promise(r => setTimeout(r, 500));
+
+    // Verify real castle section is visible with photo, title, link, author and license
+    const realBoxVisible = await page.$eval('#detailRealCastleBox', el => el.style.display !== 'none');
+    if (!realBoxVisible) {
+      throw new Error('TEST 39 FAILED: #detailRealCastleBox is not visible for 姫路城');
+    }
+
+    const realTitle = await page.$eval('#detailRealCastleContent .real-castle-title', el => el.textContent.trim());
+    const realPhotoSrc = await page.$eval('#detailRealCastleContent .real-castle-photo', el => el.getAttribute('src'));
+    const realWikiLink = await page.$eval('#detailRealCastleContent .real-castle-wiki-link', el => el.getAttribute('href'));
+    const realCredit = await page.$eval('#detailRealCastleContent .real-castle-credit', el => el.textContent.trim());
+    const realLicense = await page.$eval('#detailRealCastleContent .real-castle-license', el => el.textContent.trim());
+
+    console.log('Real castle info:', { realTitle, realPhotoSrc: realPhotoSrc.slice(0, 50), realWikiLink, realCredit, realLicense });
+    if (!realTitle.includes('姫路城') || !realPhotoSrc.includes('wikimedia.org') || !realWikiLink.includes('wikipedia.org') || !realCredit || !realLicense) {
+      throw new Error('TEST 39 FAILED: Real castle metadata incomplete');
+    }
+
+    // Take screenshot of modal with real castle section
+    const screenshotDir = path.resolve(__dirname, 'screenshots');
+    const realModalScreenshotPath = path.join(screenshotDir, 'real_castle_modal.png');
+    await page.screenshot({ path: realModalScreenshotPath, fullPage: false });
+    console.log('Saved real_castle_modal.png');
+
+    // Close modal
+    await page.click('#modalDetailCloseBtn');
+    await new Promise(r => setTimeout(r, 300));
+
+    // Verify a castle WITHOUT realCastle (e.g. DMM城 or 架空城) does NOT show #detailRealCastleBox
+    await page.evaluate(() => {
+      const el = document.getElementById('searchCastleInput');
+      if (el) {
+        el.value = 'DMM城';
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    });
+    await new Promise(r => setTimeout(r, 400));
+    await page.evaluate(() => {
+      const btn = document.querySelector('.castle-list-item[data-id="DMM城"] button[data-detail="DMM城"]');
+      if (btn) btn.click();
+    });
+    await new Promise(r => setTimeout(r, 500));
+
+    const dmmRealBoxVisible = await page.$eval('#detailRealCastleBox', el => el.style.display !== 'none');
+    if (dmmRealBoxVisible) {
+      throw new Error('TEST 39 FAILED: #detailRealCastleBox should NOT be visible for DMM城');
+    }
+    console.log('Verified #detailRealCastleBox is hidden for fictional castle (DMM城)');
+
+    // Close modal
+    await page.click('#modalDetailCloseBtn');
+    await new Promise(r => setTimeout(r, 300));
+
+    // Check settings tab attribution note
+    await page.click('button[data-tab="tab-settings"]');
+    await new Promise(r => setTimeout(r, 300));
+    const appInfoText = await page.$eval('#tab-settings', el => el.textContent);
+    if (!appInfoText.includes('Wikimedia Commons') || !appInfoText.includes('Wikipedia')) {
+      throw new Error('TEST 39 FAILED: Settings tab lacks Wikimedia Commons attribution');
+    }
+    console.log('Verified settings tab Wikimedia Commons attribution note');
+
+    console.log('=> TEST 39 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -2199,7 +2294,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (38/38)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (39/39)!');
   console.log('=====================================');
 }
 

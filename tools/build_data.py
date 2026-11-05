@@ -500,7 +500,25 @@ def main():
     ojou_count = sum(1 for c in results if c.get("ojouUrl"))
     taiha_count = sum(1 for c in results if c.get("taihaUrl"))
     tokugi_count = sum(1 for c in results if c.get("tokugiUrl"))
-    print(f"Total parsed: {len(results)}, '無' count: {none_count}, With illustration: {illust_count}, With Ojou: {ojou_count}, With Taiha: {taiha_count}, With Tokugi: {tokugi_count}, With lore: {lore_count}")
+    # Attach real castle photos and Wikipedia info
+    real_cache_file = ROOT / "tools" / "cache" / "real_castles_cache.json"
+    real_cache = {}
+    if real_cache_file.exists():
+        try:
+            with open(real_cache_file, "r", encoding="utf-8") as f:
+                real_cache = json.load(f)
+        except Exception as e:
+            print("Failed to load real_castles_cache:", e)
+
+    real_count = 0
+    for c in results:
+        base_name = re.sub(r'^[［\[].*?[］\]]', '', c.get("name", "")).strip()
+        rc = real_cache.get(base_name)
+        if rc:
+            c["realCastle"] = rc
+            real_count += 1
+
+    print(f"Total parsed: {len(results)}, '無' count: {none_count}, With illustration: {illust_count}, With Ojou: {ojou_count}, With Taiha: {taiha_count}, With Tokugi: {tokugi_count}, With lore: {lore_count}, With realCastle: {real_count}")
 
     rules_js = """// Generated data for scre-helper
 window.SCRE_RULES = {

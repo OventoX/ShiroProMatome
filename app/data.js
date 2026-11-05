@@ -186,7 +186,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "名古屋城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/960px-Nagoya_Castle_7.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "大坂城",
@@ -422,7 +429,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大坂城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/960px-Osaka_Castle_03bs3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "彦根城",
@@ -580,7 +594,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "彦根城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Hikone_Castle_November_2016_-02.jpg/960px-Hikone_Castle_November_2016_-02.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BD%A6%E6%A0%B9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "五稜郭",
@@ -726,7 +747,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "五稜郭",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Hakodate_Goryokaku_Panorama_1.JPG/960px-Hakodate_Goryokaku_Panorama_1.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%94%E7%A8%9C%E9%83%AD",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "安平城",
@@ -924,7 +952,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "安平古堡",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg/960px-Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ノイシュヴァンシュタイン城",
@@ -1095,7 +1130,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ノイシュヴァンシュタイン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Schwangau_-_Schloss_Neuschwanstein_%28b%29.JPG/960px-Schwangau_-_Schloss_Neuschwanstein_%28b%29.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8E%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%B4%E3%82%A1%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "聚楽第",
@@ -1306,7 +1348,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "聚楽第",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Jurakudai-Palace-Kyoto-Folding-Screen.jpg/960px-Jurakudai-Palace-Kyoto-Folding-Screen.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
+   "license": "Public domain",
+   "author": "三井文庫蔵"
+  }
  },
  {
   "id": "安土城",
@@ -1474,7 +1523,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "安土城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/%E5%AE%89%E5%9C%9F%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3%E5%9D%80.jpg/960px-%E5%AE%89%E5%9C%9F%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3%E5%9D%80.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E5%9C%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "熊本城",
@@ -1727,7 +1783,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "熊本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/960px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "指月伏見城",
@@ -1858,7 +1921,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "伏見城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/FushimiCastle.JPG/960px-FushimiCastle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8F%E8%A6%8B%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Thomas vanierschot"
+  }
  },
  {
   "id": "万里の長城",
@@ -2110,7 +2180,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "万里の長城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/The_Great_wall_-_by_Hao_Wei.jpg/960px-The_Great_wall_-_by_Hao_Wei.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%87%E9%87%8C%E3%81%AE%E9%95%B7%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "姫路城",
@@ -2307,7 +2384,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "姫路城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/960px-Himeji_castle_in_may_2015.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A7%AB%E8%B7%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "プラハ城",
@@ -2474,7 +2558,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "プラハ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/PONTE_CARLO_-_PRAGA_-_panoramio.jpg/960px-PONTE_CARLO_-_PRAGA_-_panoramio.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%A9%E3%83%8F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "紫禁城",
@@ -2623,7 +2714,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "紫禁城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Forbidden_city_07.jpg/960px-Forbidden_city_07.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B4%AB%E7%A6%81%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "徳川大坂城",
@@ -2809,7 +2907,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大坂城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/960px-Osaka_Castle_03bs3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ウィンザー城",
@@ -3035,7 +3140,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ウィンザー城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Windsor_Castle_at_Sunset_-_Nov_2006.jpg/960px-Windsor_Castle_at_Sunset_-_Nov_2006.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A3%E3%83%B3%E3%82%B6%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市カルカソンヌ",
@@ -3267,7 +3379,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "カルカソンヌ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Blason_Carcassonne_11.svg/960px-Blason_Carcassonne_11.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AB%E3%82%AB%E3%82%BD%E3%83%B3%E3%83%8C",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "シェーンブルン宮殿",
@@ -3521,7 +3640,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シェーンブルン宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Schloss_Sch%C3%B6nbrunn_Wien_2014_%28Zuschnitt_2%29.jpg/960px-Schloss_Sch%C3%B6nbrunn_Wien_2014_%28Zuschnitt_2%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%96%E3%83%AB%E3%83%B3%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "錦城",
@@ -3705,7 +3831,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大坂城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/960px-Osaka_Castle_03bs3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "シャンボール城",
@@ -3895,7 +4028,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シャンボール城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Chambord1.jpg/960px-Chambord1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A3%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%AB%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Thomas Steiner"
+  }
  },
  {
   "id": "［正月］熊本城",
@@ -4119,7 +4259,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "熊本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/960px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "モン・サン＝ミッシェル",
@@ -4366,7 +4513,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "モン・サン＝ミシェル",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Mont-Saint-Michel_vu_du_ciel.jpg/960px-Mont-Saint-Michel_vu_du_ciel.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%83%BB%E3%82%B5%E3%83%B3%EF%BC%9D%E3%83%9F%E3%82%B7%E3%82%A7%E3%83%AB",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ヴェルサイユ宮殿",
@@ -4581,7 +4735,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ヴェルサイユ宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Versailles_Palace.jpg/960px-Versailles_Palace.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%B4%E3%82%A7%E3%83%AB%E3%82%B5%E3%82%A4%E3%83%A6%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "烏城",
@@ -4818,7 +4979,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岡山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Okayama_Castle_main_keep_2023-10-18.jpg/960px-Okayama_Castle_main_keep_2023-10-18.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鎌倉城",
@@ -5029,7 +5197,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鎌倉城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Nagoe-ookirigishi01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%8E%8C%E5%80%89%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Kaba-maru"
+  }
  },
  {
   "id": "キャメロット城",
@@ -5359,7 +5534,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "彦根城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Hikone_Castle_November_2016_-02.jpg/960px-Hikone_Castle_November_2016_-02.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BD%A6%E6%A0%B9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ペテルゴフ宮殿",
@@ -5511,7 +5693,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ペテルゴフ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Grand_Cascade_of_Peterhof_01.jpg/960px-Grand_Cascade_of_Peterhof_01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9A%E3%83%86%E3%83%AB%E3%82%B4%E3%83%95",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ロンドン塔",
@@ -5690,7 +5879,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ロンドン塔",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Tower_of_London%2C_April_2006.jpg/960px-Tower_of_London%2C_April_2006.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%B3%E3%83%89%E3%83%B3%E5%A1%94",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ダノター城",
@@ -6059,7 +6255,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シェーンブルン宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Schloss_Sch%C3%B6nbrunn_Wien_2014_%28Zuschnitt_2%29.jpg/960px-Schloss_Sch%C3%B6nbrunn_Wien_2014_%28Zuschnitt_2%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%96%E3%83%AB%E3%83%B3%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "成都城",
@@ -6637,7 +6840,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シティ・パレス (ジャイプル)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Jaipur_03-2016_19_City_Palace_complex.jpg/960px-Jaipur_03-2016_19_City_Palace_complex.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%86%E3%82%A3%E3%83%BB%E3%83%91%E3%83%AC%E3%82%B9%20%28%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%97%E3%83%AB%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "琉球御城",
@@ -7048,7 +7258,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大坂城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/960px-Osaka_Castle_03bs3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］姫路城",
@@ -7235,7 +7452,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "姫路城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/960px-Himeji_castle_in_may_2015.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A7%AB%E8%B7%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "竜宮城",
@@ -7609,7 +7833,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "安土城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/%E5%AE%89%E5%9C%9F%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3%E5%9D%80.jpg/960px-%E5%AE%89%E5%9C%9F%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3%E5%9D%80.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E5%9C%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "木幡山伏見城",
@@ -7760,7 +7991,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "伏見城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/FushimiCastle.JPG/960px-FushimiCastle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8F%E8%A6%8B%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Thomas vanierschot"
+  }
  },
  {
   "id": "江戸城",
@@ -7942,7 +8180,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "金鯱城",
@@ -8113,7 +8358,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "名古屋城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/960px-Nagoya_Castle_7.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "虎臥城",
@@ -8274,7 +8526,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "竹田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG/960px-%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%B9%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Wae35244"
+  }
  },
  {
   "id": "小峯城",
@@ -8786,7 +9045,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "千早城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/%E5%8D%83%E6%97%A9%E5%9F%8E%E5%9D%80%E3%81%AE%E7%A2%91.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%83%E6%97%A9%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Yu-ki-na"
+  }
  },
  {
   "id": "［花嫁衣装］ロンドン塔",
@@ -8992,7 +9258,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ロンドン塔",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Tower_of_London%2C_April_2006.jpg/960px-Tower_of_London%2C_April_2006.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%B3%E3%83%89%E3%83%B3%E5%A1%94",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "閻魔庁",
@@ -9378,7 +9651,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大宰府",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Tofuroh_dazaifu.jpg/960px-Tofuroh_dazaifu.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%AE%B0%E5%BA%9C",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "オラヴィ城",
@@ -9740,7 +10020,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "聚楽第",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Jurakudai-Palace-Kyoto-Folding-Screen.jpg/960px-Jurakudai-Palace-Kyoto-Folding-Screen.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
+   "license": "Public domain",
+   "author": "三井文庫蔵"
+  }
  },
  {
   "id": "［肝試し］松江城",
@@ -9926,7 +10213,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松江城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Matsue_Castle_Keep_Tower_20230617.jpg/960px-Matsue_Castle_Keep_Tower_20230617.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%B1%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "平安京",
@@ -10154,7 +10448,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "平安京",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Heiankyouhukugenmokei.jpg/960px-Heiankyouhukugenmokei.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%AE%89%E4%BA%AC",
+   "license": "CC BY-SA 3.0",
+   "author": "own work"
+  }
  },
  {
   "id": "サン・レーオ城",
@@ -10505,7 +10806,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "平城宮",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/%E5%BE%A9%E5%85%83%E3%81%95%E3%82%8C%E3%81%9F%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E6%A5%B5%E6%AE%BF.jpg/960px-%E5%BE%A9%E5%85%83%E3%81%95%E3%82%8C%E3%81%9F%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E6%A5%B5%E6%AE%BF.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%9F%8E%E5%AE%AE",
+   "license": "CC BY-SA 4.0",
+   "author": "Tsuyoshi chiba"
+  }
  },
  {
   "id": "肥前名護屋城",
@@ -10654,7 +10962,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "名護屋城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/NagoyaC_hommaru.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E8%AD%B7%E5%B1%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］万里の長城",
@@ -10851,7 +11166,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "万里の長城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/The_Great_wall_-_by_Hao_Wei.jpg/960px-The_Great_wall_-_by_Hao_Wei.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%87%E9%87%8C%E3%81%AE%E9%95%B7%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市ニュールンベルク",
@@ -11010,7 +11332,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ニュルンベルク城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/K0429475_Burg_Nuernberg_Luftaufnahme.JPG/960px-K0429475_Burg_Nuernberg_Luftaufnahme.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%AB%E3%83%B3%E3%83%99%E3%83%AB%E3%82%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "コンシェルジュリー",
@@ -11216,7 +11545,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "コンシェルジュリー",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Conciergerie_von_N.JPG/960px-Conciergerie_von_N.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B8%E3%83%A5%E3%83%AA%E3%83%BC",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "足利氏館",
@@ -11365,7 +11701,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鑁阿寺",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/%E9%91%81%E9%98%BF%E5%AF%BA_%E8%B6%B3%E5%88%A9_-_panoramio_%283%29.jpg/960px-%E9%91%81%E9%98%BF%E5%AF%BA_%E8%B6%B3%E5%88%A9_-_panoramio_%283%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%91%81%E9%98%BF%E5%AF%BA",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］ダノター城",
@@ -11684,7 +12027,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "モン・サン＝ミシェル",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Mont-Saint-Michel_vu_du_ciel.jpg/960px-Mont-Saint-Michel_vu_du_ciel.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%83%BB%E3%82%B5%E3%83%B3%EF%BC%9D%E3%83%9F%E3%82%B7%E3%82%A7%E3%83%AB",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］五稜郭",
@@ -11853,7 +12203,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "五稜郭",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Hakodate_Goryokaku_Panorama_1.JPG/960px-Hakodate_Goryokaku_Panorama_1.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%94%E7%A8%9C%E9%83%AD",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］小田原城",
@@ -12022,7 +12379,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小田原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/161223_Odawara_Castle_Odawara_Japan01s3.jpg/960px-161223_Odawara_Castle_Odawara_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "二条亭",
@@ -12176,7 +12540,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "二条城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/960px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9D%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "エーリューズニル",
@@ -12492,7 +12863,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アーケシュフース城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/OSLO-NO-02_05_ubt.jpeg/960px-OSLO-NO-02_05_ubt.jpeg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%BC%E3%82%B1%E3%82%B7%E3%83%A5%E3%83%95%E3%83%BC%E3%82%B9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［バレンタイン］シャンボール城",
@@ -12642,7 +13020,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シャンボール城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Chambord1.jpg/960px-Chambord1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A3%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%AB%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Thomas Steiner"
+  }
  },
  {
   "id": "［バレンタイン］城塞都市カルカソンヌ",
@@ -12801,7 +13186,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "カルカソンヌ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Blason_Carcassonne_11.svg/960px-Blason_Carcassonne_11.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AB%E3%82%AB%E3%82%BD%E3%83%B3%E3%83%8C",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "アテナイ・アクロポリス",
@@ -13159,7 +13551,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "バベルの塔",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_%28Vienna%29_-_Google_Art_Project_-_edited.jpg/960px-Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_%28Vienna%29_-_Google_Art_Project_-_edited.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%99%E3%83%AB%E3%81%AE%E5%A1%94",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "甲府城",
@@ -13308,7 +13707,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "甲府城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Koufu_Castle_%284936837377%29.jpg/960px-Koufu_Castle_%284936837377%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%94%B2%E5%BA%9C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "墨俣一夜城",
@@ -13479,7 +13885,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "墨俣城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/%E5%A2%A8%E4%BF%A3%E4%B8%80%E5%A4%9C%E5%9F%8E_%E6%AD%B4%E5%8F%B2%E8%B3%87%E6%96%99%E9%A4%A8.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A2%A8%E4%BF%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "月山城",
@@ -13706,7 +14119,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "月山富田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/%E6%9C%88%E5%B1%B1.jpg/960px-%E6%9C%88%E5%B1%B1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "安来市政策秘書課"
+  }
  },
  {
   "id": "ラピュータ",
@@ -14063,7 +14483,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ドゥブロヴニク",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Dubrovnik_june_2011..JPG/960px-Dubrovnik_june_2011..JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%89%E3%82%A5%E3%83%96%E3%83%AD%E3%83%B4%E3%83%8B%E3%82%AF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ストラホフ修道院",
@@ -14212,7 +14639,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ストラホフ修道院",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Praha%2C_Hradcany_-_Strahovsky_klaster_%28pohled_z_ulice_Uvoz%29.jpg/960px-Praha%2C_Hradcany_-_Strahovsky_klaster_%28pohled_z_ulice_Uvoz%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%88%E3%83%A9%E3%83%9B%E3%83%95%E4%BF%AE%E9%81%93%E9%99%A2",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］チャンドラ・マハル",
@@ -14427,7 +14861,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シティ・パレス (ジャイプル)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Jaipur_03-2016_19_City_Palace_complex.jpg/960px-Jaipur_03-2016_19_City_Palace_complex.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%86%E3%82%A3%E3%83%BB%E3%83%91%E3%83%AC%E3%82%B9%20%28%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%97%E3%83%AB%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］安平城",
@@ -14567,7 +15008,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "安平古堡",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg/960px-Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］紫禁城",
@@ -14735,7 +15183,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "紫禁城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Forbidden_city_07.jpg/960px-Forbidden_city_07.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B4%AB%E7%A6%81%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "白鳳城",
@@ -14932,7 +15387,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "上野城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Igauenozyo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E9%87%8E%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "オリジナルのアップロード者は日本語版ウィキペディアのT@kaさん"
+  }
  },
  {
   "id": "不夜城",
@@ -15240,7 +15702,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鑁阿寺",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/%E9%91%81%E9%98%BF%E5%AF%BA_%E8%B6%B3%E5%88%A9_-_panoramio_%283%29.jpg/960px-%E9%91%81%E9%98%BF%E5%AF%BA_%E8%B6%B3%E5%88%A9_-_panoramio_%283%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%91%81%E9%98%BF%E5%AF%BA",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ホッホオスターヴィッツ城",
@@ -15924,7 +16393,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "冬宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/The_Winter_Palace_and_Palace_Square_at_night%2C_Saint_Petersburg%2C_Russia.jpg/960px-The_Winter_Palace_and_Palace_Square_at_night%2C_Saint_Petersburg%2C_Russia.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%86%AC%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］ブラン城",
@@ -16093,7 +16569,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ブラン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Castelul_Bran.jpg/960px-Castelul_Bran.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］ヴェルサイユ宮殿",
@@ -16232,7 +16715,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ヴェルサイユ宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Versailles_Palace.jpg/960px-Versailles_Palace.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%B4%E3%82%A7%E3%83%AB%E3%82%B5%E3%82%A4%E3%83%A6%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "リヒテンシュタイン城",
@@ -16569,7 +17059,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "コトル",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/View_on_Kotor%2C_Montenegro_2023.jpg/960px-View_on_Kotor%2C_Montenegro_2023.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%88%E3%83%AB",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "カルルシュテイン城",
@@ -16718,7 +17215,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "カールシュテイン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Burg_Karlstein_-_Karl%C5%A1tejn_-_panoramio.jpg/960px-Burg_Karlstein_-_Karl%C5%A1tejn_-_panoramio.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%BC%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%86%E3%82%A4%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］プラハ城",
@@ -16847,7 +17351,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "プラハ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/PONTE_CARLO_-_PRAGA_-_panoramio.jpg/960px-PONTE_CARLO_-_PRAGA_-_panoramio.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%A9%E3%83%8F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］大坂城",
@@ -17026,7 +17537,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大坂城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/960px-Osaka_Castle_03bs3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］福岡城",
@@ -17204,7 +17722,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "福岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Fukuoka_castle_2006_01.jpg/960px-Fukuoka_castle_2006_01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］小谷城",
@@ -17410,7 +17935,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小谷城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Odanij10.jpg/960px-Odanij10.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E8%B0%B7%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "［正月］甲府城",
@@ -17529,7 +18061,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "甲府城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Koufu_Castle_%284936837377%29.jpg/960px-Koufu_Castle_%284936837377%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%94%B2%E5%BA%9C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］小峯城",
@@ -17857,7 +18396,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "マチュ・ピチュ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/80_-_Machu_Picchu_-_Juin_2009_-_edit.jpg/960px-80_-_Machu_Picchu_-_Juin_2009_-_edit.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%81%E3%83%A5%E3%83%BB%E3%83%94%E3%83%81%E3%83%A5",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鬼ヶ島",
@@ -18345,7 +18891,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "春日山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Kasaugayama_Castle.jpg/960px-Kasaugayama_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%A5%E6%97%A5%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鷹城",
@@ -18551,7 +19104,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高知城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Kochi_Castle%2C_Outemon-3.jpg/960px-Kochi_Castle%2C_Outemon-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E7%9F%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "寛永江戸城",
@@ -18728,7 +19288,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "白鷺城",
@@ -19088,7 +19655,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "彦根城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Hikone_Castle_November_2016_-02.jpg/960px-Hikone_Castle_November_2016_-02.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BD%A6%E6%A0%B9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］聚楽城",
@@ -19285,7 +19859,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "聚楽第",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Jurakudai-Palace-Kyoto-Folding-Screen.jpg/960px-Jurakudai-Palace-Kyoto-Folding-Screen.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
+   "license": "Public domain",
+   "author": "三井文庫蔵"
+  }
  },
  {
   "id": "徳川伏見城",
@@ -19817,7 +20398,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アラゴネーゼ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Italy_provincial_location_map_2016.svg/960px-Italy_provincial_location_map_2016.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A9%E3%82%B4%E3%83%8D%E3%83%BC%E3%82%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］彦根城",
@@ -19966,7 +20554,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "彦根城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Hikone_Castle_November_2016_-02.jpg/960px-Hikone_Castle_November_2016_-02.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BD%A6%E6%A0%B9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］岡豊城",
@@ -20125,7 +20720,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岡豊城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Oko_castle_zenkei.JPG/960px-Oko_castle_zenkei.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E8%B1%8A%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］津山城",
@@ -20292,7 +20894,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "津山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/%E6%B4%A5%E5%B1%B1%E5%9F%8E%E5%82%99%E4%B8%AD%E6%AB%93.jpg/960px-%E6%B4%A5%E5%B1%B1%E5%9F%8E%E5%82%99%E4%B8%AD%E6%AB%93.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］シャンティイ城",
@@ -20450,7 +21059,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シャンティイ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Chateau_de_Chantilly_garden.jpg/960px-Chateau_de_Chantilly_garden.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A3%E3%83%B3%E3%83%86%E3%82%A3%E3%82%A4%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］二条亭",
@@ -20629,7 +21245,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "二条城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/960px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9D%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］ノイシュヴァンシュタイン城",
@@ -20778,7 +21401,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ノイシュヴァンシュタイン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Schwangau_-_Schloss_Neuschwanstein_%28b%29.JPG/960px-Schwangau_-_Schloss_Neuschwanstein_%28b%29.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8E%E3%82%A4%E3%82%B7%E3%83%A5%E3%83%B4%E3%82%A1%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］ペテルゴフ宮殿",
@@ -20928,7 +21558,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ペテルゴフ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Grand_Cascade_of_Peterhof_01.jpg/960px-Grand_Cascade_of_Peterhof_01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9A%E3%83%86%E3%83%AB%E3%82%B4%E3%83%95",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］肥前名護屋城",
@@ -21075,7 +21712,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "名護屋城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/NagoyaC_hommaru.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E8%AD%B7%E5%B1%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］白帝城",
@@ -21251,7 +21895,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "白帝城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Bai_di_cheng.jpg/960px-Bai_di_cheng.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%99%BD%E5%B8%9D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "クリンタ城",
@@ -21586,7 +22237,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大宰府",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Tofuroh_dazaifu.jpg/960px-Tofuroh_dazaifu.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%AE%B0%E5%BA%9C",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］伊予松山城",
@@ -21792,7 +22450,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/%E6%9D%BE%E5%B1%B1%E5%9F%8E%E5%A4%A9%E5%AE%88_%282372904566%29.jpg/960px-%E6%9D%BE%E5%B1%B1%E5%9F%8E%E5%A4%A9%E5%AE%88_%282372904566%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］白河小峰城",
@@ -21951,7 +22616,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "白河小峰城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Shirakawa_Komine_Castle_20100625-01.jpg/960px-Shirakawa_Komine_Castle_20100625-01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%99%BD%E6%B2%B3%E5%B0%8F%E5%B3%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ノッティンガム城",
@@ -22148,7 +22820,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ノッティンガム城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Nottingham_Castle_Gate_2009.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8E%E3%83%83%E3%83%86%E3%82%A3%E3%83%B3%E3%82%AC%E3%83%A0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ブダ城",
@@ -22345,7 +23024,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ブダ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/BudapestCastle_028.jpg/960px-BudapestCastle_028.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "千方窟",
@@ -22870,7 +23556,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "メヘラーンガル城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Mehrangarh_Fort.jpg/960px-Mehrangarh_Fort.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%98%E3%83%A9%E3%83%BC%E3%83%B3%E3%82%AC%E3%83%AB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］コンシェルジュリー",
@@ -23020,7 +23713,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "コンシェルジュリー",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Conciergerie_von_N.JPG/960px-Conciergerie_von_N.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B8%E3%83%A5%E3%83%AA%E3%83%BC",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］クロンボー城",
@@ -23200,7 +23900,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "クロンボー城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Helsingor_Kronborg.jpg/960px-Helsingor_Kronborg.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%B3%E3%83%9C%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市ディーテ",
@@ -23473,7 +24180,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "坂本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Japan_Kinai_Sankan_topographic_map.webp/960px-Japan_Kinai_Sankan_topographic_map.webp?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9D%82%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］小牧山城",
@@ -23623,7 +24337,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小牧山",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Komakiyama_04.JPG/960px-Komakiyama_04.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%89%A7%E5%B1%B1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］冬宮殿",
@@ -23773,7 +24494,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "冬宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/The_Winter_Palace_and_Palace_Square_at_night%2C_Saint_Petersburg%2C_Russia.jpg/960px-The_Winter_Palace_and_Palace_Square_at_night%2C_Saint_Petersburg%2C_Russia.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%86%AC%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］霞城",
@@ -24493,7 +25221,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "宇和島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Uwajima_Castle%2C_tenshu.jpg/960px-Uwajima_Castle%2C_tenshu.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］虎臥城",
@@ -24652,7 +25387,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "竹田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG/960px-%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%B9%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Wae35244"
+  }
  },
  {
   "id": "［正月］錦城",
@@ -24801,7 +25543,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大坂城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/960px-Osaka_Castle_03bs3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］名古屋城",
@@ -24949,7 +25698,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "名古屋城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/960px-Nagoya_Castle_7.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］会津若松城",
@@ -25146,7 +25902,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "若松城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/%E8%8B%A5%E6%9D%BE%E5%9F%8E%EF%BC%88%E9%B6%B4%E3%83%B6%E5%9F%8E%EF%BC%8920220917-P1003471.jpg/960px-%E8%8B%A5%E6%9D%BE%E5%9F%8E%EF%BC%88%E9%B6%B4%E3%83%B6%E5%9F%8E%EF%BC%8920220917-P1003471.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%9D%BE%E5%9F%8E",
+   "license": "CC BY 4.0",
+   "author": "くろふね"
+  }
  },
  {
   "id": "［絢爛］引田城",
@@ -25314,7 +26077,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "引田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Hiketa_jyou.jpg/960px-Hiketa_jyou.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BC%95%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］佐和山城",
@@ -25434,7 +26204,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "佐和山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Sawayama_Castle_taken_from_the_car_window_of_JR_Biwako_Line_bounded_for_Maibara.jpg/960px-Sawayama_Castle_taken_from_the_car_window_of_JR_Biwako_Line_bounded_for_Maibara.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［バレンタイン］ウチヒサル城",
@@ -25799,7 +26576,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "伏見城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/FushimiCastle.JPG/960px-FushimiCastle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8F%E8%A6%8B%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Thomas vanierschot"
+  }
  },
  {
   "id": "クラック・デ・シュヴァリエ",
@@ -25996,7 +26780,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "クラック・デ・シュヴァリエ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/KRAK_DES_CHEVALIERS_-_GAR_-_6-00.jpg/960px-KRAK_DES_CHEVALIERS_-_GAR_-_6-00.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%A9%E3%83%83%E3%82%AF%E3%83%BB%E3%83%87%E3%83%BB%E3%82%B7%E3%83%A5%E3%83%B4%E3%82%A1%E3%83%AA%E3%82%A8",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "プレッドヤマ城",
@@ -26566,7 +27357,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "滸我御所",
@@ -26958,7 +27756,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "都於郡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/%E9%83%BD%E6%96%BC%E9%83%A1%E5%9F%8E%E8%B7%A1_%E8%A5%BF%E9%83%BD%E5%B8%82_Feb_3%2C_2013.jpg/960px-%E9%83%BD%E6%96%BC%E9%83%A1%E5%9F%8E%E8%B7%A1_%E8%A5%BF%E9%83%BD%E5%B8%82_Feb_3%2C_2013.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%BD%E6%96%BC%E9%83%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］マルボルク城",
@@ -27118,7 +27923,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "マルボルク城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Panorama_of_Malbork_Castle%2C_part_4.jpg/960px-Panorama_of_Malbork_Castle%2C_part_4.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市ウルク",
@@ -27476,7 +28288,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "吉野城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Yoshinoyama20101008.JPG/960px-Yoshinoyama20101008.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%89%E9%87%8E%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Enon1979"
+  }
  },
  {
   "id": "金剛山城",
@@ -27808,7 +28627,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ヘレンキームゼー城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Herrenchiem.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%98%E3%83%AC%E3%83%B3%E3%82%AD%E3%83%BC%E3%83%A0%E3%82%BC%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］七尾城",
@@ -28005,7 +28831,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "七尾城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Nanaojo-tyoudomaru.JPG/960px-Nanaojo-tyoudomaru.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%83%E5%B0%BE%E5%9F%8E",
+   "license": "Public domain",
+   "author": "tom-spring"
+  }
  },
  {
   "id": "枉死城",
@@ -28379,7 +29212,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "淀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/%E6%B7%80%E5%9F%8E%E5%A4%A9%E5%AE%88%E8%B7%A1.jpg/960px-%E6%B7%80%E5%9F%8E%E5%A4%A9%E5%AE%88%E8%B7%A1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B7%80%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ドゥアト",
@@ -28723,7 +29563,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "春日山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Kasaugayama_Castle.jpg/960px-Kasaugayama_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%A5%E6%97%A5%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］許昌城",
@@ -29021,7 +29868,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岡山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Okayama_Castle_main_keep_2023-10-18.jpg/960px-Okayama_Castle_main_keep_2023-10-18.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］亀田御役所土塁",
@@ -29386,7 +30240,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "島原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/140321_Shimabara_Castle_Shimabara_Nagasaki_pref_Japan01bs5.jpg/960px-140321_Shimabara_Castle_Shimabara_Nagasaki_pref_Japan01bs5.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B3%B6%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］白鷺城",
@@ -29789,7 +30650,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "玉縄城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/%E5%A4%AA%E9%BC%93%E9%83%AD%E4%B8%8B_%E5%A0%80%E5%88%87.jpg/960px-%E5%A4%AA%E9%BC%93%E9%83%AD%E4%B8%8B_%E5%A0%80%E5%88%87.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%8E%89%E7%B8%84%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］佐倉城",
@@ -29948,7 +30816,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "佐倉城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Sakura_Castle_2.JPG/960px-Sakura_Castle_2.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%80%89%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］松倉城",
@@ -30340,7 +31215,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アラゴネーゼ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Italy_provincial_location_map_2016.svg/960px-Italy_provincial_location_map_2016.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A9%E3%82%B4%E3%83%8D%E3%83%BC%E3%82%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］丸亀城",
@@ -30509,7 +31391,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "丸亀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/960px-Marugame_Castle01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%B8%E4%BA%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］鶴ヶ岡城",
@@ -30685,7 +31574,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鶴ヶ岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Cherry_blossoms_in_Tsuruoka_Park_2024a.jpg/960px-Cherry_blossoms_in_Tsuruoka_Park_2024a.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B6%B4%E3%83%B6%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "黒船 サスケハナ",
@@ -31020,7 +31916,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "カステル・デル・モンテ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Castel_del_Monte_-_Andria.jpg/960px-Castel_del_Monte_-_Andria.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%B9%E3%83%86%E3%83%AB%E3%83%BB%E3%83%87%E3%83%AB%E3%83%BB%E3%83%A2%E3%83%B3%E3%83%86",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "黄泉国",
@@ -31405,7 +32308,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "タルタロス",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Nekyia_Staatliche_Antikensammlungen_1494_n2.jpg/960px-Nekyia_Staatliche_Antikensammlungen_1494_n2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%AB%E3%82%BF%E3%83%AD%E3%82%B9",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］小田原城",
@@ -31585,7 +32495,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小田原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/161223_Odawara_Castle_Odawara_Japan01s3.jpg/960px-161223_Odawara_Castle_Odawara_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］鞠智城",
@@ -31764,7 +32681,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鞠智城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Kikuchi-jyou.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9E%A0%E6%99%BA%E5%9F%8E",
+   "license": "Public domain",
+   "author": "日本語版ウィキペディアのYAPONさん"
+  }
  },
  {
   "id": "［聖夜］ウェストミンスター宮殿",
@@ -31961,7 +32885,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ウェストミンスター宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Houses_of_Parliament_in_2022_%28cropped%29.jpg/960px-Houses_of_Parliament_in_2022_%28cropped%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A7%E3%82%B9%E3%83%88%E3%83%9F%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］江戸城",
@@ -32147,7 +33078,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］元和江戸城",
@@ -32353,7 +33291,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］寛永江戸城",
@@ -32520,7 +33465,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］四代目江戸城",
@@ -32669,7 +33621,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "帆船 鳳凰丸",
@@ -32979,7 +33938,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "川越城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Kawagoe-Castle_Honmaru-Goten.jpg/960px-Kawagoe-Castle_Honmaru-Goten.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B7%9D%E8%B6%8A%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］桜尾城",
@@ -33110,7 +34076,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "桜尾城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Katsura_Park_1_Sakurao_Castle.jpg/960px-Katsura_Park_1_Sakurao_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A1%9C%E5%B0%BE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］伊勢長島城",
@@ -33528,7 +34501,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "マチュ・ピチュ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/80_-_Machu_Picchu_-_Juin_2009_-_edit.jpg/960px-80_-_Machu_Picchu_-_Juin_2009_-_edit.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%81%E3%83%A5%E3%83%BB%E3%83%94%E3%83%81%E3%83%A5",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "イオラニ宮殿",
@@ -33648,7 +34628,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "イオラニ宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Iolani_Palace_%281328%29.JPG/960px-Iolani_Palace_%281328%29.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%AA%E3%83%A9%E3%83%8B%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ポエナリ城",
@@ -33848,7 +34835,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "柳川城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Yanagawa_Castle01s5s3200.jpg/960px-Yanagawa_Castle01s5s3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］立花山城",
@@ -33978,7 +34972,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "立花山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg/960px-Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%8B%E8%8A%B1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］駿府城",
@@ -34108,7 +35109,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "駿府城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%9D%B1%E5%BE%A1%E9%96%80%E3%81%A8%E5%B7%BD%E6%AB%93.jpg/960px-%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%9D%B1%E5%BE%A1%E9%96%80%E3%81%A8%E5%B7%BD%E6%AB%93.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A7%BF%E5%BA%9C%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "ToukaTsurugi"
+  }
  },
  {
   "id": "［絢爛］観音寺城",
@@ -34238,7 +35246,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "観音寺城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Kan-nonjijou001.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%A6%B3%E9%9F%B3%E5%AF%BA%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Satoshin"
+  }
  },
  {
   "id": "［学園］ラピュータ",
@@ -34931,7 +35946,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シバルバー",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Vessel_depicting_gods_in_the_court_of_Xibalba%2C_the_underworld%2C_Maya%2C_Late_Classic_Period%2C_600-900_AD%2C_ceramic_-_Royal_Ontario_Museum_-_DSC04491.JPG/960px-Vessel_depicting_gods_in_the_court_of_Xibalba%2C_the_underworld%2C_Maya%2C_Late_Classic_Period%2C_600-900_AD%2C_ceramic_-_Royal_Ontario_Museum_-_DSC04491.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%90%E3%83%AB%E3%83%90%E3%83%BC",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］室町第",
@@ -35199,7 +36221,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "真田丸",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Sanada_Yukimura_Demaruj%C5%8D_Site.jpg/960px-Sanada_Yukimura_Demaruj%C5%8D_Site.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9C%9F%E7%94%B0%E4%B8%B8",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］月の都",
@@ -36881,7 +37910,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "今治城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Imabari_castle.JPG/960px-Imabari_castle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%8A%E6%B2%BB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］忍城",
@@ -36991,7 +38027,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "忍城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Oshi-jo.JPG/960px-Oshi-jo.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BF%8D%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Mocchy"
+  }
  },
  {
   "id": "［絢爛］多気城",
@@ -37279,7 +38322,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "天一閣",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Tian_Yi_Chamber.JPG/960px-Tian_Yi_Chamber.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A9%E4%B8%80%E9%96%A3",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］オリュンポス宮殿",
@@ -37509,7 +38559,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ペーナ宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Sintra_-_Palacio_da_Pena_%2820332995770%29.jpg/960px-Sintra_-_Palacio_da_Pena_%2820332995770%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9A%E3%83%BC%E3%83%8A%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ガンジル宮殿",
@@ -37788,7 +38845,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岡山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Okayama_Castle_main_keep_2023-10-18.jpg/960px-Okayama_Castle_main_keep_2023-10-18.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］吉田郡山城",
@@ -37937,7 +39001,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "吉田郡山城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Ruins_of_koriyamajo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%89%E7%94%B0%E9%83%A1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "九龍城砦",
@@ -38094,7 +39165,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "九龍城砦",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Kowloon_Walled_City.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%9D%E9%BE%8D%E5%9F%8E%E7%A0%A6",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "チットールガル城",
@@ -38242,7 +39320,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "チットールガル城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Chittorgarh_fort.JPG/960px-Chittorgarh_fort.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%83%E3%83%88%E3%83%BC%E3%83%AB%E3%82%AC%E3%83%AB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］バベルの塔",
@@ -38372,7 +39457,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "バベルの塔",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_%28Vienna%29_-_Google_Art_Project_-_edited.jpg/960px-Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_%28Vienna%29_-_Google_Art_Project_-_edited.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%99%E3%83%AB%E3%81%AE%E5%A1%94",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］基肄城",
@@ -38529,7 +39621,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "基肄城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/%E5%9F%BA%E5%B1%B1%E5%B1%B1%E9%A0%82%E9%83%A8%E5%9C%9F%E5%A1%811.JPG/960px-%E5%9F%BA%E5%B1%B1%E5%B1%B1%E9%A0%82%E9%83%A8%E5%9C%9F%E5%A1%811.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9F%BA%E8%82%84%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Wxrx"
+  }
  },
  {
   "id": "［威光］多賀城",
@@ -38661,7 +39760,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "多賀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Tagajo-ato_seiden-2.JPG/960px-Tagajo-ato_seiden-2.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%B3%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］滸我御所",
@@ -39180,7 +40286,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "タルタロス",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Nekyia_Staatliche_Antikensammlungen_1494_n2.jpg/960px-Nekyia_Staatliche_Antikensammlungen_1494_n2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%AB%E3%82%BF%E3%83%AD%E3%82%B9",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］平安京",
@@ -39310,7 +40423,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "平安京",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Heiankyouhukugenmokei.jpg/960px-Heiankyouhukugenmokei.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%AE%89%E4%BA%AC",
+   "license": "CC BY-SA 3.0",
+   "author": "own work"
+  }
  },
  {
   "id": "ナラカ",
@@ -39430,7 +40550,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ナラカ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Hindu_hell.jpg/960px-Hindu_hell.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8A%E3%83%A9%E3%82%AB",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］長谷堂城",
@@ -39531,7 +40658,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "長谷堂城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Hasedoujou001.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E8%B0%B7%E5%A0%82%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Satoshin"
+  }
  },
  {
   "id": "［雪華］古河城",
@@ -39694,7 +40828,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "古河城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Koga_castle_suwakuruwa_dorui_hori.jpg/960px-Koga_castle_suwakuruwa_dorui_hori.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8F%A4%E6%B2%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［バレンタイン］ヴァイジャヤンタ",
@@ -39942,7 +41083,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "クラック・デ・シュヴァリエ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/KRAK_DES_CHEVALIERS_-_GAR_-_6-00.jpg/960px-KRAK_DES_CHEVALIERS_-_GAR_-_6-00.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%A9%E3%83%83%E3%82%AF%E3%83%BB%E3%83%87%E3%83%BB%E3%82%B7%E3%83%A5%E3%83%B4%E3%82%A1%E3%83%AA%E3%82%A8",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［アイドル］柳川城",
@@ -40042,7 +41190,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "柳川城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Yanagawa_Castle01s5s3200.jpg/960px-Yanagawa_Castle01s5s3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［アイドル］江戸城＆信貴山城",
@@ -40404,7 +41559,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "佐土原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Sadowara_Castle_2010.JPG/960px-Sadowara_Castle_2010.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%9C%9F%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］高取城",
@@ -40610,7 +41772,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高取城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Takatori_shiro_jpn.JPG/960px-Takatori_shiro_jpn.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%8F%96%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］中津城",
@@ -40835,7 +42004,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "中津城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/%E4%B8%AD%E6%B4%A5%E5%9F%8E%E5%A4%A9%E5%AE%88.jpg/960px-%E4%B8%AD%E6%B4%A5%E5%9F%8E%E5%A4%A9%E5%AE%88.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E6%B4%A5%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "ほっきー"
+  }
  },
  {
   "id": "［学園］千方窟",
@@ -41354,7 +42530,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高松城 (讃岐国)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Takamatsu_castle09s3872.jpg/960px-Takamatsu_castle09s3872.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E6%9D%BE%E5%9F%8E%20%28%E8%AE%83%E5%B2%90%E5%9B%BD%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［天明］岐阜城",
@@ -41525,7 +42708,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岐阜城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/%E5%B2%90%E9%98%9C%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3.jpg/960px-%E5%B2%90%E9%98%9C%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%90%E9%98%9C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［破将］掛川城",
@@ -41686,7 +42876,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "掛川城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Kakegawajo_20090321.jpg/960px-Kakegawajo_20090321.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%8E%9B%E5%B7%9D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "コーロア城",
@@ -42293,7 +43490,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "敦賀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Raigo-ji_%28Tsuruga%29%2C_sanmon.jpg/960px-Raigo-ji_%28Tsuruga%29%2C_sanmon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%95%A6%E8%B3%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］チリンガム城",
@@ -43006,7 +44210,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シバルバー",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Vessel_depicting_gods_in_the_court_of_Xibalba%2C_the_underworld%2C_Maya%2C_Late_Classic_Period%2C_600-900_AD%2C_ceramic_-_Royal_Ontario_Museum_-_DSC04491.JPG/960px-Vessel_depicting_gods_in_the_court_of_Xibalba%2C_the_underworld%2C_Maya%2C_Late_Classic_Period%2C_600-900_AD%2C_ceramic_-_Royal_Ontario_Museum_-_DSC04491.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%90%E3%83%AB%E3%83%90%E3%83%BC",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］ポエナリ城",
@@ -43313,7 +44524,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "聚楽第",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Jurakudai-Palace-Kyoto-Folding-Screen.jpg/960px-Jurakudai-Palace-Kyoto-Folding-Screen.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
+   "license": "Public domain",
+   "author": "三井文庫蔵"
+  }
  },
  {
   "id": "城塞都市カルタゴ",
@@ -43573,7 +44791,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "躑躅ヶ崎館",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8.jpg/960px-%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8",
+   "license": "Public domain",
+   "author": "前田左衛門佐"
+  }
  },
  {
   "id": "［赤蹄］新府城",
@@ -43752,7 +44977,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "新府城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Shinpu_Castle.jpg/960px-Shinpu_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E5%BA%9C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "舞鶴城",
@@ -44001,7 +45233,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "姫路城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/960px-Himeji_castle_in_may_2015.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A7%AB%E8%B7%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］長門指月城",
@@ -44614,7 +45853,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鹿野城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Shikanojou001.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E9%87%8E%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Satoshin"
+  }
  },
  {
   "id": "［お月見］松本城",
@@ -44714,7 +45960,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsumoto_Castle_1-1.jpg/960px-Matsumoto_Castle_1-1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］弘前城",
@@ -44833,7 +46086,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "弘前城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg/960px-Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BC%98%E5%89%8D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］甲府城",
@@ -45035,7 +46295,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "甲府城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Koufu_Castle_%284936837377%29.jpg/960px-Koufu_Castle_%284936837377%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%94%B2%E5%BA%9C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］勝竜寺城",
@@ -45155,7 +46422,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "勝竜寺城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Shoryuji_Castle%2C_koguchi-1.jpg/960px-Shoryuji_Castle%2C_koguchi-1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8B%9D%E7%AB%9C%E5%AF%BA%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ソミュール城",
@@ -45256,7 +46530,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ソミュール城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Saumur_Castle.JPG/960px-Saumur_Castle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%BD%E3%83%9F%E3%83%A5%E3%83%BC%E3%83%AB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］九龍城砦",
@@ -45507,7 +46788,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "九龍城砦",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Kowloon_Walled_City.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%9D%E9%BE%8D%E5%9F%8E%E7%A0%A6",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［温泉］伊予松山城",
@@ -45686,7 +46974,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/%E6%9D%BE%E5%B1%B1%E5%9F%8E%E5%A4%A9%E5%AE%88_%282372904566%29.jpg/960px-%E6%9D%BE%E5%B1%B1%E5%9F%8E%E5%A4%A9%E5%AE%88_%282372904566%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［温泉］山中城",
@@ -45796,7 +47091,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "山中城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/YamanakaJo_ShojiBori.JPG/960px-YamanakaJo_ShojiBori.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E4%B8%AD%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［泡影］伊賀上野城",
@@ -45985,7 +47287,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "上野城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Igauenozyo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E9%87%8E%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "オリジナルのアップロード者は日本語版ウィキペディアのT@kaさん"
+  }
  },
  {
   "id": "［響乱］室町第",
@@ -46453,7 +47762,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アーケシュフース城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/OSLO-NO-02_05_ubt.jpeg/960px-OSLO-NO-02_05_ubt.jpeg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%BC%E3%82%B1%E3%82%B7%E3%83%A5%E3%83%95%E3%83%BC%E3%82%B9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ファルケンシュタイン城",
@@ -46677,7 +47993,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ファルケンシュタイン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Burg_Falkenstein_Pfronten_10.jpg/960px-Burg_Falkenstein_Pfronten_10.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%83%AB%E3%82%B1%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］平城京",
@@ -46856,7 +48179,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "平城宮",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/%E5%BE%A9%E5%85%83%E3%81%95%E3%82%8C%E3%81%9F%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E6%A5%B5%E6%AE%BF.jpg/960px-%E5%BE%A9%E5%85%83%E3%81%95%E3%82%8C%E3%81%9F%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E6%A5%B5%E6%AE%BF.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%9F%8E%E5%AE%AE",
+   "license": "CC BY-SA 4.0",
+   "author": "Tsuyoshi chiba"
+  }
  },
  {
   "id": "［正月］肥前名護屋城",
@@ -46976,7 +48306,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "名護屋城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/NagoyaC_hommaru.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E8%AD%B7%E5%B1%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］忍城",
@@ -47106,7 +48443,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "忍城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Oshi-jo.JPG/960px-Oshi-jo.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BF%8D%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Mocchy"
+  }
  },
  {
   "id": "［正月］城塞都市ディーテ",
@@ -47415,7 +48759,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ナラカ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Hindu_hell.jpg/960px-Hindu_hell.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8A%E3%83%A9%E3%82%AB",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ナグルファル",
@@ -47545,7 +48896,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ナグルファル",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Faroe_stamp_435_Intro_to_Ragnarok.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8A%E3%82%B0%E3%83%AB%E3%83%95%E3%82%A1%E3%83%AB",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "パンデモニウム",
@@ -48086,7 +49444,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ヘレンキームゼー城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Herrenchiem.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%98%E3%83%AC%E3%83%B3%E3%82%AD%E3%83%BC%E3%83%A0%E3%82%BC%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［バレンタイン］不夜城",
@@ -48582,7 +49947,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ルーヴル宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Map_of_the_Palais_du_Louvre_-_OpenStreetMap_2015.svg/960px-Map_of_the_Palais_du_Louvre_-_OpenStreetMap_2015.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%AB%E3%83%BC%E3%83%B4%E3%83%AB%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］金剛山城",
@@ -48879,7 +50251,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "墨俣城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/%E5%A2%A8%E4%BF%A3%E4%B8%80%E5%A4%9C%E5%9F%8E_%E6%AD%B4%E5%8F%B2%E8%B3%87%E6%96%99%E9%A4%A8.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A2%A8%E4%BF%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市シュラクサイ",
@@ -49447,7 +50826,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "二条御所",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Japan_Kyoto_city_urban_topographic_map.webp/960px-Japan_Kyoto_city_urban_topographic_map.webp?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9D%A1%E5%BE%A1%E6%89%80",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "アトランティス",
@@ -49622,7 +51008,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アトランティス",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Athanasius_Kircher%27s_Atlantis.gif?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%88%E3%83%A9%E3%83%B3%E3%83%86%E3%82%A3%E3%82%B9",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［アイドル］クリンタ城＆枉死城",
@@ -50216,7 +51609,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "五稜郭",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Hakodate_Goryokaku_Panorama_1.JPG/960px-Hakodate_Goryokaku_Panorama_1.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%94%E7%A8%9C%E9%83%AD",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］千賀地氏城",
@@ -50371,7 +51771,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "千賀地氏城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Chigachishijo01.jpg/960px-Chigachishijo01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%83%E8%B3%80%E5%9C%B0%E6%B0%8F%E5%9F%8E",
+   "license": "CC BY 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "［絢爛］高島城",
@@ -50548,7 +51955,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/160603_Takashima_Castle_Suwa_Nagano_pref_Japan02n.jpg/960px-160603_Takashima_Castle_Suwa_Nagano_pref_Japan02n.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［龍毘］春日山城",
@@ -50754,7 +52168,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "春日山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Kasaugayama_Castle.jpg/960px-Kasaugayama_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%A5%E6%97%A5%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［暁星］大坂城",
@@ -50902,7 +52323,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大坂城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/960px-Osaka_Castle_03bs3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［桔響］福知山城",
@@ -51136,7 +52564,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "福知山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Fukuchiyama_castle19.jpg/960px-Fukuchiyama_castle19.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E7%9F%A5%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］長篠城",
@@ -51243,7 +52678,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "長篠城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/%E5%8F%B2%E8%B7%A1_%E9%95%B7%E7%AF%A0%E5%9F%8E%E5%9D%80.jpg/960px-%E5%8F%B2%E8%B7%A1_%E9%95%B7%E7%AF%A0%E5%9F%8E%E5%9D%80.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E7%AF%A0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］兵庫城",
@@ -51370,7 +52812,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "兵庫城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Hyogoj01.jpg/960px-Hyogoj01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%B5%E5%BA%AB%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "［夏］バロルの城",
@@ -51652,7 +53101,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ヴェルサイユ宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Versailles_Palace.jpg/960px-Versailles_Palace.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%B4%E3%82%A7%E3%83%AB%E3%82%B5%E3%82%A4%E3%83%A6%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］城塞都市ロンディニウム",
@@ -52091,7 +53547,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "十河城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Sogojo01.jpg/960px-Sogojo01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%81%E6%B2%B3%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "千鳥城",
@@ -52229,7 +53692,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松江城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Matsue_Castle_Keep_Tower_20230617.jpg/960px-Matsue_Castle_Keep_Tower_20230617.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%B1%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］熊本城",
@@ -52404,7 +53874,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "熊本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/960px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］多聞山城",
@@ -52587,7 +54064,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "多聞山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Tamonj3.jpg/960px-Tamonj3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "立花城",
@@ -52732,7 +54216,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "立花山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg/960px-Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%8B%E8%8A%B1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ヴァヴェル城",
@@ -52877,7 +54368,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ヴァヴェル城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2017-05-29_Wawel_Cathedral_3.jpg/960px-2017-05-29_Wawel_Cathedral_3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%B4%E3%82%A1%E3%83%B4%E3%82%A7%E3%83%AB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］高天神城",
@@ -52984,7 +54482,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高天神城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Takatenjin_Castle_Site.01.jpg/960px-Takatenjin_Castle_Site.01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%A4%A9%E7%A5%9E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］元和江戸城",
@@ -53111,7 +54616,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［白輝］姫路城",
@@ -53230,7 +54742,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "姫路城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/960px-Himeji_castle_in_may_2015.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A7%AB%E8%B7%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［月狼］月山富田城",
@@ -53418,7 +54937,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "月山富田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/%E6%9C%88%E5%B1%B1.jpg/960px-%E6%9C%88%E5%B1%B1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "安来市政策秘書課"
+  }
  },
  {
   "id": "［飢渇］鳥取城",
@@ -53586,7 +55112,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鳥取城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Tottori_Castle%2C_zenkei.jpg/960px-Tottori_Castle%2C_zenkei.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%A5%E5%8F%96%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［お月見］洛陽城",
@@ -53743,7 +55276,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "洛陽市",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/China_Luoyang.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%9B%E9%99%BD%E5%B8%82",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［お月見］鶴ヶ城",
@@ -54500,7 +56040,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "諏訪原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Suwahara_Castle_Ninomaru_mikazukibori.jpg/960px-Suwahara_Castle_Ninomaru_mikazukibori.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%AB%8F%E8%A8%AA%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］チャフティツェ城",
@@ -54771,7 +56318,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ストラホフ修道院",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Praha%2C_Hradcany_-_Strahovsky_klaster_%28pohled_z_ulice_Uvoz%29.jpg/960px-Praha%2C_Hradcany_-_Strahovsky_klaster_%28pohled_z_ulice_Uvoz%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%88%E3%83%A9%E3%83%9B%E3%83%95%E4%BF%AE%E9%81%93%E9%99%A2",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "私掠船 ゴールデン・ハインド",
@@ -55571,7 +57125,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "天童城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Maiduruyama_Tendou%2C_Yamagata.JPG/960px-Maiduruyama_Tendou%2C_Yamagata.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A9%E7%AB%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］成都城",
@@ -56010,7 +57571,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "人吉城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Hitoyoshi_Castle%2C_enkei-3.jpg/960px-Hitoyoshi_Castle%2C_enkei-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%90%89%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［温泉］ブダ城",
@@ -56229,7 +57797,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ブダ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/BudapestCastle_028.jpg/960px-BudapestCastle_028.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ランカスター城",
@@ -56671,7 +58246,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "仙台城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/SendaiJoOtemonSumiYagura2003-11.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%99%E5%8F%B0%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Kinori"
+  }
  },
  {
   "id": "［天化］志波城",
@@ -56790,7 +58372,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "志波城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Iwate-ken_g%C3%A9olocalisation_relief.svg/960px-Iwate-ken_g%C3%A9olocalisation_relief.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BF%97%E6%B3%A2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］ハイデルベルク城",
@@ -56916,7 +58505,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ハイデルベルク城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Hd_schloss.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8F%E3%82%A4%E3%83%87%E3%83%AB%E3%83%99%E3%83%AB%E3%82%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］城塞都市イントラムロス",
@@ -57255,7 +58851,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "安土城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/%E5%AE%89%E5%9C%9F%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3%E5%9D%80.jpg/960px-%E5%AE%89%E5%9C%9F%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3%E5%9D%80.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E5%9C%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］長岡京",
@@ -57362,7 +58965,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "長岡京",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Nagaoka-kyu-ato_sekihi-2.jpg/960px-Nagaoka-kyu-ato_sekihi-2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E5%B2%A1%E4%BA%AC",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］小早川城",
@@ -57607,7 +59217,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鎌刃城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Kamaha-Castle.jpg/960px-Kamaha-Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%8E%8C%E5%88%83%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "HikaruKinkakuji"
+  }
  },
  {
   "id": "［正月］鶴丸城",
@@ -57794,7 +59411,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鹿児島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Goromon_Gate_ac_%281%29.jpg/960px-Goromon_Gate_ac_%281%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "韮山城",
@@ -57995,7 +59619,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "韮山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Ruins_of_Nirayama_Castle_01.JPG/960px-Ruins_of_Nirayama_Castle_01.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9F%AE%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［活命］富山城",
@@ -58144,7 +59775,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "富山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Toyama_Municipal_Folk_Museum_%28mock_keep_tower_of_the_Toyama_Castle%29_20180503.jpg/960px-Toyama_Municipal_Folk_Museum_%28mock_keep_tower_of_the_Toyama_Castle%29_20180503.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AF%8C%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［バレンタイン］サンタンジェロ城",
@@ -58281,7 +59919,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "サンタンジェロ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/RomaCastelSantAngelo-2.jpg/960px-RomaCastelSantAngelo-2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%82%BF%E3%83%B3%E3%82%B8%E3%82%A7%E3%83%AD%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Andreas Tille"
+  }
  },
  {
   "id": "［バレンタイン］城塞都市ニュールンベルク",
@@ -58437,7 +60082,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ニュルンベルク城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/K0429475_Burg_Nuernberg_Luftaufnahme.JPG/960px-K0429475_Burg_Nuernberg_Luftaufnahme.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%AB%E3%83%B3%E3%83%99%E3%83%AB%E3%82%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市コンスタンティノープル",
@@ -58826,7 +60478,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "虎牢関",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/China_Henan_location_map.svg/960px-China_Henan_location_map.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%99%8E%E7%89%A2%E9%96%A2",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "霞ヶ城",
@@ -59282,7 +60941,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "館林城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/TatebayashiJouHonmaru.JPG/960px-TatebayashiJouHonmaru.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A4%A8%E6%9E%97%E5%9F%8E",
+   "license": "Public domain",
+   "author": "by 竹太郎"
+  }
  },
  {
   "id": "平泉館",
@@ -59788,7 +61454,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［燦華］聚楽第",
@@ -59936,7 +61609,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "聚楽第",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Jurakudai-Palace-Kyoto-Folding-Screen.jpg/960px-Jurakudai-Palace-Kyoto-Folding-Screen.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
+   "license": "Public domain",
+   "author": "三井文庫蔵"
+  }
  },
  {
   "id": "［球陽］首里城",
@@ -60105,7 +61785,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "首里城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Naha_Okinawa_Japan_Shuri-Castle-01.jpg/960px-Naha_Okinawa_Japan_Shuri-Castle-01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A6%96%E9%87%8C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ミスカトニック大学",
@@ -60455,7 +62142,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高槻城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/%E9%AB%98%E6%A7%BB%E5%9F%8E4.jpg/960px-%E9%AB%98%E6%A7%BB%E5%9F%8E4.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E6%A7%BB%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "［学園］吉田郡山城",
@@ -60562,7 +62256,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "吉田郡山城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Ruins_of_koriyamajo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%89%E7%94%B0%E9%83%A1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］若桜鬼ヶ城",
@@ -60669,7 +62370,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "若桜鬼ヶ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Wakasa_Onigajo_15.JPG/960px-Wakasa_Onigajo_15.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%A1%9C%E9%AC%BC%E3%83%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "幽都",
@@ -60942,7 +62650,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "臼杵城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Usuki_Castle_ac.jpg/960px-Usuki_Castle_ac.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%87%BC%E6%9D%B5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］ビューマリス城",
@@ -61068,7 +62783,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ビューマリス城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Beaumaris_aerial.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%93%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%AA%E3%82%B9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］久能山城",
@@ -61205,7 +62927,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "久能城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/%E4%B9%85%E8%83%BD%E5%B1%B1%E6%9D%B1%E7%85%A7%E5%AE%AE1_-_panoramio.jpg/960px-%E4%B9%85%E8%83%BD%E5%B1%B1%E6%9D%B1%E7%85%A7%E5%AE%AE1_-_panoramio.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E8%83%BD%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］郡上八幡城",
@@ -61312,7 +63041,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "郡上八幡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/2017%E5%B9%B4%E7%A7%8B%E5%AD%A3%E3%81%AE%E9%83%A1%E4%B8%8A%E5%85%AB%E5%B9%A1%E5%9F%8E.jpg/960px-2017%E5%B9%B4%E7%A7%8B%E5%AD%A3%E3%81%AE%E9%83%A1%E4%B8%8A%E5%85%AB%E5%B9%A1%E5%9F%8E.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%A1%E4%B8%8A%E5%85%AB%E5%B9%A1%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Kitimi"
+  }
  },
  {
   "id": "［アイドル］シノン城＆ロシュ城",
@@ -61575,7 +63311,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "コンシェルジュリー",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Conciergerie_von_N.JPG/960px-Conciergerie_von_N.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B8%E3%83%A5%E3%83%AA%E3%83%BC",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［蛛絲］信貴山城",
@@ -61694,7 +63437,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "信貴山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Map_of_Nara_Prefecture_Ja.svg/960px-Map_of_Nara_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BF%A1%E8%B2%B4%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［漆磊］広島城",
@@ -61863,7 +63613,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "広島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/HiroshimaCastle.jpg/960px-HiroshimaCastle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夢双］福岡城",
@@ -62013,7 +63770,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "福岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Fukuoka_castle_2006_01.jpg/960px-Fukuoka_castle_2006_01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］バルディ城",
@@ -62315,7 +64079,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大垣城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Old_Ogaki_Castle_in_1933.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9E%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］小田原城",
@@ -62490,7 +64261,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小田原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/161223_Odawara_Castle_Odawara_Japan01s3.jpg/960px-161223_Odawara_Castle_Odawara_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］七飯台場",
@@ -62752,7 +64530,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ナグルファル",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Faroe_stamp_435_Intro_to_Ragnarok.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8A%E3%82%B0%E3%83%AB%E3%83%95%E3%82%A1%E3%83%AB",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "軍港 ポーツマス",
@@ -63227,7 +65012,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "宮津城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Miyazujyo02.jpg/960px-Miyazujyo02.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%AE%E6%B4%A5%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者がファイル作成"
+  }
  },
  {
   "id": "聖杯城コルベニック",
@@ -63489,7 +65281,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］パンデモニウム",
@@ -63799,7 +65598,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ルーヴル宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Map_of_the_Palais_du_Louvre_-_OpenStreetMap_2015.svg/960px-Map_of_the_Palais_du_Louvre_-_OpenStreetMap_2015.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%AB%E3%83%BC%E3%83%B4%E3%83%AB%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］千鳥城",
@@ -63983,7 +65789,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松江城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Matsue_Castle_Keep_Tower_20230617.jpg/960px-Matsue_Castle_Keep_Tower_20230617.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%B1%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］龍王山城",
@@ -64110,7 +65923,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "龍王山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Ryuousanjo01.jpg/960px-Ryuousanjo01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BE%8D%E7%8E%8B%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "［雅翔］今川館",
@@ -64323,7 +66143,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "駿府城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%9D%B1%E5%BE%A1%E9%96%80%E3%81%A8%E5%B7%BD%E6%AB%93.jpg/960px-%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%9D%B1%E5%BE%A1%E9%96%80%E3%81%A8%E5%B7%BD%E6%AB%93.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A7%BF%E5%BA%9C%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "ToukaTsurugi"
+  }
  },
  {
   "id": "［祀叢］清洲城",
@@ -64480,7 +66307,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "清洲城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/%E6%B8%85%E6%B4%B2%E5%9F%8E%E5%85%AC%E5%9C%92%E5%81%B4%E3%81%8B%E3%82%89%E3%81%AE%E6%B8%85%E6%B4%B2%E5%9F%8E.jpg/960px-%E6%B8%85%E6%B4%B2%E5%9F%8E%E5%85%AC%E5%9C%92%E5%81%B4%E3%81%8B%E3%82%89%E3%81%AE%E6%B8%85%E6%B4%B2%E5%9F%8E.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B8%85%E6%B4%B2%E5%9F%8E",
+   "license": "CC0",
+   "author": "YTARMR"
+  }
  },
  {
   "id": "［鉄堅］盛岡城",
@@ -64696,7 +66530,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "盛岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg/960px-171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9B%9B%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "金田城",
@@ -64909,7 +66750,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "金田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Kanata_Castle%2C_tounan-sekirui-1.jpg/960px-Kanata_Castle%2C_tounan-sekirui-1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%87%91%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［お月見］青葉城",
@@ -65035,7 +66883,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "仙台城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/SendaiJoOtemonSumiYagura2003-11.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%99%E5%8F%B0%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Kinori"
+  }
  },
  {
   "id": "［お月見］小牧山城",
@@ -65246,7 +67101,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小牧山",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Komakiyama_04.JPG/960px-Komakiyama_04.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%89%A7%E5%B1%B1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［魁耀］浜松城",
@@ -65497,7 +67359,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "浜松城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Hamamatsu_Castle%2C_enkei-3.jpg/960px-Hamamatsu_Castle%2C_enkei-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%9C%E6%9D%BE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］松代城",
@@ -65672,7 +67541,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松代城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Matsushiro_Castle_20100919-01.jpg/960px-Matsushiro_Castle_20100919-01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E4%BB%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［裏］ファルケンシュタイン城",
@@ -65798,7 +67674,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ファルケンシュタイン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Burg_Falkenstein_Pfronten_10.jpg/960px-Burg_Falkenstein_Pfronten_10.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%83%AB%E3%82%B1%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ゲヘナ",
@@ -65981,7 +67864,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ゲヘナ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Valley_of_Hinom_PA180090.JPG/960px-Valley_of_Hinom_PA180090.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B2%E3%83%98%E3%83%8A",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ヴァルハラ",
@@ -66520,7 +68410,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鎌倉城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Nagoe-ookirigishi01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%8E%8C%E5%80%89%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Kaba-maru"
+  }
  },
  {
   "id": "［絢爛］浜田城",
@@ -66676,7 +68573,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "浜田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Hamada_castle_sannomaru_ishigaki2.JPG/960px-Hamada_castle_sannomaru_ishigaki2.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%9C%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［絢爛］原城",
@@ -66829,7 +68733,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Remains_of_Hara_castle.jpg/960px-Remains_of_Hara_castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］モーリッツブルク城",
@@ -67122,7 +69033,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "カールシュテイン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Burg_Karlstein_-_Karl%C5%A1tejn_-_panoramio.jpg/960px-Burg_Karlstein_-_Karl%C5%A1tejn_-_panoramio.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%BC%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%86%E3%82%A4%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "DMM城",
@@ -67719,7 +69637,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "タルタロス",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Nekyia_Staatliche_Antikensammlungen_1494_n2.jpg/960px-Nekyia_Staatliche_Antikensammlungen_1494_n2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%AB%E3%82%BF%E3%83%AD%E3%82%B9",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［雷鳥の天衣］ヴァイジャヤンタ",
@@ -68020,7 +69945,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シバルバー",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Vessel_depicting_gods_in_the_court_of_Xibalba%2C_the_underworld%2C_Maya%2C_Late_Classic_Period%2C_600-900_AD%2C_ceramic_-_Royal_Ontario_Museum_-_DSC04491.JPG/960px-Vessel_depicting_gods_in_the_court_of_Xibalba%2C_the_underworld%2C_Maya%2C_Late_Classic_Period%2C_600-900_AD%2C_ceramic_-_Royal_Ontario_Museum_-_DSC04491.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%90%E3%83%AB%E3%83%90%E3%83%BC",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "伊達政宗",
@@ -68160,7 +70092,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "伊達政宗",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/MASAMUNE777.PNG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8A%E9%81%94%E6%94%BF%E5%AE%97",
+   "license": "Public domain",
+   "author": "丸山可澄"
+  }
  },
  {
   "id": "北条氏康",
@@ -68280,7 +70219,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "北条氏康",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Ujiyasu_Hojo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8C%97%E6%9D%A1%E6%B0%8F%E5%BA%B7",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "島津義弘",
@@ -68387,7 +70333,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "島津義弘",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Shimazu_Yoshihiro.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B3%B6%E6%B4%A5%E7%BE%A9%E5%BC%98",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "明智光秀",
@@ -68527,7 +70480,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "明智光秀",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Akechi_Mitsuhide8.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%8E%E6%99%BA%E5%85%89%E7%A7%80",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "織田信長",
@@ -68647,7 +70607,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "織田信長",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Oda_Nobunaga_Kaou_3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B9%94%E7%94%B0%E4%BF%A1%E9%95%B7",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "豊臣秀吉",
@@ -68797,7 +70764,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "豊臣秀吉",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Toyotomi_Hideyoshi_Kaou.svg/960px-Toyotomi_Hideyoshi_Kaou.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%B1%8A%E8%87%A3%E7%A7%80%E5%90%89",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "真田幸村",
@@ -68917,7 +70891,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "真田信繁",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Sanada_Yukimura.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9C%9F%E7%94%B0%E4%BF%A1%E7%B9%81",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "徳川家康",
@@ -69049,7 +71030,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "徳川家康",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Tokugawa_Ieyasu2_full.JPG/960px-Tokugawa_Ieyasu2_full.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E5%BA%B7",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "今川義元",
@@ -69174,7 +71162,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "今川義元",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/ImagawaYoshimoto.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%8A%E5%B7%9D%E7%BE%A9%E5%85%83",
+   "license": "Public domain",
+   "author": "不明Unknown author"
+  }
  },
  {
   "id": "武田信玄",
@@ -69306,7 +71301,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "武田信玄",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Takeda_Harunobu.jpg/960px-Takeda_Harunobu.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%AD%A6%E7%94%B0%E4%BF%A1%E7%8E%84",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "上杉謙信",
@@ -69424,7 +71426,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "上杉謙信",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/Uesugi_Kenshin_Portrait_from_Uesugi_Shrine.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E6%9D%89%E8%AC%99%E4%BF%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［覇］前田利家",
@@ -69562,7 +71571,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "前田利家",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Maeda_Toshiie.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%89%8D%E7%94%B0%E5%88%A9%E5%AE%B6",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "リチャード1世",
@@ -69732,7 +71748,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "リチャード1世 (イングランド王)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Church_of_Fontevraud_Abbey_Richard_I_effigy.jpg/960px-Church_of_Fontevraud_Abbey_Richard_I_effigy.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%81%E3%83%A3%E3%83%BC%E3%83%891%E4%B8%96%20%28%E3%82%A4%E3%83%B3%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%89%E7%8E%8B%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "織田吉法師",
@@ -69864,7 +71887,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "織田信長",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Oda_Nobunaga_Kaou_3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B9%94%E7%94%B0%E4%BF%A1%E9%95%B7",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鹿目まどか",
@@ -71542,7 +73572,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "学園都市",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Oxford_High_Street_Facing_West%2C_Oxford%2C_UK_-_Diliff.jpg/960px-Oxford_High_Street_Facing_West%2C_Oxford%2C_UK_-_Diliff.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AD%A6%E5%9C%92%E9%83%BD%E5%B8%82",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "御坂美琴",
@@ -73061,7 +75098,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "五稜郭",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Hakodate_Goryokaku_Panorama_1.JPG/960px-Hakodate_Goryokaku_Panorama_1.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%94%E7%A8%9C%E9%83%AD",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［城姫］広島城",
@@ -73200,7 +75244,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "広島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/HiroshimaCastle.jpg/960px-HiroshimaCastle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "大地を紡ぐ者 サナラ",
@@ -75325,7 +77376,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ダージリン",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/View_of_kanchenjunga_and_darjeeling_hills_from_st.pauls_school%2Cdarjeeling.jpg/960px-View_of_kanchenjunga_and_darjeeling_hills_from_st.pauls_school%2Cdarjeeling.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%80%E3%83%BC%E3%82%B8%E3%83%AA%E3%83%B3",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "逸見エリカ",
@@ -76141,7 +78199,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松前城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/MatsumaeCastle.jpg/960px-MatsumaeCastle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%89%8D%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "根城",
@@ -76274,7 +78339,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "根城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Nejo-castle01.jpg/960px-Nejo-castle01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A0%B9%E5%9F%8E",
+   "license": "CC BY 2.5",
+   "author": "house-nasu"
+  }
  },
  {
   "id": "不来方城",
@@ -76397,7 +78469,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "盛岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg/960px-171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9B%9B%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "盛岡城",
@@ -76540,7 +78619,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "盛岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg/960px-171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9B%9B%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "千代城",
@@ -76992,7 +79078,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "若松城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/%E8%8B%A5%E6%9D%BE%E5%9F%8E%EF%BC%88%E9%B6%B4%E3%83%B6%E5%9F%8E%EF%BC%8920220917-P1003471.jpg/960px-%E8%8B%A5%E6%9D%BE%E5%9F%8E%EF%BC%88%E9%B6%B4%E3%83%B6%E5%9F%8E%EF%BC%8920220917-P1003471.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%9D%BE%E5%9F%8E",
+   "license": "CC BY 4.0",
+   "author": "くろふね"
+  }
  },
  {
   "id": "会津若松城",
@@ -77135,7 +79228,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "若松城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/%E8%8B%A5%E6%9D%BE%E5%9F%8E%EF%BC%88%E9%B6%B4%E3%83%B6%E5%9F%8E%EF%BC%8920220917-P1003471.jpg/960px-%E8%8B%A5%E6%9D%BE%E5%9F%8E%EF%BC%88%E9%B6%B4%E3%83%B6%E5%9F%8E%EF%BC%8920220917-P1003471.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%9D%BE%E5%9F%8E",
+   "license": "CC BY 4.0",
+   "author": "くろふね"
+  }
  },
  {
   "id": "山形城",
@@ -77327,7 +79427,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "山形城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan21s3.jpg/960px-220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan21s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E5%BD%A2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "矢留ノ城",
@@ -77613,7 +79720,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "窪田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Map_of_Fukushima_Prefecture_Ja.svg/960px-Map_of_Fukushima_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AA%AA%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "久保田城",
@@ -77756,7 +79870,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "久保田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Osumi-Yagura_of_Kubota-Castle_20160424.jpg/960px-Osumi-Yagura_of_Kubota-Castle_20160424.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E4%BF%9D%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "大宝寺城",
@@ -77899,7 +80020,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鶴ヶ岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Cherry_blossoms_in_Tsuruoka_Park_2024a.jpg/960px-Cherry_blossoms_in_Tsuruoka_Park_2024a.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B6%B4%E3%83%B6%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鶴ヶ岡城",
@@ -78042,7 +80170,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鶴ヶ岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Cherry_blossoms_in_Tsuruoka_Park_2024a.jpg/960px-Cherry_blossoms_in_Tsuruoka_Park_2024a.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B6%B4%E3%83%B6%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "馬場城",
@@ -78318,7 +80453,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "水戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Yakui_Gate_of_Mito_Castle_in_Mito_1st_High_School.jpg/960px-Yakui_Gate_of_Mito_Castle_in_Mito_1st_High_School.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B0%B4%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "石倉城",
@@ -78604,7 +80746,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "前橋城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Maebashi_Castle_air.jpg/960px-Maebashi_Castle_air.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%89%8D%E6%A9%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "前橋城",
@@ -78906,7 +81055,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "宇都宮城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Utsunomiya-jo_fujimi-yagura.jpg/960px-Utsunomiya-jo_fujimi-yagura.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "飛山城",
@@ -79049,7 +81205,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "飛山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Tobiyama_Castle_Front_Entrance.jpg/960px-Tobiyama_Castle_Front_Entrance.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A3%9B%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "小田喜城",
@@ -79214,7 +81377,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大多喜城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Otaki_Castle_02.jpg/960px-Otaki_Castle_02.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "大多喜城",
@@ -79512,7 +81682,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "忍城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Oshi-jo.JPG/960px-Oshi-jo.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BF%8D%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Mocchy"
+  }
  },
  {
   "id": "本庄城",
@@ -79799,7 +81976,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "滝山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Takiyamajo_honmaru.jpg/960px-Takiyamajo_honmaru.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%BB%9D%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "三崎城",
@@ -79943,7 +82127,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "三崎城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Map_of_Kanagawa_Prefecture_Ja.svg/960px-Map_of_Kanagawa_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%B4%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "新府城",
@@ -80076,7 +82267,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "新府城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Shinpu_Castle.jpg/960px-Shinpu_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E5%BA%9C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鍋蓋城",
@@ -80332,7 +82530,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小諸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Komoro_castle00s3872.jpg/960px-Komoro_castle00s3872.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E8%AB%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "今川館",
@@ -80491,7 +82696,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "駿府城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%9D%B1%E5%BE%A1%E9%96%80%E3%81%A8%E5%B7%BD%E6%AB%93.jpg/960px-%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%9D%B1%E5%BE%A1%E9%96%80%E3%81%A8%E5%B7%BD%E6%AB%93.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A7%BF%E5%BA%9C%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "ToukaTsurugi"
+  }
  },
  {
   "id": "小牧山城",
@@ -80634,7 +82846,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小牧山",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Komakiyama_04.JPG/960px-Komakiyama_04.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%89%A7%E5%B1%B1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "柳之丸",
@@ -80938,7 +83157,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "那古野城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Site_of_Nagoya_Castle.jpg/960px-Site_of_Nagoya_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%82%A3%E5%8F%A4%E9%87%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "稲葉山城",
@@ -81061,7 +83287,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岐阜城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/%E5%B2%90%E9%98%9C%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3.jpg/960px-%E5%B2%90%E9%98%9C%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%90%E9%98%9C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "苗木城",
@@ -81226,7 +83459,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "苗木城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Naegi_Castle_and_Mount_Ena.jpg/960px-Naegi_Castle_and_Mount_Ena.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%97%E6%9C%A8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "坂戸城",
@@ -81416,7 +83656,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "坂戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Japan_Joshinetsu_topographic_map.webp/960px-Japan_Joshinetsu_topographic_map.webp?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9D%82%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "富山城",
@@ -81549,7 +83796,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "富山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Toyama_Municipal_Folk_Museum_%28mock_keep_tower_of_the_Toyama_Castle%29_20180503.jpg/960px-Toyama_Municipal_Folk_Museum_%28mock_keep_tower_of_the_Toyama_Castle%29_20180503.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AF%8C%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "七尾城",
@@ -81698,7 +83952,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "七尾城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Nanaojo-tyoudomaru.JPG/960px-Nanaojo-tyoudomaru.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%83%E5%B0%BE%E5%9F%8E",
+   "license": "Public domain",
+   "author": "tom-spring"
+  }
  },
  {
   "id": "大聖寺城",
@@ -81834,7 +84095,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大聖寺城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Map_of_Ishikawa_Prefecture_Ja.svg/960px-Map_of_Ishikawa_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E8%81%96%E5%AF%BA%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "北ノ庄城",
@@ -81967,7 +84235,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "福井城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Fukui_Castle01st3200.jpg/960px-Fukui_Castle01st3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E4%BA%95%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "福井城",
@@ -82426,7 +84701,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "金ヶ崎城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Kanegasaki_Castle_Site_View_from_Tezutsu-yama.jpg/960px-Kanegasaki_Castle_Site_View_from_Tezutsu-yama.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%87%91%E3%83%B6%E5%B4%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "水口城",
@@ -82539,7 +84821,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "水口城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Minakuchi.jpg/960px-Minakuchi.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B0%B4%E5%8F%A3%E5%9F%8E",
+   "license": "CC BY-SA 2.5",
+   "author": "kamoseiro"
+  }
  },
  {
   "id": "仁木館",
@@ -82805,7 +85094,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "上野城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Igauenozyo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E9%87%8E%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "オリジナルのアップロード者は日本語版ウィキペディアのT@kaさん"
+  }
  },
  {
   "id": "多聞山城",
@@ -82950,7 +85246,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "多聞山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Tamonj3.jpg/960px-Tamonj3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "龍王山城",
@@ -83111,7 +85414,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "龍王山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Ryuousanjo01.jpg/960px-Ryuousanjo01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BE%8D%E7%8E%8B%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "飯盛山城",
@@ -83254,7 +85564,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "飯盛山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Iimoriyama5.jpg/960px-Iimoriyama5.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A3%AF%E7%9B%9B%E5%B1%B1%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "鬼ヶ城",
@@ -83378,7 +85695,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鬼ヶ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Oniga-jo01.JPG/960px-Oniga-jo01.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AC%BC%E3%83%B6%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Captain76"
+  }
  },
  {
   "id": "雑賀城",
@@ -83512,7 +85836,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "雑賀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Saika_castle_04.jpg/960px-Saika_castle_04.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9B%91%E8%B3%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "三木城",
@@ -83697,7 +86028,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "三木城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Mikij10.jpg/960px-Mikij10.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E6%9C%A8%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "石山城",
@@ -83840,7 +86178,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岡山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Okayama_Castle_main_keep_2023-10-18.jpg/960px-Okayama_Castle_main_keep_2023-10-18.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "岡山城",
@@ -83983,7 +86328,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岡山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Okayama_Castle_main_keep_2023-10-18.jpg/960px-Okayama_Castle_main_keep_2023-10-18.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "備中高松城",
@@ -84126,7 +86478,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高松城 (備中国)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Bitchu_Takamatsu_castle_ruins.jpg/960px-Bitchu_Takamatsu_castle_ruins.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E6%9D%BE%E5%9F%8E%20%28%E5%82%99%E4%B8%AD%E5%9B%BD%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "三原城",
@@ -84276,7 +86635,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "三原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Mihara_Castle%2C_tenshudai.jpg/960px-Mihara_Castle%2C_tenshudai.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "桜尾城",
@@ -84419,7 +86785,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "桜尾城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Katsura_Park_1_Sakurao_Castle.jpg/960px-Katsura_Park_1_Sakurao_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A1%9C%E5%B0%BE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鹿野城",
@@ -84604,7 +86977,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鹿野城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Shikanojou001.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E9%87%8E%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Satoshin"
+  }
  },
  {
   "id": "鳥取城",
@@ -84769,7 +87149,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鳥取城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Tottori_Castle%2C_zenkei.jpg/960px-Tottori_Castle%2C_zenkei.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%A5%E5%8F%96%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "防己尾城",
@@ -84913,7 +87300,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "防己尾城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3d/%E9%98%B2%E5%B7%B1%E5%B0%BE%E5%9F%8E.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%98%B2%E5%B7%B1%E5%B0%BE%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Yuniko"
+  }
  },
  {
   "id": "三本松城",
@@ -85036,7 +87430,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "津和野城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/TsuwanoJo.JPG/960px-TsuwanoJo.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%92%8C%E9%87%8E%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Mocchy"
+  }
  },
  {
   "id": "津和野城",
@@ -85628,7 +88029,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "引田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Hiketa_jyou.jpg/960px-Hiketa_jyou.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BC%95%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "勝瑞城",
@@ -85787,7 +88195,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "勝瑞城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Shozuijo09.jpg/960px-Shozuijo09.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8B%9D%E7%91%9E%E5%9F%8E",
+   "license": "CC BY 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "来島城",
@@ -85930,7 +88345,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "来島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Map_of_Ehime_Prefecture_Ja.svg/960px-Map_of_Ehime_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%A5%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "大高坂山城",
@@ -86073,7 +88495,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高知城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Kochi_Castle%2C_Outemon-3.jpg/960px-Kochi_Castle%2C_Outemon-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E7%9F%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鶴崎城",
@@ -86349,7 +88778,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "福岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Fukuoka_castle_2006_01.jpg/960px-Fukuoka_castle_2006_01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "若松城",
@@ -86472,7 +88908,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "若松城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/%E8%8B%A5%E6%9D%BE%E5%9F%8E%EF%BC%88%E9%B6%B4%E3%83%B6%E5%9F%8E%EF%BC%8920220917-P1003471.jpg/960px-%E8%8B%A5%E6%9D%BE%E5%9F%8E%EF%BC%88%E9%B6%B4%E3%83%B6%E5%9F%8E%EF%BC%8920220917-P1003471.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%9D%BE%E5%9F%8E",
+   "license": "CC BY 4.0",
+   "author": "くろふね"
+  }
  },
  {
   "id": "島原城",
@@ -86639,7 +89082,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "島原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/140321_Shimabara_Castle_Shimabara_Nagasaki_pref_Japan01bs5.jpg/960px-140321_Shimabara_Castle_Shimabara_Nagasaki_pref_Japan01bs5.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B3%B6%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "村中城",
@@ -86935,7 +89385,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "佐賀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Shachinomon_Gate_and_site_of_Tenshu_of_Saga_Castle.jpg/960px-Shachinomon_Gate_and_site_of_Tenshu_of_Saga_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E8%B3%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "日之嶽城",
@@ -87209,7 +89666,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "平戸城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/HiradoCastle3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E6%88%B8%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "宇土古城",
@@ -87598,7 +90062,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "飫肥城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Obi_Castle_Otemon.jpg/960px-Obi_Castle_Otemon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A3%AB%E8%82%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鹿児島城",
@@ -87734,7 +90205,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鹿児島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Goromon_Gate_ac_%281%29.jpg/960px-Goromon_Gate_ac_%281%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "浦添城",
@@ -87919,7 +90397,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "浦添城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/Urasoe_Castle_Walls.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%A6%E6%B7%BB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "能島城",
@@ -88062,7 +90547,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "能島",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Noshima_Castle_Ruins.C.jpg/960px-Noshima_Castle_Ruins.C.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%83%BD%E5%B3%B6",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "月山富田城",
@@ -88247,7 +90739,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "月山富田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/%E6%9C%88%E5%B1%B1.jpg/960px-%E6%9C%88%E5%B1%B1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "安来市政策秘書課"
+  }
  },
  {
   "id": "脇本城",
@@ -88367,7 +90866,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "脇本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Japan_Tohoku_north_topographic_map.webp/960px-Japan_Tohoku_north_topographic_map.webp?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%84%87%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "一乗谷城",
@@ -88551,7 +91057,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "一乗谷朝倉氏遺跡",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Asakura_Yakata_of_Ichijodani_Asakura_Family_Historic_Ruins02s3s4440.jpg/960px-Asakura_Yakata_of_Ichijodani_Asakura_Family_Historic_Ruins02s3s4440.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%80%E4%B9%97%E8%B0%B7%E6%9C%9D%E5%80%89%E6%B0%8F%E9%81%BA%E8%B7%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "墨俣城",
@@ -88700,7 +91213,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "墨俣城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/%E5%A2%A8%E4%BF%A3%E4%B8%80%E5%A4%9C%E5%9F%8E_%E6%AD%B4%E5%8F%B2%E8%B3%87%E6%96%99%E9%A4%A8.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A2%A8%E4%BF%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "岩櫃城",
@@ -88865,7 +91385,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岩櫃城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%E5%B2%A9%E6%AB%83%E5%9F%8E%E5%9D%80.jpg/960px-%E5%B2%A9%E6%AB%83%E5%9F%8E%E5%9D%80.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E6%AB%83%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Koda6029"
+  }
  },
  {
   "id": "志自岐原城",
@@ -89149,7 +91676,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Remains_of_Hara_castle.jpg/960px-Remains_of_Hara_castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "根来城",
@@ -89523,7 +92057,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鳥羽城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/%E9%B3%A5%E7%BE%BD%E5%9F%8E2.jpg/960px-%E9%B3%A5%E7%BE%BD%E5%9F%8E2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%A5%E7%BE%BD%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "丹波横山城",
@@ -89810,7 +92351,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "長浜城 (近江国)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/180922_Nagahama_Castle_Nagahama_Shiga_pref_Japan01.JPG/960px-180922_Nagahama_Castle_Nagahama_Shiga_pref_Japan01.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E6%B5%9C%E5%9F%8E%20%28%E8%BF%91%E6%B1%9F%E5%9B%BD%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "長浜城",
@@ -90047,7 +92595,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "八王子城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Hachioji_Castle_Hikibashi.JPG/960px-Hachioji_Castle_Hikibashi.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%AB%E7%8E%8B%E5%AD%90%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "松倉城",
@@ -90520,7 +93075,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "久慈城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Map_of_Iwate_Prefecture_Ja.svg/960px-Map_of_Iwate_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E6%85%88%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "乙女城",
@@ -90829,7 +93391,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "柳川城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Yanagawa_Castle01s5s3200.jpg/960px-Yanagawa_Castle01s5s3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "石垣山城",
@@ -91024,7 +93593,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "石垣山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ishigakiyama_Castle_Park_05.JPG/960px-Ishigakiyama_Castle_Park_05.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "今治城",
@@ -91187,7 +93763,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "今治城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Imabari_castle.JPG/960px-Imabari_castle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%8A%E6%B2%BB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "真田丸",
@@ -91330,7 +93913,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "真田丸",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Sanada_Yukimura_Demaruj%C5%8D_Site.jpg/960px-Sanada_Yukimura_Demaruj%C5%8D_Site.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9C%9F%E7%94%B0%E4%B8%B8",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "尾山御坊",
@@ -91529,7 +94119,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "金沢城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Kanazawa-M-5932.jpg/960px-Kanazawa-M-5932.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%87%91%E6%B2%A2%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Fg2"
+  }
  },
  {
   "id": "佐久間金沢城",
@@ -91805,7 +94402,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "菩提山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Bodaiyama_mountain%2C_Tarui%2C_2021.jpg/960px-Bodaiyama_mountain%2C_Tarui%2C_2021.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8F%A9%E6%8F%90%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "岩手山城",
@@ -92077,7 +94681,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "山科本願寺",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Yamasinaj13.jpg/960px-Yamasinaj13.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "深志城",
@@ -92236,7 +94847,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsumoto_Castle_1-1.jpg/960px-Matsumoto_Castle_1-1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "天神西舘",
@@ -92635,7 +95253,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "相馬中村城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Somanakamura_Castle.jpg/960px-Somanakamura_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9B%B8%E9%A6%AC%E4%B8%AD%E6%9D%91%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "四稜郭",
@@ -92830,7 +95455,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "四稜郭",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Shiryoukaku004.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9B%9B%E7%A8%9C%E9%83%AD",
+   "license": "CC BY-SA 3.0",
+   "author": "日本語版ウィキペディアのSatoshinさん"
+  }
  },
  {
   "id": "安平古堡",
@@ -93026,7 +95658,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "安平古堡",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg/960px-Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "オレンジ城",
@@ -93509,7 +96148,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "久留米城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Kurume_castle.JPG/960px-Kurume_castle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E7%95%99%E7%B1%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "大仏城",
@@ -93704,7 +96350,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "福島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Fukushima_Prefectural_Government_%2802.19.2009%29.jpg/960px-Fukushima_Prefectural_Government_%2802.19.2009%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "杉目城",
@@ -94093,7 +96746,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "伊丹城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/%E6%9C%89%E5%B2%A1%E5%9F%8E%E8%B7%A1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8A%E4%B8%B9%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "BJP039"
+  }
  },
  {
   "id": "板島丸串城",
@@ -94249,7 +96909,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "宇和島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Uwajima_Castle%2C_tenshu.jpg/960px-Uwajima_Castle%2C_tenshu.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "丸山城",
@@ -94569,7 +97236,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "亀居城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Kamei_Castle_01.jpg/960px-Kamei_Castle_01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%80%E5%B1%85%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "肥後千葉城",
@@ -94858,7 +97532,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "コンウィ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Conwy_Castle.jpg/960px-Conwy_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%A6%E3%82%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "カーナーヴォン城",
@@ -95032,7 +97713,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "カーナーヴォン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Caernafon_Castle_-_Seiont_sunset.jpg/960px-Caernafon_Castle_-_Seiont_sunset.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%BC%E3%83%8A%E3%83%BC%E3%83%B4%E3%82%A9%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "村尾城",
@@ -95318,7 +98006,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "浜松城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Hamamatsu_Castle%2C_enkei-3.jpg/960px-Hamamatsu_Castle%2C_enkei-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%9C%E6%9D%BE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "杵築城",
@@ -95462,7 +98157,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "杵築城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Kitsuki_castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%B5%E7%AF%89%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "アイリーン・ドナン城",
@@ -95731,7 +98433,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/160603_Takashima_Castle_Suwa_Nagano_pref_Japan02n.jpg/960px-160603_Takashima_Castle_Suwa_Nagano_pref_Japan02n.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "江戸氏館",
@@ -95876,7 +98585,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "湊城",
@@ -96009,7 +98725,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "湊城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Honoring_monument_of_the_Minato-Ando_clan.jpg/960px-Honoring_monument_of_the_Minato-Ando_clan.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B9%8A%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鬼ノ城",
@@ -96152,7 +98875,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鬼ノ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Kinojo%2C_enkei-2.jpg/960px-Kinojo%2C_enkei-2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AC%BC%E3%83%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "邯鄲",
@@ -96295,7 +99025,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "邯鄲市",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Standing_in_the_distance_to_see_the_congtai.jpg/960px-Standing_in_the_distance_to_see_the_congtai.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%82%AF%E9%84%B2%E5%B8%82",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "高崎城",
@@ -96460,7 +99197,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高崎城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Takasaki-jo_inui-yagura.jpg/960px-Takasaki-jo_inui-yagura.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B4%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "佐土原城",
@@ -96603,7 +99347,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "佐土原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Sadowara_Castle_2010.JPG/960px-Sadowara_Castle_2010.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%9C%9F%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "尼崎城",
@@ -96747,7 +99498,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "尼崎城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Amagasaki_Castle_Tenshu_20181125.jpg/960px-Amagasaki_Castle_Tenshu_20181125.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%BC%E5%B4%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "伊勢長島城",
@@ -97082,7 +99840,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "菖蒲城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Kuki_Shobu_Ruined_Castle_1.JPG/960px-Kuki_Shobu_Ruined_Castle_1.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8F%96%E8%92%B2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "白石城",
@@ -97247,7 +100012,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "白石城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Shiroishijo_Castle_%26_statue_of_%C5%8Czutsu_Man%27emon.JPG/960px-Shiroishijo_Castle_%26_statue_of_%C5%8Czutsu_Man%27emon.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%99%BD%E7%9F%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "赤穂城",
@@ -97411,7 +100183,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "赤穂城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/141115_Ako_Castle_Ako_Hyogo_pref_Japan01bs3.jpg/960px-141115_Ako_Castle_Ako_Hyogo_pref_Japan01bs3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%B5%A4%E7%A9%82%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "結城城",
@@ -97592,7 +100371,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "結城城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Yuki_castle_mijo_karabori.jpg/960px-Yuki_castle_mijo_karabori.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B5%90%E5%9F%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "唐津城",
@@ -97735,7 +100521,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "唐津城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/%E5%94%90%E6%B4%A5%E5%9F%8E_-_panoramio.jpg/960px-%E5%94%90%E6%B4%A5%E5%9F%8E_-_panoramio.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%B4%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "トームペア城",
@@ -97898,7 +100691,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "トームペア城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Riigikogu_hoone%2C_Kaupo_Kalda_foto%2C_2016.jpg/960px-Riigikogu_hoone%2C_Kaupo_Kalda_foto%2C_2016.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%BC%E3%83%A0%E3%83%9A%E3%82%A2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "美作一ノ瀬城",
@@ -98270,7 +101070,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "千賀地氏城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Chigachishijo01.jpg/960px-Chigachishijo01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%83%E8%B3%80%E5%9C%B0%E6%B0%8F%E5%9F%8E",
+   "license": "CC BY 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "葛根城",
@@ -98393,7 +101200,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "久保田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Osumi-Yagura_of_Kubota-Castle_20160424.jpg/960px-Osumi-Yagura_of_Kubota-Castle_20160424.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E4%BF%9D%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "椿尾上城",
@@ -98526,7 +101340,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "椿尾上城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Nara_g%C3%A9olocalisation_relief.svg/960px-Nara_g%C3%A9olocalisation_relief.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A4%BF%E5%B0%BE%E4%B8%8A%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "多気城",
@@ -98802,7 +101623,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "洲本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Sumoto_Castle_Awaji_Island_Japan01s.jpg/960px-Sumoto_Castle_Awaji_Island_Japan01s.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%B2%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "一条小山城",
@@ -99108,7 +101936,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "佐倉城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Sakura_Castle_2.JPG/960px-Sakura_Castle_2.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%80%89%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "浪岡城",
@@ -99251,7 +102086,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "浪岡城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Namioka_Castle_site.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%AA%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "日暮城",
@@ -99627,7 +102469,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "神辺城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Kannabe.JPG/960px-Kannabe.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A5%9E%E8%BE%BA%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Carpkazu"
+  }
  },
  {
   "id": "徳丹城",
@@ -99762,7 +102611,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "徳丹城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Tokutan_Castle_site.jpg/960px-Tokutan_Castle_site.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BE%B3%E4%B8%B9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "江尻城",
@@ -99906,7 +102762,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江尻城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Map_of_Shizuoka_Prefecture_Ja.svg/960px-Map_of_Shizuoka_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E5%B0%BB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "敦賀城",
@@ -100060,7 +102923,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "敦賀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Raigo-ji_%28Tsuruga%29%2C_sanmon.jpg/960px-Raigo-ji_%28Tsuruga%29%2C_sanmon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%95%A6%E8%B3%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ベリー・ポメロイ城",
@@ -100445,7 +103315,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "仙台城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/SendaiJoOtemonSumiYagura2003-11.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%99%E5%8F%B0%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Kinori"
+  }
  },
  {
   "id": "駿府城",
@@ -100648,7 +103525,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "駿府城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%9D%B1%E5%BE%A1%E9%96%80%E3%81%A8%E5%B7%BD%E6%AB%93.jpg/960px-%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%9D%B1%E5%BE%A1%E9%96%80%E3%81%A8%E5%B7%BD%E6%AB%93.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A7%BF%E5%BA%9C%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "ToukaTsurugi"
+  }
  },
  {
   "id": "岐阜城",
@@ -100791,7 +103675,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岐阜城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/%E5%B2%90%E9%98%9C%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3.jpg/960px-%E5%B2%90%E9%98%9C%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%90%E9%98%9C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "坂本城",
@@ -100955,7 +103846,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "坂本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Japan_Kinai_Sankan_topographic_map.webp/960px-Japan_Kinai_Sankan_topographic_map.webp?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9D%82%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "二条城",
@@ -101080,7 +103978,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "二条城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/960px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9D%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "高知城",
@@ -101250,7 +104155,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高知城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Kochi_Castle%2C_Outemon-3.jpg/960px-Kochi_Castle%2C_Outemon-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E7%9F%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "丸亀城",
@@ -101422,7 +104334,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "丸亀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/960px-Marugame_Castle01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%B8%E4%BA%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "小谷城",
@@ -101541,7 +104460,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小谷城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Odanij10.jpg/960px-Odanij10.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E8%B0%B7%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "福山城",
@@ -101845,7 +104771,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "春日山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Kasaugayama_Castle.jpg/960px-Kasaugayama_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%A5%E6%97%A5%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "多賀城",
@@ -102004,7 +104937,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "多賀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Tagajo-ato_seiden-2.JPG/960px-Tagajo-ato_seiden-2.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%B3%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "フランケンシュタイン城",
@@ -102168,7 +105108,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "フランケンシュタイン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/InnerCastle.jpg/960px-InnerCastle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B1%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Pascal Rehfeldt"
+  }
  },
  {
   "id": "観音寺城",
@@ -102334,7 +105281,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "観音寺城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Kan-nonjijou001.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%A6%B3%E9%9F%B3%E5%AF%BA%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Satoshin"
+  }
  },
  {
   "id": "萩城",
@@ -102510,7 +105464,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "萩城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Hagi_Castle_-Honmaru.jpg/960px-Hagi_Castle_-Honmaru.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%90%A9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "岡豊城",
@@ -102691,7 +105652,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岡豊城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Oko_castle_zenkei.JPG/960px-Oko_castle_zenkei.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E8%B1%8A%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "松本城",
@@ -102881,7 +105849,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsumoto_Castle_1-1.jpg/960px-Matsumoto_Castle_1-1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "尾山城",
@@ -103024,7 +105999,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "金沢城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Kanazawa-M-5932.jpg/960px-Kanazawa-M-5932.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%87%91%E6%B2%A2%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Fg2"
+  }
  },
  {
   "id": "ゼーランディア城",
@@ -103158,7 +106140,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "安平古堡",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg/960px-Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "信貴山城",
@@ -103313,7 +106302,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "信貴山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Map_of_Nara_Prefecture_Ja.svg/960px-Map_of_Nara_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BF%A1%E8%B2%B4%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "高岡城",
@@ -103458,7 +106454,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Takaoka_Castle.jpg/960px-Takaoka_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "吉田郡山城",
@@ -103621,7 +106624,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "吉田郡山城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Ruins_of_koriyamajo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%89%E7%94%B0%E9%83%A1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "帰雲城",
@@ -103764,7 +106774,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "帰雲城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Monument_of_Kaerikumo_Castle_Ruins_001.JPG/960px-Monument_of_Kaerikumo_Castle_Ruins_001.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B8%B0%E9%9B%B2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "清洲城",
@@ -103907,7 +106924,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "清洲城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/%E6%B8%85%E6%B4%B2%E5%9F%8E%E5%85%AC%E5%9C%92%E5%81%B4%E3%81%8B%E3%82%89%E3%81%AE%E6%B8%85%E6%B4%B2%E5%9F%8E.jpg/960px-%E6%B8%85%E6%B4%B2%E5%9F%8E%E5%85%AC%E5%9C%92%E5%81%B4%E3%81%8B%E3%82%89%E3%81%AE%E6%B8%85%E6%B4%B2%E5%9F%8E.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B8%85%E6%B4%B2%E5%9F%8E",
+   "license": "CC0",
+   "author": "YTARMR"
+  }
  },
  {
   "id": "有岡城",
@@ -104050,7 +107074,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "伊丹城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/%E6%9C%89%E5%B2%A1%E5%9F%8E%E8%B7%A1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8A%E4%B8%B9%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "BJP039"
+  }
  },
  {
   "id": "サンタンジェロ城",
@@ -104173,7 +107204,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "サンタンジェロ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/RomaCastelSantAngelo-2.jpg/960px-RomaCastelSantAngelo-2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%82%BF%E3%83%B3%E3%82%B8%E3%82%A7%E3%83%AD%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Andreas Tille"
+  }
  },
  {
   "id": "備中松山城",
@@ -104338,7 +107376,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "備中松山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E2.jpg/960px-%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E",
+   "license": "CC0",
+   "author": "高梁浩洋"
+  }
  },
  {
   "id": "岡城",
@@ -104645,7 +107690,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "中津城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/%E4%B8%AD%E6%B4%A5%E5%9F%8E%E5%A4%A9%E5%AE%88.jpg/960px-%E4%B8%AD%E6%B4%A5%E5%9F%8E%E5%A4%A9%E5%AE%88.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E6%B4%A5%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "ほっきー"
+  }
  },
  {
   "id": "ガイヤール城",
@@ -105118,7 +108170,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "徳島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Tokushima_castle_22.JPG/960px-Tokushima_castle_22.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "隈本城",
@@ -105273,7 +108332,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "熊本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/960px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "淀城",
@@ -105469,7 +108535,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "淀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/%E6%B7%80%E5%9F%8E%E5%A4%A9%E5%AE%88%E8%B7%A1.jpg/960px-%E6%B7%80%E5%9F%8E%E5%A4%A9%E5%AE%88%E8%B7%A1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B7%80%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "井伊谷城",
@@ -105664,7 +108737,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "井伊谷城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/%E4%BA%95%E4%BC%8A%E8%B0%B7%E5%9F%8E%E8%B7%A1%E3%81%8B%E3%82%89%E3%81%AE%E7%9C%BA%E3%82%81.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%95%E4%BC%8A%E8%B0%B7%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Mikutanoya"
+  }
  },
  {
   "id": "臼杵城",
@@ -105778,7 +108858,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "臼杵城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Usuki_Castle_ac.jpg/960px-Usuki_Castle_ac.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%87%BC%E6%9D%B5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "津山城",
@@ -105943,7 +109030,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "津山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/%E6%B4%A5%E5%B1%B1%E5%9F%8E%E5%82%99%E4%B8%AD%E6%AB%93.jpg/960px-%E6%B4%A5%E5%B1%B1%E5%9F%8E%E5%82%99%E4%B8%AD%E6%AB%93.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "大和郡山城",
@@ -106076,7 +109170,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "郡山城 (大和国)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Koriyama_Castle_%28Yamato%29%2C_Otte-mon_and_Otte-Mukai-yagura.jpg/960px-Koriyama_Castle_%28Yamato%29%2C_Otte-mon_and_Otte-Mukai-yagura.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%A1%E5%B1%B1%E5%9F%8E%20%28%E5%A4%A7%E5%92%8C%E5%9B%BD%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "浜田城",
@@ -106229,7 +109330,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "浜田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Hamada_castle_sannomaru_ishigaki2.JPG/960px-Hamada_castle_sannomaru_ishigaki2.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%9C%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "丹波亀山城",
@@ -106372,7 +109480,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "亀山城 (丹波国)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Kameyama-jo_Tambanokuni_ishigaki.jpg/960px-Kameyama-jo_Tambanokuni_ishigaki.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%80%E5%B1%B1%E5%9F%8E%20%28%E4%B8%B9%E6%B3%A2%E5%9B%BD%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "岩殿山城",
@@ -106535,7 +109650,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岩殿山城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/IwadonoYama2004.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E6%AE%BF%E5%B1%B1%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Kinori"
+  }
  },
  {
   "id": "山中城",
@@ -106668,7 +109790,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "山中城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/YamanakaJo_ShojiBori.JPG/960px-YamanakaJo_ShojiBori.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E4%B8%AD%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "岩国城",
@@ -106801,7 +109930,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岩国城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Iwakuni_castle_05-03.jpg/960px-Iwakuni_castle_05-03.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E5%9B%BD%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "古河城",
@@ -106915,7 +110051,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "古河城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Koga_castle_suwakuruwa_dorui_hori.jpg/960px-Koga_castle_suwakuruwa_dorui_hori.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8F%A4%E6%B2%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "柳生城",
@@ -107080,7 +110223,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "柳生城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Map_of_Nara_Prefecture_Ja.svg/960px-Map_of_Nara_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E7%94%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "シノン城",
@@ -107273,7 +110423,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シノン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Ch%C3%A2teau_de_Chinon_vue_de_la_Vienne.JPG/960px-Ch%C3%A2teau_de_Chinon_vue_de_la_Vienne.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%8E%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "明石城",
@@ -107417,7 +110574,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "明石城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Akashi_Castle_20200623.jpg/960px-Akashi_Castle_20200623.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%98%8E%E7%9F%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "大洲城",
@@ -107531,7 +110695,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大洲城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Ozu_Castle%2C_tenshu-1.jpg/960px-Ozu_Castle%2C_tenshu-1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%B4%B2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "平遥古城",
@@ -107670,7 +110841,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "平遥古城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/PingYaoCity.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E9%81%A5%E5%8F%A4%E5%9F%8E",
+   "license": "CC BY 3.0",
+   "author": "Peellden"
+  }
  },
  {
   "id": "津城",
@@ -107813,7 +110991,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "津城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/140405_Tsu_Castle_Tsu_MIe_pref_Japan16s3.jpg/960px-140405_Tsu_Castle_Tsu_MIe_pref_Japan16s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "新宮城",
@@ -107968,7 +111153,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "新宮城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/171008_Shingu_Castle_Shingu_Wakayama_pref_Japan22n.jpg/960px-171008_Shingu_Castle_Shingu_Wakayama_pref_Japan22n.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E5%AE%AE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［節分］鬼ヶ城",
@@ -108082,7 +111274,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鬼ヶ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Oniga-jo01.JPG/960px-Oniga-jo01.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AC%BC%E3%83%B6%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Captain76"
+  }
  },
  {
   "id": "天童城",
@@ -108225,7 +111424,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "天童城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Maiduruyama_Tendou%2C_Yamagata.JPG/960px-Maiduruyama_Tendou%2C_Yamagata.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A9%E7%AB%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "品川台場",
@@ -108360,7 +111566,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "お台場",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Tokyo-Odaiba.jpg/960px-Tokyo-Odaiba.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%81%8A%E5%8F%B0%E5%A0%B4",
+   "license": "CC BY-SA 4.0",
+   "author": "MaedaAkihiko"
+  }
  },
  {
   "id": "スピシュ城",
@@ -108541,7 +111754,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "スピシュスキー城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Spissky_hrad_2007.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%94%E3%82%B7%E3%83%A5%E3%82%B9%E3%82%AD%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "郡上八幡城",
@@ -108684,7 +111904,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "郡上八幡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/2017%E5%B9%B4%E7%A7%8B%E5%AD%A3%E3%81%AE%E9%83%A1%E4%B8%8A%E5%85%AB%E5%B9%A1%E5%9F%8E.jpg/960px-2017%E5%B9%B4%E7%A7%8B%E5%AD%A3%E3%81%AE%E9%83%A1%E4%B8%8A%E5%85%AB%E5%B9%A1%E5%9F%8E.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%A1%E4%B8%8A%E5%85%AB%E5%B9%A1%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Kitimi"
+  }
  },
  {
   "id": "近江八幡城",
@@ -108817,7 +112044,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "八幡山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Yahatahachimanjo03.jpg/960px-Yahatahachimanjo03.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%AB%E5%B9%A1%E5%B1%B1%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "高取城",
@@ -108960,7 +112194,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高取城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Takatori_shiro_jpn.JPG/960px-Takatori_shiro_jpn.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%8F%96%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "長谷堂城",
@@ -109103,7 +112344,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "長谷堂城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Hasedoujou001.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E8%B0%B7%E5%A0%82%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Satoshin"
+  }
  },
  {
   "id": "秋田城",
@@ -109298,7 +112546,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "秋田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/East_gate_of_Akita_Castle_20220409.jpg/960px-East_gate_of_Akita_Castle_20220409.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A7%8B%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］古河城",
@@ -109412,7 +112667,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "古河城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Koga_castle_suwakuruwa_dorui_hori.jpg/960px-Koga_castle_suwakuruwa_dorui_hori.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8F%A4%E6%B2%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "岩村城",
@@ -109545,7 +112807,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岩村城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Iwamura_Castle.JPG/960px-Iwamura_Castle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E6%9D%91%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "マルクスブルク城",
@@ -109740,7 +113009,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "マルクスブルク城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Marksburg.jpg/960px-Marksburg.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%82%AF%E3%82%B9%E3%83%96%E3%83%AB%E3%82%AF%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Holger Weinandt"
+  }
  },
  {
   "id": "麗江古城",
@@ -109873,7 +113149,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "麗江古城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Lijiang-canales-l02.jpg/960px-Lijiang-canales-l02.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BA%97%E6%B1%9F%E5%8F%A4%E5%9F%8E",
+   "license": "CC BY-SA 2.1 es",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "上赤坂城",
@@ -109996,7 +113279,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "上赤坂城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Kamiakasakajyo1.jpg/960px-Kamiakasakajyo1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E8%B5%A4%E5%9D%82%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "KENPEI"
+  }
  },
  {
   "id": "松坂城",
@@ -110139,7 +113429,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松坂城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/%E6%9D%BE%E5%9D%82%E5%9F%8E1.jpg/960px-%E6%9D%BE%E5%9D%82%E5%9F%8E1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%9D%82%E5%9F%8E",
+   "license": "CC BY 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "今帰仁城",
@@ -110311,7 +113608,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "今帰仁城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Nakijin_Okinawa_Japan_Nakikjin-Castle-01.jpg/960px-Nakijin_Okinawa_Japan_Nakikjin-Castle-01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%8A%E5%B8%B0%E4%BB%81%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "百地丹波城",
@@ -110638,7 +113942,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "フレデリクスボー城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Frederiksborg_Slot_i_sol.jpg/960px-Frederiksborg_Slot_i_sol.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%AC%E3%83%87%E3%83%AA%E3%82%AF%E3%82%B9%E3%83%9C%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "甘崎城",
@@ -110838,7 +114149,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "甘崎城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Hakatajima_Island_from_Roadside_Station_%22Imabari_City_Tatara_Shimanami_Park%22_4.jpg/960px-Hakatajima_Island_from_Roadside_Station_%22Imabari_City_Tatara_Shimanami_Park%22_4.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%94%98%E5%B4%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ホーエンツォレルン城",
@@ -110961,7 +114279,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ホーエンツォレルン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Burg_Hohenzollern_ak.jpg/960px-Burg_Hohenzollern_ak.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9B%E3%83%BC%E3%82%A8%E3%83%B3%E3%83%84%E3%82%A9%E3%83%AC%E3%83%AB%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "龍岡城",
@@ -111126,7 +114451,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "龍岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/%E9%BE%8D%E5%B2%A1%E5%9F%8E.jpg/960px-%E9%BE%8D%E5%B2%A1%E5%9F%8E.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BE%8D%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Katana213"
+  }
  },
  {
   "id": "コッヘム・ライヒスブルク城",
@@ -111400,7 +114732,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "名胡桃城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Nagurumijyo.jpg/960px-Nagurumijyo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E8%83%A1%E6%A1%83%E5%9F%8E",
+   "license": "Public domain",
+   "author": "デジタルカメラ"
+  }
  },
  {
   "id": "延岡城",
@@ -111525,7 +114864,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "延岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Nobeoka_castle_ishigaki1.JPG/960px-Nobeoka_castle_ishigaki1.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BB%B6%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］秋田城",
@@ -111668,7 +115014,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "秋田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/East_gate_of_Akita_Castle_20220409.jpg/960px-East_gate_of_Akita_Castle_20220409.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A7%8B%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "越中高岡城",
@@ -111966,7 +115319,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "スフォルツェスコ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/20110725_Castello_Sforzesco_Milan_5557.jpg/960px-20110725_Castello_Sforzesco_Milan_5557.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%95%E3%82%A9%E3%83%AB%E3%83%84%E3%82%A7%E3%82%B9%E3%82%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］浦添城",
@@ -112109,7 +115469,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "浦添城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/Urasoe_Castle_Walls.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%A6%E6%B7%BB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］富山城",
@@ -112262,7 +115629,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "富山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Toyama_Municipal_Folk_Museum_%28mock_keep_tower_of_the_Toyama_Castle%29_20180503.jpg/960px-Toyama_Municipal_Folk_Museum_%28mock_keep_tower_of_the_Toyama_Castle%29_20180503.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AF%8C%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］帰雲城",
@@ -112405,7 +115779,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "帰雲城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Monument_of_Kaerikumo_Castle_Ruins_001.JPG/960px-Monument_of_Kaerikumo_Castle_Ruins_001.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B8%B0%E9%9B%B2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］八王子城",
@@ -112548,7 +115929,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "八王子城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Hachioji_Castle_Hikibashi.JPG/960px-Hachioji_Castle_Hikibashi.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%AB%E7%8E%8B%E5%AD%90%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ハイデルベルク城",
@@ -112691,7 +116079,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ハイデルベルク城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Hd_schloss.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8F%E3%82%A4%E3%83%87%E3%83%AB%E3%83%99%E3%83%AB%E3%82%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "阿波一宮城",
@@ -112997,7 +116392,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "フランケンシュタイン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/InnerCastle.jpg/960px-InnerCastle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B1%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Pascal Rehfeldt"
+  }
  },
  {
   "id": "レーヴェンブルク城",
@@ -113487,7 +116889,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ドーヴァー城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/1_dover_castle_aerial_panorama_2017.jpg/960px-1_dover_castle_aerial_panorama_2017.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%BC%E3%83%B4%E3%82%A1%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "新発田城",
@@ -113650,7 +117059,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "新発田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Shibata_Castle_001_May2020.jpg/960px-Shibata_Castle_001_May2020.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E7%99%BA%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "岸和田城",
@@ -113813,7 +117229,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岸和田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Kishiwada_Castle_Kishiwada_Osaka_pref_Japan04s3.jpg/960px-Kishiwada_Castle_Kishiwada_Osaka_pref_Japan04s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%B8%E5%92%8C%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］エステンセ城",
@@ -114216,7 +117639,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "置塩城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Okishio_Castle_April09_by_CR.jpg/960px-Okishio_Castle_April09_by_CR.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%BD%AE%E5%A1%A9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］宇都宮城",
@@ -114359,7 +117789,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "宇都宮城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Utsunomiya-jo_fujimi-yagura.jpg/960px-Utsunomiya-jo_fujimi-yagura.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E9%83%BD%E5%AE%AE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］柳川城",
@@ -114502,7 +117939,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "柳川城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Yanagawa_Castle01s5s3200.jpg/960px-Yanagawa_Castle01s5s3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "魚津城",
@@ -114683,7 +118127,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "魚津城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Uozu_Castle_Site.jpg/960px-Uozu_Castle_Site.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AD%9A%E6%B4%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［バレンタイン］大洲城",
@@ -114827,7 +118278,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大洲城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Ozu_Castle%2C_tenshu-1.jpg/960px-Ozu_Castle%2C_tenshu-1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%B4%B2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［バレンタイン］高島城",
@@ -114971,7 +118429,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/160603_Takashima_Castle_Suwa_Nagano_pref_Japan02n.jpg/960px-160603_Takashima_Castle_Suwa_Nagano_pref_Japan02n.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "志波城",
@@ -115110,7 +118575,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "志波城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Iwate-ken_g%C3%A9olocalisation_relief.svg/960px-Iwate-ken_g%C3%A9olocalisation_relief.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BF%97%E6%B3%A2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "箕輪城",
@@ -115311,7 +118783,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "箕輪城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Minowajyo.jpg/960px-Minowajyo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AE%95%E8%BC%AA%E5%9F%8E",
+   "license": "Public domain",
+   "author": "デジタルカメラ"
+  }
  },
  {
   "id": "足利学校",
@@ -115474,7 +118953,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "足利学校",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Ashikaga_Ashikaga-School_School_Gate_2.JPG/960px-Ashikaga_Ashikaga-School_School_Gate_2.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%B6%B3%E5%88%A9%E5%AD%A6%E6%A0%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "若桜鬼ヶ城",
@@ -115617,7 +119103,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "若桜鬼ヶ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Wakasa_Onigajo_15.JPG/960px-Wakasa_Onigajo_15.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%A5%E6%A1%9C%E9%AC%BC%E3%83%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "栗橋城",
@@ -115781,7 +119274,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "栗橋城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Map_of_Ibaraki_Prefecture_Ja.svg/960px-Map_of_Ibaraki_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A0%97%E6%A9%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "カステル・ヴェッキオ",
@@ -116191,7 +119691,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "湯築城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Yuzukijo_11.JPG/960px-Yuzukijo_11.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B9%AF%E7%AF%89%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "高鍋城",
@@ -116334,7 +119841,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高鍋城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Map_of_Miyazaki_Prefecture_Ja.svg/960px-Map_of_Miyazaki_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E9%8D%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "リンディスファーン城",
@@ -116620,7 +120134,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "山形城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan21s3.jpg/960px-220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan21s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E5%BD%A2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］アイリーン・ドナン城",
@@ -116964,7 +120485,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "甘崎城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Hakatajima_Island_from_Roadside_Station_%22Imabari_City_Tatara_Shimanami_Park%22_4.jpg/960px-Hakatajima_Island_from_Roadside_Station_%22Imabari_City_Tatara_Shimanami_Park%22_4.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%94%98%E5%B4%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］柳川城",
@@ -117145,7 +120673,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "柳川城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Yanagawa_Castle01s5s3200.jpg/960px-Yanagawa_Castle01s5s3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］延岡城",
@@ -117278,7 +120813,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "延岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Nobeoka_castle_ishigaki1.JPG/960px-Nobeoka_castle_ishigaki1.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BB%B6%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "沼田城",
@@ -117411,7 +120953,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "沼田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Ruins_of_Numata_Castle_01.JPG/960px-Ruins_of_Numata_Castle_01.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B2%BC%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "名島城",
@@ -117555,7 +121104,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "名島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/The_site_Najima_of_a_castle02.jpg/960px-The_site_Najima_of_a_castle02.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］三木城",
@@ -117718,7 +121274,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "三木城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Mikij10.jpg/960px-Mikij10.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E6%9C%A8%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "近江望月城",
@@ -118014,7 +121577,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "プファルツ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Caub_und_Pfalz_im_Rhein_um_1900.jpg/960px-Caub_und_Pfalz_im_Rhein_um_1900.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%95%E3%82%A1%E3%83%AB%E3%83%84%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "大津城",
@@ -118158,7 +121728,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大津城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/%C5%8Ctsu_Castle_Site.jpg/960px-%C5%8Ctsu_Castle_Site.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%B4%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［お月見］備中高松城",
@@ -118291,7 +121868,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高松城 (備中国)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Bitchu_Takamatsu_castle_ruins.jpg/960px-Bitchu_Takamatsu_castle_ruins.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E6%9D%BE%E5%9F%8E%20%28%E5%82%99%E4%B8%AD%E5%9B%BD%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］平遥古城",
@@ -118454,7 +122038,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "平遥古城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/PingYaoCity.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E9%81%A5%E5%8F%A4%E5%9F%8E",
+   "license": "CC BY 3.0",
+   "author": "Peellden"
+  }
  },
  {
   "id": "リープ城",
@@ -118967,7 +122558,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "四稜郭",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Shiryoukaku004.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9B%9B%E7%A8%9C%E9%83%AD",
+   "license": "CC BY-SA 3.0",
+   "author": "日本語版ウィキペディアのSatoshinさん"
+  }
  },
  {
   "id": "花巻城",
@@ -119130,7 +122728,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "花巻城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Nishi_Gomon%2CHanamaki%2CIwate.jpg/960px-Nishi_Gomon%2CHanamaki%2CIwate.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8A%B1%E5%B7%BB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］一条小山城",
@@ -119744,7 +123349,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小丸山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Komaruyama_castle.JPG/960px-Komaruyama_castle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E4%B8%B8%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ムーア城",
@@ -119919,7 +123531,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ムーア城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/The_Moorish_Castle.jpg/960px-The_Moorish_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%A0%E3%83%BC%E3%82%A2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ペレシュ城",
@@ -120062,7 +123681,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ペレシュ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Castelul_Peles%2C_Sinaia_-_Vedere_panoramica.jpg/960px-Castelul_Peles%2C_Sinaia_-_Vedere_panoramica.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9A%E3%83%AC%E3%82%B7%E3%83%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］苗木城",
@@ -120205,7 +123831,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "苗木城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Naegi_Castle_and_Mount_Ena.jpg/960px-Naegi_Castle_and_Mount_Ena.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8B%97%E6%9C%A8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "宇佐山城",
@@ -120368,7 +124001,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "宇佐山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Usayamajo05.jpg/960px-Usayamajo05.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E4%BD%90%E5%B1%B1%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "ロケト城",
@@ -120678,7 +124318,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鹿児島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Goromon_Gate_ac_%281%29.jpg/960px-Goromon_Gate_ac_%281%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］三原城",
@@ -120842,7 +124489,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "三原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Mihara_Castle%2C_tenshudai.jpg/960px-Mihara_Castle%2C_tenshudai.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］前橋城",
@@ -121567,7 +125221,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "トームペア城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Riigikogu_hoone%2C_Kaupo_Kalda_foto%2C_2016.jpg/960px-Riigikogu_hoone%2C_Kaupo_Kalda_foto%2C_2016.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%BC%E3%83%A0%E3%83%9A%E3%82%A2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］坂戸城",
@@ -121757,7 +125418,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "坂戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Japan_Joshinetsu_topographic_map.webp/960px-Japan_Joshinetsu_topographic_map.webp?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9D%82%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］大宝寺城",
@@ -121918,7 +125586,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鶴ヶ岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Cherry_blossoms_in_Tsuruoka_Park_2024a.jpg/960px-Cherry_blossoms_in_Tsuruoka_Park_2024a.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B6%B4%E3%83%B6%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "フリント城",
@@ -122257,7 +125932,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "盛岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg/960px-171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9B%9B%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "新納石城",
@@ -122433,7 +126115,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "新納石城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Ishikawauchi_Kijo_Miyazaki_Japan.jpg/960px-Ishikawauchi_Kijo_Miyazaki_Japan.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E7%B4%8D%E7%9F%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "越前大野城",
@@ -122576,7 +126265,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大野城 (越前国)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Echizen_Ono_Castle.jpg/960px-Echizen_Ono_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%87%8E%E5%9F%8E%20%28%E8%B6%8A%E5%89%8D%E5%9B%BD%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］鳥羽城",
@@ -122720,7 +126416,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鳥羽城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/%E9%B3%A5%E7%BE%BD%E5%9F%8E2.jpg/960px-%E9%B3%A5%E7%BE%BD%E5%9F%8E2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%A5%E7%BE%BD%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "アルモウロル城",
@@ -123269,7 +126972,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "唐津城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/%E5%94%90%E6%B4%A5%E5%9F%8E_-_panoramio.jpg/960px-%E5%94%90%E6%B4%A5%E5%9F%8E_-_panoramio.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%B4%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］笹原城",
@@ -123680,7 +127390,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "コンウィ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Conwy_Castle.jpg/960px-Conwy_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%A6%E3%82%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］龍王山城",
@@ -123813,7 +127530,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "龍王山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Ryuousanjo01.jpg/960px-Ryuousanjo01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BE%8D%E7%8E%8B%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "グランド・マスター宮殿",
@@ -124078,7 +127802,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "多聞山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Tamonj3.jpg/960px-Tamonj3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "［バレンタイン］大高坂山城",
@@ -124208,7 +127939,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高知城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Kochi_Castle%2C_Outemon-3.jpg/960px-Kochi_Castle%2C_Outemon-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E7%9F%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鮭延城",
@@ -124350,7 +128088,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鮭延城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Map_of_Yamagata_Prefecture_Ja.svg/960px-Map_of_Yamagata_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AE%AD%E5%BB%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "石動山城",
@@ -124450,7 +128195,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "石動山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Map_of_Ishikawa_Prefecture_Ja.svg/960px-Map_of_Ishikawa_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9F%B3%E5%8B%95%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "杣山城",
@@ -124612,7 +128364,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "杣山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Map_of_Fukui_Prefecture_Ja.svg/960px-Map_of_Fukui_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%A3%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "屋良座森城",
@@ -124712,7 +128471,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "屋良座森城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Yarazamori_Gusuku.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%8B%E8%89%AF%E5%BA%A7%E6%A3%AE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］阿波一宮城",
@@ -125286,7 +129052,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "下館城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Shimodate_Castle_Site.jpg/960px-Shimodate_Castle_Site.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8B%E9%A4%A8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "平塚城",
@@ -125428,7 +129201,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "平塚城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/%E5%B9%B3%E5%A1%9A%E7%A5%9E%E7%A4%BE.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%A1%9A%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］山中城",
@@ -125558,7 +129338,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "山中城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/YamanakaJo_ShojiBori.JPG/960px-YamanakaJo_ShojiBori.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E4%B8%AD%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "大溝城",
@@ -125659,7 +129446,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大溝城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/%C5%8Cmizo-j%C5%8D_ruin1.jpg/960px-%C5%8Cmizo-j%C5%8D_ruin1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%BA%9D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "八代城",
@@ -125785,7 +129579,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "八代城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Yatsushiro_castle.JPG/960px-Yatsushiro_castle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%AB%E4%BB%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "縣城",
@@ -126042,7 +129843,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "米子城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Yonago_Castle%2C_honmaru-1.jpg/960px-Yonago_Castle%2C_honmaru-1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B1%B3%E5%AD%90%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］グランド・マスター宮殿",
@@ -126568,7 +130376,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鳥取城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Tottori_Castle%2C_zenkei.jpg/960px-Tottori_Castle%2C_zenkei.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%A5%E5%8F%96%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［バレンタイン］岩櫃城",
@@ -126688,7 +130503,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岩櫃城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%E5%B2%A9%E6%AB%83%E5%9F%8E%E5%9D%80.jpg/960px-%E5%B2%A9%E6%AB%83%E5%9F%8E%E5%9D%80.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E6%AB%83%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Koda6029"
+  }
  },
  {
   "id": "［学園］菩提山城",
@@ -126851,7 +130673,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "菩提山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Bodaiyama_mountain%2C_Tarui%2C_2021.jpg/960px-Bodaiyama_mountain%2C_Tarui%2C_2021.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8F%A9%E6%8F%90%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］柳川城",
@@ -127014,7 +130843,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "柳川城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Yanagawa_Castle01s5s3200.jpg/960px-Yanagawa_Castle01s5s3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［幼き］小倉城",
@@ -127158,7 +130994,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小倉城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Kokura-jo-teien.jpg/960px-Kokura-jo-teien.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E5%80%89%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Keramahani"
+  }
  },
  {
   "id": "蒼隼丸",
@@ -127547,7 +131390,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "能島",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Noshima_Castle_Ruins.C.jpg/960px-Noshima_Castle_Ruins.C.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%83%BD%E5%B3%B6",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］脇本城",
@@ -127661,7 +131511,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "脇本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Japan_Tohoku_north_topographic_map.webp/960px-Japan_Tohoku_north_topographic_map.webp?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%84%87%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［お月見］高松城",
@@ -127963,7 +131820,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ティンタジェル城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Upper_mainland_courtyard_of_Tintagel_Castle%2C_2007.jpg/960px-Upper_mainland_courtyard_of_Tintagel_Castle%2C_2007.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%86%E3%82%A3%E3%83%B3%E3%82%BF%E3%82%B8%E3%82%A7%E3%83%AB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［温泉］湯築城",
@@ -128076,7 +131940,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "湯築城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Yuzukijo_11.JPG/960px-Yuzukijo_11.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B9%AF%E7%AF%89%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］品川台場",
@@ -128229,7 +132100,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "お台場",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Tokyo-Odaiba.jpg/960px-Tokyo-Odaiba.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%81%8A%E5%8F%B0%E5%A0%B4",
+   "license": "CC BY-SA 4.0",
+   "author": "MaedaAkihiko"
+  }
  },
  {
   "id": "長岡京",
@@ -128390,7 +132268,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "長岡京",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Nagaoka-kyu-ato_sekihi-2.jpg/960px-Nagaoka-kyu-ato_sekihi-2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E5%B2%A1%E4%BA%AC",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］飯沼城",
@@ -128896,7 +132781,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "開陽丸",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Warship_Kaiyo_Maru_in_Dordrecht_August_1866.png/960px-Warship_Kaiyo_Maru_in_Dordrecht_August_1866.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%96%8B%E9%99%BD%E4%B8%B8",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［アイドル］山科本願寺",
@@ -129009,7 +132901,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "山科本願寺",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Yamasinaj13.jpg/960px-Yamasinaj13.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "大草城",
@@ -129492,7 +133391,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小田原城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/161223_Odawara_Castle_Odawara_Japan01s3.jpg/960px-161223_Odawara_Castle_Odawara_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%8E%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "佐和山城",
@@ -129694,7 +133600,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "佐和山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Sawayama_Castle_taken_from_the_car_window_of_JR_Biwako_Line_bounded_for_Maibara.jpg/960px-Sawayama_Castle_taken_from_the_car_window_of_JR_Biwako_Line_bounded_for_Maibara.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "石山御坊",
@@ -129857,7 +133770,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "石山本願寺",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Ishiyamah6.jpg/960px-Ishiyamah6.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9F%B3%E5%B1%B1%E6%9C%AC%E9%A1%98%E5%AF%BA",
+   "license": "CC BY-SA 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "首里城",
@@ -130059,7 +133979,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "首里城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Naha_Okinawa_Japan_Shuri-Castle-01.jpg/960px-Naha_Okinawa_Japan_Shuri-Castle-01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A6%96%E9%87%8C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "福知山城",
@@ -130192,7 +134119,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "福知山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Fukuchiyama_castle19.jpg/960px-Fukuchiyama_castle19.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E7%9F%A5%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "和歌山城",
@@ -130305,7 +134239,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "和歌山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/%E5%92%8C%E6%AD%8C%E5%B1%B1%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg/960px-%E5%92%8C%E6%AD%8C%E5%B1%B1%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%92%8C%E6%AD%8C%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ブラン城",
@@ -130440,7 +134381,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ブラン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Castelul_Bran.jpg/960px-Castelul_Bran.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "広島城",
@@ -130581,7 +134529,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "広島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/HiroshimaCastle.jpg/960px-HiroshimaCastle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "吉野ヶ里",
@@ -131041,7 +134996,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "竹田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG/960px-%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%B9%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Wae35244"
+  }
  },
  {
   "id": "躑躅ヶ崎館",
@@ -131198,7 +135160,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "躑躅ヶ崎館",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8.jpg/960px-%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8",
+   "license": "Public domain",
+   "author": "前田左衛門佐"
+  }
  },
  {
   "id": "犬山城",
@@ -131341,7 +135310,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "犬山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Inuyama_Castle_%281%29%2C_Kitakoken_Inuyama_Inuyama_City_2023.jpg/960px-Inuyama_Castle_%281%29%2C_Kitakoken_Inuyama_Inuyama_City_2023.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%8A%AC%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "弘前城",
@@ -131476,7 +135452,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "弘前城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg/960px-Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BC%98%E5%89%8D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "伊予松山城",
@@ -131609,7 +135592,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/%E6%9D%BE%E5%B1%B1%E5%9F%8E%E5%A4%A9%E5%AE%88_%282372904566%29.jpg/960px-%E6%9D%BE%E5%B1%B1%E5%9F%8E%E5%A4%A9%E5%AE%88_%282372904566%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "浜松城",
@@ -131742,7 +135732,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "浜松城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Hamamatsu_Castle%2C_enkei-3.jpg/960px-Hamamatsu_Castle%2C_enkei-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B5%9C%E6%9D%BE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "宇和島城",
@@ -131965,7 +135962,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "宇和島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Uwajima_Castle%2C_tenshu.jpg/960px-Uwajima_Castle%2C_tenshu.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "丸岡城",
@@ -132078,7 +136082,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "丸岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/960px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%B8%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "内城",
@@ -132231,7 +136242,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "内城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Location_map_of_Kagoshima.svg/960px-Location_map_of_Kagoshima.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%86%85%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "マルボルク城",
@@ -132377,7 +136395,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "マルボルク城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Panorama_of_Malbork_Castle%2C_part_4.jpg/960px-Panorama_of_Malbork_Castle%2C_part_4.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ユッセ城",
@@ -132502,7 +136527,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ユッセ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/UsseSchloss.jpg/960px-UsseSchloss.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%A6%E3%83%83%E3%82%BB%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Manfred Heyde,"
+  }
  },
  {
   "id": "上田城",
@@ -132645,7 +136677,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "上田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Ueda_Castle_Amagafuchi.jpg/960px-Ueda_Castle_Amagafuchi.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "聚楽城",
@@ -132858,7 +136897,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "聚楽第",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Jurakudai-Palace-Kyoto-Folding-Screen.jpg/960px-Jurakudai-Palace-Kyoto-Folding-Screen.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%81%9A%E6%A5%BD%E7%AC%AC",
+   "license": "Public domain",
+   "author": "三井文庫蔵"
+  }
  },
  {
   "id": "シュノンソー城",
@@ -133012,7 +137058,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シュノンソー城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Chateau_de_Chenonceau_2008E.jpg/960px-Chateau_de_Chenonceau_2008E.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A5%E3%83%8E%E3%83%B3%E3%82%BD%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "白河小峰城",
@@ -133155,7 +137208,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "白河小峰城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Shirakawa_Komine_Castle_20100625-01.jpg/960px-Shirakawa_Komine_Castle_20100625-01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%99%BD%E6%B2%B3%E5%B0%8F%E5%B3%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "アンボワーズ城",
@@ -133269,7 +137329,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アンボワーズ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Amboise_Hof.JPG/960px-Amboise_Hof.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%83%9C%E3%83%AF%E3%83%BC%E3%82%BA%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "亀田御役所土塁",
@@ -133625,7 +137692,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大垣城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Old_Ogaki_Castle_in_1933.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9E%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ホーエンザルツブルク城",
@@ -133768,7 +137842,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ホーエンザルツブルク城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Festung_Hohensalzburg_von_Nordost.jpg/960px-Festung_Hohensalzburg_von_Nordost.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9B%E3%83%BC%E3%82%A8%E3%83%B3%E3%82%B6%E3%83%AB%E3%83%84%E3%83%96%E3%83%AB%E3%82%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "長安城",
@@ -133929,7 +138010,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "長安",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Xi%27an_location.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E5%AE%89",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "カステル・デル・モンテ",
@@ -134072,7 +138160,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "カステル・デル・モンテ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Castel_del_Monte_-_Andria.jpg/960px-Castel_del_Monte_-_Andria.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%B9%E3%83%86%E3%83%AB%E3%83%BB%E3%83%87%E3%83%AB%E3%83%BB%E3%83%A2%E3%83%B3%E3%83%86",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "松江城",
@@ -134267,7 +138362,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松江城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Matsue_Castle_Keep_Tower_20230617.jpg/960px-Matsue_Castle_Keep_Tower_20230617.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%B1%9F%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］犬山城",
@@ -134446,7 +138548,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "犬山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Inuyama_Castle_%281%29%2C_Kitakoken_Inuyama_Inuyama_City_2023.jpg/960px-Inuyama_Castle_%281%29%2C_Kitakoken_Inuyama_Inuyama_City_2023.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%8A%AC%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］指月伏見城",
@@ -134559,7 +138668,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "伏見城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/FushimiCastle.JPG/960px-FushimiCastle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8F%E8%A6%8B%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Thomas vanierschot"
+  }
  },
  {
   "id": "［夏］名古屋城",
@@ -134682,7 +138798,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "名古屋城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/960px-Nagoya_Castle_7.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "高天神城",
@@ -134821,7 +138944,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高天神城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Takatenjin_Castle_Site.01.jpg/960px-Takatenjin_Castle_Site.01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%A4%A9%E7%A5%9E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "新田金山城",
@@ -134940,7 +139070,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "新田金山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Kanayamajo-ato.JPG/960px-Kanayamajo-ato.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Mocchy"
+  }
  },
  {
   "id": "エディンバラ城",
@@ -135085,7 +139222,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "エディンバラ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Edinburgh_Castle_from_the_south_east.JPG/960px-Edinburgh_Castle_from_the_south_east.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%87%E3%82%A3%E3%83%B3%E3%83%90%E3%83%A9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "青葉城",
@@ -135244,7 +139388,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "仙台城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/SendaiJoOtemonSumiYagura2003-11.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BB%99%E5%8F%B0%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Kinori"
+  }
  },
  {
   "id": "銀杏城",
@@ -135421,7 +139572,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "熊本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/960px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "高遠城",
@@ -135564,7 +139722,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高遠城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG/960px-TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E9%81%A0%E5%9F%8E",
+   "license": "Public domain",
+   "author": "コンピュータが読み取れる情報は提供されていませんが、FlyMeToFullmoonだと推定されます（著作権の主張に基づく）"
+  }
  },
  {
   "id": "長篠城",
@@ -135713,7 +139878,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "長篠城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/%E5%8F%B2%E8%B7%A1_%E9%95%B7%E7%AF%A0%E5%9F%8E%E5%9D%80.jpg/960px-%E5%8F%B2%E8%B7%A1_%E9%95%B7%E7%AF%A0%E5%9F%8E%E5%9D%80.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%95%B7%E7%AF%A0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市ルクセンブルク",
@@ -135989,7 +140161,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "柳之御所遺跡",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Yanaginogosho_Site.JPG/960px-Yanaginogosho_Site.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E4%B9%8B%E5%BE%A1%E6%89%80%E9%81%BA%E8%B7%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ヴァルトブルク城",
@@ -136108,7 +140287,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ヴァルトブルク城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Thuringia_Eisenach_asv2020-07_img23_Wartburg_Castle.jpg/960px-Thuringia_Eisenach_asv2020-07_img23_Wartburg_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%B4%E3%82%A1%E3%83%AB%E3%83%88%E3%83%96%E3%83%AB%E3%82%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］ユッセ城",
@@ -136259,7 +140445,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ユッセ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/UsseSchloss.jpg/960px-UsseSchloss.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%A6%E3%83%83%E3%82%BB%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Manfred Heyde,"
+  }
  },
  {
   "id": "クロンボー城",
@@ -136423,7 +140616,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "クロンボー城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Helsingor_Kronborg.jpg/960px-Helsingor_Kronborg.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%B3%E3%83%9C%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "小倉城",
@@ -136567,7 +140767,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小倉城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Kokura-jo-teien.jpg/960px-Kokura-jo-teien.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E5%80%89%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Keramahani"
+  }
  },
  {
   "id": "セゴビアのアルカサル",
@@ -137058,7 +141265,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "リーズ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Leeds_Castle_%282004a%29.jpg/960px-Leeds_Castle_%282004a%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%BC%E3%82%BA%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ウォリック城",
@@ -137253,7 +141467,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ウォリック城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Warwick_Castle_-mist_23o2007.jpg/960px-Warwick_Castle_-mist_23o2007.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A9%E3%83%AA%E3%83%83%E3%82%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］信貴山城",
@@ -137404,7 +141625,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "信貴山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Map_of_Nara_Prefecture_Ja.svg/960px-Map_of_Nara_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BF%A1%E8%B2%B4%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "フォンテーヌブロー宮殿",
@@ -137547,7 +141775,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "フォンテーヌブロー宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/FontainebleauSchlo%C3%9F1991.jpg/960px-FontainebleauSchlo%C3%9F1991.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A9%E3%83%B3%E3%83%86%E3%83%BC%E3%83%8C%E3%83%96%E3%83%AD%E3%83%BC%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA 3.0",
+   "author": "Joergsam"
+  }
  },
  {
   "id": "水府城",
@@ -137846,7 +142081,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ペーナ宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Sintra_-_Palacio_da_Pena_%2820332995770%29.jpg/960px-Sintra_-_Palacio_da_Pena_%2820332995770%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9A%E3%83%BC%E3%83%8A%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ウェストミンスター宮殿",
@@ -137990,7 +142232,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ウェストミンスター宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Houses_of_Parliament_in_2022_%28cropped%29.jpg/960px-Houses_of_Parliament_in_2022_%28cropped%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A7%E3%82%B9%E3%83%88%E3%83%9F%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "洛陽城",
@@ -138163,7 +142412,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "洛陽市",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/China_Luoyang.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%9B%E9%99%BD%E5%B8%82",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "篠山城",
@@ -138307,7 +142563,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "篠山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Sasaymajyo01.jpg/960px-Sasaymajyo01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AF%A0%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY 2.1 jp",
+   "author": "日:Jnn"
+  }
  },
  {
   "id": "城塞都市アビラ",
@@ -138510,7 +142773,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アビラ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Bandera_de_%C3%81vila.svg/960px-Bandera_de_%C3%81vila.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%93%E3%83%A9",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "松代城",
@@ -138643,7 +142913,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "松代城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Matsushiro_Castle_20100919-01.jpg/960px-Matsushiro_Castle_20100919-01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E4%BB%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "リンドス・アクロポリス",
@@ -138911,7 +143188,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "勝竜寺城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Shoryuji_Castle%2C_koguchi-1.jpg/960px-Shoryuji_Castle%2C_koguchi-1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8B%9D%E7%AB%9C%E5%AF%BA%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ネスヴィジ城",
@@ -139075,7 +143359,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ネスヴィジ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Nesvizh_Castle_2011.JPG/960px-Nesvizh_Castle_2011.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8D%E3%82%B9%E3%83%B4%E3%82%A3%E3%82%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "府内城",
@@ -139257,7 +143548,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "府内城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Funai_Castle_01.jpg/960px-Funai_Castle_01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BA%9C%E5%86%85%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［端午］多賀城",
@@ -139390,7 +143688,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "多賀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Tagajo-ato_seiden-2.JPG/960px-Tagajo-ato_seiden-2.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%B3%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ケルフィリー城",
@@ -139514,7 +143819,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ケルフィリー城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Caerphilly_aerial.jpg/960px-Caerphilly_aerial.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B1%E3%83%AB%E3%83%95%E3%82%A3%E3%83%AA%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "兵庫城",
@@ -139658,7 +143970,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "兵庫城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Hyogoj01.jpg/960px-Hyogoj01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%B5%E5%BA%AB%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "金華山城",
@@ -139973,7 +144292,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アンボワーズ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Amboise_Hof.JPG/960px-Amboise_Hof.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%83%9C%E3%83%AF%E3%83%BC%E3%82%BA%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "カゼルタ宮殿",
@@ -140126,7 +144452,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "カゼルタ宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Aerial_image_of_the_Palace_of_Caserta_%28view_from_the_south%29.jpg/960px-Aerial_image_of_the_Palace_of_Caserta_%28view_from_the_south%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%BC%E3%83%AB%E3%82%BF%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "十河城",
@@ -140298,7 +144631,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "十河城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Sogojo01.jpg/960px-Sogojo01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%81%E6%B2%B3%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "鉢形城",
@@ -140459,7 +144799,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鉢形城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Hatigatajou_Honmaru.JPG/960px-Hatigatajou_Honmaru.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%89%A2%E5%BD%A2%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "二本松城",
@@ -140614,7 +144961,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "二本松城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Nihonmatsu_Castle_Minowa_Gate_20100625-01.jpg/960px-Nihonmatsu_Castle_Minowa_Gate_20100625-01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9C%AC%E6%9D%BE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市アンベール",
@@ -140920,7 +145274,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "柳之御所遺跡",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Yanaginogosho_Site.JPG/960px-Yanaginogosho_Site.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E4%B9%8B%E5%BE%A1%E6%89%80%E9%81%BA%E8%B7%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市トレド",
@@ -141084,7 +145445,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "トレド",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Bandera_de_Toledo.svg/960px-Bandera_de_Toledo.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AC%E3%83%89",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市アッシジ",
@@ -141350,7 +145718,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "川越城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Kawagoe-Castle_Honmaru-Goten.jpg/960px-Kawagoe-Castle_Honmaru-Goten.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B7%9D%E8%B6%8A%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "掛川城",
@@ -141483,7 +145858,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "掛川城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Kakegawajo_20090321.jpg/960px-Kakegawajo_20090321.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%8E%9B%E5%B7%9D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "人吉城",
@@ -141627,7 +146009,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "人吉城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Hitoyoshi_Castle%2C_enkei-3.jpg/960px-Hitoyoshi_Castle%2C_enkei-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%90%89%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "膳所城",
@@ -141760,7 +146149,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "膳所城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Zeze_castle_2.jpg/960px-Zeze_castle_2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%86%B3%E6%89%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "モーリッツブルク城",
@@ -142089,7 +146485,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "サンタンジェロ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/RomaCastelSantAngelo-2.jpg/960px-RomaCastelSantAngelo-2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%B3%E3%82%BF%E3%83%B3%E3%82%B8%E3%82%A7%E3%83%AD%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Andreas Tille"
+  }
  },
  {
   "id": "米沢城",
@@ -142222,7 +146625,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "米沢城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Yonezawajou001.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B1%B3%E6%B2%A2%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "日本語版ウィキペディアのSatoshinさん"
+  }
  },
  {
   "id": "エステンセ城",
@@ -142575,7 +146985,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "久能城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/%E4%B9%85%E8%83%BD%E5%B1%B1%E6%9D%B1%E7%85%A7%E5%AE%AE1_-_panoramio.jpg/960px-%E4%B9%85%E8%83%BD%E5%B1%B1%E6%9D%B1%E7%85%A7%E5%AE%AE1_-_panoramio.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E8%83%BD%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "芥川山城",
@@ -142708,7 +147125,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "芥川山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Japan_Keihan_topographic_map.webp/960px-Japan_Keihan_topographic_map.webp?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%8A%A5%E5%B7%9D%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "立花山城",
@@ -142931,7 +147355,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "立花山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg/960px-Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%8B%E8%8A%B1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "館山城",
@@ -143044,7 +147475,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "館山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Tateyama_Castle%2C_tenshu.JPG/960px-Tateyama_Castle%2C_tenshu.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A4%A8%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "千代田城",
@@ -143169,7 +147607,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "室町第",
@@ -143448,7 +147893,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "太田城 (常陸国)",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Maizurujou.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%AA%E7%94%B0%E5%9F%8E%20%28%E5%B8%B8%E9%99%B8%E5%9B%BD%29",
+   "license": "Public domain",
+   "author": "by SKYWALKER"
+  }
  },
  {
   "id": "岡崎城",
@@ -143561,7 +148013,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岡崎城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Okazakijo-3-cropped.jpg/960px-Okazakijo-3-cropped.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B4%8E%E5%9F%8E",
+   "license": "CC0",
+   "author": "Evelyn-rose"
+  }
  },
  {
   "id": "中城城",
@@ -143694,7 +148153,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "中城城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Nakagusuku_Castle25bs3104.jpg/960px-Nakagusuku_Castle25bs3104.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E5%9F%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］シノン城",
@@ -143875,7 +148341,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シノン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Ch%C3%A2teau_de_Chinon_vue_de_la_Vienne.JPG/960px-Ch%C3%A2teau_de_Chinon_vue_de_la_Vienne.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%8E%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鶴島城",
@@ -144204,7 +148677,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "山崎城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Map_of_Tottori_Prefecture_Ja.svg/960px-Map_of_Tottori_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E5%B4%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "吹揚城",
@@ -144490,7 +148970,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "真田丸",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Sanada_Yukimura_Demaruj%C5%8D_Site.jpg/960px-Sanada_Yukimura_Demaruj%C5%8D_Site.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9C%9F%E7%94%B0%E4%B8%B8",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］丸岡城",
@@ -144633,7 +149120,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "丸岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/960px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%B8%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "スワローズ・ネスト",
@@ -145012,7 +149506,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鹿児島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Goromon_Gate_ac_%281%29.jpg/960px-Goromon_Gate_ac_%281%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鶴ヶ城",
@@ -145299,7 +149800,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ケルフィリー城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Caerphilly_aerial.jpg/960px-Caerphilly_aerial.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B1%E3%83%AB%E3%83%95%E3%82%A3%E3%83%AA%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "平井城",
@@ -145422,7 +149930,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "平井城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Hiraijyo.jpg/960px-Hiraijyo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E4%BA%95%E5%9F%8E",
+   "license": "Public domain",
+   "author": "前田左衛門佐"
+  }
  },
  {
   "id": "扇城",
@@ -145627,7 +150142,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "中津城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/%E4%B8%AD%E6%B4%A5%E5%9F%8E%E5%A4%A9%E5%AE%88.jpg/960px-%E4%B8%AD%E6%B4%A5%E5%9F%8E%E5%A4%A9%E5%AE%88.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E6%B4%A5%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "ほっきー"
+  }
  },
  {
   "id": "ハーレック城",
@@ -145865,7 +150387,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ハーレフ城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Harlech_Castle_-_Cadw_photograph.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%BC%E3%83%AC%E3%83%95%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］城塞都市トレド",
@@ -146029,7 +150558,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "トレド",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Bandera_de_Toledo.svg/960px-Bandera_de_Toledo.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AC%E3%83%89",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "新高山城",
@@ -146192,7 +150728,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "新高山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Niitakayamajyo.jpg/960px-Niitakayamajyo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E9%AB%98%E5%B1%B1%E5%9F%8E",
+   "license": "Public domain",
+   "author": "前田左衛門佐"
+  }
  },
  {
   "id": "［正月］竹田城",
@@ -146355,7 +150898,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "竹田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG/960px-%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%B9%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Wae35244"
+  }
  },
  {
   "id": "都於郡城",
@@ -146518,7 +151068,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "都於郡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/%E9%83%BD%E6%96%BC%E9%83%A1%E5%9F%8E%E8%B7%A1_%E8%A5%BF%E9%83%BD%E5%B8%82_Feb_3%2C_2013.jpg/960px-%E9%83%BD%E6%96%BC%E9%83%A1%E5%9F%8E%E8%B7%A1_%E8%A5%BF%E9%83%BD%E5%B8%82_Feb_3%2C_2013.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%BD%E6%96%BC%E9%83%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "黒井城",
@@ -146681,7 +151238,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "黒井城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Kuroij4.jpg/960px-Kuroij4.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BB%92%E4%BA%95%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "白帝城",
@@ -146842,7 +151406,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "白帝城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Bai_di_cheng.jpg/960px-Bai_di_cheng.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%99%BD%E5%B8%9D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［バレンタイン］小倉城",
@@ -146986,7 +151557,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小倉城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Kokura-jo-teien.jpg/960px-Kokura-jo-teien.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E5%80%89%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Keramahani"
+  }
  },
  {
   "id": "鮫ヶ尾城",
@@ -147099,7 +151677,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鮫ヶ尾城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Samegao_Castle_ruins.jpg/960px-Samegao_Castle_ruins.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AE%AB%E3%83%B6%E5%B0%BE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "勝幡城",
@@ -147242,7 +151827,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "勝幡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Shobata_Castle_01.jpg/960px-Shobata_Castle_01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8B%9D%E5%B9%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "要害山城",
@@ -147365,7 +151957,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "要害山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Mt.Yogai_Kofu_city.JPG/960px-Mt.Yogai_Kofu_city.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%A6%81%E5%AE%B3%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "唐沢山城",
@@ -147508,7 +152107,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "唐沢山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Karasawayama_Shrine.JPG/960px-Karasawayama_Shrine.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%B2%A2%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "玉縄城",
@@ -147689,7 +152295,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "玉縄城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/%E5%A4%AA%E9%BC%93%E9%83%AD%E4%B8%8B_%E5%A0%80%E5%88%87.jpg/960px-%E5%A4%AA%E9%BC%93%E9%83%AD%E4%B8%8B_%E5%A0%80%E5%88%87.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%8E%89%E7%B8%84%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "伊豆下田城",
@@ -148205,7 +152818,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鞠智城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Kikuchi-jyou.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9E%A0%E6%99%BA%E5%9F%8E",
+   "license": "Public domain",
+   "author": "日本語版ウィキペディアのYAPONさん"
+  }
  },
  {
   "id": "コーブルク城",
@@ -148691,7 +153311,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "萩城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Hagi_Castle_-Honmaru.jpg/960px-Hagi_Castle_-Honmaru.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%90%A9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］新田金山城",
@@ -148804,7 +153431,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "新田金山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Kanayamajo-ato.JPG/960px-Kanayamajo-ato.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Mocchy"
+  }
  },
  {
   "id": "［夏］首里城",
@@ -148952,7 +153586,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "首里城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Naha_Okinawa_Japan_Shuri-Castle-01.jpg/960px-Naha_Okinawa_Japan_Shuri-Castle-01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A6%96%E9%87%8C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］久留米城",
@@ -149096,7 +153737,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "久留米城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Kurume_castle.JPG/960px-Kurume_castle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E7%95%99%E7%B1%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］立花山城",
@@ -149304,7 +153952,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "立花山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg/960px-Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%8B%E8%8A%B1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "佐柿国吉城",
@@ -149467,7 +154122,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "国吉城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/A_series_of_Kuruwa_on_Kuniyoshi-jo.jpg/960px-A_series_of_Kuruwa_on_Kuniyoshi-jo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9B%BD%E5%90%89%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "エゲル城",
@@ -149781,7 +154443,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "川越城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Kawagoe-Castle_Honmaru-Goten.jpg/960px-Kawagoe-Castle_Honmaru-Goten.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B7%9D%E8%B6%8A%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］平戸城",
@@ -149945,7 +154614,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "平戸城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/HiradoCastle3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E6%88%B8%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "津軽鷹岡城",
@@ -150424,7 +155100,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "桑名城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Kuwana_castle_tower_foundation_%28ruin_of_Donjon%29.JPG/960px-Kuwana_castle_tower_foundation_%28ruin_of_Donjon%29.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A1%91%E5%90%8D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［お月見］新宮城",
@@ -150587,7 +155270,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "新宮城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/171008_Shingu_Castle_Shingu_Wakayama_pref_Japan22n.jpg/960px-171008_Shingu_Castle_Shingu_Wakayama_pref_Japan22n.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E5%AE%AE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［お月見］津城",
@@ -150730,7 +155420,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "津城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/140405_Tsu_Castle_Tsu_MIe_pref_Japan16s3.jpg/960px-140405_Tsu_Castle_Tsu_MIe_pref_Japan16s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B4%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "大宮城",
@@ -151054,7 +155751,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岩剣城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Location_map_of_Kagoshima.svg/960px-Location_map_of_Kagoshima.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E5%89%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［ハロウィン］安平古堡",
@@ -151218,7 +155922,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "安平古堡",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg/960px-Fort_Zeelandia%2C_Anping_District%2C_Tainan_City_%28Taiwan%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "シャンティイ城",
@@ -151362,7 +156073,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シャンティイ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Chateau_de_Chantilly_garden.jpg/960px-Chateau_de_Chantilly_garden.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A3%E3%83%B3%E3%83%86%E3%82%A3%E3%82%A4%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "真岡城",
@@ -151526,7 +156244,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "真岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Ruins_of_Moka_Castle.JPG/960px-Ruins_of_Moka_Castle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9C%9F%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "胆沢城",
@@ -151681,7 +156406,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "胆沢城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/%E8%83%86%E6%B2%A2%E5%9F%8E%E8%B7%A1.jpg/960px-%E8%83%86%E6%B2%A2%E5%9F%8E%E8%B7%A1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%83%86%E6%B2%A2%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "Koda6029"
+  }
  },
  {
   "id": "雨城",
@@ -151845,7 +156577,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "雨城区",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Gao_Yi_Que2.jpg/960px-Gao_Yi_Que2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9B%A8%E5%9F%8E%E5%8C%BA",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］スピシュ城",
@@ -152008,7 +156747,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "スピシュスキー城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Spissky_hrad_2007.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%94%E3%82%B7%E3%83%A5%E3%82%B9%E3%82%AD%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］フレデリクスボー城",
@@ -152122,7 +156868,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "フレデリクスボー城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Frederiksborg_Slot_i_sol.jpg/960px-Frederiksborg_Slot_i_sol.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%AC%E3%83%87%E3%83%AA%E3%82%AF%E3%82%B9%E3%83%9C%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］福山城",
@@ -152493,7 +157246,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "天童城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Maiduruyama_Tendou%2C_Yamagata.JPG/960px-Maiduruyama_Tendou%2C_Yamagata.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A9%E7%AB%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "七飯台場",
@@ -152987,7 +157747,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "十河城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Sogojo01.jpg/960px-Sogojo01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%81%E6%B2%B3%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "［バレンタイン］シュノンソー城",
@@ -153101,7 +157868,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シュノンソー城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Chateau_de_Chenonceau_2008E.jpg/960px-Chateau_de_Chenonceau_2008E.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A5%E3%83%8E%E3%83%B3%E3%82%BD%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "湯島聖堂",
@@ -153244,7 +158018,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "湯島聖堂",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Yushima_Seido6.jpg/960px-Yushima_Seido6.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B9%AF%E5%B3%B6%E8%81%96%E5%A0%82",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "麋城",
@@ -153551,7 +158332,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］岡城",
@@ -153807,7 +158595,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "エカテリーナ宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Catherine_Palace_in_Tsarskoe_Selo.jpg/960px-Catherine_Palace_in_Tsarskoe_Selo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%AB%E3%83%86%E3%83%AA%E3%83%BC%E3%83%8A%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市ニネヴェ",
@@ -154131,7 +158926,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "フォンテーヌブロー宮殿",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/FontainebleauSchlo%C3%9F1991.jpg/960px-FontainebleauSchlo%C3%9F1991.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A9%E3%83%B3%E3%83%86%E3%83%BC%E3%83%8C%E3%83%96%E3%83%AD%E3%83%BC%E5%AE%AE%E6%AE%BF",
+   "license": "CC BY-SA 3.0",
+   "author": "Joergsam"
+  }
  },
  {
   "id": "エルツ城",
@@ -154312,7 +159114,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "エルツ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Wierschem%2C_Burg_Eltz%2C_2012-08_CN-01.jpg/960px-Wierschem%2C_Burg_Eltz%2C_2012-08_CN-01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%AB%E3%83%84%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］千賀地氏城",
@@ -154455,7 +159264,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "千賀地氏城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Chigachishijo01.jpg/960px-Chigachishijo01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8D%83%E8%B3%80%E5%9C%B0%E6%B0%8F%E5%9F%8E",
+   "license": "CC BY 3.0",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "［夏］雑賀城",
@@ -154599,7 +159415,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "雑賀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Saika_castle_04.jpg/960px-Saika_castle_04.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9B%91%E8%B3%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］エゲル城",
@@ -154989,7 +159812,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アンジェ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Ch%C3%A2teau_d%27Angers%2C_South_view_20170611_1.jpg/960px-Ch%C3%A2teau_d%27Angers%2C_South_view_20170611_1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%B8%E3%82%A7%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］岩殿山城",
@@ -155152,7 +159982,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岩殿山城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/IwadonoYama2004.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E6%AE%BF%E5%B1%B1%E5%9F%8E",
+   "license": "Public domain",
+   "author": "Kinori"
+  }
  },
  {
   "id": "高田城",
@@ -155316,7 +160153,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "高田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Takada_Castle_yagura.JPG/960px-Takada_Castle_yagura.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "基肄城",
@@ -155495,7 +160339,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "基肄城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/%E5%9F%BA%E5%B1%B1%E5%B1%B1%E9%A0%82%E9%83%A8%E5%9C%9F%E5%A1%811.JPG/960px-%E5%9F%BA%E5%B1%B1%E5%B1%B1%E9%A0%82%E9%83%A8%E5%9C%9F%E5%A1%811.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%9F%BA%E8%82%84%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "Wxrx"
+  }
  },
  {
   "id": "日出城",
@@ -155659,7 +160510,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "日出城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Hiji_Castle_ruins_inscription.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%97%A5%E5%87%BA%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "天神山城",
@@ -156478,7 +161336,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シャトー・ディフ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/France_location_map-Regions_and_departements-2016.svg/960px-France_location_map-Regions_and_departements-2016.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A3%E3%83%88%E3%83%BC%E3%83%BB%E3%83%87%E3%82%A3%E3%83%95",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］七飯台場",
@@ -156930,7 +161795,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "一乗谷朝倉氏遺跡",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Asakura_Yakata_of_Ichijodani_Asakura_Family_Historic_Ruins02s3s4440.jpg/960px-Asakura_Yakata_of_Ichijodani_Asakura_Family_Historic_Ruins02s3s4440.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%80%E4%B9%97%E8%B0%B7%E6%9C%9D%E5%80%89%E6%B0%8F%E9%81%BA%E8%B7%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］備中松山城",
@@ -157073,7 +161945,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "備中松山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E2.jpg/960px-%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E",
+   "license": "CC0",
+   "author": "高梁浩洋"
+  }
  },
  {
   "id": "金烏城",
@@ -157379,7 +162258,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "太田城 (常陸国)",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Maizurujou.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%AA%E7%94%B0%E5%9F%8E%20%28%E5%B8%B8%E9%99%B8%E5%9B%BD%29",
+   "license": "Public domain",
+   "author": "by SKYWALKER"
+  }
  },
  {
   "id": "勝野城",
@@ -157742,7 +162628,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "マルメゾン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Chateau_de_Malmaison.jpg/960px-Chateau_de_Malmaison.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%83%A1%E3%82%BE%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］足利学校",
@@ -157885,7 +162778,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "足利学校",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Ashikaga_Ashikaga-School_School_Gate_2.JPG/960px-Ashikaga_Ashikaga-School_School_Gate_2.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%B6%B3%E5%88%A9%E5%AD%A6%E6%A0%A1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］城塞都市アビラ",
@@ -158066,7 +162966,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アビラ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Bandera_de_%C3%81vila.svg/960px-Bandera_de_%C3%81vila.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%93%E3%83%A9",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "リズラン城",
@@ -158515,7 +163422,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鮫ヶ尾城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Samegao_Castle_ruins.jpg/960px-Samegao_Castle_ruins.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AE%AB%E3%83%B6%E5%B0%BE%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "安宅船 日本丸",
@@ -158860,7 +163774,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "栗橋城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Map_of_Ibaraki_Prefecture_Ja.svg/960px-Map_of_Ibaraki_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A0%97%E6%A9%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］丹波亀山城",
@@ -159041,7 +163962,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "亀山城 (丹波国)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Kameyama-jo_Tambanokuni_ishigaki.jpg/960px-Kameyama-jo_Tambanokuni_ishigaki.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BA%80%E5%B1%B1%E5%9F%8E%20%28%E4%B8%B9%E6%B3%A2%E5%9B%BD%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］平井城",
@@ -159184,7 +164112,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "平井城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Hiraijyo.jpg/960px-Hiraijyo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E4%BA%95%E5%9F%8E",
+   "license": "Public domain",
+   "author": "前田左衛門佐"
+  }
  },
  {
   "id": "城塞都市イントラムロス",
@@ -159526,7 +164461,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "三重城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Mie_Gusuku.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E9%87%8D%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］大垣城",
@@ -159670,7 +164612,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大垣城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Old_Ogaki_Castle_in_1933.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9E%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鳴海城",
@@ -159852,7 +164801,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鳴海城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Tenjin-sha_Shrine_Keidai_%281%29%2C_Shiro_Narumi-cho_Midori_Ward_Nagoya_2020.jpg/960px-Tenjin-sha_Shrine_Keidai_%281%29%2C_Shiro_Narumi-cho_Midori_Ward_Nagoya_2020.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B3%B4%E6%B5%B7%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "黒船 ミシシッピ",
@@ -160289,7 +165245,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ホーエンツォレルン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Burg_Hohenzollern_ak.jpg/960px-Burg_Hohenzollern_ak.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9B%E3%83%BC%E3%82%A8%E3%83%B3%E3%83%84%E3%82%A9%E3%83%AC%E3%83%AB%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "アーカート城",
@@ -160469,7 +165432,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アーカート城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Urquhart_Castle_distance_2.jpg/960px-Urquhart_Castle_distance_2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%88%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］リズラン城",
@@ -160744,7 +165714,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "龍野城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Tatsuno_castle01s2040.jpg/960px-Tatsuno_castle01s2040.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BE%8D%E9%87%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］千代田城",
@@ -160887,7 +165864,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］江戸氏館",
@@ -161050,7 +166034,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "江戸城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］立花山城",
@@ -161213,7 +166204,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "立花山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg/960px-Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%AB%8B%E8%8A%B1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ブラチスラヴァ城",
@@ -161375,7 +166373,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ブラチスラヴァ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Bratislava%2C_Hrad%2C_Slovensko.jpg/960px-Bratislava%2C_Hrad%2C_Slovensko.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%A9%E3%83%81%E3%82%B9%E3%83%A9%E3%83%B4%E3%82%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "玉城城",
@@ -161505,7 +166510,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "玉城城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Tamagusuku_arch.jpg/960px-Tamagusuku_arch.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%8E%89%E5%9F%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［バレンタイン］プファルツ城",
@@ -161635,7 +166647,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "プファルツ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Caub_und_Pfalz_im_Rhein_um_1900.jpg/960px-Caub_und_Pfalz_im_Rhein_um_1900.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%95%E3%82%A1%E3%83%AB%E3%83%84%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ドラショルム城",
@@ -161843,7 +166862,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シュヴェリーン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Schwerin_Castle_Aerial_View_Island_Luftbild_Schweriner_Schloss_Insel_See.jpg/960px-Schwerin_Castle_Aerial_View_Island_Luftbild_Schweriner_Schloss_Insel_See.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A5%E3%83%B4%E3%82%A7%E3%83%AA%E3%83%BC%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［学園］比志城",
@@ -162106,7 +167132,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "勝連城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Katsuren_Castle_ruins.jpg/960px-Katsuren_Castle_ruins.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%8B%9D%E9%80%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］リーガースブルク城",
@@ -162507,7 +167540,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岩剣城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Location_map_of_Kagoshima.svg/960px-Location_map_of_Kagoshima.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E5%89%A3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］安宅船 日本丸",
@@ -162872,7 +167912,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "円明園",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Ruins_of_Dashuifa_20130126.jpg/960px-Ruins_of_Dashuifa_20130126.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%86%86%E6%98%8E%E5%9C%92",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "吉田城",
@@ -163104,7 +168151,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鬼ノ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Kinojo%2C_enkei-2.jpg/960px-Kinojo%2C_enkei-2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%AC%BC%E3%83%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "喜春城",
@@ -163551,7 +168605,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ペレシュ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Castelul_Peles%2C_Sinaia_-_Vedere_panoramica.jpg/960px-Castelul_Peles%2C_Sinaia_-_Vedere_panoramica.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9A%E3%83%AC%E3%82%B7%E3%83%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "鉄製汽船 ネメシス号",
@@ -163857,7 +168918,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "カーナーヴォン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Caernafon_Castle_-_Seiont_sunset.jpg/960px-Caernafon_Castle_-_Seiont_sunset.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%BC%E3%83%8A%E3%83%BC%E3%83%B4%E3%82%A9%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［心螺］大宝寺城",
@@ -163983,7 +169051,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鶴ヶ岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Cherry_blossoms_in_Tsuruoka_Park_2024a.jpg/960px-Cherry_blossoms_in_Tsuruoka_Park_2024a.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B6%B4%E3%83%B6%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］館山城",
@@ -164097,7 +169172,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "館山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Tateyama_Castle%2C_tenshu.JPG/960px-Tateyama_Castle%2C_tenshu.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%A4%A8%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］湯島聖堂",
@@ -164245,7 +169327,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "湯島聖堂",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Yushima_Seido6.jpg/960px-Yushima_Seido6.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B9%AF%E5%B3%B6%E8%81%96%E5%A0%82",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［バレンタイン］アーカート城",
@@ -164346,7 +169435,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "アーカート城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Urquhart_Castle_distance_2.jpg/960px-Urquhart_Castle_distance_2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%88%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ギマランイス城",
@@ -164644,7 +169740,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鎌刃城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Kamaha-Castle.jpg/960px-Kamaha-Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%8E%8C%E5%88%83%E5%9F%8E",
+   "license": "CC BY-SA 4.0",
+   "author": "HikaruKinkakuji"
+  }
  },
  {
   "id": "［一刃］小谷城",
@@ -164827,7 +169930,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小谷城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Odanij10.jpg/960px-Odanij10.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E8%B0%B7%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "［幼き］熊本城",
@@ -164990,7 +170100,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "熊本城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/960px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%86%8A%E6%9C%AC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ジブラルタル要塞",
@@ -165409,7 +170526,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "米子城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Yonago_Castle%2C_honmaru-1.jpg/960px-Yonago_Castle%2C_honmaru-1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B1%B3%E5%AD%90%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夏］シノン城",
@@ -165570,7 +170694,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "シノン城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Ch%C3%A2teau_de_Chinon_vue_de_la_Vienne.JPG/960px-Ch%C3%A2teau_de_Chinon_vue_de_la_Vienne.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%8E%E3%83%B3%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［夜行］阿波一宮城",
@@ -165975,7 +171106,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "尼崎城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Amagasaki_Castle_Tenshu_20181125.jpg/960px-Amagasaki_Castle_Tenshu_20181125.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%BC%E5%B4%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ビューマリス城",
@@ -166137,7 +171275,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ビューマリス城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Beaumaris_aerial.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%93%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%AA%E3%82%B9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［華謀］沼田城",
@@ -166302,7 +171447,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "沼田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Ruins_of_Numata_Castle_01.JPG/960px-Ruins_of_Numata_Castle_01.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B2%BC%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［刃衣］米沢城",
@@ -166531,7 +171683,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "米沢城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Yonezawajou001.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%B1%B3%E6%B2%A2%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "日本語版ウィキペディアのSatoshinさん"
+  }
  },
  {
   "id": "［暁鴉］雑賀城",
@@ -166727,7 +171886,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "雑賀城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Saika_castle_04.jpg/960px-Saika_castle_04.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%9B%91%E8%B3%80%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "水城",
@@ -166827,7 +171993,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "水城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Fukuoka_g%C3%A9olocalisation_relief.svg/960px-Fukuoka_g%C3%A9olocalisation_relief.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B0%B4%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "軍艦 三笠",
@@ -167138,7 +172311,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ロシュ城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Loches_dungeon%2C_aerial_view_from_West.jpg/960px-Loches_dungeon%2C_aerial_view_from_West.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%AD%E3%82%B7%E3%83%A5%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［封琴］徳丹城",
@@ -167320,7 +172500,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "徳丹城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Tokutan_Castle_site.jpg/960px-Tokutan_Castle_site.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BE%B3%E4%B8%B9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［海嵐］上関城",
@@ -167818,7 +173005,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "三刀屋城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Mitoya_Castle.jpg/960px-Mitoya_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%88%80%E5%B1%8B%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［毒禍］石山城",
@@ -167967,7 +173161,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岡山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Okayama_Castle_main_keep_2023-10-18.jpg/960px-Okayama_Castle_main_keep_2023-10-18.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［幼き］萩城",
@@ -168138,7 +173339,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "萩城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Hagi_Castle_-Honmaru.jpg/960px-Hagi_Castle_-Honmaru.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%90%A9%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［雲臥］備中松山城",
@@ -168300,7 +173508,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "備中松山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E2.jpg/960px-%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E",
+   "license": "CC0",
+   "author": "高梁浩洋"
+  }
  },
  {
   "id": "岩屋城",
@@ -168440,7 +173655,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岩屋城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Iwaya-jyou.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A9%E5%B1%8B%E5%9F%8E",
+   "license": "Public domain",
+   "author": "YAPON"
+  }
  },
  {
   "id": "ペンブルック城",
@@ -168598,7 +173820,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ペンブルック城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Pembroke_Castle_-_June_2011.jpg/960px-Pembroke_Castle_-_June_2011.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%9A%E3%83%B3%E3%83%96%E3%83%AB%E3%83%83%E3%82%AF%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "城塞都市サン・マロ",
@@ -168969,7 +174198,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "レプティス・マグナ",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Leptis_Magna_Arch_of_Septimius_Severus.jpg/960px-Leptis_Magna_Arch_of_Septimius_Severus.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%AC%E3%83%97%E3%83%86%E3%82%A3%E3%82%B9%E3%83%BB%E3%83%9E%E3%82%B0%E3%83%8A",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［怨楓］久慈城",
@@ -169121,7 +174357,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "久慈城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Map_of_Iwate_Prefecture_Ja.svg/960px-Map_of_Iwate_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B9%85%E6%85%88%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［聖夜］ティンタジェル城",
@@ -169303,7 +174546,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ティンタジェル城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Upper_mainland_courtyard_of_Tintagel_Castle%2C_2007.jpg/960px-Upper_mainland_courtyard_of_Tintagel_Castle%2C_2007.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%86%E3%82%A3%E3%83%B3%E3%82%BF%E3%82%B8%E3%82%A7%E3%83%AB%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［正月］稲葉山城",
@@ -169443,7 +174693,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "岐阜城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/%E5%B2%90%E9%98%9C%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3.jpg/960px-%E5%B2%90%E9%98%9C%E5%9F%8E_%E5%A4%A9%E5%AE%88%E9%96%A3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B2%90%E9%98%9C%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "高陽城",
@@ -169736,7 +174993,14 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "小田城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Oda_Castle_01.JPG/960px-Oda_Castle_01.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "八幡山城",
@@ -169908,7 +175172,14 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "八幡山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Yahatahachimanjo03.jpg/960px-Yahatahachimanjo03.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%85%AB%E5%B9%A1%E5%B1%B1%E5%9F%8E",
+   "license": "Public domain",
+   "author": "投稿者が撮影"
+  }
  },
  {
   "id": "［アイドル］ドーヴァー城",
@@ -170049,7 +175320,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "ドーヴァー城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/1_dover_castle_aerial_panorama_2017.jpg/960px-1_dover_castle_aerial_panorama_2017.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%BC%E3%83%B4%E3%82%A1%E3%83%BC%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［花嫁衣装］越中高岡城",
@@ -170381,7 +175659,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "水口城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Minakuchi.jpg/960px-Minakuchi.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%B0%B4%E5%8F%A3%E5%9F%8E",
+   "license": "CC BY-SA 2.5",
+   "author": "kamoseiro"
+  }
  },
  {
   "id": "［夏］三崎城",
@@ -170552,7 +175837,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "三崎城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Map_of_Kanagawa_Prefecture_Ja.svg/960px-Map_of_Kanagawa_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E5%B4%8E%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［肝試し］大和郡山城",
@@ -170692,7 +175984,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "郡山城 (大和国)",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Koriyama_Castle_%28Yamato%29%2C_Otte-mon_and_Otte-Mukai-yagura.jpg/960px-Koriyama_Castle_%28Yamato%29%2C_Otte-mon_and_Otte-Mukai-yagura.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%83%A1%E5%B1%B1%E5%9F%8E%20%28%E5%A4%A7%E5%92%8C%E5%9B%BD%29",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "［お月見］伊丹城",
@@ -170832,7 +176131,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "伊丹城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/%E6%9C%89%E5%B2%A1%E5%9F%8E%E8%B7%A1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8A%E4%B8%B9%E5%9F%8E",
+   "license": "CC BY-SA 3.0",
+   "author": "BJP039"
+  }
  },
  {
   "id": "槇島城",
@@ -171002,7 +176308,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "槇島城",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/33/Stone_monument_of_Makishima_castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A7%87%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "前田利家",
@@ -171122,7 +176435,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "前田利家",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Maeda_Toshiie.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%89%8D%E7%94%B0%E5%88%A9%E5%AE%B6",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "黒田長政",
@@ -171260,7 +176580,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "黒田長政",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Kuroda_Nagamasa.jpg/960px-Kuroda_Nagamasa.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%BB%92%E7%94%B0%E9%95%B7%E6%94%BF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "毛利元就",
@@ -171380,7 +176707,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "毛利元就",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Mori_Motonari.jpg/960px-Mori_Motonari.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%AF%9B%E5%88%A9%E5%85%83%E5%B0%B1",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "シュテファン",
@@ -171620,7 +176954,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "石田三成",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Ishida_Mitsunari.jpg/960px-Ishida_Mitsunari.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%9F%B3%E7%94%B0%E4%B8%89%E6%88%90",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "福島正則",
@@ -171720,7 +177061,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "福島正則",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Masanori_Fukushima.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B3%B6%E6%AD%A3%E5%89%87",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "片倉小十郎",
@@ -172018,7 +177366,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "上杉景勝",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Uesugi_Kagekatsu_Portrait_Yonezawa_City_Uesugi_Museum.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%B8%8A%E6%9D%89%E6%99%AF%E5%8B%9D",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "山県昌景",
@@ -172158,7 +177513,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "山県昌景",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Yamagata_Masakage2.jpg/960px-Yamagata_Masakage2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E7%9C%8C%E6%98%8C%E6%99%AF",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "蒲生氏郷",
@@ -172278,7 +177640,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "蒲生氏郷",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Gam%C5%8D_Ujisato_%28Saik%C5%8Dji_Nishiazu%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%92%B2%E7%94%9F%E6%B0%8F%E9%83%B7",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "藤堂高虎",
@@ -172454,7 +177823,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "藤堂高虎",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Toudou_Takatora.jpg/960px-Toudou_Takatora.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E8%97%A4%E5%A0%82%E9%AB%98%E8%99%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "桃形兜",
@@ -172593,7 +177969,14 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "桃形兜",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Kurourusinurimomonaridaisuigyuwakidatekabuto.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A1%83%E5%BD%A2%E5%85%9C",
+   "license": "CC BY-SA 3.0",
+   "author": "不明Unknown author"
+  }
  },
  {
   "id": "［六花］桃形兜",
@@ -172700,7 +178083,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "桃形兜",
+   "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Kurourusinurimomonaridaisuigyuwakidatekabuto.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E6%A1%83%E5%BD%A2%E5%85%9C",
+   "license": "CC BY-SA 3.0",
+   "author": "不明Unknown author"
+  }
  },
  {
   "id": "兎形兜",
@@ -175625,7 +181015,14 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "この素晴らしい世界に祝福を!",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Kono_Subarashii_Sekai_ni_Shukufuku_o%21_light_novel_logo.svg/960px-Kono_Subarashii_Sekai_ni_Shukufuku_o%21_light_novel_logo.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E3%81%93%E3%81%AE%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%84%E4%B8%96%E7%95%8C%E3%81%AB%E7%A5%9D%E7%A6%8F%E3%82%92%21",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
  },
  {
   "id": "ダクネス",

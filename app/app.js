@@ -1594,7 +1594,7 @@
         </div>
         <div class="castle-item-body">
           <div class="castle-item-header">
-            <div class="castle-item-title">${c.name}</div>
+            <div class="castle-item-title">${c.name}${c.realCastle ? '<span class="real-castle-badge" title="実在の城の写真・情報あり">🏯</span>' : ''}</div>
             <div class="castle-item-badges">
               <button class="btn-fav ${isFav ? 'active' : ''}" data-action="toggle-fav" data-id="${c.id}" title="お気に入り切替">${isFav ? '★' : '☆'}</button>
               <button class="btn-owned ${isOwned ? 'active' : ''}" data-action="toggle-owned" data-id="${c.id}" title="所持切替">${isOwned ? '所持' : '未所持'}</button>
@@ -2787,6 +2787,41 @@
     // Lore (図鑑文章 / 自己紹介)
     const loreEl = document.getElementById("detailLoreText");
     loreEl.textContent = c.lore || "図鑑文章はありません。";
+
+    // Real Castle (実在の城 モチーフ)
+    const realBox = document.getElementById("detailRealCastleBox");
+    const realContent = document.getElementById("detailRealCastleContent");
+    if (realBox && realContent) {
+      if (c.realCastle && c.realCastle.photoUrl) {
+        realBox.style.display = "block";
+        const rc = c.realCastle;
+        const authorStr = escapeHtml(rc.author || "Wikimedia Commons");
+        const licenseStr = escapeHtml(rc.license || "CC BY-SA");
+        const articleUrl = rc.articleUrl || `https://ja.wikipedia.org/wiki/${encodeURIComponent(rc.name || c.name)}`;
+        realContent.innerHTML = `
+          <div class="real-castle-card">
+            <div class="real-castle-photo-wrap">
+              <a href="${escapeHtml(rc.photoUrl)}" target="_blank" rel="noopener noreferrer" title="クリックで写真を開く">
+                <img src="${escapeHtml(rc.photoUrl)}" alt="${escapeHtml(rc.name)}" class="real-castle-photo" loading="lazy" onerror="const box = document.getElementById('detailRealCastleBox'); if(box) box.style.display='none';" />
+              </a>
+            </div>
+            <div class="real-castle-info">
+              <div class="real-castle-title-row">
+                <strong class="real-castle-title">${escapeHtml(rc.name)}</strong>
+                <a href="${escapeHtml(articleUrl)}" target="_blank" rel="noopener noreferrer" class="real-castle-wiki-link">Wikipedia ↗</a>
+              </div>
+              <div class="real-castle-meta">
+                <div class="real-castle-credit" title="作者">📸 ${authorStr}</div>
+                <div class="real-castle-license" title="ライセンス">⚖️ ${licenseStr}</div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        realBox.style.display = "none";
+        realContent.innerHTML = "";
+      }
+    }
 
     // Right Column: Stats Table
     const tbody = document.getElementById("detailStatsTbody");
