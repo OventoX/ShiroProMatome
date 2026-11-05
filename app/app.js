@@ -2175,7 +2175,7 @@
   let currentDetailRemodelStage = "無印"; // '無印' | '改壱' | '改弐'
 
   function getCastleStageImages(castle, stage) {
-    if (!castle) return { illustUrl: "", ojouUrl: "", taihaUrl: "" };
+    if (!castle) return { illustUrl: "", ojouUrl: "", taihaUrl: "", tokugiUrl: "" };
     const st = stage || currentDetailRemodelStage || "無印";
     const forms = castle.remodelForms || {};
     const stageData = forms[st] || {};
@@ -2183,7 +2183,8 @@
     return {
       illustUrl: stageData.illustUrl || baseData.illustUrl || castle.illustUrl || "",
       ojouUrl: stageData.ojouUrl || baseData.ojouUrl || castle.ojouUrl || "",
-      taihaUrl: stageData.taihaUrl || baseData.taihaUrl || castle.taihaUrl || ""
+      taihaUrl: stageData.taihaUrl || baseData.taihaUrl || castle.taihaUrl || "",
+      tokugiUrl: stageData.tokugiUrl || baseData.tokugiUrl || castle.tokugiUrl || ""
     };
   }
 
@@ -2307,13 +2308,16 @@
 
     const hasOjou = Boolean(imgSet.ojouUrl);
     const hasTaiha = Boolean(imgSet.taihaUrl);
+    const hasTokugi = Boolean(imgSet.tokugiUrl);
 
     // Disable / enable form tabs based on available images for this stage
     const btnOjou = document.getElementById("btnFormOjou");
     const btnTaiha = document.getElementById("btnFormTaiha");
+    const btnTokugi = document.getElementById("btnFormTokugi");
     const btnSideBySide = document.getElementById("btnFormSideBySide");
     if (btnOjou) btnOjou.disabled = !hasOjou;
     if (btnTaiha) btnTaiha.disabled = !hasTaiha;
+    if (btnTokugi) btnTokugi.disabled = !hasTokugi;
     if (btnSideBySide) btnSideBySide.disabled = !hasOjou && !hasTaiha;
 
     if (form === "side_by_side") {
@@ -2407,6 +2411,9 @@
         } else if (form === "taiha") {
           imgEl.src = imgSet.taihaUrl || fallbackSrc;
           if (captionEl) captionEl.innerHTML = `<span style="color:#d63031; font-weight:bold;">💥 大破姿${stageLabel} (戦闘不能)</span>`;
+        } else if (form === "tokugi") {
+          imgEl.src = imgSet.tokugiUrl || fallbackSrc;
+          if (captionEl) captionEl.innerHTML = `<span style="color:#d97706; font-weight:bold;">⚡ 特技姿${stageLabel} (カットイン)</span>`;
         } else {
           imgEl.src = imgSet.illustUrl || fallbackSrc;
           if (captionEl) captionEl.innerHTML = `<span style="color:var(--primary-color); font-weight:bold;">⚔️ 城娘姿${stageLabel} (通常・戦闘)</span>`;
@@ -2477,6 +2484,10 @@
       src = imgSet.taihaUrl || fallbackSrc;
       badgeText = `💥 大破姿${stageLabel} (戦闘不能)`;
       badgeColor = "#d63031";
+    } else if (zoomForm === "tokugi") {
+      src = imgSet.tokugiUrl || fallbackSrc;
+      badgeText = `⚡ 特技姿${stageLabel} (カットイン)`;
+      badgeColor = "#d97706";
     }
 
     if (targetImg) {
@@ -2494,6 +2505,7 @@
       btn.classList.toggle("active", f === zoomForm);
       if (f === "ojou") btn.disabled = !imgSet.ojouUrl;
       if (f === "taiha") btn.disabled = !imgSet.taihaUrl;
+      if (f === "tokugi") btn.disabled = !imgSet.tokugiUrl;
     });
 
     // Update zoom remodel buttons
@@ -2526,6 +2538,7 @@
     const imgSet = getCastleStageImages(c, currentDetailRemodelStage);
     if (zoomForm === "ojou" && !imgSet.ojouUrl) zoomForm = "battle";
     if (zoomForm === "taiha" && !imgSet.taihaUrl) zoomForm = "battle";
+    if (zoomForm === "tokugi" && !imgSet.tokugiUrl) zoomForm = "battle";
 
     updateZoomImage();
     resetZoomTransform(true);
@@ -2607,19 +2620,22 @@
 
     const imgSet = getCastleStageImages(c, currentDetailRemodelStage);
 
-    // Left Column: Fullbody Illustration & Form Switcher (城娘 / 御嬢 / 大破)
+    // Left Column: Fullbody Illustration & Form Switcher (城娘 / 御嬢 / 大破 / 特技)
     const btnBattle = document.getElementById("btnFormBattle");
     const btnOjou = document.getElementById("btnFormOjou");
     const btnTaiha = document.getElementById("btnFormTaiha");
+    const btnTokugi = document.getElementById("btnFormTokugi");
     const btnSideBySide = document.getElementById("btnFormSideBySide");
 
     if (btnOjou) btnOjou.disabled = !imgSet.ojouUrl;
     if (btnTaiha) btnTaiha.disabled = !imgSet.taihaUrl;
+    if (btnTokugi) btnTokugi.disabled = !imgSet.tokugiUrl;
     if (btnSideBySide) btnSideBySide.disabled = !imgSet.ojouUrl && !imgSet.taihaUrl;
 
     // Reset to battle form if current mode is unavailable
     if ((currentDetailForm === "ojou" && !imgSet.ojouUrl) ||
         (currentDetailForm === "taiha" && !imgSet.taihaUrl) ||
+        (currentDetailForm === "tokugi" && !imgSet.tokugiUrl) ||
         (currentDetailForm === "side_by_side" && !imgSet.ojouUrl && !imgSet.taihaUrl)) {
       currentDetailForm = "battle";
     }

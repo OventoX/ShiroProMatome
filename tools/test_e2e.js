@@ -1529,6 +1529,161 @@ async function runTests() {
 
   console.log('=> TEST 34 PASSED');
 
+  // -------------------------------------------------------------
+  {
+  // Test 35: 四代目江戸城の大破絵・特技カットイン絵の表示検証
+    // -------------------------------------------------------------
+    console.log('\n[TEST 35] Testing Yondaime Edo Castle Taiha & Tokugi cut-in display...');
+    
+    // Switch to list tab
+    await page.click('button[data-tab="tab-list"]');
+    await new Promise(r => setTimeout(r, 400));
+    
+    // Reset all filters and search for 四代目江戸城
+    await page.evaluate(() => {
+      document.getElementById('filterRarity').value = '';
+      document.getElementById('filterType').value = '';
+      document.getElementById('filterWeapon').value = '';
+      if (document.getElementById('filterBuffCategory')) document.getElementById('filterBuffCategory').value = '';
+      if (document.getElementById('filterOwnership')) document.getElementById('filterOwnership').value = '';
+      const input = document.getElementById('searchCastleInput');
+      input.value = '四代目江戸城';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    await new Promise(r => setTimeout(r, 600));
+  
+    // Click on the first card to open detail modal
+    const yondaimeCard = await page.$('.castle-list-item');
+    if (!yondaimeCard) {
+      throw new Error('TEST 35 FAILED: Could not find 四代目江戸城 card in list');
+    }
+    await yondaimeCard.click();
+    await new Promise(r => setTimeout(r, 500));
+  
+    const modalOpen = await page.evaluate(() => document.getElementById('modalCastleDetail').classList.contains('open'));
+    console.log('Detail modal open for 四代目江戸城:', modalOpen);
+    if (!modalOpen) {
+      throw new Error('TEST 35 FAILED: Detail modal did not open for 四代目江戸城');
+    }
+  
+    // Verify 改壱 is active stage
+    const activeStage = await page.$eval('#remodelBtnGroup .remodel-tab-btn.active', el => el.getAttribute('data-stage'));
+    console.log('Active remodel stage:', activeStage);
+  
+    // Check Taiha button state and click
+    const taihaDisabled = await page.$eval('#btnFormTaiha', el => el.disabled);
+    console.log('btnFormTaiha disabled:', taihaDisabled);
+    if (taihaDisabled) {
+      throw new Error('TEST 35 FAILED: btnFormTaiha should not be disabled for 四代目江戸城');
+    }
+  
+    await page.click('#btnFormTaiha');
+    await new Promise(r => setTimeout(r, 400));
+  
+    const taihaSrc = await page.$eval('#detailPortraitImg', el => el.src);
+    const taihaCaption = await page.$eval('#detailPortraitCaption', el => el.textContent);
+    console.log('Taiha image src:', taihaSrc);
+    console.log('Taiha caption:', taihaCaption);
+  
+    if (taihaSrc.includes('page=.') || (!taihaSrc.includes('attachment') && !taihaSrc.includes('plugin=ref')) || taihaSrc.includes('undefined')) {
+      throw new Error(`TEST 35 FAILED: Taiha src invalid: ${taihaSrc}`);
+    }
+    if (!taihaCaption.includes('大破')) {
+      throw new Error(`TEST 35 FAILED: Taiha caption incorrect: ${taihaCaption}`);
+    }
+  
+    // Screenshot of Yondaime Edo Taiha in detail modal
+    const artifactsDir = 'C:\\Users\\ar265\\.gemini\\antigravity\\brain\\5355bd08-df05-4fee-b014-8a5e518ef73b';
+    await page.screenshot({ path: path.join(artifactsDir, 'yondaime_edo_taiha_modal.png'), fullPage: false });
+    console.log('Saved yondaime_edo_taiha_modal.png');
+  
+    // Check Tokugi button state and click
+    const tokugiDisabled = await page.$eval('#btnFormTokugi', el => el.disabled);
+    console.log('btnFormTokugi disabled:', tokugiDisabled);
+    if (tokugiDisabled) {
+      throw new Error('TEST 35 FAILED: btnFormTokugi should not be disabled for 四代目江戸城');
+    }
+  
+    await page.click('#btnFormTokugi');
+    await new Promise(r => setTimeout(r, 400));
+  
+    const tokugiSrc = await page.$eval('#detailPortraitImg', el => el.src);
+    const tokugiCaption = await page.$eval('#detailPortraitCaption', el => el.textContent);
+    console.log('Tokugi image src:', tokugiSrc);
+    console.log('Tokugi caption:', tokugiCaption);
+  
+    if (tokugiSrc.includes('page=.') || (!tokugiSrc.includes('attachment') && !tokugiSrc.includes('plugin=ref')) || tokugiSrc.includes('undefined')) {
+      throw new Error(`TEST 35 FAILED: Tokugi src invalid: ${tokugiSrc}`);
+    }
+    if (!tokugiCaption.includes('特技')) {
+      throw new Error(`TEST 35 FAILED: Tokugi caption incorrect: ${tokugiCaption}`);
+    }
+  
+    // Screenshot of Yondaime Edo Tokugi in detail modal
+    await page.screenshot({ path: path.join(artifactsDir, 'yondaime_edo_tokugi_modal.png'), fullPage: false });
+    console.log('Saved yondaime_edo_tokugi_modal.png');
+  
+    // Open Zoom Lightbox and verify Tokugi is shown in zoom
+    await page.click('#btnPortraitZoom');
+    await new Promise(r => setTimeout(r, 500));
+  
+    const zoomModalOpen = await page.$eval('#modalImageZoom', el => el.style.display !== 'none');
+    console.log('Zoom modal open:', zoomModalOpen);
+    if (!zoomModalOpen) {
+      throw new Error('TEST 35 FAILED: Zoom modal did not open');
+    }
+  
+    const zoomTokugiActive = await page.$eval('#btnZoomFormTokugi', el => el.classList.contains('active'));
+    const zoomTargetSrc = await page.$eval('#imageZoomTarget', el => el.src);
+    console.log('Zoom Tokugi button active:', zoomTokugiActive);
+    console.log('Zoom target image src:', zoomTargetSrc);
+  
+    if (!zoomTokugiActive) {
+      throw new Error('TEST 35 FAILED: btnZoomFormTokugi should be active in zoom lightbox');
+    }
+    if (zoomTargetSrc !== tokugiSrc) {
+      throw new Error(`TEST 35 FAILED: Zoom target src (${zoomTargetSrc}) does not match tokugi src (${tokugiSrc})`);
+    }
+  
+    // Screenshot of Yondaime Edo Tokugi in zoom viewer
+    await page.screenshot({ path: path.join(artifactsDir, 'yondaime_edo_tokugi_zoom.png'), fullPage: false });
+    console.log('Saved yondaime_edo_tokugi_zoom.png');
+  
+    // In Zoom Lightbox, switch to Taiha
+    await page.click('#btnZoomFormTaiha');
+    await new Promise(r => setTimeout(r, 300));
+  
+    const zoomTaihaTargetSrc = await page.$eval('#imageZoomTarget', el => el.src);
+    console.log('Zoom target image src after switching to Taiha:', zoomTaihaTargetSrc);
+    if (zoomTaihaTargetSrc !== taihaSrc) {
+      throw new Error(`TEST 35 FAILED: Zoom Taiha src does not match: ${zoomTaihaTargetSrc}`);
+    }
+  
+    await page.screenshot({ path: path.join(artifactsDir, 'yondaime_edo_taiha_zoom.png'), fullPage: false });
+    console.log('Saved yondaime_edo_taiha_zoom.png');
+  
+    // Close Zoom Lightbox
+    await page.click('#btnZoomClose');
+    await new Promise(r => setTimeout(r, 300));
+  
+    // In detail modal, switch to [無印] and verify Tokugi and Taiha are available
+    await page.click('#remodelBtnGroup .remodel-tab-btn[data-stage="無印"]');
+    await new Promise(r => setTimeout(r, 300));
+  
+    const baseTokugiDisabled = await page.$eval('#btnFormTokugi', el => el.disabled);
+    const baseTaihaDisabled = await page.$eval('#btnFormTaiha', el => el.disabled);
+    console.log('無印 btnFormTokugi disabled:', baseTokugiDisabled, 'btnFormTaiha disabled:', baseTaihaDisabled);
+    if (baseTokugiDisabled || baseTaihaDisabled) {
+      throw new Error('TEST 35 FAILED: 無印 should also have Taiha and Tokugi available for 四代目江戸城');
+    }
+  
+    // Close detail modal
+    await page.click('#modalDetailCloseBtn');
+    await new Promise(r => setTimeout(r, 300));
+  
+    console.log('=> TEST 35 PASSED');
+}
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -1540,7 +1695,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (34/34)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (35/35)!');
   console.log('=====================================');
 }
 

@@ -1215,6 +1215,12 @@ body {
   box-shadow: 0 1px 3px rgba(232, 67, 147, 0.18);
 }
 
+.form-tab-btn[data-form="tokugi"].active {
+  background: #fffbeb;
+  color: #d97706;
+  box-shadow: 0 1px 3px rgba(217, 119, 6, 0.22);
+}
+
 .form-tab-btn:disabled {
   opacity: 0.35;
   cursor: not-allowed;
@@ -1462,6 +1468,11 @@ body {
 
 .zoom-tab-btn[data-form="ojou"].active {
   background: #e84393;
+  color: #fff;
+}
+
+.zoom-tab-btn[data-form="tokugi"].active {
+  background: #d97706;
   color: #fff;
 }
 
