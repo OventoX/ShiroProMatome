@@ -1251,8 +1251,8 @@ async function runTests() {
   // Test Modal Selector Search
   await page.click('.tab-btn[data-tab="tab-dashboard"]');
   await new Promise(r => setTimeout(r, 200));
-  // Open modal selector by removing 1 slot and clicking empty
-  await page.click('.party-card .btn-remove');
+  // Open modal selector by removing 名古屋城 (slot index 1) and clicking empty
+  await page.click('.party-card:nth-child(2) .btn-remove');
   await new Promise(r => setTimeout(r, 200));
   await page.click('.party-card.empty');
   await new Promise(r => setTimeout(r, 300));
@@ -1276,13 +1276,8 @@ async function runTests() {
     throw new Error('TEST 29 FAILED: Modal hiragana search "なごや" did not match 名古屋城');
   }
 
-  // Select a castle from modal to refill slot and close modal (pick 2nd item if 1st is duplicate)
-  const itemToClick = await page.$('#modalCastleList .castle-list-item:nth-child(2)');
-  if (itemToClick) {
-    await itemToClick.click();
-  } else {
-    await page.click('#modalCastleList .castle-list-item');
-  }
+  // Select 名古屋城 to refill slot and close modal
+  await page.click('#modalCastleList .castle-list-item');
   await new Promise(r => setTimeout(r, 300));
   console.log('=> TEST 29 PASSED');
 
@@ -1391,7 +1386,7 @@ async function runTests() {
   await new Promise(r => setTimeout(r, 200));
   const partyCountAfterRestore = await page.$eval('#partyCounter', el => el.textContent);
   console.log('Party counter after restore:', partyCountAfterRestore);
-  if (!partyCountAfterRestore.includes('3/8') && !partyCountAfterRestore.includes('4/8') && !partyCountAfterRestore.includes('8/8')) {
+  if (!partyCountAfterRestore.includes('4/8') && !partyCountAfterRestore.includes('8/8')) {
     throw new Error('TEST 30 FAILED: Party was not restored from stage saved party');
   }
   console.log('=> TEST 30 PASSED');
@@ -1437,10 +1432,7 @@ async function runTests() {
 
     const updatedRangeChips = await page.$$eval('#partyCoveragePanel .coverage-group:nth-child(2) .coverage-chip', chips => chips.map(c => c.textContent.trim()));
     console.log('Updated range chips with 遠近 unit:', updatedRangeChips);
-    const hasValidNear = updatedRangeChips.some(c => c.includes('近接 4') || c.includes('近接 3'));
-    const hasValidFar = updatedRangeChips.some(c => c.includes('遠隔 2') || c.includes('遠隔 3'));
-    const hasHybrid = updatedRangeChips.some(c => c.includes('遠近両用 1'));
-    if (!hasValidNear || !hasValidFar || !hasHybrid) {
+    if (!updatedRangeChips.some(c => c.includes('近接 4')) || !updatedRangeChips.some(c => c.includes('遠隔 2')) || !updatedRangeChips.some(c => c.includes('遠近両用 1'))) {
       throw new Error('TEST 31 FAILED: 遠近 unit must add to both 近接 and 遠隔, and show 遠近両用 chip');
     }
 
@@ -3778,23 +3770,49 @@ async function runTests() {
     const clampedUpper = window.normalizeParty ? (window.normalizeParty([]) !== null) : false;
     results.bug02_safePresets = isFivePresets && clampedUpper;
 
-    // 3. BUG-03: Notification textContent prevents XSS
-    let xssExecuted = false;
+    // 3. BUG-03: Notification textContent prevents XSS (actual showNotification call)
     window.__test_xss_ran = false;
-    // Toast with XSS payload
     const testToastMsg = '<img src=invalid_url onerror="window.__test_xss_ran=true">';
-    // Call showNotification
-    const origToasts = document.querySelectorAll('.toast-notification');
-    origToasts.forEach(t => t.remove());
-    // Create toast
-    const toast = document.createElement('div');
-    toast.className = 'toast-notification';
-    const span = document.createElement('span');
-    span.textContent = testToastMsg;
-    toast.appendChild(span);
-    document.body.appendChild(toast);
-    results.bug03_xssPrevented = !window.__test_xss_ran && toast.innerHTML.includes('&lt;img');
-    toast.remove();
+    window.showNotification(testToastMsg);
+    const toast = document.querySelector('.toast-notification');
+    results.bug03_xssPrevented = (
+      !window.__test_xss_ran &&
+      toast !== null &&
+      toast.innerHTML.includes('&lt;img') &&
+      toast.querySelector('img') === null &&
+      toast.textContent.includes(testToastMsg)
+    );
+    if (toast) toast.remove();
+
+    // Prompt 26 指摘1: Slot movement reordering without losing members ([A,B,C,D] move A to slot2 -> [B,C,A,D])
+    window.setParty([{ id: '彦根城' }, { id: '名古屋城' }, { id: '大坂城' }, { id: '江戸城' }]);
+    window.selectCastleForSlot({ id: '彦根城' }, 2);
+    const pIds = window.getParty().map(p => p.id);
+    results.prompt26_slotMoveSwap = (
+      pIds.length === 4 &&
+      pIds[0] === '名古屋城' &&
+      pIds[1] === '大坂城' &&
+      pIds[2] === '彦根城' &&
+      pIds[3] === '江戸城'
+    );
+
+    // Prompt 26 指摘2: Legacy stage title clear progress migration (春の回廊 2間 -> 春の回廊 第2間)
+    localStorage.setItem('scre-helper:stage-progress:v1', JSON.stringify({
+      '春の回廊 2間': { cleared: true, party: ['彦根城'], savedAt: '2026-01-01T00:00:00.000Z' }
+    }));
+    const progressData = window.getStageProgressData();
+    results.prompt26_stageTitleMigrated = (
+      progressData['春の回廊 第2間']?.cleared === true &&
+      progressData['春の回廊 2間'] === undefined
+    );
+
+    // Prompt 26 指摘3: 1-char illustrator names allowed ('芝', '裕')
+    results.prompt26_oneCharIllustrator = (
+      window.cleanIllustratorName('芝') === '芝' &&
+      window.cleanIllustratorName('裕') === '裕' &&
+      window.cleanIllustratorName('&attachref(./test.jpg') === '' &&
+      window.cleanVoiceActorName('伊藤美来）') === '伊藤美来'
+    );
 
     // 4. BUG-04: Terrain whitelist
     results.bug04_terrainWhitelist = (window.normalizeTerrain('<img src=x onerror=alert(1)>') === '') &&
@@ -3897,6 +3915,15 @@ async function runTests() {
   }
   if (!test64Results.bug18_backupValidation) {
     throw new Error('TEST 64 FAILED: BUG-18 backup whitelist validation failed');
+  }
+  if (!test64Results.prompt26_slotMoveSwap) {
+    throw new Error('TEST 64 FAILED: Prompt 26 指摘1: slot move caused loss of party member');
+  }
+  if (!test64Results.prompt26_stageTitleMigrated) {
+    throw new Error('TEST 64 FAILED: Prompt 26 指摘2: legacy stage title was not migrated');
+  }
+  if (!test64Results.prompt26_oneCharIllustrator) {
+    throw new Error('TEST 64 FAILED: Prompt 26 指摘3: 1-char illustrators (芝, 裕) should be allowed');
   }
   console.log('=> TEST 64 PASSED');
 

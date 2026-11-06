@@ -342,14 +342,41 @@
 
   
   // ==========================================
-  // Stage Progress & Saved Parties (プロンプト2)
+  // Stage Progress & Saved Parties (プロンプト2 & プロンプト26 指摘2: 改名エイリアス移行)
   // ==========================================
   const STAGE_PROGRESS_STORAGE_KEY = "scre-helper:stage-progress:v1";
+
+  const STAGE_TITLE_ALIASES = {
+    "春の回廊 2間": "春の回廊 第2間"
+  };
+
+  function canonicalStageTitle(title) {
+    if (!title || typeof title !== "string") return "";
+    return STAGE_TITLE_ALIASES[title] || title;
+  }
 
   function getStageProgressData() {
     try {
       const raw = localStorage.getItem(STAGE_PROGRESS_STORAGE_KEY);
-      return raw ? JSON.parse(raw) : {};
+      if (!raw) return {};
+      const data = JSON.parse(raw);
+      if (!data || typeof data !== "object") return {};
+
+      // Migrate legacy stage titles to canonical titles
+      let migrated = false;
+      for (const [oldTitle, newTitle] of Object.entries(STAGE_TITLE_ALIASES)) {
+        if (data[oldTitle]) {
+          if (!data[newTitle]) {
+            data[newTitle] = data[oldTitle];
+          }
+          delete data[oldTitle];
+          migrated = true;
+        }
+      }
+      if (migrated) {
+        saveStageProgressData(data);
+      }
+      return data;
     } catch (e) {
       console.warn("Stage progress load error:", e);
       return {};
@@ -365,10 +392,11 @@
   }
 
   function toggleStageCleared(stageTitle, forceStatus = null) {
+    const canonical = canonicalStageTitle(stageTitle);
     const data = getStageProgressData();
-    const existing = data[stageTitle] || {};
+    const existing = data[canonical] || {};
     const newStatus = (forceStatus !== null) ? forceStatus : !existing.cleared;
-    data[stageTitle] = {
+    data[canonical] = {
       cleared: newStatus,
       party: existing.party || (newStatus ? party.map(s => s.id).filter(Boolean) : []),
       savedAt: new Date().toISOString()
@@ -378,21 +406,23 @@
   }
 
   function savePartyForStage(stageTitle) {
+    const canonical = canonicalStageTitle(stageTitle);
     const data = getStageProgressData();
     const partyIds = party.map(s => s.id).filter(Boolean);
-    data[stageTitle] = {
+    data[canonical] = {
       cleared: true,
       party: partyIds,
       savedAt: new Date().toISOString()
     };
     saveStageProgressData(data);
-    showToast(`✅ 【${stageTitle}】のクリア編成（${partyIds.length}体）を保存しました`);
+    showToast(`✅ 【${canonical}】のクリア編成（${partyIds.length}体）を保存しました`);
     renderGuidesTab();
   }
 
   function restorePartyFromStage(stageTitle) {
+    const canonical = canonicalStageTitle(stageTitle);
     const data = getStageProgressData();
-    const record = data[stageTitle];
+    const record = data[canonical];
     if (!record || !record.party || record.party.length === 0) {
       showToast("⚠️ 保存されたクリア編成がありません");
       return;
@@ -2377,6 +2407,32 @@
     });
   }
 
+  // Slot selection & castle placement logic (Prompt 26 指摘1: 要素消失バグ解消・安全なスロット移動)
+  function selectCastleForSlot(c, targetSlotIndex = null) {
+    pushUndoSnapshot();
+    const existingIdx = party.findIndex(p => p && p.id === c.id);
+    const newMember = { id: c.id, strategyOn: true, specialOn: !!c.special };
+
+    if (existingIdx !== -1) {
+      // Already in party: move/reorder to target slot without losing any other member
+      const [itemMember] = party.splice(existingIdx, 1);
+      const memberToPlace = itemMember || newMember;
+      const targetIdx = (targetSlotIndex !== null) ? Math.min(targetSlotIndex, party.length) : party.length;
+      party.splice(targetIdx, 0, memberToPlace);
+    } else {
+      // New castle
+      if (targetSlotIndex !== null && targetSlotIndex < party.length) {
+        party[targetSlotIndex] = newMember;
+      } else if (party.length < 8) {
+        party.push(newMember);
+      }
+    }
+    party = normalizeParty(party);
+    saveParty();
+    renderDashboard();
+    return party;
+  }
+
   // Modal selector for slot
   function openCastleSelector(slotIndex) {
     selectingSlotIndex = slotIndex;
@@ -2417,21 +2473,7 @@
           <span style="margin-left:auto;font-size:11px;color:var(--text-sub);">[${c.subType || c.castleType}] ★${c.rarity}・${c.weapon}</span>
         `;
         item.addEventListener("click", () => {
-          pushUndoSnapshot();
-          // If castle is already in party at a different slot, remove from previous slot to prevent duplicates (BUG-06)
-          const existingIdx = party.findIndex((p, idx) => p && p.id === c.id && idx !== selectingSlotIndex);
-          if (existingIdx !== -1) {
-            party.splice(existingIdx, 1);
-          }
-          const newMember = { id: c.id, strategyOn: true, specialOn: !!c.special };
-          if (selectingSlotIndex !== null && selectingSlotIndex < party.length) {
-            party[selectingSlotIndex] = newMember;
-          } else if (party.length < 8) {
-            party.push(newMember);
-          }
-          party = normalizeParty(party);
-          saveParty();
-          renderDashboard();
+          selectCastleForSlot(c, selectingSlotIndex);
           modal.classList.remove("open");
         });
         listEl.appendChild(item);
@@ -8466,6 +8508,8 @@ function setListViewMode(mode) {
   renderAllCastles();
 }
 
+const ALLOWED_ONE_CHAR_ILLUSTRATORS = new Set(["芝", "裕"]);
+
 function cleanIllustratorName(s) {
   if (!s || typeof s !== "string") return "";
   if (/&attachref|&uploader|&ref|\.jpg|\.png|scre_|https?:\/\/|\/\//i.test(s)) return "";
@@ -8474,6 +8518,8 @@ function cleanIllustratorName(s) {
                .replace(/[（）()]/g, "")
                .trim();
   if (clean.length > 30) clean = clean.slice(0, 30);
+  if (ALLOWED_ONE_CHAR_ILLUSTRATORS.has(clean)) return clean;
+  if (/^[\p{P}\p{S}\s]+$/u.test(clean)) return "";
   return clean.length >= 2 ? clean : "";
 }
 
@@ -8484,7 +8530,8 @@ function cleanVoiceActorName(s) {
                .replace(/[（）()]/g, "")
                .trim();
   if (clean.length > 30) clean = clean.slice(0, 30);
-  return clean.length >= 2 ? clean : "";
+  if (/^[\p{P}\p{S}\s]+$/u.test(clean)) return "";
+  return clean.length >= 1 ? clean : "";
 }
 
 function cleanCountryName(s) {
@@ -9620,6 +9667,8 @@ function showQuizResult() {
   window.normalizeTerrain = normalizeTerrain;
   window.cleanIllustratorName = cleanIllustratorName;
   window.cleanVoiceActorName = cleanVoiceActorName;
+  window.selectCastleForSlot = selectCastleForSlot;
+  window.showNotification = showNotification;
   window.getParty = () => party;
   window.setParty = (p) => {
     party = p;
