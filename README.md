@@ -70,10 +70,14 @@ scre-helper/
 ├── tools/                      # データ生成・スクレイピング・自動化テスト
 │   ├── build_data.py           # Wikiキャッシュから app/data.js を生成
 │   ├── build_guides.py         # Wikiキャッシュから app/guides.js を生成
+│   ├── fetch_real_castles.py   # Wikipedia API から実在の城写真・メタデータを取得
+│   ├── real_castle_overrides.json # 実在城名・Wikipedia記事名のマッピング設定
+│   ├── cache/
+│   │   └── real_castles_cache.json # 実在の城写真キャッシュ（Git管理・約200KB）
 │   ├── common.py               # Wiki取得・エンコーディング・キャッシュ共通基盤
 │   ├── effect_parser.py        # 特技・計略テキストのバフ/デバフ構造化パーサー
 │   ├── update_diff.py          # RecentChanges 差分更新スクリプト
-│   ├── test_e2e.js             # Puppeteer によるブラウザ自動検証テスト (全17項目)
+│   ├── test_e2e.js             # Puppeteer によるブラウザ自動検証テスト (全58項目)
 │   ├── package.json            # Node.js テスト用依存設定
 │   └── package-lock.json
 ├── notebooklm/                 # ドメイン知識・データ解析用リファレンスドキュメント
@@ -108,6 +112,17 @@ node test_e2e.js
 
 ```powershell
 .\update_weekly.bat
+```
+
+### 4. 実在の城の写真キャッシュ（tools/cache/real_castles_cache.json）と更新方針
+- **役割**: 城娘のモチーフとなった実在の城・史跡・名勝の写真（Wikimedia Commons / Wikipedia API）のメタデータ（サムネイルURL、記事URL、ライセンス、著作者表記）を保持するキャッシュファイルです。
+- **サイズとGit管理**: ファイルサイズは約200〜250KBと軽量なため、Gitのコミット対象として管理されています。これにより、リポジトリを新規クローンした直後でも外部API通信を行わずに即座に `build_data.py` で写真付きの `app/data.js` を再現できます。
+- **再現性保証**: 万が一キャッシュファイルが存在しないクリーンな状態で `python tools/build_data.py` が実行された場合でも、自動的に Wikipedia API から写真メタデータを再取得するため、写真データが0件になることはありません。
+- **更新手順**: 新規の城娘追加や、別名・海外城（英語版記事へのマッピング等）を補完したい場合は、`tools/real_castle_overrides.json` に設定を追加した上で以下を実行します。
+
+```powershell
+python tools/fetch_real_castles.py
+python tools/build_data.py
 ```
 
 ---

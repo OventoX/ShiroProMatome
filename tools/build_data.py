@@ -523,7 +523,19 @@ def main():
     # Attach real castle photos and Wikipedia info
     real_cache_file = ROOT / "tools" / "cache" / "real_castles_cache.json"
     real_cache = {}
-    if real_cache_file.exists():
+    if not real_cache_file.exists():
+        print("real_castles_cache.json not found. Auto-fetching from Wikipedia API...")
+        try:
+            import sys
+            tools_dir = str(ROOT / "tools")
+            if tools_dir not in sys.path:
+                sys.path.insert(0, tools_dir)
+            from fetch_real_castles import run_fetch_real_castles
+            base_names = list({re.sub(r'^[［\[].*?[］\]]', '', c["name"]).strip() for c in results})
+            real_cache = run_fetch_real_castles(base_names)
+        except Exception as e:
+            print("Failed to auto-fetch real castles:", e)
+    else:
         try:
             with open(real_cache_file, "r", encoding="utf-8") as f:
                 real_cache = json.load(f)

@@ -65,8 +65,10 @@ def make_request(url, max_retries=3):
             time.sleep(2)
     return None
 
-def fetch_wikipedia_batch(titles):
+def fetch_wikipedia_batch(titles, lang="ja"):
     """Fetch pageimages for a batch of titles (up to 40). Returns (success, dict title -> page_data)."""
+    if not titles:
+        return True, {}
     params = {
         "action": "query",
         "titles": "|".join(titles),
@@ -75,7 +77,7 @@ def fetch_wikipedia_batch(titles):
         "redirects": 1,
         "format": "json"
     }
-    url = "https://ja.wikipedia.org/w/api.php?" + urllib.parse.urlencode(params)
+    url = f"https://{lang}.wikipedia.org/w/api.php?" + urllib.parse.urlencode(params)
     data = make_request(url)
     if not data:
         return False, {}
@@ -107,7 +109,7 @@ def fetch_wikipedia_batch(titles):
             }
     return True, results
 
-def fetch_image_metadata_batch(file_names):
+def fetch_image_metadata_batch(file_names, lang="ja"):
     """Fetch image metadata for a batch of file names."""
     if not file_names:
         return {}
@@ -119,7 +121,7 @@ def fetch_image_metadata_batch(file_names):
         "iiprop": "extmetadata",
         "format": "json"
     }
-    url = "https://ja.wikipedia.org/w/api.php?" + urllib.parse.urlencode(params)
+    url = f"https://{lang}.wikipedia.org/w/api.php?" + urllib.parse.urlencode(params)
     data = make_request(url)
     if not data:
         return {}
@@ -158,8 +160,20 @@ def run_fetch_real_castles(unique_base_names=None):
             with open(base_names_file, "r", encoding="utf-8") as f:
                 unique_base_names = list(json.load(f).keys())
         else:
-            print("unique_base_names.json not found")
-            return cache
+            castles_idx_file = TOOLS_DIR / "cache" / "castles_index.json"
+            data_js_file = TOOLS_DIR.parent / "app" / "data.js"
+            if castles_idx_file.exists():
+                with open(castles_idx_file, "r", encoding="utf-8") as f:
+                    castles_idx = json.load(f)
+                unique_base_names = list({re.sub(r'^[［\[].*?[］\]]', '', c["page"]).strip() for c in castles_idx})
+            elif data_js_file.exists():
+                with open(data_js_file, "r", encoding="utf-8") as f:
+                    content = f.read()
+                m = re.findall(r'"name":\s*"([^"]+)"', content)
+                unique_base_names = list({re.sub(r'^[［\[].*?[］\]]', '', n).strip() for n in m})
+            else:
+                print("castles_index.json or app/data.js not found")
+                return cache
 
     candidates = [b for b in unique_base_names if b not in denylist]
     to_query = [b for b in candidates if b not in cache or (cache.get(b) is None and b in overrides)]
@@ -171,52 +185,71 @@ def run_fetch_real_castles(unique_base_names=None):
 
     for i in range(0, len(to_query), batch_size):
         batch = to_query[i:i+batch_size]
-        query_map = {} # query_title -> orig_base_name
+
+        # Group into ja and en queries
+        ja_query_map = {}  # query_title -> orig_base_name
+        en_query_map = {}  # query_title -> orig_base_name
+
         for b in batch:
-            q_title = overrides.get(b, b)
-            query_map[q_title] = b
+            q_spec = overrides.get(b, b)
+            if q_spec.startswith("en:"):
+                en_query_map[q_spec[3:]] = b
+            else:
+                ja_query_map[q_spec] = b
 
         b_num = i // batch_size + 1
-        print(f"Querying batch {b_num}/{total_batches} ({len(batch)} titles)...")
-        success, page_results = fetch_wikipedia_batch(list(query_map.keys()))
+        print(f"Querying batch {b_num}/{total_batches} ({len(batch)} titles: {len(ja_query_map)} ja, {len(en_query_map)} en)...")
 
-        if not success:
-            print(f"Skipping saving for batch {b_num} due to API failure")
-            time.sleep(3)
-            continue
+        # Process JA batch
+        if ja_query_map:
+            success, page_results = fetch_wikipedia_batch(list(ja_query_map.keys()), lang="ja")
+            if success:
+                pageimages = [r["pageimage"] for r in page_results.values() if r.get("pageimage")]
+                meta_results = fetch_image_metadata_batch(pageimages, lang="ja") if pageimages else {}
+                for q_title, orig_base in ja_query_map.items():
+                    if q_title in page_results:
+                        pres = page_results[q_title]
+                        if pres["photoUrl"]:
+                            pimg = pres.get("pageimage")
+                            meta = meta_results.get(pimg, {})
+                            resolved_title = pres["resolvedTitle"]
+                            cache[orig_base] = {
+                                "name": resolved_title,
+                                "photoUrl": pres["photoUrl"],
+                                "articleUrl": f"https://ja.wikipedia.org/wiki/{urllib.parse.quote(resolved_title)}",
+                                "license": meta.get("license", "CC BY-SA"),
+                                "author": meta.get("author", "Wikimedia Commons")
+                            }
+                        else:
+                            cache[orig_base] = None
+                    else:
+                        cache[orig_base] = None
 
-        # Collect pageimages for metadata
-        pageimages_to_fetch = []
-        for q_title, res in page_results.items():
-            if res.get("pageimage"):
-                pageimages_to_fetch.append(res["pageimage"])
-
-        meta_results = {}
-        if pageimages_to_fetch:
-            time.sleep(0.8)
-            meta_results = fetch_image_metadata_batch(pageimages_to_fetch)
-
-        # Assemble into cache
-        for q_title, orig_base in query_map.items():
-            if q_title in page_results:
-                pres = page_results[q_title]
-                if pres["photoUrl"]:
-                    pimg = pres.get("pageimage")
-                    meta = meta_results.get(pimg, {})
-                    resolved_title = pres["resolvedTitle"]
-                    cache[orig_base] = {
-                        "name": resolved_title,
-                        "photoUrl": pres["photoUrl"],
-                        "articleUrl": f"https://ja.wikipedia.org/wiki/{urllib.parse.quote(resolved_title)}",
-                        "license": meta.get("license", "CC BY-SA"),
-                        "author": meta.get("author", "Wikimedia Commons")
-                    }
-                else:
-                    # Page exists but no photo
-                    cache[orig_base] = None
-            else:
-                # Page does not exist on Wikipedia
-                cache[orig_base] = None
+        # Process EN batch
+        if en_query_map:
+            time.sleep(0.5)
+            success, page_results = fetch_wikipedia_batch(list(en_query_map.keys()), lang="en")
+            if success:
+                pageimages = [r["pageimage"] for r in page_results.values() if r.get("pageimage")]
+                meta_results = fetch_image_metadata_batch(pageimages, lang="en") if pageimages else {}
+                for q_title, orig_base in en_query_map.items():
+                    if q_title in page_results:
+                        pres = page_results[q_title]
+                        if pres["photoUrl"]:
+                            pimg = pres.get("pageimage")
+                            meta = meta_results.get(pimg, {})
+                            resolved_title = pres["resolvedTitle"]
+                            cache[orig_base] = {
+                                "name": resolved_title,
+                                "photoUrl": pres["photoUrl"],
+                                "articleUrl": f"https://en.wikipedia.org/wiki/{urllib.parse.quote(resolved_title)}",
+                                "license": meta.get("license", "CC BY-SA"),
+                                "author": meta.get("author", "Wikimedia Commons")
+                            }
+                        else:
+                            cache[orig_base] = None
+                    else:
+                        cache[orig_base] = None
 
         save_cache(cache)
         time.sleep(1.0)

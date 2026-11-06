@@ -3,7 +3,8 @@ node_modules/
 tools/node_modules/
 
 # Cache and raw downloads (large wiki dumps)
-tools/cache/
+tools/cache/*
+!tools/cache/real_castles_cache.json
 __pycache__/
 tools/__pycache__/
 *.pyc
