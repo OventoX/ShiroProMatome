@@ -513,10 +513,20 @@
         <!-- Controls Bar -->
         <div class="tier-auto-controls-bar">
           <div class="tier-auto-left-controls">
-            <!-- Scope Switcher: 全体 vs 武器種別 -->
+            <!-- Scope Switcher: 役割別 vs 全体 vs 武器種別 -->
             <div class="tier-scope-toggle">
-              <button type="button" class="tier-scope-btn active" id="btnTierScopeOverall" data-scope="overall">🌐 全体ティア (1161体)</button>
+              <button type="button" class="tier-scope-btn active" id="btnTierScopeRole" data-scope="role">🎭 役割別ティア</button>
+              <button type="button" class="tier-scope-btn" id="btnTierScopeOverall" data-scope="overall">🌐 全体ティア (1161体)</button>
               <button type="button" class="tier-scope-btn" id="btnTierScopeWeapon" data-scope="weapon">⚔️ 武器種別ティア</button>
+            </div>
+
+            <!-- Role Tabs (Shown in Role Scope) -->
+            <div class="tier-role-tabs" id="tierRoleTabs">
+              <button type="button" class="tier-role-tab active" data-role="attacker" id="tabRoleAttacker">⚔️ アタッカー <span class="role-count" id="countRoleAttacker">(0)</span></button>
+              <button type="button" class="tier-role-tab" data-role="buffer" id="tabRoleBuffer">✨ バッファー <span class="role-count" id="countRoleBuffer">(0)</span></button>
+              <button type="button" class="tier-role-tab" data-role="debuffer" id="tabRoleDebuffer">💀 デバッファー <span class="role-count" id="countRoleDebuffer">(0)</span></button>
+              <button type="button" class="tier-role-tab" data-role="ki" id="tabRoleKi">⚡ 気役 <span class="role-count" id="countRoleKi">(0)</span></button>
+              <button type="button" class="tier-role-tab" data-role="tank" id="tabRoleTank">🛡️ タンク・妨害 <span class="role-count" id="countRoleTank">(0)</span></button>
             </div>
 
             <!-- Filters -->
@@ -590,7 +600,7 @@
         <!-- Weight Adjustment Drawer (Collapsible) -->
         <div id="tierWeightDrawer" class="tier-weight-drawer" style="display:none;">
           <div class="tier-weight-header">
-            <span style="font-weight:bold; font-size:12px;">⚖️ 自動スコアリング評価重み調整（合計配点・比率カスタマイズ）</span>
+            <span style="font-weight:bold; font-size:12px;">⚖️ 自動スコアリング評価重み調整 <span id="tierWeightActiveRoleLabel" style="color:var(--primary-color, #c0392b); font-weight:800; margin-left:6px;">(アタッカー)</span></span>
             <div style="display:flex; align-items:center; gap:8px;">
               <span id="tierTotalWeightBadge" class="tier-weight-total-badge">合計: 100点</span>
               <button type="button" class="btn btn-sm" id="btnResetTierWeights">↺ 初期値に戻す</button>

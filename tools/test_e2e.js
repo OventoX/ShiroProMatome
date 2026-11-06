@@ -1861,6 +1861,8 @@ async function runTests() {
     await new Promise(r => setTimeout(r, 300));
     await page.click('#btnTierModeAuto');
     await new Promise(r => setTimeout(r, 400));
+    await page.click('#btnTierScopeOverall');
+    await new Promise(r => setTimeout(r, 400));
 
     const autoVisible = await page.$eval('#tierViewAuto', el => el.style.display !== 'none');
     console.log('Auto Tier View visible:', autoVisible);
@@ -1946,7 +1948,7 @@ async function runTests() {
     await new Promise(r => setTimeout(r, 300));
     const nagoyaChips = await page.$$eval('#tierAutoBoard .tier-auto-chip-name', names => names.map(n => n.textContent));
     console.log('Search "なごや" results:', nagoyaChips);
-    if (!nagoyaChips.includes('名古屋城')) {
+    if (!nagoyaChips.some(n => n.includes('名古屋城'))) {
       throw new Error('TEST 37 FAILED: Search for "なごや" did not hit 名古屋城');
     }
 
@@ -3091,6 +3093,183 @@ async function runTests() {
     console.log('=> TEST 56 PASSED');
   }
 
+  // Test 57: 役割別自動ティア (Prompt 10: Role-Based Auto-Tier System)
+  {
+    console.log('\n[TEST 57] Testing 役割別自動ティア (Prompt 10: Role-Based Auto-Tier System)...');
+    await page.click('button[data-tab="tab-tier"]');
+    await new Promise(r => setTimeout(r, 300));
+    await page.click('#btnTierModeAuto');
+    await new Promise(r => setTimeout(r, 400));
+
+    // 1. Verify default or selectable scope is "role"
+    await page.click('#btnTierScopeRole');
+    await new Promise(r => setTimeout(r, 400));
+
+    const roleBtnActive = await page.$eval('#btnTierScopeRole', el => el.classList.contains('active'));
+    console.log('Role scope button active:', roleBtnActive);
+    if (!roleBtnActive) {
+      throw new Error('TEST 57 FAILED: #btnTierScopeRole should be active');
+    }
+
+    const roleTabsVisible = await page.$eval('#tierRoleTabs', el => el.style.display !== 'none');
+    console.log('Role tabs container visible:', roleTabsVisible);
+    if (!roleTabsVisible) {
+      throw new Error('TEST 57 FAILED: #tierRoleTabs should be visible in role scope');
+    }
+
+    // 2. Verify all 5 roles have counts and sum to 1161
+    const roleCounts = await page.evaluate(() => {
+      const parseCount = id => {
+        const txt = document.getElementById(id)?.textContent || '';
+        const m = txt.match(/\((\d+)\)/);
+        return m ? parseInt(m[1], 10) : 0;
+      };
+      return {
+        attacker: parseCount('countRoleAttacker'),
+        buffer: parseCount('countRoleBuffer'),
+        debuffer: parseCount('countRoleDebuffer'),
+        ki: parseCount('countRoleKi'),
+        tank: parseCount('countRoleTank')
+      };
+    });
+    console.log('Role counts:', roleCounts);
+    const totalRolesCount = Object.values(roleCounts).reduce((a, b) => a + b, 0);
+    console.log('Total castles across roles:', totalRolesCount);
+    if (totalRolesCount !== 1161) {
+      throw new Error(`TEST 57 FAILED: Expected total castles to be 1161, got ${totalRolesCount}`);
+    }
+    if (roleCounts.attacker < 100 || roleCounts.buffer < 100 || roleCounts.debuffer < 20 || roleCounts.ki < 20 || roleCounts.tank < 50) {
+      throw new Error('TEST 57 FAILED: One or more role counts are abnormally low');
+    }
+
+    // 3. Helper to find a castle's role, tier, chip details across role boards
+    const getCastleRoleData = async (targetName, roleKey) => {
+      await page.click(`#tabRole${roleKey.charAt(0).toUpperCase() + roleKey.slice(1)}`);
+      await new Promise(r => setTimeout(r, 400));
+      return await page.evaluate((name) => {
+        const rows = Array.from(document.querySelectorAll('#tierAutoBoard .tier-row'));
+        for (const row of rows) {
+          const tier = row.getAttribute('data-tier');
+          const chips = Array.from(row.querySelectorAll('.tier-auto-chip'));
+          for (const chip of chips) {
+            const chipName = chip.querySelector('.tier-auto-chip-name')?.textContent?.trim();
+            if (chipName && chipName.includes(name)) {
+              const roleBadge = chip.querySelector('.tier-role-badge')?.textContent?.trim() || '';
+              const subroleTag = chip.querySelector('.tier-subrole-tag')?.textContent?.trim() || '';
+              return { found: true, tier, roleBadge, subroleTag };
+            }
+          }
+        }
+        return { found: false };
+      }, targetName);
+    };
+
+    // 4. Verify the 7 target castles reach required roles and tiers
+    // A) ［正月］小早川城: バッファーまたは気役で SS
+    console.log('Checking ［正月］小早川城...');
+    const kobayakawaBuffer = await getCastleRoleData('［正月］小早川城', 'buffer');
+    const kobayakawaKi = !kobayakawaBuffer.found ? await getCastleRoleData('［正月］小早川城', 'ki') : null;
+    console.log('［正月］小早川城 buffer result:', kobayakawaBuffer, 'ki result:', kobayakawaKi);
+    const kobayakawaTier = kobayakawaBuffer.found ? kobayakawaBuffer.tier : (kobayakawaKi?.tier || 'NONE');
+    if (kobayakawaTier !== 'SS') {
+      throw new Error(`TEST 57 FAILED: ［正月］小早川城 expected SS in buffer/ki, got ${kobayakawaTier}`);
+    }
+
+    // B) ［夏］ポエナリ城: バッファーで SS〜S
+    console.log('Checking ［夏］ポエナリ城...');
+    const poenari = await getCastleRoleData('［夏］ポエナリ城', 'buffer');
+    console.log('［夏］ポエナリ城 result:', poenari);
+    if (!poenari.found || !['SS', 'S'].includes(poenari.tier)) {
+      throw new Error(`TEST 57 FAILED: ［夏］ポエナリ城 expected SS or S in buffer, got ${JSON.stringify(poenari)}`);
+    }
+
+    // C) 崑崙: バッファーで SS (アタッカー兼任可)
+    console.log('Checking 崑崙...');
+    const kunlun = await getCastleRoleData('崑崙', 'buffer');
+    console.log('崑崙 result:', kunlun);
+    if (!kunlun.found || kunlun.tier !== 'SS') {
+      throw new Error(`TEST 57 FAILED: 崑崙 expected SS in buffer, got ${JSON.stringify(kunlun)}`);
+    }
+
+    // D) ［漆磊］広島城: アタッカーで S 以上 (S or SS)
+    console.log('Checking ［漆磊］広島城...');
+    const hiroshima = await getCastleRoleData('［漆磊］広島城', 'attacker');
+    console.log('［漆磊］広島城 result:', hiroshima);
+    if (!hiroshima.found || !['SS', 'S'].includes(hiroshima.tier)) {
+      throw new Error(`TEST 57 FAILED: ［漆磊］広島城 expected S or SS in attacker, got ${JSON.stringify(hiroshima)}`);
+    }
+
+    // E) ［無疆］江戸城: アタッカーで SS を維持
+    console.log('Checking ［無疆］江戸城...');
+    const edoMukyou = await getCastleRoleData('［無疆］江戸城', 'attacker');
+    console.log('［無疆］江戸城 result:', edoMukyou);
+    if (!edoMukyou.found || edoMukyou.tier !== 'SS') {
+      throw new Error(`TEST 57 FAILED: ［無疆］江戸城 expected SS in attacker, got ${JSON.stringify(edoMukyou)}`);
+    }
+
+    // F) 四代目江戸城: 気役またはバッファーで S 以上
+    console.log('Checking 四代目江戸城...');
+    const yondaimeBuffer = await getCastleRoleData('四代目江戸城', 'buffer');
+    const yondaimeKi = !yondaimeBuffer.found ? await getCastleRoleData('四代目江戸城', 'ki') : null;
+    console.log('四代目江戸城 buffer result:', yondaimeBuffer, 'ki result:', yondaimeKi);
+    const yondaimeTier = yondaimeBuffer.found ? yondaimeBuffer.tier : (yondaimeKi?.tier || 'NONE');
+    if (!['SS', 'S'].includes(yondaimeTier)) {
+      throw new Error(`TEST 57 FAILED: 四代目江戸城 expected S or SS in buffer/ki, got ${yondaimeTier}`);
+    }
+
+    // G) プレッドヤマ城: トークン/鎌気生成を拾い、気役で S 以上
+    console.log('Checking プレッドヤマ城...');
+    const predjama = await getCastleRoleData('プレッドヤマ城', 'ki');
+    console.log('プレッドヤマ城 result:', predjama);
+    if (!predjama.found || !['SS', 'S'].includes(predjama.tier)) {
+      throw new Error(`TEST 57 FAILED: プレッドヤマ城 expected S or SS in ki, got ${JSON.stringify(predjama)}`);
+    }
+
+    // 5. Test Tooltip Breakdown with role rank, affinities, and tokenScore
+    console.log('Testing role-based tooltip on プレッドヤマ城...');
+    const predjamaChip = await page.evaluateHandle(() => {
+      const chips = Array.from(document.querySelectorAll('#tierAutoBoard .tier-auto-chip'));
+      return chips.find(c => c.querySelector('.tier-auto-chip-name')?.textContent?.includes('プレッドヤマ城'));
+    });
+    if (predjamaChip && predjamaChip.asElement()) {
+      await predjamaChip.asElement().hover();
+      await new Promise(r => setTimeout(r, 300));
+      const tooltipText = await page.$eval('#tierAutoTooltip', el => el.textContent);
+      console.log('Tooltip snippet on プレッドヤマ城:', tooltipText.slice(0, 150));
+      if (!tooltipText.includes('気役') || !tooltipText.includes('適性値内訳') || !tooltipText.includes('伏兵(トークン)適性')) {
+        throw new Error(`TEST 57 FAILED: Tooltip missing role details or tokenScore: ${tooltipText}`);
+      }
+    }
+
+    // 6. Test Role-specific weights in drawer
+    console.log('Testing role-specific weight drawer label...');
+    const drawerOpen = await page.$eval('#tierWeightDrawer', el => el.style.display !== 'none');
+    if (!drawerOpen) {
+      await page.click('#btnToggleTierWeights');
+      await new Promise(r => setTimeout(r, 300));
+    }
+    const roleLabelText = await page.$eval('#tierWeightActiveRoleLabel', el => el.textContent);
+    console.log('Active role label in weight drawer:', roleLabelText);
+    if (!roleLabelText.includes('気役')) {
+      throw new Error(`TEST 57 FAILED: Expected #tierWeightActiveRoleLabel to contain '気役', got '${roleLabelText}'`);
+    }
+
+    // 7. Save screenshot
+    const autoBoardBox = await page.$('#tierAutoBoard');
+    if (autoBoardBox) {
+      await autoBoardBox.screenshot({ path: path.resolve(__dirname, 'screenshots', 'auto_tier_roles_screenshot.png') });
+      console.log('Saved auto_tier_roles_screenshot.png');
+    }
+
+    // Close weight drawer and return to dashboard
+    await page.click('#btnToggleTierWeights');
+    await new Promise(r => setTimeout(r, 200));
+    await page.click('button[data-tab="tab-dashboard"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    console.log('=> TEST 57 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -3102,7 +3281,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (56/56)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (57/57)!');
   console.log('=====================================');
 }
 

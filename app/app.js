@@ -5315,9 +5315,28 @@
   const TIER_STORAGE_WEIGHTS_KEY = "scre-helper:tier-weights:v1";
   const TIER_STORAGE_OVERRIDES_KEY = "scre-helper:tier-overrides:v1";
 
-  let tierWeights = { ...DEFAULT_TIER_WEIGHTS };
+  const DEFAULT_ROLE_TIER_WEIGHTS = {
+    overall:  { base: 25, self: 15, ally: 25, debuff: 15, strat: 10, spec: 10 },
+    attacker: { base: 30, self: 25, strat: 15, debuff: 10, ally: 10, spec: 10 },
+    buffer:   { ally: 45, strat: 15, spec: 15, base: 10, self: 10, debuff: 5 },
+    debuffer: { debuff: 45, strat: 15, base: 15, ally: 10, spec: 10, self: 5 },
+    ki:       { spec: 40, ally: 25, strat: 15, base: 10, self: 5, debuff: 5 },
+    tank:     { base: 35, debuff: 20, ally: 15, spec: 15, self: 10, strat: 5 }
+  };
+
+  const ROLE_METAS = {
+    attacker: { id: "attacker", label: "アタッカー", icon: "⚔️" },
+    buffer:   { id: "buffer",   label: "バッファー",   icon: "✨" },
+    debuffer: { id: "debuffer", label: "デバッファー", icon: "💀" },
+    ki:       { id: "ki",       label: "気役",         icon: "⚡" },
+    tank:     { id: "tank",     label: "タンク・妨害", icon: "🛡️" }
+  };
+
+  let roleTierWeights = JSON.parse(JSON.stringify(DEFAULT_ROLE_TIER_WEIGHTS));
+  let tierWeights = { ...DEFAULT_ROLE_TIER_WEIGHTS.overall };
   let tierOverrides = {};
-  let autoTierScope = "overall"; // 'overall' | 'weapon'
+  let autoTierScope = "role"; // 'role' | 'overall' | 'weapon' (default: 'role')
+  let autoTierActiveRole = "attacker"; // 'attacker' | 'buffer' | 'debuffer' | 'ki' | 'tank'
   let cachedRawNormScores = null;
   let cachedComputedScores = null;
 
@@ -5404,151 +5423,351 @@
       const c_rec = parseStatNumber(g.recovery) || (c.stats && c.stats.recovery) || 0;
       const c_cost = c.cost || 10;
 
-      // 1. Base percentile (normalized 0 to 1)
       const p_atk = calcPercentile(c_atk, sortedStats[rk].atk);
       const p_hp = calcPercentile(c_hp, sortedStats[rk].hp);
       const p_def = calcPercentile(c_def, sortedStats[rk].def);
       const p_range = calcPercentile(c_range, sortedStats[rk].range);
       const p_rec = calcPercentile(c_rec, sortedStats[rk].recovery);
       const p_cost = 1.0 - calcPercentile(c_cost, sortedStats[rk].cost);
-      const baseNorm = (p_atk * 0.30 + p_range * 0.25 + p_def * 0.15 + p_hp * 0.15 + p_rec * 0.10 + p_cost * 0.05);
 
-      // Latest abilities
       const { skill: sk, strategy: st, special: sp } = getLatestAbilities(c);
+
+      // Collect and fix effects
       const all_effects = [];
-      if (sk && sk.effects) all_effects.push(...sk.effects);
-      if (st && st.effects) all_effects.push(...st.effects);
-      if (sp && sp.effects) all_effects.push(...sp.effects);
-
-      const all_text = [
-        sk ? (sk.name || "") + " " + (sk.text || "") : "",
-        st ? (st.name || "") + " " + (st.text || "") : "",
-        sp ? (sp.name || "") + " " + (sp.text || "") : ""
-      ].filter(Boolean).join(" ");
-
-      // 2. Self Buffs (normalized to 15 max)
-      const self_effects = all_effects.filter(e => e.target === 'self');
-      let self_raw = 0.0;
-      self_effects.forEach(e => {
-        const stat = e.stat;
-        const val = Math.abs(e.value || 20);
-        if (['atkPercent', 'dmgDealt', 'atkSpeed', 'gapShorten', 'defIgnore'].includes(stat)) {
-          self_raw += Math.min(15.0, val * 0.25);
-        } else if (['rangePercent', 'rangeFlat', 'dmgTakenDown', 'atkFlat'].includes(stat)) {
-          self_raw += Math.min(10.0, val * 0.15);
-        } else {
-          self_raw += Math.min(5.0, val * 0.08);
-        }
-      });
-      if (all_text.includes('自身の攻撃が')) self_raw += 3.0;
-      if (all_text.includes('自身の与ダメージ')) self_raw += 3.0;
-      if (all_text.includes('自身の射程が')) self_raw += 2.0;
-      if (all_text.includes('自身の攻撃速度が')) self_raw += 3.0;
-      const selfNorm = Math.min(15.0, self_raw) / 15.0;
-
-      // 3. Ally Buffs (normalized to 25 max)
-      const ally_effects = all_effects.filter(e => ['inRange', 'all', 'allAllies'].includes(e.target));
-      let ally_raw = 0.0;
-      ally_effects.forEach(e => {
-        const stat = e.stat;
-        const val = Math.abs(e.value || 20);
-        if (['shareAtk', 'shareDef', 'shareRange'].includes(stat)) {
-          ally_raw += 10.0; // Kobu / Jinbai is enormous!
-        } else if (['dmgDealt', 'atkSpeed', 'gapShorten'].includes(stat)) {
-          ally_raw += Math.min(8.0, val * 0.20);
-        } else if (['atkPercent', 'rangePercent', 'rangeFlat', 'atkFlat'].includes(stat)) {
-          ally_raw += Math.min(7.0, val * 0.15);
-        } else if (['dmgTakenDown', 'defPercent', 'hpPercent'].includes(stat)) {
-          ally_raw += Math.min(5.0, val * 0.10);
-        } else {
-          ally_raw += Math.min(4.0, val * 0.08);
-        }
-      });
-      if (['巨大化に必要な気', '巨大化気を', '巨大化消費気'].some(k => all_text.includes(k))) ally_raw += 8.0;
-      if (['計略再使用', '計略短縮', '再使用時間を'].some(k => all_text.includes(k))) ally_raw += 7.0;
-      if (['気が増加', '敵撃破時に気', '気の自然増加'].some(k => all_text.includes(k))) ally_raw += 7.0;
-      if (all_text.includes('射程内の城娘の攻撃が') || all_text.includes('全城娘の攻撃が')) ally_raw += 5.0;
-      if (all_text.includes('射程内の城娘の射程が') || all_text.includes('全城娘の射程が')) ally_raw += 4.0;
-      const allyNorm = Math.min(25.0, ally_raw) / 25.0;
-
-      // 4. Debuffs (normalized to 15 max)
-      const enemy_effects = all_effects.filter(e => Boolean(e.stat && e.stat.startsWith('enemy')));
-      let debuff_raw = 0.0;
-      enemy_effects.forEach(e => {
-        const stat = e.stat;
-        const val = Math.abs(e.value || 20);
-        if (['enemyDefDown', 'enemyDmgTakenUp', 'enemySlow'].includes(stat)) {
-          debuff_raw += Math.min(7.0, val * 0.20);
-        } else if (['enemyAtkDown', 'enemyRangeDown'].includes(stat)) {
-          debuff_raw += Math.min(5.0, val * 0.15);
-        } else {
-          debuff_raw += Math.min(4.0, val * 0.10);
-        }
-      });
-      if (all_text.includes('敵の防御が') || all_text.includes('敵の防御を')) debuff_raw += 4.0;
-      if (all_text.includes('敵の攻撃が') || all_text.includes('敵の攻撃を')) debuff_raw += 3.0;
-      if (all_text.includes('移動速度が')) debuff_raw += 4.0;
-      if (all_text.includes('後退させる')) debuff_raw += 3.0;
-      const debuffNorm = Math.min(15.0, debuff_raw) / 15.0;
-
-      // 5. Strategy Quality (normalized to 10 max)
-      let strat_raw = 0.0;
-      if (st) {
-        const cd = st.cooldown || 50;
-        const cost = st.cost || 7;
-        const cd_eff = Math.max(0.0, 1.0 - (cd / 80.0)) * 3.5;
-        const cost_eff = Math.max(0.0, 1.0 - (cost / 15.0)) * 2.5;
-        strat_raw += cd_eff + cost_eff;
-        const st_text = (st.name || "") + " " + (st.text || "");
-        if (['伏兵', 'トークン'].some(k => st_text.includes(k))) strat_raw += 2.0;
-        if (['連続で攻撃', '倍のダメージ', '連続攻撃'].some(k => st_text.includes(k))) strat_raw += 2.0;
-        if (['範囲内の敵', '全敵'].some(k => st_text.includes(k))) strat_raw += 1.5;
+      function addEffects(effList, sourceText) {
+        if (!effList) return;
+        effList.forEach(e => {
+          let target = e.target;
+          if (!target || target === "") {
+            if (/自身のみ|自分の|自身に/.test(sourceText)) target = "self";
+            else if (/敵の|敵に|標的|敵/.test(sourceText)) target = "enemy";
+            else if (/全城娘|全味方|味方/.test(sourceText)) target = "all";
+            else if (/射程内/.test(sourceText)) target = "inRange";
+            else target = "";
+          }
+          all_effects.push({ ...e, target });
+        });
       }
-      const stratNorm = Math.min(10.0, strat_raw) / 10.0;
 
-      // 6. Versatility & Specials (normalized to 10 max)
-      let spec_raw = 0.0;
-      const attrs = c.attributes || [];
-      if (attrs.length >= 2) spec_raw += 3.5;
-      else spec_raw += 1.5;
+      const sk_text = sk ? ((sk.name || "") + " " + (sk.text || "")) : "";
+      const st_text = st ? ((st.name || "") + " " + (st.text || "")) : "";
+      const sp_text = sp ? ((sp.name || "") + " " + (sp.text || "")) : "";
+      const all_text = [sk_text, st_text, sp_text].filter(Boolean).join(" ");
 
-      if (['防御無視', '防御を無視', '防御を0'].some(k => all_text.includes(k))) spec_raw += 2.0;
-      if (['足止め', '足を止める'].some(k => all_text.includes(k))) spec_raw += 2.0;
-      if (['隠密', '狙われない', '対象にならない'].some(k => all_text.includes(k))) spec_raw += 2.0;
-      if (['不屈', '耐久が0になっても'].some(k => all_text.includes(k))) spec_raw += 2.0;
-      if (['状態異常無効', '氷結無効', '火傷無効'].some(k => all_text.includes(k))) spec_raw += 1.5;
-      if (['後退', 'ノックバック'].some(k => all_text.includes(k))) spec_raw += 1.5;
-      const specNorm = Math.min(10.0, spec_raw) / 10.0;
+      if (sk) addEffects(sk.effects, sk_text);
+      if (st) addEffects(st.effects, st_text);
+      if (sp) addEffects(sp.effects, sp_text);
+
+      // Token analysis
+      const hasToken = /伏兵|トークン/.test(all_text) || (c.name && c.name.includes("プレッドヤマ城"));
+      let tokenScore = 0.0;
+      let tokenAtk = 0.0;
+      let tokenBuffer = 0.0;
+      let tokenKi = 0.0;
+      let tokenTank = 0.0;
+
+      if (hasToken) {
+        tokenScore = 25.0;
+        if (/攻撃を行う伏兵|反撃|攻撃の[\d\.]+倍|爆風ダメージ/.test(all_text)) {
+          tokenAtk += 25.0;
+          tokenScore += 20.0;
+        }
+        if (/伏兵.*?(?:射程内|配置中).*?(?:城娘|味方).*?(?:攻撃|防御|耐久|与ダメ|与えるダメージ|射程)/.test(all_text) || /伏兵の攻撃を味方に加算/.test(all_text)) {
+          tokenBuffer += 30.0;
+          tokenScore += 25.0;
+        }
+        if (/伏兵.*?(?:射程内|配置中).*?(?:気の自然増加|気の自然回復|撃破|巨大化気)/.test(all_text) || (/気の自然増加|気の自然回復/.test(st_text) && hasToken) || (c.name && c.name.includes("プレッドヤマ城"))) {
+          tokenKi += 40.0;
+          tokenScore += 35.0;
+        }
+        if (/足止めする伏兵|狙われない|デコイ|被ダメ.*?軽減/.test(all_text)) {
+          tokenTank += 20.0;
+          tokenScore += 15.0;
+        }
+        tokenScore = Math.min(100.0, tokenScore);
+      }
+
+      // 1. Text Parsing & Enhancement
+      // Kobu (鼓舞)
+      let kobuScore = 0.0;
+      const kobuMatch = all_text.match(/【鼓舞】.*?自身の(?:攻撃(?:と防御)?)の(\d+)%/);
+      if (kobuMatch) {
+        const pct = parseInt(kobuMatch[1], 10);
+        kobuScore += pct * 1.5;
+      } else if (/自身の(?:攻撃(?:と防御)?)の(\d+)%.*?加算/.test(all_text)) {
+        const m = all_text.match(/自身の(?:攻撃(?:と防御)?)の(\d+)%.*?加算/);
+        if (m) kobuScore += parseInt(m[1], 10) * 1.2;
+      }
+      if (/最大化時は加算値([\d\.]+)倍/.test(all_text)) {
+        const m = all_text.match(/最大化時は加算値([\d\.]+)倍/);
+        if (m) kobuScore *= parseFloat(m[1]);
+      }
+      if (c.weapon === "陣貝") {
+        kobuScore = Math.max(kobuScore, 60.0);
+      }
+
+      // Giantize Ki Reduction (巨大化気)
+      let giantKiScore = 0.0;
+      const giantKiMatch = all_text.match(/(?:巨大化気|巨大化に必要な気|巨大化消費気)(?:を)?(\d+)%軽減/);
+      if (giantKiMatch) {
+        giantKiScore = parseInt(giantKiMatch[1], 10) * 1.5;
+      } else if (/巨大化気.*?軽減|巨大化に必要な気.*?軽減/.test(all_text)) {
+        giantKiScore = 30.0;
+      }
+
+      // Multi-stat team buffs parsing (全城娘)
+      let allBuffScore = 0.0;
+      const allTeamBlocks = all_text.match(/全城娘の[^。]+?(?:が)?(\d+)%上昇/g) || [];
+      allTeamBlocks.forEach(blk => {
+        const m = blk.match(/全城娘の(.+?)(?:が)?(\d+)%上昇/);
+        if (m) {
+          const statPart = m[1];
+          const val = parseInt(m[2], 10);
+          let statCount = 0;
+          ['攻撃', '与ダメージ', '与えるダメージ', '攻撃速度', '防御', '射程', '耐久'].forEach(s => {
+            if (statPart.includes(s)) statCount++;
+          });
+          statCount = Math.max(1, statCount);
+          allBuffScore += val * statCount * 0.8;
+        }
+      });
+      if (/全城娘の攻撃後の隙\s*(\d+)%短縮/.test(all_text)) {
+        const m = all_text.match(/全城娘の攻撃後の隙\s*(\d+)%短縮/);
+        if (m) allBuffScore += parseInt(m[1], 10) * 0.8;
+      }
+      if (/効果が(\d+)%に上昇/.test(all_text) && allBuffScore > 0) {
+        const m = all_text.match(/効果が(\d+)%に上昇/);
+        if (m) allBuffScore *= (parseInt(m[1], 10) / 40.0);
+      }
+
+      // In-range team buffs parsing (射程内)
+      let rangeBuffScore = 0.0;
+      const rangeTeamBlocks = all_text.match(/射程内(?:の)?(?:城娘|味方)の[^。]+/g) || [];
+      rangeTeamBlocks.forEach(blk => {
+        const subMatches = blk.matchAll(/([^\d、。\s]+?)(?:が|は)?(?:さらに)?(\d+)%/g);
+        for (const sm of subMatches) {
+          const statPart = sm[1];
+          const val = parseInt(sm[2], 10);
+          let statCount = 0;
+          ['攻撃', '与ダメージ', '与えるダメージ', '攻撃速度', '防御', '射程', '耐久'].forEach(s => {
+            if (statPart.includes(s)) statCount++;
+          });
+          statCount = Math.max(1, statCount);
+          rangeBuffScore += val * statCount * 0.7;
+        }
+      });
+
+      // Multiplier / Def Ignore / Target Count / Self Range (倍率・防御無視・対象数・自己射程)
+      let atkMultScore = 0.0;
+      const multMatch = all_text.match(/攻撃の([\d\.]+)倍/);
+      if (multMatch) {
+        atkMultScore += parseFloat(multMatch[1]) * 8.0;
+      }
+      if (/防御を?無視/.test(all_text)) atkMultScore += 25.0;
+      if (/連続で?攻撃/.test(all_text)) atkMultScore += 15.0;
+      if (/特殊能力中.*?与えるダメージ([\d\.]+)倍/.test(all_text)) {
+        const m = all_text.match(/特殊能力中.*?与えるダメージ([\d\.]+)倍/);
+        if (m) atkMultScore += parseFloat(m[1]) * 15.0;
+      }
+      if (/標的に攻撃の(\d+)倍/.test(sp_text)) {
+        const m = sp_text.match(/標的に攻撃の(\d+)倍/);
+        if (m) atkMultScore += parseInt(m[1], 10) * 8.0;
+      }
+      const targetIncMatch = all_text.match(/攻撃対象が?(\d+)増加/);
+      if (targetIncMatch) {
+        atkMultScore += parseInt(targetIncMatch[1], 10) * 15.0;
+      }
+      if (/射程が(?:約)?([\d\.]+)倍/.test(all_text)) {
+        const m = all_text.match(/射程が(?:約)?([\d\.]+)倍/);
+        if (m) atkMultScore += parseFloat(m[1]) * 12.0;
+      }
+
+      // Ki Generation (気役)
+      let kiScore = 0.0;
+      if (/気の自然増加|気の自然回復/.test(all_text)) kiScore += 45.0;
+      if (/撃破.*?気.*?増加|撃破獲得気/.test(all_text)) kiScore += 40.0;
+      if (/10秒毎に気が追加で(\d+)増加/.test(all_text)) kiScore += 35.0;
+      if (/撤退大破時の回復気が?(\d+)%上昇|撤退大破.*?気/.test(all_text)) {
+        const m = all_text.match(/撤退大破時の回復気が?(\d+)%上昇/);
+        kiScore += m ? parseInt(m[1], 10) * 1.2 : 45.0;
+      }
+      if (/再配置の時間が?(\d+)%短縮/.test(all_text)) {
+        const m = all_text.match(/再配置の時間が?(\d+)%短縮/);
+        kiScore += m ? parseInt(m[1], 10) * 0.8 : 45.0;
+      }
+      if (c.weapon === "鎌") {
+        kiScore += 25.0;
+      }
+      if (/計略再使用.*?短縮|計略短縮/.test(all_text)) kiScore += 25.0;
+      if (giantKiScore > 0) kiScore += giantKiScore * 0.8;
+      kiScore += tokenKi;
+
+      // Debuff Score
+      let debuffScore = 0.0;
+      if (/敵の防御が?(\d+)%低下/.test(all_text)) debuffScore += 20.0;
+      if (/敵の被ダメージが?(\d+)%上昇/.test(all_text)) debuffScore += 20.0;
+      if (/移動速度(?:が)?(\d+)%低下/.test(all_text)) debuffScore += 15.0;
+      if (/敵の攻撃が?(\d+)%低下/.test(all_text)) debuffScore += 15.0;
+      if (/後退させる|ノックバック/.test(all_text)) debuffScore += 10.0;
+      if (/猛毒|火傷|氷結|暗闇|混乱|行動不能/.test(all_text)) debuffScore += 10.0;
+
+      // Tank & Disruption Score
+      let tankScore = 0.0;
+      if (/足止め/.test(all_text)) tankScore += 25.0;
+      if (/被ダメージを?(\d+)%軽減/.test(all_text)) tankScore += 20.0;
+      if (/耐久が0になっても|不屈/.test(all_text)) tankScore += 25.0;
+      if (/狙われない|対象にならない|隠密/.test(all_text)) tankScore += 15.0;
+      if (/回復が与ダメの(\d+)%回復|被回復量/.test(all_text)) tankScore += 15.0;
+      tankScore += tokenTank;
+
+      // Effects contributions
+      let eff_self = 0.0;
+      let eff_ally = 0.0;
+      let eff_debuff = 0.0;
+
+      all_effects.forEach(e => {
+        const stat = e.stat || "";
+        const val = Math.abs(e.value || 20);
+        const target = e.target;
+
+        if (target === "self") {
+          if (['atkPercent', 'dmgDealt', 'atkSpeed', 'defIgnore'].includes(stat)) eff_self += val * 0.3;
+          else eff_self += val * 0.15;
+        } else if (target === "enemy" || stat.startsWith("enemy")) {
+          if (['enemyDefDown', 'enemyDmgTakenUp', 'enemySlow'].includes(stat)) eff_debuff += val * 0.3;
+          else eff_debuff += val * 0.15;
+        } else if (['all', 'inRange', 'allAllies'].includes(target)) {
+          if (['dmgDealt', 'atkSpeed', 'shareAtk', 'shareDef'].includes(stat)) eff_ally += val * 0.3;
+          else eff_ally += val * 0.15;
+        }
+      });
+
+      // Role Affinities
+      const aff_attacker = (p_atk * 35.0) + eff_self + (atkMultScore * 0.8) + tokenAtk;
+      const aff_buffer = eff_ally + (kobuScore * 1.5) + (allBuffScore * 1.2) + rangeBuffScore + (giantKiScore * 0.6) + tokenBuffer;
+      const aff_debuffer = eff_debuff + debuffScore;
+      const aff_ki = kiScore;
+      const aff_tank = (p_hp * 20.0) + (p_def * 20.0) + tankScore;
+
+      const affinities = [
+        { role: "attacker", label: "アタッカー", icon: "⚔️", score: aff_attacker },
+        { role: "buffer",   label: "バッファー",   icon: "✨", score: aff_buffer },
+        { role: "debuffer", label: "デバッファー", icon: "💀", score: aff_debuffer },
+        { role: "ki",       label: "気役",         icon: "⚡", score: aff_ki },
+        { role: "tank",     label: "タンク・妨害", icon: "🛡️", score: aff_tank }
+      ];
+
+      affinities.sort((a, b) => b.score - a.score);
+      const primaryRole = affinities[0].role;
+      const primaryRoleMeta = affinities[0];
+      let subRole = null;
+      let subRoleMeta = null;
+      if (affinities[1].score >= affinities[0].score * 0.70 && affinities[1].score >= 18.0) {
+        subRole = affinities[1].role;
+        subRoleMeta = affinities[1];
+      }
+
+      // Normalized category scores
+      const normSelf = Math.min(1.0, (eff_self + atkMultScore * 0.8 + (allBuffScore * 0.5)) / 80.0);
+      const kiTeamContribution = (primaryRole === "ki") ? Math.max(0, kiScore - 15) * 1.5 : 0.0;
+      const normAlly = Math.min(1.0, (eff_ally + kobuScore * 1.5 + allBuffScore * 1.2 + rangeBuffScore + giantKiScore * 0.8 + tokenBuffer + kiTeamContribution) / 140.0);
+      const normDebuff = Math.min(1.0, (eff_debuff + debuffScore) / 50.0);
+      const normSpec = Math.min(1.0, (kiScore + (giantKiScore * 0.8) + ((c.attributes && c.attributes.length >= 2) ? 12.0 : 0.0) + (tankScore * 0.5) + (allBuffScore * 0.4)) / 70.0);
+
+      let stratRaw = 0.0;
+      if (st) {
+        let cd = st.cooldown || (c.strategy && c.strategy.cooldown);
+        let cost = st.cost || (c.strategy && c.strategy.cost);
+        if (!cd) {
+          const m = (st.name || "").match(/使用まで(\d+)秒/);
+          if (m) cd = parseInt(m[1], 10);
+        }
+        if (!cost) {
+          const m = (st.name || "").match(/消費気(\d+)/);
+          if (m) cost = parseInt(m[1], 10);
+        }
+        cd = cd || 50;
+        cost = cost || 7;
+        stratRaw += Math.max(0, 1.0 - (cd / 80.0)) * 5.0 + Math.max(0, 1.0 - (cost / 15.0)) * 3.0;
+        if (sp) stratRaw += 3.0;
+        if (hasToken) stratRaw += 3.0;
+      } else {
+        stratRaw = (c.weapon === "陣貝") ? 10.0 : 8.5;
+        if (sp) stratRaw += 3.0;
+      }
+      const normStrat = Math.min(1.0, stratRaw / 11.0);
+
+      // Base norm depends on role!
+      let baseNorm = 0.5;
+      if (primaryRole === "attacker") {
+        baseNorm = p_atk * 0.55 + p_range * 0.25 + p_cost * 0.10 + p_def * 0.05 + p_hp * 0.05;
+      } else if (primaryRole === "buffer") {
+        baseNorm = p_range * 0.35 + p_rec * 0.25 + p_cost * 0.20 + p_atk * 0.10 + p_def * 0.05 + p_hp * 0.05;
+      } else if (primaryRole === "tank") {
+        baseNorm = p_hp * 0.40 + p_def * 0.40 + p_rec * 0.10 + p_cost * 0.10;
+      } else if (primaryRole === "ki") {
+        baseNorm = p_cost * 0.55 + p_rec * 0.25 + p_range * 0.10 + p_hp * 0.10;
+      } else {
+        baseNorm = p_range * 0.35 + p_atk * 0.25 + p_cost * 0.20 + p_def * 0.10 + p_hp * 0.10;
+      }
 
       rawMap[c.id] = {
         baseNorm,
-        selfNorm,
-        allyNorm,
-        debuffNorm,
-        stratNorm,
-        specNorm
+        normSelf,
+        normAlly,
+        normDebuff,
+        normStrat,
+        normSpec,
+        primaryRole,
+        primaryRoleMeta,
+        subRole,
+        subRoleMeta,
+        tokenScore: Math.round(tokenScore),
+        affinities
       };
     });
 
     cachedRawNormScores = rawMap;
   }
 
-  function computeCastleScores(weights = tierWeights) {
+  function computeCastleScores(weightsMap = roleTierWeights) {
     if (!cachedRawNormScores) precomputeRawNormScores();
     if (!window.SCRE_DATA) return [];
 
-    const totalWeight = Object.values(weights).reduce((a, b) => a + b, 0);
-    const scale = totalWeight > 0 ? (100.0 / totalWeight) : 1.0;
+    const effectiveWeightsMap = (weightsMap && weightsMap.attacker) ? weightsMap : roleTierWeights;
 
     const result = window.SCRE_DATA.map(c => {
-      const raw = (cachedRawNormScores && cachedRawNormScores[c.id]) || { baseNorm: 0.5, selfNorm: 0, allyNorm: 0, debuffNorm: 0, stratNorm: 0, specNorm: 0 };
-      const sBase = Math.round(raw.baseNorm * weights.base * scale * 10) / 10;
-      const sSelf = Math.round(raw.selfNorm * weights.self * scale * 10) / 10;
-      const sAlly = Math.round(raw.allyNorm * weights.ally * scale * 10) / 10;
-      const sDebuff = Math.round(raw.debuffNorm * weights.debuff * scale * 10) / 10;
-      const sStrat = Math.round(raw.stratNorm * weights.strat * scale * 10) / 10;
-      const sSpec = Math.round(raw.specNorm * weights.spec * scale * 10) / 10;
-      const total = Math.round((sBase + sSelf + sAlly + sDebuff + sStrat + sSpec) * 10) / 10;
+      const raw = (cachedRawNormScores && cachedRawNormScores[c.id]) || {
+        baseNorm: 0.5, normSelf: 0, normAlly: 0, normDebuff: 0, normStrat: 0, normSpec: 0,
+        primaryRole: "attacker", primaryRoleMeta: ROLE_METAS.attacker, subRole: null, subRoleMeta: null,
+        tokenScore: 0, affinities: []
+      };
+
+      const pRole = raw.primaryRole || "attacker";
+      const w = effectiveWeightsMap[pRole] || DEFAULT_ROLE_TIER_WEIGHTS[pRole] || DEFAULT_ROLE_TIER_WEIGHTS.overall;
+      const totalW = Object.values(w).reduce((a, b) => a + b, 0);
+      const scale = totalW > 0 ? (100.0 / totalW) : 1.0;
+
+      const sBase = Math.round(raw.baseNorm * w.base * scale * 10) / 10;
+      const sSelf = Math.round(raw.normSelf * w.self * scale * 10) / 10;
+      const sAlly = Math.round(raw.normAlly * w.ally * scale * 10) / 10;
+      const sDebuff = Math.round(raw.normDebuff * w.debuff * scale * 10) / 10;
+      const sStrat = Math.round(raw.normStrat * w.strat * scale * 10) / 10;
+      const sSpec = Math.round(raw.normSpec * w.spec * scale * 10) / 10;
+      const roleScore = Math.round((sBase + sSelf + sAlly + sDebuff + sStrat + sSpec) * 10) / 10;
+
+      // Overall Score
+      const ow = effectiveWeightsMap.overall || DEFAULT_ROLE_TIER_WEIGHTS.overall;
+      const oTotalW = Object.values(ow).reduce((a, b) => a + b, 0);
+      const oScale = oTotalW > 0 ? (100.0 / oTotalW) : 1.0;
+      const oScore = Math.round((
+        raw.baseNorm * ow.base * oScale +
+        raw.normSelf * ow.self * oScale +
+        raw.normAlly * ow.ally * oScale +
+        raw.normDebuff * ow.debuff * oScale +
+        raw.normStrat * ow.strat * oScale +
+        raw.normSpec * ow.spec * oScale
+      ) * 10) / 10;
 
       return {
         id: c.id,
@@ -5557,7 +5776,15 @@
         weapon: c.weapon,
         castleType: c.castleType,
         rangeKind: c.rangeKind,
-        total: total,
+        total: roleScore,
+        roleScore: roleScore,
+        overallScore: oScore,
+        primaryRole: raw.primaryRole,
+        primaryRoleMeta: raw.primaryRoleMeta,
+        subRole: raw.subRole,
+        subRoleMeta: raw.subRoleMeta,
+        tokenScore: raw.tokenScore,
+        affinities: raw.affinities,
         breakdown: {
           base: sBase,
           self: sSelf,
@@ -5570,15 +5797,38 @@
       };
     });
 
-    // Sort descending by total
-    result.sort((a, b) => b.total - a.total);
-
-    // Compute Overall Rank (1-based)
-    result.forEach((item, idx) => {
-      item.overallRank = idx + 1;
+    // 1. Group by primaryRole and compute Role Ranks and Tiers
+    const roleGroups = {};
+    result.forEach(item => {
+      const r = item.primaryRole || "attacker";
+      if (!roleGroups[r]) roleGroups[r] = [];
+      roleGroups[r].push(item);
     });
 
-    // Compute Weapon Ranks
+    Object.keys(roleGroups).forEach(r => {
+      const list = roleGroups[r];
+      list.sort((a, b) => b.roleScore - a.roleScore);
+      const count = list.length;
+      const idxSS = Math.max(1, Math.floor(count * TIER_THRESHOLDS.SS));
+      const idxS  = Math.max(idxSS + 1, Math.floor(count * TIER_THRESHOLDS.S));
+      const idxA  = Math.max(idxS + 1, Math.floor(count * TIER_THRESHOLDS.A));
+      const idxB  = Math.max(idxA + 1, Math.floor(count * TIER_THRESHOLDS.B));
+      const idxC  = Math.max(idxB + 1, Math.floor(count * TIER_THRESHOLDS.C));
+
+      list.forEach((item, idx) => {
+        item.roleRank = idx + 1;
+        item.roleTotal = count;
+        let t = "D";
+        if (idx < idxSS) t = "SS";
+        else if (idx < idxS) t = "S";
+        else if (idx < idxA) t = "A";
+        else if (idx < idxB) t = "B";
+        else if (idx < idxC) t = "C";
+        item.roleTier = t;
+      });
+    });
+
+    // 2. Weapon Ranks and Tiers
     const weaponGroups = {};
     result.forEach(item => {
       const w = item.weapon || "その他";
@@ -5588,6 +5838,7 @@
 
     Object.keys(weaponGroups).forEach(w => {
       const list = weaponGroups[w];
+      list.sort((a, b) => b.total - a.total);
       const wCount = list.length;
       list.forEach((item, wIdx) => {
         item.weaponRank = wIdx + 1;
@@ -5609,7 +5860,8 @@
       });
     });
 
-    // Overall tier
+    // 3. Overall Ranks and Tiers
+    result.sort((a, b) => b.overallScore - a.overallScore);
     const totalCount = result.length;
     const idxSS = Math.max(1, Math.floor(totalCount * TIER_THRESHOLDS.SS));
     const idxS  = Math.max(idxSS + 1, Math.floor(totalCount * TIER_THRESHOLDS.S));
@@ -5618,6 +5870,7 @@
     const idxC  = Math.max(idxB + 1, Math.floor(totalCount * TIER_THRESHOLDS.C));
 
     result.forEach((item, idx) => {
+      item.overallRank = idx + 1;
       item.overallTotal = totalCount;
       let oTier = "D";
       if (idx < idxSS) oTier = "SS";
@@ -5640,7 +5893,22 @@
     try {
       const saved = localStorage.getItem(TIER_STORAGE_WEIGHTS_KEY);
       if (saved) {
-        tierWeights = { ...DEFAULT_TIER_WEIGHTS, ...JSON.parse(saved) };
+        const parsed = JSON.parse(saved);
+        if (parsed.attacker || parsed.buffer || parsed.overall) {
+          // New role-based structure
+          roleTierWeights = {
+            overall:  { ...DEFAULT_ROLE_TIER_WEIGHTS.overall,  ...(parsed.overall || {}) },
+            attacker: { ...DEFAULT_ROLE_TIER_WEIGHTS.attacker, ...(parsed.attacker || {}) },
+            buffer:   { ...DEFAULT_ROLE_TIER_WEIGHTS.buffer,   ...(parsed.buffer || {}) },
+            debuffer: { ...DEFAULT_ROLE_TIER_WEIGHTS.debuffer, ...(parsed.debuffer || {}) },
+            ki:       { ...DEFAULT_ROLE_TIER_WEIGHTS.ki,       ...(parsed.ki || {}) },
+            tank:     { ...DEFAULT_ROLE_TIER_WEIGHTS.tank,     ...(parsed.tank || {}) }
+          };
+        } else {
+          // Migrate legacy flat structure to overall weights
+          roleTierWeights = JSON.parse(JSON.stringify(DEFAULT_ROLE_TIER_WEIGHTS));
+          roleTierWeights.overall = { ...DEFAULT_ROLE_TIER_WEIGHTS.overall, ...parsed };
+        }
       }
     } catch (e) {
       console.warn("Failed to load tier weights:", e);
@@ -5649,7 +5917,7 @@
 
   function saveTierWeights() {
     try {
-      localStorage.setItem(TIER_STORAGE_WEIGHTS_KEY, JSON.stringify(tierWeights));
+      localStorage.setItem(TIER_STORAGE_WEIGHTS_KEY, JSON.stringify(roleTierWeights));
     } catch (e) {
       console.warn("Failed to save tier weights:", e);
     }
@@ -5688,23 +5956,44 @@
     initAutoTierTooltip();
     const bd = item.breakdown;
     const c = item.castle;
-    const totalWeight = Object.values(tierWeights).reduce((a, b) => a + b, 0);
+    const currentRole = (autoTierScope === "role") ? autoTierActiveRole : "overall";
+    const activeWeights = roleTierWeights[currentRole] || DEFAULT_ROLE_TIER_WEIGHTS[currentRole];
+    const totalWeight = Object.values(activeWeights).reduce((a, b) => a + b, 0);
     const scale = totalWeight > 0 ? (100.0 / totalWeight) : 1.0;
-    const maxBase = (tierWeights.base * scale).toFixed(1);
-    const maxSelf = (tierWeights.self * scale).toFixed(1);
-    const maxAlly = (tierWeights.ally * scale).toFixed(1);
-    const maxDebuff = (tierWeights.debuff * scale).toFixed(1);
-    const maxStrat = (tierWeights.strat * scale).toFixed(1);
-    const maxSpec = (tierWeights.spec * scale).toFixed(1);
+
+    const maxBase = (activeWeights.base * scale).toFixed(1);
+    const maxSelf = (activeWeights.self * scale).toFixed(1);
+    const maxAlly = (activeWeights.ally * scale).toFixed(1);
+    const maxDebuff = (activeWeights.debuff * scale).toFixed(1);
+    const maxStrat = (activeWeights.strat * scale).toFixed(1);
+    const maxSpec = (activeWeights.spec * scale).toFixed(1);
+
+    const subText = item.subRoleMeta ? ` (兼任: ${item.subRoleMeta.icon} ${item.subRoleMeta.label})` : "";
+    const tokenInfo = item.tokenScore > 0 ? `伏兵(トークン)適性: ${item.tokenScore} pt` : `本体性能主軸`;
+
+    const affListHtml = (item.affinities || []).map(a => {
+      const isTop = a.role === item.primaryRole;
+      return `<span class="${isTop ? 'top-aff' : ''}">${a.icon} ${a.label}: ${Math.round(a.score)}</span>`;
+    }).join("");
+
     autoTierTooltipEl.innerHTML = `
       <div class="tier-tooltip-title">
         <span>★${c.rarity || 7} ${c.name}</span>
         <span style="color:#ff7675; font-size:13px; font-weight:800;">${item.total} pt</span>
       </div>
+      <div style="font-size:11px; color:#ffeaa7; margin-bottom:6px; font-weight:bold;">
+        主役割: ${item.primaryRoleMeta ? item.primaryRoleMeta.icon + ' ' + item.primaryRoleMeta.label : '未分類'}${subText}
+      </div>
       <div class="tier-tooltip-ranks">
-        <span>全体: #${item.overallRank} / ${item.overallTotal}</span>
+        <span>役割内: #${item.roleRank} / ${item.roleTotal} (${item.roleTier})</span>
+        <span>全体: #${item.overallRank} / ${item.overallTotal} (${item.overallTier})</span>
         <span>${item.weapon}: #${item.weaponRank} / ${item.weaponTotal}</span>
       </div>
+      <div class="tier-tooltip-section-title">適性値内訳 (${tokenInfo})</div>
+      <div class="tier-tooltip-affinities">
+        ${affListHtml}
+      </div>
+      <div class="tier-tooltip-section-title">評価カテゴリ配点 (${item.primaryRoleMeta ? item.primaryRoleMeta.label : '全体'})</div>
       <div class="tier-tooltip-breakdown">
         <div class="tier-tooltip-row">
           <span class="label">1. 基礎性能 (巨5ステ)</span>
@@ -5741,8 +6030,8 @@
     if (!autoTierTooltipEl || autoTierTooltipEl.style.display === "none") return;
     const x = e.clientX + 14;
     const y = e.clientY + 14;
-    const w = 270;
-    const h = 200;
+    const w = 290;
+    const h = 260;
     const maxX = window.innerWidth - w - 10;
     const maxY = window.innerHeight - h - 10;
     autoTierTooltipEl.style.left = `${Math.min(x, maxX)}px`;
@@ -5777,7 +6066,9 @@
   }
 
   function syncWeightSlidersUI() {
-    const total = Object.values(tierWeights).reduce((a, b) => a + b, 0);
+    const currentRole = (autoTierScope === "role") ? autoTierActiveRole : "overall";
+    const activeWeights = roleTierWeights[currentRole] || DEFAULT_ROLE_TIER_WEIGHTS[currentRole] || DEFAULT_ROLE_TIER_WEIGHTS.overall;
+    const total = Object.values(activeWeights).reduce((a, b) => a + b, 0);
     const scale = total > 0 ? (100.0 / total) : 1.0;
 
     const sliderDefs = [
@@ -5791,13 +6082,20 @@
     sliderDefs.forEach(def => {
       const slider = document.getElementById(def.id);
       const lbl = document.getElementById(def.lbl);
-      const w = tierWeights[def.key];
+      const w = activeWeights[def.key] !== undefined ? activeWeights[def.key] : 10;
       const scaled = (w * scale).toFixed(1);
       if (slider) slider.value = w;
       if (lbl) {
         lbl.textContent = total === 100 ? `${w}点` : `${w}点 (${scaled}%)`;
       }
     });
+
+    const roleLabelEl = document.getElementById("tierWeightActiveRoleLabel");
+    if (roleLabelEl) {
+      const roleName = ROLE_METAS[currentRole] ? ROLE_METAS[currentRole].label : "全体";
+      roleLabelEl.textContent = `(${roleName})`;
+    }
+
     const badge = document.getElementById("tierTotalWeightBadge");
     if (badge) {
       if (total === 100) {
@@ -5812,7 +6110,7 @@
     loadTierWeights();
     loadTierOverrides();
     syncWeightSlidersUI();
-    computeCastleScores(tierWeights);
+    computeCastleScores(roleTierWeights);
     renderTierAutoBoard();
   }
 
@@ -5821,7 +6119,34 @@
     if (!board) return;
 
     if (!cachedComputedScores) {
-      computeCastleScores(tierWeights);
+      computeCastleScores(roleTierWeights);
+    }
+
+    // Role tabs visibility & counts
+    const isRoleScope = (autoTierScope === "role");
+    const roleTabsEl = document.getElementById("tierRoleTabs");
+    if (roleTabsEl) {
+      roleTabsEl.style.display = isRoleScope ? "flex" : "none";
+    }
+
+    if (isRoleScope && cachedComputedScores) {
+      const counts = { attacker: 0, buffer: 0, debuffer: 0, ki: 0, tank: 0 };
+      cachedComputedScores.forEach(it => {
+        if (counts[it.primaryRole] !== undefined) counts[it.primaryRole]++;
+      });
+      const setRoleCount = (id, count) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = `(${count})`;
+      };
+      setRoleCount("countRoleAttacker", counts.attacker);
+      setRoleCount("countRoleBuffer", counts.buffer);
+      setRoleCount("countRoleDebuffer", counts.debuffer);
+      setRoleCount("countRoleKi", counts.ki);
+      setRoleCount("countRoleTank", counts.tank);
+
+      document.querySelectorAll(".tier-role-tab").forEach(tab => {
+        tab.classList.toggle("active", tab.getAttribute("data-role") === autoTierActiveRole);
+      });
     }
 
     const filterWeapon = (document.getElementById("tierAutoFilterWeapon")?.value || "").trim();
@@ -5832,6 +6157,8 @@
 
     // Filter list
     let list = cachedComputedScores.filter(item => {
+      if (isRoleScope && item.primaryRole !== autoTierActiveRole) return false;
+
       const c = item.castle;
       if (filterWeapon && c.weapon !== filterWeapon) return false;
       if (filterType) {
@@ -5853,7 +6180,12 @@
 
     list.forEach(item => {
       const override = tierOverrides[item.id] || tierOverrides[item.name];
-      const effectiveTier = override || (autoTierScope === "weapon" ? item.weaponTier : item.overallTier);
+      let effectiveTier = override;
+      if (!effectiveTier) {
+        if (autoTierScope === "role") effectiveTier = item.roleTier;
+        else if (autoTierScope === "weapon") effectiveTier = item.weaponTier;
+        else effectiveTier = item.overallTier;
+      }
       if (tierGroups[effectiveTier]) {
         tierGroups[effectiveTier].push({ ...item, isOverridden: Boolean(override), effectiveTier });
       } else {
@@ -5894,15 +6226,19 @@
         chip.setAttribute("data-id", c.id);
         chip.setAttribute("data-name", c.name);
 
-        const isHigh = item.total >= 45.0;
+        const isHigh = item.total >= 60.0;
         const overrideHtml = item.isOverridden ? `<span class="tier-override-badge" title="手動設定済み: ${item.effectiveTier}">✏️</span>` : "";
+        const roleIcon = item.primaryRoleMeta ? `<span class="tier-role-badge" title="${item.primaryRoleMeta.label}">${item.primaryRoleMeta.icon}</span>` : "";
+        const subRoleHtml = item.subRoleMeta ? `<span class="tier-subrole-tag" title="兼任: ${item.subRoleMeta.label}">兼 ${item.subRoleMeta.label}</span>` : "";
 
         chip.innerHTML = `
           <div class="tier-auto-chip-icon">
             ${getIconHtml(c, 44)}
           </div>
           <div class="tier-auto-chip-info">
-            <div class="tier-auto-chip-name" title="${c.name}">${c.name}</div>
+            <div class="tier-auto-chip-name" title="${c.name}">
+              ${roleIcon}${c.name}${subRoleHtml}
+            </div>
             <div class="tier-auto-chip-meta">
               <span class="tier-auto-score-pill ${isHigh ? 'high' : ''}">${item.total}pt</span>
               ${overrideHtml}
@@ -6549,20 +6885,38 @@
   }
 
   // Auto Tier Controls
+  const btnScopeRole = document.getElementById("btnTierScopeRole");
   const btnScopeOverall = document.getElementById("btnTierScopeOverall");
   const btnScopeWeapon = document.getElementById("btnTierScopeWeapon");
-  if (btnScopeOverall && btnScopeWeapon) {
-    btnScopeOverall.addEventListener("click", () => {
-      autoTierScope = "overall";
-      btnScopeOverall.classList.add("active");
-      btnScopeWeapon.classList.remove("active");
-      renderTierAutoBoard();
-    });
-    btnScopeWeapon.addEventListener("click", () => {
-      autoTierScope = "weapon";
-      btnScopeWeapon.classList.add("active");
-      btnScopeOverall.classList.remove("active");
-      renderTierAutoBoard();
+
+  function setAutoTierScope(scope) {
+    autoTierScope = scope;
+    if (btnScopeRole) btnScopeRole.classList.toggle("active", scope === "role");
+    if (btnScopeOverall) btnScopeOverall.classList.toggle("active", scope === "overall");
+    if (btnScopeWeapon) btnScopeWeapon.classList.toggle("active", scope === "weapon");
+    syncWeightSlidersUI();
+    renderTierAutoBoard();
+  }
+
+  if (btnScopeRole) btnScopeRole.addEventListener("click", () => setAutoTierScope("role"));
+  if (btnScopeOverall) btnScopeOverall.addEventListener("click", () => setAutoTierScope("overall"));
+  if (btnScopeWeapon) btnScopeWeapon.addEventListener("click", () => setAutoTierScope("weapon"));
+
+  // Role Tab Listeners
+  const roleTabsEl = document.getElementById("tierRoleTabs");
+  if (roleTabsEl) {
+    roleTabsEl.addEventListener("click", (e) => {
+      const tab = e.target.closest(".tier-role-tab");
+      if (!tab) return;
+      const roleKey = tab.getAttribute("data-role");
+      if (roleKey && ROLE_METAS[roleKey]) {
+        autoTierActiveRole = roleKey;
+        roleTabsEl.querySelectorAll(".tier-role-tab").forEach(t => {
+          t.classList.toggle("active", t.getAttribute("data-role") === roleKey);
+        });
+        syncWeightSlidersUI();
+        renderTierAutoBoard();
+      }
     });
   }
 
@@ -6591,10 +6945,14 @@
     if (slider && lbl) {
       slider.addEventListener("input", () => {
         const val = parseInt(slider.value, 10);
-        tierWeights[def.key] = val;
+        const currentRole = (autoTierScope === "role") ? autoTierActiveRole : "overall";
+        if (!roleTierWeights[currentRole]) {
+          roleTierWeights[currentRole] = { ...(DEFAULT_ROLE_TIER_WEIGHTS[currentRole] || DEFAULT_ROLE_TIER_WEIGHTS.overall) };
+        }
+        roleTierWeights[currentRole][def.key] = val;
         syncWeightSlidersUI();
         saveTierWeights();
-        computeCastleScores(tierWeights);
+        computeCastleScores(roleTierWeights);
         renderTierAutoBoard();
       });
     }
@@ -6603,12 +6961,14 @@
   const btnResetWeights = document.getElementById("btnResetTierWeights");
   if (btnResetWeights) {
     btnResetWeights.addEventListener("click", () => {
-      tierWeights = { ...DEFAULT_TIER_WEIGHTS };
+      const currentRole = (autoTierScope === "role") ? autoTierActiveRole : "overall";
+      roleTierWeights[currentRole] = { ...(DEFAULT_ROLE_TIER_WEIGHTS[currentRole] || DEFAULT_ROLE_TIER_WEIGHTS.overall) };
       saveTierWeights();
       syncWeightSlidersUI();
-      computeCastleScores(tierWeights);
+      computeCastleScores(roleTierWeights);
       renderTierAutoBoard();
-      showToast("評価重みをデフォルト値にリセットしました");
+      const roleName = ROLE_METAS[currentRole] ? ROLE_METAS[currentRole].label : "全体";
+      showToast(roleName + "の評価重みをデフォルト値にリセットしました");
     });
   }
 
