@@ -621,5 +621,15 @@ window.SCRE_DATA = """ + json.dumps(results, ensure_ascii=False, indent=1) + ";\
     DATA_JS.write_text(rules_js, encoding="utf-8")
     print(f"Successfully updated {DATA_JS} with {len(results)} castles!")
 
+    try:
+        import sys
+        tools_dir = str(ROOT / "tools")
+        if tools_dir not in sys.path:
+            sys.path.insert(0, tools_dir)
+        from build_weapons import main as build_weapons_main
+        build_weapons_main()
+    except Exception as e:
+        print("Failed to build weapons data:", e)
+
 if __name__ == "__main__":
     main()

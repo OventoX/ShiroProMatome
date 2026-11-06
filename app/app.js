@@ -634,10 +634,12 @@
       const effectiveRange = Math.floor(base.range * (1 + rangePerc) + b.rangeFlat.sum + shareRange);
       const effectiveHp = Math.floor((base.hp * terrainMult) * (1 + hpPerc) + b.hpFlat.sum);
 
-      // Single hit damage estimation: Atk * (1 + dmgDealt) * (1 + dmgTarget)
+      // Single hit damage estimation: Atk * (与えるダメージ倍率の積) * (1 + 与ダメージ%) (Prompt 13)
       const dmgDealtPerc = (b.dmgDealt.max + b.dmgDealt.stackSum) / 100;
-      const dmgTargetPerc = (b.dmgDealtTarget.max + b.dmgDealtTarget.stackSum) / 100;
-      const singleHitEstimate = Math.floor(effectiveAtk * (1 + dmgDealtPerc) * (1 + dmgTargetPerc));
+      const activeTargetSources = b.dmgDealtTarget.sources.filter(s => s.applied !== false);
+      const dmgTargetMult = activeTargetSources.reduce((acc, s) => acc * (1 + s.val / 100), 1.0);
+      b.dmgDealtTarget.multProduct = dmgTargetMult;
+      const singleHitEstimate = Math.floor(effectiveAtk * dmgTargetMult * (1 + dmgDealtPerc));
 
       // Cost calculation
       const deployCost = castle.cost || 10;
@@ -941,18 +943,28 @@
     // Unified row rendering helpers
     function renderPercentRow(label, bucket, uid) {
       if (!bucket) return "";
-      const total = bucket.max + bucket.stackSum;
+      const isTargetDmg = label.includes("与えるダメ") || bucket.multProduct !== undefined;
+      const total = isTargetDmg && bucket.multProduct
+        ? Math.round((bucket.multProduct - 1.0) * 100)
+        : (bucket.max + bucket.stackSum);
       if (total <= 0 && (!bucket.sources || bucket.sources.length === 0)) return "";
       const count = (bucket.sources || []).length;
       const isMixed = bucket.max > 0 && bucket.stackSum > 0;
-      const modeText = isMixed ? `最大値+加算 (${count}件)` : (bucket.stackSum > 0 ? `加算合計 (${count}件)` : `最大値採用 (${count}件)`);
+      const modeText = isTargetDmg
+        ? `乗算適用 (${count}件)`
+        : (isMixed ? `最大値+加算 (${count}件)` : (bucket.stackSum > 0 ? `加算合計 (${count}件)` : `最大値採用 (${count}件)`));
       const bdId = `bd-${uid}-${++breakdownCounter}`;
 
       const itemsHtml = (bucket.sources || []).map(s => {
         let tag = "";
         let style = "";
         let nameHtml = "";
-        if (s.stackable) {
+        const condBadge = s.condition ? `<span class="badge" style="background:#8e44ad; color:#fff; font-size:10px; padding:1px 4px; border-radius:3px; margin-right:3px;">${escapeHtml(s.condition)}</span>` : "";
+        if (isTargetDmg) {
+          tag = `<span class="buff-tag" style="background:#27ae60; color:#fff;">[乗算]</span>`;
+          style = "color:var(--buff-color); font-weight:bold;";
+          nameHtml = `<strong>${s.from}</strong>`;
+        } else if (s.stackable) {
           tag = `<span class="buff-tag">[加算]</span>`;
           style = "color:var(--buff-color); font-weight:bold;";
           nameHtml = `<strong>${s.from}</strong>`;
@@ -966,13 +978,15 @@
           const tooltip = s.conflictReason || "同種バフと重なりのため未適用 (最大値優先)";
           nameHtml = `<span class="buff-source-unapplied" title="${tooltip}"><s>${s.from}</s></span>`;
         }
-        return `<div style="margin-bottom:2px;"><span style="${style}">${tag} +${s.val}%</span>: ${nameHtml} [${s.type}] <span style="color:#666;">(${s.raw})</span></div>`;
+        return `<div style="margin-bottom:2px;"><span style="${style}">${tag} +${s.val}%</span>: ${condBadge}${nameHtml} [${s.type}] <span style="color:#666;">(${s.raw})</span></div>`;
       }).join("");
+
+      const multStr = isTargetDmg && bucket.multProduct && bucket.multProduct > 1.0 ? ` (${bucket.multProduct.toFixed(2)}倍)` : "";
 
       return `
         <div class="buff-row">
           <span class="buff-label">${label}</span>
-          <span class="buff-val-pos">+${total}%</span>
+          <span class="buff-val-pos">+${total}%${multStr}</span>
           <span class="buff-desc">${modeText}</span>
           <span class="breakdown-toggle" onclick="document.getElementById('${bdId}').classList.toggle('open')">内訳▾</span>
         </div>
@@ -3678,6 +3692,7 @@
     }
 
     if (typeof renderCastleSynergy === "function") renderCastleSynergy(c);
+    if (typeof renderCastleRecommendedWeapons === "function") renderCastleRecommendedWeapons(c);
     modal.classList.add("open");
   }
 
@@ -5599,6 +5614,14 @@
       }
       if (/防御を?無視/.test(all_text)) atkMultScore += 25.0;
       if (/連続で?攻撃/.test(all_text)) atkMultScore += 15.0;
+      // "与えるダメージ" general multiplier parsing (Prompt 13: 高防御でも実ダメが伸びる・重複可能・審議素通りのため高評価)
+      const dmgTargetMatches = all_text.matchAll(/与えるダメージ(?:が)?(?:約)?([\d\.]+)倍/g);
+      for (const dtm of dmgTargetMatches) {
+        const mult = parseFloat(dtm[1]);
+        if (mult > 1.0) {
+          atkMultScore += (mult - 1.0) * 100 * 0.4;
+        }
+      }
       if (/特殊能力中.*?与えるダメージ([\d\.]+)倍/.test(all_text)) {
         const m = all_text.match(/特殊能力中.*?与えるダメージ([\d\.]+)倍/);
         if (m) atkMultScore += parseFloat(m[1]) * 15.0;
@@ -5665,13 +5688,15 @@
         const target = e.target;
 
         if (target === "self") {
-          if (['atkPercent', 'dmgDealt', 'atkSpeed', 'defIgnore'].includes(stat)) eff_self += val * 0.3;
+          if (stat === 'dmgDealtTarget') eff_self += val * 0.5; // Prompt 13: Higher than dmgDealt (0.3)
+          else if (['atkPercent', 'dmgDealt', 'atkSpeed', 'defIgnore'].includes(stat)) eff_self += val * 0.3;
           else eff_self += val * 0.15;
         } else if (target === "enemy" || stat.startsWith("enemy")) {
           if (['enemyDefDown', 'enemyDmgTakenUp', 'enemySlow'].includes(stat)) eff_debuff += val * 0.3;
           else eff_debuff += val * 0.15;
         } else if (['all', 'inRange', 'allAllies'].includes(target)) {
-          if (['dmgDealt', 'atkSpeed', 'shareAtk', 'shareDef'].includes(stat)) eff_ally += val * 0.3;
+          if (stat === 'dmgDealtTarget') eff_ally += val * 0.65; // Prompt 13: Higher than dmgDealt (0.3)
+          else if (['dmgDealt', 'atkSpeed', 'shareAtk', 'shareDef'].includes(stat)) eff_ally += val * 0.3;
           else eff_ally += val * 0.15;
         }
       });
@@ -7604,18 +7629,22 @@ function renderRomanSimulator() {
     effDef = 0;
   }
 
-  // Damage Calculation: max(atk * 0.1, atk - effDef)
-  const isFloorGuaranteed = (finalAtk - effDef) < Math.floor(finalAtk * 0.1);
-  const baseDamage = Math.max(Math.floor(finalAtk * 0.1), finalAtk - effDef);
+  // dmgDealtTarget (与えるダメージ) multiplies ATK BEFORE subtracting enemy defense! (Prompt 13)
+  const activeTargetSources = calcData && calcData.buffs ? calcData.buffs.dmgDealtTarget.sources.filter(s => s.applied !== false) : [];
+  const dmgTargetMult = activeTargetSources.reduce((acc, s) => acc * (1 + s.val / 100), 1.0);
+  const atkWithTarget = Math.floor(finalAtk * dmgTargetMult);
 
-  // Damage Multipliers (与ダメ%, 与えるダメージ%, 敵被ダメ上昇%)
+  // Damage Calculation: max(atk * 0.1, atk - effDef)
+  const isFloorGuaranteed = (atkWithTarget - effDef) < Math.floor(atkWithTarget * 0.1);
+  const baseDamage = Math.max(Math.floor(atkWithTarget * 0.1), atkWithTarget - effDef);
+
+  // Damage Multipliers (与ダメ%, 敵被ダメ上昇%) applied AFTER defense subtraction!
   const dmgDealtPerc = calcData && calcData.buffs ? (calcData.buffs.dmgDealt.max + calcData.buffs.dmgDealt.stackSum) / 100 : 0;
-  const dmgTargetPerc = calcData && calcData.buffs ? (calcData.buffs.dmgDealtTarget.max + calcData.buffs.dmgDealtTarget.stackSum) / 100 : 0;
   const enemyDmgTakenPerc = (calcResult.enemyDebuffs?.enemyDmgTakenUp?.max || 0) / 100;
-  const totalDmgMult = (1 + dmgDealtPerc) * (1 + dmgTargetPerc) * (1 + enemyDmgTakenPerc);
+  const postDmgMult = (1 + dmgDealtPerc) * (1 + enemyDmgTakenPerc);
 
   // Final 1-Hit Damage
-  const finalHitDamage = Math.max(1, Math.floor(baseDamage * totalDmgMult * (1.0 - enemyRed / 100)));
+  const finalHitDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - enemyRed / 100)));
   const hitsToKill = Math.ceil(enemyHp / finalHitDamage);
 
   // Multiplier from Strategy / Special
@@ -7750,6 +7779,21 @@ function renderRomanSimulator() {
     </div>
   `);
 
+  // Step 3b (if dmgTargetMult > 1.0): 与えるダメージ補正 (防御減算前に乗算)
+  if (dmgTargetMult > 1.0) {
+    const targetSourcesText = activeTargetSources.map(s => `${s.from}(${s.val >= 0 ? '+' : ''}${s.val}%)`).join(", ");
+    steps.push(`
+      <div class="roman-waterfall-step">
+        <div class="roman-step-label">
+          <span class="roman-step-num">${stepIdx++}</span>
+          <span>🎯 与えるダメージ補正 (防御前乗算)</span>
+          <span style="font-size:11px; color:var(--text-sub);">×${dmgTargetMult.toFixed(2)} (${escapeHtml(targetSourcesText)})</span>
+        </div>
+        <div class="roman-step-val" style="color:var(--buff-color); font-size:14px;">${atkWithTarget.toLocaleString()}</div>
+      </div>
+    `);
+  }
+
   // Step 4: Enemy Defense & Effective Defense
   let defDetailText = `敵初期防御: ${enemyDef.toLocaleString()}`;
   if (defDownPerc > 0) {
@@ -7775,7 +7819,7 @@ function renderRomanSimulator() {
     <div class="roman-waterfall-step">
       <div class="roman-step-label">
         <span class="roman-step-num">${stepIdx++}</span>
-        <span>基礎ダメージ（最終攻撃 − 実効防御）</span>
+        <span>基礎ダメージ（${dmgTargetMult > 1.0 ? '補正攻撃' : '最終攻撃'} − 実効防御）</span>
         ${isFloorGuaranteed ? '<span style="font-size:10.5px; color:#e67e22;">(※防御超過のため最低保証10%適用)</span>' : ''}
       </div>
       <div class="roman-step-val">${baseDamage.toLocaleString()}</div>
@@ -7785,12 +7829,11 @@ function renderRomanSimulator() {
   // Step 6: Damage Multipliers
   let multBreakdown = [];
   if (dmgDealtPerc > 0) multBreakdown.push(`与ダメ+${Math.round(dmgDealtPerc * 100)}%`);
-  if (dmgTargetPerc > 0) multBreakdown.push(`与えるダメージ+${Math.round(dmgTargetPerc * 100)}%`);
   if (enemyDmgTakenPerc > 0) multBreakdown.push(`敵被ダメ+${Math.round(enemyDmgTakenPerc * 100)}%`);
   if (enemyRed > 0) multBreakdown.push(`敵被ダメ軽減-${enemyRed}%`);
 
   const multText = multBreakdown.length > 0 ? multBreakdown.join(" / ") : "倍率補正なし (等倍)";
-  const finalMultFactor = totalDmgMult * (1.0 - enemyRed / 100);
+  const finalMultFactor = postDmgMult * (1.0 - enemyRed / 100);
 
   steps.push(`
     <div class="roman-waterfall-step">
@@ -7899,12 +7942,14 @@ function renderRomanAssist(mainCastle, currentHitDamage, currentAtk) {
     const effIgnore = isMagic || (postData.buffs.defIgnore && postData.buffs.defIgnore.length > 0);
     const defDown = res.enemyDebuffs?.enemyDefDown?.max || 0;
     const simDef = effIgnore ? 0 : Math.max(0, Math.floor(500 * (1 - defDown / 100)));
-    const baseDmg = Math.max(Math.floor(postAtk * 0.1), postAtk - simDef);
+    const activeTargetSources = postData.buffs.dmgDealtTarget.sources.filter(s => s.applied !== false);
+    const dmgTargetMult = activeTargetSources.reduce((acc, s) => acc * (1 + s.val / 100), 1.0);
+    const postAtkWithTarget = Math.floor(postAtk * dmgTargetMult);
+    const baseDmg = Math.max(Math.floor(postAtkWithTarget * 0.1), postAtkWithTarget - simDef);
 
     const dmgDealt = (postData.buffs.dmgDealt.max + postData.buffs.dmgDealt.stackSum) / 100;
-    const dmgTarget = (postData.buffs.dmgDealtTarget.max + postData.buffs.dmgDealtTarget.stackSum) / 100;
     const dmgTaken = (res.enemyDebuffs?.enemyDmgTakenUp?.max || 0) / 100;
-    const mult = (1 + dmgDealt) * (1 + dmgTarget) * (1 + dmgTaken);
+    const mult = (1 + dmgDealt) * (1 + dmgTaken);
     const postDmg = Math.floor(baseDmg * mult);
 
     const soloDmg = Math.max(Math.floor(soloBaseAtk * 0.1), soloBaseAtk - (isMagic ? 0 : 500));
@@ -8006,18 +8051,20 @@ function renderDamageChecker(providedCalcResult) {
 
     const effDef = effectiveIgnore ? 0 : enemyDef;
 
-    // Damage Formula: max(atk * 0.1, atk - effDef)
-    const baseDamage = Math.max(Math.floor(finalAtk * 0.1), finalAtk - effDef);
+    // 与えるダメージ (dmgDealtTarget) multiplies attack BEFORE defense! (Prompt 13)
+    const activeTargetSources = calcData && calcData.buffs ? calcData.buffs.dmgDealtTarget.sources.filter(s => s.applied !== false) : [];
+    const dmgTargetMult = activeTargetSources.reduce((acc, s) => acc * (1 + s.val / 100), 1.0);
+    const atkWithTarget = Math.floor(finalAtk * dmgTargetMult);
 
-    // Apply damage multiplier buffs (与ダメ%)
-    let dmgMult = 1.0;
-    if (calcData && calcData.activeBuffs) {
-      const dmgBuff = calcData.activeBuffs.find(b => b.stat === "damagePercent");
-      if (dmgBuff) dmgMult += (dmgBuff.value / 100);
-    }
+    // Damage Formula: max(atk * 0.1, atk - effDef)
+    const baseDamage = Math.max(Math.floor(atkWithTarget * 0.1), atkWithTarget - effDef);
+
+    // Apply damage multiplier buffs (与ダメ%) AFTER defense
+    const dmgDealtPerc = calcData && calcData.buffs ? (calcData.buffs.dmgDealt.max + calcData.buffs.dmgDealt.stackSum) / 100 : 0;
+    const postDmgMult = (1 + dmgDealtPerc);
 
     // Apply enemy damage reduction
-    const finalHitDamage = Math.max(1, Math.floor(baseDamage * dmgMult * (1.0 - enemyRed)));
+    const finalHitDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - enemyRed)));
     const hitsToKill = Math.ceil(enemyHp / finalHitDamage);
 
     const tr = document.createElement("tr");
@@ -8043,7 +8090,8 @@ function renderDamageChecker(providedCalcResult) {
         </span>
       </td>
       <td style="font-size:11px; color:var(--text-sub);">
-        ${dmgMult > 1.0 ? `<span style="color:#2980b9;">与ダメ+${Math.round((dmgMult - 1.0) * 100)}%</span> ` : ''}
+        ${dmgDealtPerc > 0 ? `<span style="color:#2980b9;">与ダメ+${Math.round(dmgDealtPerc * 100)}%</span> ` : ''}
+        ${dmgTargetMult > 1.0 ? `<span style="color:#e67e22;">与えるダメx${dmgTargetMult.toFixed(2)}</span> ` : ''}
         ${effectiveIgnore ? `<span style="color:#27ae60;">[術/防御無視]</span> ` : ''}
         ${(c.strategy && slot.strategyOn) ? `<span style="color:#8e44ad;">[計略中]</span>` : ''}
       </td>
@@ -8349,6 +8397,148 @@ function quickToggleParty(castleId) {
     const c = getCastleById(activeDetailCastleId);
     if (c) renderCastleSynergy(c);
   }
+}
+
+// --- Prompt 14: Recommended Weapons for Castles ---
+function getRecommendedWeapons(castle, limit = 3) {
+  if (!castle || !castle.weapon || !window.SCRE_WEAPONS) return [];
+  const candidates = window.SCRE_WEAPONS.filter(w => w.type === castle.weapon);
+  if (candidates.length === 0) return [];
+
+  const allText = [
+    castle.skill?.text || '',
+    castle.strategy?.text || '',
+    castle.special?.text || '',
+    ...(castle.allSkills || []).map(s => s.text || ''),
+    ...(castle.allStrategies || []).map(s => s.text || '')
+  ].join(' ');
+
+  const hasBlast = castle.weapon === '大砲' || /爆風|直撃ボーナス/.test(allText);
+  const isBlocker = /足止め/.test(allText) || castle.weapon === '盾';
+  const isRanged = castle.rangeKind === '遠' || castle.rangeKind === '遠近';
+  const isMelee = castle.rangeKind === '近';
+
+  const scored = candidates.map(w => {
+    let score = (w.atk || 0) * 0.5 + (w.rarity || 1) * 6;
+    const reasons = [];
+    const eff = w.effectText || '';
+
+    // 1. 高攻撃力
+    if ((w.atk || 0) >= 80) {
+      score += 30;
+      reasons.push('同武器種で最高峰の高火力');
+    } else if ((w.atk || 0) >= 60) {
+      score += 15;
+      reasons.push('高水準の攻撃力');
+    }
+
+    // 2. 爆風・直撃ボーナス
+    if (/爆風|直撃ボーナス/.test(eff)) {
+      if (hasBlast) {
+        score += 40;
+        reasons.push('爆風範囲・直撃ダメージと相乗');
+      } else {
+        // 爆風を持たない城娘への爆風武器は大幅減点
+        score -= 60;
+      }
+    }
+
+    // 3. 射程上昇
+    if (/射程\+\d+|射程が.*?(?:上昇|倍)/.test(eff)) {
+      if (isRanged) {
+        score += 30;
+        reasons.push('遠隔の攻撃・支援射程を拡大');
+      } else {
+        score += 15;
+        reasons.push('近接の巻き込み範囲を拡張');
+      }
+    }
+
+    // 4. 与えるダメージ・与ダメ
+    if (/与えるダメージ.*?倍|与ダメージ.*?上昇/.test(eff)) {
+      score += 35;
+      reasons.push('高防御の敵に有効なダメージ倍率を付与');
+    }
+
+    // 5. 防御無視・術ダメージ
+    if (/防御を?.*?(?:無視|0)|術ダメージ/.test(eff)) {
+      score += 30;
+      reasons.push('高防御兜を貫通する術・防御無視効果');
+    }
+
+    // 6. 攻撃速度・隙短縮
+    if (/攻撃速度\+\d+|攻撃後の隙.*?短縮/.test(eff)) {
+      score += 25;
+      reasons.push('手数を増やしてDPS底上げ');
+    }
+
+    // 7. 足止め
+    if (/足止め/.test(eff)) {
+      if (isBlocker || isMelee) {
+        score += 25;
+        reasons.push('前線での敵侵攻を食い止める足止め');
+      } else {
+        score += 5;
+      }
+    }
+
+    // 8. 気軽減・気回復
+    if (/計略消費気.*?軽減|巨大化気.*?軽減|気.*?回復/.test(eff)) {
+      score += 25;
+      reasons.push('消費気を軽減し展開を迅速化');
+    }
+
+    // 9. 計略短縮
+    if (/計略再使用.*?短縮/.test(eff) && castle.strategy) {
+      score += 25;
+      reasons.push('強力な計略の回転率を大幅向上');
+    }
+
+    // 10. モチーフ城名一致
+    if (eff.includes(castle.name) || (castle.baseName && eff.includes(castle.baseName))) {
+      score += 30;
+      reasons.push('専用モチーフ・特効シナジー');
+    }
+
+    const reasonText = reasons.length > 0 ? reasons.slice(0, 2).join('・') : 'バランスの良いステータスと汎用性能';
+    return { weapon: w, score, reason: reasonText };
+  });
+
+  scored.sort((a, b) => b.score - a.score || (b.weapon.atk || 0) - (a.weapon.atk || 0));
+  return scored.slice(0, limit);
+}
+
+function renderCastleRecommendedWeapons(targetCastle) {
+  const container = document.getElementById("detailRecommendedWeaponsList");
+  if (!container) return;
+
+  const recList = getRecommendedWeapons(targetCastle, 3);
+  if (recList.length === 0) {
+    container.innerHTML = `<div style="font-size:12px; color:var(--text-muted); padding:8px 12px; background:var(--nav-bg); border-radius:6px;">データなし (この武器種の装備データ、または固定武器のためおすすめ武器はありません)</div>`;
+    return;
+  }
+
+  container.innerHTML = recList.map(({ weapon: w, reason }, idx) => {
+    const rankClass = idx === 0 ? "rank-1" : idx === 1 ? "rank-2" : "rank-3";
+    const stars = w.rarity ? '★'.repeat(Math.min(5, w.rarity)) : '-';
+    const atkLabel = w.atk !== null && w.atk !== undefined ? `攻 +${w.atk}` : '攻 -';
+    const defLabel = w.def !== null && w.def !== undefined ? ` 防 +${w.def}` : '';
+
+    return `
+      <div class="weapon-rec-card">
+        <div class="weapon-rec-header">
+          <div class="weapon-rec-title-wrap">
+            <span class="weapon-rec-rank ${rankClass}">おすすめ #${idx + 1}</span>
+            <span class="weapon-rec-rarity">${stars}</span>
+            <strong class="weapon-rec-name">${escapeHtml(w.name)}</strong>
+          </div>
+          <span class="weapon-rec-atk">${atkLabel}${defLabel}</span>
+        </div>
+        ${w.effectText ? `<div class="weapon-rec-effect">${escapeHtml(w.effectText)}</div>` : ''}
+        <div class="weapon-rec-reason">💡 <strong>おすすめ理由:</strong> ${escapeHtml(reason)}</div>
+      </div>
+    `;
+  }).join("");
 }
 
 // --- A6: 城巡りマップ (Prefecture Cartogram & Real Castle Photos) ---
@@ -8990,4 +9180,6 @@ function showQuizResult() {
   window.setListViewMode = setListViewMode;
   window.openCastleDetail = openCastleDetail;
   window.calculateCastleSynergy = calculateCastleSynergy;
+  window.calculateBuffs = calculateBuffs;
+  window.getRecommendedWeapons = getRecommendedWeapons;
 })();

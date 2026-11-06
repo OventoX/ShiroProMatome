@@ -66,9 +66,11 @@ scre-helper/
 │   ├── style.css               # レスポンシブ＆カスタムデザインCSS
 │   ├── app.js                  # アプリケーションロジック（バフ計算、プリセット、診断等）
 │   ├── data.js                 # 全1,161体 城娘マスターデータ
-│   └── guides.js               # 全182ステージ 高難易度攻略・審議データ
+│   ├── guides.js               # 全182ステージ 高難易度攻略・審議データ
+│   └── weapons_data.js         # 全25武器種・1,836件 武器マスターデータ (プロンプト14)
 ├── tools/                      # データ生成・スクレイピング・自動化テスト
-│   ├── build_data.py           # Wikiキャッシュから app/data.js を生成
+│   ├── build_data.py           # Wikiキャッシュから app/data.js 及び weapons_data.js を生成
+│   ├── build_weapons.py        # 全25武器種から武器データを抽出し app/weapons_data.js を出力
 │   ├── build_guides.py         # Wikiキャッシュから app/guides.js を生成
 │   ├── fetch_real_castles.py   # Wikipedia API から実在の城写真・メタデータを取得
 │   ├── real_castle_overrides.json # 実在城名・Wikipedia記事名のマッピング設定
@@ -124,6 +126,11 @@ node test_e2e.js
 python tools/fetch_real_castles.py
 python tools/build_data.py
 ```
+
+### 5. 武器データ（app/weapons_data.js）とおすすめ武器機能 (第14弾)
+- **概要**: 全25武器種・計1,800件以上の武器データ（名称、武器種、★レアリティ、攻撃力、防御力、特殊効果テキスト）を Wiki より取得し、`app/weapons_data.js` として保持します。
+- **城娘詳細おすすめ武器**: 各城娘の詳細モーダルにて、その城娘の武器種の中から攻撃力・爆風相性・射程拡張・ダメージ倍率・足止め等のシナジーを総合判定し、最適な装備候補 TOP 3 を理由付きで提示します。
+- **ビルド再現性**: `python tools/build_data.py` の実行時に自動的に `tools/build_weapons.py` が呼び出されるため、データ再生成によって武器データが消失することはありません。単独で `python tools/build_weapons.py` を実行して再生成することも可能です。
 
 ---
 

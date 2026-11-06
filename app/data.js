@@ -1647,12 +1647,14 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "dmgDealt",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 70,
+     "value": 15,
+     "multiplier": 1.15,
      "target": "inRange",
-     "stackable": false,
-     "raw": "+70% 熊本城・特技"
+     "stackable": true,
+     "raw": "+15% [射程内の敵1体につき] 熊本城・特技",
+     "condition": "射程内の敵1体につき"
     },
     {
      "source": "特技",
@@ -1732,12 +1734,14 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "dmgDealt",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 70,
+      "value": 15,
+      "multiplier": 1.15,
       "target": "inRange",
-      "stackable": false,
-      "raw": "+70% 熊本城・特技"
+      "stackable": true,
+      "raw": "+15% [射程内の敵1体につき] 熊本城・特技",
+      "condition": "射程内の敵1体につき"
      },
      {
       "source": "特技",
@@ -3774,6 +3778,17 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+120 錦城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 25,
+     "multiplier": 1.25,
+     "target": "self",
+     "stackable": true,
+     "raw": "+25%(1.25倍) [防御0の敵] 錦城・特技",
+     "condition": "防御0の敵"
     }
    ]
   },
@@ -3840,6 +3855,17 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+120 錦城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 25,
+      "multiplier": 1.25,
+      "target": "self",
+      "stackable": true,
+      "raw": "+25%(1.25倍) [防御0の敵] 錦城・特技",
+      "condition": "防御0の敵"
      }
     ]
    }
@@ -7065,6 +7091,16 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+60% 琉球御城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "all",
+     "stackable": true,
+     "raw": "+20%(1.2倍) 琉球御城・特技"
     }
    ]
   },
@@ -7140,6 +7176,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+60% 琉球御城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "all",
+      "stackable": true,
+      "raw": "+20%(1.2倍) 琉球御城・特技"
      }
     ]
    }
@@ -8403,12 +8449,14 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "dmgDealt",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 45,
+     "value": 60,
+     "multiplier": 1.6,
      "target": "inRange",
-     "stackable": false,
-     "raw": "+45% 金鯱城・特技"
+     "stackable": true,
+     "raw": "+60%(1.6倍) [耐久が60%以上の敵] 金鯱城・特技",
+     "condition": "耐久が60%以上の敵"
     }
    ]
   },
@@ -8460,12 +8508,14 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "dmgDealt",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 45,
+      "value": 60,
+      "multiplier": 1.6,
       "target": "inRange",
-      "stackable": false,
-      "raw": "+45% 金鯱城・特技"
+      "stackable": true,
+      "raw": "+60%(1.6倍) [耐久が60%以上の敵] 金鯱城・特技",
+      "condition": "耐久が60%以上の敵"
      }
     ]
    }
@@ -8586,7 +8636,19 @@ window.SCRE_DATA = [
    "stage": "改弐",
    "name": "[改弐] / 金香瀬山",
    "text": "自身と自身の伏兵の攻撃70%、耐久と防御が50%上昇 攻撃後の隙を50%短縮、攻撃が敵の防御を50%無視する 耐久が50%以上の敵に対して与えるダメージ1.5倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) [耐久が50%以上の敵] 虎臥城・特技",
+     "condition": "耐久が50%以上の敵"
+    }
+   ]
   },
   "strategy": {
    "name": "[改弐] / 天座乗虎 （使用まで50秒：消費気5：赤配置）",
@@ -8633,7 +8695,19 @@ window.SCRE_DATA = [
     "stage": "改弐",
     "name": "[改弐] / 金香瀬山",
     "text": "自身と自身の伏兵の攻撃70%、耐久と防御が50%上昇 攻撃後の隙を50%短縮、攻撃が敵の防御を50%無視する 耐久が50%以上の敵に対して与えるダメージ1.5倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) [耐久が50%以上の敵] 虎臥城・特技",
+      "condition": "耐久が50%以上の敵"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -8766,6 +8840,16 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "all",
+     "stackable": true,
+     "raw": "+20%(1.2倍) 小峯城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "enemyDefDown",
      "mode": "percent",
      "value": 50,
@@ -8831,6 +8915,16 @@ window.SCRE_DATA = [
     "name": "[改弐] / 相州乱破・風魔",
     "text": "自身の攻撃70%、射程50上昇。自身と自身の伏兵が攻撃対象に ならず、攻撃速度50%上昇。射程内隠密状態の味方の 与えるダメージ1.2倍。射程内敵の防御が50%低下",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "all",
+      "stackable": true,
+      "raw": "+20%(1.2倍) 小峯城・特技"
+     },
      {
       "source": "特技",
       "stat": "enemyDefDown",
@@ -14041,7 +14135,18 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改弐] / 飛龍梅の開花 （使用まで40秒：消費気7）",
    "text": "30秒間範囲内の祓串城娘の射程、攻撃速度 与えるダメージが2倍、攻撃対象が2増加、武器攻撃が 標的の周囲の敵にもダメージを与える(範囲:大)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) 墨俣一夜城・計略"
+    }
+   ],
    "cooldown": 40,
    "cost": 7
   },
@@ -14113,7 +14218,18 @@ window.SCRE_DATA = [
     "stage": "改弐",
     "name": "[改弐] / 飛龍梅の開花 （使用まで40秒：消費気7）",
     "text": "30秒間範囲内の祓串城娘の射程、攻撃速度 与えるダメージが2倍、攻撃対象が2増加、武器攻撃が 標的の周囲の敵にもダメージを与える(範囲:大)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) 墨俣一夜城・計略"
+     }
+    ]
    }
   ],
   "allSpecials": [],
@@ -15350,6 +15466,16 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+100 ［夏］紫禁城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［夏］紫禁城・計略"
     }
    ],
    "cooldown": 60,
@@ -15419,6 +15545,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100 ［夏］紫禁城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［夏］紫禁城・計略"
      }
     ]
    }
@@ -16780,7 +16916,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / パンプキン・ツェペシュ",
     "text": "自身の攻撃が45%、射程が50上昇 与ダメージの25%耐久が回復。計略使用時に 与えるダメージが1.5倍、与ダメの50%耐久が回復",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［ハロウィン］ブラン城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
@@ -22501,6 +22648,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［裏］大宰府・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［裏］大宰府・特技"
      }
     ]
    },
@@ -22864,12 +23021,13 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
-     "stat": "gapShorten",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 80,
-     "target": "inRange",
-     "stackable": false,
-     "raw": "+80% ［肝試し］白河小峰城・計略"
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
     }
    ],
    "cooldown": 50,
@@ -22908,12 +23066,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
-      "stat": "gapShorten",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 80,
-      "target": "inRange",
-      "stackable": false,
-      "raw": "+80% ［肝試し］白河小峰城・計略"
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
      }
     ]
    },
@@ -22924,12 +23083,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
-      "stat": "gapShorten",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 80,
-      "target": "inRange",
-      "stackable": false,
-      "raw": "+80% ［肝試し］白河小峰城・計略"
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
      }
     ]
    }
@@ -24916,6 +25076,16 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［聖夜］霞城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "atkSpeed",
      "mode": "percent",
      "value": 30,
@@ -24951,12 +25121,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 30,
-      "target": "self",
-      "stackable": false,
-      "raw": "+30% ［聖夜］霞城・特技"
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［聖夜］霞城・特技"
      }
     ]
    },
@@ -24973,6 +25144,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% ［聖夜］霞城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［聖夜］霞城・特技"
      },
      {
       "source": "特技",
@@ -29856,12 +30037,13 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
-     "stat": "gapShorten",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 80,
+     "value": 50,
+     "multiplier": 1.5,
      "target": "self",
-     "stackable": false,
-     "raw": "+80% ［花嫁衣装］春日山城・計略"
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［花嫁衣装］春日山城・計略"
     }
    ],
    "cooldown": 50,
@@ -29910,12 +30092,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
-      "stat": "gapShorten",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 80,
+      "value": 50,
+      "multiplier": 1.5,
       "target": "self",
-      "stackable": false,
-      "raw": "+80% ［花嫁衣装］春日山城・計略"
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［花嫁衣装］春日山城・計略"
      }
     ]
    },
@@ -29926,12 +30109,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
-      "stat": "gapShorten",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 80,
+      "value": 50,
+      "multiplier": 1.5,
       "target": "self",
-      "stackable": false,
-      "raw": "+80% ［花嫁衣装］春日山城・計略"
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［花嫁衣装］春日山城・計略"
      }
     ]
    }
@@ -32272,7 +32456,19 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 南瓜の大王冠",
    "text": "【配置】全ての[ハロウィン]城娘の撃破獲得気が1増加 足止め数が3増加。最大化時、自身の与ダメと範囲攻撃ダメが 50%上昇、自身の耐久80%以上で与えるダメージ1.5倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) [自身の耐久80%以上] ［ハロウィン］カステル・デル・モンテ・特技",
+     "condition": "自身の耐久80%以上"
+    }
+   ]
   },
   "strategy": {
    "name": "[改壱] / 黄金のハロウィン （使用まで50秒：消費気7）",
@@ -32290,12 +32486,14 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "dmgDealt",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 45,
+      "value": 40,
+      "multiplier": 1.4,
       "target": "self",
-      "stackable": false,
-      "raw": "+45% ［ハロウィン］カステル・デル・モンテ・特技"
+      "stackable": true,
+      "raw": "+40%(1.4倍) [自身の耐久80%以上] ［ハロウィン］カステル・デル・モンテ・特技",
+      "condition": "自身の耐久80%以上"
      }
     ]
    },
@@ -32303,7 +32501,19 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 南瓜の大王冠",
     "text": "【配置】全ての[ハロウィン]城娘の撃破獲得気が1増加 足止め数が3増加。最大化時、自身の与ダメと範囲攻撃ダメが 50%上昇、自身の耐久80%以上で与えるダメージ1.5倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) [自身の耐久80%以上] ［ハロウィン］カステル・デル・モンテ・特技",
+      "condition": "自身の耐久80%以上"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -32819,6 +33029,16 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 70,
+     "multiplier": 1.7,
+     "target": "self",
+     "stackable": true,
+     "raw": "+70%(1.7倍) ［裏］小田原城・計略"
+    },
+    {
+     "source": "計略",
      "stat": "rangePercent",
      "mode": "percent",
      "value": 20,
@@ -32873,6 +33093,16 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 70,
+      "multiplier": 1.7,
+      "target": "self",
+      "stackable": true,
+      "raw": "+70%(1.7倍) ［裏］小田原城・計略"
+     },
+     {
+      "source": "計略",
       "stat": "rangePercent",
       "mode": "percent",
       "value": 20,
@@ -32887,6 +33117,16 @@ window.SCRE_DATA = [
     "name": "[改壱] / 滅尽の夕風 （使用まで50秒：消費気5）",
     "text": "対象が最大耐久の50%の値のダメージを受ける 45秒間対象が攻撃で与えるダメージが1.7倍、 射程が1.2倍（近接城娘が対象）",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 70,
+      "multiplier": 1.7,
+      "target": "self",
+      "stackable": true,
+      "raw": "+70%(1.7倍) ［裏］小田原城・計略"
+     },
      {
       "source": "計略",
       "stat": "rangePercent",
@@ -36500,6 +36740,16 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+20% ［裏］室町第・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "self",
+     "stackable": true,
+     "raw": "+20%(1.2倍) ［裏］室町第・特技"
     }
    ]
   },
@@ -36524,6 +36774,16 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+120 ［裏］室町第・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［裏］室町第・特技"
      }
     ]
    },
@@ -36549,6 +36809,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20% ［裏］室町第・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［裏］室町第・特技"
      }
     ]
    }
@@ -37733,12 +38003,13 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
-     "stat": "atkSpeed",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 35,
-     "target": "all",
-     "stackable": false,
-     "raw": "+35% 蓉城・特技"
+     "value": 25,
+     "multiplier": 1.25,
+     "target": "self",
+     "stackable": true,
+     "raw": "+25%(1.25倍) 蓉城・特技"
     }
    ]
   },
@@ -37791,12 +38062,13 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
-      "stat": "atkSpeed",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 35,
-      "target": "all",
-      "stackable": false,
-      "raw": "+35% 蓉城・特技"
+      "value": 25,
+      "multiplier": 1.25,
+      "target": "self",
+      "stackable": true,
+      "raw": "+25%(1.25倍) 蓉城・特技"
      }
     ]
    }
@@ -37999,7 +38271,19 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 怨霊鬼神",
    "text": "【配置】自身の攻撃、射程が敵撃破毎に10上昇(上限200) 耐久が50%以上の敵に対して与えるダメージが1.5倍 最大化時、全ての近接城娘の攻撃が35%と120上昇",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) [耐久が50%以上の敵] ［肝試し］鬼ヶ島・特技",
+     "condition": "耐久が50%以上の敵"
+    }
+   ]
   },
   "strategy": null,
   "special": null,
@@ -38008,13 +38292,37 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 夜叉霊鬼",
     "text": "【配置】自身の攻撃、射程が敵撃破毎に8上昇(上限160) 耐久が50%以上の敵に対して与えるダメージが1.4倍 最大化時、全ての近接城娘の攻撃が30%上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) [耐久が50%以上の敵] ［肝試し］鬼ヶ島・特技",
+      "condition": "耐久が50%以上の敵"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 怨霊鬼神",
     "text": "【配置】自身の攻撃、射程が敵撃破毎に10上昇(上限200) 耐久が50%以上の敵に対して与えるダメージが1.5倍 最大化時、全ての近接城娘の攻撃が35%と120上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) [耐久が50%以上の敵] ［肝試し］鬼ヶ島・特技",
+      "condition": "耐久が50%以上の敵"
+     }
+    ]
    }
   ],
   "allStrategies": [],
@@ -38480,7 +38788,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 不落の浮城",
    "text": "自身の計略で与えるダメージが1.5倍 全ての近接城娘の攻撃が45%と150上昇 全ての敵の射程と与ダメージが35%低下、攻撃30%低下",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［絢爛］忍城・特技"
+    }
+   ]
   },
   "strategy": null,
   "special": null,
@@ -38492,12 +38811,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 40,
+      "multiplier": 1.4,
       "target": "self",
-      "stackable": false,
-      "raw": "+40% ［絢爛］忍城・特技"
+      "stackable": true,
+      "raw": "+40%(1.4倍) ［絢爛］忍城・特技"
      }
     ]
    },
@@ -38505,7 +38825,18 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 不落の浮城",
     "text": "自身の計略で与えるダメージが1.5倍 全ての近接城娘の攻撃が45%と150上昇 全ての敵の射程と与ダメージが35%低下、攻撃30%低下",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［絢爛］忍城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [],
@@ -39428,6 +39759,16 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+25% ［裏］吉田郡山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［裏］吉田郡山城・特技"
     }
    ]
   },
@@ -39452,6 +39793,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［裏］吉田郡山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［裏］吉田郡山城・特技"
      }
     ]
    },
@@ -39468,6 +39819,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% ［裏］吉田郡山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［裏］吉田郡山城・特技"
      }
     ]
    }
@@ -40195,7 +40556,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 東北の統治者",
    "text": "【配置】射程内城娘の攻撃で与えるダメージが1.25倍 巨大化する度に射程内の味方の攻撃が50、射程が12上昇 防御6%無視、自身の伏兵の攻撃が敵の防御を20%無視",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 25,
+     "multiplier": 1.25,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+25%(1.25倍) ［威光］多賀城・特技"
+    }
+   ]
   },
   "strategy": null,
   "special": {
@@ -40219,13 +40591,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 南朝の監視者",
     "text": "【配置】射程内城娘の攻撃で与えるダメージが1.2倍 巨大化する度に射程内の味方の攻撃が40、射程が 10上昇、自身の伏兵の攻撃が敵の防御を20%無視",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［威光］多賀城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 東北の統治者",
     "text": "【配置】射程内城娘の攻撃で与えるダメージが1.25倍 巨大化する度に射程内の味方の攻撃が50、射程が12上昇 防御6%無視、自身の伏兵の攻撃が敵の防御を20%無視",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 25,
+      "multiplier": 1.25,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+25%(1.25倍) ［威光］多賀城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [],
@@ -40336,7 +40730,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 光春の八霊玉",
    "text": "自身と自身の伏兵の攻撃が55%、射程が100上昇 特殊攻撃で与えるダメージが2倍。自身の伏兵と 全ての近接城娘の攻撃が敵の防御を40%無視",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) ［正月］滸我御所・特技"
+    }
+   ]
   },
   "strategy": null,
   "special": {
@@ -40353,12 +40758,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 50,
+      "value": 80,
+      "multiplier": 1.8,
       "target": "self",
-      "stackable": false,
-      "raw": "+50% ［正月］滸我御所・特技"
+      "stackable": true,
+      "raw": "+80%(1.8倍) ［正月］滸我御所・特技"
      }
     ]
    },
@@ -40366,7 +40772,18 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 光春の八霊玉",
     "text": "自身と自身の伏兵の攻撃が55%、射程が100上昇 特殊攻撃で与えるダメージが2倍。自身の伏兵と 全ての近接城娘の攻撃が敵の防御を40%無視",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［正月］滸我御所・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [],
@@ -41246,6 +41663,16 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［雪華］古河城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgDealt",
      "mode": "percent",
      "value": 35,
@@ -41294,6 +41721,16 @@ window.SCRE_DATA = [
     "name": "[改壱] / 永久の雪華",
     "text": "自身の特殊攻撃と範囲計略で与えるダメージが1.3倍 射程内の城娘の攻撃が100、与ダメージが35%上昇 全ての城娘の計略再使用時間が35%短縮",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［雪華］古河城・特技"
+     },
      {
       "source": "特技",
       "stat": "dmgDealt",
@@ -41435,12 +41872,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "dmgDealt",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 30,
-      "target": "self",
-      "stackable": false,
-      "raw": "+30% ［バレンタイン］ヴァイジャヤンタ・特技"
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ［バレンタイン］ヴァイジャヤンタ・特技"
      }
     ]
    },
@@ -41917,7 +42355,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 花香の忘都",
     "text": "【配置】全ての地獄城、平城、[絢爛]城娘の攻撃が80、与ダメが45% 上昇。最大化時、計略中に自身が与えるダメージが1.3倍 標的の周囲に0.8倍の防御無視ダメージを与える",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［絢爛］［裏］大宰府・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
@@ -42946,12 +43395,13 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "atkSpeed",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 30,
+     "value": 40,
+     "multiplier": 1.4,
      "target": "self",
-     "stackable": false,
-     "raw": "+30% 玉藻城・特技"
+     "stackable": true,
+     "raw": "+40%(1.4倍) 玉藻城・特技"
     },
     {
      "source": "特技",
@@ -42985,6 +43435,16 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) 玉藻城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "dmgDealt",
       "mode": "percent",
       "value": 30,
@@ -43001,12 +43461,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkSpeed",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 30,
+      "value": 40,
+      "multiplier": 1.4,
       "target": "self",
-      "stackable": false,
-      "raw": "+30% 玉藻城・特技"
+      "stackable": true,
+      "raw": "+40%(1.4倍) 玉藻城・特技"
      },
      {
       "source": "特技",
@@ -43151,7 +43612,18 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 梟雄の武神 （使用まで40秒：消費気7）",
    "text": "30秒間対象の攻撃と攻撃速度が2.2倍 特殊攻撃で与えるダメージが1.3倍 射程内の城娘の与ダメージが1.6倍(自分のみが対象)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［天明］岐阜城・計略"
+    }
+   ],
    "cooldown": 40,
    "cost": 7
   },
@@ -43200,13 +43672,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 梟雄の武徳 （使用まで40秒：消費気7）",
     "text": "30秒間対象の攻撃と攻撃速度が2倍 特殊攻撃で与えるダメージが1.2倍 射程内の城娘の与ダメージが1.6倍(自分のみが対象)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［天明］岐阜城・計略"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 梟雄の武神 （使用まで40秒：消費気7）",
     "text": "30秒間対象の攻撃と攻撃速度が2.2倍 特殊攻撃で与えるダメージが1.3倍 射程内の城娘の与ダメージが1.6倍(自分のみが対象)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［天明］岐阜城・計略"
+     }
+    ]
    }
   ],
   "allSpecials": [
@@ -43330,7 +43824,18 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 東海一の武弓 （使用まで50秒：消費気7）",
    "text": "40秒間対象の攻撃速度とゲージ蓄積速度が2倍 攻撃で与えるダメージが1.5倍 自身の耐久が最大時、更に1.3倍(自分のみが対象)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［破将］掛川城・計略"
+    }
+   ],
    "cooldown": 50,
    "cost": 7
   },
@@ -43379,13 +43884,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 海道一の大弓 （使用まで60秒：消費気7）",
     "text": "40秒間対象の攻撃速度とゲージ蓄積速度が2倍 攻撃で与えるダメージが1.5倍 自身の耐久が最大時、更に1.2倍(自分のみが対象)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［破将］掛川城・計略"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 東海一の武弓 （使用まで50秒：消費気7）",
     "text": "40秒間対象の攻撃速度とゲージ蓄積速度が2倍 攻撃で与えるダメージが1.5倍 自身の耐久が最大時、更に1.3倍(自分のみが対象)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［破将］掛川城・計略"
+     }
+    ]
    }
   ],
   "allSpecials": [
@@ -43493,6 +44020,17 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) [敵] コーロア城・計略",
+     "condition": "敵"
+    },
+    {
+     "source": "計略",
      "stat": "enemySlow",
      "mode": "percent",
      "value": 65,
@@ -43551,6 +44089,17 @@ window.SCRE_DATA = [
     "name": "[改壱] / 金亀の千弓 （使用まで50秒：消費気10）",
     "text": "40秒間対象の攻撃対象が3増加、移動速度300以下の 敵に与えるダメージが1.3倍、射程内の城娘の足止め数が 1増加、射程内の敵の移動速度が65%低下(自分のみ)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) [敵] コーロア城・計略",
+      "condition": "敵"
+     },
      {
       "source": "計略",
       "stat": "enemySlow",
@@ -43645,7 +44194,19 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 終わりなき紅焔",
    "text": "自身の耐久が高い程与えるダメージが上昇(最大1.7倍) 特殊攻撃で与えるダメージが1.3倍、射程内の敵の 被ダメが35%、全ての近接城娘の攻撃が120上昇",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) [自身の耐久が高い程] バロルの城・特技",
+     "condition": "自身の耐久が高い程"
+    }
+   ]
   },
   "strategy": {
    "name": "[改壱] / 太陽の化身 （使用まで45秒：消費気7）",
@@ -43678,12 +44239,14 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkFlat",
-      "mode": "flat",
-      "value": 100,
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
       "target": "self",
-      "stackable": false,
-      "raw": "+100 バロルの城・特技"
+      "stackable": true,
+      "raw": "+20%(1.2倍) [自身の耐久が高い程] バロルの城・特技",
+      "condition": "自身の耐久が高い程"
      }
     ]
    },
@@ -43691,7 +44254,19 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 終わりなき紅焔",
     "text": "自身の耐久が高い程与えるダメージが上昇(最大1.7倍) 特殊攻撃で与えるダメージが1.3倍、射程内の敵の 被ダメが35%、全ての近接城娘の攻撃が120上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) [自身の耐久が高い程] バロルの城・特技",
+      "condition": "自身の耐久が高い程"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -43954,6 +44529,16 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+100%(2.0倍) ［花嫁衣装］敦賀城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgDealt",
      "mode": "percent",
      "value": 40,
@@ -43982,6 +44567,16 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 80,
+      "multiplier": 1.8,
+      "target": "self",
+      "stackable": true,
+      "raw": "+80%(1.8倍) ［花嫁衣装］敦賀城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "dmgDealt",
       "mode": "percent",
       "value": 40,
@@ -43996,6 +44591,16 @@ window.SCRE_DATA = [
     "name": "[改壱] / 幸福の都鳥",
     "text": "自身の足止め数が4増加、計略で与えるダメージが2倍 射程内の城娘の攻撃が120、与ダメが40%上昇、全[花嫁衣装] の攻撃が140、攻撃速度と与ダメージが45%上昇",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［花嫁衣装］敦賀城・特技"
+     },
      {
       "source": "特技",
       "stat": "dmgDealt",
@@ -44244,7 +44849,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 美しき水の精",
    "text": "自身の法術の移動速度低下効果が大きく上昇。射程内の 敵の被ダメ35%上昇、3秒毎に攻撃の1倍の術ダメージ 計略中、攻撃が標的に与えるダメージが1.5倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［夏］善見城・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[改壱] / 大海より生まれし者 （使用まで70秒：消費気10）",
@@ -44259,13 +44875,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 夏海のアプラサス",
     "text": "自身の法術の移動速度低下効果が大きく上昇 射程内の敵に3秒毎に攻撃の0.8倍の術ダメージ 計略中、攻撃が標的に与えるダメージが1.4倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ［夏］善見城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 美しき水の精",
     "text": "自身の法術の移動速度低下効果が大きく上昇。射程内の 敵の被ダメ35%上昇、3秒毎に攻撃の1倍の術ダメージ 計略中、攻撃が標的に与えるダメージが1.5倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［夏］善見城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -44540,7 +45178,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 君臨せし砂丘の女王",
    "text": "自身の与ダメージと直撃ボーナスが35%、計略使用時は 55%上昇。計略使用時に与えるダメージが1.5倍 全ての［夏］城娘の足止め数が1増加、被ダメが35%軽減",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［夏］ガンジル宮殿・特技"
+    }
+   ]
   },
   "strategy": null,
   "special": null,
@@ -44549,13 +45198,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 渇きし地獄の主",
     "text": "自身の与ダメージと直撃ボーナスが30%、計略使用時は 50%上昇。計略使用時に与えるダメージが1.3倍 全ての［夏］城娘の足止め数が1増加",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［夏］ガンジル宮殿・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 君臨せし砂丘の女王",
     "text": "自身の与ダメージと直撃ボーナスが35%、計略使用時は 55%上昇。計略使用時に与えるダメージが1.5倍 全ての［夏］城娘の足止め数が1増加、被ダメが35%軽減",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［夏］ガンジル宮殿・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [],
@@ -44643,12 +45314,13 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "gapShorten",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 35,
-     "target": "all",
-     "stackable": false,
-     "raw": "+35% ［夏］シバルバー・特技"
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［夏］シバルバー・特技"
     }
    ]
   },
@@ -44680,7 +45352,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 夏夜の九王",
     "text": "自身の攻撃対象が2増加 特殊攻撃で与えるダメージが1.2倍 全近接城娘と［夏］城娘の射程が30、攻撃が120上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［夏］シバルバー・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
@@ -44689,12 +45372,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "gapShorten",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 35,
-      "target": "all",
-      "stackable": false,
-      "raw": "+35% ［夏］シバルバー・特技"
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［夏］シバルバー・特技"
      }
     ]
    }
@@ -45748,6 +46432,26 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［肝試し］姫路城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［肝試し］姫路城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgDealt",
      "mode": "percent",
      "value": 40,
@@ -45767,6 +46471,26 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［肝試し］姫路城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［肝試し］姫路城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "dmgDealt",
       "mode": "percent",
       "value": 35,
@@ -45781,6 +46505,26 @@ window.SCRE_DATA = [
     "name": "[改壱] / 怖気立つ怪談噺",
     "text": "自身の攻撃で与えるダメージが1.5倍、計略使用時更に 与えるダメージが1.5倍、標的とその周囲に攻撃を行う 全[肝試し]城娘の攻撃が150、与ダメージが40%上昇",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［肝試し］姫路城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［肝試し］姫路城・特技"
+     },
      {
       "source": "特技",
       "stat": "dmgDealt",
@@ -46639,7 +47383,18 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 喧嘩ねぷた （使用まで40秒：消費気7：赤青配置）",
    "text": "自身の2倍の攻撃で敵1体に攻撃を行う伏兵(2体まで)。配置中 自身の与えるダメージ1.5倍。射程内城娘と自身の攻撃が 120上昇、攻撃後の隙、計略再使用時間40%短縮。",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［絢爛］弘前城・計略"
+    }
+   ],
    "cooldown": 40,
    "cost": 7
   },
@@ -46663,13 +47418,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ねぷた祭り （使用まで40秒：消費気7：赤青配置）",
     "text": "自身の1.5倍の攻撃で敵1体に攻撃を行う伏兵(2体まで) 配置中、自身の与えるダメージ1.4倍。射程内城娘と 自身の攻撃後の隙、計略再使用時間40%短縮。",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ［絢爛］弘前城・計略"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 喧嘩ねぷた （使用まで40秒：消費気7：赤青配置）",
     "text": "自身の2倍の攻撃で敵1体に攻撃を行う伏兵(2体まで)。配置中 自身の与えるダメージ1.5倍。射程内城娘と自身の攻撃が 120上昇、攻撃後の隙、計略再使用時間40%短縮。",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［絢爛］弘前城・計略"
+     }
+    ]
    }
   ],
   "allSpecials": [],
@@ -48475,6 +49252,16 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+100%(2.0倍) ファルケンシュタイン城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "self",
+     "stackable": true,
+     "raw": "+40%(1.4倍) ファルケンシュタイン城・特技"
     }
    ]
   },
@@ -48519,6 +49306,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) ファルケンシュタイン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ファルケンシュタイン城・特技"
      }
     ]
    },
@@ -48544,6 +49341,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100%(2.0倍) ファルケンシュタイン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ファルケンシュタイン城・特技"
      }
     ]
    }
@@ -50290,7 +51097,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 原初の弩級艦",
    "text": "自身と自身の伏兵の直撃ボーナスが120%、爆風範囲が 50%上昇、被ダメ50%軽減。射程内敵の被ダメ50%上昇 【水上】全軍船と自身の伏兵の与えるダメージが1.25倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 25,
+     "multiplier": 1.25,
+     "target": "all",
+     "stackable": true,
+     "raw": "+25%(1.25倍) 軍艦 ドレッドノート・特技"
+    }
+   ]
   },
   "strategy": null,
   "special": null,
@@ -50308,6 +51126,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40% 軍艦 ドレッドノート・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "all",
+      "stackable": true,
+      "raw": "+20%(1.2倍) 軍艦 ドレッドノート・特技"
      }
     ]
    },
@@ -50315,7 +51143,18 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 原初の弩級艦",
     "text": "自身と自身の伏兵の直撃ボーナスが120%、爆風範囲が 50%上昇、被ダメ50%軽減。射程内敵の被ダメ50%上昇 【水上】全軍船と自身の伏兵の与えるダメージが1.25倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 25,
+      "multiplier": 1.25,
+      "target": "all",
+      "stackable": true,
+      "raw": "+25%(1.25倍) 軍艦 ドレッドノート・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [],
@@ -50411,12 +51250,13 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "atkPercent",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
      "value": 40,
-     "target": "self",
-     "stackable": false,
-     "raw": "+40% ルーヴル宮殿・特技"
+     "multiplier": 1.4,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+40%(1.4倍) ルーヴル宮殿・特技"
     }
    ]
   },
@@ -50461,12 +51301,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 35,
-      "target": "self",
-      "stackable": false,
-      "raw": "+35% ルーヴル宮殿・特技"
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ルーヴル宮殿・特技"
      }
     ]
    },
@@ -50477,12 +51318,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 40,
-      "target": "self",
-      "stackable": false,
-      "raw": "+40% ルーヴル宮殿・特技"
+      "multiplier": 1.4,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ルーヴル宮殿・特技"
      }
     ]
    }
@@ -51370,12 +52212,13 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "gapShorten",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 50,
+     "value": 40,
+     "multiplier": 1.4,
      "target": "self",
-     "stackable": false,
-     "raw": "+50% 二条御所・特技"
+     "stackable": true,
+     "raw": "+40%(1.4倍) 二条御所・特技"
     },
     {
      "source": "特技",
@@ -51403,12 +52246,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "gapShorten",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 40,
+      "value": 30,
+      "multiplier": 1.3,
       "target": "self",
-      "stackable": false,
-      "raw": "+40% 二条御所・特技"
+      "stackable": true,
+      "raw": "+30%(1.3倍) 二条御所・特技"
      }
     ]
    },
@@ -51419,12 +52263,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "gapShorten",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 50,
+      "value": 40,
+      "multiplier": 1.4,
       "target": "self",
-      "stackable": false,
-      "raw": "+50% 二条御所・特技"
+      "stackable": true,
+      "raw": "+40%(1.4倍) 二条御所・特技"
      },
      {
       "source": "特技",
@@ -51743,7 +52588,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 全獄ライブ",
     "text": "【配置】敵撃破毎に自身の耐久、攻撃、防御が4%ずつ 上昇(上限80%)。射程内の敵の撃破獲得気が1増加 最大化時、特殊攻撃で与えるダメージが1.3倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［アイドル］クリンタ城＆枉死城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
@@ -52166,6 +53022,16 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+40% ［絢爛］五稜郭・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 25,
+     "multiplier": 1.25,
+     "target": "all",
+     "stackable": true,
+     "raw": "+25%(1.25倍) ［絢爛］五稜郭・特技"
     }
    ]
   },
@@ -52182,7 +53048,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 函館奉行所",
     "text": "全平城の与ダメージが1.5倍 全ての城娘の攻撃と防御が30%、射程内城娘は40%上昇 全ての［絢爛］城娘の与えるダメージが1.2倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "all",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［絢爛］五稜郭・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
@@ -52197,6 +53074,16 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+40% ［絢爛］五稜郭・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 25,
+      "multiplier": 1.25,
+      "target": "all",
+      "stackable": true,
+      "raw": "+25%(1.25倍) ［絢爛］五稜郭・特技"
      }
     ]
    }
@@ -53234,7 +54121,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 設楽原祝言場",
    "text": "射程内城娘の与ダメージが40%、[花嫁衣装]は50%上昇 射程内敵の防御と移動速度を40%、計略中は50%低下 計略効果中、自身の与えるダメージが1.4倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "self",
+     "stackable": true,
+     "raw": "+40%(1.4倍) ［花嫁衣装］長篠城・特技"
+    }
+   ]
   },
   "strategy": null,
   "special": null,
@@ -53243,13 +54141,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 祝報の烽火",
     "text": "射程内城娘の与ダメージが30%、[花嫁衣装]は40%上昇 射程内敵の防御を30%、計略中は40%低下 計略効果中、自身の与えるダメージが1.3倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［花嫁衣装］長篠城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 設楽原祝言場",
     "text": "射程内城娘の与ダメージが40%、[花嫁衣装]は50%上昇 射程内敵の防御と移動速度を40%、計略中は50%低下 計略効果中、自身の与えるダメージが1.4倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ［花嫁衣装］長篠城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [],
@@ -53469,7 +54389,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 炎夏の紅眼",
    "text": "自身の特殊攻撃で与えるダメージ1.4倍、特殊攻撃が敵の 防御を無視。全［夏］の攻撃200上昇、与ダメージ40%上昇 全戦棍城娘の特殊攻撃ゲージ蓄積速度1.3倍(効果重複)",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "self",
+     "stackable": true,
+     "raw": "+40%(1.4倍) ［夏］バロルの城・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[改壱] / フォヴォーラの太陽 （使用まで40秒：消費気5）",
@@ -53499,13 +54430,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 常夏の紅眼",
     "text": "自身の特殊攻撃で与えるダメージ1.3倍、特殊攻撃が敵の 防御を無視。全［夏］の攻撃150上昇。全戦棍城娘の 特殊攻撃ゲージ蓄積速度1.25倍(効果重複)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［夏］バロルの城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 炎夏の紅眼",
     "text": "自身の特殊攻撃で与えるダメージ1.4倍、特殊攻撃が敵の 防御を無視。全［夏］の攻撃200上昇、与ダメージ40%上昇 全戦棍城娘の特殊攻撃ゲージ蓄積速度1.3倍(効果重複)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ［夏］バロルの城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -54324,6 +55277,16 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+40% ［裏］熊本城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［裏］熊本城・特技"
     }
    ]
   },
@@ -54354,6 +55317,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+35% ［裏］熊本城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［裏］熊本城・特技"
      }
     ]
    },
@@ -54370,6 +55343,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+40% ［裏］熊本城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［裏］熊本城・特技"
      }
     ]
    }
@@ -55201,7 +56184,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 伝家の大包平",
    "text": "【配置】敵撃破毎自身の攻撃と防御125ずつ上昇(最大2500) 最大化時自身と自伏兵の与えるダメージ1.3倍、敵の防御 50%無視。自身の攻撃と防御の120%の値を自伏兵に加算",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［白輝］姫路城・特技"
+    }
+   ]
   },
   "strategy": null,
   "special": {
@@ -55215,13 +56209,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 白刃の宝刀",
     "text": "【配置】敵撃破毎自身の攻撃と防御100ずつ上昇(最大2000) 最大化時、自身と自伏兵の与えるダメージ1.2倍 自身の攻撃と防御の100%の値を自身の伏兵に加算",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［白輝］姫路城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 伝家の大包平",
     "text": "【配置】敵撃破毎自身の攻撃と防御125ずつ上昇(最大2500) 最大化時自身と自伏兵の与えるダメージ1.3倍、敵の防御 50%無視。自身の攻撃と防御の120%の値を自伏兵に加算",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［白輝］姫路城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [],
@@ -56001,13 +57017,35 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+10% 駿河府中城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "self",
+     "stackable": true,
+     "raw": "+40%(1.4倍) 駿河府中城・特技"
     }
    ]
   },
   "strategy": {
    "name": "[改壱] / 不動の鷹匠 （使用まで20秒：消費気0） 初期使用回数2回",
    "text": "飛行敵以外に狙われず標的に2倍その周囲に1.5倍の攻撃 を行う伏兵。配置中、10秒毎に気が追加で1増加。伏兵が 地上敵に与えるダメージ2.5倍。巨大化毎に回数1増加",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 150,
+     "multiplier": 2.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+150%(2.5倍) [地上敵] 駿河府中城・計略",
+     "condition": "地上敵"
+    }
+   ],
    "cooldown": 20,
    "cost": 0
   },
@@ -56017,7 +57055,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 天下の覇府",
     "text": "巨大化毎に射程内味方の攻撃50上昇、射程10上昇、射程内敵の 防御8%低下。最大化時、全平城の攻撃1.2倍(効果重複) 自伏兵の与えるダメージ1.3倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "all",
+      "stackable": true,
+      "raw": "+30%(1.3倍) 駿河府中城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
@@ -56032,6 +57081,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+10% 駿河府中城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) 駿河府中城・特技"
      }
     ]
    }
@@ -56041,13 +57100,37 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 不動の鷹師 （使用まで20秒：消費気0） 初期使用回数1回",
     "text": "飛行敵以外に狙われず標的に2倍その周囲に1.5倍の攻撃 を行う伏兵。配置中、10秒毎に気が追加で1増加。伏兵が 地上敵に与えるダメージ2倍。巨大化毎に回数1増加",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [地上敵] 駿河府中城・計略",
+      "condition": "地上敵"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 不動の鷹匠 （使用まで20秒：消費気0） 初期使用回数2回",
     "text": "飛行敵以外に狙われず標的に2倍その周囲に1.5倍の攻撃 を行う伏兵。配置中、10秒毎に気が追加で1増加。伏兵が 地上敵に与えるダメージ2.5倍。巨大化毎に回数1増加",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 150,
+      "multiplier": 2.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+150%(2.5倍) [地上敵] 駿河府中城・計略",
+      "condition": "地上敵"
+     }
+    ]
    }
   ],
   "allSpecials": [],
@@ -56146,7 +57229,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 深蒸し掛川茶",
    "text": "射程内の城娘と殿を回復。30秒間射程内の城娘と殿の攻撃500上昇 隠密状態の城娘が与えるダメージ1.3倍 射程内の敵の射程50%、射程外の敵は25%低下",
-   "effects": []
+   "effects": [
+    {
+     "source": "特殊攻撃",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+30%(1.3倍) 雲霧城・特殊攻撃"
+    }
+   ]
   },
   "allSkills": [
    {
@@ -56168,13 +57262,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 深蒸し煎茶",
     "text": "射程内の城娘と殿を回復。30秒間射程内の城娘と殿の攻撃500上昇 隠密状態の城娘が与えるダメージ1.2倍 射程内の敵の射程50%、射程外の敵は25%低下",
-    "effects": []
+    "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+20%(1.2倍) 雲霧城・特殊攻撃"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 深蒸し掛川茶",
     "text": "射程内の城娘と殿を回復。30秒間射程内の城娘と殿の攻撃500上昇 隠密状態の城娘が与えるダメージ1.3倍 射程内の敵の射程50%、射程外の敵は25%低下",
-    "effects": []
+    "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) 雲霧城・特殊攻撃"
+     }
+    ]
    }
   ],
   "parseWarnings": [],
@@ -56273,7 +57389,19 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 神供の黄金儀式 （使用まで60秒：消費気7）",
    "text": "40秒間対象の特殊攻撃ゲージ蓄積量2倍 攻撃2倍､射程200上昇､耐久が50%以上の敵に対して 与えるダメージが2倍(自身のみ)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) [攻撃2倍､射程200上昇､耐久が50%以上の敵] 黄金郷エル・ドラード・計略",
+     "condition": "攻撃2倍､射程200上昇､耐久が50%以上の敵"
+    }
+   ],
    "cooldown": 60,
    "cost": 7
   },
@@ -56322,13 +57450,37 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 黄金の儀式 （使用まで60秒：消費気7）",
     "text": "40秒間対象の特殊攻撃ゲージ蓄積量2倍 攻撃1.8倍､射程150上昇､耐久が50%以上の敵に対して 与えるダメージが2倍(自身のみ)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [攻撃1.8倍､射程150上昇､耐久が50%以上の敵] 黄金郷エル・ドラード・計略",
+      "condition": "攻撃1.8倍､射程150上昇､耐久が50%以上の敵"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 神供の黄金儀式 （使用まで60秒：消費気7）",
     "text": "40秒間対象の特殊攻撃ゲージ蓄積量2倍 攻撃2倍､射程200上昇､耐久が50%以上の敵に対して 与えるダメージが2倍(自身のみ)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [攻撃2倍､射程200上昇､耐久が50%以上の敵] 黄金郷エル・ドラード・計略",
+      "condition": "攻撃2倍､射程200上昇､耐久が50%以上の敵"
+     }
+    ]
    }
   ],
   "allSpecials": [
@@ -56582,7 +57734,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 赤月の始祖",
    "text": "自身の耐久が高い程与えるダメージ上昇(最大1.5倍) 射程1.3倍、攻撃速度と特殊攻撃で与えるダメージ1.4倍 射程内城娘が与ダメージの40%、[ハロウィン]は50%回復",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+40%(1.4倍) ［ハロウィン］チャフティツェ城・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[改壱] / 鮮血の長風呂 （使用まで50秒：消費気7）",
@@ -56602,13 +57765,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 赤月の吸血鬼",
     "text": "自身の耐久が高い程与えるダメージ上昇(最大1.4倍) 射程1.2倍、特殊攻撃で与えるダメージ1.3倍 射程内城娘が与ダメージの30%、[ハロウィン]は40%回復",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［ハロウィン］チャフティツェ城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 赤月の始祖",
     "text": "自身の耐久が高い程与えるダメージ上昇(最大1.5倍) 射程1.3倍、攻撃速度と特殊攻撃で与えるダメージ1.4倍 射程内城娘が与ダメージの40%、[ハロウィン]は50%回復",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ［ハロウィン］チャフティツェ城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -56960,7 +58145,19 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / アドリア海の女王",
    "text": "自身が与ダメージの30%耐久回復、特殊攻撃で与えるダメージ 1.4倍。敵撃破時10秒間自身の与えるダメージ1.3倍 計略再使用時間75%短縮。全水城の攻撃と防御150上昇",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) [敵撃破時10秒間自身の] 海上都市ヴェネツィア・特技",
+     "condition": "敵撃破時10秒間自身の"
+    }
+   ]
   },
   "strategy": {
    "name": "[改壱] / 大海とのマリアージュ （使用まで40秒：消費気3）",
@@ -56980,13 +58177,36 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 水都の女王",
     "text": "自身の特殊攻撃で与えるダメージ1.3倍 敵撃破時10秒間自身の与えるダメージ1.25倍 計略再使用時間70%短縮。全水城の攻撃と防御100上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) 海上都市ヴェネツィア・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / アドリア海の女王",
     "text": "自身が与ダメージの30%耐久回復、特殊攻撃で与えるダメージ 1.4倍。敵撃破時10秒間自身の与えるダメージ1.3倍 計略再使用時間75%短縮。全水城の攻撃と防御150上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) [敵撃破時10秒間自身の] 海上都市ヴェネツィア・特技",
+      "condition": "敵撃破時10秒間自身の"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -57104,7 +58324,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 赤レンガの補給倉庫",
    "text": "巨大化する度に射程内城娘の攻撃60、射程と回復が15上昇 軍船城娘には効果2倍、射程内の敵の移動速度8%低下 最大化時、自身の特殊攻撃で与えるダメージ1.5倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) 軍港 舞鶴・特技"
+    }
+   ]
   },
   "strategy": null,
   "special": {
@@ -57118,13 +58349,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 赤レンガの倉庫",
     "text": "巨大化する度に射程内城娘の攻撃50、射程と回復が10上昇 軍船城娘には効果1.8倍 最大化時、自身の特殊攻撃で与えるダメージ1.4倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) 軍港 舞鶴・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 赤レンガの補給倉庫",
     "text": "巨大化する度に射程内城娘の攻撃60、射程と回復が15上昇 軍船城娘には効果2倍、射程内の敵の移動速度8%低下 最大化時、自身の特殊攻撃で与えるダメージ1.5倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) 軍港 舞鶴・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [],
@@ -57235,6 +58488,16 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［絢爛］ダノター城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "gapShorten",
      "mode": "percent",
      "value": 60,
@@ -57291,6 +58554,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+1 ［絢爛］ダノター城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［絢爛］ダノター城・特技"
      },
      {
       "source": "特技",
@@ -58425,12 +59698,36 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 獅子心王の伝説",
    "text": "【配置】自身を除く射程内味方1体毎に自身の攻撃60上昇 巨大化気13%軽減(最大50%)。射程内城娘の攻撃150上昇 最大化時自身の耐久が最大の時与えるダメージ2倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+100%(2.0倍) [最大化時自身の耐久が最大] ［獅聖］ガイヤール城・特技",
+     "condition": "最大化時自身の耐久が最大"
+    }
+   ]
   },
   "strategy": {
    "name": "[改壱] / サクレ・デ・ルミエール （使用まで45秒：消費気7）",
    "text": "発動時対象の耐久を最大まで回復。30秒間対象の 耐久と攻撃3倍、耐久が50%以上の敵に対して 与えるダメージが2倍(自分のみが対象)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) [耐久が50%以上の敵] ［獅聖］ガイヤール城・計略",
+     "condition": "耐久が50%以上の敵"
+    }
+   ],
    "cooldown": 45,
    "cost": 7
   },
@@ -58445,13 +59742,37 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 獅子吼の輝炎",
     "text": "【配置】自身を除く射程内味方1体毎に自身の攻撃50上昇 巨大化気10%軽減(最大50%) 最大化時自身の耐久が最大の時与えるダメージ1.5倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "all",
+      "stackable": true,
+      "raw": "+50%(1.5倍) [最大化時自身の耐久が最大] ［獅聖］ガイヤール城・特技",
+      "condition": "最大化時自身の耐久が最大"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 獅子心王の伝説",
     "text": "【配置】自身を除く射程内味方1体毎に自身の攻撃60上昇 巨大化気13%軽減(最大50%)。射程内城娘の攻撃150上昇 最大化時自身の耐久が最大の時与えるダメージ2倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [最大化時自身の耐久が最大] ［獅聖］ガイヤール城・特技",
+      "condition": "最大化時自身の耐久が最大"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -58459,13 +59780,37 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / リオン・デ・ルミエール （使用まで45秒：消費気7）",
     "text": "発動時対象の耐久を最大まで回復。30秒間対象の 耐久と攻撃2.5倍、耐久が50%以上の敵に対して 与えるダメージが1.5倍(自分のみが対象)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) [耐久が50%以上の敵] ［獅聖］ガイヤール城・計略",
+      "condition": "耐久が50%以上の敵"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / サクレ・デ・ルミエール （使用まで45秒：消費気7）",
     "text": "発動時対象の耐久を最大まで回復。30秒間対象の 耐久と攻撃3倍、耐久が50%以上の敵に対して 与えるダメージが2倍(自分のみが対象)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [耐久が50%以上の敵] ［獅聖］ガイヤール城・計略",
+      "condition": "耐久が50%以上の敵"
+     }
+    ]
    }
   ],
   "allSpecials": [
@@ -58566,12 +59911,23 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "rangeFlat",
-     "mode": "flat",
-     "value": 100,
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
      "target": "self",
-     "stackable": false,
-     "raw": "+100 ［竜焔］仙台城・特技"
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［竜焔］仙台城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) ［竜焔］仙台城・特技"
     }
    ]
   },
@@ -58595,6 +59951,16 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+80% ［竜焔］仙台城・特殊能力"
+    },
+    {
+     "source": "特殊能力",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "self",
+     "stackable": true,
+     "raw": "+20%(1.2倍) ［竜焔］仙台城・特殊能力"
     }
    ]
   },
@@ -58603,7 +59969,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 独眼流銃刀術",
     "text": "自身の特殊攻撃で与えるダメージが1.2倍 自身の射程の値を攻撃に加算 自身の射程が1000以上の場合与えるダメージが1.5倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［竜焔］仙台城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
@@ -58612,12 +59989,23 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "rangeFlat",
-      "mode": "flat",
-      "value": 100,
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
       "target": "self",
-      "stackable": false,
-      "raw": "+100 ［竜焔］仙台城・特技"
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［竜焔］仙台城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［竜焔］仙台城・特技"
      }
     ]
    }
@@ -58650,6 +60038,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+80% ［竜焔］仙台城・特殊能力"
+     },
+     {
+      "source": "特殊能力",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［竜焔］仙台城・特殊能力"
      }
     ]
    }
@@ -59546,6 +60944,16 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+150 ［正月］鎌刃城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［正月］鎌刃城・特技"
     }
    ]
   },
@@ -59559,12 +60967,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkFlat",
-      "mode": "flat",
-      "value": 100,
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
       "target": "self",
-      "stackable": false,
-      "raw": "+100 ［正月］鎌刃城・特技"
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［正月］鎌刃城・特技"
      }
     ]
    },
@@ -59581,6 +60990,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+150 ［正月］鎌刃城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［正月］鎌刃城・特技"
      }
     ]
    }
@@ -60748,6 +62167,16 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+70% 虎牢関・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) 虎牢関・特技"
     }
    ]
   },
@@ -60772,6 +62201,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+60% 虎牢関・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) 虎牢関・特技"
      }
     ]
    },
@@ -60788,6 +62227,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+70% 虎牢関・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) 虎牢関・特技"
      }
     ]
    }
@@ -60913,12 +62362,14 @@ window.SCRE_DATA = [
     },
     {
      "source": "特殊攻撃",
-     "stat": "dmgTakenDown",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 70,
-     "target": "inRange",
-     "stackable": false,
-     "raw": "+70% 霞ヶ城・特殊攻撃"
+     "value": 25,
+     "multiplier": 1.25,
+     "target": "self",
+     "stackable": true,
+     "raw": "+25%(1.25倍) [耐久が50%以上の敵] 霞ヶ城・特殊攻撃",
+     "condition": "耐久が50%以上の敵"
     }
    ]
   },
@@ -60954,12 +62405,14 @@ window.SCRE_DATA = [
      },
      {
       "source": "特殊攻撃",
-      "stat": "dmgTakenDown",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 70,
-      "target": "inRange",
-      "stackable": false,
-      "raw": "+70% 霞ヶ城・特殊攻撃"
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) [耐久が50%以上の敵] 霞ヶ城・特殊攻撃",
+      "condition": "耐久が50%以上の敵"
      }
     ]
    },
@@ -60979,12 +62432,14 @@ window.SCRE_DATA = [
      },
      {
       "source": "特殊攻撃",
-      "stat": "dmgTakenDown",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 70,
-      "target": "inRange",
-      "stackable": false,
-      "raw": "+70% 霞ヶ城・特殊攻撃"
+      "value": 25,
+      "multiplier": 1.25,
+      "target": "self",
+      "stackable": true,
+      "raw": "+25%(1.25倍) [耐久が50%以上の敵] 霞ヶ城・特殊攻撃",
+      "condition": "耐久が50%以上の敵"
      }
     ]
    }
@@ -61078,7 +62533,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 聖ヨハネ騎士団の総長",
    "text": "自身の耐久40%、足止め数3上昇、被ダメージ50% 軽減(効果重複)。射程内城娘と蔵へのダメージを 代わりに受ける。計略中、与えるダメージ1.5倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) 城塞都市ヴァレッタ・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[改壱] / 病院騎士の聖地防衛 （使用まで40秒：消費気5）",
@@ -61103,13 +62569,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / マルタ騎士団の防衛",
     "text": "自身の足止め数3上昇、被ダメージ40% 軽減(効果重複)。射程内城娘と蔵へのダメージを 代わりに受ける。計略中、与えるダメージ1.4倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) 城塞都市ヴァレッタ・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 聖ヨハネ騎士団の総長",
     "text": "自身の耐久40%、足止め数3上昇、被ダメージ50% 軽減(効果重複)。射程内城娘と蔵へのダメージを 代わりに受ける。計略中、与えるダメージ1.5倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) 城塞都市ヴァレッタ・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -61645,6 +63133,16 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+250 ［無疆］江戸城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［無疆］江戸城・特技"
     }
    ]
   },
@@ -61671,6 +63169,17 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+1 ［無疆］江戸城・特殊能力"
+    },
+    {
+     "source": "特殊能力",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "self",
+     "stackable": true,
+     "raw": "+20%(1.2倍) [耐久80%以下の敵] ［無疆］江戸城・特殊能力",
+     "condition": "耐久80%以下の敵"
     }
    ]
   },
@@ -61697,6 +63206,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+200 ［無疆］江戸城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ［無疆］江戸城・特技"
      }
     ]
    },
@@ -61731,6 +63250,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+250 ［無疆］江戸城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［無疆］江戸城・特技"
      }
     ]
    }
@@ -61759,6 +63288,17 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+1 ［無疆］江戸城・特殊能力"
+     },
+     {
+      "source": "特殊能力",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) [耐久80%以下の敵] ［無疆］江戸城・特殊能力",
+      "condition": "耐久80%以下の敵"
      }
     ]
    }
@@ -62172,6 +63712,16 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+12% ミスカトニック大学・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ミスカトニック大学・特技"
     }
    ]
   },
@@ -62191,6 +63741,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+10% ミスカトニック大学・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ミスカトニック大学・特技"
      }
     ]
    },
@@ -62207,6 +63767,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+12% ミスカトニック大学・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ミスカトニック大学・特技"
      }
     ]
    }
@@ -63483,12 +65053,14 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "atkSpeed",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 70,
+     "value": 700,
+     "multiplier": 8.0,
      "target": "self",
-     "stackable": false,
-     "raw": "+70% ［アイドル］コンシェルジュリー・特技"
+     "stackable": true,
+     "raw": "+700%(8.0倍) [耐久30%以下の敵] ［アイドル］コンシェルジュリー・特技",
+     "condition": "耐久30%以下の敵"
     }
    ]
   },
@@ -63502,12 +65074,14 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "dmgDealt",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 60,
+      "value": 700,
+      "multiplier": 8.0,
       "target": "self",
-      "stackable": false,
-      "raw": "+60% ［アイドル］コンシェルジュリー・特技"
+      "stackable": true,
+      "raw": "+700%(8.0倍) [耐久25%以下の敵] ［アイドル］コンシェルジュリー・特技",
+      "condition": "耐久25%以下の敵"
      }
     ]
    },
@@ -63518,12 +65092,14 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkSpeed",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 70,
+      "value": 700,
+      "multiplier": 8.0,
       "target": "self",
-      "stackable": false,
-      "raw": "+70% ［アイドル］コンシェルジュリー・特技"
+      "stackable": true,
+      "raw": "+700%(8.0倍) [耐久30%以下の敵] ［アイドル］コンシェルジュリー・特技",
+      "condition": "耐久30%以下の敵"
      }
     ]
    }
@@ -63746,6 +65322,16 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+80% ［漆磊］広島城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 120,
+     "multiplier": 2.2,
+     "target": "self",
+     "stackable": true,
+     "raw": "+120%(2.2倍) ［漆磊］広島城・特技"
     }
    ]
   },
@@ -63780,6 +65366,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+70% ［漆磊］広島城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［漆磊］広島城・特技"
      }
     ]
    },
@@ -63796,6 +65392,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+80% ［漆磊］広島城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 120,
+      "multiplier": 2.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+120%(2.2倍) ［漆磊］広島城・特技"
      }
     ]
    }
@@ -64548,6 +66154,16 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+60 ［夏］七飯台場・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 80,
+     "multiplier": 1.8,
+     "target": "self",
+     "stackable": true,
+     "raw": "+80%(1.8倍) ［夏］七飯台場・特技"
     }
    ]
   },
@@ -64567,6 +66183,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+60% ［夏］七飯台場・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 70,
+      "multiplier": 1.7,
+      "target": "self",
+      "stackable": true,
+      "raw": "+70%(1.7倍) ［夏］七飯台場・特技"
      }
     ]
    },
@@ -64592,6 +66218,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+60 ［夏］七飯台場・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 80,
+      "multiplier": 1.8,
+      "target": "self",
+      "stackable": true,
+      "raw": "+80%(1.8倍) ［夏］七飯台場・特技"
      }
     ]
    }
@@ -65270,7 +66906,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / ロンギヌスの永傷一閃",
    "text": "指定方向の敵に攻撃の8倍の攻撃を行い、永続で攻撃した敵に対する 回復がダメージに変化。ストック数で攻撃と射程が上昇(最大2倍) ストック最大時、与えるダメージが1.5倍(射程：極長、自動で蓄積)",
-   "effects": []
+   "effects": [
+    {
+     "source": "特殊攻撃",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) 聖杯城コルベニック・特殊攻撃"
+    }
+   ]
   },
   "allSkills": [
    {
@@ -65312,13 +66959,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ロンギヌスの一閃",
     "text": "指定方向の敵に攻撃の7倍の攻撃を行い、永続で攻撃した敵に対する 回復がダメージに変化。ストック数で攻撃と射程が上昇(最大2倍) ストック最大時、与えるダメージが1.5倍(射程：極長、自動で蓄積)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) 聖杯城コルベニック・特殊攻撃"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / ロンギヌスの永傷一閃",
     "text": "指定方向の敵に攻撃の8倍の攻撃を行い、永続で攻撃した敵に対する 回復がダメージに変化。ストック数で攻撃と射程が上昇(最大2倍) ストック最大時、与えるダメージが1.5倍(射程：極長、自動で蓄積)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) 聖杯城コルベニック・特殊攻撃"
+     }
+    ]
    }
   ],
   "parseWarnings": []
@@ -65401,7 +67070,19 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 葵紋の夏日輪",
    "text": "全城娘の攻撃が150、攻撃速度40%上昇、敵防御を40%無視 射程内城娘には効果1.5倍。計略中、自身の攻撃50%上昇(効果重複) 射程内敵1体毎に与えるダメージが40%ずつ上昇(最大200%)",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+40% [射程内敵1体毎] ［夏］江戸城・特技",
+     "condition": "射程内敵1体毎"
+    }
+   ]
   },
   "strategy": null,
   "special": null,
@@ -65410,13 +67091,37 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 泰平の夏舞台",
     "text": "全城娘の攻撃速度35%上昇、敵防御を35%無視、射程内城娘 には効果1.4倍。計略中、自身の攻撃40%上昇(効果重複) 射程内敵1体毎に与えるダメージが30%ずつ上昇(最大150%)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30% [射程内敵1体毎] ［夏］江戸城・特技",
+      "condition": "射程内敵1体毎"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 葵紋の夏日輪",
     "text": "全城娘の攻撃が150、攻撃速度40%上昇、敵防御を40%無視 射程内城娘には効果1.5倍。計略中、自身の攻撃50%上昇(効果重複) 射程内敵1体毎に与えるダメージが40%ずつ上昇(最大200%)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+40% [射程内敵1体毎] ［夏］江戸城・特技",
+      "condition": "射程内敵1体毎"
+     }
+    ]
    }
   ],
   "allStrategies": [],
@@ -65507,7 +67212,18 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 常夏海遊の使徒 （使用まで30秒：消費気0：赤青配置）",
    "text": "自身の3倍の攻撃で1体とその周囲に攻撃を行う伏兵、配置 中、自身と伏兵の与ダメが2.2倍。耐久50%以上の敵に自身 が与えるダメージ1.2倍。巨大化毎に計略回数1増加",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "self",
+     "stackable": true,
+     "raw": "+20%(1.2倍) ［夏］パンデモニウム・計略"
+    }
+   ],
    "cooldown": 30,
    "cost": 0
   },
@@ -65531,13 +67247,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 水遊の使徒 （使用まで30秒：消費気0：赤青配置）",
     "text": "自身の2.5倍の攻撃で1体とその周囲に攻撃を行う伏兵、配 置中、自身と伏兵の与ダメが2倍。耐久50%以上の敵に自身 が与えるダメージ1.2倍。巨大化毎に計略回数1増加",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［夏］パンデモニウム・計略"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 常夏海遊の使徒 （使用まで30秒：消費気0：赤青配置）",
     "text": "自身の3倍の攻撃で1体とその周囲に攻撃を行う伏兵、配置 中、自身と伏兵の与ダメが2.2倍。耐久50%以上の敵に自身 が与えるダメージ1.2倍。巨大化毎に計略回数1増加",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［夏］パンデモニウム・計略"
+     }
+    ]
    }
   ],
   "allSpecials": [],
@@ -65625,6 +67363,16 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 70,
+     "multiplier": 1.7,
+     "target": "self",
+     "stackable": true,
+     "raw": "+70%(1.7倍) ［夏］ルーヴル宮殿・特技"
+    },
+    {
+     "source": "特技",
      "stat": "enemySlow",
      "mode": "percent",
      "value": 50,
@@ -65664,6 +67412,16 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［夏］ルーヴル宮殿・特技"
+     },
+     {
+      "source": "特技",
       "stat": "enemyDefDown",
       "mode": "percent",
       "value": 40,
@@ -65678,6 +67436,16 @@ window.SCRE_DATA = [
     "name": "[改壱] /真夏の凱旋",
     "text": "自身の特殊攻撃で与えるダメージが1.7倍。射程内の城娘の攻撃が 50%上昇、攻撃後の隙が50％短縮、[夏] 城娘は効果値65%に上昇 射程内の敵の防御と移動速度が50%低下",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 70,
+      "multiplier": 1.7,
+      "target": "self",
+      "stackable": true,
+      "raw": "+70%(1.7倍) ［夏］ルーヴル宮殿・特技"
+     },
      {
       "source": "特技",
       "stat": "enemySlow",
@@ -65818,6 +67586,16 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "self",
+     "stackable": true,
+     "raw": "+40%(1.4倍) ［肝試し］千鳥城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "enemyDmgTakenUp",
      "mode": "percent",
      "value": 70,
@@ -65852,6 +67630,16 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［肝試し］千鳥城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "enemyDmgTakenUp",
       "mode": "percent",
       "value": 60,
@@ -65874,6 +67662,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50% ［肝試し］千鳥城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ［肝試し］千鳥城・特技"
      },
      {
       "source": "特技",
@@ -66924,7 +68722,18 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 三日月の独眼竜 （使用まで60秒：消費気5）",
    "text": "50秒間対象の射程1.3倍、鉄砲の後退効果が上昇、攻撃を 6連続で行い、敵から狙われず、全マス移動可能、攻撃が 3000以上の時与えるダメージが2.2倍(自分のみ)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 120,
+     "multiplier": 2.2,
+     "target": "self",
+     "stackable": true,
+     "raw": "+120%(2.2倍) ［お月見］青葉城・計略"
+    }
+   ],
    "cooldown": 60,
    "cost": 5
   },
@@ -66948,13 +68757,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 三夜の独眼竜 （使用まで60秒：消費気5）",
     "text": "35秒間対象の射程1.3倍、鉄砲の後退効果が上昇、攻撃を 6連続で行い、敵から狙われず、全マス移動可能、攻撃が 3000以上の時与えるダメージが2倍(自分のみ)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［お月見］青葉城・計略"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 三日月の独眼竜 （使用まで60秒：消費気5）",
     "text": "50秒間対象の射程1.3倍、鉄砲の後退効果が上昇、攻撃を 6連続で行い、敵から狙われず、全マス移動可能、攻撃が 3000以上の時与えるダメージが2.2倍(自分のみ)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 120,
+      "multiplier": 2.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+120%(2.2倍) ［お月見］青葉城・計略"
+     }
+    ]
    }
   ],
   "allSpecials": [],
@@ -67064,6 +68895,17 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+250%(3.5倍) ［お月見］小牧山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+50%(1.5倍) [以下の敵] ［お月見］小牧山城・特技",
+     "condition": "以下の敵"
     }
    ]
   },
@@ -67103,6 +68945,17 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+200%(3.0倍) ［お月見］小牧山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) [以下の敵] ［お月見］小牧山城・特技",
+      "condition": "以下の敵"
      }
     ]
    },
@@ -67128,6 +68981,17 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+250%(3.5倍) ［お月見］小牧山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+50%(1.5倍) [以下の敵] ［お月見］小牧山城・特技",
+      "condition": "以下の敵"
      }
     ]
    }
@@ -67534,7 +69398,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 永劫の川中島合戦",
    "text": "射程内の全敵に攻撃の7倍で攻撃を行い、20秒間「火傷」にする(攻撃 低下が50%に上昇)。30秒間射程内の城娘の攻撃500、与ダメージ60% 上昇。平城の与えるダメージ1.3倍、地獄城の攻撃1.3倍(効果重複)",
-   "effects": []
+   "effects": [
+    {
+     "source": "特殊攻撃",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［裏］松代城・特殊攻撃"
+    }
+   ]
   },
   "allSkills": [
    {
@@ -67589,13 +69464,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 無念の川中島",
     "text": "射程内の全敵に攻撃の7倍で攻撃を行い、20秒間「火傷」にする(攻撃 低下が50%に上昇)。30秒間射程内の城娘の攻撃が500、与ダメージが50% 上昇。平城の与えるダメージ1.3倍、地獄城の攻撃1.3倍(効果重複)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［裏］松代城・特殊攻撃"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 永劫の川中島合戦",
     "text": "射程内の全敵に攻撃の7倍で攻撃を行い、20秒間「火傷」にする(攻撃 低下が50%に上昇)。30秒間射程内の城娘の攻撃500、与ダメージ60% 上昇。平城の与えるダメージ1.3倍、地獄城の攻撃1.3倍(効果重複)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［裏］松代城・特殊攻撃"
+     }
+    ]
    }
   ],
   "parseWarnings": [],
@@ -69717,12 +71614,13 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "gapShorten",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 35,
+     "value": 50,
+     "multiplier": 1.5,
      "target": "self",
-     "stackable": false,
-     "raw": "+35% ［雷鳥の天衣］ヴァイジャヤンタ・特技"
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［雷鳥の天衣］ヴァイジャヤンタ・特技"
     }
    ]
   },
@@ -69749,7 +71647,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 天帝のソーサラー",
     "text": "【配置】射程内の敵の移動速度と攻撃速度を40%低下 最大化時、全ての遠隔城娘の攻撃が40%上昇 計略効果中に自身の攻撃で与えるダメージが1.4倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "all",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ［雷鳥の天衣］ヴァイジャヤンタ・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
@@ -69758,12 +71667,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "gapShorten",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 35,
+      "value": 50,
+      "multiplier": 1.5,
       "target": "self",
-      "stackable": false,
-      "raw": "+35% ［雷鳥の天衣］ヴァイジャヤンタ・特技"
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［雷鳥の天衣］ヴァイジャヤンタ・特技"
      }
     ]
    }
@@ -70818,7 +72728,18 @@ window.SCRE_DATA = [
    "stage": "無印",
    "name": "[無印] / 六文深紅鹿角兜",
    "text": "敵を撃破する度に自身の攻撃と耐久が4%ずつ上昇 (上限120%)。全近接城娘の攻撃が150上昇 計略使用時、初回の攻撃で標的に与えるダメージが3倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 200,
+     "multiplier": 3.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+200%(3.0倍) 真田幸村・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[無印] / 忠義の朱槍 （使用まで30秒：消費気5）",
@@ -70843,7 +72764,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 六文深紅鹿角兜",
     "text": "敵を撃破する度に自身の攻撃と耐久が4%ずつ上昇 (上限120%)。全近接城娘の攻撃が150上昇 計略使用時、初回の攻撃で標的に与えるダメージが3倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 200,
+      "multiplier": 3.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+200%(3.0倍) 真田幸村・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -71819,7 +73751,19 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[無印] / 大乱ノ始焔 （使用まで65秒：消費気15）",
    "text": "20秒間対象の特殊攻撃ゲージが最大になり特殊攻撃のみを 行う。60秒間対象の与ダメージ2.2倍、射程1.3倍、耐久が 50%以上の敵に与えるダメージ2.5倍(自分のみ)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 150,
+     "multiplier": 2.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+150%(2.5倍) [50%以上の敵] 織田吉法師・計略",
+     "condition": "50%以上の敵"
+    }
+   ],
    "cooldown": 65,
    "cost": 15
   },
@@ -71852,7 +73796,19 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 大乱ノ始焔 （使用まで65秒：消費気15）",
     "text": "20秒間対象の特殊攻撃ゲージが最大になり特殊攻撃のみを 行う。60秒間対象の与ダメージ2.2倍、射程1.3倍、耐久が 50%以上の敵に与えるダメージ2.5倍(自分のみ)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 150,
+      "multiplier": 2.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+150%(2.5倍) [50%以上の敵] 織田吉法師・計略",
+      "condition": "50%以上の敵"
+     }
+    ]
    }
   ],
   "allSpecials": [
@@ -73866,6 +75822,16 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) 冥界の魔術師 ヘカティエ・計略"
+    },
+    {
+     "source": "計略",
      "stat": "atkPercent",
      "mode": "percent",
      "value": 15,
@@ -73892,6 +75858,16 @@ window.SCRE_DATA = [
     "name": "[無印] / 夜闇の魔術師 （使用まで45秒：消費気5）",
     "text": "30秒間対象が攻撃で与えるダメージが2倍 射程と範囲攻撃の範囲が1.5倍となり、敵から狙われない 射程内の味方の攻撃が1.15倍(同種重複。自分のみ)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) 冥界の魔術師 ヘカティエ・計略"
+     },
      {
       "source": "計略",
       "stat": "atkPercent",
@@ -75616,6 +77592,16 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": true,
      "raw": "+70% 【シェイプシフター娘】アスタ・特技（重複）"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) 【シェイプシフター娘】アスタ・特技"
     }
    ]
   },
@@ -75651,6 +77637,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": true,
       "raw": "+70% 【シェイプシフター娘】アスタ・特技（重複）"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) 【シェイプシフター娘】アスタ・特技"
      }
     ]
    }
@@ -76493,7 +78489,19 @@ window.SCRE_DATA = [
    "stage": "無印",
    "name": "[無印] / 永遠なれ白の帝国",
    "text": "自身が地上敵に与えるダメージ1.5倍、自身を除く射程内味方 1体毎に攻撃/防御が35%ずつ上昇(最大140%。効果重複) 自身の攻撃と防御の30%の値を射程内の味方に加算",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) [自身が地上敵] 初代白の皇帝ヴィラヘルム・特技",
+     "condition": "自身が地上敵"
+    }
+   ]
   },
   "strategy": {
    "name": "[無印] / 白光の皇帝 （使用まで40秒：消費気5）",
@@ -76527,7 +78535,19 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 永遠なれ白の帝国",
     "text": "自身が地上敵に与えるダメージ1.5倍、自身を除く射程内味方 1体毎に攻撃/防御が35%ずつ上昇(最大140%。効果重複) 自身の攻撃と防御の30%の値を射程内の味方に加算",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) [自身が地上敵] 初代白の皇帝ヴィラヘルム・特技",
+      "condition": "自身が地上敵"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -76634,6 +78654,16 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 200,
+     "multiplier": 3.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+200%(3.0倍) 【川熊娘】イオ・特技"
+    },
+    {
+     "source": "特技",
      "stat": "enemyDefDown",
      "mode": "percent",
      "value": 50,
@@ -76667,6 +78697,16 @@ window.SCRE_DATA = [
     "name": "[無印] / 縄張りの川底",
     "text": "3回攻撃毎に自身の与えるダメージ3倍、攻撃する度に10秒間 攻撃後の隙が10%ずつ短縮(最大100%)。射程内の敵の 攻撃と防御が50%低下、足止め中の敵は80%低下",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 200,
+      "multiplier": 3.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+200%(3.0倍) 【川熊娘】イオ・特技"
+     },
      {
       "source": "特技",
       "stat": "enemyDefDown",
@@ -77089,6 +79129,17 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+200 西住みほ・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) [自身が耐久50%以上の敵] 西住みほ・特技",
+     "condition": "自身が耐久50%以上の敵"
     }
    ]
   },
@@ -77129,6 +79180,17 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+200 西住みほ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) [自身が耐久50%以上の敵] 西住みほ・特技",
+      "condition": "自身が耐久50%以上の敵"
      }
     ]
    }
@@ -77583,7 +79645,18 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[無印] / サッキヤルヴェン・ポルッカ （使用まで50秒：消費気5）",
    "text": "25秒間対象が全ての攻撃を回避し、攻撃と与ダメージが 2.2倍、標的へのダメージ1.5倍、計略対象の耐久が 50%以上の時与えるダメージ1.5倍(自分のみ)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ミカ・計略"
+    }
+   ],
    "cooldown": 50,
    "cost": 5
   },
@@ -77643,7 +79716,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / サッキヤルヴェン・ポルッカ （使用まで50秒：消費気5）",
     "text": "25秒間対象が全ての攻撃を回避し、攻撃と与ダメージが 2.2倍、標的へのダメージ1.5倍、計略対象の耐久が 50%以上の時与えるダメージ1.5倍(自分のみ)",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ミカ・計略"
+     }
+    ]
    }
   ],
   "allSpecials": [
@@ -84716,6 +86800,17 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50% 金ヶ崎城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) [自身の耐久が80%以上の] 金ヶ崎城・特技",
+     "condition": "自身の耐久が80%以上の"
     }
    ]
   },
@@ -84773,6 +86868,17 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50% 金ヶ崎城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) [自身の耐久が80%以上の] 金ヶ崎城・特技",
+      "condition": "自身の耐久が80%以上の"
      }
     ]
    }
@@ -90335,7 +92441,18 @@ window.SCRE_DATA = [
    "stage": "改弐",
    "name": "[改弐] / 惟新公",
    "text": "射程内の城娘の攻撃が25%と50上昇 全ての九州城娘の与えるダメージが1.15倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 15,
+     "multiplier": 1.15,
+     "target": "all",
+     "stackable": true,
+     "raw": "+15%(1.15倍) 鹿児島城・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[改弐] / 群鶏十一鶴 （使用まで60秒：消費気7）",
@@ -90372,7 +92489,18 @@ window.SCRE_DATA = [
     "stage": "改弐",
     "name": "[改弐] / 惟新公",
     "text": "射程内の城娘の攻撃が25%と50上昇 全ての九州城娘の与えるダメージが1.15倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 15,
+      "multiplier": 1.15,
+      "target": "all",
+      "stackable": true,
+      "raw": "+15%(1.15倍) 鹿児島城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -93291,6 +95419,17 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+200%(3.0倍) 久慈城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) [攻撃が300以下の敵] 久慈城・計略",
+     "condition": "攻撃が300以下の敵"
     }
    ],
    "cooldown": 40,
@@ -93357,6 +95496,17 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+200%(3.0倍) 久慈城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [攻撃が300以下の敵] 久慈城・計略",
+      "condition": "攻撃が300以下の敵"
      }
     ]
    }
@@ -93610,6 +95760,16 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50% 柳川城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+20%(1.2倍) 柳川城・特技"
     }
    ]
   },
@@ -93651,6 +95811,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50% 柳川城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+20%(1.2倍) 柳川城・特技"
      }
     ]
    }
@@ -108277,6 +110447,16 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50%(1.5倍) 中津城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 700,
+     "multiplier": 8.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+700%(8.0倍) 中津城・計略"
     }
    ],
    "cooldown": 60,
@@ -108332,6 +110512,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) 中津城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 700,
+      "multiplier": 8.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+700%(8.0倍) 中津城・計略"
      }
     ]
    }
@@ -109109,12 +111299,14 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "defPercent",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 50,
+     "value": 150,
+     "multiplier": 2.5,
      "target": "self",
-     "stackable": false,
-     "raw": "+50% 淀城・特技"
+     "stackable": true,
+     "raw": "+150%(2.5倍) [自身の耐久が最大] 淀城・特技",
+     "condition": "自身の耐久が最大"
     }
    ]
   },
@@ -109176,12 +111368,14 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "defPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 50,
+      "value": 150,
+      "multiplier": 2.5,
       "target": "self",
-      "stackable": false,
-      "raw": "+50% 淀城・特技"
+      "stackable": true,
+      "raw": "+150%(2.5倍) [自身の耐久が最大] 淀城・特技",
+      "condition": "自身の耐久が最大"
      }
     ]
    }
@@ -109325,6 +111519,17 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+90 井伊谷城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+30%(1.3倍) [最大耐久25000以上の射程内城娘の] 井伊谷城・特技",
+     "condition": "最大耐久25000以上の射程内城娘の"
     }
    ]
   },
@@ -109392,6 +111597,17 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+90 井伊谷城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) [最大耐久25000以上の射程内城娘の] 井伊谷城・特技",
+      "condition": "最大耐久25000以上の射程内城娘の"
      }
     ]
    }
@@ -119092,11 +121308,12 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "atkPercent",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
      "value": 25,
+     "multiplier": 1.25,
      "target": "self",
-     "stackable": false,
+     "stackable": true,
      "raw": "+25% ［バレンタイン］大洲城・特技"
     }
    ]
@@ -119133,11 +121350,12 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 25,
+      "multiplier": 1.25,
       "target": "self",
-      "stackable": false,
+      "stackable": true,
       "raw": "+25% ［バレンタイン］大洲城・特技"
      }
     ]
@@ -123934,7 +126152,19 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改弐] / 風魔党透破 （使用まで40秒：消費気5：赤青配置）",
    "text": "自身の2倍の耐久、攻撃、防御で敵3体に攻撃する伏兵を配置 伏兵の耐久が30%以下で与えるダメージが3倍 時間経過で耐久が減少し、最長120秒で消滅",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 200,
+     "multiplier": 3.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+200%(3.0倍) [伏兵の耐久が30%以下] 飯沼城・計略",
+     "condition": "伏兵の耐久が30%以下"
+    }
+   ],
    "cooldown": 40,
    "cost": 5
   },
@@ -124000,7 +126230,19 @@ window.SCRE_DATA = [
     "stage": "改弐",
     "name": "[改弐] / 風魔党透破 （使用まで40秒：消費気5：赤青配置）",
     "text": "自身の2倍の耐久、攻撃、防御で敵3体に攻撃する伏兵を配置 伏兵の耐久が30%以下で与えるダメージが3倍 時間経過で耐久が減少し、最長120秒で消滅",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 200,
+      "multiplier": 3.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+200%(3.0倍) [伏兵の耐久が30%以下] 飯沼城・計略",
+      "condition": "伏兵の耐久が30%以下"
+     }
+    ]
    }
   ],
   "allSpecials": [],
@@ -131121,12 +133363,13 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
-     "stat": "rangeFlat",
-     "mode": "flat",
-     "value": 15,
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
      "target": "inRange",
-     "stackable": false,
-     "raw": "+15 ジェファーソン砦・特技"
+     "stackable": true,
+     "raw": "+30%(1.3倍) ジェファーソン砦・特技"
     }
    ]
   },
@@ -131151,6 +133394,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25 ジェファーソン砦・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ジェファーソン砦・特技"
      }
     ]
    },
@@ -131170,12 +133423,13 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
-      "stat": "rangeFlat",
-      "mode": "flat",
-      "value": 15,
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
       "target": "inRange",
-      "stackable": false,
-      "raw": "+15 ジェファーソン砦・特技"
+      "stackable": true,
+      "raw": "+30%(1.3倍) ジェファーソン砦・特技"
      }
     ]
    }
@@ -131360,12 +133614,13 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "enemySlow",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 30,
-     "target": "self",
-     "stackable": false,
-     "raw": "+30% ［正月］鳥取城・特技"
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+20%(1.2倍) ［正月］鳥取城・特技"
     }
    ]
   },
@@ -131395,12 +133650,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "enemySlow",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 30,
-      "target": "self",
-      "stackable": false,
-      "raw": "+30% ［正月］鳥取城・特技"
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［正月］鳥取城・特技"
      }
     ]
    }
@@ -132261,7 +134517,19 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 潮来の花嫁",
    "text": "自身の攻撃時、耐久が90%以上の場合 敵に与えるダメージが1.3倍 全ての[花嫁衣装]城娘の攻撃が80上昇",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) [敵] ［花嫁衣装］馬場城・特技",
+     "condition": "敵"
+    }
+   ]
   },
   "strategy": {
    "name": "[無印] / 婚礼の〆うどん （使用まで50秒：消費気7）",
@@ -132276,13 +134544,37 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 花梅の誓い",
     "text": "自身の攻撃時、耐久が90%以上の場合 敵に与えるダメージが1.3倍 射程内の[花嫁衣装]城娘の攻撃が50上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) [敵] ［花嫁衣装］馬場城・特技",
+      "condition": "敵"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 潮来の花嫁",
     "text": "自身の攻撃時、耐久が90%以上の場合 敵に与えるダメージが1.3倍 全ての[花嫁衣装]城娘の攻撃が80上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) [敵] ［花嫁衣装］馬場城・特技",
+      "condition": "敵"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -134938,12 +137230,13 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "atkSpeed",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 40,
-     "target": "self",
-     "stackable": false,
-     "raw": "+40% 首里城・特技"
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "all",
+     "stackable": true,
+     "raw": "+20%(1.2倍) 首里城・特技"
     }
    ]
   },
@@ -135005,12 +137298,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkSpeed",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 40,
-      "target": "self",
-      "stackable": false,
-      "raw": "+40% 首里城・特技"
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "all",
+      "stackable": true,
+      "raw": "+20%(1.2倍) 首里城・特技"
      }
     ]
    }
@@ -140064,7 +142358,18 @@ window.SCRE_DATA = [
    "stage": "改弐",
    "name": "[改弐] / 高天神山",
    "text": "自身の攻撃が40%、射程が80上昇 優先攻撃対象に与えるダメージが1.5倍(遠隔のみ優先は 対象外)、射程内の遠隔城娘の攻撃が100上昇",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) 高天神城・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[無印] / 天神様の助勢 （使用まで45秒：消費気7）",
@@ -140078,6 +142383,17 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+80 高天神城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "self",
+     "stackable": true,
+     "raw": "+40%(1.4倍) [50%以上の敵] 高天神城・計略",
+     "condition": "50%以上の敵"
     }
    ],
    "cooldown": 45,
@@ -140101,7 +142417,18 @@ window.SCRE_DATA = [
     "stage": "改弐",
     "name": "[改弐] / 高天神山",
     "text": "自身の攻撃が40%、射程が80上昇 優先攻撃対象に与えるダメージが1.5倍(遠隔のみ優先は 対象外)、射程内の遠隔城娘の攻撃が100上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) 高天神城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -140118,6 +142445,17 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+80 高天神城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) [50%以上の敵] 高天神城・計略",
+      "condition": "50%以上の敵"
      }
     ]
    }
@@ -140352,7 +142690,19 @@ window.SCRE_DATA = [
    "stage": "改弐",
    "name": "[改弐] / ロイヤル・マイル",
    "text": "自身の砲弾が直撃した敵に与えるダメージが1.5倍 全大砲城娘の爆風ダメージが40%上昇(同種効果と重複) 射程内の城娘の耐久と攻撃が30%、射程が40上昇",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+50%(1.5倍) [自身の砲弾が直撃した敵] エディンバラ城・特技",
+     "condition": "自身の砲弾が直撃した敵"
+    }
+   ]
   },
   "strategy": {
    "name": "[改弐] / 超重砲モンス・メグ （使用まで30秒：消費気5）",
@@ -140399,7 +142749,19 @@ window.SCRE_DATA = [
     "stage": "改弐",
     "name": "[改弐] / ロイヤル・マイル",
     "text": "自身の砲弾が直撃した敵に与えるダメージが1.5倍 全大砲城娘の爆風ダメージが40%上昇(同種効果と重複) 射程内の城娘の耐久と攻撃が30%、射程が40上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+50%(1.5倍) [自身の砲弾が直撃した敵] エディンバラ城・特技",
+      "condition": "自身の砲弾が直撃した敵"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -148566,8 +150928,9 @@ window.SCRE_DATA = [
      "stat": "dmgDealtTarget",
      "mode": "percent",
      "value": 10,
-     "target": "self",
-     "stackable": false,
+     "multiplier": 1.1,
+     "target": "inRange",
+     "stackable": true,
      "raw": "+10% 立花山城・特技"
     },
     {
@@ -148650,8 +151013,9 @@ window.SCRE_DATA = [
       "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 10,
-      "target": "self",
-      "stackable": false,
+      "multiplier": 1.1,
+      "target": "inRange",
+      "stackable": true,
       "raw": "+10% 立花山城・特技"
      },
      {
@@ -148789,7 +151153,18 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[無印] / 仁義八行 （使用まで30秒：消費気3）",
    "text": "40秒間対象の攻撃と防御が100、耐久が1000 射程と回復が30上昇、攻撃対象と足止め数が1増加 攻撃で与えるダメージが1.1倍",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 10,
+     "multiplier": 1.1,
+     "target": "self",
+     "stackable": true,
+     "raw": "+10%(1.1倍) 館山城・計略"
+    }
+   ],
    "cooldown": 30,
    "cost": 3
   },
@@ -148813,7 +151188,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 仁義八行 （使用まで30秒：消費気3）",
     "text": "40秒間対象の攻撃と防御が100、耐久が1000 射程と回復が30上昇、攻撃対象と足止め数が1増加 攻撃で与えるダメージが1.1倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 10,
+      "multiplier": 1.1,
+      "target": "self",
+      "stackable": true,
+      "raw": "+10%(1.1倍) 館山城・計略"
+     }
+    ]
    }
   ],
   "allSpecials": [],
@@ -149829,6 +152215,16 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30 鶴島城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+20%(1.2倍) 鶴島城・計略"
     }
    ],
    "cooldown": 50,
@@ -149905,6 +152301,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30 鶴島城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+20%(1.2倍) 鶴島城・計略"
      }
     ]
    }
@@ -153838,12 +156244,13 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
-     "stat": "gapShorten",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 40,
+     "value": 50,
+     "multiplier": 1.5,
      "target": "self",
-     "stackable": false,
-     "raw": "+40% 伊豆下田城・特技"
+     "stackable": true,
+     "raw": "+50%(1.5倍) 伊豆下田城・特技"
     }
    ]
   },
@@ -153879,12 +156286,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "dmgDealt",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 35,
+      "value": 30,
+      "multiplier": 1.3,
       "target": "self",
-      "stackable": false,
-      "raw": "+35% 伊豆下田城・特技"
+      "stackable": true,
+      "raw": "+30%(1.3倍) 伊豆下田城・特技"
      },
      {
       "source": "特技",
@@ -153913,12 +156321,13 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
-      "stat": "gapShorten",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 40,
+      "value": 50,
+      "multiplier": 1.5,
       "target": "self",
-      "stackable": false,
-      "raw": "+40% 伊豆下田城・特技"
+      "stackable": true,
+      "raw": "+50%(1.5倍) 伊豆下田城・特技"
      }
     ]
    }
@@ -156509,7 +158918,18 @@ window.SCRE_DATA = [
    "stage": "改弐",
    "name": "[改弐] / 熱田の渡し",
    "text": "自身の攻撃が50%、射程が100上昇 計略使用時に与えるダメージが1.5倍 全ての水城の攻撃が100、射程が50上昇",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) 桑名城・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[改弐] / 蟠龍蜻蛉切 （使用まで40秒：消費気5）",
@@ -156553,12 +158973,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 30,
+      "multiplier": 1.3,
       "target": "self",
-      "stackable": false,
-      "raw": "+30% 桑名城・特技"
+      "stackable": true,
+      "raw": "+30%(1.3倍) 桑名城・特技"
      }
     ]
    },
@@ -156566,7 +158987,18 @@ window.SCRE_DATA = [
     "stage": "改弐",
     "name": "[改弐] / 熱田の渡し",
     "text": "自身の攻撃が50%、射程が100上昇 計略使用時に与えるダメージが1.5倍 全ての水城の攻撃が100、射程が50上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) 桑名城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -158871,12 +161303,13 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
-     "stat": "atkSpeed",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 10,
-     "target": "inRange",
-     "stackable": false,
-     "raw": "+10% 七飯台場・特技"
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "self",
+     "stackable": true,
+     "raw": "+40%(1.4倍) 七飯台場・特技"
     }
    ]
   },
@@ -158903,7 +161336,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 伝習隊",
     "text": "自身の攻撃が30%、射程が40上昇 計略使用時、標的へ与えるダメージが1.2倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) 七飯台場・特技"
+     }
+    ]
    },
    {
     "stage": "改弐",
@@ -158912,12 +161356,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkSpeed",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 10,
-      "target": "inRange",
-      "stackable": false,
-      "raw": "+10% 七飯台場・特技"
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) 七飯台場・特技"
      }
     ]
    }
@@ -163095,12 +165540,14 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
-      "stat": "rangeFlat",
-      "mode": "flat",
-      "value": 100,
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 60,
+      "multiplier": 1.6,
       "target": "self",
-      "stackable": false,
-      "raw": "+100 ［正月］七飯台場・特技"
+      "stackable": true,
+      "raw": "+60%(1.6倍) [耐久が80%以上の敵] ［正月］七飯台場・特技",
+      "condition": "耐久が80%以上の敵"
      }
     ]
    },
@@ -169024,6 +171471,16 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% ［夏］伊豆下田城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "self",
+     "stackable": true,
+     "raw": "+20%(1.2倍) ［夏］伊豆下田城・特技"
     }
    ]
   },
@@ -169043,6 +171500,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［夏］伊豆下田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［夏］伊豆下田城・特技"
      }
     ]
    }
@@ -169915,12 +172382,13 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
-     "stat": "atkSpeed",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 25,
-     "target": "all",
-     "stackable": false,
-     "raw": "+25% 喜春城・特技"
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) 喜春城・特技"
     }
    ]
   },
@@ -169939,12 +172407,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "atkSpeed",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 25,
+      "value": 20,
+      "multiplier": 1.2,
       "target": "self",
-      "stackable": false,
-      "raw": "+25% 喜春城・特技"
+      "stackable": true,
+      "raw": "+20%(1.2倍) 喜春城・特技"
      }
     ]
    },
@@ -169964,12 +172433,13 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
-      "stat": "atkSpeed",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 25,
-      "target": "all",
-      "stackable": false,
-      "raw": "+25% 喜春城・特技"
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) 喜春城・特技"
      }
     ]
    }
@@ -171361,6 +173831,17 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% 鎌刃城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 200,
+     "multiplier": 3.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+200%(3.0倍) [耐久30%以下の敵] 鎌刃城・特技",
+     "condition": "耐久30%以下の敵"
     }
    ]
   },
@@ -171380,12 +173861,14 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "dmgDealt",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 25,
+      "value": 100,
+      "multiplier": 2.0,
       "target": "self",
-      "stackable": false,
-      "raw": "+25% 鎌刃城・特技"
+      "stackable": true,
+      "raw": "+100%(2.0倍) [耐久30%以下の敵] 鎌刃城・特技",
+      "condition": "耐久30%以下の敵"
      }
     ]
    },
@@ -171402,6 +173885,17 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 鎌刃城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 200,
+      "multiplier": 3.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+200%(3.0倍) [耐久30%以下の敵] 鎌刃城・特技",
+      "condition": "耐久30%以下の敵"
      }
     ]
    }
@@ -172691,6 +175185,16 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［命護］尼崎城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "enemyDmgTakenUp",
      "mode": "percent",
      "value": 30,
@@ -172730,7 +175234,18 @@ window.SCRE_DATA = [
    "stage": "無印",
    "name": "[無印] / 願い受ける背 （消費気7：初回10秒：再使用40秒）",
    "text": "10秒間自身の特殊攻撃ゲージが最大になり特殊攻撃のみを行う。 特殊攻撃の拡散範囲と範囲攻撃で与えるダメージが1.3倍 （同種の効果と重複）攻撃が敵の防御を50%無視する",
-   "effects": []
+   "effects": [
+    {
+     "source": "特殊能力",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "self",
+     "stackable": true,
+     "raw": "+30%(1.3倍) ［命護］尼崎城・特殊能力"
+    }
+   ]
   },
   "allSkills": [
    {
@@ -172740,12 +175255,13 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
-      "stat": "enemyDmgTakenUp",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
-      "value": 25,
-      "target": "self",
-      "stackable": false,
-      "raw": "+25% ［命護］尼崎城・特技"
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［命護］尼崎城・特技"
      }
     ]
    },
@@ -172754,6 +175270,16 @@ window.SCRE_DATA = [
     "name": "[改壱] / 命護の決意",
     "text": "自身の耐久が与ダメージの25%回復 特殊攻撃時、攻撃と範囲攻撃で与えるダメージが1.3倍。射程内の 城娘の足止め数が1増加。射程内の敵の被ダメージが30%上昇",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［命護］尼崎城・特技"
+     },
      {
       "source": "特技",
       "stat": "enemyDmgTakenUp",
@@ -172798,7 +175324,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 願い受ける背 （消費気7：初回10秒：再使用40秒）",
     "text": "10秒間自身の特殊攻撃ゲージが最大になり特殊攻撃のみを行う。 特殊攻撃の拡散範囲と範囲攻撃で与えるダメージが1.3倍 （同種の効果と重複）攻撃が敵の防御を50%無視する",
-    "effects": []
+    "effects": [
+     {
+      "source": "特殊能力",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［命護］尼崎城・特殊能力"
+     }
+    ]
    }
   ],
   "parseWarnings": [],
@@ -174114,6 +176651,16 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+7% ［封琴］徳丹城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "self",
+     "stackable": true,
+     "raw": "+40%(1.4倍) ［封琴］徳丹城・特技"
     }
    ]
   },
@@ -174154,6 +176701,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+6% ［封琴］徳丹城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［封琴］徳丹城・特技"
      }
     ]
    },
@@ -174170,6 +176727,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+7% ［封琴］徳丹城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) ［封琴］徳丹城・特技"
      }
     ]
    }
@@ -175399,7 +177966,19 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 騎士の無敗伝説",
    "text": "自身の耐久が80%以上の場合与えるダメージが1.3倍 敵の移動速度が高い程与えるダメージ上昇(最大1.5倍) 射程内敵の被ダメージ35%上昇",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 30,
+     "multiplier": 1.3,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+30%(1.3倍) [自身の耐久が80%以上の] ペンブルック城・特技",
+     "condition": "自身の耐久が80%以上の"
+    }
+   ]
   },
   "strategy": {
    "name": "[無印] / 連鎖型要塞の防壁 （使用まで60秒：消費気7）",
@@ -175429,13 +178008,37 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 無敗の伯爵",
     "text": "自身の耐久が80%以上の場合与えるダメージが1.2倍 敵の移動速度が高い程与えるダメージ上昇(最大1.5倍)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) [自身の耐久が80%以上の] ペンブルック城・特技",
+      "condition": "自身の耐久が80%以上の"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 騎士の無敗伝説",
     "text": "自身の耐久が80%以上の場合与えるダメージが1.3倍 敵の移動速度が高い程与えるダメージ上昇(最大1.5倍) 射程内敵の被ダメージ35%上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) [自身の耐久が80%以上の] ペンブルック城・特技",
+      "condition": "自身の耐久が80%以上の"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -176864,7 +179467,18 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / アルビオン・ステージ",
    "text": "射程内の城娘の攻撃と防御が50、射程が20上昇 [アイドル]城娘には効果2倍 射程内の[アイドル]の与えるダメージ1.15倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 15,
+     "multiplier": 1.15,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+15%(1.15倍) ［アイドル］ドーヴァー城・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[無印] / ドーヴァーで見つけた貝殻 （使用まで40秒：消費気5）",
@@ -176889,13 +179503,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 白亜のステージ",
     "text": "射程内の城娘の攻撃が40、射程が15上昇 [アイドル]城娘には効果2倍 射程内の[アイドル]の与えるダメージ1.1倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 10,
+      "multiplier": 1.1,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+10%(1.1倍) ［アイドル］ドーヴァー城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / アルビオン・ステージ",
     "text": "射程内の城娘の攻撃と防御が50、射程が20上昇 [アイドル]城娘には効果2倍 射程内の[アイドル]の与えるダメージ1.15倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 15,
+      "multiplier": 1.15,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+15%(1.15倍) ［アイドル］ドーヴァー城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -179165,7 +181801,19 @@ window.SCRE_DATA = [
    "stage": "無印",
    "name": "[無印] / 黒漆塗燕尾形兜",
    "text": "自身の射程80上昇 耐久25%以下の敵に与えるダメージ3倍 射程内の敵の移動速度が35%、飛行敵は50%低下",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 200,
+     "multiplier": 3.0,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+200%(3.0倍) [耐久25%以下の敵] 蒲生氏郷・特技",
+     "condition": "耐久25%以下の敵"
+    }
+   ]
   },
   "strategy": {
    "name": "[無印] / 利休七哲筆頭 （使用まで60秒：消費気15）",
@@ -179190,7 +181838,19 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 黒漆塗燕尾形兜",
     "text": "自身の射程80上昇 耐久25%以下の敵に与えるダメージ3倍 射程内の敵の移動速度が35%、飛行敵は50%低下",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 200,
+      "multiplier": 3.0,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+200%(3.0倍) [耐久25%以下の敵] 蒲生氏郷・特技",
+      "condition": "耐久25%以下の敵"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -179721,7 +182381,18 @@ window.SCRE_DATA = [
    "stage": "無印",
    "name": "[無印] / 兎形流忍術!!",
    "text": "50%の確率で攻撃を回避 計略で与えるダメージが1.2倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "self",
+     "stackable": true,
+     "raw": "+20%(1.2倍) 兎形兜・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[無印] / 兎形流忍法!!分身変化の術 （使用まで60秒：消費気10）",
@@ -179746,7 +182417,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 兎形流忍術!!",
     "text": "50%の確率で攻撃を回避 計略で与えるダメージが1.2倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) 兎形兜・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -182052,7 +184734,19 @@ window.SCRE_DATA = [
    "stage": "無印",
    "name": "[無印] / 戦士の候補生",
    "text": "自身が攻撃した敵を後退させる 耐久50%以下の敵に対して与えるダメージが1.4倍",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "self",
+     "stackable": true,
+     "raw": "+40%(1.4倍) [耐久50%以下の敵] ガビ・ブラウン・特技",
+     "condition": "耐久50%以下の敵"
+    }
+   ]
   },
   "strategy": {
    "name": "[無印] / 守る為の戦い （使用まで60秒：消費気7：青配置）",
@@ -182067,7 +184761,19 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 戦士の候補生",
     "text": "自身が攻撃した敵を後退させる 耐久50%以下の敵に対して与えるダメージが1.4倍",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) [耐久50%以下の敵] ガビ・ブラウン・特技",
+      "condition": "耐久50%以下の敵"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -184661,6 +187367,17 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) [耐久が50%以下の敵] 戦刃むくろ・特技",
+     "condition": "耐久が50%以下の敵"
+    },
+    {
+     "source": "特技",
      "stat": "atkPercent",
      "mode": "percent",
      "value": 100,
@@ -184678,6 +187395,17 @@ window.SCRE_DATA = [
     "name": "[無印] / 超高校級の軍人",
     "text": "近接武器装備中、敵から狙われない 耐久が50%以下の敵に対して与えるダメージが1.5倍 「絶望」状態時、自身の攻撃が2倍",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) [耐久が50%以下の敵] 戦刃むくろ・特技",
+      "condition": "耐久が50%以下の敵"
+     },
      {
       "source": "特技",
       "stat": "atkPercent",

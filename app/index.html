@@ -1227,6 +1227,20 @@
               <!-- Dynamically rendered top 10 synergy partner chips -->
             </div>
           </div>
+
+          <!-- Prompt 14: ⚔ おすすめ武器セクション (装備候補 TOP 3) -->
+          <div class="detail-box" id="detailRecommendedWeaponsBox">
+            <div class="detail-section-title">⚔️ おすすめ武器 (装備候補 TOP 3)</div>
+            <div style="font-size:11px; color:var(--text-sub); margin-bottom:8px;">
+              城娘の武器種・役割・特技・計略シナジーに基づくおすすめ上位武器（火力・射程・爆風・気軽減等）
+            </div>
+            <div id="detailRecommendedWeaponsList" class="detail-weapons-list">
+              <!-- Dynamically rendered top 3 recommended weapons -->
+            </div>
+            <div style="font-size:10.5px; color:var(--text-muted); margin-top:6px; text-align:right;">
+              ※ おすすめは機械的な目安です。合戦ステージの審議や編成方針に応じて最適な武器を選択してください。
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1398,6 +1412,7 @@
   <script src="data.js"></script>
   <script src="guides.js"></script>
   <script src="tier_data.js"></script>
+  <script src="weapons_data.js"></script>
   <script src="app.js"></script>
   <script>
     if ("serviceWorker" in navigator && (window.location.protocol === "https:" || window.location.hostname === "localhost")) {

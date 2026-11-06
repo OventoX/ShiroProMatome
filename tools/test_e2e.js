@@ -3321,6 +3321,122 @@ async function runTests() {
     await new Promise(r => setTimeout(r, 300));
 
     console.log('=> TEST 58 PASSED');
+
+    // --- TEST 59: Testing dmgDealtTarget (与えるダメージ) Precision & Calculation (Prompt 13) ---
+    console.log('\n[TEST 59] Testing dmgDealtTarget (与えるダメージ) Capture & Aggregation (Prompt 13)...');
+    const dmgTargetVerification = await page.evaluate(() => {
+      const ryukyu = window.SCRE_DATA.find(c => c.name === '琉球御城');
+      const nishiki = window.SCRE_DATA.find(c => c.name === '錦城');
+      const takeda = window.SCRE_DATA.find(c => c.name === '虎臥城');
+
+      const ryukyuEffects = [];
+      (ryukyu?.allSkills || []).forEach(s => ryukyuEffects.push(...(s.effects || [])));
+      const ryukyuTargetEff = ryukyuEffects.find(e => e.stat === 'dmgDealtTarget');
+
+      const nishikiEffects = [];
+      (nishiki?.allSkills || []).forEach(s => nishikiEffects.push(...(s.effects || [])));
+      const nishikiTargetEff = nishikiEffects.find(e => e.stat === 'dmgDealtTarget');
+
+      const takedaEffects = [];
+      (takeda?.allSkills || []).forEach(s => takedaEffects.push(...(s.effects || [])));
+      const takedaTargetEff = takedaEffects.find(e => e.stat === 'dmgDealtTarget');
+
+      // Test calculateBuffs with 琉球御城
+      const calcRes = window.calculateBuffs([{ id: ryukyu.id, strategyOn: true, specialOn: true }]);
+      const ryukyuBuffs = calcRes.perCastle[ryukyu.id]?.buffs;
+      const ryukyuStats = calcRes.perCastle[ryukyu.id]?.calculatedStats;
+
+      return {
+        ryukyuTargetEff,
+        nishikiTargetEff,
+        takedaTargetEff,
+        hasDmgTargetSources: Boolean(ryukyuBuffs && ryukyuBuffs.dmgDealtTarget && ryukyuBuffs.dmgDealtTarget.sources.length > 0),
+        multProduct: ryukyuBuffs?.dmgDealtTarget?.multProduct,
+        singleHit: ryukyuStats?.singleHit
+      };
+    });
+
+    console.log('Ryukyu dmgDealtTarget effect:', dmgTargetVerification.ryukyuTargetEff);
+    console.log('Nishiki dmgDealtTarget effect:', dmgTargetVerification.nishikiTargetEff);
+    console.log('Takeda dmgDealtTarget effect:', dmgTargetVerification.takedaTargetEff);
+    console.log('Ryukyu buffs multProduct:', dmgTargetVerification.multProduct);
+
+    if (!dmgTargetVerification.ryukyuTargetEff) {
+      throw new Error('TEST 59 FAILED: 琉球御城 missing dmgDealtTarget effect in data.js');
+    }
+    if (!dmgTargetVerification.nishikiTargetEff || dmgTargetVerification.nishikiTargetEff.condition !== '防御0の敵') {
+      throw new Error('TEST 59 FAILED: 錦城 missing dmgDealtTarget with condition 防御0の敵');
+    }
+    if (!dmgTargetVerification.takedaTargetEff || !dmgTargetVerification.takedaTargetEff.condition?.includes('50%以上')) {
+      throw new Error('TEST 59 FAILED: 虎臥城 missing dmgDealtTarget with condition 耐久が50%以上の敵');
+    }
+    if (!dmgTargetVerification.hasDmgTargetSources || dmgTargetVerification.multProduct < 1.15) {
+      throw new Error(`TEST 59 FAILED: calculateBuffs did not aggregate dmgDealtTarget multProduct: ${dmgTargetVerification.multProduct}`);
+    }
+    console.log('=> TEST 59 PASSED');
+
+    // --- TEST 60: Testing Weapon Master Data & Castle Recommended Weapons (Prompt 14) ---
+    console.log('\n[TEST 60] Testing Weapons Data & Recommended Weapons (Prompt 14)...');
+    const weaponsVerification = await page.evaluate(() => {
+      const totalWeapons = window.SCRE_WEAPONS ? window.SCRE_WEAPONS.length : 0;
+      const weaponTypes = Array.from(new Set((window.SCRE_WEAPONS || []).map(w => w.type)));
+
+      const kinki = window.SCRE_DATA.find(c => c.name === '金亀城');
+      const edo = window.SCRE_DATA.find(c => c.name === '江戸城');
+      const ashikaga = window.SCRE_DATA.find(c => c.name === '足利学校');
+
+      const kinkiRecs = window.getRecommendedWeapons ? window.getRecommendedWeapons(kinki, 3) : [];
+      const edoRecs = window.getRecommendedWeapons ? window.getRecommendedWeapons(edo, 3) : [];
+      const ashikagaRecs = window.getRecommendedWeapons ? window.getRecommendedWeapons(ashikaga, 3) : [];
+
+      return {
+        totalWeapons,
+        weaponTypesCount: weaponTypes.length,
+        kinkiRecs: kinkiRecs.map(r => ({ name: r.weapon.name, type: r.weapon.type, atk: r.weapon.atk, reason: r.reason })),
+        edoRecs: edoRecs.map(r => ({ name: r.weapon.name, type: r.weapon.type, atk: r.weapon.atk, hasBlast: /爆風/.test(r.weapon.effectText) })),
+        ashikagaRecsCount: ashikagaRecs.length
+      };
+    });
+
+    console.log('Total weapons in SCRE_WEAPONS:', weaponsVerification.totalWeapons);
+    console.log('Weapon types count:', weaponsVerification.weaponTypesCount);
+    console.log('金亀城 (大砲) recommended weapons:', weaponsVerification.kinkiRecs);
+    console.log('江戸城 (刀) recommended weapons:', weaponsVerification.edoRecs);
+
+    if (weaponsVerification.totalWeapons < 1500) {
+      throw new Error(`TEST 60 FAILED: Expected at least 1500 weapons, got ${weaponsVerification.totalWeapons}`);
+    }
+    if (weaponsVerification.weaponTypesCount < 20) {
+      throw new Error(`TEST 60 FAILED: Expected at least 20 weapon types, got ${weaponsVerification.weaponTypesCount}`);
+    }
+    if (weaponsVerification.kinkiRecs.length !== 3) {
+      throw new Error(`TEST 60 FAILED: Expected 3 recommended weapons for 金亀城, got ${weaponsVerification.kinkiRecs.length}`);
+    }
+    if (!weaponsVerification.kinkiRecs.every(r => r.type === '大砲')) {
+      throw new Error('TEST 60 FAILED: 金亀城 recommendations contained non-cannon weapons');
+    }
+    if (weaponsVerification.edoRecs.length > 0 && weaponsVerification.edoRecs[0].hasBlast) {
+      throw new Error('TEST 60 FAILED: Non-blast unit (江戸城) should not have blast weapon ranked as #1');
+    }
+
+    // Test UI in Castle Detail Modal
+    await page.evaluate(() => {
+      const kinki = window.SCRE_DATA.find(c => c.name === '金亀城');
+      window.openCastleDetail(kinki.id);
+    });
+    await new Promise(r => setTimeout(r, 500));
+
+    const recBoxVisible = await page.$eval('#detailRecommendedWeaponsBox', el => el.style.display !== 'none');
+    const recCardsCount = await page.$$eval('#detailRecommendedWeaponsList .weapon-rec-card', els => els.length);
+    console.log('Detail modal recommended weapons box visible:', recBoxVisible, 'cards count:', recCardsCount);
+
+    if (!recBoxVisible || recCardsCount !== 3) {
+      throw new Error(`TEST 60 FAILED: Recommended weapons box not properly displayed in detail modal (count: ${recCardsCount})`);
+    }
+
+    await page.evaluate(() => document.getElementById('modalDetailCloseBtn')?.click());
+    await new Promise(r => setTimeout(r, 300));
+    console.log('=> TEST 60 PASSED');
   }
 
   // Final check for console errors
@@ -3334,7 +3450,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (58/58)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (60/60)!');
   console.log('=====================================');
 }
 
