@@ -2281,7 +2281,7 @@ body {
   align-items: center;
   margin-bottom: 6px;
   font-weight: bold;
-  font-size: 12px;
+  font-size: var(--fs-emphasis, 14px);
 }
 .guide-progress-items {
   display: grid;
@@ -2293,14 +2293,14 @@ body {
   border: 1px solid #d4c7b5;
   border-radius: 4px;
   padding: 4px 8px;
-  font-size: var(--fs-caption, 11px);
+  font-size: var(--fs-sub, 12px);
   text-align: center;
   box-sizing: border-box;
 }
 .stage-cleared-badge {
   background: #27ae60;
   color: #fff;
-  font-size: 10px;
+  font-size: var(--fs-sub, 12px);
   font-weight: bold;
   padding: 2px 6px;
   border-radius: 4px;
@@ -2312,7 +2312,7 @@ body {
   background: #f9f9f9;
   border: 1px solid #ccc;
   color: #666;
-  font-size: 10.5px;
+  font-size: var(--fs-sub, 12px);
   padding: 2px 6px;
   border-radius: 4px;
   cursor: pointer;
@@ -3195,7 +3195,7 @@ body {
   padding-top: 8px;
 }
 .btn-toggle-suggest {
-  font-size: 11px;
+  font-size: var(--fs-sub, 12px);
   font-weight: bold;
   background: #eef4fb;
   border-color: #bcd2ee;
@@ -3241,13 +3241,13 @@ body {
 .suggest-role-tag {
   background: #185a9d;
   color: #fff;
-  font-size: var(--fs-tiny, 11px);
+  font-size: var(--fs-sub, 12px);
   padding: 1px 5px;
   border-radius: 3px;
   font-weight: bold;
 }
 .suggest-reason-box {
-  font-size: var(--fs-caption, 11.5px);
+  font-size: var(--fs-sub, 12px);
   color: #495057;
   background: #f1f4f8;
   padding: 3px 6px;
@@ -3259,7 +3259,7 @@ body {
   text-overflow: ellipsis;
 }
 .suggest-disclaimer {
-  font-size: var(--fs-caption, 11px);
+  font-size: var(--fs-sub, 12px);
   color: #7f6b55;
   margin-bottom: 8px;
   background: #fffcf5;
@@ -3829,7 +3829,7 @@ body[data-theme="dark"] .pref-tile.has-castles {
   stroke-width: 3 !important;
 }
 .pref-tile-text {
-  font-size: 9.5px;
+  font-size: var(--fs-sub, 12px);
   font-weight: bold;
   fill: #333;
   pointer-events: none;

@@ -1970,15 +1970,15 @@
         <div class="section-box" style="margin-top:0; margin-bottom:8px; background:linear-gradient(135deg, #2b1f3d 0%, #171426 100%); color:#fff; border:1px solid #7d4999; border-radius:6px; padding:12px 14px; box-shadow:0 3px 8px rgba(0,0,0,0.25);">
           <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:6px; margin-bottom:8px; flex-wrap:wrap; gap:6px;">
             <div>
-              <strong style="font-size:15px; color:#e0b0ff;">🔥 ハデスの死闘場（超難・全11深層マップ完全攻略ガイド）</strong>
-              <span style="font-size:11.5px; color:#d1c2ea; margin-left:6px;">地獄最深コンテンツ・★7 エレボス交換所対応</span>
+              <strong style="font-size:var(--fs-title, 15px); color:#e0b0ff;">🔥 ハデスの死闘場（超難・全11深層マップ完全攻略ガイド）</strong>
+              <span style="font-size:var(--fs-sub, 12px); color:#d1c2ea; margin-left:6px;">地獄最深コンテンツ・★7 エレボス交換所対応</span>
             </div>
             <div style="display:flex; gap:6px;">
               <span class="badge" style="background:#8e44ad; color:#fff;">合戦難度: 超難固定</span>
               <span class="badge" style="background:#27ae60; color:#fff;">土日ドロップ 1.2倍</span>
             </div>
           </div>
-          <div style="font-size:12px; line-height:1.6; color:#f0e6ff;">
+          <div style="font-size:var(--fs-body, 13px); line-height:1.6; color:#f0e6ff;">
             <div style="margin-bottom:6px;">
               <strong style="color:#ff9ff3;">◆ 敵特殊ギミック「ハデスの霊魂」:</strong> 紫色の敵は撃破時に「ハデスの霊魂」に変化・自爆し、味方に<span style="color:#ff7675; font-weight:bold;">「暗闇」付与＋計略消費気+2</span>を課します。<br>
               <span style="color:#d8c3ff;">💡 対策: 状態異常回復・無効化持ち（［裏］小牧山城、不夜城、肝試し前橋城など）や、計略消費気軽減・気生成城娘の編成が極めて有効です。</span>
@@ -1989,12 +1989,12 @@
             <div style="margin-bottom:6px;">
               <strong style="color:#ff9ff3;">◆ 地形ボーナス「地獄」:</strong> 耐久・攻撃・防御が1.3倍、巨大化消費気軽減。（※戦場効果による武器種ボーナスとは競合）
             </div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; font-size:11.5px; background:rgba(0,0,0,0.35); padding:8px 10px; border-radius:4px; border:1px solid rgba(255,255,255,0.1);">
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; font-size:var(--fs-sub, 12px); background:rgba(0,0,0,0.35); padding:8px 10px; border-radius:4px; border:1px solid rgba(255,255,255,0.1);">
               <div><strong style="color:#ff7675;">● 赤霊魂:</strong> 閻魔大王 / イザナギ / 覇・前田利家 (深層1) / クロノス (深層2)</div>
               <div><strong style="color:#74b9ff;">● 青霊魂:</strong> ヘル / オーディン / 幻・佐竹義重 (深層1) / ヴィシュヌ (深層2)</div>
               <div><strong style="color:#ffeaa7;">● 黄霊魂:</strong> オシリス / インドラ / アヌ (深層1)</div>
             </div>
-            <div style="font-size:11px; color:#c8b6e2; margin-top:6px;">
+            <div style="font-size:var(--fs-sub, 12px); color:#c8b6e2; margin-top:6px;">
               ※限定交換所にて赤・青・黄の霊魂で ★7 エレボス、武器「★4 冥槍バイデント」、施設「アケロン河」「エーリュシオン」などと交換可能です。
             </div>
           </div>
@@ -2049,27 +2049,27 @@
         badgeHtml += `<span class="stage-cleared-badge">✓ クリア済</span> `;
       }
       if (hasSavedParty) {
-        badgeHtml += `<span class="badge" style="background:#34495e; color:#fff; font-size:10px;">編成保存済 (${progressData[st.title].party.length}体)</span> `;
+        badgeHtml += `<span class="badge" style="background:#34495e; color:#fff; font-size:var(--fs-sub, 12px); padding:2px 6px;">編成保存済 (${progressData[st.title].party.length}体)</span> `;
       }
       if (st.subCategory) {
-        badgeHtml += `<span class="badge" style="background:#4b3869; color:#fff; font-size:10px;">${st.subCategory}</span> `;
+        badgeHtml += `<span class="badge" style="background:#4b3869; color:#fff; font-size:var(--fs-sub, 12px); padding:2px 6px;">${st.subCategory}</span> `;
       }
       if (st.hadesMeta) {
         const soulColors = { "赤": "#c0392b", "青": "#2980b9", "黄": "#d4ac0d" };
         const sColor = soulColors[st.hadesMeta.soulColor] || "#8e44ad";
-        badgeHtml += `<span class="badge" style="background:${sColor}; color:#fff; font-weight:bold; font-size:10px;">${st.hadesMeta.soulColor}霊魂 (${st.hadesMeta.depth})</span> `;
-        badgeHtml += `<span class="badge" style="background:#555; color:#fff; font-size:10px;">超難</span> `;
+        badgeHtml += `<span class="badge" style="background:${sColor}; color:#fff; font-weight:bold; font-size:var(--fs-sub, 12px); padding:2px 6px;">${st.hadesMeta.soulColor}霊魂 (${st.hadesMeta.depth})</span> `;
+        badgeHtml += `<span class="badge" style="background:#555; color:#fff; font-size:var(--fs-sub, 12px); padding:2px 6px;">超難</span> `;
       }
       if (st.totalDelibPoints) {
-        badgeHtml += `<span class="badge" style="background:#6c5ce7; color:#fff; font-size:10px;">${st.totalDelibPoints}審議 (${st.deliberations.length}件)</span> `;
+        badgeHtml += `<span class="badge" style="background:#6c5ce7; color:#fff; font-size:var(--fs-sub, 12px); padding:2px 6px;">${st.totalDelibPoints}審議 (${st.deliberations.length}件)</span> `;
       }
 
       let rulesHtml = "";
       if (st.rules && st.rules.length > 0) {
         rulesHtml += `
           <div style="margin-top:6px;">
-            <strong style="color:var(--primary-color);font-size:11.5px;">特別ルール・戦場効果:</strong>
-            <ul style="padding-left:16px;font-size:11px;color:#444;margin-top:2px;">
+            <strong style="color:var(--primary-color);font-size:var(--fs-body, 13px);">特別ルール・戦場効果:</strong>
+            <ul style="padding-left:18px;font-size:var(--fs-body, 13px);color:#444;margin-top:2px;line-height:1.45;">
               ${st.rules.map(r => `<li style="margin-bottom:3px;line-height:1.35;">${r.replace(/\n/g, '<br>')}</li>`).join("")}
             </ul>
           </div>
@@ -2080,8 +2080,8 @@
       if (st.bossInfo && st.bossInfo.length > 0) {
         bossHtml += `
           <div style="margin-top:6px;">
-            <strong style="color:var(--debuff-color);font-size:11.5px;">☠️ ボス・強敵の特性:</strong>
-            <ul style="padding-left:16px;font-size:11px;color:#555;margin-top:2px;">
+            <strong style="color:var(--debuff-color);font-size:var(--fs-body, 13px);">☠️ ボス・強敵の特性:</strong>
+            <ul style="padding-left:18px;font-size:var(--fs-body, 13px);color:#555;margin-top:2px;line-height:1.45;">
               ${st.bossInfo.map(b => `<li style="margin-bottom:3px;line-height:1.35;">${b.replace(/\n/g, '<br>')}</li>`).join("")}
             </ul>
           </div>
@@ -2092,11 +2092,11 @@
       if (st.deliberations && st.deliberations.length > 0) {
         delibHtml += `
           <div style="margin-top:6px;">
-            <strong style="color:#2a6496;font-size:11.5px;">審議項目 (${st.deliberations.length}件 / 計${st.totalDelibPoints || '-'}審):</strong>
-            <div style="font-size:11px;background:#f9f9f9;padding:6px 8px;border-radius:4px;border:1px solid #e5e0d8;margin-top:3px;max-height:130px;overflow-y:auto;">
+            <strong style="color:#2a6496;font-size:var(--fs-body, 13px);">審議項目 (${st.deliberations.length}件 / 計${st.totalDelibPoints || '-'}審):</strong>
+            <div style="font-size:var(--fs-body, 13px);background:#f9f9f9;padding:8px 10px;border-radius:4px;border:1px solid #e5e0d8;margin-top:3px;max-height:140px;overflow-y:auto;line-height:1.45;">
               ${st.deliberations.map(d => `
                 <div style="margin-bottom:4px;border-bottom:1px dashed #eee;padding-bottom:3px;line-height:1.35;">
-                  <span class="badge" style="background:#2d3436; color:#fff; font-size:10px; padding:1px 5px; margin-right:4px;">${d.point}審</span>
+                  <span class="badge" style="background:#2d3436; color:#fff; font-size:var(--fs-sub, 12px); padding:2px 6px; margin-right:4px;">${d.point}審</span>
                   <strong>${d.name}:</strong> <span style="color:#555;">${d.effect.replace(/\n/g, '<br>')}</span>
                 </div>
               `).join("")}
@@ -2126,20 +2126,20 @@
         <div class="buff-header" style="flex-wrap:wrap; gap:4px; align-items:flex-start;">
           <div style="flex:1; min-width:200px;">
             <div style="margin-bottom:3px;">${badgeHtml}</div>
-            <strong style="font-size:14.5px;">${st.title}</strong>
+            <strong style="font-size:var(--fs-emphasis, 14.5px);">${st.title}</strong>
           </div>
           ${st.terrain !== "無" ? `<span class="type-tag ${st.terrain}" style="position:static;padding:2px 6px;">${st.terrain}</span>` : ''}
         </div>
-        <div style="font-size:11.5px;line-height:1.4;">
+        <div style="font-size:var(--fs-body, 13px);line-height:1.5;">
           ${rulesHtml}
           ${bossHtml}
           ${delibHtml}
         </div>
         ${suggestSectionHtml}
         <div style="display:flex; gap:8px; margin-top:10px; padding-top:8px; border-top:1px dashed #d8cfc4; flex-wrap:wrap;">
-          <button class="btn btn-sm btn-primary" data-action="diag-stage" data-title="${st.title}" data-id="${st.id}" style="font-size:11px; font-weight:bold; flex:2; min-width:110px;">部隊の適合判定 ⚔</button>
-          <button class="btn btn-sm" data-action="filter-stage" data-title="${st.title}" data-terrain="${st.terrain}" style="font-size:11px; flex:2; min-width:110px; background:#f5f0e6; border-color:#d5cbbd;">対策城娘を探す 🔍</button>
-          <button class="btn btn-sm btn-toggle-clear ${isStCleared ? 'cleared' : ''}" data-action="toggle-clear" data-title="${st.title}" style="flex:1; min-width:80px;">${isStCleared ? '✓ クリア済' : '未クリア'}</button>
+          <button class="btn btn-sm btn-primary" data-action="diag-stage" data-title="${st.title}" data-id="${st.id}" style="font-size:var(--fs-sub, 12px); font-weight:bold; flex:2; min-width:110px; padding:5px 8px;">部隊の適合判定 ⚔</button>
+          <button class="btn btn-sm" data-action="filter-stage" data-title="${st.title}" data-terrain="${st.terrain}" style="font-size:var(--fs-sub, 12px); flex:2; min-width:110px; background:#f5f0e6; border-color:#d5cbbd; padding:5px 8px;">対策城娘を探す 🔍</button>
+          <button class="btn btn-sm btn-toggle-clear ${isStCleared ? 'cleared' : ''}" data-action="toggle-clear" data-title="${st.title}" style="flex:1; min-width:80px; font-size:var(--fs-sub, 12px); padding:5px 8px;">${isStCleared ? '✓ クリア済' : '未クリア'}</button>
         </div>
       `;
       container.appendChild(card);
@@ -2154,12 +2154,12 @@
           ${getIconHtml(c, 32)}
           <div style="overflow:hidden; flex:1;">
             <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
-              <span style="font-size:11.5px; font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;" title="${c.name}">${c.name}</span>
-              ${!isOwned ? `<span class="badge" style="background:#e74c3c; color:#fff; font-size:9px; padding:0 3px;">未所持</span>` : ''}
+              <span style="font-size:var(--fs-sub, 12px); font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;" title="${c.name}">${c.name}</span>
+              ${!isOwned ? `<span class="badge" style="background:#e74c3c; color:#fff; font-size:var(--fs-sub, 12px); padding:1px 5px;">未所持</span>` : ''}
             </div>
             <div style="display:flex; align-items:center; gap:3px; margin-top:2px;">
               <span class="suggest-role-tag">${role}</span>
-              ${isMatch ? `<span class="badge" style="background:#2c6f4f; color:#fff; font-size:9px; padding:0 3px;">一致</span>` : ''}
+              ${isMatch ? `<span class="badge" style="background:#2c6f4f; color:#fff; font-size:var(--fs-sub, 12px); padding:1px 5px;">一致</span>` : ''}
             </div>
           </div>
         </div>
@@ -2176,17 +2176,17 @@
       if (userCastles.length > 0) {
         clearPartyHtml = `
           <div class="user-clear-party-box">
-            <div style="font-size:11.5px; font-weight:bold; color:#844a08; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px;">
+            <div style="font-size:var(--fs-emphasis, 14px); font-weight:bold; color:#844a08; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px;">
               <span>🏆 あなたのクリア編成 (${userCastles.length}体)</span>
-              ${savedAtStr ? `<span style="font-size:10px; color:#888; font-weight:normal;">${savedAtStr}保存</span>` : ''}
+              ${savedAtStr ? `<span style="font-size:var(--fs-sub, 12px); color:#888; font-weight:normal;">${savedAtStr}保存</span>` : ''}
             </div>
             <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(130px, 1fr)); gap:6px;">
               ${userCastles.map(c => `
                 <div style="display:flex; align-items:center; gap:6px; background:#fff; border:1px solid #ebdccb; padding:4px 6px; border-radius:4px;">
                   ${getIconHtml(c, 26)}
                   <div style="overflow:hidden;">
-                    <div style="font-size:11px; font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">${c.name}</div>
-                    <div style="font-size:9.5px; color:#888;">★${c.rarity} ${c.weapon}</div>
+                    <div style="font-size:var(--fs-sub, 12px); font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">${c.name}</div>
+                    <div style="font-size:var(--fs-sub, 12px); color:#777;">★${c.rarity} ${c.weapon}</div>
                   </div>
                 </div>
               `).join("")}
@@ -2200,10 +2200,10 @@
       <div class="stage-suggest-container">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-wrap:wrap; gap:6px;">
           <div>
-            <strong style="color:#185a9d; font-size:12.5px;">📋 おすすめ編成（8体・自動選出）</strong>
-            <span class="badge" style="background:#2c6f4f; color:#fff; font-size:10px; margin-left:6px;">地形一致: ${matchCount}/8体</span>
+            <strong style="color:#185a9d; font-size:var(--fs-emphasis, 14px);">📋 おすすめ編成（8体・自動選出）</strong>
+            <span class="badge" style="background:#2c6f4f; color:#fff; font-size:var(--fs-sub, 12px); padding:2px 6px; margin-left:6px;">地形一致: ${matchCount}/8体</span>
           </div>
-          <button class="btn btn-sm btn-primary" data-action="load-suggested-party" data-title="${st.title}" data-id="${st.id || st.title}" style="font-size:11px; font-weight:bold; background:#2c6f4f; border-color:#20523a;">この編成を読み込む ⚔</button>
+          <button class="btn btn-sm btn-primary" data-action="load-suggested-party" data-title="${st.title}" data-id="${st.id || st.title}" style="font-size:var(--fs-sub, 12px); font-weight:bold; background:#2c6f4f; border-color:#20523a; padding:5px 10px;">この編成を読み込む ⚔</button>
         </div>
         <div class="suggest-disclaimer">
           ※ おすすめ編成はデータからの自動生成による目安です。実際の攻略編成とは異なる場合があります
@@ -4222,8 +4222,8 @@
       const hellCount = hellCastles.length;
 
       hadesAnalysisHtml = `
-        <div style="background:#241635; color:#f0e0ff; border:1px solid #7d4999; border-radius:6px; padding:10px 12px; margin-top:8px; font-size:11.5px; line-height:1.5;">
-          <div style="font-weight:bold; color:#ff9ff3; margin-bottom:4px; font-size:12px;">🔥 ハデス死闘場 攻略診断 (超難):</div>
+        <div style="background:#241635; color:#f0e0ff; border:1px solid #7d4999; border-radius:6px; padding:10px 12px; margin-top:8px; font-size:var(--fs-body, 13px); line-height:1.55;">
+          <div style="font-weight:bold; color:#ff9ff3; margin-bottom:4px; font-size:var(--fs-emphasis, 14px);">🔥 ハデス死闘場 攻略診断 (超難):</div>
           <div>• <strong>地獄地形ボーナス:</strong> 部隊内 <span style="color:#55efc4; font-weight:bold;">${hellCount}/8体</span> に適用（耐久・攻撃・防御1.3倍 & 巨大化消費気軽減）。</div>
           <div>• <strong>暗闇・自爆対策:</strong> ${statusCounters.length > 0 ? `<span style="color:#55efc4; font-weight:bold;">◯ 状態異常対策持ち城娘: ${statusCounters.join(', ')}</span>` : `<span style="color:#ff7675; font-weight:bold;">⚠️ 状態異常対策なし: 霊魂自爆による暗闇・計略気+2に注意！暗闇無効・回復や気生成役の採用を推奨。</span>`}</div>
           <div>• <strong>戦場ルール:</strong> 再配置時間50秒・気30固定。撤退転戦は不可。継続耐久・回復・不屈持ちが必須です。</div>
@@ -4244,7 +4244,7 @@
     partyEl.innerHTML = "";
 
     if (party.length === 0) {
-      partyEl.innerHTML = `<div style="font-size:12px; color:var(--text-muted); padding:6px;">部隊に城娘が編成されていません。</div>`;
+      partyEl.innerHTML = `<div style="font-size:var(--fs-body, 13px); color:var(--text-muted); padding:8px;">部隊に城娘が編成されていません。</div>`;
     } else {
       const stTerrain = foundStage.terrain;
       const combinedRules = rulesList.join(" ");
@@ -4326,11 +4326,11 @@
           <div style="display:flex; justify-content:space-between; align-items:center;">
             <div>
               <strong>${c.name}</strong>
-              <span style="font-size:11px; color:var(--text-sub); margin-left:4px;">★${c.rarity} [${c.subType || c.castleType}]・${c.weapon}</span>
+              <span style="font-size:var(--fs-sub, 12px); color:var(--text-sub); margin-left:6px;">★${c.rarity} [${c.subType || c.castleType}]・${c.weapon}</span>
             </div>
             ${statusBadge}
           </div>
-          <div style="font-size:11px; color:#555; margin-top:2px;">${comment}</div>
+          <div style="font-size:var(--fs-body, 13px); color:#555; margin-top:3px; line-height:1.45;">${comment}</div>
         `;
         partyEl.appendChild(itemEl);
       });
@@ -4350,9 +4350,9 @@
       if (savedParty.length > 0) {
         const memberCastles = savedParty.map(id => getCastleById(id)).filter(Boolean);
         savedPartyHtml = `
-          <div style="margin-top:6px; font-size:11px; color:#444; background:#fbf9f6; padding:6px 8px; border-radius:4px; border:1px solid #ebdccb;">
+          <div style="margin-top:6px; font-size:var(--fs-sub, 12px); color:#444; background:#fbf9f6; padding:8px 10px; border-radius:4px; border:1px solid #ebdccb; line-height:1.45;">
             <strong>保存済みクリア編成 (${memberCastles.length}体):</strong> ${memberCastles.map(c => c.name).join("、")}
-            ${stageRecord.savedAt ? `<span style="font-size:10px; color:#888; margin-left:6px;">(${savedAtStr}保存)</span>` : ''}
+            ${stageRecord.savedAt ? `<span style="font-size:var(--fs-sub, 12px); color:#888; margin-left:6px;">(${savedAtStr}保存)</span>` : ''}
           </div>
         `;
       }
@@ -4364,8 +4364,8 @@
             <span>このステージをクリア済みにする</span>
           </label>
           <div style="display:flex; gap:6px; flex-wrap:wrap;">
-            <button class="btn btn-sm btn-primary" id="btnSaveStageParty" style="font-size:11px;">現在の編成を保存 💾</button>
-            ${savedParty.length > 0 ? `<button class="btn btn-sm" id="btnRestoreStageParty" style="font-size:11px; background:#eef5ee; border-color:#95c99e; color:#1e6b2c; font-weight:bold;">クリア編成を復元 ↺</button>` : ''}
+            <button class="btn btn-sm btn-primary" id="btnSaveStageParty" style="font-size:var(--fs-sub, 12px); padding:4px 8px;">現在の編成を保存 💾</button>
+            ${savedParty.length > 0 ? `<button class="btn btn-sm" id="btnRestoreStageParty" style="font-size:var(--fs-sub, 12px); background:#eef5ee; border-color:#95c99e; color:#1e6b2c; font-weight:bold; padding:4px 8px;">クリア編成を復元 ↺</button>` : ''}
           </div>
         </div>
         ${savedPartyHtml}
@@ -4801,16 +4801,16 @@
               ${getIconHtml(c, 28)}
               <div style="overflow:hidden; flex:1;">
                 <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
-                  <span style="font-size:11.5px; font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;" title="${c.name}">${c.name}</span>
-                  ${!isOwned ? `<span class="badge" style="background:#e74c3c; color:#fff; font-size:9px; padding:0 3px;">未所持</span>` : ''}
+                  <span style="font-size:var(--fs-sub, 12px); font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;" title="${c.name}">${c.name}</span>
+                  ${!isOwned ? `<span class="badge" style="background:#e74c3c; color:#fff; font-size:var(--fs-sub, 12px); padding:1px 5px;">未所持</span>` : ''}
                 </div>
                 <div style="display:flex; align-items:center; gap:3px; margin-top:1px;">
                   <span class="suggest-role-tag">${role}</span>
-                  ${isMatch ? `<span class="badge" style="background:#2c6f4f; color:#fff; font-size:8.5px; padding:0 3px;">一致</span>` : ''}
+                  ${isMatch ? `<span class="badge" style="background:#2c6f4f; color:#fff; font-size:var(--fs-sub, 12px); padding:1px 5px;">一致</span>` : ''}
                 </div>
               </div>
             </div>
-            <div class="suggest-reason-box" style="font-size:9.5px;" title="${reason}">${reason}</div>
+            <div class="suggest-reason-box" style="font-size:var(--fs-sub, 12px);" title="${reason}">${reason}</div>
           </div>
         `).join("");
 
@@ -8872,7 +8872,7 @@ function renderMapTab() {
       <g class="map-pref-tile" data-pref="${escapeHtml(p.name)}" style="cursor:pointer;" transform="translate(${px}, ${py})">
         <rect width="${cellSize}" height="${cellSize}" rx="6" fill="${fillColor}" ${strokeAttr} />
         <text x="${cellSize / 2}" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="${textColor}">${shortName}</text>
-        <text x="${cellSize / 2}" y="36" text-anchor="middle" font-size="10" fill="${textColor}">${owned}/${total}</text>
+        <text x="${cellSize / 2}" y="36" text-anchor="middle" font-size="12" fill="${textColor}">${owned}/${total}</text>
       </g>
     `;
   }).join("");
@@ -8937,16 +8937,16 @@ function selectMapPrefecture(prefName) {
         </div>
         <div style="flex:1; min-width:0;">
           <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
-            <strong style="font-size:12.5px; cursor:pointer;" onclick="openCastleDetail('${escapeHtml(c.id)}')">${escapeHtml(c.name)}</strong>
+            <strong style="font-size:var(--fs-emphasis, 14px); cursor:pointer;" onclick="openCastleDetail('${escapeHtml(c.id)}')">${escapeHtml(c.name)}</strong>
             <span class="badge badge-rarity badge-rarity-${c.rarity}">★${c.rarity}</span>
             <span class="badge badge-attr badge-attr-${c.subType || c.castleType}">${c.subType || c.castleType}</span>
-            <span style="font-size:11px; color:var(--text-sub);">${c.weapon}</span>
+            <span style="font-size:var(--fs-sub, 12px); color:var(--text-sub);">${c.weapon}</span>
           </div>
           ${rc ? `
-            <div style="font-size:11px; color:var(--text-sub); margin-top:3px; display:flex; align-items:center; gap:4px;">
+            <div style="font-size:var(--fs-body, 13px); color:var(--text-sub); margin-top:3px; display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
               <span>🏯 実城: ${escapeHtml(rc.name)}</span>
-              ${rc.photoUrl ? `<a href="${escapeHtml(rc.photoUrl)}" target="_blank" rel="noopener noreferrer" style="color:#2980b9; font-size:10.5px;">[写真 ↗]</a>` : ''}
-              ${rc.articleUrl ? `<a href="${escapeHtml(rc.articleUrl)}" target="_blank" rel="noopener noreferrer" style="color:#2980b9; font-size:10.5px;">[Wiki ↗]</a>` : ''}
+              ${rc.photoUrl ? `<a href="${escapeHtml(rc.photoUrl)}" target="_blank" rel="noopener noreferrer" style="color:#2980b9; font-size:var(--fs-sub, 12px); font-weight:bold;">[写真 ↗]</a>` : ''}
+              ${rc.articleUrl ? `<a href="${escapeHtml(rc.articleUrl)}" target="_blank" rel="noopener noreferrer" style="color:#2980b9; font-size:var(--fs-sub, 12px); font-weight:bold;">[Wiki ↗]</a>` : ''}
             </div>
           ` : ''}
         </div>
@@ -8962,8 +8962,8 @@ function selectMapPrefecture(prefName) {
   content.innerHTML = `
     <div style="margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border-color);">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <h3 style="margin:0; font-size:16px;">📍 ${escapeHtml(prefName)}</h3>
-        <span style="font-weight:bold; font-size:13px; color:#27ae60;">制覇率: ${ownedCount} / ${list.length} 城 (${pct}%)</span>
+        <h3 style="margin:0; font-size:var(--fs-heading, 17px);">📍 ${escapeHtml(prefName)}</h3>
+        <span style="font-weight:bold; font-size:var(--fs-emphasis, 14px); color:#27ae60;">制覇率: ${ownedCount} / ${list.length} 城 (${pct}%)</span>
       </div>
       <div style="background:#e2e8f0; border-radius:6px; height:8px; width:100%; margin-top:6px; overflow:hidden;">
         <div style="background:#27ae60; height:100%; width:${pct}%;"></div>

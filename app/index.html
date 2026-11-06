@@ -811,7 +811,7 @@
           <option value="cleared">✓ クリア済みのみ</option>
           <option value="uncleared">未クリアのみ</option>
         </select>
-        <label style="display: inline-flex; align-items: center; gap: 4px; font-size: 11.5px; font-weight: bold; cursor: pointer; background: #fdfaf6; padding: 4px 8px; border: 1px solid #d5cbbd; border-radius: 4px; white-space: nowrap; user-select: none;">
+        <label style="display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-sub, 12px); font-weight: bold; cursor: pointer; background: #fdfaf6; padding: 4px 8px; border: 1px solid #d5cbbd; border-radius: 4px; white-space: nowrap; user-select: none;">
           <input type="checkbox" id="guideOwnedOnly" style="cursor: pointer;"> 所持のみでおすすめ
         </label>
         <input type="text" id="guideSearchInput" class="input-text" placeholder="マップ名・ボス名・審議・効果で検索..." style="flex: 2; min-width: 180px;">
@@ -836,16 +836,16 @@
       <div class="map-container-box">
         <div class="map-header-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border-color);">
           <div>
-            <h2 class="section-title" style="margin-bottom:2px; font-size:16px;">🗾 全国城巡りマップ (実在の城モチーフ・47都道府県別)</h2>
-            <div style="font-size:12px; color:var(--text-sub);">
+            <h2 class="section-title" style="margin-bottom:2px; font-size:var(--fs-heading, 17px);">🗾 全国城巡りマップ (実在の城モチーフ・47都道府県別)</h2>
+            <div style="font-size:var(--fs-body, 13px); color:var(--text-sub);">
               実在の城がモチーフの城娘（771城）と令制国から現代の47都道府県を紐付け。所持している城娘のゆかりの地を巡った城として記録します。
             </div>
           </div>
           <div class="map-stats-pills" style="display:flex; gap:10px; flex-wrap:wrap;">
-            <div class="map-stat-pill" style="background:var(--card-bg); border:1px solid var(--border-color); padding:4px 12px; border-radius:14px; font-size:12px;">
+            <div class="map-stat-pill" style="background:var(--card-bg); border:1px solid var(--border-color); padding:4px 12px; border-radius:14px; font-size:var(--fs-body, 13px);">
               巡った都道府県: <strong id="mapVisitedPrefCount" style="color:var(--primary-color);">0</strong> / 47
             </div>
-            <div class="map-stat-pill" style="background:var(--card-bg); border:1px solid var(--border-color); padding:4px 12px; border-radius:14px; font-size:12px;">
+            <div class="map-stat-pill" style="background:var(--card-bg); border:1px solid var(--border-color); padding:4px 12px; border-radius:14px; font-size:var(--fs-body, 13px);">
               巡った実在の城: <strong id="mapVisitedRealCount" style="color:#27ae60;">0</strong> / <span id="mapTotalRealCount">771</span> 城
             </div>
           </div>
@@ -1259,10 +1259,10 @@
       </div>
       <div class="modal-body" style="padding: 16px;">
         <!-- Stage Notice / Rules Summary -->
-        <div id="diagStageRules" style="background:#f4f6fa; border:1px solid #d5dce6; border-radius:6px; padding:10px 12px; margin-bottom:12px; font-size:12px; line-height:1.5;"></div>
+        <div id="diagStageRules" style="background:#f4f6fa; border:1px solid #d5dce6; border-radius:6px; padding:10px 12px; margin-bottom:12px; font-size:var(--fs-body, 13px); line-height:1.55;"></div>
 
         <!-- Stage Clear Progress & Saved Party Section (プロンプト2) -->
-        <div id="diagStageProgressBox" style="background:#fdfaf6; border:1px solid #dcd2c4; border-radius:6px; padding:10px 12px; margin-bottom:12px; font-size:12px;"></div>
+        <div id="diagStageProgressBox" style="background:#fdfaf6; border:1px solid #dcd2c4; border-radius:6px; padding:10px 12px; margin-bottom:12px; font-size:var(--fs-body, 13px);"></div>
 
         <!-- Party Evaluation List -->
         <div class="section-title" style="margin-bottom:8px;">編成メンバーの適格性判定</div>
@@ -1270,7 +1270,7 @@
 
         <!-- Recommended Castle Filter Action -->
         <div style="background:#fdfaf3; border:1px solid #ebd3a8; border-radius:6px; padding:10px 12px; display:flex; justify-content:space-between; align-items:center;">
-          <div style="font-size:12px; color:#8c5b10;">
+          <div style="font-size:var(--fs-body, 13px); color:#8c5b10;">
             <strong>このマップで有利な城娘を探す:</strong> 地形一致・適格な城娘を一覧から抽出します。
           </div>
           <button class="btn btn-primary btn-sm" id="btnFilterForStage" style="font-weight:bold; flex-shrink:0;">おすすめ城娘を絞り込む 🔍</button>
@@ -1280,11 +1280,11 @@
         <div style="background:#eef6fc; border:1px solid #bed8f0; border-radius:6px; padding:10px 12px; margin-top:12px;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
             <div>
-              <div style="font-weight:bold; color:#185a9d; font-size:12.5px;">✨ ステージ適合 自動編成サジェスト</div>
-              <div style="font-size:11px; color:#555;">地形一致・審議回避・必須役割（気生成・状態異常対策・火力・支援）を満たす8体を自動選出します。</div>
+              <div style="font-weight:bold; color:#185a9d; font-size:var(--fs-emphasis, 14px);">✨ ステージ適合 自動編成サジェスト</div>
+              <div style="font-size:var(--fs-sub, 12px); color:#555;">地形一致・審議回避・必須役割（気生成・状態異常対策・火力・支援）を満たす8体を自動選出します。</div>
             </div>
             <div style="display:flex; align-items:center; gap:8px;">
-              <label style="font-size:11px; color:#333; display:inline-flex; align-items:center; gap:4px; cursor:pointer;">
+              <label style="font-size:var(--fs-sub, 12px); color:#333; display:inline-flex; align-items:center; gap:4px; cursor:pointer;">
                 <input type="checkbox" id="chkAutoSuggestOwnedOnly"> 所持内から優先
               </label>
               <button class="btn btn-primary btn-sm" id="btnAutoSuggestParty" style="font-weight:bold; background:#185a9d; border-color:#134475;">自動編成を生成 ⚡</button>
@@ -1292,11 +1292,11 @@
           </div>
           <div id="autoSuggestResultContainer" style="display:none; margin-top:10px; background:#fff; border:1px solid #bed8f0; border-radius:6px; padding:10px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-              <strong style="font-size:12px; color:#185a9d;">自動選出された8体編成:</strong>
-              <div id="autoSuggestStatsBadge" style="font-size:11px; color:#666;"></div>
+              <strong style="font-size:var(--fs-emphasis, 14px); color:#185a9d;">自動選出された8体編成:</strong>
+              <div id="autoSuggestStatsBadge" style="font-size:var(--fs-sub, 12px); color:#666;"></div>
             </div>
             <div id="autoSuggestPartyList" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:6px; margin-bottom:8px;"></div>
-            <div id="autoSuggestSummaryText" style="font-size:11px; color:#444; line-height:1.4; margin-bottom:10px; background:#f9fbfe; padding:6px 8px; border-radius:4px;"></div>
+            <div id="autoSuggestSummaryText" style="font-size:var(--fs-sub, 12px); color:#444; line-height:1.45; margin-bottom:10px; background:#f9fbfe; padding:8px 10px; border-radius:4px;"></div>
             <div style="display:flex; justify-content:flex-end; gap:8px;">
               <button class="btn btn-sm" id="btnCancelAutoSuggest">キャンセル</button>
               <button class="btn btn-primary btn-sm" id="btnApplyAutoSuggest" style="background:#2c6f4f; font-weight:bold;">この編成を反映する ✓</button>
