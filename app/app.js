@@ -2737,11 +2737,11 @@
   function getCastleTierScore(c) {
     if (!c) return 0;
     if (!cachedComputedScores && typeof computeCastleScores === "function") {
-      cachedComputedScores = computeCastleScores(tierWeights);
+      cachedComputedScores = computeCastleScores(roleTierWeights);
     }
     if (cachedComputedScores) {
-      const found = cachedComputedScores.find(s => s.id === c.id);
-      if (found) return found.total;
+      const found = cachedComputedScores.find(s => s.id === c.id || s.name === c.name);
+      if (found) return found.overallScore !== undefined ? found.overallScore : found.total;
     }
     return 0;
   }
@@ -4449,12 +4449,14 @@
 
   function getCastleBaseScore(c) {
     if (!cachedComputedScores && typeof computeCastleScores === "function") {
-      computeCastleScores(tierWeights);
+      computeCastleScores(roleTierWeights);
     }
     if (!cachedScoreMap && cachedComputedScores) {
       cachedScoreMap = new Map();
       cachedComputedScores.forEach(item => {
-        cachedScoreMap.set(String(item.id), item.total);
+        const score = (item.overallScore !== undefined) ? item.overallScore : item.total;
+        cachedScoreMap.set(String(item.id), score);
+        if (item.name) cachedScoreMap.set(item.name, score);
       });
     }
     const val = cachedScoreMap ? cachedScoreMap.get(String(c.id)) : undefined;
@@ -5456,15 +5458,6 @@
   // ------------------------------------------
   // Auto Scoring Tier Engine (100-Point System)
   // ------------------------------------------
-  const DEFAULT_TIER_WEIGHTS = {
-    base: 25,
-    self: 15,
-    ally: 25,
-    debuff: 15,
-    strat: 10,
-    spec: 10
-  };
-
   const TIER_THRESHOLDS = {
     SS: 0.03, // Top 3%
     S:  0.10, // Top 10%
@@ -5504,7 +5497,6 @@
   };
 
   let roleTierWeights = JSON.parse(JSON.stringify(DEFAULT_ROLE_TIER_WEIGHTS));
-  let tierWeights = { ...DEFAULT_ROLE_TIER_WEIGHTS.overall };
   let tierOverrides = {};
   let autoTierScope = "role"; // 'role' | 'overall' | 'weapon' (default: 'role')
   let autoTierActiveRole = "attacker"; // 'attacker' | 'buffer' | 'debuffer' | 'ki' | 'tank'
@@ -5650,7 +5642,7 @@
           tokenAtk += 25.0;
           tokenScore += 20.0;
         }
-        if (/伏兵.*?(?:射程内|配置中).*?(?:城娘|味方).*?(?:攻撃|防御|耐久|与ダメ|与えるダメージ|射程)/.test(all_text) || /伏兵の攻撃を味方に加算/.test(all_text)) {
+        if (/伏兵.*?(?:射程内|配置中).*?(?:城娘|味方).*?(?:攻撃|防御|耐久|与ダメ|与えるダメージ|射程)/.test(all_text) || /伏兵の攻撃を味方に加算|城娘と伏兵に加算|伏兵にも届く/.test(all_text)) {
           tokenBuffer += 30.0;
           tokenScore += 25.0;
         }
@@ -5676,8 +5668,8 @@
         const m = all_text.match(/自身の(?:攻撃(?:と防御)?)の(\d+)%.*?加算/);
         if (m) kobuScore += parseInt(m[1], 10) * 1.2;
       }
-      if (/最大化時は加算値([\d\.]+)倍/.test(all_text)) {
-        const m = all_text.match(/最大化時は加算値([\d\.]+)倍/);
+      if (/(?:最大化時は)?加算値([\d\.]+)倍/.test(all_text)) {
+        const m = all_text.match(/(?:最大化時は)?加算値([\d\.]+)倍/);
         if (m) kobuScore *= parseFloat(m[1]);
       }
       if (c.weapon === "陣貝") {
@@ -5860,28 +5852,28 @@
       const kiTeamContribution = (primaryRole === "ki") ? Math.max(0, kiScore - 15) * 1.5 : 0.0;
       const normAlly = Math.min(1.0, (eff_ally + kobuScore * 1.5 + allBuffScore * 1.2 + rangeBuffScore + giantKiScore * 0.8 + tokenBuffer + kiTeamContribution) / 140.0);
       const normDebuff = Math.min(1.0, (eff_debuff + debuffScore) / 50.0);
-      const normSpec = Math.min(1.0, (kiScore + (giantKiScore * 0.8) + ((c.attributes && c.attributes.length >= 2) ? 12.0 : 0.0) + (tankScore * 0.5) + (allBuffScore * 0.4)) / 70.0);
+      const normSpec = Math.min(1.0, (kiScore + (giantKiScore * 0.8) + ((c.attributes && c.attributes.length >= 2) ? 12.0 : 0.0) + (tankScore * 0.5) + (allBuffScore * 0.4) + (tokenScore * 0.4)) / 70.0);
 
       let stratRaw = 0.0;
-      if (st) {
-        let cd = st.cooldown || (c.strategy && c.strategy.cooldown);
-        let cost = st.cost || (c.strategy && c.strategy.cost);
+      const activeAbility = st || sp;
+      if (activeAbility) {
+        let cd = activeAbility.cooldown || (c.strategy && c.strategy.cooldown);
+        let cost = activeAbility.cost || (c.strategy && c.strategy.cost);
         if (!cd) {
-          const m = (st.name || "").match(/使用まで(\d+)秒/);
+          const m = (activeAbility.name || "").match(/(?:再使用|使用まで)(\d+)秒/);
           if (m) cd = parseInt(m[1], 10);
         }
         if (!cost) {
-          const m = (st.name || "").match(/消費気(\d+)/);
+          const m = (activeAbility.name || "").match(/消費気(\d+)/);
           if (m) cost = parseInt(m[1], 10);
         }
         cd = cd || 50;
         cost = cost || 7;
         stratRaw += Math.max(0, 1.0 - (cd / 80.0)) * 5.0 + Math.max(0, 1.0 - (cost / 15.0)) * 3.0;
-        if (sp) stratRaw += 3.0;
+        if (st && sp) stratRaw += 3.0;
         if (hasToken) stratRaw += 3.0;
       } else {
-        stratRaw = (c.weapon === "陣貝") ? 10.0 : 8.5;
-        if (sp) stratRaw += 3.0;
+        stratRaw = 0.0;
       }
       const normStrat = Math.min(1.0, stratRaw / 11.0);
 
@@ -6512,7 +6504,7 @@
       if (viewAuto) viewAuto.style.display = "none";
       if (viewCurated) viewCurated.style.display = "none";
       if (viewCustom) viewCustom.style.display = "block";
-      renderTierCustomMaker();
+      renderTierCustomMaker(true);
     }
   }
 
@@ -6617,7 +6609,21 @@
     });
   }
 
-  function renderTierCustomMaker() {
+  let tierPoolBatchSize = 160;
+  let tierPoolVisibleCount = 160;
+  let cachedFilteredTierPool = [];
+
+  function updateTierPoolPlacedStates() {
+    const grid = document.getElementById("tierPoolGrid");
+    if (!grid) return;
+    const placedSet = new Set(customTierRows.flatMap(r => r.castles));
+    grid.querySelectorAll(".tier-pool-item").forEach(itemEl => {
+      const name = itemEl.getAttribute("data-name");
+      itemEl.classList.toggle("is-placed", placedSet.has(name));
+    });
+  }
+
+  function renderCustomTierRows() {
     const board = document.getElementById("tierCustomBoard");
     if (!board) return;
     board.innerHTML = "";
@@ -6652,7 +6658,7 @@
         const newLetter = prompt("ティア名を入力してください（例: EX, S+, 神）", row.letter);
         if (newLetter && newLetter.trim()) {
           row.letter = newLetter.trim();
-          renderTierCustomMaker();
+          renderCustomTierRows();
         }
       });
 
@@ -6660,7 +6666,7 @@
         const newSub = prompt("サブテキストを入力してください（例: 最優先, 気役, 推し）", row.sub || "");
         if (newSub !== null) {
           row.sub = newSub.trim();
-          renderTierCustomMaker();
+          renderCustomTierRows();
         }
       });
 
@@ -6669,7 +6675,7 @@
           const temp = customTierRows[rowIdx];
           customTierRows[rowIdx] = customTierRows[rowIdx - 1];
           customTierRows[rowIdx - 1] = temp;
-          renderTierCustomMaker();
+          renderCustomTierRows();
         }
       });
 
@@ -6678,7 +6684,7 @@
           const temp = customTierRows[rowIdx];
           customTierRows[rowIdx] = customTierRows[rowIdx + 1];
           customTierRows[rowIdx + 1] = temp;
-          renderTierCustomMaker();
+          renderCustomTierRows();
         }
       });
 
@@ -6686,55 +6692,56 @@
         const curIdx = DEFAULT_ROW_COLORS.indexOf(row.color);
         const nextColor = DEFAULT_ROW_COLORS[(curIdx + 1) % DEFAULT_ROW_COLORS.length];
         row.color = nextColor;
-        renderTierCustomMaker();
+        renderCustomTierRows();
       });
 
       labelCol.querySelector('[data-action="clear"]').addEventListener("click", () => {
         if (confirm(`「${row.letter}」の全城娘（${row.castles.length}体）をクリアしますか？`)) {
           row.castles = [];
-          renderTierCustomMaker();
+          renderCustomTierRows();
+          updateTierPoolPlacedStates();
         }
       });
 
       labelCol.querySelector('[data-action="del"]').addEventListener("click", () => {
         if (customTierRows.length <= 1) {
-          showToast("これ以上行を削除できません");
+          showToast("⚠️ 最低1つの行が必要です");
           return;
         }
-        if (confirm(`ティア行「${row.letter}」を削除しますか？`)) {
+        if (confirm(`行「${row.letter}」を削除しますか？`)) {
           customTierRows.splice(rowIdx, 1);
-          renderTierCustomMaker();
+          renderCustomTierRows();
+          updateTierPoolPlacedStates();
         }
       });
 
-      // Content drop zone
+      // Content column (placed castles)
       const contentCol = document.createElement("div");
       contentCol.className = `tier-row-content ${row.castles.length === 0 ? 'empty' : ''}`;
       contentCol.setAttribute("data-row-id", row.id);
 
       if (row.castles.length === 0) {
-        contentCol.textContent = "（ここに城娘をドラッグ＆ドロップ、または下のプールから追加）";
+        contentCol.textContent = "城娘をドラッグ＆ドロップ、または下のプールからクリックで追加";
       } else {
-        row.castles.forEach((castleName, cIdx) => {
-          const c = getCastleByName(castleName);
+        row.castles.forEach((cName, cIdx) => {
+          const c = getCastleByName(cName);
           if (!c) return;
 
           const chip = document.createElement("div");
-          chip.className = "tier-chip";
+          chip.className = "tier-castle-card";
           chip.setAttribute("draggable", "true");
-          chip.setAttribute("data-castle-name", c.name);
+          chip.setAttribute("data-name", c.name);
           chip.setAttribute("data-row-id", row.id);
-
-          const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
-    const noImgPlaceholder = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='400' viewBox='0 0 300 400'><rect width='100%' height='100%' fill='%232d3748'/><text x='50%' y='50%' fill='%23a0aec0' font-size='16' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle'>画像なし</text></svg>";
-          const iconSrc = c.illustUrl || fallbackSrc;
+          chip.title = `${c.name} (★${c.rarity} ${c.castleType || ''} ${c.weapon})
+ドラッグで移動、×で削除、クリックで詳細`;
 
           chip.innerHTML = `
-            <div class="tier-chip-icon">
-              <img src="${iconSrc}" onerror="this.src='${fallbackSrc}'" style="width:100%;height:100%;object-fit:cover;" alt="${c.name}">
+            ${getIconHtml(c, 36)}
+            <div class="tier-chip-info">
+              <div class="tier-chip-name">${escapeHtml(c.name)}</div>
+              <div class="tier-chip-sub">★${c.rarity} ${escapeHtml(c.weapon)}</div>
             </div>
-            <div class="tier-chip-name" title="${c.name}">${c.name}</div>
-            <div class="tier-chip-del" title="削除">×</div>
+            <button type="button" class="tier-chip-del" title="削除">×</button>
           `;
 
           // Drag events on chip
@@ -6755,7 +6762,8 @@
           chip.querySelector(".tier-chip-del").addEventListener("click", e => {
             e.stopPropagation();
             row.castles.splice(cIdx, 1);
-            renderTierCustomMaker();
+            renderCustomTierRows();
+            updateTierPoolPlacedStates();
           });
 
           // Click chip to view detail
@@ -6800,7 +6808,8 @@
 
         draggedCastleName = null;
         draggedSourceRowId = null;
-        renderTierCustomMaker();
+        renderCustomTierRows();
+        updateTierPoolPlacedStates();
       });
 
       rowEl.appendChild(labelCol);
@@ -6823,13 +6832,24 @@
       savedSel.innerHTML = `<option value="">-- 保存済みティア (${savedKeys.length}件) --</option>` +
         savedKeys.map(k => `<option value="${escapeHtml(k)}">${escapeHtml(k)}</option>`).join("");
     }
-
-    renderTierPool();
   }
 
-  function renderTierPool() {
+  function renderTierCustomMaker(rebuildPool = false) {
+    renderCustomTierRows();
+    if (rebuildPool) {
+      renderTierPool(true);
+    } else {
+      updateTierPoolPlacedStates();
+    }
+  }
+
+  function renderTierPool(resetCount = true) {
     const grid = document.getElementById("tierPoolGrid");
     if (!grid || !window.SCRE_DATA) return;
+
+    if (resetCount) {
+      tierPoolVisibleCount = tierPoolBatchSize;
+    }
 
     const searchVal = document.getElementById("tierPoolSearch")?.value?.trim() || "";
     const filterRarity = document.getElementById("tierPoolRarity")?.value || "";
@@ -6852,18 +6872,20 @@
       if (filterOwnership === "fav" && !ownership.favorites.has(c.id)) return false;
       return true;
     });
+    cachedFilteredTierPool = filtered;
 
+    const currentVisible = Math.min(filtered.length, tierPoolVisibleCount);
     const countEl = document.getElementById("tierPoolCount");
-    if (countEl) countEl.textContent = `(${filtered.length}体)`;
+    if (countEl) countEl.textContent = `(全${filtered.length}体中 ${currentVisible}体を表示中)`;
 
     grid.innerHTML = "";
     if (filtered.length === 0) {
-      grid.innerHTML = `<div style="font-size:11.5px;color:var(--text-sub);padding:12px;">条件に一致する城娘がいません</div>`;
+      grid.innerHTML = `<div style="font-size:11.5px;color:var(--text-sub);padding:12px;grid-column:1/-1;">条件に一致する城娘がいません</div>`;
       return;
     }
 
-    // Limit to first 120 in pool for fast responsiveness
-    const displayItems = filtered.slice(0, 150);
+    const displayItems = filtered.slice(0, tierPoolVisibleCount);
+    const noImgPlaceholder = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><rect width='100%' height='100%' fill='%232d3748'/><text x='50%' y='50%' fill='%23a0aec0' font-size='20' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle'>🏯</text></svg>";
 
     displayItems.forEach(c => {
       const isPlaced = placedSet.has(c.name);
@@ -6871,18 +6893,17 @@
       itemEl.className = `tier-pool-item ${isPlaced ? 'is-placed' : ''}`;
       itemEl.setAttribute("draggable", "true");
       itemEl.setAttribute("data-name", c.name);
-      itemEl.title = `${c.name} (★${c.rarity} ${c.castleType} ${c.weapon})
+      itemEl.title = `${c.name} (★${c.rarity} ${c.castleType || ''} ${c.weapon})
 クリックで選択中ティアへ追加、またはドラッグ`;
 
-      const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
-    const noImgPlaceholder = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='400' viewBox='0 0 300 400'><rect width='100%' height='100%' fill='%232d3748'/><text x='50%' y='50%' fill='%23a0aec0' font-size='16' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle'>画像なし</text></svg>";
-      const iconSrc = c.illustUrl || fallbackSrc;
+      const iconSrc = `icons/${encodeURIComponent(c.name)}.png`;
+      const fallbackSrc = c.illustUrl || noImgPlaceholder;
 
       itemEl.innerHTML = `
         <div class="tier-pool-item-icon">
-          <img src="${iconSrc}" onerror="this.src='${fallbackSrc}'" style="width:100%;height:100%;object-fit:cover;" alt="${c.name}">
+          <img src="${iconSrc}" loading="lazy" onerror="this.onerror=null; this.src='${escapeHtml(fallbackSrc)}';" style="width:100%;height:100%;object-fit:cover;" alt="${escapeHtml(c.name)}">
         </div>
-        <div class="tier-pool-item-name">${c.name}</div>
+        <div class="tier-pool-item-name">${escapeHtml(c.name)}</div>
       `;
 
       itemEl.addEventListener("dragstart", e => {
@@ -6908,13 +6929,32 @@
             return;
           }
           row.castles.push(c.name);
-          renderTierCustomMaker();
+          renderCustomTierRows();
+          updateTierPoolPlacedStates();
           showToast(`「${c.name}」を「${row.letter}」に追加しました！`);
         }
       });
 
       grid.appendChild(itemEl);
     });
+
+    if (tierPoolVisibleCount < filtered.length) {
+      const remaining = filtered.length - tierPoolVisibleCount;
+      const nextBatch = Math.min(tierPoolBatchSize, remaining);
+      const moreWrap = document.createElement("div");
+      moreWrap.id = "tierPoolLoadMoreWrap";
+      moreWrap.style.cssText = "grid-column: 1 / -1; text-align: center; padding: 12px;";
+      moreWrap.innerHTML = `
+        <button type="button" class="btn btn-outline" id="btnTierPoolLoadMore" style="padding: 6px 20px; font-weight: bold; font-size: 12px; cursor: pointer;">
+          さらに表示 (+${nextBatch}体 / 残り${remaining}体) ▾
+        </button>
+      `;
+      moreWrap.querySelector("#btnTierPoolLoadMore").addEventListener("click", () => {
+        tierPoolVisibleCount += tierPoolBatchSize;
+        renderTierPool(false);
+      });
+      grid.appendChild(moreWrap);
+    }
   }
 
   function exportTierToImage(mode) {
@@ -7613,7 +7653,7 @@ function toggleRomanSimulator() {
   const body = document.getElementById("romanSimulatorBody");
   const btn = document.getElementById("btnToggleRomanSimulator");
   if (!body) return;
-  const isHidden = body.style.display === "none" || !body.style.display;
+  const isHidden = body.style.display === "none";
   body.style.display = isHidden ? "block" : "none";
   if (btn) btn.textContent = isHidden ? "閉じる ▴" : "展開 ▾";
   if (isHidden) {
@@ -8140,7 +8180,7 @@ function toggleDamageChecker() {
   const body = document.getElementById("dmgCheckerBody");
   const btn = document.getElementById("btnToggleDamageChecker");
   if (!body) return;
-  const isHidden = body.style.display === "none" || !body.style.display;
+  const isHidden = body.style.display === "none";
   body.style.display = isHidden ? "block" : "none";
   if (btn) btn.textContent = isHidden ? "閉じる ▴" : "展開 ▾";
   if (isHidden) {
@@ -8176,12 +8216,13 @@ function renderDamageChecker(providedCalcResult) {
 
     // Check defense ignore: 杖, 投剣, 鈴, or skills
     const isMagicOrIgnore = (c.weapon === "杖" || c.weapon === "鈴" || c.weapon === "投剣");
-    const hasDefIgnoreSkill = calcData && calcData.activeBuffs && calcData.activeBuffs.some(b => b.stat === "defIgnore");
+    const hasDefIgnoreSkill = !!(calcData && calcData.buffs && calcData.buffs.defIgnore && calcData.buffs.defIgnore.length > 0);
     const effectiveIgnore = !immuneDefIgnore && (isMagicOrIgnore || hasDefIgnoreSkill);
 
-    const effDef = effectiveIgnore ? 0 : enemyDef;
+    const defDownPerc = calcResult.enemyDebuffs?.enemyDefDown?.max || 0;
+    const effDef = effectiveIgnore ? 0 : Math.max(0, Math.floor(enemyDef * (1.0 - defDownPerc / 100)));
 
-    // 与えるダメージ (dmgDealtTarget) multiplies attack BEFORE defense! (Prompt 13)
+    // 与えるダメージ (dmgDealtTarget) multiplies attack BEFORE defense! (Prompt 13 / 22)
     const activeTargetSources = calcData && calcData.buffs ? calcData.buffs.dmgDealtTarget.sources.filter(s => s.applied !== false) : [];
     const dmgTargetMult = activeTargetSources.reduce((acc, s) => acc * (1 + s.val / 100), 1.0);
     const atkWithTarget = Math.floor(finalAtk * dmgTargetMult);
@@ -8189,9 +8230,10 @@ function renderDamageChecker(providedCalcResult) {
     // Damage Formula: max(atk * 0.1, atk - effDef)
     const baseDamage = Math.max(Math.floor(atkWithTarget * 0.1), atkWithTarget - effDef);
 
-    // Apply damage multiplier buffs (与ダメ%) AFTER defense
+    // Apply damage multiplier buffs (与ダメ%) and enemy damage taken up (被ダメ上昇%) AFTER defense
     const dmgDealtPerc = calcData && calcData.buffs ? (calcData.buffs.dmgDealt.max + calcData.buffs.dmgDealt.stackSum) / 100 : 0;
-    const postDmgMult = (1 + dmgDealtPerc);
+    const enemyDmgTakenPerc = (calcResult.enemyDebuffs?.enemyDmgTakenUp?.max || 0) / 100;
+    const postDmgMult = (1 + dmgDealtPerc) * (1 + enemyDmgTakenPerc);
 
     // Apply enemy damage reduction
     const finalHitDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - enemyRed)));
@@ -8220,8 +8262,9 @@ function renderDamageChecker(providedCalcResult) {
         </span>
       </td>
       <td style="font-size:11px; color:var(--text-sub);">
+        ${dmgTargetMult > 1.0 ? `<span style="color:#e67e22; font-weight:bold;">与えるダメx${dmgTargetMult.toFixed(2)}</span> ` : ''}
         ${dmgDealtPerc > 0 ? `<span style="color:#2980b9;">与ダメ+${Math.round(dmgDealtPerc * 100)}%</span> ` : ''}
-        ${dmgTargetMult > 1.0 ? `<span style="color:#e67e22;">与えるダメx${dmgTargetMult.toFixed(2)}</span> ` : ''}
+        ${enemyDmgTakenPerc > 0 ? `<span style="color:#8e44ad;">被ダメ上昇+${Math.round(enemyDmgTakenPerc * 100)}%</span> ` : ''}
         ${effectiveIgnore ? `<span style="color:#27ae60;">[術/防御無視]</span> ` : ''}
         ${(c.strategy && slot.strategyOn) ? `<span style="color:#8e44ad;">[計略中]</span>` : ''}
       </td>
@@ -8418,23 +8461,30 @@ function calculateCastleSynergy(targetCastle) {
 
     allPEffects.forEach(ef => {
       if (ef.target === "self") return; // skip self-only buffs
-      if (ef.stat === "attackPercent" || ef.stat === "attackFlat") {
+      if (ef.stat === "atkPercent" || ef.stat === "atkFlat") {
         score += 25;
         if (!reasons.includes("⚔️ 攻撃力強化")) reasons.push("⚔️ 攻撃力強化");
       } else if (ef.stat === "rangePercent" || ef.stat === "rangeFlat") {
         score += 20;
         if (!reasons.includes("🎯 射程拡大")) reasons.push("🎯 射程拡大");
-      } else if (ef.stat === "speedPercent" || ef.stat === "gapShorten") {
+      } else if (ef.stat === "atkSpeed" || ef.stat === "gapShorten") {
         score += 20;
         if (!reasons.includes("⚡ 速度・隙短縮")) reasons.push("⚡ 速度・隙短縮");
-      } else if (ef.stat === "damagePercent") {
+      } else if (ef.stat === "dmgDealt") {
         score += 25;
         if (!reasons.includes("💥 与ダメ上昇")) reasons.push("💥 与ダメ上昇");
-      } else if (ef.stat === "kiReduction" || ef.stat === "kiRegen") {
-        score += 15;
-        if (!reasons.includes("✨ 気軽減・増")) reasons.push("✨ 気軽減・増");
+      } else if (ef.stat === "dmgDealtTarget") {
+        score += 25;
+        if (!reasons.includes("🎯 与えるダメージ上昇")) reasons.push("🎯 与えるダメージ上昇");
       }
     });
+
+    // Check ki support from skills/strategy text (data.js effects lack direct ki stat key)
+    const pFullText = (p.skill?.text || "") + " " + (p.strategy?.text || "");
+    if (/(?:気の自然増加|消費気を?\d+[%％]?軽減|気を?\d+増|巨大化気を?\d+[%％]?軽減|気力|撃破時に気)/.test(pFullText)) {
+      score += 15;
+      if (!reasons.includes("✨ 気軽減・増")) reasons.push("✨ 気軽減・増");
+    }
 
     // Check if targetCastle provides 鼓舞 or ally buffs that p benefits from
     const targetEffects = [];
@@ -8970,7 +9020,25 @@ function startQuiz(format) {
 
   quizQuestions = targets.map(target => {
     // Pick 3 wrong choices
-    const wrong = pool.filter(c => c.id !== target.id).sort(() => Math.random() - 0.5).slice(0, 3);
+    let wrong = [];
+    if (quizActiveFormat === "photo") {
+      const targetRcName = target.realCastle ? target.realCastle.name : null;
+      const seenRcNames = new Set(targetRcName ? [targetRcName] : []);
+      const candidates = pool
+        .filter(c => c.id !== target.id && (!targetRcName || !c.realCastle || c.realCastle.name !== targetRcName))
+        .sort(() => Math.random() - 0.5);
+
+      for (const cand of candidates) {
+        const rcName = cand.realCastle ? cand.realCastle.name : cand.name;
+        if (!seenRcNames.has(rcName)) {
+          seenRcNames.add(rcName);
+          wrong.push(cand);
+          if (wrong.length === 3) break;
+        }
+      }
+    } else {
+      wrong = pool.filter(c => c.id !== target.id).sort(() => Math.random() - 0.5).slice(0, 3);
+    }
     const choices = [target, ...wrong].sort(() => Math.random() - 0.5);
     return {
       target,
@@ -9010,11 +9078,12 @@ function renderQuizQuestion() {
         </div>
       `;
     } else if (quizActiveFormat === "icon") {
-      const fallbackSrc = `icons/${encodeURIComponent(q.target.name)}.png`;
+      const primarySrc = `icons/${encodeURIComponent(q.target.name)}.png`;
+      const fallbackUrl = q.target.illustUrl || "";
       clueEl.innerHTML = `
         <div style="font-size:12px; color:var(--text-sub); margin-bottom:8px;">この顔の城娘はだれ？ (アイコン拡大)</div>
-        <div class="quiz-face-zoom-box" style="width:110px; height:110px; border-radius:50%; overflow:hidden; margin:0 auto; box-shadow:0 4px 10px rgba(0,0,0,0.15); border:3px solid var(--border-color);">
-          <img src="${fallbackSrc}" onerror="this.src='${fallbackSrc}'" style="width:100%; height:100%; object-fit:cover; transform:scale(2.2); transform-origin:center;" alt="クイズ手がかり" />
+        <div class="quiz-face-zoom-box" style="width:110px; height:110px; border-radius:50%; overflow:hidden; margin:0 auto; box-shadow:0 4px 10px rgba(0,0,0,0.15); border:3px solid var(--border-color); background:#eee; display:flex; align-items:center; justify-content:center;">
+          <img src="${primarySrc}" onerror="this.onerror=null; if('${escapeHtml(fallbackUrl)}') { this.src='${escapeHtml(fallbackUrl)}'; } else { this.style.display='none'; this.parentElement.innerText='🏯'; }" style="width:100%; height:100%; object-fit:cover; transform:scale(2.2); transform-origin:center;" alt="クイズ手がかり" />
         </div>
       `;
     } else if (quizActiveFormat === "photo") {
@@ -9178,9 +9247,14 @@ function showQuizResult() {
   if (btnClearChal) btnClearChal.addEventListener("click", clearChallenge);
 
   
-  // Prompt 9: Roman Cannon Simulator
+  // Prompt 9 & 17: Roman Cannon Simulator
   const btnTogRoman = document.getElementById("btnToggleRomanSimulator");
-  if (btnTogRoman) btnTogRoman.addEventListener("click", toggleRomanSimulator);
+  if (btnTogRoman) {
+    btnTogRoman.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleRomanSimulator();
+    });
+  }
   const hdrRoman = document.getElementById("romanSimulatorHeader");
   if (hdrRoman) hdrRoman.addEventListener("click", toggleRomanSimulator);
 
@@ -9225,9 +9299,14 @@ function showQuizResult() {
     });
   }
 
-  // A5: Damage Checker buttons & inputs
+  // A5 & Prompt 17: Damage Checker buttons & inputs
   const btnTogDmg = document.getElementById("btnToggleDamageChecker");
-  if (btnTogDmg) btnTogDmg.addEventListener("click", toggleDamageChecker);
+  if (btnTogDmg) {
+    btnTogDmg.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleDamageChecker();
+    });
+  }
   const hdrDmg = document.getElementById("dmgCheckerHeader");
   if (hdrDmg) hdrDmg.addEventListener("click", toggleDamageChecker);
   const btnRecalcDmg = document.getElementById("btnRecalcDamage");
@@ -9257,7 +9336,7 @@ function showQuizResult() {
   ["tierPoolSearch", "tierPoolRarity", "tierPoolType", "tierPoolWeapon", "tierPoolOwnership"].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
-      el.addEventListener(el.tagName === "INPUT" ? "input" : "change", renderTierPool);
+      el.addEventListener(el.tagName === "INPUT" ? "input" : "change", () => renderTierPool(true));
     }
   });
 
