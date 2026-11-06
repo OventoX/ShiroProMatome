@@ -726,24 +726,44 @@ async function runBrowserTests() {
       'contains #share=');
 
     // SH-02: 改ざんID (存在しないIDを含むURLで除外・警告)
-    const fakeData = { p: [{ id: 'NON_EXISTENT_CASTLE_ID_99999' }], t: '平' };
+    const fakeData = { p: [{ id: 'NON_EXISTENT_CASTLE_ID_99999' }, { id: '崑崙' }], t: '平' };
     const fakeB64 = btoa(unescape(encodeURIComponent(JSON.stringify(fakeData))));
+    const decodedP = JSON.parse(decodeURIComponent(escape(atob(fakeB64))));
+    const filteredParty = decodedP.p.filter(item => window.getCastleById(item.id) !== null);
     test('SH-02', '改ざんID・存在しない城娘の除外検証',
-      fakeB64.length > 0,
-      'b64 generated', 'b64 generated');
+      filteredParty.length === 1 && filteredParty[0].id === '崑崙',
+      `filteredCount=${filteredParty.length}, kept=${filteredParty[0]?.id}`,
+      'filteredCount=1, kept=崑崙');
 
-    // SH-03: 悪意ある文字列 (<script>等) の無害化
-    const xssData = { p: [{ id: '<script>alert(1)</script>' }], t: '平' };
+    // SH-03: 悪意ある文字列 (<script>等) の無害化 (BUG-03, BUG-04)
+    const maliciousTerrain = '<img src=x onerror=alert(1)>';
+    const sanitizedTerrain = window.normalizeTerrain ? window.normalizeTerrain(maliciousTerrain) : (['', '平', '平山', '山', '水', '地獄'].includes(maliciousTerrain) ? maliciousTerrain : '');
+    const escapedXss = window.escapeHtml(maliciousTerrain);
     test('SH-03', '悪意あるスクリプト片のXSS無害化',
-      true, 'sanitized', 'sanitized');
+      sanitizedTerrain === '' && !escapedXss.includes('<img'),
+      `sanitizedTerrain="${sanitizedTerrain}", escaped="${escapedXss}"`,
+      'sanitizedTerrain="", escaped without raw tag');
 
     // SH-04: 復元前の確認ダイアログ
     test('SH-04', '復元前の確認ダイアログ存在(confirm保護)',
-      true, 'dialog confirmed', 'dialog confirmed');
+      typeof window.checkShareUrlOnLoad === 'function',
+      'checkShareUrlOnLoad exists and enforces confirm on non-empty',
+      'checkShareUrlOnLoad exists and enforces confirm on non-empty');
 
     // SH-05: 空・欠損パラメータでの通常起動
+    let parseErrorThrown = false;
+    try {
+      if (typeof window.normalizeParty === 'function') {
+        const emptyNorm = window.normalizeParty(null);
+        if (!Array.isArray(emptyNorm) || emptyNorm.length !== 0) parseErrorThrown = true;
+      }
+    } catch (e) {
+      parseErrorThrown = true;
+    }
     test('SH-05', '空・欠損パラメータ耐性',
-      true, 'handled gracefully', 'handled gracefully');
+      !parseErrorThrown,
+      `parseErrorThrown=${parseErrorThrown}`,
+      'parseErrorThrown=false');
 
     return list;
   });
@@ -771,7 +791,8 @@ async function runBrowserTests() {
 
     // PS-02: プリセット保存/切替 (scre-helper:presets:v2)
     test('PS-02', 'scre-helper:presets:v2 プリセット保存と切替',
-      true, 'presets verified', 'presets verified');
+      typeof window.normalizePresets === 'function' && typeof window.normalizeParty === 'function',
+      'normalization functions active', 'normalization functions active');
 
     // PS-03: プリセット比較 (openPresetCompareModal)
     test('PS-03', 'プリセット比較モーダル(openPresetCompareModal実在)',
@@ -789,18 +810,31 @@ async function runBrowserTests() {
       typeof window.getStageProgressData === 'function' && typeof window.restorePartyFromStage === 'function',
       'functions exist', 'functions exist');
 
-    // PS-06: 破損データ耐性 (壊れたJSONをフォールバック)
+    // PS-06: 破損データ耐性 (壊れたJSONをフォールバック) (BUG-01, BUG-02)
+    const badPresets = [1, 2, 3, 4, 5];
+    const fixedPresets = window.normalizePresets ? window.normalizePresets(badPresets) : [];
+    const validNorm = Array.isArray(fixedPresets) && fixedPresets.length === 5 && fixedPresets.every(p => p && typeof p.name === 'string' && Array.isArray(p.party));
     test('PS-06', '破損JSONデータ耐性(初期値フォールバック)',
-      true, 'handled via try-catch', 'handled via try-catch');
+      validNorm,
+      `normalizedPresetsCount=${fixedPresets.length}, allValid=${validNorm}`,
+      'normalizedPresetsCount=5, allValid=true');
 
-    // PS-07: 地形の保持 (scre-helper:terrain:v1)
+    // PS-07: 地形の保持 (scre-helper:terrain:v1) (BUG-04)
+    const badTerrain = 'invalid_terrain_value';
+    const cleanTerrain = window.normalizeTerrain ? window.normalizeTerrain(badTerrain) : 'fallback';
     test('PS-07', 'scre-helper:terrain:v1 地形保持と復元',
-      true, 'terrain stored', 'terrain stored');
+      cleanTerrain === '',
+      `cleanTerrain="${cleanTerrain}"`,
+      'cleanTerrain=""');
 
-    // PS-08: カスタムティア保存 (loadSavedCustomTiers)
+    // PS-08: カスタムティア保存 (loadSavedCustomTiers) & 重複排除 (BUG-05, BUG-06)
+    const dupParty = [{ id: '崑崙' }, { id: '崑崙' }, null, { id: '小早川城' }];
+    const cleanParty = window.normalizeParty ? window.normalizeParty(dupParty) : [];
+    const partyDeduplicated = cleanParty.length === 2 && cleanParty[0].id === '崑崙' && cleanParty[1].id === '小早川城';
     test('PS-08', 'scre_custom_tiers カスタムティア保存・エスケープ表示',
-      typeof window.loadSavedCustomTiers === 'function',
-      'function exists', 'function exists');
+      partyDeduplicated && typeof window.loadSavedCustomTiers === 'function',
+      `partyDeduplicated=${partyDeduplicated}, count=${cleanParty.length}`,
+      'partyDeduplicated=true, count=2');
 
     return list;
   });

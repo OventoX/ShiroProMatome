@@ -4,62 +4,119 @@
   const PRESETS_STORAGE_KEY = "scre-helper:presets:v2";
   const TERRAIN_STORAGE_KEY = "scre-helper:terrain:v1";
 
-  // State: Presets 1 to 5
-  let partyPresets = [
-    {
-      name: "部隊1 (汎用)",
-      party: [
-        { id: "崑崙", strategyOn: true, specialOn: false },
-        { id: "小早川城", strategyOn: true, specialOn: false },
-        { id: "［漆磊］広島城", strategyOn: true, specialOn: true },
-        { id: "［無疆］江戸城", strategyOn: true, specialOn: true },
-        { id: "［球陽］首里城", strategyOn: true, specialOn: true },
-        { id: "［お月見］鹿野城", strategyOn: true, specialOn: false },
-        { id: "［裏］松代城", strategyOn: true, specialOn: false },
-        { id: "逸見エリカ", strategyOn: true, specialOn: true }
-      ]
-    },
-    { name: "部隊2 (平属性)", party: [] },
-    { name: "部隊3 (山属性)", party: [] },
-    { name: "部隊4 (水属性)", party: [] },
-    { name: "部隊5 (地獄用)", party: [] }
+  // Defaults & Constants
+  const DEFAULT_PRESET_NAMES = [
+    "部隊1 (汎用)",
+    "部隊2 (平属性)",
+    "部隊3 (山属性)",
+    "部隊4 (水属性)",
+    "部隊5 (地獄用)"
   ];
+
+  const DEFAULT_PARTY_PRESET_1 = [
+    { id: "崑崙", strategyOn: true, specialOn: false },
+    { id: "小早川城", strategyOn: true, specialOn: false },
+    { id: "［漆磊］広島城", strategyOn: true, specialOn: true },
+    { id: "［無疆］江戸城", strategyOn: true, specialOn: true },
+    { id: "［球陽］首里城", strategyOn: true, specialOn: true },
+    { id: "［お月見］鹿野城", strategyOn: true, specialOn: false },
+    { id: "［裏］松代城", strategyOn: true, specialOn: false },
+    { id: "逸見エリカ", strategyOn: true, specialOn: true }
+  ];
+
+  const ALLOWED_TERRAINS = ["", "平", "平山", "山", "水", "地獄"];
+
+  function normalizeTerrain(t) {
+    return (typeof t === "string" && ALLOWED_TERRAINS.includes(t)) ? t : "";
+  }
+
+  function normalizeParty(rawParty) {
+    if (!Array.isArray(rawParty)) return [];
+    const valid = [];
+    const seenIds = new Set();
+    for (const item of rawParty) {
+      if (!item || typeof item !== "object") continue;
+      const id = typeof item.id === "string" ? item.id.trim() : "";
+      if (!id || seenIds.has(id)) continue;
+      seenIds.add(id);
+      valid.push({
+        id,
+        strategyOn: item.strategyOn !== undefined ? Boolean(item.strategyOn) : true,
+        specialOn: item.specialOn !== undefined ? Boolean(item.specialOn) : false
+      });
+      if (valid.length >= 8) break;
+    }
+    return valid;
+  }
+
+  function normalizePresets(rawPresets) {
+    const list = Array.isArray(rawPresets) ? rawPresets : [];
+    const normalized = [];
+    for (let i = 0; i < 5; i++) {
+      const p = list[i];
+      const defaultName = DEFAULT_PRESET_NAMES[i] || `部隊${i + 1}`;
+      if (p && typeof p === "object") {
+        const name = (typeof p.name === "string" && p.name.trim()) ? p.name.trim() : defaultName;
+        const party = normalizeParty(p.party);
+        normalized.push({ name, party });
+      } else {
+        const defaultParty = (i === 0) ? JSON.parse(JSON.stringify(DEFAULT_PARTY_PRESET_1)) : [];
+        normalized.push({ name: defaultName, party: defaultParty });
+      }
+    }
+    return normalized;
+  }
+
+  function normalizeActivePresetIdx(idx, maxLen = 5) {
+    const n = parseInt(idx, 10);
+    if (isNaN(n) || n < 0) return 0;
+    if (n >= maxLen) return Math.max(0, maxLen - 1);
+    return n;
+  }
+
+  // State: Presets 1 to 5
+  let partyPresets = normalizePresets([]);
+  partyPresets[0].party = JSON.parse(JSON.stringify(DEFAULT_PARTY_PRESET_1));
 
   let currentPresetIdx = 0;
   let currentTerrain = "";
   let selectingSlotIndex = null;
 
-  // Load Presets & Terrain
+  // Load Presets & Terrain (BUG-02: Safe load & normalization)
   try {
     const savedPresets = localStorage.getItem(PRESETS_STORAGE_KEY);
     if (savedPresets) {
       const parsed = JSON.parse(savedPresets);
-      if (Array.isArray(parsed) && parsed.length >= 5) {
-        partyPresets = parsed;
+      if (Array.isArray(parsed) && parsed.length >= 1) {
+        partyPresets = normalizePresets(parsed);
       }
     } else {
       // Migrate from v1
       const oldV1 = localStorage.getItem(STORAGE_KEY_V1);
       if (oldV1) {
-        partyPresets[0].party = JSON.parse(oldV1);
+        partyPresets[0].party = normalizeParty(JSON.parse(oldV1));
       }
     }
     const savedIdx = localStorage.getItem("scre-helper:activePresetIdx");
     if (savedIdx !== null) {
-      currentPresetIdx = parseInt(savedIdx, 10) || 0;
+      currentPresetIdx = normalizeActivePresetIdx(savedIdx, partyPresets.length);
     }
     const savedTerrain = localStorage.getItem(TERRAIN_STORAGE_KEY);
     if (savedTerrain !== null) {
-      currentTerrain = savedTerrain;
+      currentTerrain = normalizeTerrain(savedTerrain);
     }
   } catch (e) {
     console.warn("Storage load error:", e);
+    partyPresets = normalizePresets([]);
+    currentPresetIdx = 0;
+    currentTerrain = "";
   }
 
-  // Active party pointer
+  // Active party pointer (guaranteed non-null array)
   let party = partyPresets[currentPresetIdx].party;
 
   function saveParty() {
+    party = normalizeParty(party);
     partyPresets[currentPresetIdx].party = party;
     savePresets();
   }
@@ -109,9 +166,9 @@
     const snapshot = undoStack.pop();
     isUndoing = true;
     try {
-      partyPresets = snapshot.presets;
-      currentPresetIdx = snapshot.currentPresetIdx;
-      currentTerrain = snapshot.currentTerrain;
+      partyPresets = normalizePresets(snapshot.presets);
+      currentPresetIdx = normalizeActivePresetIdx(snapshot.currentPresetIdx, partyPresets.length);
+      currentTerrain = normalizeTerrain(snapshot.currentTerrain);
       party = partyPresets[currentPresetIdx].party;
       savePresets();
       renderPresetBar();
@@ -208,14 +265,19 @@
     }
   }
 
-  // Toast Notification Helper
+  // Toast Notification Helper (BUG-03: textContent prevents HTML injection)
   const showToast = (msg, isWarning = false) => showNotification(msg, isWarning);
   function showNotification(msg, isWarning = false) {
     let toast = document.querySelector(".toast-notification");
     if (toast) toast.remove();
     toast = document.createElement("div");
     toast.className = "toast-notification" + (isWarning ? " toast-warning" : "");
-    toast.innerHTML = `<span>${isWarning ? '⚠️' : '✓'}</span><span>${msg}</span>`;
+    const iconSpan = document.createElement("span");
+    iconSpan.textContent = isWarning ? '⚠️' : '✓';
+    const msgSpan = document.createElement("span");
+    msgSpan.textContent = String(msg ?? "");
+    toast.appendChild(iconSpan);
+    toast.appendChild(msgSpan);
     document.body.appendChild(toast);
     setTimeout(() => {
       if (toast.parentNode) toast.remove();
@@ -223,14 +285,18 @@
   }
 
   function switchPreset(idx) {
-    if (idx < 0 || idx >= partyPresets.length || idx === currentPresetIdx) return;
+    const validIdx = normalizeActivePresetIdx(idx, partyPresets.length);
+    if (validIdx === currentPresetIdx && partyPresets[currentPresetIdx] && Array.isArray(partyPresets[currentPresetIdx].party)) return;
     pushUndoSnapshot();
-    currentPresetIdx = idx;
-    if (!Array.isArray(partyPresets[currentPresetIdx].party)) {
-      partyPresets[currentPresetIdx].party = [];
+    currentPresetIdx = validIdx;
+    if (!partyPresets[currentPresetIdx] || !Array.isArray(partyPresets[currentPresetIdx].party)) {
+      partyPresets[currentPresetIdx] = {
+        name: DEFAULT_PRESET_NAMES[currentPresetIdx] || `部隊${currentPresetIdx + 1}`,
+        party: []
+      };
     }
     party = partyPresets[currentPresetIdx].party;
-    console.log("switchPreset to:", idx, "party length:", party.length);
+    console.log("switchPreset to:", currentPresetIdx, "party length:", party.length);
     savePresets();
     renderPresetBar();
     renderDashboard();
@@ -468,10 +534,17 @@
   // Calculation Engine
   // ==========================================
   function calculateBuffs(targetParty = party, targetTerrain = currentTerrain) {
-    const activePartyMembers = targetParty.map(slot => {
+    const rawParty = Array.isArray(targetParty) ? targetParty : [];
+    const seenIds = new Set();
+    const activePartyMembers = [];
+    rawParty.forEach((slot, index) => {
+      if (!slot || !slot.id || seenIds.has(slot.id)) return;
       const castle = getCastleById(slot.id);
-      return { slot, castle };
-    }).filter(x => x.castle !== null);
+      if (castle) {
+        seenIds.add(slot.id);
+        activePartyMembers.push({ slot, castle, slotIndex: index });
+      }
+    });
 
     const perCastle = {};
     const enemyDebuffs = {
@@ -1427,16 +1500,23 @@
     renderAllCastles();
   });
 
-  // Populate Dashboard Stage Select from guides
+  // Populate Dashboard Stage Select from guides (BUG-11: exclude /E and natural numeric sort)
   function populateDashboardStageSelect() {
     const sel = document.getElementById("dashboardStageSelect");
     if (!sel || !window.SCRE_GUIDES || !Array.isArray(window.SCRE_GUIDES)) return;
     sel.innerHTML = '<option value="">-- ステージ選択 --</option>';
     window.SCRE_GUIDES.forEach(cat => {
       if (!cat.stages || cat.stages.length === 0) return;
+      const validStages = cat.stages.filter(st => !st.title.endsWith("/E") && !st.id.endsWith("/E"));
+      if (validStages.length === 0) return;
+
+      const sortedStages = validStages.slice().sort((a, b) => {
+        return a.title.localeCompare(b.title, undefined, { numeric: true, sensitivity: "base" });
+      });
+
       const grp = document.createElement("optgroup");
       grp.label = cat.category;
-      cat.stages.forEach(st => {
+      sortedStages.forEach(st => {
         const opt = document.createElement("option");
         opt.value = st.title;
         opt.textContent = st.title + (st.terrain && st.terrain !== "無" ? ` [${st.terrain}]` : "");
@@ -1594,7 +1674,7 @@
       if (fIll && cleanIllustratorName(c.illustrator) !== fIll) return false;
 
       const fVa = document.getElementById("filterVoiceActor")?.value;
-      if (fVa && (c.voiceActor || "").trim() !== fVa) return false;
+      if (fVa && cleanVoiceActorName(c.voiceActor) !== fVa) return false;
 
       const fCountry = document.getElementById("filterCountry")?.value;
       if (fCountry && cleanCountryName(c.country) !== fCountry) return false;
@@ -2338,11 +2418,18 @@
         `;
         item.addEventListener("click", () => {
           pushUndoSnapshot();
-          if (selectingSlotIndex !== null) {
-            party[selectingSlotIndex] = { id: c.id, strategyOn: true, specialOn: !!c.special };
-          } else if (party.length < 8) {
-            party.push({ id: c.id, strategyOn: true, specialOn: !!c.special });
+          // If castle is already in party at a different slot, remove from previous slot to prevent duplicates (BUG-06)
+          const existingIdx = party.findIndex((p, idx) => p && p.id === c.id && idx !== selectingSlotIndex);
+          if (existingIdx !== -1) {
+            party.splice(existingIdx, 1);
           }
+          const newMember = { id: c.id, strategyOn: true, specialOn: !!c.special };
+          if (selectingSlotIndex !== null && selectingSlotIndex < party.length) {
+            party[selectingSlotIndex] = newMember;
+          } else if (party.length < 8) {
+            party.push(newMember);
+          }
+          party = normalizeParty(party);
           saveParty();
           renderDashboard();
           modal.classList.remove("open");
@@ -2380,19 +2467,29 @@
   document.getElementById("btnImportData").addEventListener("click", () => {
     try {
       const data = JSON.parse(document.getElementById("settingsJsonArea").value);
-      if (data) {
-        if (Array.isArray(data.presets)) {
-          partyPresets = data.presets;
-          party = partyPresets[currentPresetIdx].party;
+      if (data && typeof data === "object") {
+        pushUndoSnapshot();
+        if (Array.isArray(data.presets) && data.presets.length > 0) {
+          partyPresets = normalizePresets(data.presets);
         } else if (Array.isArray(data.party)) {
-          party = data.party;
-          partyPresets[currentPresetIdx].party = party;
+          partyPresets = normalizePresets([]);
+          partyPresets[0].party = normalizeParty(data.party);
         }
-        if (typeof data.activePresetIdx === "number") currentPresetIdx = data.activePresetIdx;
-        if (data.terrain !== undefined) currentTerrain = data.terrain;
-        if (data.ownership) {
-          if (Array.isArray(data.ownership.owned)) ownership.owned = new Set(data.ownership.owned);
-          if (Array.isArray(data.ownership.favorites)) ownership.favorites = new Set(data.ownership.favorites);
+        if (data.activePresetIdx !== undefined) {
+          currentPresetIdx = normalizeActivePresetIdx(data.activePresetIdx, partyPresets.length);
+        } else {
+          currentPresetIdx = 0;
+        }
+        // Deep copy binding (BUG-07)
+        party = partyPresets[currentPresetIdx].party;
+        if (data.terrain !== undefined) {
+          currentTerrain = normalizeTerrain(data.terrain);
+          const sel = document.getElementById("mapTerrainSelect");
+          if (sel) sel.value = currentTerrain;
+        }
+        if (data.ownership && typeof data.ownership === "object") {
+          if (Array.isArray(data.ownership.owned)) ownership.owned = new Set(data.ownership.owned.filter(id => typeof id === "string"));
+          if (Array.isArray(data.ownership.favorites)) ownership.favorites = new Set(data.ownership.favorites.filter(id => typeof id === "string"));
           saveOwnership();
         }
         savePresets();
@@ -2400,6 +2497,8 @@
         renderDashboard();
         renderAllCastles();
         showNotification("設定と所持データを復元しました！");
+      } else {
+        alert("JSONの形式が不正です（オブジェクト形式で入力してください）。");
       }
     } catch (e) {
       alert("JSON読み込み失敗: " + e.message);
@@ -2439,66 +2538,97 @@
     showNotification(`全データ（${Object.keys(backupData).length}項目）を一括書き出しました！💾`);
   });
 
-  // Helper to validate and serialize backup item values (B2 堅牢化)
-  function validateBackupValue(key, val) {
-    if (val === null || val === undefined) {
-      return { valid: false };
-    }
+  // Allowed Backup Keys Whitelist (BUG-18)
+  const ALLOWED_BACKUP_KEYS = [
+    "scre-helper:presets:v2",
+    "scre-helper:activePresetIdx",
+    "scre-helper:terrain:v1",
+    "scre-helper:ownership:v1",
+    "scre-helper:stage-progress:v1",
+    "scre-helper:theme:v1",
+    "scre-helper:density:v1",
+    "scre-helper:font-size:v1",
+    "scre-helper:filter-presets:v1",
+    "scre-helper:tier-weights:v1",
+    "scre-helper:tier-overrides:v1",
+    "scre-helper:quiz:v1",
+    "scre_custom_tiers"
+  ];
 
-    // If already an object or array (parsed JSON)
+  // Helper to validate and serialize backup item values (B2 堅牢化 & BUG-02 / BUG-18)
+  function validateBackupValue(key, val) {
+    if (val === null || val === undefined) return { valid: false };
+    if (!ALLOWED_BACKUP_KEYS.includes(key)) return { valid: false };
+
+    let strVal = val;
     if (typeof val === "object") {
       try {
-        const serialized = JSON.stringify(val);
-        return { valid: true, serialized };
+        strVal = JSON.stringify(val);
+      } catch (e) {
+        return { valid: false };
+      }
+    } else {
+      strVal = String(val);
+    }
+    const trimmed = strVal.trim();
+
+    if (key === "scre-helper:activePresetIdx") {
+      const n = parseInt(trimmed, 10);
+      if (isNaN(n) || n < 0 || n > 4) return { valid: false };
+      return { valid: true, serialized: String(n) };
+    }
+
+    if (key === "scre-helper:terrain:v1") {
+      if (!ALLOWED_TERRAINS.includes(trimmed)) return { valid: false };
+      return { valid: true, serialized: trimmed };
+    }
+
+    if (key === "scre-helper:density:v1") {
+      if (!["compact", "normal", "comfortable"].includes(trimmed)) return { valid: false };
+      return { valid: true, serialized: trimmed };
+    }
+
+    if (key === "scre-helper:font-size:v1") {
+      if (!["small", "normal", "large"].includes(trimmed)) return { valid: false };
+      return { valid: true, serialized: trimmed };
+    }
+
+    if (key === "scre-helper:presets:v2") {
+      try {
+        const parsed = JSON.parse(trimmed);
+        if (!Array.isArray(parsed) || parsed.length === 0) return { valid: false };
+        return { valid: true, serialized: JSON.stringify(normalizePresets(parsed)) };
       } catch (e) {
         return { valid: false };
       }
     }
 
-    // If number or boolean primitive
-    if (typeof val === "number" || typeof val === "boolean") {
-      return { valid: true, serialized: String(val) };
+    const jsonKeys = [
+      "scre-helper:ownership:v1",
+      "scre-helper:stage-progress:v1",
+      "scre-helper:theme:v1",
+      "scre-helper:filter-presets:v1",
+      "scre-helper:tier-weights:v1",
+      "scre-helper:tier-overrides:v1",
+      "scre_custom_tiers"
+    ];
+
+    if (jsonKeys.includes(key)) {
+      try {
+        const parsedJson = JSON.parse(trimmed);
+        if (typeof parsedJson !== "object" || parsedJson === null) {
+          return { valid: false };
+        }
+        return { valid: true, serialized: trimmed };
+      } catch (e) {
+        return { valid: false };
+      }
     }
 
-    if (typeof val === "string") {
-      const trimmed = val.trim();
-
-      // Specific structured keys in scre-helper that MUST be valid JSON
-      const knownJsonKeys = [
-        "scre-helper:presets:v2",
-        "scre-helper:ownership:v1",
-        "scre-helper:stage-progress:v1",
-        "scre-helper:theme:v1",
-        "scre-helper:filter-presets:v1",
-        "scre-helper:tier-weights:v1",
-        "scre-helper:tier-overrides:v1",
-        "scre_custom_tiers"
-      ];
-
-      if (knownJsonKeys.includes(key)) {
-        try {
-          const parsedJson = JSON.parse(trimmed);
-          if (typeof parsedJson !== "object" || parsedJson === null) {
-            return { valid: false };
-          }
-          return { valid: true, serialized: trimmed };
-        } catch (e) {
-          return { valid: false };
-        }
-      }
-
-      // If string begins with { or [ it is intended to be a JSON object or array
-      if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
-        try {
-          JSON.parse(trimmed);
-          return { valid: true, serialized: trimmed };
-        } catch (e) {
-          return { valid: false };
-        }
-      }
-
-      // For non-JSON primitive string keys (e.g. terrain, density, font-size, view-mode, activePresetIdx, etc.)
-      return { valid: true, serialized: val };
+    if (key === "scre-helper:quiz:v1") {
+      const n = parseInt(trimmed, 10);
+      if (isNaN(n) || n < 0) return { valid: false };
+      return { valid: true, serialized: String(n) };
     }
 
     return { valid: false };
@@ -2524,16 +2654,10 @@
             return;
           }
           const dataKeys = Object.keys(parsed.data);
-          const candidateKeys = dataKeys.filter(k => k.startsWith("scre-helper:") || k.startsWith("scre_"));
-          if (candidateKeys.length === 0) {
-            alert("有効な城プロRE設定データが含まれていません。");
-            return;
-          }
-
           const validItems = [];
           const excludedKeys = [];
 
-          candidateKeys.forEach(k => {
+          dataKeys.forEach(k => {
             const rawVal = parsed.data[k];
             const check = validateBackupValue(k, rawVal);
             if (check.valid) {
@@ -2560,6 +2684,11 @@
           if (!window.confirm(confirmMsg)) {
             return;
           }
+
+          // Full overwrite: clear existing allowed keys before storing restored items
+          ALLOWED_BACKUP_KEYS.forEach(k => {
+            try { localStorage.removeItem(k); } catch (e) {}
+          });
 
           validItems.forEach(item => {
             localStorage.setItem(item.key, item.value);
@@ -3696,7 +3825,7 @@
     const metaEl = document.getElementById("detailMetaInfo");
     let metaHtml = "";
     if (c.illustrator) metaHtml += `<div><strong>絵師:</strong> ${c.illustrator}</div>`;
-    if (c.voiceActor) metaHtml += `<div><strong>声優(CV):</strong> ${c.voiceActor}</div>`;
+    if (c.voiceActor) metaHtml += `<div><strong>声優(CV):</strong> ${escapeHtml(cleanVoiceActorName(c.voiceActor))}</div>`;
     if (c.country) metaHtml += `<div><strong>令制国/地域:</strong> ${c.country}</div>`;
     metaEl.innerHTML = metaHtml || '<div style="color:var(--text-muted);">追加情報なし</div>';
 
@@ -4877,13 +5006,17 @@
   }
 
   // ==========================================
-  // Party Share Link (Feature 3)
+  // Party Share Link (Feature 3 & BUG-04, BUG-05, BUG-09)
   // ==========================================
   function getShareUrl() {
     const data = {
-      v: 1,
-      t: currentTerrain || "",
-      p: party.map(s => ({ id: s.id, s: s.strategyOn ? 1 : 0 }))
+      v: 2,
+      t: normalizeTerrain(currentTerrain),
+      p: party.map(s => ({
+        id: s.id,
+        s: s.strategyOn ? 1 : 0,
+        sp: s.specialOn ? 1 : 0
+      }))
     };
     const jsonStr = JSON.stringify(data);
     const b64 = btoa(unescape(encodeURIComponent(jsonStr)));
@@ -4910,16 +5043,27 @@
       const jsonStr = decodeURIComponent(escape(atob(b64)));
       const data = JSON.parse(jsonStr);
       if (data && Array.isArray(data.p)) {
-        // (1) Validate existence of IDs via getCastleById
+        // (1) Validate existence of IDs, deduplicate (BUG-05, BUG-06), cap to 8
         const validParty = [];
+        const seenIds = new Set();
         const invalidIds = [];
         data.p.forEach(item => {
           if (item && item.id) {
-            const castle = getCastleById(item.id);
+            const cleanId = String(item.id).trim();
+            if (seenIds.has(cleanId)) return; // Deduplicate
+            const castle = getCastleById(cleanId);
             if (castle) {
-              validParty.push({ id: item.id, strategyOn: Boolean(item.s) });
+              seenIds.add(cleanId);
+              if (validParty.length < 8) {
+                const specialOn = item.sp !== undefined ? Boolean(item.sp) : Boolean(castle.special);
+                validParty.push({
+                  id: cleanId,
+                  strategyOn: Boolean(item.s),
+                  specialOn: specialOn
+                });
+              }
             } else {
-              invalidIds.push(item.id);
+              invalidIds.push(cleanId);
             }
           }
         });
@@ -4953,7 +5097,7 @@
         party = validParty;
         partyPresets[currentPresetIdx].party = party;
         if (data.t !== undefined) {
-          currentTerrain = data.t;
+          currentTerrain = normalizeTerrain(data.t);
           const sel = document.getElementById("mapTerrainSelect");
           if (sel) sel.value = currentTerrain;
         }
@@ -5319,7 +5463,7 @@
 
     const calcResult = calculateBuffs();
     if (!calcResult.activePartyMembers || calcResult.activePartyMembers.length === 0) {
-      showToast("⚠️ 編成に城娘がいません。城娘を編成してからエクスポートしてください。");
+      showToast("編成に城娘がいません。城娘を編成してからエクスポートしてください。", true);
       return;
     }
 
@@ -5771,7 +5915,7 @@
 
       // Ki Generation (気役)
       let kiScore = 0.0;
-      if (/気の自然増加|気の自然回復/.test(all_text)) kiScore += 45.0;
+      if (/気の自然増加|気の自然回復|気が徐々に増加|時間経過で気が/.test(all_text)) kiScore += 45.0;
       if (/撃破.*?気.*?増加|撃破獲得気/.test(all_text)) kiScore += 40.0;
       if (/10秒毎に気が追加で(\d+)増加/.test(all_text)) kiScore += 35.0;
       if (/撤退大破時の回復気が?(\d+)%上昇|撤退大破.*?気/.test(all_text)) {
@@ -8215,7 +8359,8 @@ function renderDamageChecker(providedCalcResult) {
 
   const enemyDef = parseInt(document.getElementById("dmgEnemyDef")?.value, 10) || 500;
   const enemyHp = parseInt(document.getElementById("dmgEnemyHp")?.value, 10) || 20000;
-  const enemyRed = (parseFloat(document.getElementById("dmgEnemyRed")?.value) || 0) / 100;
+  const enemyRedVal = Math.max(0, Math.min(90, parseFloat(document.getElementById("dmgEnemyRed")?.value) || 0));
+  const enemyRed = enemyRedVal / 100;
   const immuneDefIgnore = document.getElementById("dmgEnemyImmuneDefIgnore")?.checked || false;
 
   const calcResult = providedCalcResult || calculateBuffs();
@@ -8322,10 +8467,24 @@ function setListViewMode(mode) {
 }
 
 function cleanIllustratorName(s) {
-  if (!s) return "";
-  let clean = s.replace(/&uploader\([^)]+\)/g, "").replace(/[()]/g, "").trim();
+  if (!s || typeof s !== "string") return "";
+  if (/&attachref|&uploader|&ref|\.jpg|\.png|scre_|https?:\/\/|\/\//i.test(s)) return "";
+  let clean = s.replace(/\[\[.*?\]\]/g, "")
+               .replace(/\[\[.*/g, "")
+               .replace(/[（）()]/g, "")
+               .trim();
   if (clean.length > 30) clean = clean.slice(0, 30);
-  return clean;
+  return clean.length >= 2 ? clean : "";
+}
+
+function cleanVoiceActorName(s) {
+  if (!s || typeof s !== "string") return "";
+  let clean = s.replace(/\[\[.*?\]\]/g, "")
+               .replace(/\[\[.*/g, "")
+               .replace(/[（）()]/g, "")
+               .trim();
+  if (clean.length > 30) clean = clean.slice(0, 30);
+  return clean.length >= 2 ? clean : "";
 }
 
 function cleanCountryName(s) {
@@ -8346,9 +8505,9 @@ function populateGalleryFilterDropdowns() {
 
   SCRE_DATA.forEach(c => {
     const ill = cleanIllustratorName(c.illustrator);
-    if (ill && ill.length > 1 && !ill.includes("scre_")) illustrators.add(ill);
-    const va = (c.voiceActor || "").trim();
-    if (va && va.length > 1) voiceActors.add(va);
+    if (ill) illustrators.add(ill);
+    const va = cleanVoiceActorName(c.voiceActor);
+    if (va) voiceActors.add(va);
     const cou = cleanCountryName(c.country);
     if (cou && cou.length > 1) countries.add(cou);
   });
@@ -8412,7 +8571,7 @@ function renderGalleryTile(c) {
       <div class="gallery-tile-ruby">${escapeHtml(c.ruby || '')}</div>
       <div class="gallery-tile-credits">
         ${c.illustrator ? `<span>🎨 ${escapeHtml(cleanIllustratorName(c.illustrator))}</span>` : ''}
-        ${c.voiceActor ? `<span>🎙️ ${escapeHtml(c.voiceActor)}</span>` : ''}
+        ${c.voiceActor ? `<span>🎙️ ${escapeHtml(cleanVoiceActorName(c.voiceActor))}</span>` : ''}
       </div>
       <div class="gallery-tile-actions">
         <button type="button" class="btn btn-xs ${isOwned ? 'btn-success' : 'btn-outline'}" data-action="toggle-owned" data-id="${escapeHtml(c.id)}">
@@ -8980,6 +9139,7 @@ let quizActiveFormat = "ruby"; // 'ruby' | 'icon' | 'photo'
 let quizQuestions = [];
 let quizCurrentIndex = 0;
 let quizScore = 0;
+let hasInitQuizListeners = false;
 
 function renderQuizTab() {
   const bestScoreEl = document.getElementById("quizBestScore");
@@ -8988,32 +9148,38 @@ function renderQuizTab() {
     bestScoreEl.textContent = saved ? `自己ベスト: ${saved}点` : "自己ベスト: 未挑戦";
   }
 
-  // Format button listeners
-  const formatBtns = document.querySelectorAll("#quizFormatBtns .btn-quiz-format");
-  formatBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      formatBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      quizActiveFormat = btn.getAttribute("data-format") || "ruby";
+  if (!hasInitQuizListeners) {
+    hasInitQuizListeners = true;
+    const formatBtns = document.querySelectorAll("#quizFormatBtns .btn-quiz-format");
+    formatBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        formatBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        quizActiveFormat = btn.getAttribute("data-format") || "ruby";
+        const card = document.getElementById("quizCard");
+        if (card && card.style.display !== "none") {
+          startQuiz(quizActiveFormat);
+        }
+      });
     });
-  });
 
-  const btnStart = document.getElementById("btnStartQuiz");
-  if (btnStart) {
-    btnStart.onclick = () => startQuiz(quizActiveFormat);
-  }
+    const btnStart = document.getElementById("btnStartQuiz");
+    if (btnStart) {
+      btnStart.onclick = () => startQuiz(quizActiveFormat);
+    }
 
-  const btnRestart = document.getElementById("btnRestartQuiz");
-  if (btnRestart) {
-    btnRestart.onclick = () => {
-      document.getElementById("quizResultCard").style.display = "none";
-      startQuiz(quizActiveFormat);
-    };
-  }
+    const btnRestart = document.getElementById("btnRestartQuiz");
+    if (btnRestart) {
+      btnRestart.onclick = () => {
+        document.getElementById("quizResultCard").style.display = "none";
+        startQuiz(quizActiveFormat);
+      };
+    }
 
-  const btnNext = document.getElementById("btnNextQuizQuestion");
-  if (btnNext) {
-    btnNext.onclick = nextQuizQuestion;
+    const btnNext = document.getElementById("btnNextQuizQuestion");
+    if (btnNext) {
+      btnNext.onclick = nextQuizQuestion;
+    }
   }
 }
 
@@ -9109,12 +9275,15 @@ function renderQuizQuestion() {
       `;
     } else if (quizActiveFormat === "photo") {
       const rc = q.target.realCastle;
+      const photoUrl = (rc && rc.photoUrl) ? rc.photoUrl : (q.target.illustUrl || "");
+      const author = (rc && rc.author) ? rc.author : "Wikimedia Commons";
+      const license = (rc && rc.license) ? rc.license : "CC BY-SA";
       clueEl.innerHTML = `
         <div style="font-size:12px; color:var(--text-sub); margin-bottom:8px;">この実在する城をモチーフにした城娘はだれ？</div>
         <div style="max-width:340px; margin:0 auto; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.12); border:1px solid var(--border-color);">
-          <img src="${escapeHtml(rc.photoUrl)}" style="width:100%; max-height:220px; object-fit:cover; display:block;" alt="実城写真" />
+          <img src="${escapeHtml(photoUrl)}" style="width:100%; max-height:220px; object-fit:cover; display:block;" alt="実城写真" />
           <div style="font-size:10.5px; color:var(--text-sub); padding:4px 8px; background:#fafafa; text-align:center;">
-            出典: ${escapeHtml(rc.author || 'Wikimedia Commons')} (${escapeHtml(rc.license || 'CC BY-SA')})
+            出典: ${escapeHtml(author)} (${escapeHtml(license)})
           </div>
         </div>
       `;
@@ -9446,6 +9615,11 @@ function showQuizResult() {
   window.renderCoveragePanel = renderCoveragePanel;
   window.openPresetCompareModal = openPresetCompareModal;
   window.openStageDiagnostic = openStageDiagnostic;
+  window.normalizeParty = normalizeParty;
+  window.normalizePresets = normalizePresets;
+  window.normalizeTerrain = normalizeTerrain;
+  window.cleanIllustratorName = cleanIllustratorName;
+  window.cleanVoiceActorName = cleanVoiceActorName;
   window.getParty = () => party;
   window.setParty = (p) => {
     party = p;

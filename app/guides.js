@@ -10134,7 +10134,7 @@ window.SCRE_GUIDES = [
       },
       {
         "id": "四季御殿/春の回廊第2間",
-        "title": "春の回廊 2間",
+        "title": "春の回廊 第2間",
         "category": "四季御殿",
         "subCategory": "四季御殿",
         "terrain": "平山",

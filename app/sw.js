@@ -1,6 +1,6 @@
 // Service Worker for 城プロRE 編成・バフ/デバフ統合ダッシュボード
 // アプリ更新時は以下の CACHE_VERSION のバージョン番号をインクリメントしてください。
-const CACHE_VERSION = "scre-helper-v1.0.0";
+const CACHE_VERSION = "scre-helper-v1.0.1";
 const PRECACHE_ASSETS = [
   "./",
   "./index.html",
@@ -8,6 +8,7 @@ const PRECACHE_ASSETS = [
   "./data.js",
   "./guides.js",
   "./tier_data.js",
+  "./weapons_data.js",
   "./style.css",
   "./manifest.json",
   "./icons/pwa-192.png",
