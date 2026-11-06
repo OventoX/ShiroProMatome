@@ -625,9 +625,9 @@
         }
       });
 
-      // Terrain matching check
+      // Terrain matching check (通常地形は1.25倍、地獄地形は1.3倍)
       const isTerrainMatch = Boolean(targetTerrain && castle.attributes && castle.attributes.includes(targetTerrain));
-      const terrainMult = isTerrainMatch ? 1.25 : 1.0;
+      const terrainMult = isTerrainMatch ? (targetTerrain === "地獄" ? 1.3 : 1.25) : 1.0;
 
       const effectiveAtk = Math.floor((base.atk * terrainMult) * (1 + atkPerc) + b.atkFlat.sum + shareAtk);
       const effectiveDef = Math.floor((base.def * terrainMult) * (1 + defPerc) + b.defFlat.sum + shareDef);
@@ -7586,7 +7586,7 @@ function renderRomanSimulator() {
   const finalAtk = Math.round(calcStats.atk || 100);
 
   const isTerrainMatch = Boolean(currentTerrain && mainCastle.attributes && mainCastle.attributes.includes(currentTerrain));
-  const terrainMult = isTerrainMatch ? 1.25 : 1.0;
+  const terrainMult = isTerrainMatch ? (currentTerrain === "地獄" ? 1.3 : 1.25) : 1.0;
   const baseAtk = Math.floor((mainCastle.stats?.giant5?.atk || 100) * terrainMult);
 
   // Read enemy parameters
@@ -7660,7 +7660,7 @@ function renderRomanSimulator() {
       <div class="roman-step-label">
         <span class="roman-step-num">${stepIdx++}</span>
         <strong>素の巨大化後攻撃力</strong>
-        <span style="font-size:11px; color:var(--text-sub);">${isTerrainMatch ? '（巨大化5回・地形一致×1.25）' : '（巨大化5回）'}</span>
+        <span style="font-size:11px; color:var(--text-sub);">${isTerrainMatch ? `（巨大化5回・地形一致×${terrainMult}）` : '（巨大化5回）'}</span>
       </div>
       <div class="roman-step-val plus">+${baseAtk.toLocaleString()}</div>
     </div>
