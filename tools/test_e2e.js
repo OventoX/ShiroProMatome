@@ -3270,6 +3270,59 @@ async function runTests() {
     console.log('=> TEST 57 PASSED');
   }
 
+  // -------------------------------------------------------------
+  // Test 58: 金亀城 改弐タブと特技表示 (Prompt 11 回帰テスト)
+  // -------------------------------------------------------------
+  {
+    console.log('\n[TEST 58] Testing 金亀城 Kai2 remodel stage tab and ability display...');
+    await page.evaluate(() => window.openCastleDetail('金亀城'));
+    await new Promise(r => setTimeout(r, 500));
+
+    // 1. Check remodel stage buttons
+    const remodelButtons = await page.$$eval('#remodelBtnGroup .remodel-tab-btn', els => els.map(b => b.textContent.trim()));
+    console.log('金亀城 remodel stage buttons:', remodelButtons);
+    if (!remodelButtons.includes('改弐')) {
+      throw new Error(`TEST 58 FAILED: 金亀城 missing 改弐 button in remodelBtnGroup: ${JSON.stringify(remodelButtons)}`);
+    }
+
+    // 2. Click 改弐 button if not active
+    await page.evaluate(() => {
+      const btn = Array.from(document.querySelectorAll('#remodelBtnGroup .remodel-tab-btn')).find(b => b.textContent.trim() === '改弐');
+      if (btn) btn.click();
+    });
+    await new Promise(r => setTimeout(r, 300));
+
+    // 3. Verify Kai2 skill text and active badge
+    const skillText = await page.$eval('#detailSkillContainer', el => el.textContent);
+    console.log('金亀城 skill container snippet:', skillText.slice(0, 150));
+    if (!skillText.includes('天衝の大赤鬼')) {
+      throw new Error(`TEST 58 FAILED: 金亀城 detail modal missing Kai2 skill '天衝の大赤鬼': ${skillText}`);
+    }
+    if (!skillText.includes('砲弾直撃ボーナスが200%')) {
+      throw new Error(`TEST 58 FAILED: 金亀城 detail modal missing Kai2 skill description '砲弾直撃ボーナスが200%': ${skillText}`);
+    }
+
+    // 4. Verify Kai2 strategy text
+    const stratText = await page.$eval('#detailStrategyContainer', el => el.textContent);
+    console.log('金亀城 strategy container snippet:', stratText.slice(0, 150));
+    if (!stratText.includes('独座観念')) {
+      throw new Error(`TEST 58 FAILED: 金亀城 detail modal missing Kai2 strategy '独座観念': ${stratText}`);
+    }
+
+    // 5. Verify image is set (inherited from Kai1)
+    const imgSrc = await page.$eval('#detailPortraitImg', el => el.src);
+    console.log('金亀城 Kai2 portrait src:', imgSrc);
+    if (!imgSrc || imgSrc.includes('data:image/svg+xml')) {
+      throw new Error(`TEST 58 FAILED: 金亀城 Kai2 portrait should be populated, got: ${imgSrc}`);
+    }
+
+    // Close detail modal
+    await page.evaluate(() => document.getElementById('modalDetailCloseBtn')?.click());
+    await new Promise(r => setTimeout(r, 300));
+
+    console.log('=> TEST 58 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -3281,7 +3334,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (57/57)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (58/58)!');
   console.log('=====================================');
 }
 

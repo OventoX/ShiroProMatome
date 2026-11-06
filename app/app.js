@@ -3038,12 +3038,39 @@
   let currentSideCompareMode = "ojou_battle"; // 'ojou_battle' | 'battle_taiha' | 'ojou_taiha' | 'all_three'
   let currentDetailRemodelStage = "無印"; // '無印' | '改壱' | '改弐'
 
+  function getCastleRemodelStages(c) {
+    if (!c) return ["無印"];
+    const stages = Array.isArray(c.remodelStages) && c.remodelStages.length > 0
+      ? [...c.remodelStages]
+      : ["無印"];
+    const allAbilities = [...(c.allSkills || []), ...(c.allStrategies || []), ...(c.allSpecials || [])];
+    const hasKai1 = allAbilities.some(s => s && s.stage === "改壱");
+    const hasKai2 = allAbilities.some(s => s && s.stage === "改弐");
+    if (hasKai1 && !stages.includes("改壱")) {
+      stages.push("改壱");
+    }
+    if (hasKai2 && !stages.includes("改弐")) {
+      if (!stages.includes("改壱")) stages.push("改壱");
+      stages.push("改弐");
+    }
+    return stages;
+  }
+
   function getCastleStageImages(castle, stage) {
     if (!castle) return { illustUrl: "", ojouUrl: "", taihaUrl: "", tokugiUrl: "" };
     const st = stage || currentDetailRemodelStage || "無印";
     const forms = castle.remodelForms || {};
     const stageData = forms[st] || {};
+    const kai1Data = forms["改壱"] || {};
     const baseData = forms["無印"] || {};
+    if (st === "改弐") {
+      return {
+        illustUrl: stageData.illustUrl || kai1Data.illustUrl || baseData.illustUrl || castle.illustUrl || "",
+        ojouUrl: stageData.ojouUrl || kai1Data.ojouUrl || baseData.ojouUrl || castle.ojouUrl || "",
+        taihaUrl: stageData.taihaUrl || kai1Data.taihaUrl || baseData.taihaUrl || castle.taihaUrl || "",
+        tokugiUrl: stageData.tokugiUrl || kai1Data.tokugiUrl || baseData.tokugiUrl || castle.tokugiUrl || ""
+      };
+    }
     return {
       illustUrl: stageData.illustUrl || baseData.illustUrl || castle.illustUrl || "",
       ojouUrl: stageData.ojouUrl || baseData.ojouUrl || castle.ojouUrl || "",
@@ -3159,6 +3186,7 @@
     const colTaiha = document.getElementById("detailSideColTaiha");
     const captionEl = document.getElementById("detailPortraitCaption");
     const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
+    const noImgPlaceholder = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='400' viewBox='0 0 300 400'><rect width='100%' height='100%' fill='%232d3748'/><text x='50%' y='50%' fill='%23a0aec0' font-size='16' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle'>画像なし</text></svg>";
 
     // Update active tab buttons
     document.querySelectorAll("#portraitFormTabs .form-tab-btn").forEach(btn => {
@@ -3218,15 +3246,15 @@
 
         // Set images
         if (sideImgOjou) {
-          sideImgOjou.onerror = function() { this.src = fallbackSrc; };
+          sideImgOjou.onerror = function() { this.src = (this.src !== fallbackSrc && !this.src.startsWith("data:image/svg+xml")) ? fallbackSrc : noImgPlaceholder; };
           sideImgOjou.src = imgSet.ojouUrl || fallbackSrc;
         }
         if (sideImgBattle) {
-          sideImgBattle.onerror = function() { this.src = fallbackSrc; };
+          sideImgBattle.onerror = function() { this.src = (this.src !== fallbackSrc && !this.src.startsWith("data:image/svg+xml")) ? fallbackSrc : noImgPlaceholder; };
           sideImgBattle.src = imgSet.illustUrl || fallbackSrc;
         }
         if (sideImgTaiha) {
-          sideImgTaiha.onerror = function() { this.src = fallbackSrc; };
+          sideImgTaiha.onerror = function() { this.src = (this.src !== fallbackSrc && !this.src.startsWith("data:image/svg+xml")) ? fallbackSrc : noImgPlaceholder; };
           sideImgTaiha.src = imgSet.taihaUrl || fallbackSrc;
         }
 
@@ -3267,7 +3295,13 @@
       if (sideContainer) sideContainer.style.display = "none";
       if (imgEl) {
         imgEl.style.display = "block";
-        imgEl.onerror = function() { this.src = fallbackSrc; };
+        imgEl.onerror = function() {
+          if (this.src !== fallbackSrc && !this.src.startsWith("data:image/svg+xml")) {
+            this.src = fallbackSrc;
+          } else {
+            this.src = noImgPlaceholder;
+          }
+        };
         const stageLabel = st ? ` [${st}]` : '';
         if (form === "ojou") {
           imgEl.src = imgSet.ojouUrl || fallbackSrc;
@@ -3391,7 +3425,7 @@
       zoomForm = (currentSideCompareMode === "battle_taiha") ? "taiha" : "battle";
     }
 
-    const stages = (c.remodelStages && c.remodelStages.length > 0) ? c.remodelStages : ["無印"];
+    const stages = getCastleRemodelStages(c);
     if (!currentDetailRemodelStage || !stages.includes(currentDetailRemodelStage)) {
       currentDetailRemodelStage = stages[stages.length - 1];
     }
@@ -3471,7 +3505,7 @@
     wikiBtn.href = `https://scre.swiki.jp/index.php?${encodeURIComponent(c.name)}`;
 
     // Remodel Stage Switcher (無印 / 改壱 / 改弐)
-    const stages = (c.remodelStages && c.remodelStages.length > 0) ? c.remodelStages : ["無印"];
+    const stages = getCastleRemodelStages(c);
     currentDetailRemodelStage = stages[stages.length - 1];
 
     const remodelGroup = document.getElementById("remodelBtnGroup");
@@ -6373,6 +6407,7 @@
         cardEl.className = "tier-castle-card";
 
         const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
+    const noImgPlaceholder = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='400' viewBox='0 0 300 400'><rect width='100%' height='100%' fill='%232d3748'/><text x='50%' y='50%' fill='%23a0aec0' font-size='16' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle'>画像なし</text></svg>";
         const iconSrc = c.illustUrl ? c.illustUrl : fallbackSrc;
 
         cardEl.innerHTML = `
@@ -6536,6 +6571,7 @@
           chip.setAttribute("data-row-id", row.id);
 
           const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
+    const noImgPlaceholder = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='400' viewBox='0 0 300 400'><rect width='100%' height='100%' fill='%232d3748'/><text x='50%' y='50%' fill='%23a0aec0' font-size='16' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle'>画像なし</text></svg>";
           const iconSrc = c.illustUrl || fallbackSrc;
 
           chip.innerHTML = `
@@ -6684,6 +6720,7 @@
 クリックで選択中ティアへ追加、またはドラッグ`;
 
       const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
+    const noImgPlaceholder = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='400' viewBox='0 0 300 400'><rect width='100%' height='100%' fill='%232d3748'/><text x='50%' y='50%' fill='%23a0aec0' font-size='16' font-family='sans-serif' text-anchor='middle' dominant-baseline='middle'>画像なし</text></svg>";
       const iconSrc = c.illustUrl || fallbackSrc;
 
       itemEl.innerHTML = `
@@ -8106,7 +8143,7 @@ function renderGalleryTile(c) {
   const isOwned = ownership.owned.has(c.id);
   const inParty = party.some(p => p.id === c.id);
 
-  const stages = c.remodelStages || ["無印"];
+  const stages = getCastleRemodelStages(c);
   const stagesHtml = stages.map(st => `
     <button type="button" class="gallery-stage-btn ${st === '改壱' ? 'active' : ''}" data-castle-id="${escapeHtml(c.id)}" data-stage="${st}">
       ${st}

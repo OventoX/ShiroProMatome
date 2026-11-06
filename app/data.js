@@ -783,7 +783,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/68a178a2e2cf1c822b7ffcaee91dd7d029534aea",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -793,6 +794,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%89%E5%B9%B3%E5%9F%8E&src=%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4f0b093a18b620e82950083d0a4b4a68b65e8f22",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/06d840ff92c172a817e99ed2768eff131d7b4ec3",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5aa92bb3083e9aa14d892746b345e891313e6e87",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/68a178a2e2cf1c822b7ffcaee91dd7d029534aea"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4f0b093a18b620e82950083d0a4b4a68b65e8f22",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/06d840ff92c172a817e99ed2768eff131d7b4ec3",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5aa92bb3083e9aa14d892746b345e891313e6e87",
@@ -987,7 +994,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3a8d836f06d30a9ead374297b986b521b15b9187",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -997,6 +1005,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eecb8b011d78f9e6c814640c7680836edd705703"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/194ac5afae816b8e3347367494d127f14eb3f3ad",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ad37a4ca2e60686ade8edd458ce364c54589a3a5",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/868373804e37eecc749ca7cf96374068a22a9221",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3a8d836f06d30a9ead374297b986b521b15b9187"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/194ac5afae816b8e3347367494d127f14eb3f3ad",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ad37a4ca2e60686ade8edd458ce364c54589a3a5",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/868373804e37eecc749ca7cf96374068a22a9221",
@@ -1165,7 +1179,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eaf4f957c481df732f60e6c730ee7ecce173d220",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -1175,6 +1190,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%81%9A%E6%A5%BD%E7%AC%AC&src=%E8%81%9A%E6%A5%BD%E7%AC%AC%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2d09fdab0051f0c1c156f4cf2006a9ac9f3a8285",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/636e55245818c2ada04c1fe7a516a768fa13f37d",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2157288ebdc19e48e0f16af75f0d62425df643ec",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eaf4f957c481df732f60e6c730ee7ecce173d220"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2d09fdab0051f0c1c156f4cf2006a9ac9f3a8285",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/636e55245818c2ada04c1fe7a516a768fa13f37d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2157288ebdc19e48e0f16af75f0d62425df643ec",
@@ -1821,7 +1842,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51178834872743563a50a0d9be0471ddf845aa36",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -1831,6 +1853,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5281a251afda041dd53ce60a6e04747bc1b1ac3a"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4ea71a59a2dded96713425bdfa936e32d7727953",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b16e26ac8a21f49d8ea8818da47b5096c2fa48a8",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6fbfdb064f5d9a9c678da1b175279f224719c655",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51178834872743563a50a0d9be0471ddf845aa36"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4ea71a59a2dded96713425bdfa936e32d7727953",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b16e26ac8a21f49d8ea8818da47b5096c2fa48a8",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6fbfdb064f5d9a9c678da1b175279f224719c655",
@@ -1954,10 +1982,10 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 11,
   "illustFile": "万里の長城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0357399ab1ae54f31ecab76a06b5956aaf2c7274",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/59dbddcc6cb14425a85fa9a6642a6a32f9846ed8",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1f5b31bf44417a9db546c87907453c7a97e44282",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f5f8fb7acf865eb1708cb04d90fa250a85bc9b76",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4eb07ae6c57d9ae2d92712e4a46443e47a25833d",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8b26e41bf5e75a8140863ab786fbdc9de9aaf5b8",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e59b2550334f1c3450f369972d19660b46773c5b",
   "remodelStages": [
    "無印",
    "改壱",
@@ -1977,10 +2005,10 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e59b2550334f1c3450f369972d19660b46773c5b"
    },
    "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0357399ab1ae54f31ecab76a06b5956aaf2c7274",
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/59dbddcc6cb14425a85fa9a6642a6a32f9846ed8",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1f5b31bf44417a9db546c87907453c7a97e44282",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f5f8fb7acf865eb1708cb04d90fa250a85bc9b76",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4eb07ae6c57d9ae2d92712e4a46443e47a25833d"
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8b26e41bf5e75a8140863ab786fbdc9de9aaf5b8",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e59b2550334f1c3450f369972d19660b46773c5b"
    }
   },
   "illustrator": "&attachref(./万里の長城.jpg",
@@ -2748,14 +2776,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 11,
   "illustFile": "徳川大坂城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/01513e208a2b39160e0a3194c592cdbc5c857bdf",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/697175640110742c9efa63376fd66431e7912f6b",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/212cad545fe98d6af4a20bd1766d4e7f7fc8850e",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af9cf9441758e42f0d6e5d4f24b44713ef424c89",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3a5db8deb62227d592ca6afb807382537d2f8363",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/be1e343249f87836281560c9f6ed53468dce6ec3",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a9126198b68ccb927f3fd0cff045fe619a437355",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -2769,12 +2796,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/212cad545fe98d6af4a20bd1766d4e7f7fc8850e",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/be1e343249f87836281560c9f6ed53468dce6ec3",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a9126198b68ccb927f3fd0cff045fe619a437355"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/01513e208a2b39160e0a3194c592cdbc5c857bdf",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/212cad545fe98d6af4a20bd1766d4e7f7fc8850e",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af9cf9441758e42f0d6e5d4f24b44713ef424c89",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3a5db8deb62227d592ca6afb807382537d2f8363"
    }
   },
   "illustrator": "村上ゆいち",
@@ -2942,10 +2963,10 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 11,
   "illustFile": "ウィンザー城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c9162c8225086495042db304173a563786a6df4f",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/06f548bb77e620dedd12b3d5eb0858913eafd99a",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ee0ef26142d82604065a4d8a0cd6e11c78fe9c66",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/66d6249803f6303f07b96aab5529a6c7198c2f9d",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/46163ed8c4a27356bd72dd50d0502439471b2fec",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d647f974b8b5c3a9141f93e72a74507f5d066494",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fbe65abe17b3a9ecd695966f096ae20eaeb39683",
   "remodelStages": [
    "無印",
    "改壱",
@@ -2965,10 +2986,10 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fbe65abe17b3a9ecd695966f096ae20eaeb39683"
    },
    "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c9162c8225086495042db304173a563786a6df4f",
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/06f548bb77e620dedd12b3d5eb0858913eafd99a",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ee0ef26142d82604065a4d8a0cd6e11c78fe9c66",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/66d6249803f6303f07b96aab5529a6c7198c2f9d",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/46163ed8c4a27356bd72dd50d0502439471b2fec"
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d647f974b8b5c3a9141f93e72a74507f5d066494",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fbe65abe17b3a9ecd695966f096ae20eaeb39683"
    }
   },
   "illustrator": "冬野ユウキ",
@@ -3420,7 +3441,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/46e68ef39966bda314e5bfb06f95726e936c7a6e",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -3430,6 +3452,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%96%E3%83%AB%E3%83%B3%E5%AE%AE%E6%AE%BF&src=%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%96%E3%83%AB%E3%83%B3%E5%AE%AE%E6%AE%BF_%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e6b38ea410bcfd434a6fd6ca164bb4d2c1836417",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%96%E3%83%AB%E3%83%B3%E5%AE%AE%E6%AE%BF&src=d25ddfa2027b1936537f5b405a169c2e.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2ff0386c26a95184d7b34e2e18c10c90cb0e46e7",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/46e68ef39966bda314e5bfb06f95726e936c7a6e"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e6b38ea410bcfd434a6fd6ca164bb4d2c1836417",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%96%E3%83%AB%E3%83%B3%E5%AE%AE%E6%AE%BF&src=d25ddfa2027b1936537f5b405a169c2e.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2ff0386c26a95184d7b34e2e18c10c90cb0e46e7",
@@ -3681,7 +3709,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ec7b9ff5578790682b6ca0be471843b591d9f379",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -3691,6 +3720,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%8C%A6%E5%9F%8E&src=yuru.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4da221eec24b5d1f0daac70f1d7ec3df451217b2",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%8C%A6%E5%9F%8E&src=7e21ac59aac8e6fda7c010142943ba12_0.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a82f1c23b4f15be970de771744418923d80b31d2",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ec7b9ff5578790682b6ca0be471843b591d9f379"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4da221eec24b5d1f0daac70f1d7ec3df451217b2",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%8C%A6%E5%9F%8E&src=7e21ac59aac8e6fda7c010142943ba12_0.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a82f1c23b4f15be970de771744418923d80b31d2",
@@ -3874,7 +3909,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0ef5959ba197f3b5afa12b35626360967720b7b4",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -3884,6 +3920,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1285162dd879ce5ee7d8dc99847dd262d8b00beb"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/86beba505bdb3715ea4223c5e89a6379e21e90c8",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7f5fc4ec6363ad0c49da7f428fb5e348c6a0371b",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4488c4d851dcdc9a48072e2d068c51d60d52342d",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0ef5959ba197f3b5afa12b35626360967720b7b4"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/86beba505bdb3715ea4223c5e89a6379e21e90c8",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7f5fc4ec6363ad0c49da7f428fb5e348c6a0371b",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4488c4d851dcdc9a48072e2d068c51d60d52342d",
@@ -4302,7 +4344,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/277ca4c241dc2a40b1ad7640a3568a03b6631520",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -4312,6 +4355,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/265c8e91a9db27efc37993c1507ef92e0659a59d"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/570e9d2c5f60a7585ac4e64c10deaad6f8a00925",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/190c69cde5dc72d62acda10a90bb2d4883dd1756",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5c7dd96fb53c23d4917c02541872728fd2cfb9ef",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/277ca4c241dc2a40b1ad7640a3568a03b6631520"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/570e9d2c5f60a7585ac4e64c10deaad6f8a00925",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/190c69cde5dc72d62acda10a90bb2d4883dd1756",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5c7dd96fb53c23d4917c02541872728fd2cfb9ef",
@@ -4778,7 +4827,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3638d93984decef524e7da3df218b332dc490a5e",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -4788,6 +4838,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b7ebeb72336435148adc78199b1b7aa9365d19d6"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a9c29199821bffa0d7fb0d531f2197056ee69e9f",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/988710c2f11621fc4bfdc5dacfa919ffc4b62aa3",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce5098f983c697ece1d1787141cb6404ece3b6b6",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3638d93984decef524e7da3df218b332dc490a5e"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a9c29199821bffa0d7fb0d531f2197056ee69e9f",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/988710c2f11621fc4bfdc5dacfa919ffc4b62aa3",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce5098f983c697ece1d1787141cb6404ece3b6b6",
@@ -5023,7 +5079,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6aa642ed0777e2692b53b85c78f08953fddf7b44",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -5033,6 +5090,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/06980028578496e97f95dc3c3089057bd898f2f4"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b213a820b93473e812082d7d9f52923273d1244",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4f048a417a130a57315433743f15cf288633de3a",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d5814dcddefb088fdde6fcc19803f5a378202f43",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6aa642ed0777e2692b53b85c78f08953fddf7b44"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b213a820b93473e812082d7d9f52923273d1244",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4f048a417a130a57315433743f15cf288633de3a",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d5814dcddefb088fdde6fcc19803f5a378202f43",
@@ -5421,7 +5484,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/778584f626356515e2be3439eb2b4cfb56808182",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -5431,6 +5495,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/26e2371fa0c56b08a48aa73ab4b31ebf7f585763"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a2438a702f79021f03259edddd9f55e61506d08a",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e7540c0af9aa428dd8d8253621ed8f293cfe4b02",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/98ac4c1ad4bdfe91fa8aea315e72fd48bc91dc31",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/778584f626356515e2be3439eb2b4cfb56808182"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a2438a702f79021f03259edddd9f55e61506d08a",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e7540c0af9aa428dd8d8253621ed8f293cfe4b02",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/98ac4c1ad4bdfe91fa8aea315e72fd48bc91dc31",
@@ -5581,7 +5651,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f24ccfd29acc0045395571b310a9f27bca8c5009",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -5591,6 +5662,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/72e72a4305dec7b1d67892bb8a3f9c41a29eeda7"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/19f2a3ffc6dc0883201c16f7533779cb91ef8497",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9A%E3%83%86%E3%83%AB%E3%82%B4%E3%83%95%E5%AE%AE%E6%AE%BF&src=206e5582ed286ca51e5a693f0f6f0e69.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dd4e93ee8483bc2bd6c88a1a79246598ab0dbd29",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f24ccfd29acc0045395571b310a9f27bca8c5009"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/19f2a3ffc6dc0883201c16f7533779cb91ef8497",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9A%E3%83%86%E3%83%AB%E3%82%B4%E3%83%95%E5%AE%AE%E6%AE%BF&src=206e5582ed286ca51e5a693f0f6f0e69.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dd4e93ee8483bc2bd6c88a1a79246598ab0dbd29",
@@ -5926,7 +6003,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%80%E3%83%8E%E3%82%BF%E3%83%BC%E5%9F%8E&src=img02.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -5936,6 +6014,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9f222da4a384af289acb11eb893d2ff049f6939e"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%80%E3%83%8E%E3%82%BF%E3%83%BC%E5%9F%8E&src=img01.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/43edb459b7956e52e3df7b11a1bdf8b0a0304420",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%80%E3%83%8E%E3%82%BF%E3%83%BC%E5%9F%8E&src=img03_0.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%80%E3%83%8E%E3%82%BF%E3%83%BC%E5%9F%8E&src=img02.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%80%E3%83%8E%E3%82%BF%E3%83%BC%E5%9F%8E&src=img01.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/43edb459b7956e52e3df7b11a1bdf8b0a0304420",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%80%E3%83%8E%E3%82%BF%E3%83%BC%E5%9F%8E&src=img03_0.png",
@@ -6301,7 +6385,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/853e03a367914245c06a8ec30166c4b6f06e6463",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -6311,6 +6396,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cc58414cc90ffa4991ce5cd92077154b07afc199"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8cdcfa422aea6fb2ca2ea91b7ed1a6a588e897ad",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9c4e906b285bf23acf9abac9b7c3edf8f2de137e",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/699fd40113b897a15d571b6335adfbe31ffab868",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/853e03a367914245c06a8ec30166c4b6f06e6463"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8cdcfa422aea6fb2ca2ea91b7ed1a6a588e897ad",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9c4e906b285bf23acf9abac9b7c3edf8f2de137e",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/699fd40113b897a15d571b6335adfbe31ffab868",
@@ -6501,7 +6592,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d4acad10d7a41466bcc46a67e9f69ad945cebb21",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -6511,6 +6603,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/48d4573b92ee36915015e24c7f326c1bf1f9b37e"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6a3079f790ac36353b1cfd4b913b910c584b6958",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/86d2281e0a4e9ec16a34c692908b3bfd49c44e93",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1a5d0d4c33217615f6460cc840ae2cfbe0652222",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d4acad10d7a41466bcc46a67e9f69ad945cebb21"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6a3079f790ac36353b1cfd4b913b910c584b6958",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/86d2281e0a4e9ec16a34c692908b3bfd49c44e93",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1a5d0d4c33217615f6460cc840ae2cfbe0652222",
@@ -6880,10 +6978,10 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "琉球御城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/20cbada56f7a85fdc2ab8cf565645ea8e9d4f476",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce015332f257088d3512d8ef54998d4d619a02b1",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/114918fe339cd2028d668851ec338be8ab0b4805",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0616c4daec6550d42f16f1cd467c438e71a164e6",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/70206a2a87e97dfd7aea3626b82a2c729020c6f4",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5156617442d9568229782030c2e10bcc49893132",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1937b31d672c48b31721240edc43a78babca1ec3",
   "remodelStages": [
    "無印",
    "改壱",
@@ -6903,10 +7001,10 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1937b31d672c48b31721240edc43a78babca1ec3"
    },
    "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/20cbada56f7a85fdc2ab8cf565645ea8e9d4f476",
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce015332f257088d3512d8ef54998d4d619a02b1",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/114918fe339cd2028d668851ec338be8ab0b4805",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0616c4daec6550d42f16f1cd467c438e71a164e6",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/70206a2a87e97dfd7aea3626b82a2c729020c6f4"
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5156617442d9568229782030c2e10bcc49893132",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1937b31d672c48b31721240edc43a78babca1ec3"
    }
   },
   "illustrator": "&uploader(c455c286070d98a882710afa65a19b5199008e2c_scre_4495",
@@ -7883,7 +7981,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a2cde2354133eb89dd85d9aa4090875d1089f90a",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -7893,6 +7992,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ab4fe02af4e9b1ea92d4037cb04164ef9b6e95fd"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9ebba4d4226a61dee08e086068d16242bcc4c1f2",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c2ab84f1d15d29fa81fd5b648788b510af9dbfda",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0fc15fc30e92bdfe21d3825a948649c8e7a3db64",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a2cde2354133eb89dd85d9aa4090875d1089f90a"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9ebba4d4226a61dee08e086068d16242bcc4c1f2",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c2ab84f1d15d29fa81fd5b648788b510af9dbfda",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0fc15fc30e92bdfe21d3825a948649c8e7a3db64",
@@ -8232,7 +8337,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e13561c945935a232b9ce8254f8df179a72970ed",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -8242,6 +8348,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b90f6f8ec89f642a9ad10513b80597894356f126"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4aa80976fbbcd8b3efaf41e629e0976a468fbbdb",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/27f29e663843f588f7ac43c3612ad11e1d4bdb98",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/708b37e47d7c9f144e94d03ed471069a217fdecd",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e13561c945935a232b9ce8254f8df179a72970ed"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4aa80976fbbcd8b3efaf41e629e0976a468fbbdb",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/27f29e663843f588f7ac43c3612ad11e1d4bdb98",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/708b37e47d7c9f144e94d03ed471069a217fdecd",
@@ -8411,7 +8523,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f99439dfc4daecfec191fdf6408f3bd2f8e4d860",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -8421,6 +8534,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0a8eb262ff61a07508048f0b5e61f71cd618a9e4"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ff80ea4ba63ebebd301231ae6cda96b012fe1b51",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7f140539cc7f70a5896c0c31828a8fc6bfbc30c6",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8d7898b84e4f265892202b9d8a19ada0c809f58f",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f99439dfc4daecfec191fdf6408f3bd2f8e4d860"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ff80ea4ba63ebebd301231ae6cda96b012fe1b51",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7f140539cc7f70a5896c0c31828a8fc6bfbc30c6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8d7898b84e4f265892202b9d8a19ada0c809f58f",
@@ -8581,7 +8700,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/367fc24cccb2befd1f809c90af7bd183a4a7e2ae",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -8591,6 +8711,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e73c0a57e85911a61ca70c6beb307d5984461bb4"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b29548bee74980807b8d992daa5d83af137189f4",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c7779ba2fb849f49b41fbc94f14635a1f85ba3d",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/25e0d013ca9849adfff9be7095858a431ae0ddb3",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/367fc24cccb2befd1f809c90af7bd183a4a7e2ae"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b29548bee74980807b8d992daa5d83af137189f4",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c7779ba2fb849f49b41fbc94f14635a1f85ba3d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/25e0d013ca9849adfff9be7095858a431ae0ddb3",
@@ -8773,7 +8899,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2cac962abbdc76c2cde7be652458817a5d4dcfea",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -8783,6 +8910,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1793c87b985f5490cd6f706e39b1eb6dfb50f4f0"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a1279b98838e7c0bcc6fdbd77beb08ddeb365225",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/671cee4b98d96733b0f9c3628b3d28ddbc5b3fc6",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/86f94af15b24a5ae476dd6ca37cba462ca594e60",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2cac962abbdc76c2cde7be652458817a5d4dcfea"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a1279b98838e7c0bcc6fdbd77beb08ddeb365225",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/671cee4b98d96733b0f9c3628b3d28ddbc5b3fc6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/86f94af15b24a5ae476dd6ca37cba462ca594e60",
@@ -9463,7 +9596,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/77cd4016fa43178cdbd6c61e26b3da81507d89a3",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -9473,6 +9607,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3e17cc109902e0d9931374bdbd76a09628372a36"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/876dee8b5a1afa7c5bfc20c962d6de5fb2a13c17",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/495c777aea359f1256133d3d41dd7225c43a01be",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/46e003e7ab2f38a70766e729a2e94b147e771b07",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/77cd4016fa43178cdbd6c61e26b3da81507d89a3"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/876dee8b5a1afa7c5bfc20c962d6de5fb2a13c17",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/495c777aea359f1256133d3d41dd7225c43a01be",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/46e003e7ab2f38a70766e729a2e94b147e771b07",
@@ -10272,7 +10412,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/42f8006f9669fd5458eaf1b1f35e123b6396dbd2",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -10282,6 +10423,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d4d93bd24a71b0a99b67440e4b42ee342a3bbb99"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e00981f4414da255a3487a411c1fffb0c33b5ec2",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b6037c79bd17301ac09bb6a9d224e4e0efede85c",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/df57f9bb8806022783780b22d2dbe81414b3edf7",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/42f8006f9669fd5458eaf1b1f35e123b6396dbd2"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e00981f4414da255a3487a411c1fffb0c33b5ec2",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b6037c79bd17301ac09bb6a9d224e4e0efede85c",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/df57f9bb8806022783780b22d2dbe81414b3edf7",
@@ -10677,7 +10824,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c8e6561d922b2ea476cc19fc3abf531af7f47b83",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -10687,6 +10835,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/670e7414c0b3297d9977c35b0dbc72a2a050172d"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8075bfc37049f3add6e9fbb22f88af560d5b2152",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c2c9c0bee27c6c4f8de0b26f587e5e34faadd01c",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2062b7234c5e2051248ae8aef68f63b87d6a874b",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c8e6561d922b2ea476cc19fc3abf531af7f47b83"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8075bfc37049f3add6e9fbb22f88af560d5b2152",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c2c9c0bee27c6c4f8de0b26f587e5e34faadd01c",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2062b7234c5e2051248ae8aef68f63b87d6a874b",
@@ -12444,7 +12598,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/72efb5698b203a07eff45e6351a71e0c0bfdd2d6",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -12454,6 +12609,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/503aac36e49dc7bf578c87f33a28c0ebbc56eab3"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1a04c224a756897d6a2373e68cced80137c720e9",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/95d6c833a348ef2a5704a4b4cab2dd8fba64154e",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/401f4878d2328a0912a41314bb72551e6ed49bf2",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/72efb5698b203a07eff45e6351a71e0c0bfdd2d6"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1a04c224a756897d6a2373e68cced80137c720e9",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/95d6c833a348ef2a5704a4b4cab2dd8fba64154e",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/401f4878d2328a0912a41314bb72551e6ed49bf2",
@@ -13774,7 +13935,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/37ec03424d217dfc500ea804f6cd91cf3d0bbb25",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -13784,6 +13946,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dbf101aaba82104d92bc28afda2e5fadd7984048"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/070624a613c159e51313ebbfd2b05e01fd2c9036",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f34edf55626feff8542b1c8517f7d083b842ac03",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/255c802f6e416a17a6a43a8436637270cc9f2d2c",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/37ec03424d217dfc500ea804f6cd91cf3d0bbb25"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/070624a613c159e51313ebbfd2b05e01fd2c9036",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f34edf55626feff8542b1c8517f7d083b842ac03",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/255c802f6e416a17a6a43a8436637270cc9f2d2c",
@@ -13953,7 +14121,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/144ea07a1f691caee91622c69c8ecc4eb2ccb76e",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -13963,6 +14132,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1a3ac424de099482b3a861d598cda351437c0f2b"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/60d51d34c2ddca106826718a0cfc16734633153f",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/04346ce2bff0f4575a9a59bd40d7928b3247f4c2",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/67829a331bc7a814e48e0097f1c21114eb0ffb43",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/144ea07a1f691caee91622c69c8ecc4eb2ccb76e"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/60d51d34c2ddca106826718a0cfc16734633153f",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/04346ce2bff0f4575a9a59bd40d7928b3247f4c2",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/67829a331bc7a814e48e0097f1c21114eb0ffb43",
@@ -14031,7 +14206,7 @@ window.SCRE_DATA = [
    ]
   },
   "strategy": {
-   "name": "[改壱] / 十一州の太守 （使用まで50秒：消費気5）",
+   "name": "[改弐] / 十一州の太守 （使用まで50秒：消費気5）",
    "text": "40秒間対象の攻撃が300、射程が200上昇、攻撃が標的と その周囲の敵に攻撃の3倍のダメージを与える、敵の防御 が低い程与えるダメージ上昇(最大2倍。自分のみ)",
    "effects": [],
    "cooldown": 50,
@@ -14149,8 +14324,8 @@ window.SCRE_DATA = [
     ]
    },
    {
-    "stage": "改壱",
-    "name": "[改壱] / 十一州の太守 （使用まで50秒：消費気5）",
+    "stage": "改弐",
+    "name": "[改弐] / 十一州の太守 （使用まで50秒：消費気5）",
     "text": "40秒間対象の攻撃が300、射程が200上昇、攻撃が標的と その周囲の敵に攻撃の3倍のダメージを与える、敵の防御 が低い程与えるダメージ上昇(最大2倍。自分のみ)",
     "effects": []
    }
@@ -15979,7 +16154,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%9C%9E%E5%9F%8E&src=79e71b00d396e394f68abb881a06deb5-min.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -15989,6 +16165,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/edf1615553c5a237106c10eaecd02449a6c604e8"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%9C%9E%E5%9F%8E&src=7d7387a37afbe55bd2dcb48932527d6c-min.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b7084b25815630a772e96404bc5f21152a835556",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%9C%9E%E5%9F%8E&src=61ccef3815e177072954b6db4203304d-min.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%9C%9E%E5%9F%8E&src=79e71b00d396e394f68abb881a06deb5-min.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%9C%9E%E5%9F%8E&src=7d7387a37afbe55bd2dcb48932527d6c-min.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b7084b25815630a772e96404bc5f21152a835556",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%9C%9E%E5%9F%8E&src=61ccef3815e177072954b6db4203304d-min.png",
@@ -51185,14 +51367,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［アイドル］クリンタ城＆枉死城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9edb7ca65dcfa1341bdf553d00978c4775b3c1ba",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/62543de2bea1684d62fd7c7ef0a5f6de4d99989d",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c5af55164162f63724f63d46eed16d2573c35f63",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/90a19c6f16df87e66f70e02f486505bf9978f915",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d08dae755e32455767c5bb3ca2c30687e8772603",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/761b8af1077b7be8bfe8e4e98391fdfefda959e6",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d111961e7bdcfc007f11c78635673c0deb5b04ac",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -51206,12 +51387,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c5af55164162f63724f63d46eed16d2573c35f63",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/761b8af1077b7be8bfe8e4e98391fdfefda959e6",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d111961e7bdcfc007f11c78635673c0deb5b04ac"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9edb7ca65dcfa1341bdf553d00978c4775b3c1ba",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c5af55164162f63724f63d46eed16d2573c35f63",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/90a19c6f16df87e66f70e02f486505bf9978f915",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d08dae755e32455767c5bb3ca2c30687e8772603"
    }
   },
   "illustrator": "&uploader(ebf9177fd3bd2aeb0bb8829211d0b88f8aac904d_scre_19555",
@@ -51336,8 +51511,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/276ffb722b4e4d22cf6192b213375b4976a7954e",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -51347,12 +51521,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/276ffb722b4e4d22cf6192b213375b4976a7954e"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a643400026b29114a4d0270ac831f5f50114711b",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fd0fe7682afd6b5365bff284cc4e42538736bbbe",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce1b622d9960bf79313a6e0bfc62e050953dabf2",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/276ffb722b4e4d22cf6192b213375b4976a7954e"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a643400026b29114a4d0270ac831f5f50114711b",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fd0fe7682afd6b5365bff284cc4e42538736bbbe",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce1b622d9960bf79313a6e0bfc62e050953dabf2",
@@ -51485,14 +51653,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［アイドル］伏見城三姉妹.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ebabc23c557251e54512465890a8b7df1a1e5e3e",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eed4a9ede0c8e960391a02ba255441b62373c90d",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cc72bf0e449bee5ec6fb0e201027a9a03b8832a6",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/13d8dbfe40c2a37a7eedb53c23d9f1da18168ea5",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a01e1e1f5f7af669c46fe616c72a3a180553ae04",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c840842db4b5d6cb5221f26d2502291c305be79c",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3559cd8e1f7369f8dea4a4c045570bca24ac0275",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -51506,12 +51673,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cc72bf0e449bee5ec6fb0e201027a9a03b8832a6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c840842db4b5d6cb5221f26d2502291c305be79c",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3559cd8e1f7369f8dea4a4c045570bca24ac0275"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ebabc23c557251e54512465890a8b7df1a1e5e3e",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cc72bf0e449bee5ec6fb0e201027a9a03b8832a6",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/13d8dbfe40c2a37a7eedb53c23d9f1da18168ea5",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a01e1e1f5f7af669c46fe616c72a3a180553ae04"
    }
   },
   "illustrator": "水野魚月",
@@ -51787,14 +51948,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠近",
   "cost": 10,
   "illustFile": "［絢爛］千賀地氏城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/85f3231a3343bdcad1f8ad920d6841b7ce8bad94",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3b653460a6f47416ed3fa148e6a106633ee8a5f5",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a0e39066c39b04c00d07ddd970a762f4fa00aa6a",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/99d405bff3f717b8312d081fb673c8eb1251768d",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/407ad0061fce42b8b38cade6da83698c43ba452d",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c87a37319ec6085b618e7b8663e006de67a88f2e",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/59173b660e5ee6bbce5fdb201db281788ef4aa99",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -51808,12 +51968,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a0e39066c39b04c00d07ddd970a762f4fa00aa6a",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c87a37319ec6085b618e7b8663e006de67a88f2e",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/59173b660e5ee6bbce5fdb201db281788ef4aa99"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/85f3231a3343bdcad1f8ad920d6841b7ce8bad94",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a0e39066c39b04c00d07ddd970a762f4fa00aa6a",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/99d405bff3f717b8312d081fb673c8eb1251768d",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/407ad0061fce42b8b38cade6da83698c43ba452d"
    }
   },
   "illustrator": "かまぼこRED",
@@ -52133,14 +52287,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［龍毘］春日山城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c835842d0b80310450c3a8e3ffdb162be05eb45",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ac3b06951e118e20895339723dd54c4e3160be0a",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cb48c495d1afa91be870f6686e4a3aa8d2f36cf0",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c8211849cc5a20f2b58d7fe3067c4c036b5489cc",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b3ed1151453a3dab73c94dc07ebdd78e2d109aea",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8135445a703fc0c46792e900509d53fa0e349a6c",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/13fc2fa18a96229c19e52ccbe7a97189d7d2fde8",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -52154,12 +52307,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cb48c495d1afa91be870f6686e4a3aa8d2f36cf0",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8135445a703fc0c46792e900509d53fa0e349a6c",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/13fc2fa18a96229c19e52ccbe7a97189d7d2fde8"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c835842d0b80310450c3a8e3ffdb162be05eb45",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cb48c495d1afa91be870f6686e4a3aa8d2f36cf0",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c8211849cc5a20f2b58d7fe3067c4c036b5489cc",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b3ed1151453a3dab73c94dc07ebdd78e2d109aea"
    }
   },
   "illustrator": "&uploader(7886b480246b4f4a353d979b45cfad22c7bd01ab_scre_19726",
@@ -52347,14 +52494,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［暁星］大坂城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a48f23feb9af25f17d2fbd2fb0b239cc8fe2863d",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5e9381432de6a1b3712144b845aa8e8a2273da85",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b0566a6d25bc9c7473b359ffafb813e0c8260ade",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7fd3b42162b701bfa85b6f7ce31a59380836f3e9",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/405d13bb88c13a63d2838f7132c51706013fb67e",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a9964c54e77d84438960574684fe3725d816941e",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4e53c3b29716fedef73ba7182a791eaa9a7bd70",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -52368,12 +52514,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b0566a6d25bc9c7473b359ffafb813e0c8260ade",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a9964c54e77d84438960574684fe3725d816941e",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4e53c3b29716fedef73ba7182a791eaa9a7bd70"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a48f23feb9af25f17d2fbd2fb0b239cc8fe2863d",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b0566a6d25bc9c7473b359ffafb813e0c8260ade",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7fd3b42162b701bfa85b6f7ce31a59380836f3e9",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/405d13bb88c13a63d2838f7132c51706013fb67e"
    }
   },
   "illustrator": "&uploader(94f58b6b3b0f153836a7671fb92edaa304dad112_scre_19709",
@@ -52503,14 +52643,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［桔響］福知山城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7668188cc4242d03dc1e17c507a128e1796515cb",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3153fa71da26ccea06df7c24f920c567593457fa",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bcc947e38d1db2ad689e551731523b8b7298b9ee",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/73f3ab3f655887c1de5d9835c2488d7664cdf535",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/940218b8ea963e3e37ffdc942296b3260ec2bc79",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b6cb68342e7e04d14e08a0a3e3f5a0ebd1a0d5bb",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c3789a8778fce94a3d17785724a2eb7a5c51345",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -52524,12 +52663,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bcc947e38d1db2ad689e551731523b8b7298b9ee",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b6cb68342e7e04d14e08a0a3e3f5a0ebd1a0d5bb",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c3789a8778fce94a3d17785724a2eb7a5c51345"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7668188cc4242d03dc1e17c507a128e1796515cb",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bcc947e38d1db2ad689e551731523b8b7298b9ee",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/73f3ab3f655887c1de5d9835c2488d7664cdf535",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/940218b8ea963e3e37ffdc942296b3260ec2bc79"
    }
   },
   "illustrator": "&uploader(f70a8f68da299ad28f040935090da62c9ea611f7_scre_19699",
@@ -52745,14 +52878,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［花嫁衣装］長篠城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/da08016e2a9afdf255893de9dedef2092f3a2e16",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/edfd4e13f8885f13fd0528a10d1c971e38d766bd",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6b441cd3333680e0df272170dde70111be15c4fb",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d369481d8db1bcbc0ec80e0c3c0961e2e8071036",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/378f2b8a313b0ed55d2c8910be347093e6fd1e00",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51c371e4ad249b92290f39090a118a2f569cc206",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/10d30209bb89e81b30a8c4a0033ecc77ac094613",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -52766,12 +52898,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6b441cd3333680e0df272170dde70111be15c4fb",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51c371e4ad249b92290f39090a118a2f569cc206",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/10d30209bb89e81b30a8c4a0033ecc77ac094613"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/da08016e2a9afdf255893de9dedef2092f3a2e16",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6b441cd3333680e0df272170dde70111be15c4fb",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d369481d8db1bcbc0ec80e0c3c0961e2e8071036",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/378f2b8a313b0ed55d2c8910be347093e6fd1e00"
    }
   },
   "illustrator": "&uploader(261025386a5fb7c5c46bbf927fbedaa59e61cfc2_scre_19838",
@@ -52866,8 +52992,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3298d32f43064bd8f7272a1ba640ac2939b5fee",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -52877,12 +53002,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3298d32f43064bd8f7272a1ba640ac2939b5fee"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7eb292d768e48ada5a17f417a8806e880b6c382d",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/07161a2f78d1a42a5f671e82787412a9bc86b62b",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a666913eaa4b5a6a2ceb4399e77d931dc1260771",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3298d32f43064bd8f7272a1ba640ac2939b5fee"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7eb292d768e48ada5a17f417a8806e880b6c382d",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/07161a2f78d1a42a5f671e82787412a9bc86b62b",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a666913eaa4b5a6a2ceb4399e77d931dc1260771",
@@ -53000,8 +53119,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f3d4e780ace5c2539e5bd8c3ea71a503cad61f7b",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -53011,12 +53129,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f3d4e780ace5c2539e5bd8c3ea71a503cad61f7b"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c67abfff55a3d7fb1207e47ec6bfcc0db922aa3c",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9e556886d1e117dffff83d7fd883449878304515",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/21232efcf84dc8acd8844baead026289b334fbe0",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f3d4e780ace5c2539e5bd8c3ea71a503cad61f7b"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c67abfff55a3d7fb1207e47ec6bfcc0db922aa3c",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9e556886d1e117dffff83d7fd883449878304515",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/21232efcf84dc8acd8844baead026289b334fbe0",
@@ -53168,14 +53280,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［夏］ヴェルサイユ宮殿S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4d6ede832074ec97eb13f991d20ff7bdeadcbdf4",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ec610bc21c291eb3da72f5b2b12fe10932e11f9c",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/86b3960ba2104418f2cbfeb7e240f07f6e1371f5",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/33c6f1efd6b8f92671c7678284690d73b8dc449c",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/006d8803319bc8fdc3d6f2edd23523e618a9eb4f",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bb6233a7569423cd99a1310d81f00ffb3279f5a5",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6bc3a5d93ae1e0b43a939dc61551a7b6a796c206",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -53189,12 +53300,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/86b3960ba2104418f2cbfeb7e240f07f6e1371f5",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bb6233a7569423cd99a1310d81f00ffb3279f5a5",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6bc3a5d93ae1e0b43a939dc61551a7b6a796c206"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4d6ede832074ec97eb13f991d20ff7bdeadcbdf4",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/86b3960ba2104418f2cbfeb7e240f07f6e1371f5",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/33c6f1efd6b8f92671c7678284690d73b8dc449c",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/006d8803319bc8fdc3d6f2edd23523e618a9eb4f"
    }
   },
   "illustrator": "&uploader(d8d95d4f4e5b9b6dbb6771c689c131851c6a4160_scre_19916",
@@ -53289,8 +53394,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/de085dcfc7d8bf3de123b2366f9d18aefacf9ab7",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -53300,12 +53404,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/de085dcfc7d8bf3de123b2366f9d18aefacf9ab7"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51f1c86998b927942bce756115cebcbc6d7cf782",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5abfbf60889e10a0b0c2614500ed8022cef7606d",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d9e89162915ad0e06e11ee7e2f8a8bd6fca40412",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/de085dcfc7d8bf3de123b2366f9d18aefacf9ab7"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51f1c86998b927942bce756115cebcbc6d7cf782",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5abfbf60889e10a0b0c2614500ed8022cef7606d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d9e89162915ad0e06e11ee7e2f8a8bd6fca40412",
@@ -53457,14 +53555,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "金烏城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b078f71bd134593e8b9aaa57de02f6b366ae36a8",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c218f5a4f03f6b559b50bc55277f158fcd8fdc37",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9d56cdef2fcf3f0210f0200d3c648e9a22281500",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ddd2b57004a2970818836298bbff8208148d36d4",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fde5631e31547b1fa33ee49161c88d41d091b620",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3722952b36d0a6672c7f10ed6bbe473eb3da962d",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/581f3cdefe300e374642820f597f3d28b34e9ed8",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -53478,12 +53575,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9d56cdef2fcf3f0210f0200d3c648e9a22281500",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3722952b36d0a6672c7f10ed6bbe473eb3da962d",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/581f3cdefe300e374642820f597f3d28b34e9ed8"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b078f71bd134593e8b9aaa57de02f6b366ae36a8",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9d56cdef2fcf3f0210f0200d3c648e9a22281500",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ddd2b57004a2970818836298bbff8208148d36d4",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fde5631e31547b1fa33ee49161c88d41d091b620"
    }
   },
   "illustrator": "かまぼこRED",
@@ -53601,8 +53692,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2f3fbb8b01dca99e6d883fb0c9b7d0dc61cc8d3c",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -53612,12 +53702,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2f3fbb8b01dca99e6d883fb0c9b7d0dc61cc8d3c"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/61de7d9cf71e00d07dca70dcbd2130ff882636ff",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97ba92059b3f5e33032e81d0b01cd77c49b65d45",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/65516b3db69cc6e5a7cf1507a0896b072442326c",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2f3fbb8b01dca99e6d883fb0c9b7d0dc61cc8d3c"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/61de7d9cf71e00d07dca70dcbd2130ff882636ff",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97ba92059b3f5e33032e81d0b01cd77c49b65d45",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/65516b3db69cc6e5a7cf1507a0896b072442326c",
@@ -53730,14 +53814,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠近",
   "cost": 10,
   "illustFile": "千鳥城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/34d68548c7b707be473eacd81360f28cd616c58a",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9e35af1f8fbb0b157b0b413520d9e845d7b75763",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/78785c1882679cf0eec70115aef7094a8a6a5da2",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3a41b2429850524d75513648342c2fce145f6d51",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/62f415ccbab5ff18a7b713f6ccf5b981b86f451a",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2221c841ece04d15df2f2e7541f780844dfd8fac",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6212ba50e464b4148557ef347a9bd7102fda5232",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -53751,12 +53834,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/78785c1882679cf0eec70115aef7094a8a6a5da2",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2221c841ece04d15df2f2e7541f780844dfd8fac",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6212ba50e464b4148557ef347a9bd7102fda5232"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/34d68548c7b707be473eacd81360f28cd616c58a",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/78785c1882679cf0eec70115aef7094a8a6a5da2",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3a41b2429850524d75513648342c2fce145f6d51",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/62f415ccbab5ff18a7b713f6ccf5b981b86f451a"
    }
   },
   "illustrator": "かまぼこRED",
@@ -53875,14 +53952,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［裏］熊本城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ec9ef22aa2c74be74b47a5f495493fd3e83001c9",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fe4d0a154976a976ca1ddf3053687d9bfc707410",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/94cd429af87270087e0c084538988de9fb370738",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f6cafc1973ad8974043f5a8758897ec284e77e81",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/feefef32090070ed8f0a3739269565cfdaec1f07",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b2f07ac5b817889b79dbe3ddf57cd283271008f2",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/281149838ca6c4d90e80e9a564ddd8733e011383",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -53896,12 +53972,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/94cd429af87270087e0c084538988de9fb370738",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b2f07ac5b817889b79dbe3ddf57cd283271008f2",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/281149838ca6c4d90e80e9a564ddd8733e011383"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ec9ef22aa2c74be74b47a5f495493fd3e83001c9",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/94cd429af87270087e0c084538988de9fb370738",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f6cafc1973ad8974043f5a8758897ec284e77e81",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/feefef32090070ed8f0a3739269565cfdaec1f07"
    }
   },
   "illustrator": "ゾウノセ",
@@ -54058,14 +54128,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［裏］多聞山城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/44a188f87c90b425c3990f97bd24409818566f64",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0011518b8a7566c39ca9b9561d4e3978bfcdad8e",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4a5cd8fbffd53dae913c8d179f2b43557f8377b6",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0ce241c5387182f15b1372de609bad0ba866ddb1",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d4ac51fdf70e9cb1baf1271b7c71e87796a2dfbb",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bc21e702b1c0726cc9471212dc819fe789ad5744",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3a753cd13a36aaa0a19b8cadf89fcb20f3a72a2f",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -54079,12 +54148,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4a5cd8fbffd53dae913c8d179f2b43557f8377b6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bc21e702b1c0726cc9471212dc819fe789ad5744",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3a753cd13a36aaa0a19b8cadf89fcb20f3a72a2f"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/44a188f87c90b425c3990f97bd24409818566f64",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4a5cd8fbffd53dae913c8d179f2b43557f8377b6",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0ce241c5387182f15b1372de609bad0ba866ddb1",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d4ac51fdf70e9cb1baf1271b7c71e87796a2dfbb"
    }
   },
   "illustrator": "えめらね",
@@ -54248,14 +54311,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "立花城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/50ea68b9036f7263c56321f962e5b14ecabbdd83",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c27c21bd0aedd1f8422415f66cf3c436dbfe8319",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e3a2c6c624d4c258b764c41d4cc18b6b311f277",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4e4ebf2f4d9299f63e4be8d4e705bc941297e96c",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4ffccc3290538ac7d2f6abc61f65bcaef4c4fbd7",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/82bc47e9606334edbfe1a02e974b21054dec0d8f",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a328685b09cf4e71a6216618de27f300c5bc6480",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -54269,12 +54331,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e3a2c6c624d4c258b764c41d4cc18b6b311f277",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/82bc47e9606334edbfe1a02e974b21054dec0d8f",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a328685b09cf4e71a6216618de27f300c5bc6480"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/50ea68b9036f7263c56321f962e5b14ecabbdd83",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e3a2c6c624d4c258b764c41d4cc18b6b311f277",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4e4ebf2f4d9299f63e4be8d4e705bc941297e96c",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4ffccc3290538ac7d2f6abc61f65bcaef4c4fbd7"
    }
   },
   "illustrator": "&uploader(574f225d923115350d889903ff3ae74788fd794a_scre_20096",
@@ -54407,8 +54463,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7df0e1dd91e75a3f3f08032b206b0205d8d74495",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -54418,12 +54473,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7df0e1dd91e75a3f3f08032b206b0205d8d74495"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/16bad0f2ba1b8a7e6d45d5a492398c2211de13d1",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/13b28fbb0c34e0011514c02a19d48013d6808b12",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf9b1d1dd45cf965a8e440f321d13b1c65e08d4b",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7df0e1dd91e75a3f3f08032b206b0205d8d74495"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/16bad0f2ba1b8a7e6d45d5a492398c2211de13d1",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/13b28fbb0c34e0011514c02a19d48013d6808b12",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf9b1d1dd45cf965a8e440f321d13b1c65e08d4b",
@@ -54559,8 +54608,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2fcad2c27de5ee61aeafef5780416267d17f345d",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -54570,12 +54618,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2fcad2c27de5ee61aeafef5780416267d17f345d"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cc6ad4caa7104145b8726a35efbbe6bb3a628ebb",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f0c0f8ba1585aaa5264f67e1b593c3dd9b1381bf",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/34ddb61f246a8b717a075fd0c323e7fb2a4a616a",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2fcad2c27de5ee61aeafef5780416267d17f345d"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cc6ad4caa7104145b8726a35efbbe6bb3a628ebb",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f0c0f8ba1585aaa5264f67e1b593c3dd9b1381bf",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/34ddb61f246a8b717a075fd0c323e7fb2a4a616a",
@@ -54674,8 +54716,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/500543137c218c6becd8df95f7e7c229d9c12779",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -54685,12 +54726,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/500543137c218c6becd8df95f7e7c229d9c12779"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0b10bd9f36d8641f40ae38ea858f070deb1e0b45",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eac3daa13f57d853e67f803bd5339c19bd9739dc",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/69f22fa7df1b64e3a525d45eeedf6af329fe7139",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/500543137c218c6becd8df95f7e7c229d9c12779"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0b10bd9f36d8641f40ae38ea858f070deb1e0b45",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eac3daa13f57d853e67f803bd5339c19bd9739dc",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/69f22fa7df1b64e3a525d45eeedf6af329fe7139",
@@ -54803,14 +54838,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［白輝］姫路城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/448832062d3ec0e1fb1be0ca28f891644ca031be",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9542eca90f53144c0f8edd59f020fa279e537bfb",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d93d98b2a7c18a55ebb6bacdb86405e899c1e695",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/19cdc3791ef864484cf3645322521dbd6d858e26",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a56cefe079e319d867e724a94435e1519b0153d2",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8ab8903f066721447ce6482f81b001241142a30b",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f3c00bac7e006efcf6ce4a88d6cc807a657160e1",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -54824,12 +54858,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d93d98b2a7c18a55ebb6bacdb86405e899c1e695",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8ab8903f066721447ce6482f81b001241142a30b",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f3c00bac7e006efcf6ce4a88d6cc807a657160e1"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/448832062d3ec0e1fb1be0ca28f891644ca031be",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d93d98b2a7c18a55ebb6bacdb86405e899c1e695",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/19cdc3791ef864484cf3645322521dbd6d858e26",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a56cefe079e319d867e724a94435e1519b0153d2"
    }
   },
   "illustrator": "冬野ユウキ",
@@ -54930,14 +54958,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［月狼］月山富田城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae6349a377b77d891b85f9b64cc8f3e4be6a01fb",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/13f052b2885d318d253ce2462018be074492c672",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/69dcdaf4f0f159a7c08b48420a1f6acc21c9dd13",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fa0477a370046a545a6a405348cd4205d8180d63",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2235ba6545a102c34344ad95f1256f8efaa51b16",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0a52221b89bca62f5c3f3541467306d30178fb33",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/11b1581ddb5f1e658e4e711237c46043669e75c0",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -54951,12 +54978,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/69dcdaf4f0f159a7c08b48420a1f6acc21c9dd13",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0a52221b89bca62f5c3f3541467306d30178fb33",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/11b1581ddb5f1e658e4e711237c46043669e75c0"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae6349a377b77d891b85f9b64cc8f3e4be6a01fb",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/69dcdaf4f0f159a7c08b48420a1f6acc21c9dd13",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fa0477a370046a545a6a405348cd4205d8180d63",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2235ba6545a102c34344ad95f1256f8efaa51b16"
    }
   },
   "illustrator": "Zトン",
@@ -55132,8 +55153,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a605621ef8ced6cca94448e05bfaaea113510097",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -55143,12 +55163,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a605621ef8ced6cca94448e05bfaaea113510097"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a90b1925ddc7c7e4b247892f5870a5708e56b0dc",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4e2e6bfaebf7b30b51e6d5ee8681cbe6281682c3",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf0c8b99d049d146c4b04948ac7b57fb8563626c",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a605621ef8ced6cca94448e05bfaaea113510097"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a90b1925ddc7c7e4b247892f5870a5708e56b0dc",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4e2e6bfaebf7b30b51e6d5ee8681cbe6281682c3",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf0c8b99d049d146c4b04948ac7b57fb8563626c",
@@ -55303,14 +55317,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［お月見］洛陽城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf1f0b0cff151c7d94b6f25f6e1379b72aa7de70",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6e6d0b5dbed3510d42bb0f39c9f282ff1f3830e7",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c4f28b8688856f2a3f7a3aa981a790593d3d040",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2deb7a6edc399b10976d165f2c4bba605d2b826d",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3b4f4f24b2f46814e8055ad8d9ff661d0aac873",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/69d92b074213f3365599ee4f3acbcda2f7ab989f",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9c2d43d826dd68c9254979ade9ea8ecd248ea849",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -55324,12 +55337,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c4f28b8688856f2a3f7a3aa981a790593d3d040",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/69d92b074213f3365599ee4f3acbcda2f7ab989f",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9c2d43d826dd68c9254979ade9ea8ecd248ea849"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf1f0b0cff151c7d94b6f25f6e1379b72aa7de70",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c4f28b8688856f2a3f7a3aa981a790593d3d040",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2deb7a6edc399b10976d165f2c4bba605d2b826d",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3b4f4f24b2f46814e8055ad8d9ff661d0aac873"
    }
   },
   "illustrator": "&uploader(7d5fda941eb6c8288bbbf7945aa5a18145d5f597_scre_20347",
@@ -55472,8 +55479,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce72441f8175eebd9e72f90a5085edf343c94a26",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -55483,12 +55489,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce72441f8175eebd9e72f90a5085edf343c94a26"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1f910d875e5cdf387e1c5c60bdbb36a871d19829",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3bf650e0a7fbbe6ec55c35c0a95c810eb0a61ae7",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/93ca6135143ef12d82d7f159f91bdc21fbd55647",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce72441f8175eebd9e72f90a5085edf343c94a26"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1f910d875e5cdf387e1c5c60bdbb36a871d19829",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3bf650e0a7fbbe6ec55c35c0a95c810eb0a61ae7",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/93ca6135143ef12d82d7f159f91bdc21fbd55647",
@@ -55628,8 +55628,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E6%B2%B3%E5%BA%9C%E4%B8%AD%E5%9F%8E&src=f31f2a0d0699988bd5846e143a243213.png",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -55639,12 +55638,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E6%B2%B3%E5%BA%9C%E4%B8%AD%E5%9F%8E&src=f31f2a0d0699988bd5846e143a243213.png"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b3914d706979e10bfa38297d8480039ccdd0ca50",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1cea2cb34d336717e081d1c0908abbe602d1c23d",
-    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E6%B2%B3%E5%BA%9C%E4%B8%AD%E5%9F%8E&src=08a049324f5d718f9bd1a740bec98d6d.png",
-    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E6%B2%B3%E5%BA%9C%E4%B8%AD%E5%9F%8E&src=f31f2a0d0699988bd5846e143a243213.png"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b3914d706979e10bfa38297d8480039ccdd0ca50",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1cea2cb34d336717e081d1c0908abbe602d1c23d",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E6%B2%B3%E5%BA%9C%E4%B8%AD%E5%9F%8E&src=08a049324f5d718f9bd1a740bec98d6d.png",
@@ -55775,8 +55768,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f06600947fe959fdce478f85862b638a343db9e1",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -55786,12 +55778,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f06600947fe959fdce478f85862b638a343db9e1"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9b812e498d9b992615360bbfdcb3dcc47f9631ac",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a166a1ec3de653157046cee0a095d0af312feb76",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/698682eb875e1a2be1532d162834f12a184de9b1",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f06600947fe959fdce478f85862b638a343db9e1"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9b812e498d9b992615360bbfdcb3dcc47f9631ac",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a166a1ec3de653157046cee0a095d0af312feb76",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/698682eb875e1a2be1532d162834f12a184de9b1",
@@ -55901,8 +55887,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/984ee643dc5d01d3d96f81a7676b7c72a065a8f0",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -55912,12 +55897,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/984ee643dc5d01d3d96f81a7676b7c72a065a8f0"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3f0370fed02178aa89ebdd5ea4b029d0e80b7166",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a49f58ab496ef24305ade361b4f53d0f35f90f26",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/04beb0ed0f9a62d4522b2a67c41fccb30ef4a93b",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/984ee643dc5d01d3d96f81a7676b7c72a065a8f0"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3f0370fed02178aa89ebdd5ea4b029d0e80b7166",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a49f58ab496ef24305ade361b4f53d0f35f90f26",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/04beb0ed0f9a62d4522b2a67c41fccb30ef4a93b",
@@ -56075,8 +56054,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0c31cc736dad2f6619d3248d10a85a8cf5335563",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -56086,12 +56064,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0c31cc736dad2f6619d3248d10a85a8cf5335563"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3e35fc999e30e2c1096d235c47f25e7e96b12b1e",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/221c7b3edeb163182fea252458b4d34eb0d5551f",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/73edf0153584f8f130bd5246b27b585f9f29bb77",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0c31cc736dad2f6619d3248d10a85a8cf5335563"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3e35fc999e30e2c1096d235c47f25e7e96b12b1e",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/221c7b3edeb163182fea252458b4d34eb0d5551f",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/73edf0153584f8f130bd5246b27b585f9f29bb77",
@@ -56239,8 +56211,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2a429c872866a17bb7b5e641ad7d4be96640026e",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -56250,12 +56221,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2a429c872866a17bb7b5e641ad7d4be96640026e"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/661ca8c25dd438513f8d144fce848d2203e0cd4d",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a5b708405ac29af603472f5bd9355868ba721367",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/338146b877cb30aab7317d54f0985ab54dd73ea0",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2a429c872866a17bb7b5e641ad7d4be96640026e"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/661ca8c25dd438513f8d144fce848d2203e0cd4d",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a5b708405ac29af603472f5bd9355868ba721367",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/338146b877cb30aab7317d54f0985ab54dd73ea0",
@@ -56383,8 +56348,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a180e26886445a0f66548e693529506d63845f1f",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -56394,12 +56358,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a180e26886445a0f66548e693529506d63845f1f"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d66eea5c02d81abe7fca89f5af20d1acc8a1bd5b",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/99f3b171c66693d22d968b7de3e96c85a888e05a",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9616d5266132eb23c309a4bf529f29898b86d8d6",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a180e26886445a0f66548e693529506d63845f1f"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d66eea5c02d81abe7fca89f5af20d1acc8a1bd5b",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/99f3b171c66693d22d968b7de3e96c85a888e05a",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9616d5266132eb23c309a4bf529f29898b86d8d6",
@@ -56517,8 +56475,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A7%81%E6%8E%A0%E8%88%B9%20%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%B3%E3%83%89&src=9f9a316ce67cfa8f5699aa1e86f013b5.png",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -56528,12 +56485,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A7%81%E6%8E%A0%E8%88%B9%20%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%B3%E3%83%89&src=9f9a316ce67cfa8f5699aa1e86f013b5.png"
    },
    "改壱": {
-    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A7%81%E6%8E%A0%E8%88%B9%20%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%B3%E3%83%89&src=e855553654fef57864e4819e214fc8f9.png",
-    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A7%81%E6%8E%A0%E8%88%B9%20%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%B3%E3%83%89&src=ee579628c4d32f80a24d19fdb0da06b2.png",
-    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A7%81%E6%8E%A0%E8%88%B9%20%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%B3%E3%83%89&src=2b2688f145f10f2b46c6405b01dec502.png",
-    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A7%81%E6%8E%A0%E8%88%B9%20%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%B3%E3%83%89&src=9f9a316ce67cfa8f5699aa1e86f013b5.png"
-   },
-   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A7%81%E6%8E%A0%E8%88%B9%20%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%B3%E3%83%89&src=e855553654fef57864e4819e214fc8f9.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A7%81%E6%8E%A0%E8%88%B9%20%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%B3%E3%83%89&src=ee579628c4d32f80a24d19fdb0da06b2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A7%81%E6%8E%A0%E8%88%B9%20%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%B3%E3%83%89&src=2b2688f145f10f2b46c6405b01dec502.png",
@@ -56624,8 +56575,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3e5ee0755599bfa1a5b45845927c296d6a33695",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -56635,12 +56585,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3e5ee0755599bfa1a5b45845927c296d6a33695"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2da263d95058a572823457f6dc7a68466831ad26",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2e247b7321e7162e9bf9f9f4215422180a2a72b2",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f84ec76a84d0b98d56937e1454eaca9c1333511a",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3e5ee0755599bfa1a5b45845927c296d6a33695"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2da263d95058a572823457f6dc7a68466831ad26",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2e247b7321e7162e9bf9f9f4215422180a2a72b2",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f84ec76a84d0b98d56937e1454eaca9c1333511a",
@@ -56762,14 +56706,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "軍港 舞鶴S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/976e2b35281d941187e0c5bd42c2670b335f391f",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5ab742d43e880cd98a65b0877c4027c14c466d4e",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ccfbf36a9ed2606e1f1f1d3b41b80a8136d8f78c",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/465fe75f452438792a3e118c68bec9614eb07743",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/448b2cfa261e8ef65e6256ee0db590e95179bc8d",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6549adb00b6b931878313ab8708cebe8dd5d9183",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4736ac739cbbe54286b3e9272a2c6047b8b920ca",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -56783,12 +56726,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ccfbf36a9ed2606e1f1f1d3b41b80a8136d8f78c",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6549adb00b6b931878313ab8708cebe8dd5d9183",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4736ac739cbbe54286b3e9272a2c6047b8b920ca"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/976e2b35281d941187e0c5bd42c2670b335f391f",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ccfbf36a9ed2606e1f1f1d3b41b80a8136d8f78c",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/465fe75f452438792a3e118c68bec9614eb07743",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/448b2cfa261e8ef65e6256ee0db590e95179bc8d"
    }
   },
   "illustrator": "&uploader(516a868dd355902791fe8b14ce76e73ee757100e_scre_20580",
@@ -56894,8 +56831,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f40b5a1af4cf52001b6f2e20fbfc34f60ab3e186",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -56905,12 +56841,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f40b5a1af4cf52001b6f2e20fbfc34f60ab3e186"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/689cb6e30893fd15f25fab90db483a52b50bd9bb",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af0cc4845b12d25ae14034da8f127d053bfb675f",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e1aff1aa6a6865d3cb09861488d950ec132bf493",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f40b5a1af4cf52001b6f2e20fbfc34f60ab3e186"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/689cb6e30893fd15f25fab90db483a52b50bd9bb",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af0cc4845b12d25ae14034da8f127d053bfb675f",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e1aff1aa6a6865d3cb09861488d950ec132bf493",
@@ -57077,8 +57007,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0666468ca36cf27510c43b9ef9758af4578acb11",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -57088,12 +57017,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0666468ca36cf27510c43b9ef9758af4578acb11"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/65712dbb9a6b80485f57b29b952715f22ac6a395",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/45042f053395ab563fe7c3da8e16497471cdc627",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bbf68764d17e966b8696fb75cfc491b8572ed25e",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0666468ca36cf27510c43b9ef9758af4578acb11"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/65712dbb9a6b80485f57b29b952715f22ac6a395",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/45042f053395ab563fe7c3da8e16497471cdc627",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bbf68764d17e966b8696fb75cfc491b8572ed25e",
@@ -57324,8 +57247,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e1d1c504596ff5f6e86366711df38ece08ef1a2b",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -57335,12 +57257,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e1d1c504596ff5f6e86366711df38ece08ef1a2b"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4953a2bec2518ea885fb5cb1eac0b056911c14b0",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/84c0b1502dac9ce9c16731fad78a8762144ec3fa",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/34f0d6986ff89f05ef4db1ac8de3c8486b761a39",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e1d1c504596ff5f6e86366711df38ece08ef1a2b"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4953a2bec2518ea885fb5cb1eac0b056911c14b0",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/84c0b1502dac9ce9c16731fad78a8762144ec3fa",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/34f0d6986ff89f05ef4db1ac8de3c8486b761a39",
@@ -57480,8 +57396,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%B5%A2%E7%88%9B%EF%BC%BD%E5%90%89%E7%94%B0%E5%9F%8E&src=8988d16688ba859f5c690fa554f7e8ff.png",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -57491,12 +57406,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%B5%A2%E7%88%9B%EF%BC%BD%E5%90%89%E7%94%B0%E5%9F%8E&src=8988d16688ba859f5c690fa554f7e8ff.png"
    },
    "改壱": {
-    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%B5%A2%E7%88%9B%EF%BC%BD%E5%90%89%E7%94%B0%E5%9F%8E&src=1796de60256e9b4403dce748ab3df888.png",
-    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%B5%A2%E7%88%9B%EF%BC%BD%E5%90%89%E7%94%B0%E5%9F%8E&src=65ae994cb3454ae28cb9bea0a9bf3e32.png",
-    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%B5%A2%E7%88%9B%EF%BC%BD%E5%90%89%E7%94%B0%E5%9F%8E&src=61196454b67f81281382da0fdb5af8c7.png",
-    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%B5%A2%E7%88%9B%EF%BC%BD%E5%90%89%E7%94%B0%E5%9F%8E&src=8988d16688ba859f5c690fa554f7e8ff.png"
-   },
-   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%B5%A2%E7%88%9B%EF%BC%BD%E5%90%89%E7%94%B0%E5%9F%8E&src=1796de60256e9b4403dce748ab3df888.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%B5%A2%E7%88%9B%EF%BC%BD%E5%90%89%E7%94%B0%E5%9F%8E&src=65ae994cb3454ae28cb9bea0a9bf3e32.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%B5%A2%E7%88%9B%EF%BC%BD%E5%90%89%E7%94%B0%E5%9F%8E&src=61196454b67f81281382da0fdb5af8c7.png",
@@ -57608,8 +57517,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4dc6d8b5d0c3da20b4cc5a8ab344885c33294aa0",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -57619,12 +57527,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4dc6d8b5d0c3da20b4cc5a8ab344885c33294aa0"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/96f3b70dfee0d1120ac07ffebcd8173448d4e1af",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/752a9a78c4d87de31d6d0887970b8e3720c65026",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cb593bc3db37824ce43adc68ddbffec251a523e1",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4dc6d8b5d0c3da20b4cc5a8ab344885c33294aa0"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/96f3b70dfee0d1120ac07ffebcd8173448d4e1af",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/752a9a78c4d87de31d6d0887970b8e3720c65026",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cb593bc3db37824ce43adc68ddbffec251a523e1",
@@ -57772,8 +57674,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -57783,12 +57684,6 @@ window.SCRE_DATA = [
     "tokugiUrl": ""
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6b50a7257ce4b8bce8ae0b50bfa0613e65708de9",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bee73b7e078a58c37bc95ab30a439b41a153cf8b",
-    "taihaUrl": "",
-    "tokugiUrl": ""
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6b50a7257ce4b8bce8ae0b50bfa0613e65708de9",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bee73b7e078a58c37bc95ab30a439b41a153cf8b",
     "taihaUrl": "",
@@ -57992,14 +57887,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "ランカスター城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b57802c7686c2788ffa648e94cd4f2abced8227",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/81716c3bb62abd393bb2eeffdc4bada911005015",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3410257040887402511b2579d98407417df74ae3",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d989b572f0d9a9c4178c7d719c8f11f249e3324",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/098e845fa448c972462a71c00cc56b52f86756e9",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/129f7515406078ab6e97442b42b7760d9c18cf89",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0eaae88c99d33a0b2f1d48ecfeb735a0f2c49e57",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -58013,12 +57907,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3410257040887402511b2579d98407417df74ae3",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/129f7515406078ab6e97442b42b7760d9c18cf89",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0eaae88c99d33a0b2f1d48ecfeb735a0f2c49e57"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b57802c7686c2788ffa648e94cd4f2abced8227",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3410257040887402511b2579d98407417df74ae3",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d989b572f0d9a9c4178c7d719c8f11f249e3324",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/098e845fa448c972462a71c00cc56b52f86756e9"
    }
   },
   "illustrator": "&uploader(9b95acdfafe595c95695db3aa65c055d56802e6c_scre_20696",
@@ -58118,14 +58006,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［獅聖］ガイヤール城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ea4696d61fb408d9b8abe1391ee588b2cf4bd88",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/75204f60aa0907b18ab4b6c74190fa8140ce8242",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3e741bbb3404e0ef964de2c3fb27b80393570544",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e7c3b88c8eaa72dcef0c3f46d16f9af9a93b687f",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae1547c8b2e8f51343cf404d1af391ca4d966605",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/959043df52ccbc1fbd1af51db75659dcfce16c8e",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/70cf9dd930e1aff1b9135e8e43df82260ecd0502",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -58139,12 +58026,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3e741bbb3404e0ef964de2c3fb27b80393570544",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/959043df52ccbc1fbd1af51db75659dcfce16c8e",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/70cf9dd930e1aff1b9135e8e43df82260ecd0502"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ea4696d61fb408d9b8abe1391ee588b2cf4bd88",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3e741bbb3404e0ef964de2c3fb27b80393570544",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e7c3b88c8eaa72dcef0c3f46d16f9af9a93b687f",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae1547c8b2e8f51343cf404d1af391ca4d966605"
    }
   },
   "illustrator": "かまぼこRED",
@@ -58256,14 +58137,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［竜焔］仙台城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5755ec44d07d4d27b2ee7e5892a33fadebfadc03",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/24b1ec0303c1ea0d3330276fbbb80e37d7bf6a1b",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f7d8bf4bdb703df3010ded8c8aa1838223f13a99",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e723867c71de112c91196269797fc6550bb6fb37",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/980dc41d08714a0d34f69369ed0c32f1229db66e",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/242c105219e3f4d6fc8f38c8da1798eb9cbbd541",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7ce8a4a6eece2f54f8494d54eb65828a71b9f7fd",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -58277,12 +58157,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f7d8bf4bdb703df3010ded8c8aa1838223f13a99",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/242c105219e3f4d6fc8f38c8da1798eb9cbbd541",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7ce8a4a6eece2f54f8494d54eb65828a71b9f7fd"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5755ec44d07d4d27b2ee7e5892a33fadebfadc03",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f7d8bf4bdb703df3010ded8c8aa1838223f13a99",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e723867c71de112c91196269797fc6550bb6fb37",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/980dc41d08714a0d34f69369ed0c32f1229db66e"
    }
   },
   "illustrator": "えめらね",
@@ -58442,14 +58316,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 12,
   "illustFile": "［天化］志波城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/96e87b7ae66f0bb663ebebfa4a86d31d9d99b771",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dfeeb08322014fa057a9750ff12471fb3983ac8c",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6be551cf1b2df3782d1f2b7b8a1dfb69db894776",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dd8dc7b90420e1b58c6a85430ace09964572b58d",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d0303888ab309da2837a1f5baf9b377db8cfddc3",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b46c97223b910f600c907633f0064ec4314c304a",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e616e399663e1a9acb410b6f65f66c0ece09f3dc",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -58463,12 +58336,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6be551cf1b2df3782d1f2b7b8a1dfb69db894776",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b46c97223b910f600c907633f0064ec4314c304a",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e616e399663e1a9acb410b6f65f66c0ece09f3dc"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/96e87b7ae66f0bb663ebebfa4a86d31d9d99b771",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6be551cf1b2df3782d1f2b7b8a1dfb69db894776",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dd8dc7b90420e1b58c6a85430ace09964572b58d",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d0303888ab309da2837a1f5baf9b377db8cfddc3"
    }
   },
   "illustrator": "きらばがに",
@@ -58575,8 +58442,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ac534b3a4328e997af1b3a12b89b85ff7bd79564",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -58586,12 +58452,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ac534b3a4328e997af1b3a12b89b85ff7bd79564"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5795e52b82790d8515390b9ae0f08b0f39d3a498",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1f34e544217585b113b9600d14f84d7e62a5686a",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5cfb7b33cef0f518609e178b270a24285ff31c07",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ac534b3a4328e997af1b3a12b89b85ff7bd79564"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5795e52b82790d8515390b9ae0f08b0f39d3a498",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1f34e544217585b113b9600d14f84d7e62a5686a",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5cfb7b33cef0f518609e178b270a24285ff31c07",
@@ -58702,14 +58562,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［聖夜］城塞都市イントラムロスS.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/856be9fd032a534d70403e97502a18454eacf8fb",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/439d60475f4ea05ec968f9aee41b2fe27a706a31",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/125e94e4b2b297c3e75c5d2b8a78edf7049fd03d",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ef7d65f813db1c23ab6ef10a261966ee169db53",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9a37fd886c0cb1a15a8a71ff9f432121bcf5b0e9",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c6580db26accce5c0fadc7a1da90cf6b20b8bb7d",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d0fb8a98a30906fdfac29314b0c026a3080f7c38",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -58723,12 +58582,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/125e94e4b2b297c3e75c5d2b8a78edf7049fd03d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c6580db26accce5c0fadc7a1da90cf6b20b8bb7d",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d0fb8a98a30906fdfac29314b0c026a3080f7c38"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/856be9fd032a534d70403e97502a18454eacf8fb",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/125e94e4b2b297c3e75c5d2b8a78edf7049fd03d",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ef7d65f813db1c23ab6ef10a261966ee169db53",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9a37fd886c0cb1a15a8a71ff9f432121bcf5b0e9"
    }
   },
   "illustrator": "&uploader(946c1d3659dcf86ebbfa394110579cbdb986ec48_scre_20788",
@@ -58904,14 +58757,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［正月］安土城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c7842ee525bd434929b5ca896cf00609633431c4",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c853a3b01e81fadf8978cf1ea265380838671ab",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ef391764404f633dec372cdbff3b36c21d762556",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/db6b3cc175c55187c0376324324f64f21c5e7b85",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c2f53013bb9c869a681df8335cbffc53c875971e",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/605fc5e65722410eeda1f6f7151ee126c20ba788",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9fe2b5ecefd13c9629eea720fd14ea09018a75c8",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -58925,12 +58777,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ef391764404f633dec372cdbff3b36c21d762556",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/605fc5e65722410eeda1f6f7151ee126c20ba788",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9fe2b5ecefd13c9629eea720fd14ea09018a75c8"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c7842ee525bd434929b5ca896cf00609633431c4",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ef391764404f633dec372cdbff3b36c21d762556",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/db6b3cc175c55187c0376324324f64f21c5e7b85",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c2f53013bb9c869a681df8335cbffc53c875971e"
    }
   },
   "illustrator": "冬野ユウキ",
@@ -59049,14 +58895,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［正月］長岡京S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1bb0f9c162949f509d6f068c5e22e8779232cde7",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f62770d5739710cf75b8c2a289d11e4e90504231",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c151b40cb1cc3e0b6c0669c0c7a9714e4c51591",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3fa1ca42d5c414959429386ab91deb6f30cf8ecd",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/30f6f14bd23eb4d5aee57fe08a7289a4ace7cc98",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5342a68b4cfba4818b9c8fb78434ccf31ea287b5",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eb8213d677990e7181f502336ab8083636379469",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -59070,12 +58915,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c151b40cb1cc3e0b6c0669c0c7a9714e4c51591",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5342a68b4cfba4818b9c8fb78434ccf31ea287b5",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eb8213d677990e7181f502336ab8083636379469"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1bb0f9c162949f509d6f068c5e22e8779232cde7",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c151b40cb1cc3e0b6c0669c0c7a9714e4c51591",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3fa1ca42d5c414959429386ab91deb6f30cf8ecd",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/30f6f14bd23eb4d5aee57fe08a7289a4ace7cc98"
    }
   },
   "illustrator": "&uploader(e08cd146631560916b1fe519b44a007bfd7d897d_scre_20857",
@@ -59164,14 +59003,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 14,
   "illustFile": "［正月］小早川城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b6621858b2fb45cf1a3ba13a5a31a9edf215e6f",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b01263a2f6ab20ebe7bb7db9f3f0e5e7e12faca8",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c28ed2f209f606b4433d1567e11654d0eda9c309",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bc4d19456771fda55ac48f09979d762e6580a960",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d7dc4866c9647e325a46abfffa7b533746775f85",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8d1917c276af5fa8c0bdc1a5059344362edce868",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c0cb561c53fa00a073d051e9fd96bea3ce89bc11",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -59185,12 +59023,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c28ed2f209f606b4433d1567e11654d0eda9c309",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8d1917c276af5fa8c0bdc1a5059344362edce868",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c0cb561c53fa00a073d051e9fd96bea3ce89bc11"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b6621858b2fb45cf1a3ba13a5a31a9edf215e6f",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c28ed2f209f606b4433d1567e11654d0eda9c309",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bc4d19456771fda55ac48f09979d762e6580a960",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d7dc4866c9647e325a46abfffa7b533746775f85"
    }
   },
   "illustrator": "ゾウノセ",
@@ -59278,8 +59110,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e54ff7e3b5d29a650fe55bd15cb78a80fdbd0d9e",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -59289,12 +59120,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e54ff7e3b5d29a650fe55bd15cb78a80fdbd0d9e"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fda6202757976f8ecb2b2b54ea5a716e5a201346",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/327b8350fc2f32a9f753fc6cf6de8b66a07af34d",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/67c87934a115516db40e2a5c838c6e75e8888d45",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e54ff7e3b5d29a650fe55bd15cb78a80fdbd0d9e"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fda6202757976f8ecb2b2b54ea5a716e5a201346",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/327b8350fc2f32a9f753fc6cf6de8b66a07af34d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/67c87934a115516db40e2a5c838c6e75e8888d45",
@@ -59417,14 +59242,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［正月］鶴丸城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c1edacc92b6efc2a198f9d37a2632f4d15a3a60c",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ff4e55662c3e438067bc64ce691f8570d1900e93",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d6a49543a145791c0fe09d3f72a8cd24db012e2",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b8982df625a30932280048df71b403885c4074e4",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fe3b299eb10a89d2746a9fd8d5d8b5a0f057a649",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0248946d180940bb87c545183761bca53aeef066",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d594d5314e9e12855d8bd999c17c76ce3f58396c",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -59438,12 +59262,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d6a49543a145791c0fe09d3f72a8cd24db012e2",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0248946d180940bb87c545183761bca53aeef066",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d594d5314e9e12855d8bd999c17c76ce3f58396c"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c1edacc92b6efc2a198f9d37a2632f4d15a3a60c",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d6a49543a145791c0fe09d3f72a8cd24db012e2",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b8982df625a30932280048df71b403885c4074e4",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fe3b299eb10a89d2746a9fd8d5d8b5a0f057a649"
    }
   },
   "illustrator": "朝日川日和",
@@ -59610,14 +59428,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "韮山城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea120cfbd7d99a31224db1195759e78cee85f471",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/31a392da7f0cab8b8a606ae740c8e2ee18062384",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/18d7ee48709634b9d76b551229e93a69ed2b3fa2",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b245b2d9008e76550df2a7eb7d363bd7eea2bbf6",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8813cec3ced6c54e711d476f91be28fa84471473",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6f50bdc16ee164394ea5dfce5abc779d9a5339fd",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d29bd46eee2c779dec328d9de8379ceaf3e879b1",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -59631,12 +59448,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/18d7ee48709634b9d76b551229e93a69ed2b3fa2",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6f50bdc16ee164394ea5dfce5abc779d9a5339fd",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d29bd46eee2c779dec328d9de8379ceaf3e879b1"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea120cfbd7d99a31224db1195759e78cee85f471",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/18d7ee48709634b9d76b551229e93a69ed2b3fa2",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b245b2d9008e76550df2a7eb7d363bd7eea2bbf6",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8813cec3ced6c54e711d476f91be28fa84471473"
    }
   },
   "illustrator": "Garuku",
@@ -59818,14 +59629,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［活命］富山城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2e7d49c1ae68b93f4aac6d44af4eb295f7995e92",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2fee93ca7fff676c8337f0067add191b3133059c",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c197d64cdd84a7701c2217682cde118882859bd8",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e568992facf0081b83a465ebc831fe5acc300c39",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9c61278c7bac103e9e6cbf484c43514adc79be12",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d851878f45ff230066c769afe0c0524d2d75af90",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7680ad6a6c918dcd4078681ba50a234c29d56f73",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -59839,12 +59649,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c197d64cdd84a7701c2217682cde118882859bd8",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d851878f45ff230066c769afe0c0524d2d75af90",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7680ad6a6c918dcd4078681ba50a234c29d56f73"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2e7d49c1ae68b93f4aac6d44af4eb295f7995e92",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c197d64cdd84a7701c2217682cde118882859bd8",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e568992facf0081b83a465ebc831fe5acc300c39",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9c61278c7bac103e9e6cbf484c43514adc79be12"
    }
   },
   "illustrator": "かまぼこRED",
@@ -59981,8 +59785,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fd6c6a58e778d8fc5c0e68ae7465dc5189cb0c94",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -59992,12 +59795,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fd6c6a58e778d8fc5c0e68ae7465dc5189cb0c94"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a984d291c0abbaa887a1d9dabc981d80ee94f54c",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/480d02cd3281f90d7b516e368554e2f4dc776e0e",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c8893bb57ce7e8c50ab29839be502bdb63d74ca",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fd6c6a58e778d8fc5c0e68ae7465dc5189cb0c94"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a984d291c0abbaa887a1d9dabc981d80ee94f54c",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/480d02cd3281f90d7b516e368554e2f4dc776e0e",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c8893bb57ce7e8c50ab29839be502bdb63d74ca",
@@ -60125,8 +59922,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bec3e0e8e260450f126d0188ce0f26784028e845",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -60136,12 +59932,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bec3e0e8e260450f126d0188ce0f26784028e845"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c67cc1b0202159d5260eededf3754dcf515d3b2a",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a2d8e3569e12f1c3288b3bee871ee7d4d510ae71",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/00e9c14d6d0632f31856ac14e34387d4e1160876",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bec3e0e8e260450f126d0188ce0f26784028e845"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c67cc1b0202159d5260eededf3754dcf515d3b2a",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a2d8e3569e12f1c3288b3bee871ee7d4d510ae71",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/00e9c14d6d0632f31856ac14e34387d4e1160876",
@@ -60283,14 +60073,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠近",
   "cost": 10,
   "illustFile": "城塞都市コンスタンティノープルS.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3774c87cbad9a065145e5f6b7f698a9ee9cd1d57",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e5d4cba9bbd0f83f1a27233f29f856b3164e98ba",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1419fc0f2955627e607ebf6d2c36fce324796135",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2f0db7fa42cf14d270b11e4376431b39104ad157",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3fd0f4a2e9a844b3d14369dad50ec243f7726c1b",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8f51f38a9f8aa03e9f370a1fe63491b8c13754f8",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3de115b8b674ee56f74f129c091a4839a1ff64d3",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -60304,12 +60093,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1419fc0f2955627e607ebf6d2c36fce324796135",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8f51f38a9f8aa03e9f370a1fe63491b8c13754f8",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3de115b8b674ee56f74f129c091a4839a1ff64d3"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3774c87cbad9a065145e5f6b7f698a9ee9cd1d57",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1419fc0f2955627e607ebf6d2c36fce324796135",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2f0db7fa42cf14d270b11e4376431b39104ad157",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3fd0f4a2e9a844b3d14369dad50ec243f7726c1b"
    }
   },
   "illustrator": "&uploader(8d5d470d69125213fd61b45f44aff0c196474ec3_scre_21158",
@@ -60415,8 +60198,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f9680e7186aafb7977b4a2a5b11ce457f7910d2e",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -60426,12 +60208,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f9680e7186aafb7977b4a2a5b11ce457f7910d2e"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce2060bdf2a32e847e1d3b14e0c54e1a12d20045",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/962ac5fba61d489cbe0fd68045247141a11d45f6",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0024f7de4f6dbcc74ff7de675570fe1fad343df5",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f9680e7186aafb7977b4a2a5b11ce457f7910d2e"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce2060bdf2a32e847e1d3b14e0c54e1a12d20045",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/962ac5fba61d489cbe0fd68045247141a11d45f6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0024f7de4f6dbcc74ff7de675570fe1fad343df5",
@@ -60522,8 +60298,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1ac561ffed6bbb473b5efdb76bd395e7efa4512f",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -60533,12 +60308,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1ac561ffed6bbb473b5efdb76bd395e7efa4512f"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0f2cb65fb1e6fa164e4ff299153b712313ed18d6",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bfd52237dc753b5a788e48538a147aad05e9ee53",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae8d5812ff33e76548ee0307f637716fe0f8bc6c",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1ac561ffed6bbb473b5efdb76bd395e7efa4512f"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0f2cb65fb1e6fa164e4ff299153b712313ed18d6",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bfd52237dc753b5a788e48538a147aad05e9ee53",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae8d5812ff33e76548ee0307f637716fe0f8bc6c",
@@ -60684,8 +60453,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9abc9baad8f94520fc1d6fb7c5a4ffaebfecb4d2",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -60695,12 +60463,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9abc9baad8f94520fc1d6fb7c5a4ffaebfecb4d2"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bceecf4395a24391115d56ace2cb662a757a33f9",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/040ef80d7c43434beb37fb231057e039ee80478a",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/32ac0d0c888ef043f0526664af7afa880ff5c31f",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9abc9baad8f94520fc1d6fb7c5a4ffaebfecb4d2"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bceecf4395a24391115d56ace2cb662a757a33f9",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/040ef80d7c43434beb37fb231057e039ee80478a",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/32ac0d0c888ef043f0526664af7afa880ff5c31f",
@@ -60862,14 +60624,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "城塞都市ヴァレッタS.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0fd49b4694a29c7df1aa624c7918183a797410b5",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bab09a1b1ed227527532799e36a14b3f52c42d20",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d15ed3191bb0716e6868753cf5fb05e668b7f46e",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d9a7a8d7f063d9a6bd69c3dffc56331c0665ae10",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c0be518a41963d2b97b2a41a6f77e7a4a182407b",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e16358deeb7adb2c8045b07b234e4eb66519e423",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4fe61e9abca8dd9323476954aac2b4417e22426",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -60883,12 +60644,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d15ed3191bb0716e6868753cf5fb05e668b7f46e",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e16358deeb7adb2c8045b07b234e4eb66519e423",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4fe61e9abca8dd9323476954aac2b4417e22426"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0fd49b4694a29c7df1aa624c7918183a797410b5",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d15ed3191bb0716e6868753cf5fb05e668b7f46e",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d9a7a8d7f063d9a6bd69c3dffc56331c0665ae10",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c0be518a41963d2b97b2a41a6f77e7a4a182407b"
    }
   },
   "illustrator": "&uploader(18da16d35b0c7e746a5241ae9b2f9663ea98049c_scre_21200",
@@ -61018,14 +60773,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "館林城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4676b11317a27c18e31245154e76ad387df6ee69",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/82306594284d10e319765078e1cc75ee908075f8",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97e770e90630f88f40df0e0ce8fafcb539037cf4",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6e9502d3a781f75ea0a594b53d0b663fbafc9f17",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9297f1f51064c1268ec7d9204d7350b77ae48e0d",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2d901a0bf928678f03c8644ebf4cecee2796505c",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6bb700b8a87e665f148be70e183ff511c5c255cf",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -61039,12 +60793,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97e770e90630f88f40df0e0ce8fafcb539037cf4",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2d901a0bf928678f03c8644ebf4cecee2796505c",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6bb700b8a87e665f148be70e183ff511c5c255cf"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4676b11317a27c18e31245154e76ad387df6ee69",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97e770e90630f88f40df0e0ce8fafcb539037cf4",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6e9502d3a781f75ea0a594b53d0b663fbafc9f17",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9297f1f51064c1268ec7d9204d7350b77ae48e0d"
    }
   },
   "illustrator": "&uploader(3538006ca37cfa7db327470016c061d8ae5848e5_scre_21199",
@@ -61148,8 +60896,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fcae12ea37edd11acb57abc97d6fb1a5a6b012f7",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -61159,12 +60906,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fcae12ea37edd11acb57abc97d6fb1a5a6b012f7"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/36d715901cff83446bd927a7bb213b932646ae6f",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/873abe84cd6810b362aee6b162b86db5de05dde0",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/79694d703d915ea774e203b6ea99bf8832b5f9b0",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fcae12ea37edd11acb57abc97d6fb1a5a6b012f7"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/36d715901cff83446bd927a7bb213b932646ae6f",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/873abe84cd6810b362aee6b162b86db5de05dde0",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/79694d703d915ea774e203b6ea99bf8832b5f9b0",
@@ -61285,8 +61026,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51b08d91e1e421a4ad85002cd63bfe1652497b9c",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -61296,12 +61036,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51b08d91e1e421a4ad85002cd63bfe1652497b9c"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7bf95de6ed37882b42296b32607564f8ef31bdd7",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bc0d3e78a839a4acd290f74ff88a22596239cfb3",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3c5a4bce86573efced2ed663a4f02d07966113b1",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51b08d91e1e421a4ad85002cd63bfe1652497b9c"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7bf95de6ed37882b42296b32607564f8ef31bdd7",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bc0d3e78a839a4acd290f74ff88a22596239cfb3",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3c5a4bce86573efced2ed663a4f02d07966113b1",
@@ -61422,8 +61156,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/354e659aefad993f60f5ba6c0618e5386f363ffb",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -61433,12 +61166,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/354e659aefad993f60f5ba6c0618e5386f363ffb"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b6a688cdb44d0774ce59b339e9aa1e52dfb0c188",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2e24b1a995d034a6806ed4c5e23996684e687577",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5588af213e8321753145bdfa2a9f4f2ca016ea6d",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/354e659aefad993f60f5ba6c0618e5386f363ffb"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b6a688cdb44d0774ce59b339e9aa1e52dfb0c188",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2e24b1a995d034a6806ed4c5e23996684e687577",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5588af213e8321753145bdfa2a9f4f2ca016ea6d",
@@ -61662,8 +61389,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d27489f1362b923c75ffbcdb212317467c1b38d8",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -61673,12 +61399,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d27489f1362b923c75ffbcdb212317467c1b38d8"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/390eca7319c30dd11defb04846c0ee7c6c546a41",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4f9ac94a8e0a0f7df49daab03a1648bafac50514",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/396bfd8cabf825d7d5d922485af4e9a97685306a",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d27489f1362b923c75ffbcdb212317467c1b38d8"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/390eca7319c30dd11defb04846c0ee7c6c546a41",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4f9ac94a8e0a0f7df49daab03a1648bafac50514",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/396bfd8cabf825d7d5d922485af4e9a97685306a",
@@ -61818,8 +61538,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fe321088cf04f2d6272ed70c02c4ad1fd05c19c3",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -61829,12 +61548,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fe321088cf04f2d6272ed70c02c4ad1fd05c19c3"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f1827edaa32c8a2b4754f984c009f6c9eb42dc10",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e8bc122ce810dea1c25b45bdfb5b579559ea9e3a",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e72373a12b51e82dbef1d0d63626e07f3e42c18",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fe321088cf04f2d6272ed70c02c4ad1fd05c19c3"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f1827edaa32c8a2b4754f984c009f6c9eb42dc10",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e8bc122ce810dea1c25b45bdfb5b579559ea9e3a",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e72373a12b51e82dbef1d0d63626e07f3e42c18",
@@ -61995,8 +61708,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e624ca0957c409dfe53d37390a33e3dde7972f66",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -62006,12 +61718,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e624ca0957c409dfe53d37390a33e3dde7972f66"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1d6d2e9934cb04fcd5f1a06b9b49e4ef06935e2a",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/84766d30def78cdc2d71204d4a0077e2989d76b6",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ad40bef0b9e229256e1500f53bf2f51fc5510924",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e624ca0957c409dfe53d37390a33e3dde7972f66"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1d6d2e9934cb04fcd5f1a06b9b49e4ef06935e2a",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/84766d30def78cdc2d71204d4a0077e2989d76b6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ad40bef0b9e229256e1500f53bf2f51fc5510924",
@@ -62132,8 +61838,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2e7fe4bfd93470d1be74d30672ed80a35bfd66ed",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -62143,12 +61848,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2e7fe4bfd93470d1be74d30672ed80a35bfd66ed"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d8d98382d1f236aa5abbaa15328e8a1365ef1ea7",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5c5f5fe0b38872b88296b29aa467a872e4cde7ad",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cecab22833db1db1bc840ca3c252ee0c017dc914",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2e7fe4bfd93470d1be74d30672ed80a35bfd66ed"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d8d98382d1f236aa5abbaa15328e8a1365ef1ea7",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5c5f5fe0b38872b88296b29aa467a872e4cde7ad",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cecab22833db1db1bc840ca3c252ee0c017dc914",
@@ -62352,8 +62051,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7b5315041ceae9d81e9d7210458ac9595dc1f457",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -62363,12 +62061,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7b5315041ceae9d81e9d7210458ac9595dc1f457"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bd63d3dc1819bbf47b68ef97b1a000ca4d916354",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3385d7d72c96cf617a954e46bf61f378b36163bf",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b40dd54e0ab687d9431a580779387f75e93cda33",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7b5315041ceae9d81e9d7210458ac9595dc1f457"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bd63d3dc1819bbf47b68ef97b1a000ca4d916354",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3385d7d72c96cf617a954e46bf61f378b36163bf",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b40dd54e0ab687d9431a580779387f75e93cda33",
@@ -62467,8 +62159,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ff575f05024807ec6415f14d59d238a9d02ee466",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -62478,12 +62169,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ff575f05024807ec6415f14d59d238a9d02ee466"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/65976ae6c02089eb651f192dc5801254d7bb8f52",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/645f1b61930f8d0def9e727289de60984845d6d4",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1284be8d15df8fe40523fca9eaf9820dcda6cace",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ff575f05024807ec6415f14d59d238a9d02ee466"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/65976ae6c02089eb651f192dc5801254d7bb8f52",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/645f1b61930f8d0def9e727289de60984845d6d4",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1284be8d15df8fe40523fca9eaf9820dcda6cace",
@@ -62582,8 +62267,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/732c19b5b7f6f32c0114f490c776d4610f3fa8b2",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -62593,12 +62277,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/732c19b5b7f6f32c0114f490c776d4610f3fa8b2"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/873054d2f07c8fb191c11782fd8858b981cef44d",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7c0a71365c9081403e6eb2f37932db62fdf6fc9c",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae4d7d3aca2566ed646802f049780aa52f078784",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/732c19b5b7f6f32c0114f490c776d4610f3fa8b2"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/873054d2f07c8fb191c11782fd8858b981cef44d",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7c0a71365c9081403e6eb2f37932db62fdf6fc9c",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae4d7d3aca2566ed646802f049780aa52f078784",
@@ -62700,8 +62378,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5521d9c273599a87b58e9f029716528c73b3e1af",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -62711,12 +62388,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5521d9c273599a87b58e9f029716528c73b3e1af"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/efb8d7d21edffde48168f7b3d5694a23a6fcfa45",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3d975cb68236f95c38c9556d2906b1f4ec094d66",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/33d97476d53fcf7c404711b2ed383f1826d5928c",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5521d9c273599a87b58e9f029716528c73b3e1af"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/efb8d7d21edffde48168f7b3d5694a23a6fcfa45",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3d975cb68236f95c38c9556d2906b1f4ec094d66",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/33d97476d53fcf7c404711b2ed383f1826d5928c",
@@ -62864,8 +62535,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1899e40889028627889e8a51876d1ac3d6a8b5ad",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -62875,12 +62545,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1899e40889028627889e8a51876d1ac3d6a8b5ad"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a8fe541f1769ee08ea011feed6552a2461bd94fb",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cb88089825282cfa17d8c51b59df3bd6aeb659e6",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7f9ec585621557f407885f5daf276a62bfccbdf0",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1899e40889028627889e8a51876d1ac3d6a8b5ad"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a8fe541f1769ee08ea011feed6552a2461bd94fb",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cb88089825282cfa17d8c51b59df3bd6aeb659e6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7f9ec585621557f407885f5daf276a62bfccbdf0",
@@ -62996,8 +62660,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d37fba63c359d9e5c5eccc8ed167e75f37c1d85a",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -63007,12 +62670,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d37fba63c359d9e5c5eccc8ed167e75f37c1d85a"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9d8712a3a7f15381f63f738007fdd8c4fcd5670b",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/56b7cceb37c1369ad5c4f78e5c6a5a6daa022f86",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/69dfdc63c66596ffdff8c73cc3b3d07162d934c3",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d37fba63c359d9e5c5eccc8ed167e75f37c1d85a"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9d8712a3a7f15381f63f738007fdd8c4fcd5670b",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/56b7cceb37c1369ad5c4f78e5c6a5a6daa022f86",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/69dfdc63c66596ffdff8c73cc3b3d07162d934c3",
@@ -63141,8 +62798,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fa636a13f57fc35fce5275bf8f1e382d54fa8f9d",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -63152,12 +62808,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fa636a13f57fc35fce5275bf8f1e382d54fa8f9d"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f4ea4fc372e6ece90dd8d496ee54ea76b0981700",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a993d03e85b49696f9d59b0f7059dd20f1faf7f8",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5072e948fa3c4f4fd4042dbbffb9098d5c2f5856",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fa636a13f57fc35fce5275bf8f1e382d54fa8f9d"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f4ea4fc372e6ece90dd8d496ee54ea76b0981700",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a993d03e85b49696f9d59b0f7059dd20f1faf7f8",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5072e948fa3c4f4fd4042dbbffb9098d5c2f5856",
@@ -63256,8 +62906,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97732ddd4eb4961f26020a7bb1203893764f22ae",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -63267,12 +62916,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97732ddd4eb4961f26020a7bb1203893764f22ae"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/038867a2bcebc55cdf3a0c39dd1c40d77b913670",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/13f779d5127bf0026f721cd6a18f82bd90b6f8fe",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/93a10c4126f3ffd001c8c294fb0a917a4830d6ee",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97732ddd4eb4961f26020a7bb1203893764f22ae"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/038867a2bcebc55cdf3a0c39dd1c40d77b913670",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/13f779d5127bf0026f721cd6a18f82bd90b6f8fe",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/93a10c4126f3ffd001c8c294fb0a917a4830d6ee",
@@ -63382,8 +63025,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e3a876273117bce9c983cffd4c048b8de8a4d51",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -63393,12 +63035,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e3a876273117bce9c983cffd4c048b8de8a4d51"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7f30d41b7fb576dd2905873c73bbd2cdbcf790fb",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7e50970cc0bb82f03a307d87072e3bcd2da4f130",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f06419c6b02f259c0485c5809e91647dce32435b",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e3a876273117bce9c983cffd4c048b8de8a4d51"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7f30d41b7fb576dd2905873c73bbd2cdbcf790fb",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7e50970cc0bb82f03a307d87072e3bcd2da4f130",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f06419c6b02f259c0485c5809e91647dce32435b",
@@ -63520,14 +63156,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 9,
   "illustFile": "［蛛絲］信貴山城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ab43d0a562dd4163dacf7f64b6ed41a4d5b327e1",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9f3b69cad8457d1e145c30b0d91e4aecfea48822",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6495dad8b2ba1df57832c6f47c84de06c26db39f",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2e6b1a60407c84b99c60d70938e744006efbc036",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c0a2419b8022f8c305218a4977509788a3528c0",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b2185201ac6780811e60ab1e20ebf5d0c47a3e31",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dacb8035bd64b3337a716068afee13ea8b5b7936",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -63541,12 +63176,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6495dad8b2ba1df57832c6f47c84de06c26db39f",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b2185201ac6780811e60ab1e20ebf5d0c47a3e31",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dacb8035bd64b3337a716068afee13ea8b5b7936"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ab43d0a562dd4163dacf7f64b6ed41a4d5b327e1",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6495dad8b2ba1df57832c6f47c84de06c26db39f",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2e6b1a60407c84b99c60d70938e744006efbc036",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c0a2419b8022f8c305218a4977509788a3528c0"
    }
   },
   "illustrator": "Garuku",
@@ -63653,8 +63282,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cac695c5ce382b04ea5f6007e71442c81eb21fa2",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -63664,12 +63292,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cac695c5ce382b04ea5f6007e71442c81eb21fa2"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/95718e5d8a79a2109123c6489a50059bf721a5fa",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/37fef5f1dd1355a1b47fb2376835e568007f0239",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c998ff6e036c672dc2dcbf450b884a0776ef736f",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cac695c5ce382b04ea5f6007e71442c81eb21fa2"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/95718e5d8a79a2109123c6489a50059bf721a5fa",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/37fef5f1dd1355a1b47fb2376835e568007f0239",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c998ff6e036c672dc2dcbf450b884a0776ef736f",
@@ -63831,8 +63453,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f1204047b7b09fc0f83f8fb44b2a3e27275fa02e",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -63842,12 +63463,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f1204047b7b09fc0f83f8fb44b2a3e27275fa02e"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e03e09cb277dc9401afab09bded0e460c90525b",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f8076ece31c6a0a050925eabb2d4b3d1845771bf",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/141600f9c7349ffb0a5ab9df16a65a9f2655ae26",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f1204047b7b09fc0f83f8fb44b2a3e27275fa02e"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e03e09cb277dc9401afab09bded0e460c90525b",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f8076ece31c6a0a050925eabb2d4b3d1845771bf",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/141600f9c7349ffb0a5ab9df16a65a9f2655ae26",
@@ -63988,8 +63603,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/68ff2652350c6fe24f4c7a1c3eed923eeaf77f65",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -63999,12 +63613,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/68ff2652350c6fe24f4c7a1c3eed923eeaf77f65"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/16db9d0df2796bd8a38f6172e0c99e4d77b7767f",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8dcbb96ccedcbfb1685622f025b090f9bd2a8be2",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0198ccd8a36d3fb19cb6e0d964f4c5735958df30",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/68ff2652350c6fe24f4c7a1c3eed923eeaf77f65"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/16db9d0df2796bd8a38f6172e0c99e4d77b7767f",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8dcbb96ccedcbfb1685622f025b090f9bd2a8be2",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0198ccd8a36d3fb19cb6e0d964f4c5735958df30",
@@ -64144,8 +63752,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/913042279cac823c25b02452d4c323fa50c18a73",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -64155,12 +63762,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/913042279cac823c25b02452d4c323fa50c18a73"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4441a0c38e7f5ec135f36d686f7bfb5881a705c6",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9d5aeb2b17bda640d6778e8ae800b5fb1974c690",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9ed151b3f7b3180e38a4e01e1c14b91c8f3b854d",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/913042279cac823c25b02452d4c323fa50c18a73"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4441a0c38e7f5ec135f36d686f7bfb5881a705c6",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9d5aeb2b17bda640d6778e8ae800b5fb1974c690",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9ed151b3f7b3180e38a4e01e1c14b91c8f3b854d",
@@ -64293,14 +63894,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［夏］小田原城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3b3d4b6872ec5f6de4fc6e098d37bb5ae2b47edd",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0bdfde2aad48bd051f4232ab9bc332e26d03a624",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d5b3591c523a1da56f70e7d624946fcd8e5cd155",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/505bd99921c9c90ede6cc7aaaeaf13635d4e445f",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4b67ad250a1f355625b190fe1d7c0752f5faa28c",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d8abcb1964bd5edd0925ff532efba89fa7789da7",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/73496a55a541f2afcdbdeef58db06f9478c02381",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -64314,12 +63914,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d5b3591c523a1da56f70e7d624946fcd8e5cd155",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d8abcb1964bd5edd0925ff532efba89fa7789da7",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/73496a55a541f2afcdbdeef58db06f9478c02381"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3b3d4b6872ec5f6de4fc6e098d37bb5ae2b47edd",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d5b3591c523a1da56f70e7d624946fcd8e5cd155",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/505bd99921c9c90ede6cc7aaaeaf13635d4e445f",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4b67ad250a1f355625b190fe1d7c0752f5faa28c"
    }
   },
   "illustrator": "ゾウノセ",
@@ -64481,8 +64075,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c62a9aabda828bb2214f16ef4dd1b3ce32a2153b",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -64492,12 +64085,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c62a9aabda828bb2214f16ef4dd1b3ce32a2153b"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cc78ae2b32d1c57f6e66dad22d6f6e71c986cce7",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2fc69cdcb0fb354bc6fc18acf6b9d082626f2454",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d5e646123a3c301dca5cea086878f4ec80d32171",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c62a9aabda828bb2214f16ef4dd1b3ce32a2153b"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cc78ae2b32d1c57f6e66dad22d6f6e71c986cce7",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2fc69cdcb0fb354bc6fc18acf6b9d082626f2454",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d5e646123a3c301dca5cea086878f4ec80d32171",
@@ -64636,8 +64223,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/142e041e8f7dae4f7e51eb081bad5d50d7c1c1bd",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -64647,12 +64233,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/142e041e8f7dae4f7e51eb081bad5d50d7c1c1bd"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5134f8b0996b9df8f32f4235dbb47b4cdfd7b4c1",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8e3994b95bd54a283a032b06cd497b8b6dfe8723",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/377c939f7e2b6d006d20d1d7a95a8b718f4d4ee3",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/142e041e8f7dae4f7e51eb081bad5d50d7c1c1bd"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5134f8b0996b9df8f32f4235dbb47b4cdfd7b4c1",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8e3994b95bd54a283a032b06cd497b8b6dfe8723",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/377c939f7e2b6d006d20d1d7a95a8b718f4d4ee3",
@@ -64750,8 +64330,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a0e1dce62dbf7f74a7a40865339f4814956ceeab",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -64761,12 +64340,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a0e1dce62dbf7f74a7a40865339f4814956ceeab"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a836f290ba7b85a5a419904bcb8be498ab5baacb",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a2613dc5bbe9f3f7367742cdec0ca8d0483f4ab9",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e9c8dce468a021951db5c6baccde9758b981ba53",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a0e1dce62dbf7f74a7a40865339f4814956ceeab"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a836f290ba7b85a5a419904bcb8be498ab5baacb",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a2613dc5bbe9f3f7367742cdec0ca8d0483f4ab9",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e9c8dce468a021951db5c6baccde9758b981ba53",
@@ -64900,14 +64473,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "巡洋戦艦 コンスティチューションS.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/81b0c804a9b9af402afc5765dbb3ccafdf883663",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d999e4c818b480230158e1bdacd2c56e58b444ce",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a8129a76a1be5202d6b95bcf67a0f1a0ce39c57f",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a10583afd266ce8e51758fb9ef011145bd4305c0",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/aa528b18c91edc81cb129615c008b920532ba9b8",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8dad41e29bf8f9979be114e8051c69dae3e9c36a",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d4552a46cc0e8469b2c0b076104c0baac675e9fa",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -64921,12 +64493,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a8129a76a1be5202d6b95bcf67a0f1a0ce39c57f",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8dad41e29bf8f9979be114e8051c69dae3e9c36a",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d4552a46cc0e8469b2c0b076104c0baac675e9fa"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/81b0c804a9b9af402afc5765dbb3ccafdf883663",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a8129a76a1be5202d6b95bcf67a0f1a0ce39c57f",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a10583afd266ce8e51758fb9ef011145bd4305c0",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/aa528b18c91edc81cb129615c008b920532ba9b8"
    }
   },
   "illustrator": "英エイスト",
@@ -65070,8 +64636,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4b031255d8a1dd01e73715ac94f079abc3a64ec7",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -65081,12 +64646,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4b031255d8a1dd01e73715ac94f079abc3a64ec7"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e46bc15d17b3f86dc658dcfd1aeb1f4420dfded5",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/697bfa7cfff62139a8f989be3285667275bb4dd6",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1ac9b26ddee2cb684bab8a000a6d0f53ffb7a046",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4b031255d8a1dd01e73715ac94f079abc3a64ec7"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e46bc15d17b3f86dc658dcfd1aeb1f4420dfded5",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/697bfa7cfff62139a8f989be3285667275bb4dd6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1ac9b26ddee2cb684bab8a000a6d0f53ffb7a046",
@@ -65232,8 +64791,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/24a15d5382fc8c6e4b3ecd0f0196e1dabe54840f",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -65243,12 +64801,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/24a15d5382fc8c6e4b3ecd0f0196e1dabe54840f"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/599024375843bd546c327e7b2b5d08f0680f28ad",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5622a33a74305abe4726fee32061915005d85fa8",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d8b97006012b24e01d4e8d673e01cfe588ed7d9b",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/24a15d5382fc8c6e4b3ecd0f0196e1dabe54840f"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/599024375843bd546c327e7b2b5d08f0680f28ad",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5622a33a74305abe4726fee32061915005d85fa8",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d8b97006012b24e01d4e8d673e01cfe588ed7d9b",
@@ -65381,14 +64933,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［夏］江戸城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0c1f9b781313b9542210896b57fcd9f0284524f6",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0134482545d302182ad308f3f2a69c19b1ded91c",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b5b03c890e5a7384e73211b0f5e45d15e1fc6733",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/17df47dc9fc2bfd1fbc9f494503fbd677c534804",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f45faf10e3df0e6995eb386aeaa833c6eb525ce4",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fe9037941cb1e5c5d472467a75b25b6e1212dba0",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/44163487ffb2fc24f5a3df4f40bd3125b561a04d",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -65402,12 +64953,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b5b03c890e5a7384e73211b0f5e45d15e1fc6733",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fe9037941cb1e5c5d472467a75b25b6e1212dba0",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/44163487ffb2fc24f5a3df4f40bd3125b561a04d"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0c1f9b781313b9542210896b57fcd9f0284524f6",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b5b03c890e5a7384e73211b0f5e45d15e1fc6733",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/17df47dc9fc2bfd1fbc9f494503fbd677c534804",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f45faf10e3df0e6995eb386aeaa833c6eb525ce4"
    }
   },
   "illustrator": "Garuku",
@@ -65502,8 +65047,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2bc51459029da7363b3898e0b8b6f07b0bc81f91",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -65513,12 +65057,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2bc51459029da7363b3898e0b8b6f07b0bc81f91"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e457e2cc110edafd3e8ba952adf0c0574dcb007",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4105fc3ed7312b459ba55336416908efe1a23df1",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d4055c6268d1c9891f54db5f02c4a7b7dd98719e",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2bc51459029da7363b3898e0b8b6f07b0bc81f91"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e457e2cc110edafd3e8ba952adf0c0574dcb007",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4105fc3ed7312b459ba55336416908efe1a23df1",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d4055c6268d1c9891f54db5f02c4a7b7dd98719e",
@@ -65629,8 +65167,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f2491db7c8730b1a4f033924ec30a0de3e725da5",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -65640,12 +65177,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f2491db7c8730b1a4f033924ec30a0de3e725da5"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/84f3848fcd89218abcd50689a53b4bcdb37dec60",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/96ce75c2055dd3d015fc43c91a285915c833086e",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/578d9ef986623acc97f88c054dd4e170677cd3b3",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f2491db7c8730b1a4f033924ec30a0de3e725da5"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/84f3848fcd89218abcd50689a53b4bcdb37dec60",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/96ce75c2055dd3d015fc43c91a285915c833086e",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/578d9ef986623acc97f88c054dd4e170677cd3b3",
@@ -65820,8 +65351,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e23a7d8d3c654f8f915699b2d0515c59f8a84af2",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -65831,12 +65361,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e23a7d8d3c654f8f915699b2d0515c59f8a84af2"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/aa40591998279a411bc0d5a2aee948f861484c2c",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b10e767a06f58c1686668bdd4b6f2c1e107cba50",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7814d7e022d2dfe4bc38ea5f826ce23211724ddb",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e23a7d8d3c654f8f915699b2d0515c59f8a84af2"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/aa40591998279a411bc0d5a2aee948f861484c2c",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b10e767a06f58c1686668bdd4b6f2c1e107cba50",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7814d7e022d2dfe4bc38ea5f826ce23211724ddb",
@@ -66010,8 +65534,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d6e51f701d0df8ac243c489e3b6da8aa3fae63e0",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -66021,12 +65544,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d6e51f701d0df8ac243c489e3b6da8aa3fae63e0"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e7334c7330342d71dfcd14f2a7c49ca3b0ad3e7b",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5bf1ab1209479a3e1def2f05b610fb0504b8bb57",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/562a23805847bc6a3ce2d50b20b75b9d08ebd137",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d6e51f701d0df8ac243c489e3b6da8aa3fae63e0"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e7334c7330342d71dfcd14f2a7c49ca3b0ad3e7b",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5bf1ab1209479a3e1def2f05b610fb0504b8bb57",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/562a23805847bc6a3ce2d50b20b75b9d08ebd137",
@@ -66144,8 +65661,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea36e29549612fa44fe923e573ed566eb40c545f",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -66155,12 +65671,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea36e29549612fa44fe923e573ed566eb40c545f"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4967c3296df582b16d2967f8ba345a27a8c5a9e1",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e096a094d093c1c616f12ec5e17e3f0e95b655d2",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8de9c766896116502c4f41a5d66df0042a50a7f0",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea36e29549612fa44fe923e573ed566eb40c545f"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4967c3296df582b16d2967f8ba345a27a8c5a9e1",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e096a094d093c1c616f12ec5e17e3f0e95b655d2",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8de9c766896116502c4f41a5d66df0042a50a7f0",
@@ -66365,8 +65875,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%A5%80%E5%8F%A2%EF%BC%BD%E6%B8%85%E6%B4%B2%E5%9F%8E&src=tokugi_b52265d3c27a3f2865e48dfbea7c50a2.jpg",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -66376,12 +65885,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%A5%80%E5%8F%A2%EF%BC%BD%E6%B8%85%E6%B4%B2%E5%9F%8E&src=tokugi_b52265d3c27a3f2865e48dfbea7c50a2.jpg"
    },
    "改壱": {
-    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%A5%80%E5%8F%A2%EF%BC%BD%E6%B8%85%E6%B4%B2%E5%9F%8E&src=shiro_ec21bf471367055b665acbb0461c43d1.png",
-    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%A5%80%E5%8F%A2%EF%BC%BD%E6%B8%85%E6%B4%B2%E5%9F%8E&src=ojyou_12eaa7a489a987feb556f6b07dadb7d6.png",
-    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%A5%80%E5%8F%A2%EF%BC%BD%E6%B8%85%E6%B4%B2%E5%9F%8E&src=taiha_8a3cba4e90431553cc6f64d8c460cb12.png",
-    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%A5%80%E5%8F%A2%EF%BC%BD%E6%B8%85%E6%B4%B2%E5%9F%8E&src=tokugi_b52265d3c27a3f2865e48dfbea7c50a2.jpg"
-   },
-   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%A5%80%E5%8F%A2%EF%BC%BD%E6%B8%85%E6%B4%B2%E5%9F%8E&src=shiro_ec21bf471367055b665acbb0461c43d1.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%A5%80%E5%8F%A2%EF%BC%BD%E6%B8%85%E6%B4%B2%E5%9F%8E&src=ojyou_12eaa7a489a987feb556f6b07dadb7d6.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%EF%BC%BB%E7%A5%80%E5%8F%A2%EF%BC%BD%E6%B8%85%E6%B4%B2%E5%9F%8E&src=taiha_8a3cba4e90431553cc6f64d8c460cb12.png",
@@ -66530,8 +66033,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/715983fd26e88dc934adb516c2c24889bfc6cb68",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -66541,12 +66043,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/715983fd26e88dc934adb516c2c24889bfc6cb68"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e009f764eef84ffa4ca97f60105c2e40793548c5",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/803e3665a263c0106238ce4c009471d88676e8c9",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/50def59a7f19b2c968300a8fb27f73294a36ca38",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/715983fd26e88dc934adb516c2c24889bfc6cb68"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e009f764eef84ffa4ca97f60105c2e40793548c5",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/803e3665a263c0106238ce4c009471d88676e8c9",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/50def59a7f19b2c968300a8fb27f73294a36ca38",
@@ -66754,8 +66250,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d727a23736d283002707b8eea434521fc4a56775",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -66765,12 +66260,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d727a23736d283002707b8eea434521fc4a56775"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/962318cee3631fbc66b6050f1cc15be47cfe922b",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a6224864507ae7c8f7181672e3758cdca785d63c",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a4c3647d91b9e77ebd1352c73e141ffde4296659",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d727a23736d283002707b8eea434521fc4a56775"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/962318cee3631fbc66b6050f1cc15be47cfe922b",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a6224864507ae7c8f7181672e3758cdca785d63c",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a4c3647d91b9e77ebd1352c73e141ffde4296659",
@@ -66969,14 +66458,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［お月見］青葉城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5c50d2d69f0eba3299741d53d7afe792603bdd72",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f8860766ebda4fcca86c8cf5939e706be7ca0263",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/48a6c3aa748e24d0145a4f8391e00fd434a68950",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3520a36b700f34aec9eb3afd22fae4252aef6f11",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2b9dfd709c87b828e39466356c78c43f09acf099",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a7888344f5f6a9ef63cf91bfecac48d40873743b",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2a26efd9427d2e03acdbdacdaa33fdc8841bb2a6",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -66990,12 +66478,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/48a6c3aa748e24d0145a4f8391e00fd434a68950",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a7888344f5f6a9ef63cf91bfecac48d40873743b",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2a26efd9427d2e03acdbdacdaa33fdc8841bb2a6"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5c50d2d69f0eba3299741d53d7afe792603bdd72",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/48a6c3aa748e24d0145a4f8391e00fd434a68950",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3520a36b700f34aec9eb3afd22fae4252aef6f11",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2b9dfd709c87b828e39466356c78c43f09acf099"
    }
   },
   "illustrator": "入手画像サイズは、できれば1275×720でお願いします",
@@ -67109,8 +66591,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -67120,12 +66601,6 @@ window.SCRE_DATA = [
     "tokugiUrl": ""
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/86a4ef8b7a4cc8fdfbcd5e284da75b7cd418eeea",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/42b7c5e9fb137fd7314eefc5933ca61d9fe1768d",
-    "taihaUrl": "",
-    "tokugiUrl": ""
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/86a4ef8b7a4cc8fdfbcd5e284da75b7cd418eeea",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/42b7c5e9fb137fd7314eefc5933ca61d9fe1768d",
     "taihaUrl": "",
@@ -67322,14 +66797,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［魁耀］浜松城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d370a50a84b6df8c41d03751136c672764383ba4",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7050819f00a2912d0d2f27990b0077ecf11c27d9",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4de5251d87b5f4636f7842dd56dc19b72ee94e7d",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2064506931d85c34f6542c9c8cd5f2a7ced999ea",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/711aec5fc4cea334e46bf49a8781553276f35af0",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0a14b36da8495ff735b1dfe20b7306e8ea22038f",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6af143eadd17cb08636315e413159add65188edb",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -67343,12 +66817,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4de5251d87b5f4636f7842dd56dc19b72ee94e7d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0a14b36da8495ff735b1dfe20b7306e8ea22038f",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6af143eadd17cb08636315e413159add65188edb"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d370a50a84b6df8c41d03751136c672764383ba4",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4de5251d87b5f4636f7842dd56dc19b72ee94e7d",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2064506931d85c34f6542c9c8cd5f2a7ced999ea",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/711aec5fc4cea334e46bf49a8781553276f35af0"
    }
   },
   "illustrator": "&uploader(7f1d84a0106797f0ed33952e300bf4f5a70f6eea_scre_22142",
@@ -67588,8 +67056,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b99eb022c6b8179decc6886d81e4729f3da228db",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -67599,12 +67066,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b99eb022c6b8179decc6886d81e4729f3da228db"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b533eeed7b38e6b4fb1b2484e69eccbfd8c9c1f9",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fd6acf823a827c8c87c66c6753c2e756362657fc",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/713f147d6f4ebf5a8973674e2f803a4872c80972",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b99eb022c6b8179decc6886d81e4729f3da228db"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b533eeed7b38e6b4fb1b2484e69eccbfd8c9c1f9",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fd6acf823a827c8c87c66c6753c2e756362657fc",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/713f147d6f4ebf5a8973674e2f803a4872c80972",
@@ -67771,8 +67232,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/70b27180499c13bfdfb197ce11fcac78211e279a",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -67782,12 +67242,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/70b27180499c13bfdfb197ce11fcac78211e279a"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b94a9b1db2f4314d61f5cbca10e15f23160db641",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af9e65330b1d92f759714701483fa5026e607759",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/687a493a3422dea656167e8e2ece82b3274b2744",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/70b27180499c13bfdfb197ce11fcac78211e279a"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b94a9b1db2f4314d61f5cbca10e15f23160db641",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af9e65330b1d92f759714701483fa5026e607759",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/687a493a3422dea656167e8e2ece82b3274b2744",
@@ -67903,8 +67357,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41a8aad874a2bfd574ca16ad6be70d7b59877810",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -67914,12 +67367,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41a8aad874a2bfd574ca16ad6be70d7b59877810"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/acdbc59759efd19a12a2fbf579cdc805753f12aa",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a8cd6e0a4df62e1c25f8dafaf88aadfcf0a531dd",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f49e52fcbd328ffc9ca477c99eac6840ada2838e",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41a8aad874a2bfd574ca16ad6be70d7b59877810"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/acdbc59759efd19a12a2fbf579cdc805753f12aa",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a8cd6e0a4df62e1c25f8dafaf88aadfcf0a531dd",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f49e52fcbd328ffc9ca477c99eac6840ada2838e",
@@ -68093,8 +67540,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eba67963c37a4ba9b706383ea94cc8a757dc8a90",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -68104,12 +67550,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eba67963c37a4ba9b706383ea94cc8a757dc8a90"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae3f9babb136c9b8d4d492eeec6dadabf3986540",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8da3828ad1ad7d4fd3050f3c8d5c0fcc464b147e",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/25c4e47219c25511fb661a0971d3e0c7f2289015",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eba67963c37a4ba9b706383ea94cc8a757dc8a90"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae3f9babb136c9b8d4d492eeec6dadabf3986540",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8da3828ad1ad7d4fd3050f3c8d5c0fcc464b147e",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/25c4e47219c25511fb661a0971d3e0c7f2289015",
@@ -68363,14 +67803,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "羅生門S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d62946ae4fc8563aaa4d67510b5b35c03f812186",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4089f8de53dede54db5f0aecc6dc1ad61beb032d",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/decdcf6c7ff8741b9c84e3a297dd8c75b5385253",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/041b1825f7966bd670b7c394afdcfa8366af587a",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6149de0a429f1f1d155dede8b9bcf88743f3cb47",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d4e6396444c22d542afe97ae0f7516a76be2da1d",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/47456caedbb927ebb5e5e609ebf6a08ab6fc5dde",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -68384,12 +67823,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/decdcf6c7ff8741b9c84e3a297dd8c75b5385253",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d4e6396444c22d542afe97ae0f7516a76be2da1d",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/47456caedbb927ebb5e5e609ebf6a08ab6fc5dde"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d62946ae4fc8563aaa4d67510b5b35c03f812186",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/decdcf6c7ff8741b9c84e3a297dd8c75b5385253",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/041b1825f7966bd670b7c394afdcfa8366af587a",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6149de0a429f1f1d155dede8b9bcf88743f3cb47"
    }
   },
   "illustrator": "&uploader(1a63f0b964fb9d953d5c640d616d0c4cccb23841_scre_22126",
@@ -68525,8 +67958,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bd72d44fef2b2da15bdfd13c0fd1c2c38b58f1a6",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -68536,12 +67968,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bd72d44fef2b2da15bdfd13c0fd1c2c38b58f1a6"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1cf79cd104fe372511ee4c6b6cb624720a957d17",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e8502b3b64b53e2df920587ba1ae8a984f7b8c51",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9b17c8438fc5d6c160a797a90e0e8ccc517eb157",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bd72d44fef2b2da15bdfd13c0fd1c2c38b58f1a6"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1cf79cd104fe372511ee4c6b6cb624720a957d17",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e8502b3b64b53e2df920587ba1ae8a984f7b8c51",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9b17c8438fc5d6c160a797a90e0e8ccc517eb157",
@@ -68639,8 +68065,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/adb5682a0920b971673fb1510139cf218880ad4d",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -68650,12 +68075,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/adb5682a0920b971673fb1510139cf218880ad4d"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/22c4c2ceba5f503010bb3d36d20243358b31ba3c",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c55ae40c2796c7460728e3223339e4e844364a67",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1b38af5ade855b494494a94041782db270380823",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/adb5682a0920b971673fb1510139cf218880ad4d"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/22c4c2ceba5f503010bb3d36d20243358b31ba3c",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c55ae40c2796c7460728e3223339e4e844364a67",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1b38af5ade855b494494a94041782db270380823",
@@ -68797,14 +68216,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 13,
   "illustFile": "［絢爛］原城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1d596a45ccf6feec462d0f90ee1bdaab2fecadf8",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0f0d838b33b69129e00879d39be259335509129a",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b372fe9e4f7205cbe545f5463b7b914fdfaf5e2",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0dabea6793cff233516852b83a4082e194f2358e",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/235523b00301ade5eaa9dc8dfc3274ab756d24ed",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4b7d995bec015e04c7654ec594da6b4901983d99",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8bccab567d38697da746c01e82fec590c26b2c47",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -68818,12 +68236,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b372fe9e4f7205cbe545f5463b7b914fdfaf5e2",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4b7d995bec015e04c7654ec594da6b4901983d99",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8bccab567d38697da746c01e82fec590c26b2c47"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1d596a45ccf6feec462d0f90ee1bdaab2fecadf8",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b372fe9e4f7205cbe545f5463b7b914fdfaf5e2",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0dabea6793cff233516852b83a4082e194f2358e",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/235523b00301ade5eaa9dc8dfc3274ab756d24ed"
    }
   },
   "illustrator": "&uploader(eb878180ddbea61346eac8e8dbc8dcdf6280b6c0_scre_22229",
@@ -68964,8 +68376,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e791b513e6524b305e6dc8b37a14a730304cf2d1",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -68975,12 +68386,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e791b513e6524b305e6dc8b37a14a730304cf2d1"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1e89266fed8cb3f454dc145651796025c4aa335a",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf5b44819371e8c9893ccaf9e7a5a44a6afe0d33",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e5670f57da54548994c2dfa959a775c0c10687d8",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e791b513e6524b305e6dc8b37a14a730304cf2d1"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1e89266fed8cb3f454dc145651796025c4aa335a",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf5b44819371e8c9893ccaf9e7a5a44a6afe0d33",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e5670f57da54548994c2dfa959a775c0c10687d8",
@@ -69120,8 +68525,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c73e20b13956c3cfa3ca114ab2a726c7007880bb",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -69131,12 +68535,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c73e20b13956c3cfa3ca114ab2a726c7007880bb"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f08cf01501457f43f6e49b5ae06c6da9abd4a62c",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/21b9bfee43c189dc1bfa40200abe4dda811e474d",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/058763dd64d3ff2dc8e78e59ef146f70b983813b",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c73e20b13956c3cfa3ca114ab2a726c7007880bb"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f08cf01501457f43f6e49b5ae06c6da9abd4a62c",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/21b9bfee43c189dc1bfa40200abe4dda811e474d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/058763dd64d3ff2dc8e78e59ef146f70b983813b",
@@ -69631,14 +69029,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［大華の神衣］善見城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/06e9020de3e9fdd833075ee9a16b26b348fc953f",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/873b446cbe6abf82466b79de44b7c33b66cf4cf6",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dd8dc7c338d1aa6455d2b383e86d5efcdce1402a",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7fd84300509119310df5488ba6dbe95c5a83c345",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/de8ac63ff5193c6d9beca354073a4a9411749130",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/316e498886e8765b99e50cd6505d1e844fe1706f",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/43c0982ceb44c04985c36fc0fc927b9e5cb2e3ff",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -69652,12 +69049,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dd8dc7c338d1aa6455d2b383e86d5efcdce1402a",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/316e498886e8765b99e50cd6505d1e844fe1706f",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/43c0982ceb44c04985c36fc0fc927b9e5cb2e3ff"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/06e9020de3e9fdd833075ee9a16b26b348fc953f",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dd8dc7c338d1aa6455d2b383e86d5efcdce1402a",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7fd84300509119310df5488ba6dbe95c5a83c345",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/de8ac63ff5193c6d9beca354073a4a9411749130"
    }
   },
   "illustrator": "&uploader(d00a22daeb8aa2ed7dd92832d20ad08fa5af928f_scre_20174",
@@ -69748,14 +69139,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［魔犬の冥衣］タルタロスS.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0d72a092c0bade03740b876159820e747df60954",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9ed69e0fd8a44badf9611a16a3534d5af83d35f6",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3f1d18d023322a702d3b152a791cc4370604d689",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a44f42ab8e247705c80e70e4177c0c1d6bf0d72a",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1eb6af3435ba3188a5dd4ba1ac4e432b0eae7734",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf34e8cb083b59b71ae3baa28314229a88c014c9",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4ce152b87505cf646833bf84f510225aba8dca46",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -69769,12 +69159,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3f1d18d023322a702d3b152a791cc4370604d689",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf34e8cb083b59b71ae3baa28314229a88c014c9",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4ce152b87505cf646833bf84f510225aba8dca46"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0d72a092c0bade03740b876159820e747df60954",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3f1d18d023322a702d3b152a791cc4370604d689",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a44f42ab8e247705c80e70e4177c0c1d6bf0d72a",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1eb6af3435ba3188a5dd4ba1ac4e432b0eae7734"
    }
   },
   "illustrator": "&uploader(9127a7736dd0747626c0c5f09fa7e4f7315a25b7_scre_20157",
@@ -69868,8 +69252,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6808e8353849d856719fbfff9c2846463ec7078b",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -69879,12 +69262,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6808e8353849d856719fbfff9c2846463ec7078b"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c1e8b4407e273ea1f15db58f05049eebafdbfa2d",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8298a114f6cd9765301ccee5c6dba6e227ecd1bc",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6552d516a669d6454ab41ea99b1ce928b897b8ea",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6808e8353849d856719fbfff9c2846463ec7078b"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c1e8b4407e273ea1f15db58f05049eebafdbfa2d",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8298a114f6cd9765301ccee5c6dba6e227ecd1bc",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6552d516a669d6454ab41ea99b1ce928b897b8ea",
@@ -70038,14 +69415,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［死氷の黒衣］シバルバーS.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b563fca0fa02bd51f64e63c0554faa65ece7bd32",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/916f7d0215bc1657b1ed2a7ec2ea4b8860fc48ba",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/da333c43cd0f92f087d28898e6d7980ea95d9dcf",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c5f7ae54185b07960a895d638a1efac7c151011e",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/77c172cc347e4494f6ee0aea51f46c85adb49d15",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b7e6218a70f3534bfabdb894397f475f01773390",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cb1993442ca20f8c24d03d38db1f185befb2807c",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -70059,12 +69435,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/da333c43cd0f92f087d28898e6d7980ea95d9dcf",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b7e6218a70f3534bfabdb894397f475f01773390",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cb1993442ca20f8c24d03d38db1f185befb2807c"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b563fca0fa02bd51f64e63c0554faa65ece7bd32",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/da333c43cd0f92f087d28898e6d7980ea95d9dcf",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c5f7ae54185b07960a895d638a1efac7c151011e",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/77c172cc347e4494f6ee0aea51f46c85adb49d15"
    }
   },
   "illustrator": "&uploader(e534107664ca3aa8a4006163042d81ffc5386e80_scre_20531",
@@ -70450,17 +69820,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d1284ff1695fdc9454e353f3b91041e91dff19dc",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3e5a72f052ff383d2925310440f3148b318ddb45",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9b0366ea20ad65d5e1b968fdd54ec9a7877d81cc",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6759f8550b019f1cce2f13a7069d11b63af4a899",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d1284ff1695fdc9454e353f3b91041e91dff19dc",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3e5a72f052ff383d2925310440f3148b318ddb45"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9b0366ea20ad65d5e1b968fdd54ec9a7877d81cc",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6759f8550b019f1cce2f13a7069d11b63af4a899",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d1284ff1695fdc9454e353f3b91041e91dff19dc",
@@ -72822,17 +72185,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c01d7d255d56444ead1ce4c2549a9286d8e88bb",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/196f6dc61aecef1512ce578e433cc5059afe390b",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6dcba0cd8db10f0231a9e6ebd2f70907a47f2ee3",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d0570341177f89ee237d585d123b1bfca527fb7",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c01d7d255d56444ead1ce4c2549a9286d8e88bb",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/196f6dc61aecef1512ce578e433cc5059afe390b"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6dcba0cd8db10f0231a9e6ebd2f70907a47f2ee3",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d0570341177f89ee237d585d123b1bfca527fb7",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c01d7d255d56444ead1ce4c2549a9286d8e88bb",
@@ -75171,17 +74527,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0db887063ea62f33a3441930438308993669def2",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4c4f51182b74e4e5ccd47a5c5c6f660dd9bac4d8",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a9ed82bc6fcbf8ffb9c1788102ad3edd3682775f",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f63ffcb484e619c85ffc60d95e43b25bb8b69785",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0db887063ea62f33a3441930438308993669def2",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4c4f51182b74e4e5ccd47a5c5c6f660dd9bac4d8"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a9ed82bc6fcbf8ffb9c1788102ad3edd3682775f",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f63ffcb484e619c85ffc60d95e43b25bb8b69785",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0db887063ea62f33a3441930438308993669def2",
@@ -75336,17 +74685,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/49817d4f469219f923134007387900e4c7801a06",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af192cc96f7c8beba78d96d6c7478338e5df6afa",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/20962eec968fe7650acb773d2fe8e23a5bfc4ae9",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4d95f9ee04bcbd088117de23228937683f06c999",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/49817d4f469219f923134007387900e4c7801a06",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af192cc96f7c8beba78d96d6c7478338e5df6afa"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/20962eec968fe7650acb773d2fe8e23a5bfc4ae9",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4d95f9ee04bcbd088117de23228937683f06c999",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/49817d4f469219f923134007387900e4c7801a06",
@@ -75722,24 +75064,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/62a45745e300ff31f77fa394d077c0b1bdc19abd",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/093505c159b60191b83297f9c82bfc70ce82e2f3",
   "remodelStages": [
-   "無印",
-   "改壱",
-   "改弐"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e02d3426b2668a0b367adfa9508298a27377a1e5",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0188d833640bb8e4531d7238375910652e0c9a66",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/62a45745e300ff31f77fa394d077c0b1bdc19abd",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/093505c159b60191b83297f9c82bfc70ce82e2f3"
-   },
-   "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e02d3426b2668a0b367adfa9508298a27377a1e5",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0188d833640bb8e4531d7238375910652e0c9a66",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/62a45745e300ff31f77fa394d077c0b1bdc19abd",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/093505c159b60191b83297f9c82bfc70ce82e2f3"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e02d3426b2668a0b367adfa9508298a27377a1e5",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0188d833640bb8e4531d7238375910652e0c9a66",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/62a45745e300ff31f77fa394d077c0b1bdc19abd",
@@ -75823,24 +75151,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4cd11fd39614cf0d74afd3d4d02fd6ddc0de6f9",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b93c8f4ca78fe480f4c288ef5e6a8ffc640c14cd",
   "remodelStages": [
-   "無印",
-   "改壱",
-   "改弐"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea756d31c05062314658031a2227c9bb2d3b64cc",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/61ca74ea1ff39e611c5f3fd914716af6daae5e1a",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4cd11fd39614cf0d74afd3d4d02fd6ddc0de6f9",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b93c8f4ca78fe480f4c288ef5e6a8ffc640c14cd"
-   },
-   "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea756d31c05062314658031a2227c9bb2d3b64cc",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/61ca74ea1ff39e611c5f3fd914716af6daae5e1a",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4cd11fd39614cf0d74afd3d4d02fd6ddc0de6f9",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b93c8f4ca78fe480f4c288ef5e6a8ffc640c14cd"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea756d31c05062314658031a2227c9bb2d3b64cc",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/61ca74ea1ff39e611c5f3fd914716af6daae5e1a",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4cd11fd39614cf0d74afd3d4d02fd6ddc0de6f9",
@@ -77001,24 +76315,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A4%E3%82%B0%E3%83%8A&src=%E5%A4%A7%E7%A0%B4.png",
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A4%E3%82%B0%E3%83%8A&src=%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
-   "無印",
-   "改壱",
-   "改弐"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e23591ad66d8f0304fc5b9777664036356e4d72d",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b0a05afed4c6fa4ef612ce5e1ea5b9a88f053bfd",
-    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A4%E3%82%B0%E3%83%8A&src=%E5%A4%A7%E7%A0%B4.png",
-    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A4%E3%82%B0%E3%83%8A&src=%E7%89%B9%E6%8A%80.png"
-   },
-   "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e23591ad66d8f0304fc5b9777664036356e4d72d",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b0a05afed4c6fa4ef612ce5e1ea5b9a88f053bfd",
-    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A4%E3%82%B0%E3%83%8A&src=%E5%A4%A7%E7%A0%B4.png",
-    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A4%E3%82%B0%E3%83%8A&src=%E7%89%B9%E6%8A%80.png"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e23591ad66d8f0304fc5b9777664036356e4d72d",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b0a05afed4c6fa4ef612ce5e1ea5b9a88f053bfd",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A4%E3%82%B0%E3%83%8A&src=%E5%A4%A7%E7%A0%B4.png",
@@ -78123,7 +77423,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B1%B1%E9%A4%A8&src=%E7%A6%8F%E5%B1%B1%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -78133,6 +77434,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/57ae66eccd66ea7c0062efd982f725a68e5879de"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B1%B1%E9%A4%A8&src=%E7%A6%8F%E5%B1%B1%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/78f49a57903f6d44b3466924ddfee7adad088084",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B1%B1%E9%A4%A8&src=%E7%A6%8F%E5%B1%B1%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B1%B1%E9%A4%A8&src=%E7%A6%8F%E5%B1%B1%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B1%B1%E9%A4%A8&src=%E7%A6%8F%E5%B1%B1%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/78f49a57903f6d44b3466924ddfee7adad088084",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B1%B1%E9%A4%A8&src=%E7%A6%8F%E5%B1%B1%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -78864,7 +78171,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E5%9F%8E&src=%E5%8D%83%E4%BB%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -78874,6 +78182,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ba47f2b4aa6a719d66fcbc9e068eaabab2eb4de"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E5%9F%8E&src=%E5%8D%83%E4%BB%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/34ca39c57cdb65590d993891dd9e23f1304d457b",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E5%9F%8E&src=%E5%8D%83%E4%BB%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E5%9F%8E&src=%E5%8D%83%E4%BB%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E5%9F%8E&src=%E5%8D%83%E4%BB%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/34ca39c57cdb65590d993891dd9e23f1304d457b",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E5%9F%8E&src=%E5%8D%83%E4%BB%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -81467,7 +80781,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E&src=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -81477,6 +80792,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E&src=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E%20%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E&src=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/978d438538189b60dcf5fd479492926528f200c0",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E&src=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E&src=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E&src=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/978d438538189b60dcf5fd479492926528f200c0",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E&src=%E5%B0%8F%E7%94%B0%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -81640,7 +80961,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E&src=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -81650,6 +80972,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E&src=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E&src=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cc52284ae407baa099c23e8e0e56bf54df754e67",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E&src=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E&src=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E&src=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cc52284ae407baa099c23e8e0e56bf54df754e67",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E&src=%E5%A4%A7%E5%A4%9A%E5%96%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -81947,7 +81275,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%AC%E5%BA%84%E5%9F%8E&src=%E6%9C%AC%E5%BA%84%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -81957,6 +81286,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%AC%E5%BA%84%E5%9F%8E&src=%E6%9C%AC%E5%BA%84%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%AC%E5%BA%84%E5%9F%8E&src=%E6%9C%AC%E5%BA%84%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%AC%E5%BA%84%E5%9F%8E&src=%E6%9C%AC%E5%BA%84%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%AC%E5%BA%84%E5%9F%8E&src=%E6%9C%AC%E5%BA%84%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%AC%E5%BA%84%E5%9F%8E&src=%E6%9C%AC%E5%BA%84%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%AC%E5%BA%84%E5%9F%8E&src=%E6%9C%AC%E5%BA%84%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%AC%E5%BA%84%E5%9F%8E&src=%E6%9C%AC%E5%BA%84%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%AC%E5%BA%84%E5%9F%8E&src=%E6%9C%AC%E5%BA%84%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -82067,10 +81402,10 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 9,
   "illustFile": "滝山城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5c5d446682306dd768c220c6146a947ebc4d194c",
+  "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%BB%9D%E5%B1%B1%E5%9F%8E&src=%E6%BB%9D%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8bcaddd6e345e40dac9325506095adae2b38422e",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/173c4006f2014effd08734f75b4708d2b235e808",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/53917a2327ff43364e809a3e019599dcdd59c0dc",
+  "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%BB%9D%E5%B1%B1%E5%9F%8E&src=%E6%BB%9D%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+  "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%BB%9D%E5%B1%B1%E5%9F%8E&src=%E6%BB%9D%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
    "改壱",
@@ -82090,10 +81425,10 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%BB%9D%E5%B1%B1%E5%9F%8E&src=%E6%BB%9D%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
    },
    "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5c5d446682306dd768c220c6146a947ebc4d194c",
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%BB%9D%E5%B1%B1%E5%9F%8E&src=%E6%BB%9D%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8bcaddd6e345e40dac9325506095adae2b38422e",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/173c4006f2014effd08734f75b4708d2b235e808",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/53917a2327ff43364e809a3e019599dcdd59c0dc"
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%BB%9D%E5%B1%B1%E5%9F%8E&src=%E6%BB%9D%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%BB%9D%E5%B1%B1%E5%9F%8E&src=%E6%BB%9D%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
    }
   },
   "illustrator": "えめらね",
@@ -82801,7 +82136,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e76c48a793f6310e19d8257c70b4e884d5a33247",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -82811,6 +82147,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/355e187490723579fbbe8afc232e5fae99374948"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/734b32b031ec04af765e20d6148581912e92be38",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9c77ab3be1bbed0a18bc751e32f25c640f685c81",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/615a22a5ba20e866926c18f0738da599330dbea5",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e76c48a793f6310e19d8257c70b4e884d5a33247"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/734b32b031ec04af765e20d6148581912e92be38",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9c77ab3be1bbed0a18bc751e32f25c640f685c81",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/615a22a5ba20e866926c18f0738da599330dbea5",
@@ -83119,7 +82461,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9F%B3%E4%B9%8B%E4%B8%B8&src=%E6%9F%B3%E4%B9%8B%E4%B8%B8%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -83129,6 +82472,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/50eee22dcde77addb0fd9b5298ac5980a335d957"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9F%B3%E4%B9%8B%E4%B8%B8&src=%E6%9F%B3%E4%B9%8B%E4%B8%B8%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5019e3a6d31ba209fbd5bf4ecc60aaf6d7fbc43b",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9F%B3%E4%B9%8B%E4%B8%B8&src=%E6%9F%B3%E4%B9%8B%E4%B8%B8%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9F%B3%E4%B9%8B%E4%B8%B8&src=%E6%9F%B3%E4%B9%8B%E4%B8%B8%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9F%B3%E4%B9%8B%E4%B8%B8&src=%E6%9F%B3%E4%B9%8B%E4%B8%B8%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5019e3a6d31ba209fbd5bf4ecc60aaf6d7fbc43b",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9F%B3%E4%B9%8B%E4%B8%B8&src=%E6%9F%B3%E4%B9%8B%E4%B8%B8%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -83259,7 +82608,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%82%A3%E5%8F%A4%E9%87%8E%E5%9F%8E&src=%E9%82%A3%E5%8F%A4%E9%87%8E%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -83269,6 +82619,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8317fe9eb71d427a36510448cd770cac07666641"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9a272f04d23fd4f20c7c384d4150d7e8e84b5762",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2b8da582f08807f09e34668140449a0dd7139373",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%82%A3%E5%8F%A4%E9%87%8E%E5%9F%8E&src=%E9%82%A3%E5%8F%A4%E9%87%8E%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%82%A3%E5%8F%A4%E9%87%8E%E5%9F%8E&src=%E9%82%A3%E5%8F%A4%E9%87%8E%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9a272f04d23fd4f20c7c384d4150d7e8e84b5762",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2b8da582f08807f09e34668140449a0dd7139373",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%82%A3%E5%8F%A4%E9%87%8E%E5%9F%8E&src=%E9%82%A3%E5%8F%A4%E9%87%8E%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -83563,7 +82919,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%8B%97%E6%9C%A8%E5%9F%8E&src=%E8%8B%97%E6%9C%A8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -83573,6 +82930,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%8B%97%E6%9C%A8%E5%9F%8E&src=%E8%8B%97%E6%9C%A8%E5%9F%8E%20%E5%BF%85%E6%AE%BA%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%8B%97%E6%9C%A8%E5%9F%8E&src=%E8%8B%97%E6%9C%A8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%8B%97%E6%9C%A8%E5%9F%8E&src=%E8%8B%97%E6%9C%A8%E5%9F%8E%20%E5%BE%A1%E5%AC%A2_0.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%8B%97%E6%9C%A8%E5%9F%8E&src=%E8%8B%97%E6%9C%A8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%8B%97%E6%9C%A8%E5%9F%8E&src=%E8%8B%97%E6%9C%A8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%8B%97%E6%9C%A8%E5%9F%8E&src=%E8%8B%97%E6%9C%A8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%8B%97%E6%9C%A8%E5%9F%8E&src=%E8%8B%97%E6%9C%A8%E5%9F%8E%20%E5%BE%A1%E5%AC%A2_0.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%8B%97%E6%9C%A8%E5%9F%8E&src=%E8%8B%97%E6%9C%A8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -83730,10 +83093,10 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 9,
   "illustFile": "坂戸城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4c38399f937cef431d17b1b6a4f1af13b305d16a",
+  "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9D%82%E6%88%B8%E5%9F%8E&src=%E5%9D%82%E6%88%B8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/931b75a6ac70da0f7c31c5c485f5dc77721dd5c0",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9e0c2f57991f408e44ff3870f16235133415c8e9",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0d91807e8966a20051b7120dfbde24d676b9a286",
+  "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9D%82%E6%88%B8%E5%9F%8E&src=%E5%9D%82%E6%88%B8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+  "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9D%82%E6%88%B8%E5%9F%8E&src=%E5%9D%82%E6%88%B8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
    "改壱",
@@ -83753,10 +83116,10 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9D%82%E6%88%B8%E5%9F%8E&src=%E5%9D%82%E6%88%B8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
    },
    "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4c38399f937cef431d17b1b6a4f1af13b305d16a",
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9D%82%E6%88%B8%E5%9F%8E&src=%E5%9D%82%E6%88%B8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/931b75a6ac70da0f7c31c5c485f5dc77721dd5c0",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9e0c2f57991f408e44ff3870f16235133415c8e9",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0d91807e8966a20051b7120dfbde24d676b9a286"
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9D%82%E6%88%B8%E5%9F%8E&src=%E5%9D%82%E6%88%B8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9D%82%E6%88%B8%E5%9F%8E&src=%E5%9D%82%E6%88%B8%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
    }
   },
   "illustrator": "&uploader(2d4f63b3d16d05d77f375c578187d16043fd4d1d_scre_17",
@@ -84075,7 +83438,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/73a2f15dcb9420bcfe44af0f0843408adb48cac6",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -84085,6 +83449,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%B8%83%E5%B0%BE%E5%9F%8E&src=%E4%B8%83%E5%B0%BE%E5%9F%8E%20%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dcfa4dfd3f5f3a32e15ddafd929e3968619cf57e",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3944690b47130a9ed01f51cdfb492575339fbd97",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/889b01d2dff91f8167b358f1fe303a4427785dbf",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/73a2f15dcb9420bcfe44af0f0843408adb48cac6"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dcfa4dfd3f5f3a32e15ddafd929e3968619cf57e",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3944690b47130a9ed01f51cdfb492575339fbd97",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/889b01d2dff91f8167b358f1fe303a4427785dbf",
@@ -84632,7 +84002,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/be7046096a25ffe0c95ed58085dc57d8493183f1",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -84642,6 +84013,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a018496625e7c298ef7a142b592bed3890c2fa2d"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c20e7ee84b91c0d159a0188f2ea270b5ad069d7a",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/17505d82f694f3ab64b8c6fca711824571620698",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/952d36a730e17ab72d315603e8130594ad9decb2",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/be7046096a25ffe0c95ed58085dc57d8493183f1"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c20e7ee84b91c0d159a0188f2ea270b5ad069d7a",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/17505d82f694f3ab64b8c6fca711824571620698",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/952d36a730e17ab72d315603e8130594ad9decb2",
@@ -84819,7 +84196,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f1154b710681214fd2d46ea6e7491857d8e8827e",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -84829,6 +84207,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/77f2bb8e978a435ba849de19ba706aca0a7d1ab6"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/60e805bf318734dafb6352958dc05d43db2eb8c9",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/79d088a36facb19d780d313c9b490601583ce21b",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a35153052835d29a92df07846aa276da5b963d2a",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f1154b710681214fd2d46ea6e7491857d8e8827e"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/60e805bf318734dafb6352958dc05d43db2eb8c9",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/79d088a36facb19d780d313c9b490601583ce21b",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a35153052835d29a92df07846aa276da5b963d2a",
@@ -85382,7 +84766,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E&src=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -85392,6 +84777,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E&src=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E%E5%BF%85%E6%AE%BA%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E&src=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E&src=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E&src=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E&src=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E&src=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E&src=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E&src=%E5%A4%9A%E8%81%9E%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -86129,7 +85520,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/be9f0fbd2c4d835f58885835ef6ed761f8eb7a69",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -86139,6 +85531,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c0378e85b2cb6d870357450215bf2be401409c0"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1f548f29a63749a5edaae812c1fe037e4111ad00",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a6fe7f689b485485f551bb74f3b1d369f853c028",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d66a395938417a522476e1bbdb5063768bcd06ad",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/be9f0fbd2c4d835f58885835ef6ed761f8eb7a69"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1f548f29a63749a5edaae812c1fe037e4111ad00",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a6fe7f689b485485f551bb74f3b1d369f853c028",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d66a395938417a522476e1bbdb5063768bcd06ad",
@@ -87084,7 +86482,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E9%87%8E%E5%9F%8E&src=%E9%B9%BF%E9%87%8E%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -87094,6 +86493,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E9%87%8E%E5%9F%8E&src=%E9%B9%BF%E9%87%8E%E5%9F%8E%20%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E9%87%8E%E5%9F%8E&src=%E9%B9%BF%E9%87%8E%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf1e0d1f9a1df9d177b00423496694b38dc5a89c",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E9%87%8E%E5%9F%8E&src=%E9%B9%BF%E9%87%8E%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E9%87%8E%E5%9F%8E&src=%E9%B9%BF%E9%87%8E%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E9%87%8E%E5%9F%8E&src=%E9%B9%BF%E9%87%8E%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf1e0d1f9a1df9d177b00423496694b38dc5a89c",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E9%87%8E%E5%9F%8E&src=%E9%B9%BF%E9%87%8E%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -87277,7 +86682,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/24292da81838aa2a5b82edd04a43efe49f24afcf",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -87287,6 +86693,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B3%A5%E5%8F%96%E5%9F%8E&src=%E9%B3%A5%E5%8F%96%E5%9F%8E3.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5870a69953a3d442bd74e28eead5e64a37c81874",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B3%A5%E5%8F%96%E5%9F%8E&src=%E9%B3%A5%E5%8F%96%E5%9F%8E2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41f7b03947096741e6c4165e6bbaa5af981f26d0",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/24292da81838aa2a5b82edd04a43efe49f24afcf"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5870a69953a3d442bd74e28eead5e64a37c81874",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B3%A5%E5%8F%96%E5%9F%8E&src=%E9%B3%A5%E5%8F%96%E5%9F%8E2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41f7b03947096741e6c4165e6bbaa5af981f26d0",
@@ -88336,7 +87748,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/991ea2d5ae62a91eef6d4f91f76d258152a26755",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -88346,6 +87759,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8B%9D%E7%91%9E%E5%9F%8E&src=%E5%8B%9D%E7%91%9E%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9ba984092d38d35a10d6a8a825c709953ed6d557",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/09495e6df27b41cfd576eac6eb9b47a854f54e9c",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ba6bc4baff39cdc0ce8033922d724e6defc556ab",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/991ea2d5ae62a91eef6d4f91f76d258152a26755"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9ba984092d38d35a10d6a8a825c709953ed6d557",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/09495e6df27b41cfd576eac6eb9b47a854f54e9c",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ba6bc4baff39cdc0ce8033922d724e6defc556ab",
@@ -88944,10 +88363,10 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 11,
   "illustFile": "福岡城S.png",
-  "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B2%A1%E5%9F%8E&src=%E7%A6%8F%E5%B2%A1%E5%9F%8E%20%E5%9F%8E%E5%A8%98.png",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8d0297320261bf7e27e1b6feeab6c420e5bd3309",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51a96fc2a6c301ffee9a3910b8087d31aaa7abfb",
-  "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B2%A1%E5%9F%8E&src=%E7%A6%8F%E5%B2%A1%E5%9F%8E%20%E5%8D%8A%E5%A3%8A.png",
-  "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B2%A1%E5%9F%8E&src=%E7%A6%8F%E5%B2%A1%E5%9F%8E%20%E6%8A%80.png",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3115a8caf755829f990e5d37613ad974c9af5c0e",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/941a935a44fc0f172f140ceb18779cf2a85d34b4",
   "remodelStages": [
    "無印",
    "改壱",
@@ -88967,10 +88386,10 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/941a935a44fc0f172f140ceb18779cf2a85d34b4"
    },
    "改弐": {
-    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B2%A1%E5%9F%8E&src=%E7%A6%8F%E5%B2%A1%E5%9F%8E%20%E5%9F%8E%E5%A8%98.png",
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8d0297320261bf7e27e1b6feeab6c420e5bd3309",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51a96fc2a6c301ffee9a3910b8087d31aaa7abfb",
-    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B2%A1%E5%9F%8E&src=%E7%A6%8F%E5%B2%A1%E5%9F%8E%20%E5%8D%8A%E5%A3%8A.png",
-    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%A6%8F%E5%B2%A1%E5%9F%8E&src=%E7%A6%8F%E5%B2%A1%E5%9F%8E%20%E6%8A%80.png"
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3115a8caf755829f990e5d37613ad974c9af5c0e",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/941a935a44fc0f172f140ceb18779cf2a85d34b4"
    }
   },
   "illustrator": "ゾウノセ",
@@ -89702,7 +89121,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c91065783cef90864825af230723d21feb9effcb",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -89712,6 +89132,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fcd6c645da406154d06f0214e71d271662957590"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/10cf9e5e1d16a3035ab96cd079dfb15c98f88110",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4e234a47c390f7a6c51c8e8584233efa340b5930",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea2ebb466eff775d93ebf8154b343a9c9d903c04",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c91065783cef90864825af230723d21feb9effcb"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/10cf9e5e1d16a3035ab96cd079dfb15c98f88110",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4e234a47c390f7a6c51c8e8584233efa340b5930",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea2ebb466eff775d93ebf8154b343a9c9d903c04",
@@ -90384,7 +89810,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E&src=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -90394,6 +89821,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/de669acf96337102094adb9ba9da977bd0557058"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E&src=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/833cb2c5f7bae45fabdf82ed450cfeb7b2b0f235",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E&src=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E&src=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E&src=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/833cb2c5f7bae45fabdf82ed450cfeb7b2b0f235",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E&src=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -90527,7 +89960,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B5%A6%E6%B7%BB%E5%9F%8E&src=%E6%B5%A6%E6%B7%BB%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -90537,6 +89971,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a511f5fd3d1edaedbbed33eb742e7585776dcde9"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B5%A6%E6%B7%BB%E5%9F%8E&src=%E6%B5%A6%E6%B7%BB%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a7fa3066c0b1e6b0c7ccb5876eb70d7cc323130a",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B5%A6%E6%B7%BB%E5%9F%8E&src=%E6%B5%A6%E6%B7%BB%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B5%A6%E6%B7%BB%E5%9F%8E&src=%E6%B5%A6%E6%B7%BB%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B5%A6%E6%B7%BB%E5%9F%8E&src=%E6%B5%A6%E6%B7%BB%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a7fa3066c0b1e6b0c7ccb5876eb70d7cc323130a",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B5%A6%E6%B7%BB%E5%9F%8E&src=%E6%B5%A6%E6%B7%BB%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -90871,7 +90311,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E&src=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -90881,6 +90322,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/784b512194e7a26e251178aac810695cd7de1877"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E&src=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b639fc49ab69ee93cd7344035da29b4bc74bd049",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E&src=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E&src=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E&src=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b639fc49ab69ee93cd7344035da29b4bc74bd049",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E&src=%E6%9C%88%E5%B1%B1%E5%AF%8C%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -91065,7 +90512,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%84%87%E6%9C%AC%E5%9F%8E&src=%E8%84%87%E6%9C%AC%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -91075,6 +90523,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/654ffd4f17cfc5b93c267d08710b4a9f14cceed3"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%84%87%E6%9C%AC%E5%9F%8E&src=%E8%84%87%E6%9C%AC%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6478ee05e2ed84566e3f87d719294381e9e9f361",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%84%87%E6%9C%AC%E5%9F%8E&src=%E8%84%87%E6%9C%AC%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%84%87%E6%9C%AC%E5%9F%8E&src=%E8%84%87%E6%9C%AC%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%84%87%E6%9C%AC%E5%9F%8E&src=%E8%84%87%E6%9C%AC%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6478ee05e2ed84566e3f87d719294381e9e9f361",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%84%87%E6%9C%AC%E5%9F%8E&src=%E8%84%87%E6%9C%AC%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -91384,7 +90838,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A2%A8%E4%BF%A3%E5%9F%8E&src=%E5%A2%A8%E4%BF%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -91394,6 +90849,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A2%A8%E4%BF%A3%E5%9F%8E&src=%E5%A2%A8%E4%BF%A3%E5%9F%8E%20%E5%BF%85%E6%AE%BA%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A2%A8%E4%BF%A3%E5%9F%8E&src=%E5%A2%A8%E4%BF%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f02b3e9df67e91abe24da8f469f4c8396757af2c",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A2%A8%E4%BF%A3%E5%9F%8E&src=%E5%A2%A8%E4%BF%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A2%A8%E4%BF%A3%E5%9F%8E&src=%E5%A2%A8%E4%BF%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A2%A8%E4%BF%A3%E5%9F%8E&src=%E5%A2%A8%E4%BF%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f02b3e9df67e91abe24da8f469f4c8396757af2c",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A2%A8%E4%BF%A3%E5%9F%8E&src=%E5%A2%A8%E4%BF%A3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -91541,7 +91002,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B2%A9%E6%AB%83%E5%9F%8E&src=%E5%B2%A9%E6%AB%83%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -91551,6 +91013,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B2%A9%E6%AB%83%E5%9F%8E&src=%E5%B2%A9%E6%AB%83%E5%9F%8E%20%E5%BF%85%E6%AE%BA%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B2%A9%E6%AB%83%E5%9F%8E&src=%E5%B2%A9%E6%AB%83%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3b8d5c78858f8e9e4283b2fc065ad97f428a2f65",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B2%A9%E6%AB%83%E5%9F%8E&src=%E5%B2%A9%E6%AB%83%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B2%A9%E6%AB%83%E5%9F%8E&src=%E5%B2%A9%E6%AB%83%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B2%A9%E6%AB%83%E5%9F%8E&src=%E5%B2%A9%E6%AB%83%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3b8d5c78858f8e9e4283b2fc065ad97f428a2f65",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B2%A9%E6%AB%83%E5%9F%8E&src=%E5%B2%A9%E6%AB%83%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -91714,7 +91182,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E&src=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -91724,6 +91193,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E&src=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E%20%E5%BF%85%E6%AE%BA%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E&src=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E&src=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E%20%E5%BE%A1%E5%AC%A2_0.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E&src=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E&src=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E&src=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E&src=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E%20%E5%BE%A1%E5%AC%A2_0.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E&src=%E5%BF%97%E8%87%AA%E5%B2%90%E5%8E%9F%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -91834,7 +91309,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c49662726b023c966f1622377d220ab584226bda",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -91844,6 +91320,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/529c8f8bb5438d9d0dcd86fce38bb6b7b1f61305"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5abced7c2caad7f0119bb8726bb243714420ff94",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8707a2ef330961d0b0daaf2a0d3985abbd107846",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/851692098efaaf693bb13828af2d5a0f20e942f1",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c49662726b023c966f1622377d220ab584226bda"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5abced7c2caad7f0119bb8726bb243714420ff94",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8707a2ef330961d0b0daaf2a0d3985abbd107846",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/851692098efaaf693bb13828af2d5a0f20e942f1",
@@ -92152,7 +91634,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B3%A5%E7%BE%BD%E5%9F%8E&src=%E3%80%90%E6%94%B9%E4%B8%80%E3%80%91%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -92162,6 +91645,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B3%A5%E7%BE%BD%E5%9F%8E&src=%E9%B3%A5%E7%BE%BD%E5%9F%8E%20%E5%BF%85%E6%AE%BA%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B3%A5%E7%BE%BD%E5%9F%8E&src=%E3%80%90%E6%94%B9%E4%B8%80%E3%80%91%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/520b03ac996797ecfa5af21e5940aab6a78b5c40",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B3%A5%E7%BE%BD%E5%9F%8E&src=%E3%80%90%E6%94%B9%E4%B8%80%E3%80%91%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B3%A5%E7%BE%BD%E5%9F%8E&src=%E3%80%90%E6%94%B9%E4%B8%80%E3%80%91%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B3%A5%E7%BE%BD%E5%9F%8E&src=%E3%80%90%E6%94%B9%E4%B8%80%E3%80%91%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/520b03ac996797ecfa5af21e5940aab6a78b5c40",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%B3%A5%E7%BE%BD%E5%9F%8E&src=%E3%80%90%E6%94%B9%E4%B8%80%E3%80%91%E5%A4%A7%E7%A0%B4.png",
@@ -93056,7 +92545,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%B8%8E%E6%9D%BF%E5%9F%8E&src=%E4%B8%8E%E6%9D%BF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -93066,6 +92556,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%B8%8E%E6%9D%BF%E5%9F%8E&src=%E4%B8%8E%E6%9D%BF%E5%9F%8E%20%E5%BF%85%E6%AE%BA%E6%8A%80%E5%A3%B1.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%B8%8E%E6%9D%BF%E5%9F%8E&src=%E4%B8%8E%E6%9D%BF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/57cf9c3109205d8917cc9e01489c18d12ae28932",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%B8%8E%E6%9D%BF%E5%9F%8E&src=%E4%B8%8E%E6%9D%BF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%B8%8E%E6%9D%BF%E5%9F%8E&src=%E4%B8%8E%E6%9D%BF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%B8%8E%E6%9D%BF%E5%9F%8E&src=%E4%B8%8E%E6%9D%BF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/57cf9c3109205d8917cc9e01489c18d12ae28932",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%B8%8E%E6%9D%BF%E5%9F%8E&src=%E4%B8%8E%E6%9D%BF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -93242,7 +92738,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0b47d0b170c010114a381d5d6d6117e3bc66f262",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -93252,6 +92749,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/833c17820bff8a9990ff228f2aa658c089f4b2ca"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/11f60d4a5e2dae8a31c639147a9ee4b5b64cc27a",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bd426a3e1df7788d7a29b2f6553b8caa544558a6",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f38cba070c34d667e19786d003612fcc5811d071",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0b47d0b170c010114a381d5d6d6117e3bc66f262"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/11f60d4a5e2dae8a31c639147a9ee4b5b64cc27a",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bd426a3e1df7788d7a29b2f6553b8caa544558a6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f38cba070c34d667e19786d003612fcc5811d071",
@@ -93733,7 +93236,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E&src=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -93743,6 +93247,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E&src=501.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E&src=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E&src=394f309464e44a88afd1b6d8f5dfbb6e.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E&src=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E&src=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E&src=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E&src=394f309464e44a88afd1b6d8f5dfbb6e.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E&src=%E7%9F%B3%E5%9E%A3%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -94258,7 +93768,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -94268,6 +93779,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A%20%E5%BE%A1%E5%9F%8E.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A%20%E5%BE%A1%E5%9F%8E.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E5%B0%BE%E5%B1%B1%E5%BE%A1%E5%9D%8A%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -94884,7 +94401,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA&src=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -94894,6 +94412,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA&src=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA&src=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA&src=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA&src=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA&src=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA&src=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA&src=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA&src=%E5%B1%B1%E7%A7%91%E6%9C%AC%E9%A1%98%E5%AF%BA%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -95031,7 +94555,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%B1%E5%BF%97%E5%9F%8E&src=%E6%B7%B1%E5%BF%97%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -95041,6 +94566,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%B1%E5%BF%97%E5%9F%8E&src=%E6%B7%B1%E5%BF%97%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%B1%E5%BF%97%E5%9F%8E&src=%E6%B7%B1%E5%BF%97%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%B1%E5%BF%97%E5%9F%8E&src=%E6%B7%B1%E5%BF%97%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%B1%E5%BF%97%E5%9F%8E&src=%E6%B7%B1%E5%BF%97%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%B1%E5%BF%97%E5%9F%8E&src=%E6%B7%B1%E5%BF%97%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%B1%E5%BF%97%E5%9F%8E&src=%E6%B7%B1%E5%BF%97%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%B1%E5%BF%97%E5%9F%8E&src=%E6%B7%B1%E5%BF%97%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%B1%E5%BF%97%E5%9F%8E&src=%E6%B7%B1%E5%BF%97%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -95607,7 +95138,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e0c0b558a3c6d55ec35f04b4ee170aed7566a1fb",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -95617,6 +95149,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9B%9B%E7%A8%9C%E9%83%AD&src=%E5%9B%9B%E7%A8%9C%E9%83%AD%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a4f865995bd91cd3f1e0a2c941b90fe6947df758",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9B%9B%E7%A8%9C%E9%83%AD&src=%E5%9B%9B%E7%A8%9C%E9%83%AD%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4a24346494c978a3861c5dc00d13cf57d4079c3",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e0c0b558a3c6d55ec35f04b4ee170aed7566a1fb"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a4f865995bd91cd3f1e0a2c941b90fe6947df758",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9B%9B%E7%A8%9C%E9%83%AD&src=%E5%9B%9B%E7%A8%9C%E9%83%AD%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4a24346494c978a3861c5dc00d13cf57d4079c3",
@@ -95811,7 +95349,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1&src=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -95821,6 +95360,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1&src=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1&src=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1&src=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1&src=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1&src=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1&src=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1&src=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1&src=%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -96138,7 +95683,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b49e16d79fbb7361313e19d564bb4d97046ac83",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -96148,6 +95694,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AC%B9%E5%8E%9F%E5%9F%8E&src=%E7%AC%B9%E5%8E%9F%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf1f9224ecb0dcce8e19d32121629841ceef0e40",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AC%B9%E5%8E%9F%E5%9F%8E&src=%E7%AC%B9%E5%8E%9F%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ba1e0f632383ee92d3e97159bc11adcd12a0606b",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b49e16d79fbb7361313e19d564bb4d97046ac83"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf1f9224ecb0dcce8e19d32121629841ceef0e40",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AC%B9%E5%8E%9F%E5%9F%8E&src=%E7%AC%B9%E5%8E%9F%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ba1e0f632383ee92d3e97159bc11adcd12a0606b",
@@ -96505,7 +96057,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c7fc1cadfa209240280d8cbdae585ddd460719d0",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -96515,6 +96068,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%A7%E4%BB%8F%E5%9F%8E&src=%E5%A4%A7%E4%BB%8F%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fdeedd469bf9e7cb5e81c3c84e85b144f33543e2",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%A7%E4%BB%8F%E5%9F%8E&src=%E5%A4%A7%E4%BB%8F%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/34d1fb8e033fa51b7871ded89f3229c9b279b7bf",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c7fc1cadfa209240280d8cbdae585ddd460719d0"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fdeedd469bf9e7cb5e81c3c84e85b144f33543e2",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%A7%E4%BB%8F%E5%9F%8E&src=%E5%A4%A7%E4%BB%8F%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/34d1fb8e033fa51b7871ded89f3229c9b279b7bf",
@@ -97108,7 +96667,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4fe6a129154f0e9aef4fcd26ff0ab6d6ced48523",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -97118,6 +96678,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9D%BF%E5%B3%B6%E4%B8%B8%E4%B8%B2%E5%9F%8E&src=%E6%9D%BF%E5%B3%B6%E4%B8%B8%E4%B8%B2%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/373700fcdbd35f340cce37223aa6cbd0c0e9c64d",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9D%BF%E5%B3%B6%E4%B8%B8%E4%B8%B2%E5%9F%8E&src=%E6%9D%BF%E5%B3%B6%E4%B8%B8%E4%B8%B2%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/148af51e68d36cfee1c1c0fe5edb909b1e50e299",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4fe6a129154f0e9aef4fcd26ff0ab6d6ced48523"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/373700fcdbd35f340cce37223aa6cbd0c0e9c64d",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9D%BF%E5%B3%B6%E4%B8%B8%E4%B8%B2%E5%9F%8E&src=%E6%9D%BF%E5%B3%B6%E4%B8%B8%E4%B8%B2%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/148af51e68d36cfee1c1c0fe5edb909b1e50e299",
@@ -97397,7 +96963,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d16c46ac24a37a0ecbaa9d3b5d8665cd66ec2cde",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -97407,6 +96974,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%80%E5%B1%85%E5%9F%8E&src=%E4%BA%80%E5%B1%85%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/610024bd937f5c403b56f655fa6c74fe061c3e10",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%80%E5%B1%85%E5%9F%8E&src=%E4%BA%80%E5%B1%85%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b32da36a9522b582cd7b4e176f382d94c3cad38d",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d16c46ac24a37a0ecbaa9d3b5d8665cd66ec2cde"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/610024bd937f5c403b56f655fa6c74fe061c3e10",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%80%E5%B1%85%E5%9F%8E&src=%E4%BA%80%E5%B1%85%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b32da36a9522b582cd7b4e176f382d94c3cad38d",
@@ -97600,7 +97173,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3b8dde3f91b14ba587ff7080132441381fca517a",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -97610,6 +97184,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%82%A5%E5%BE%8C%E5%8D%83%E8%91%89%E5%9F%8E&src=%E8%82%A5%E5%BE%8C%E5%8D%83%E8%91%89%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/18bc4d94cb9bac338a91bef2419733ea5770b4c0",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%82%A5%E5%BE%8C%E5%8D%83%E8%91%89%E5%9F%8E&src=higochiba111.PNG",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2fbbc24b975d11f8fe27b7a3dfe66b92148ad05e",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3b8dde3f91b14ba587ff7080132441381fca517a"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/18bc4d94cb9bac338a91bef2419733ea5770b4c0",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%82%A5%E5%BE%8C%E5%8D%83%E8%91%89%E5%9F%8E&src=higochiba111.PNG",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2fbbc24b975d11f8fe27b7a3dfe66b92148ad05e",
@@ -97731,7 +97311,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ebc2aa25b5b5d16a8f6daaca222301102913d99b",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -97741,6 +97322,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7de4b6db945375d55f5cb645ae0f9db3460425f6"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/71a822e640b1196be78343f24c20f514eafbe20d",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%B3%E3%83%B3%E3%82%A6%E3%82%A3%E5%9F%8E&src=%E3%82%B3%E3%83%B3%E3%82%A6%E3%82%A3%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/427d7a57383ae95f0239f42c0ed0f51e6bf02dc0",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ebc2aa25b5b5d16a8f6daaca222301102913d99b"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/71a822e640b1196be78343f24c20f514eafbe20d",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%B3%E3%83%B3%E3%82%A6%E3%82%A3%E5%9F%8E&src=%E3%82%B3%E3%83%B3%E3%82%A6%E3%82%A3%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/427d7a57383ae95f0239f42c0ed0f51e6bf02dc0",
@@ -97898,7 +97485,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7b387ae335587d4678510f20f18ce5a5000a3b6f",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -97908,6 +97496,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/37a293d11acfa698f65773e6577ad1d0349c57eb"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/03dd7648c7adb0908047f3949dab4565e538e2a7",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/55dffdb76acda798441228f0ba03d47a57117ed1",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e3efa0102a5109ad95461899f689650f54417ba3",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7b387ae335587d4678510f20f18ce5a5000a3b6f"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/03dd7648c7adb0908047f3949dab4565e538e2a7",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/55dffdb76acda798441228f0ba03d47a57117ed1",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e3efa0102a5109ad95461899f689650f54417ba3",
@@ -98525,7 +98119,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E&src=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -98535,6 +98130,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/32fb7e722d0372c4f6001a98a89ab17a04a502c6"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E&src=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/db3f01eb72aa6f3d13589d6ff9a76bd3a8a1c723",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E&src=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E&src=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E&src=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/db3f01eb72aa6f3d13589d6ff9a76bd3a8a1c723",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E&src=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%89%E3%83%8A%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -98665,7 +98266,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1e060c7f125ff07126418ef52b25aba163bab098",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -98675,6 +98277,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/21d7584bab3fc35d6bd69e75470095069d18d9bd"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5f753e4c9d7ea766f94851b9e4556f7cc86caf03",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c98f0623de249609b2bc72214b5acc71058daf37",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ba15747bda332691e8b3cf7543cedba46a21c15a",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1e060c7f125ff07126418ef52b25aba163bab098"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5f753e4c9d7ea766f94851b9e4556f7cc86caf03",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c98f0623de249609b2bc72214b5acc71058daf37",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ba15747bda332691e8b3cf7543cedba46a21c15a",
@@ -98802,7 +98410,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0bda362723c981a926024fc6c11be7de23a02b32",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -98812,6 +98421,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e9f14caee696c5d75bb63693d9afbb2022a84737"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3b50aceb700581c71c2d79ea2a7d35764eafd0f4",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b71bef4ece5c8c5d8c0b17ce6fe1138a545f9a76",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/11086c871df186f0ca5471d5061b65977e505b77",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0bda362723c981a926024fc6c11be7de23a02b32"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3b50aceb700581c71c2d79ea2a7d35764eafd0f4",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b71bef4ece5c8c5d8c0b17ce6fe1138a545f9a76",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/11086c871df186f0ca5471d5061b65977e505b77",
@@ -99397,7 +99012,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/adb73cd4c153b231472d8f0b40f5022f2e400354",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -99407,6 +99023,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c783aa77f85891f36af1d7ddfac7bf12fe7ad78a"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f402da0e9adeed2599dcea8f944425fcc9786ae8",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/109b4b330fd756199febd2da310ac9712c187c1a",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/28a5e04b667fb3123abe55c1b4ad125f30f0a2a0",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/adb73cd4c153b231472d8f0b40f5022f2e400354"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f402da0e9adeed2599dcea8f944425fcc9786ae8",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/109b4b330fd756199febd2da310ac9712c187c1a",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/28a5e04b667fb3123abe55c1b4ad125f30f0a2a0",
@@ -99874,7 +99496,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/33e57c8ffd1de9c0d1c415f986d432051cccbbc1",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -99884,6 +99507,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/54ce535bfebbc5ba83f7af8413d611a808203ca2"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e42ed3059ada3ded6901b1d8dc43ea33ce9b9ece",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/48a02e4e34287a26a192b369c8d9d979be02523c",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7c89c75eafa05a48fd31fb51699c89efe782f223",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/33e57c8ffd1de9c0d1c415f986d432051cccbbc1"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e42ed3059ada3ded6901b1d8dc43ea33ce9b9ece",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/48a02e4e34287a26a192b369c8d9d979be02523c",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7c89c75eafa05a48fd31fb51699c89efe782f223",
@@ -100060,7 +99689,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/da89eded4761df1e38aa64ea7ba8e1c4b59a0006",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -100070,6 +99700,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3eb0ece53f4b5cb2524ce1b5ec0b08c79c429cdc"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1afb6303adfead690c6d3ef584e5e413c767b667",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/40b6062c0decf43beb1b5b31b087fcd31a94db2d",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8707296a69fb85a77224b8307242d3d08244b7b5",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/da89eded4761df1e38aa64ea7ba8e1c4b59a0006"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1afb6303adfead690c6d3ef584e5e413c767b667",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/40b6062c0decf43beb1b5b31b087fcd31a94db2d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8707296a69fb85a77224b8307242d3d08244b7b5",
@@ -100217,7 +99853,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c9baf4d97ae13dec23c3b56ba3f65206707c216a",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -100227,6 +99864,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/08d826c61c2bee568384ce29a333f7e6d74aab98"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5df139ae999e529f3de09b66a4be46d09de74656",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9262511d5594cdd848ceebd89ad557340e416b67",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/151754ec7a733146bb8f60ab0b00dc946cea0c59",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c9baf4d97ae13dec23c3b56ba3f65206707c216a"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5df139ae999e529f3de09b66a4be46d09de74656",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9262511d5594cdd848ceebd89ad557340e416b67",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/151754ec7a733146bb8f60ab0b00dc946cea0c59",
@@ -101066,10 +100709,10 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "美作一ノ瀬城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b27c747ea86bcf7af30d1d8c4101cb5db4be9c6f",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/49e92299464fd28049bed2b7518baf08ba90ed24",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4540295278d0c2e7355c0f32c30248886c89020",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/96a007321b6970ed561b4d8681ed3ee31119a45a",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4ba72f2838c423a1b0492cd08009f82c0d5c9772",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0b3d47bb0a637b60fdeb82097a732bcd240b72d4",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8e4732146b6e09974aea368c5228947f6dd2ebb5",
   "remodelStages": [
    "無印",
    "改壱",
@@ -101089,10 +100732,10 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8e4732146b6e09974aea368c5228947f6dd2ebb5"
    },
    "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b27c747ea86bcf7af30d1d8c4101cb5db4be9c6f",
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/49e92299464fd28049bed2b7518baf08ba90ed24",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4540295278d0c2e7355c0f32c30248886c89020",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/96a007321b6970ed561b4d8681ed3ee31119a45a",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4ba72f2838c423a1b0492cd08009f82c0d5c9772"
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0b3d47bb0a637b60fdeb82097a732bcd240b72d4",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8e4732146b6e09974aea368c5228947f6dd2ebb5"
    }
   },
   "illustrator": "&uploader(86c4578b8b5e43d2375b973d9c8ca1fb23b60b09_scre_7577",
@@ -102476,7 +102119,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/976270f67f8d1ade5f5a3ee33f07704d11b8fb9f",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -102486,6 +102130,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ce0474a45ddd7b17b5cbc1b7df6b05f802a80214"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a373e439f20091bef32147704afcb700d33daa98",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a976fe72e001618c91ba9228aec2ce961ec39a9d",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/90aebfe72cf723097a17023424ed189ec103ad4b",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/976270f67f8d1ade5f5a3ee33f07704d11b8fb9f"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a373e439f20091bef32147704afcb700d33daa98",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a976fe72e001618c91ba9228aec2ce961ec39a9d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/90aebfe72cf723097a17023424ed189ec103ad4b",
@@ -102861,7 +102511,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/421fb66c144b0b7cd2e714239785bada0e05e18d",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -102871,6 +102522,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf91a4ac39f7aaa1775a626ba655f134f32cee5d"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1daa3f32035891f0ef4f892e97d8305bcdf41fab",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/26af688f1f636aff45107258106128c23cce539d",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c67a3009a62a5c99385e6036a5d2f4706042f5e6",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/421fb66c144b0b7cd2e714239785bada0e05e18d"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1daa3f32035891f0ef4f892e97d8305bcdf41fab",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/26af688f1f636aff45107258106128c23cce539d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c67a3009a62a5c99385e6036a5d2f4706042f5e6",
@@ -103711,7 +103368,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E5%BA%9C%E5%9F%8E&src=%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -103721,6 +103379,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E5%BA%9C%E5%9F%8E&src=%E9%A7%BF%E5%BA%9C%E5%9F%8E%20%E5%BF%85%E6%AE%BA%E6%8A%80_0.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E5%BA%9C%E5%9F%8E&src=%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3491d21c09d77367af5f31b75f172bdddc4bf245",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E5%BA%9C%E5%9F%8E&src=%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E5%BA%9C%E5%9F%8E&src=%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E5%BA%9C%E5%9F%8E&src=%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3491d21c09d77367af5f31b75f172bdddc4bf245",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%A7%BF%E5%BA%9C%E5%9F%8E&src=%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -104245,7 +103909,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%8C%E6%9D%A1%E5%9F%8E&src=%E4%BA%8C%E6%9D%A1%E5%9F%8E%E6%94%B9%E5%A3%B1_%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -104255,6 +103920,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%8C%E6%9D%A1%E5%9F%8E&src=%E4%BA%8C%E6%9D%A1%E5%9F%8E%20%E5%BF%85%E6%AE%BA%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%8C%E6%9D%A1%E5%9F%8E&src=%E4%BA%8C%E6%9D%A1%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4c28e9a7d303c064311568e6d683274efd0d77d",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%8C%E6%9D%A1%E5%9F%8E&src=%E4%BA%8C%E6%9D%A1%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%8C%E6%9D%A1%E5%9F%8E&src=%E4%BA%8C%E6%9D%A1%E5%9F%8E%E6%94%B9%E5%A3%B1_%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%8C%E6%9D%A1%E5%9F%8E&src=%E4%BA%8C%E6%9D%A1%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e4c28e9a7d303c064311568e6d683274efd0d77d",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%8C%E6%9D%A1%E5%9F%8E&src=%E4%BA%8C%E6%9D%A1%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%A4%A7%E7%A0%B4.png",
@@ -104736,7 +104407,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E8%B0%B7%E5%9F%8E&src=%E5%B0%8F%E8%B0%B7%E5%9F%8E%E6%94%B9%E5%A3%B1_%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -104746,6 +104418,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E8%B0%B7%E5%9F%8E&src=%E5%B0%8F%E8%B0%B7%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E8%B0%B7%E5%9F%8E&src=%E5%B0%8F%E8%B0%B7%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E8%B0%B7%E5%9F%8E&src=%E5%B0%8F%E8%B0%B7%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E8%B0%B7%E5%9F%8E&src=%E5%B0%8F%E8%B0%B7%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E8%B0%B7%E5%9F%8E&src=%E5%B0%8F%E8%B0%B7%E5%9F%8E%E6%94%B9%E5%A3%B1_%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E8%B0%B7%E5%9F%8E&src=%E5%B0%8F%E8%B0%B7%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E8%B0%B7%E5%9F%8E&src=%E5%B0%8F%E8%B0%B7%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%B0%8F%E8%B0%B7%E5%9F%8E&src=%E5%B0%8F%E8%B0%B7%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%A4%A7%E7%A0%B4.png",
@@ -105176,7 +104854,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%B3%80%E5%9F%8E&src=%E5%A4%9A%E8%B3%80%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -105186,6 +104865,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%B3%80%E5%9F%8E&src=%E5%A4%9A%E8%B3%80%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%B3%80%E5%9F%8E&src=%E5%A4%9A%E8%B3%80%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%981.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%B3%80%E5%9F%8E&src=%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%B3%80%E5%9F%8E&src=%E5%A4%9A%E8%B3%80%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%B3%80%E5%9F%8E&src=%E5%A4%9A%E8%B3%80%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%B3%80%E5%9F%8E&src=%E5%A4%9A%E8%B3%80%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%981.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%B3%80%E5%9F%8E&src=%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%A4%9A%E8%B3%80%E5%9F%8E&src=%E5%A4%9A%E8%B3%80%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -105343,7 +105028,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c13d2d43686a4d7d162088dbd0e27c78bafa6785",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -105353,6 +105039,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d8199eb7ab9bf441ff81421b6a3c6294d74e6dd6"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/71f20187889a4e1011014b42d9ac39cd95f8032c",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B1%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E5%9F%8E&src=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B1%E3%83%B3%E6%94%B9%E5%A3%B1_%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c318316a8febee24d53894bebea76bb62c892dff",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c13d2d43686a4d7d162088dbd0e27c78bafa6785"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/71f20187889a4e1011014b42d9ac39cd95f8032c",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B1%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E5%9F%8E&src=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B1%E3%83%B3%E6%94%B9%E5%A3%B1_%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c318316a8febee24d53894bebea76bb62c892dff",
@@ -105689,7 +105381,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3c13533dbc3cf056a139f7c39b7a78e86ac9ca2",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -105699,6 +105392,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/21e59b4c218a66adfd2aab0556f14b11e26e688b"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3cce24b182598cc29aeed75889a58a90489519e4",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d157128a795b61af189378b1dae2bf189f9ccb9e",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/270784bba5b4d1b3f529b023614d20982bc5ab38",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3c13533dbc3cf056a139f7c39b7a78e86ac9ca2"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3cce24b182598cc29aeed75889a58a90489519e4",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d157128a795b61af189378b1dae2bf189f9ccb9e",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/270784bba5b4d1b3f529b023614d20982bc5ab38",
@@ -106551,7 +106250,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4d2534c263af944c7392fb6edf7bb90b0717089e",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -106561,6 +106261,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BF%A1%E8%B2%B4%E5%B1%B1%E5%9F%8E&src=%E4%BF%A1%E8%B2%B4%E5%B1%B1%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5d5f84288caf2eae706c224d680a6c29a0cd88ff",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4350c462b081f2d7efcf0d6716317ed786f49331",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6fa135f65960b75c0ffeaefdca5dac035c317f9c",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4d2534c263af944c7392fb6edf7bb90b0717089e"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5d5f84288caf2eae706c224d680a6c29a0cd88ff",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4350c462b081f2d7efcf0d6716317ed786f49331",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6fa135f65960b75c0ffeaefdca5dac035c317f9c",
@@ -106714,7 +106420,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%AB%98%E5%B2%A1%E5%9F%8E&src=%E9%AB%98%E5%B2%A1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -106724,6 +106431,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%AB%98%E5%B2%A1%E5%9F%8E&src=%E9%AB%98%E5%B2%A1%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%AB%98%E5%B2%A1%E5%9F%8E&src=%E9%AB%98%E5%B2%A1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%AB%98%E5%B2%A1%E5%9F%8E&src=%E9%AB%98%E5%B2%A1%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%AB%98%E5%B2%A1%E5%9F%8E&src=%E9%AB%98%E5%B2%A1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%AB%98%E5%B2%A1%E5%9F%8E&src=%E9%AB%98%E5%B2%A1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%AB%98%E5%B2%A1%E5%9F%8E&src=%E9%AB%98%E5%B2%A1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%AB%98%E5%B2%A1%E5%9F%8E&src=%E9%AB%98%E5%B2%A1%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%AB%98%E5%B2%A1%E5%9F%8E&src=%E9%AB%98%E5%B2%A1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -107621,7 +107334,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E&src=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -107631,6 +107345,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E&src=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E&src=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E&src=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E&src=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E&src=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E&src=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E&src=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E&src=%E5%82%99%E4%B8%AD%E6%9D%BE%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -107939,7 +107659,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c17b353b2d4be93a2d40fa446bce9d7a964f7fa",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -107949,6 +107670,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%B8%AD%E6%B4%A5%E5%9F%8E&src=%E4%B8%AD%E6%B4%A5%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ac595da4ee1c2beaf6a0ec6e0f704cb1ab8dd5ac",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%B8%AD%E6%B4%A5%E5%9F%8E&src=%E4%B8%AD%E6%B4%A5%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b76d23923e9ee8570fa753d8d42d3ff1ba6df0f8",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c17b353b2d4be93a2d40fa446bce9d7a964f7fa"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ac595da4ee1c2beaf6a0ec6e0f704cb1ab8dd5ac",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%B8%AD%E6%B4%A5%E5%9F%8E&src=%E4%B8%AD%E6%B4%A5%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b76d23923e9ee8570fa753d8d42d3ff1ba6df0f8",
@@ -108273,7 +108000,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7&src=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -108283,6 +108011,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7&src=8bb3e0186275ddb9b880bc66ea45e401-min.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7&src=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7&src=e167cc6bec379f93fe5e7de0c39dcd54-min.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7&src=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7&src=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7&src=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7&src=e167cc6bec379f93fe5e7de0c39dcd54-min.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7&src=%E3%83%A6%E3%82%AF%E3%82%A8%E3%83%94%E3%83%A9%E3%83%81%E3%83%A3%E3%82%B7%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -108429,7 +108163,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BE%B3%E5%B3%B6%E5%9F%8E&src=%E5%BE%B3%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -108439,6 +108174,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BE%B3%E5%B3%B6%E5%9F%8E&src=%E5%BE%B3%E5%B3%B6%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BE%B3%E5%B3%B6%E5%9F%8E&src=%E5%BE%B3%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BE%B3%E5%B3%B6%E5%9F%8E&src=%E5%BE%B3%E5%B3%B6%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BE%B3%E5%B3%B6%E5%9F%8E&src=%E5%BE%B3%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BE%B3%E5%B3%B6%E5%9F%8E&src=%E5%BE%B3%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BE%B3%E5%B3%B6%E5%9F%8E&src=%E5%BE%B3%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BE%B3%E5%B3%B6%E5%9F%8E&src=%E5%BE%B3%E5%B3%B6%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BE%B3%E5%B3%B6%E5%9F%8E&src=%E5%BE%B3%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -108592,7 +108333,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/68172eb70bdfa6631cbea2ab7039771b47c4a8c2",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -108602,6 +108344,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%9A%88%E6%9C%AC%E5%9F%8E&src=%E9%AB%AB%E5%9F%9F%E6%82%BD3-min.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2886e95590c3d3a79968048122c300298093ce73",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/790cc0f36da554e4078201887a38019a0f4bbfd3",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1b5f89b1855e37b538baef47510289e5fec7ea57",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/68172eb70bdfa6631cbea2ab7039771b47c4a8c2"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2886e95590c3d3a79968048122c300298093ce73",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/790cc0f36da554e4078201887a38019a0f4bbfd3",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1b5f89b1855e37b538baef47510289e5fec7ea57",
@@ -108756,7 +108504,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/71fb4cc3eff2a98eecde18c6812cf2b6158e8299",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -108766,6 +108515,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%80%E5%9F%8E&src=%E6%B7%80%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4a2fa020899b1f14ca57a2d48109ae9652f68135",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%80%E5%9F%8E&src=%E6%B7%80%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bc44024ed3a9eb965c3e0e77a39d0aa58e571847",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/71fb4cc3eff2a98eecde18c6812cf2b6158e8299"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4a2fa020899b1f14ca57a2d48109ae9652f68135",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B7%80%E5%9F%8E&src=%E6%B7%80%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bc44024ed3a9eb965c3e0e77a39d0aa58e571847",
@@ -108959,7 +108714,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7999ede655a2dc846c360bc1a76ecdfa95a1d2dc",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -108969,6 +108725,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/794c88707a73a1a5fffc5b1469b83bf960975857"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/de7d73004abe708bcefbb0d4c1d0d1b57b2d372b",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c8021c4d5eb6d5b4d1312e715e85ca754ec7101b",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c7d4731f518a6ebe957d1188356550ac3eee482c",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7999ede655a2dc846c360bc1a76ecdfa95a1d2dc"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/de7d73004abe708bcefbb0d4c1d0d1b57b2d372b",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c8021c4d5eb6d5b4d1312e715e85ca754ec7101b",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c7d4731f518a6ebe957d1188356550ac3eee482c",
@@ -109284,7 +109046,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B4%A5%E5%B1%B1%E5%9F%8E&src=%E6%B4%A5%E5%B1%B1%E5%9F%8E%20%E7%89%B9%E6%8A%80%20%E6%94%B9%E5%A3%B1.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -109294,6 +109057,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B4%A5%E5%B1%B1%E5%9F%8E&src=%E6%B4%A5%E5%B1%B1%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B4%A5%E5%B1%B1%E5%9F%8E&src=%E6%B4%A5%E5%B1%B1%E5%9F%8E%20%E5%9F%8E%E5%A8%98%20%E6%94%B9%E5%A3%B1.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B4%A5%E5%B1%B1%E5%9F%8E&src=%E6%B4%A5%E5%B1%B1%E5%9F%8E%20%E5%BE%A1%E5%AC%A2%20%E6%94%B9%E5%A3%B1.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B4%A5%E5%B1%B1%E5%9F%8E&src=%E6%B4%A5%E5%B1%B1%E5%9F%8E%20%E5%A4%A7%E7%A0%B4%20%E6%94%B9%E5%A3%B1.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B4%A5%E5%B1%B1%E5%9F%8E&src=%E6%B4%A5%E5%B1%B1%E5%9F%8E%20%E7%89%B9%E6%8A%80%20%E6%94%B9%E5%A3%B1.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B4%A5%E5%B1%B1%E5%9F%8E&src=%E6%B4%A5%E5%B1%B1%E5%9F%8E%20%E5%9F%8E%E5%A8%98%20%E6%94%B9%E5%A3%B1.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B4%A5%E5%B1%B1%E5%9F%8E&src=%E6%B4%A5%E5%B1%B1%E5%9F%8E%20%E5%BE%A1%E5%AC%A2%20%E6%94%B9%E5%A3%B1.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%B4%A5%E5%B1%B1%E5%9F%8E&src=%E6%B4%A5%E5%B1%B1%E5%9F%8E%20%E5%A4%A7%E7%A0%B4%20%E6%94%B9%E5%A3%B1.png",
@@ -110485,7 +110254,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9ebf08dd5dc8b6521ae055cb78c53a923ee97d7c",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -110495,6 +110265,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3cfda54dd6eec16a0813740488a8131076a2d049"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9988c9710b6ed5866e05761de070d2ee10cbd979",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b3a6dbee7f3e63ec966ab90334027c4b2e7e004f",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6928217f5003537d216247d8026c0fc7d9ede130",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9ebf08dd5dc8b6521ae055cb78c53a923ee97d7c"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9988c9710b6ed5866e05761de070d2ee10cbd979",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b3a6dbee7f3e63ec966ab90334027c4b2e7e004f",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6928217f5003537d216247d8026c0fc7d9ede130",
@@ -110658,7 +110434,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51d53c55132bba2d9c13b8c8eb3b009f51f1f1fb",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -110668,6 +110445,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1c870fc9e3f5e8fd0fd60d6fc2b91a7a19b8bed8"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf57638aa48a66a277059f4bc6bfdf6bd024b387",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/47d0ff65fc6206c2a3897cf5fae5db361b1e502e",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/464b9e1c2bb163567f3a56a441220162e38a2bab",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51d53c55132bba2d9c13b8c8eb3b009f51f1f1fb"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf57638aa48a66a277059f4bc6bfdf6bd024b387",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/47d0ff65fc6206c2a3897cf5fae5db361b1e502e",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/464b9e1c2bb163567f3a56a441220162e38a2bab",
@@ -111132,7 +110915,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/255881981d246b07a2abf5d15623bb0bfb493163",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -111142,6 +110926,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6f2793b0a3f0aea83e579e1b830e99e6ea4d5251"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2671fbbc9b35728b4f0cb2290886bf1fbea341bd",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5a02d70d59332ca03426573b56387111944f3542",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/233c180f29a507df3838a977c33be7469348d6a7",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/255881981d246b07a2abf5d15623bb0bfb493163"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2671fbbc9b35728b4f0cb2290886bf1fbea341bd",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5a02d70d59332ca03426573b56387111944f3542",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/233c180f29a507df3838a977c33be7469348d6a7",
@@ -111429,7 +111219,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a6f6a40a0f08f702f9741504eb36faa5f05f773e",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -111439,6 +111230,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/273c28d674a332face01ffce1fa7b8469d26faff"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cac3c5cd557e196fe948e561dd810f3f5dc8aa8b",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0145a98f4d92bcff636123cbbc9a0093d917fb5d",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/26bede1ea08f06534f2d456e10fc4901c8d29e43",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a6f6a40a0f08f702f9741504eb36faa5f05f773e"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cac3c5cd557e196fe948e561dd810f3f5dc8aa8b",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0145a98f4d92bcff636123cbbc9a0093d917fb5d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/26bede1ea08f06534f2d456e10fc4901c8d29e43",
@@ -111865,7 +111662,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c839f3e76a71652ec8cbaac0f9dae83fc3720e7",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -111875,6 +111673,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e00304e4b1c0ce68e87329bc5a6fd202bcdaca3f"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f77c43e1624d4774b94db0e513ab0367d0743d3b",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8234bca4550ffb3660bff3803201e8430be6833f",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e3bb8e04930b7847e56129301f8314a3f725cb66",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c839f3e76a71652ec8cbaac0f9dae83fc3720e7"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f77c43e1624d4774b94db0e513ab0367d0743d3b",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8234bca4550ffb3660bff3803201e8430be6833f",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e3bb8e04930b7847e56129301f8314a3f725cb66",
@@ -112790,7 +112594,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fab2909298293d0ddbe6cf2f45c629c3da33084f",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -112800,6 +112605,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ef6eddd1b497ab1e114e3c3c6176fe851371894d"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41ca9ed68d3e49b78e2dbd1780485e1a8a483897",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a2d00422389157ff8e3dbb67f8621fdbe4d9ae03",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/27451f537a55ee901b3e1a163a8e68c2c57bd7cf",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fab2909298293d0ddbe6cf2f45c629c3da33084f"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41ca9ed68d3e49b78e2dbd1780485e1a8a483897",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a2d00422389157ff8e3dbb67f8621fdbe4d9ae03",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/27451f537a55ee901b3e1a163a8e68c2c57bd7cf",
@@ -113256,7 +113067,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/155326874404e92dac1dd0469c1fcef2bc695cb9",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -113266,6 +113078,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0030f75bf409b1233db4d1f9633285d2b1f891fb"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4e317688435eeea07ce8144bb7b5c53e84654b6e",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4fc49f081a26bea064f6accb71508eae4f9aac5e",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/989cc2c34fc8bec231babd260550cff9e63307bd",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/155326874404e92dac1dd0469c1fcef2bc695cb9"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4e317688435eeea07ce8144bb7b5c53e84654b6e",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4fc49f081a26bea064f6accb71508eae4f9aac5e",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/989cc2c34fc8bec231babd260550cff9e63307bd",
@@ -114389,10 +114207,10 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "甘崎城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c20679933169500d37693f057ec21f5e04ce3a5d",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/01172bbd0eb780c237e2aca096d81845d2d88aae",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/43b33d7d10c58c13b68f48923db6d2f219d75be8",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c7a3a0b8920838ecd0313dd9364ea8a3ec6481e1",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae5c54d4dbeac1881edc1d71f4b8027b7ce729b9",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/870befb43166b9cb00f5aa1d0cc87398e9ad9da1",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6a44602cb4be55741aa36992ad7693e4c98a3ef9",
   "remodelStages": [
    "無印",
    "改壱",
@@ -114412,10 +114230,10 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6a44602cb4be55741aa36992ad7693e4c98a3ef9"
    },
    "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c20679933169500d37693f057ec21f5e04ce3a5d",
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/01172bbd0eb780c237e2aca096d81845d2d88aae",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/43b33d7d10c58c13b68f48923db6d2f219d75be8",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c7a3a0b8920838ecd0313dd9364ea8a3ec6481e1",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae5c54d4dbeac1881edc1d71f4b8027b7ce729b9"
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/870befb43166b9cb00f5aa1d0cc87398e9ad9da1",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6a44602cb4be55741aa36992ad7693e4c98a3ef9"
    }
   },
   "illustrator": "らっす",
@@ -114733,7 +114551,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/de16f8f2356e5606069730df835a8704f94855a1",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -114743,6 +114562,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/de16f8f2356e5606069730df835a8704f94855a1"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b202e75e5bf64f8118da363277e5f24484089a8d",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/498fa2bec7a00f314d4c6314956b9ef9e9869aec",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/899f2742a1f6737df833a69fb698db5a0b7a518a",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/de16f8f2356e5606069730df835a8704f94855a1"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b202e75e5bf64f8118da363277e5f24484089a8d",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/498fa2bec7a00f314d4c6314956b9ef9e9869aec",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/899f2742a1f6737df833a69fb698db5a0b7a518a",
@@ -114906,7 +114731,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ed81769dc721d68666eb9d701a386b5f1c34756",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -114916,6 +114742,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a7fec61a25604e99777602931190ab703aba99cc"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5ac94acb21c714822e5a825629775128da5132fd",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6b1d577eb37ede5a2379e6d7a7293fc04ea204fd",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/62876d807719308ba307347a90d8daa90e52e4e4",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ed81769dc721d68666eb9d701a386b5f1c34756"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5ac94acb21c714822e5a825629775128da5132fd",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6b1d577eb37ede5a2379e6d7a7293fc04ea204fd",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/62876d807719308ba307347a90d8daa90e52e4e4",
@@ -115025,7 +114857,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f50ce3d0602db36bacd96e656b79c3544b03a181",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -115035,6 +114868,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f50ce3d0602db36bacd96e656b79c3544b03a181"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7e42e418daec0086f47e26a5428fa9fbe94847b4",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/600b8cc7dfdab3a45be7056d9ea240e53d63ecab",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e7e94747b0397a1e1b4117d906f2649d4cda8934",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f50ce3d0602db36bacd96e656b79c3544b03a181"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7e42e418daec0086f47e26a5428fa9fbe94847b4",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/600b8cc7dfdab3a45be7056d9ea240e53d63ecab",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e7e94747b0397a1e1b4117d906f2649d4cda8934",
@@ -115188,7 +115027,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c55339a68b55990b173ad8a71dbb572ad515c3cb",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -115198,6 +115038,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a2b709a153c0b4eb8210cee6f963b07d0e1a77ae"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4acd785fa9b27b87117ee09c70da8b51c09b6709",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d17ac8efe80348cb8d7f28ee46ba1197b433fca3",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/78f50e14230d04ecf91d551543a8f04434206ba4",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c55339a68b55990b173ad8a71dbb572ad515c3cb"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4acd785fa9b27b87117ee09c70da8b51c09b6709",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d17ac8efe80348cb8d7f28ee46ba1197b433fca3",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/78f50e14230d04ecf91d551543a8f04434206ba4",
@@ -115606,7 +115452,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f924596b30163b160d5fdf95eca8978fb1fd2b28",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -115616,6 +115463,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/75c97a1aea6082d8431820f24cf6b1ca3d21f06a"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fa686f09f512d051324fa6b2ebf2a07078ad1b17",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/83517e1d2ee7b1abceb81f11e9eebb9b9371eadd",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eeece5c12a01310a204464c3566897565ec10939",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f924596b30163b160d5fdf95eca8978fb1fd2b28"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fa686f09f512d051324fa6b2ebf2a07078ad1b17",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/83517e1d2ee7b1abceb81f11e9eebb9b9371eadd",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eeece5c12a01310a204464c3566897565ec10939",
@@ -117886,7 +117739,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%BD%AE%E5%A1%A9%E5%9F%8E&src=%E7%BD%AE%E5%A1%A9%E5%9F%8E_%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -117896,6 +117750,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%BD%AE%E5%A1%A9%E5%9F%8E&src=%E7%BD%AE%E5%A1%A9%E5%9F%8E_%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%BD%AE%E5%A1%A9%E5%9F%8E&src=%E7%BD%AE%E5%A1%A9%E5%9F%8E_%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%BD%AE%E5%A1%A9%E5%9F%8E&src=%E7%BD%AE%E5%A1%A9%E5%9F%8E_%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%BD%AE%E5%A1%A9%E5%9F%8E&src=%E7%BD%AE%E5%A1%A9%E5%9F%8E_%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%BD%AE%E5%A1%A9%E5%9F%8E&src=%E7%BD%AE%E5%A1%A9%E5%9F%8E_%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%BD%AE%E5%A1%A9%E5%9F%8E&src=%E7%BD%AE%E5%A1%A9%E5%9F%8E_%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%BD%AE%E5%A1%A9%E5%9F%8E&src=%E7%BD%AE%E5%A1%A9%E5%9F%8E_%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%BD%AE%E5%A1%A9%E5%9F%8E&src=%E7%BD%AE%E5%A1%A9%E5%9F%8E_%E5%A4%A7%E7%A0%B4.png",
@@ -118902,7 +118762,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/66572a5a2bb359b169948e88b3aff86c86abb7e4",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -118912,6 +118773,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E6%B3%A2%E5%9F%8E&src=%E5%BF%97%E6%B3%A2%E5%9F%8E%E3%80%80%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/48649ae454b4df3c678881faf6dd1b93b292ecf1",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E6%B3%A2%E5%9F%8E&src=%E5%BF%97%E6%B3%A2%E5%9F%8E%E3%80%80%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f817950164adf88d9d1c62b98f4f9502dd14e090",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/66572a5a2bb359b169948e88b3aff86c86abb7e4"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/48649ae454b4df3c678881faf6dd1b93b292ecf1",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BF%97%E6%B3%A2%E5%9F%8E&src=%E5%BF%97%E6%B3%A2%E5%9F%8E%E3%80%80%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f817950164adf88d9d1c62b98f4f9502dd14e090",
@@ -119049,7 +118916,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a56888bafcab8f9a946f5c44212336a34f064157",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -119059,6 +118927,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d1469d206278da52b6a8e9aff1b22a8f35080acd"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2acbb96fea46ad66f5c35807a10944322b1ed1a4",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b1ea69396211c5e0d4920e84d8cc0a36fd07d4d",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3aac8d687541c9ef79b6412b56562075fa844d1c",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a56888bafcab8f9a946f5c44212336a34f064157"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2acbb96fea46ad66f5c35807a10944322b1ed1a4",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b1ea69396211c5e0d4920e84d8cc0a36fd07d4d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3aac8d687541c9ef79b6412b56562075fa844d1c",
@@ -122703,7 +122577,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af72745b1b7214b5a2304345fc0957a0a3af9762",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -122713,6 +122588,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af72745b1b7214b5a2304345fc0957a0a3af9762"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/26976ac8fb6a66fdafe4fd64f6b0b2769205462a",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af651357b821130aacd421ffa4043777549df7ad",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/adc3e54732436cd00c7fe04272ba5b8122083ec4",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af72745b1b7214b5a2304345fc0957a0a3af9762"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/26976ac8fb6a66fdafe4fd64f6b0b2769205462a",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/af651357b821130aacd421ffa4043777549df7ad",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/adc3e54732436cd00c7fe04272ba5b8122083ec4",
@@ -123366,7 +123247,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6a8264b3a9747774d73d6e0fdd664a2ffaaf66df",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -123376,6 +123258,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ebca5760316873676faf1e6713f85c7941aea40c"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d720954cf53f54c4521306344468bc3a6fc662ad",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1f22854b418661ca516ad582913f2f9c130a7799",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e80f5388fb678e18d044d8f744588b161e2e9286",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6a8264b3a9747774d73d6e0fdd664a2ffaaf66df"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d720954cf53f54c4521306344468bc3a6fc662ad",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1f22854b418661ca516ad582913f2f9c130a7799",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e80f5388fb678e18d044d8f744588b161e2e9286",
@@ -126438,7 +126326,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/08cd739d347fff7ab5ba567e1a217506d69e7a72",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -126448,6 +126337,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b764b1484dd998f394f8433adb1ddd37f2c28243"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7243a44f9db98867df495bdb0f50babcc6699d03",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9fadcfd05ef95e9ed9ed93a87ccc409c2f50e64f",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4ab670ff6529efe80d1a53cd9ceefd25b2f71b8d",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/08cd739d347fff7ab5ba567e1a217506d69e7a72"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7243a44f9db98867df495bdb0f50babcc6699d03",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9fadcfd05ef95e9ed9ed93a87ccc409c2f50e64f",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4ab670ff6529efe80d1a53cd9ceefd25b2f71b8d",
@@ -129351,17 +129246,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/769feabd15b20c0d49af81dd0d8ed9f1c88b0ace",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf7a1f834548c91f79b8bc3b8f6ecd8e99962bf3",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/22cfb0f5638e9b27c89aa9ccd663cf3f71f2daa1",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/03ea957076ca007ee06aa2ba5b4551fdbe2dc9c4",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/769feabd15b20c0d49af81dd0d8ed9f1c88b0ace",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf7a1f834548c91f79b8bc3b8f6ecd8e99962bf3"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/22cfb0f5638e9b27c89aa9ccd663cf3f71f2daa1",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/03ea957076ca007ee06aa2ba5b4551fdbe2dc9c4",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/769feabd15b20c0d49af81dd0d8ed9f1c88b0ace",
@@ -129971,17 +129859,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/32c1c2f35aed50a2a356438d4d1873f24926ac82",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c5e88ec7a074367ea27fa7253ebadf1ded6b0bd",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6f420823f3296a4657c8a8d5725cd3c25dd4c3f6",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b8cbaf9e2b658447ec32832584e096c065952f8",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/32c1c2f35aed50a2a356438d4d1873f24926ac82",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c5e88ec7a074367ea27fa7253ebadf1ded6b0bd"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6f420823f3296a4657c8a8d5725cd3c25dd4c3f6",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b8cbaf9e2b658447ec32832584e096c065952f8",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/32c1c2f35aed50a2a356438d4d1873f24926ac82",
@@ -130249,17 +130130,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dc5cfac4d690801397b94886a7eb25d47090dd4c",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f7f836ee50b9f66253df2248e1a7e073f625c091",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1ce159867b7bb2edf5fd685aa687a985d3fe9e44",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9450c5e51f58c46f4608e0615d0284e3b3090402",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dc5cfac4d690801397b94886a7eb25d47090dd4c",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f7f836ee50b9f66253df2248e1a7e073f625c091"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1ce159867b7bb2edf5fd685aa687a985d3fe9e44",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9450c5e51f58c46f4608e0615d0284e3b3090402",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dc5cfac4d690801397b94886a7eb25d47090dd4c",
@@ -130673,17 +130547,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a980a89ffb88c2070af67c8d0bb3878aeabf6df2",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/49a54325446dde71bd379fa486c7a3be4e2d5a2c",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7671368a1dcdcdc9e5f6b1ea246e655c7314fbff",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d43dd2db507424de624154b871a45ae248fc1a70",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a980a89ffb88c2070af67c8d0bb3878aeabf6df2",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/49a54325446dde71bd379fa486c7a3be4e2d5a2c"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7671368a1dcdcdc9e5f6b1ea246e655c7314fbff",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d43dd2db507424de624154b871a45ae248fc1a70",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a980a89ffb88c2070af67c8d0bb3878aeabf6df2",
@@ -133446,8 +133313,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/03698b6c288c8aeb7fc7f22b20199c897a84fc4f",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -133457,12 +133323,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/03698b6c288c8aeb7fc7f22b20199c897a84fc4f"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ea0304707ebd58fb3efcc6b142f486b057c342f",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/11089ba770c5098a8c32bf399e4fbafdb23ce10b",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2f38739cc4cc2742fa37c06e85842689ca04c7c8",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/03698b6c288c8aeb7fc7f22b20199c897a84fc4f"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ea0304707ebd58fb3efcc6b142f486b057c342f",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/11089ba770c5098a8c32bf399e4fbafdb23ce10b",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2f38739cc4cc2742fa37c06e85842689ca04c7c8",
@@ -133579,8 +133439,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a8ca446cea6679eabb67bf1d41fa7b3d35d40ca5",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -133590,12 +133449,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a8ca446cea6679eabb67bf1d41fa7b3d35d40ca5"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/783967626914f9f6c078848fbfc953cfb543eeac",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e5db6ae2e9f44564c6374ee7a92cc863904cd3e5",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c9c67f3f6d695bf7dc81a2b6dd0db3399ce7f2e",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a8ca446cea6679eabb67bf1d41fa7b3d35d40ca5"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/783967626914f9f6c078848fbfc953cfb543eeac",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e5db6ae2e9f44564c6374ee7a92cc863904cd3e5",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c9c67f3f6d695bf7dc81a2b6dd0db3399ce7f2e",
@@ -133938,7 +133791,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E&src=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -133948,6 +133802,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E&src=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E%20%E5%BF%85%E6%AE%BA%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E&src=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e63ddaaa19562dfbc7bcb2f548092467f9e0413",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E&src=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E&src=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E&src=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e63ddaaa19562dfbc7bcb2f548092467f9e0413",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E&src=%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -134148,7 +134008,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -134158,6 +134019,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A%20%E5%BF%85%E6%AE%BA%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A%20%E5%9F%8E%E5%A8%98%20%E6%94%B9%E5%A3%B1.png.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A%20%E5%BE%A1%E5%AC%A2_0.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A%20%E5%9F%8E%E5%A8%98%20%E6%94%B9%E5%A3%B1.png.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A%20%E5%BE%A1%E5%AC%A2_0.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A&src=%E7%9F%B3%E5%B1%B1%E5%BE%A1%E5%9D%8A%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -134313,10 +134180,10 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 11,
   "illustFile": "首里城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ebdaf2275f0a9bd4cb4ef4824a2fd24fed08cc1",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c18e75aa59dcee7f9f0db0d28992135e254a061",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e206472e6af389ec7e33a2c7d82cead7dbf4dd57",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3f4b7fc340ef533934067d97b38b7a2918011efe",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fef692be9c59b47d10fedb12d9852e2a0fd338ab",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c470b38dba8a36bb2a662b2362ba1ef08124b4a",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0cabeac023a6c789607d9dd33546ce27e0f6c1de",
   "remodelStages": [
    "無印",
    "改壱",
@@ -134336,10 +134203,10 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0cabeac023a6c789607d9dd33546ce27e0f6c1de"
    },
    "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ebdaf2275f0a9bd4cb4ef4824a2fd24fed08cc1",
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c18e75aa59dcee7f9f0db0d28992135e254a061",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e206472e6af389ec7e33a2c7d82cead7dbf4dd57",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3f4b7fc340ef533934067d97b38b7a2918011efe",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fef692be9c59b47d10fedb12d9852e2a0fd338ab"
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c470b38dba8a36bb2a662b2362ba1ef08124b4a",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0cabeac023a6c789607d9dd33546ce27e0f6c1de"
    }
   },
   "illustrator": "&ref(首里城/首里城 入手.jpg",
@@ -134791,7 +134658,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E&src=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -134801,6 +134669,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E&src=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E%E3%82%AB%E3%83%83%E3%83%88%E3%82%A4%E3%83%B3666.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E&src=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E&src=1b641b76b34c4675919c1eb0cf54ea55.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E&src=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E&src=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E&src=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E&src=1b641b76b34c4675919c1eb0cf54ea55.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E&src=%E3%83%96%E3%83%A9%E3%83%B3%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -135379,7 +135253,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AB%B9%E7%94%B0%E5%9F%8E&src=%E7%AB%B9%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -135389,6 +135264,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AB%B9%E7%94%B0%E5%9F%8E&src=%E7%AB%B9%E7%94%B0%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AB%B9%E7%94%B0%E5%9F%8E&src=%E7%AB%B9%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AB%B9%E7%94%B0%E5%9F%8E&src=%E7%AB%B9%E7%94%B0%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AB%B9%E7%94%B0%E5%9F%8E&src=%E7%AB%B9%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AB%B9%E7%94%B0%E5%9F%8E&src=%E7%AB%B9%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AB%B9%E7%94%B0%E5%9F%8E&src=%E7%AB%B9%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AB%B9%E7%94%B0%E5%9F%8E&src=%E7%AB%B9%E7%94%B0%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E7%AB%B9%E7%94%B0%E5%9F%8E&src=%E7%AB%B9%E7%94%B0%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -135552,7 +135433,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8&src=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -135562,6 +135444,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8&src=25c0c157f29c8d05949a7186f814686ca.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8&src=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8&src=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8&src=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8&src=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8&src=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8&src=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8&src=%E8%BA%91%E8%BA%85%E3%83%B6%E5%B4%8E%E9%A4%A8%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -135868,7 +135756,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/93ad9e2add1a6a24c79169a46bf20a6cc656c960",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -135878,6 +135767,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BC%98%E5%89%8D%E5%9F%8E&src=%E5%BC%98%E5%89%8D%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ad0593e5d6106af2cb30a801c2df9274392405af",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BC%98%E5%89%8D%E5%9F%8E&src=%E5%BC%98%E5%89%8D%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9978a7701864628233841a7ca96188c554b6070d",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/93ad9e2add1a6a24c79169a46bf20a6cc656c960"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ad0593e5d6106af2cb30a801c2df9274392405af",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%BC%98%E5%89%8D%E5%9F%8E&src=%E5%BC%98%E5%89%8D%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9978a7701864628233841a7ca96188c554b6070d",
@@ -136294,7 +136189,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E&src=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1_%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -136304,6 +136200,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E&src=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E&src=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E&src=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E&src=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E&src=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1_%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E&src=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E&src=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E&src=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E%E6%94%B9%E5%A3%B1_%E5%A4%A7%E7%A0%B4.png",
@@ -136807,7 +136709,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E&src=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -136817,6 +136720,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E&src=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E&src=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E&src=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E&src=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E&src=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E&src=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E&src=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E&src=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%AB%E3%82%AF%E5%9F%8E%E6%94%B9%E5%A3%B1%20%E5%A4%A7%E7%A0%B4.png",
@@ -136959,7 +136868,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e622a2a773fcf4d8fedece7aa61ad6a56ac766e",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -136969,6 +136879,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%83%83%E3%82%BB%E5%9F%8E&src=%E3%83%A6%E3%83%83%E3%82%BB%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/470a97d8651126b92aecfc246e932d9916b51d09",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%83%83%E3%82%BB%E5%9F%8E&src=68eabb252eef43d58e5e4b8c5a8cf586.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/176648df9429449f9225a70d29b6ac96e4ec5a93",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e622a2a773fcf4d8fedece7aa61ad6a56ac766e"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/470a97d8651126b92aecfc246e932d9916b51d09",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%A6%E3%83%83%E3%82%BB%E5%9F%8E&src=68eabb252eef43d58e5e4b8c5a8cf586.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/176648df9429449f9225a70d29b6ac96e4ec5a93",
@@ -137242,7 +137158,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97482b515a17dc45d39417d4627a1991b824fae1",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -137252,6 +137169,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%81%9A%E6%A5%BD%E5%9F%8E&src=%E8%81%9A%E6%A5%BD%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e8b879e2db9522abac167de7c6c2df1891c9ab66",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%81%9A%E6%A5%BD%E5%9F%8E&src=%E8%81%9A%E6%A5%BD%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d9c6737ed27f50ac7ceba206cef04044e53a4048",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97482b515a17dc45d39417d4627a1991b824fae1"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e8b879e2db9522abac167de7c6c2df1891c9ab66",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E8%81%9A%E6%A5%BD%E5%9F%8E&src=%E8%81%9A%E6%A5%BD%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d9c6737ed27f50ac7ceba206cef04044e53a4048",
@@ -137956,8 +137879,8 @@ window.SCRE_DATA = [
    }
   },
   "skill": {
-   "stage": "改壱",
-   "name": "[改壱] / 天然理心流・印可",
+   "stage": "改弐",
+   "name": "[改弐] / 天然理心流・印可",
    "text": "自身の計略消費気を3軽減、再使用時間50%短縮 自身と自身の伏兵の耐久と攻撃と攻撃速度が40%上昇 被ダメ50%軽減、射程内の自身の伏兵に対して効果1.5倍",
    "effects": [
     {
@@ -138023,8 +137946,8 @@ window.SCRE_DATA = [
     ]
    },
    {
-    "stage": "改壱",
-    "name": "[改壱] / 天然理心流・印可",
+    "stage": "改弐",
+    "name": "[改弐] / 天然理心流・印可",
     "text": "自身の計略消費気を3軽減、再使用時間50%短縮 自身と自身の伏兵の耐久と攻撃と攻撃速度が40%上昇 被ダメ50%軽減、射程内の自身の伏兵に対して効果1.5倍",
     "effects": [
      {
@@ -138730,7 +138653,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b2829df494fc3e261e59f111df9269ca855af153",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -138740,6 +138664,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9D%BE%E6%B1%9F%E5%9F%8E&src=%E6%9D%BE%E6%B1%9F%E5%9F%8E%20%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/408c3e2e08a9004b97eae368e9ee43d42dcae437",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9D%BE%E6%B1%9F%E5%9F%8E&src=%E6%9D%BE%E6%B1%9F%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8b2cd8aee56da19880e16565352c0a297c604f74",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b2829df494fc3e261e59f111df9269ca855af153"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/408c3e2e08a9004b97eae368e9ee43d42dcae437",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%9D%BE%E6%B1%9F%E5%9F%8E&src=%E6%9D%BE%E6%B1%9F%E5%9F%8E%20%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8b2cd8aee56da19880e16565352c0a297c604f74",
@@ -139371,7 +139301,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d2a9a1dde04a2acd0f196ac9c50f8682c1e93b9e",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -139381,6 +139312,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1c7102fd7dbbc79d22facac1ad998206e7b5be0a"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a39720db5a6f0a7f927733e9628e7fa298ee823e",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d9caca756b62157f8a6aa65d67f34b8a22bb0f9e",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/37551ee8c6a7d7d02817fe66bbaab06c07c628e8",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d2a9a1dde04a2acd0f196ac9c50f8682c1e93b9e"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a39720db5a6f0a7f927733e9628e7fa298ee823e",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d9caca756b62157f8a6aa65d67f34b8a22bb0f9e",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/37551ee8c6a7d7d02817fe66bbaab06c07c628e8",
@@ -139518,7 +139455,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E&src=5c30438c5ede9e50773c6279a7fd195a.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -139528,6 +139466,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E&src=%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E%E3%82%AB%E3%83%83%E3%83%88%E3%82%A4%E3%83%B3678.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E&src=33e7d536c3d19f331ea12d181502c753.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E&src=6%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E_%E5%BE%A1%E5%AC%A2.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E&src=97f983f3684408a2d1a5de3bee0b5221.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E&src=5c30438c5ede9e50773c6279a7fd195a.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E&src=33e7d536c3d19f331ea12d181502c753.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E&src=6%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E_%E5%BE%A1%E5%AC%A2.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%96%B0%E7%94%B0%E9%87%91%E5%B1%B1%E5%9F%8E&src=97f983f3684408a2d1a5de3bee0b5221.png",
@@ -139645,7 +139589,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4bf36b27f1fe45807e4fb79f79e9f6b87f7d94d0",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -139655,6 +139600,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6edb792f5d36e143aac90cba1ad6eea461c77b75"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0525496c25e8a691853521bae1049ff9d0a20c8f",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/452445b003e408b7e4158fadf9bb16a3b9617200",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/71bdeab0934e20eb14f1cdfd3b4e0bfacc1154db",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4bf36b27f1fe45807e4fb79f79e9f6b87f7d94d0"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0525496c25e8a691853521bae1049ff9d0a20c8f",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/452445b003e408b7e4158fadf9bb16a3b9617200",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/71bdeab0934e20eb14f1cdfd3b4e0bfacc1154db",
@@ -139797,7 +139748,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/961b5e7cbda91ff33323483d8c84e4da70a97602",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -139807,6 +139759,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/150a7f77c8228c92f7847d9b73315a90f254e4bd"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/90422f4fdb26ab586f4547a75f6664c96213b6d1",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3753b559120d3cd9499a8eb8c413d629b4f8c23",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2058549e7b554b6e23c7b6f2780d449c5a4d4ceb",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/961b5e7cbda91ff33323483d8c84e4da70a97602"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/90422f4fdb26ab586f4547a75f6664c96213b6d1",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a3753b559120d3cd9499a8eb8c413d629b4f8c23",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2058549e7b554b6e23c7b6f2780d449c5a4d4ceb",
@@ -139964,7 +139922,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1a3da4f182ecb7822bceb5c6d4ba316777b9dc3c",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -139974,6 +139933,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1a3da4f182ecb7822bceb5c6d4ba316777b9dc3c"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9dcdc9746f928139ab90cbcc63c0c3d4a1ba170f",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fb3952098c3ceb1bc87c67b93c8f1e947770729d",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b3a0bfca049ab552e2748ab0abc2128a13dac22c",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1a3da4f182ecb7822bceb5c6d4ba316777b9dc3c"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9dcdc9746f928139ab90cbcc63c0c3d4a1ba170f",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fb3952098c3ceb1bc87c67b93c8f1e947770729d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b3a0bfca049ab552e2748ab0abc2128a13dac22c",
@@ -140300,7 +140265,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d64a4a4868ac657a18387c49e42c16c3c3e97409",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -140310,6 +140276,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E9%95%B7%E7%AF%A0%E5%9F%8E&src=96f5a5dd1b7c07b085ed00d3273fb45e.png"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/218a6fa0da412addb096ea721a19689bc0e40be2",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/90abc7ef6ff863ca694ad8e8c02594b6023ff3fc",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3362643e0fe722eabdcfccc0f3277dd31e591dc4",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d64a4a4868ac657a18387c49e42c16c3c3e97409"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/218a6fa0da412addb096ea721a19689bc0e40be2",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/90abc7ef6ff863ca694ad8e8c02594b6023ff3fc",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3362643e0fe722eabdcfccc0f3277dd31e591dc4",
@@ -140741,7 +140713,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6529377156e17c41624b33a5108a4c714dae020a",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -140751,6 +140724,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5ece3936e3b3740eed0cdeec942cd63782e9c981"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e068ab8f18aa564edb3401e0a28aad154416869a",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41e83b3072df2de4991c15f3ede589a509c0197b",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/685f56f33c48323bc278b86df9d1dba9b9dafe03",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6529377156e17c41624b33a5108a4c714dae020a"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e068ab8f18aa564edb3401e0a28aad154416869a",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41e83b3072df2de4991c15f3ede589a509c0197b",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/685f56f33c48323bc278b86df9d1dba9b9dafe03",
@@ -141663,7 +141642,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7119f8b4d0c793c1e3350e7690d749d7c86947c6",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -141673,6 +141653,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a9831977e9d589fceec768eca96ab8b47dad471d"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e9b171dc4f0e6c8bee64822269a1d800b5832673",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b679cfd931600f4d974901fe3ce0c028f379bc24",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/24f1ce966ba92f6ee29797157d0be3ed8c1f1723",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7119f8b4d0c793c1e3350e7690d749d7c86947c6"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e9b171dc4f0e6c8bee64822269a1d800b5832673",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b679cfd931600f4d974901fe3ce0c028f379bc24",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/24f1ce966ba92f6ee29797157d0be3ed8c1f1723",
@@ -141848,7 +141834,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3c3c8a4aab0c886ac10edbf1b58ed4c4d7da6550",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -141858,6 +141845,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/407a8a23c38bdbda63b2a874e26318190aed3bea"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae51ae68f675bdbf92b1b1d05a6f99e50a333ca0",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/59da7d8904dffbe8b764fc5c9b2adef486068167",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/23a1c19a86789c153054157f93531ab0c18cb8dc",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3c3c8a4aab0c886ac10edbf1b58ed4c4d7da6550"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ae51ae68f675bdbf92b1b1d05a6f99e50a333ca0",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/59da7d8904dffbe8b764fc5c9b2adef486068167",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/23a1c19a86789c153054157f93531ab0c18cb8dc",
@@ -142358,7 +142351,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/690eadd2277ff50cd8d511e4c0bcbd75d0c699bf",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -142368,6 +142362,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fb16a49fd2166ccb05bbee9d852d3bc32089f2e2"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6da5db3db430e0d55040259131dc1fef33fb14a3",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3a522709f2b22bdf3228c8f0919e74ea755d91ab",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1dabf5a20114c126b388264b79ab004a5c8d67e9",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/690eadd2277ff50cd8d511e4c0bcbd75d0c699bf"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6da5db3db430e0d55040259131dc1fef33fb14a3",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3a522709f2b22bdf3228c8f0919e74ea755d91ab",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1dabf5a20114c126b388264b79ab004a5c8d67e9",
@@ -142533,7 +142533,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9A%E3%83%BC%E3%83%8A%E5%AE%AE%E6%AE%BF&src=%E3%83%9A%E3%83%BC%E3%83%8A%E7%89%B9%E6%8A%80.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -142543,6 +142544,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9A%E3%83%BC%E3%83%8A%E5%AE%AE%E6%AE%BF&src=%E3%83%9A%E3%83%BC%E3%83%8A%E7%89%B9%E6%8A%80.png"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9A%E3%83%BC%E3%83%8A%E5%AE%AE%E6%AE%BF&src=%E7%84%A1%E9%A1%8C.png",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/baf7245a370d26b9fd715042fe6ffd7a0e5bb559",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9A%E3%83%BC%E3%83%8A%E5%AE%AE%E6%AE%BF&src=%E3%83%9A%E3%83%BC%E3%83%8A%E5%A4%A7%E7%A0%B4.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9A%E3%83%BC%E3%83%8A%E5%AE%AE%E6%AE%BF&src=%E3%83%9A%E3%83%BC%E3%83%8A%E7%89%B9%E6%8A%80.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9A%E3%83%BC%E3%83%8A%E5%AE%AE%E6%AE%BF&src=%E7%84%A1%E9%A1%8C.png",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/baf7245a370d26b9fd715042fe6ffd7a0e5bb559",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E3%83%9A%E3%83%BC%E3%83%8A%E5%AE%AE%E6%AE%BF&src=%E3%83%9A%E3%83%BC%E3%83%8A%E5%A4%A7%E7%A0%B4.png",
@@ -143148,7 +143155,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -143158,6 +143166,12 @@ window.SCRE_DATA = [
     "tokugiUrl": ""
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9F%8E%E5%A1%9E%E9%83%BD%E5%B8%82%E3%82%A2%E3%83%93%E3%83%A9&src=%E5%9F%8E%E5%A1%9E%E9%83%BD%E5%B8%82%E3%82%A2%E3%83%93%E3%83%A9_%E5%9F%8E%E5%A8%98.png",
+    "ojouUrl": "",
+    "taihaUrl": "",
+    "tokugiUrl": ""
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%9F%8E%E5%A1%9E%E9%83%BD%E5%B8%82%E3%82%A2%E3%83%93%E3%83%A9&src=%E5%9F%8E%E5%A1%9E%E9%83%BD%E5%B8%82%E3%82%A2%E3%83%93%E3%83%A9_%E5%9F%8E%E5%A8%98.png",
     "ojouUrl": "",
     "taihaUrl": "",
@@ -145392,7 +145406,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%8C%E6%9C%AC%E6%9D%BE%E5%9F%8E&src=nihonmatukaiichi3.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -145402,6 +145417,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ad4f0f77d8cac4bd0c58213cd039cf3655e61f9d"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0b01abc52e486fc967e670771e2d5d7d5afe97f8",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9052b101cd9a40c1db777f471e6dee550edc1027",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%8C%E6%9C%AC%E6%9D%BE%E5%9F%8E&src=nihonmatukaiichi2.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%8C%E6%9C%AC%E6%9D%BE%E5%9F%8E&src=nihonmatukaiichi3.png"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0b01abc52e486fc967e670771e2d5d7d5afe97f8",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9052b101cd9a40c1db777f471e6dee550edc1027",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E4%BA%8C%E6%9C%AC%E6%9D%BE%E5%9F%8E&src=nihonmatukaiichi2.png",
@@ -146742,10 +146763,10 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 11,
   "illustFile": "モーリッツブルク城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c56f20307499181593f0563f81edb174ba2c49e",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9f91dc8b55c7a916335134e430eae951324e5ada",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3ae7d29e79e7cace81891202c04182558959b9f5",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f2757e4c9ab030e2df8dc63dc888d3faf3931d5d",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b7be2721e2bcb7a80b0f5ebe1ff9f9fe260d1def",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e6f41f0f33bb26f582de58848c3d1e26c3abe3fc",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4aa298a393d7d55bae3d1c6c102202bdf056c863",
   "remodelStages": [
    "無印",
    "改壱",
@@ -146765,10 +146786,10 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4aa298a393d7d55bae3d1c6c102202bdf056c863"
    },
    "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c56f20307499181593f0563f81edb174ba2c49e",
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9f91dc8b55c7a916335134e430eae951324e5ada",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3ae7d29e79e7cace81891202c04182558959b9f5",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f2757e4c9ab030e2df8dc63dc888d3faf3931d5d",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b7be2721e2bcb7a80b0f5ebe1ff9f9fe260d1def"
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e6f41f0f33bb26f582de58848c3d1e26c3abe3fc",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4aa298a393d7d55bae3d1c6c102202bdf056c863"
    }
   },
   "illustrator": "&uploader(c28181c4bae3bc3860cec3ddd328c8ec184d01c6_scre_4507",
@@ -148079,7 +148100,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E7%94%B0%E5%9F%8E&src=3c5ac142f65e017919755ca95facbfab.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -148089,6 +148111,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e351ce5654ae2b858e9da930403ef211aab1b5fb"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E7%94%B0%E5%9F%8E&src=a070a75821b7d1153114449d26815d7a.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E7%94%B0%E5%9F%8E&src=a4f83e095209100e9807db5360f0d5d8.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E7%94%B0%E5%9F%8E&src=f698507d2cafd3537b8471017071ca47%2014.31.24.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E7%94%B0%E5%9F%8E&src=3c5ac142f65e017919755ca95facbfab.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E7%94%B0%E5%9F%8E&src=a070a75821b7d1153114449d26815d7a.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E7%94%B0%E5%9F%8E&src=a4f83e095209100e9807db5360f0d5d8.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E5%8D%83%E4%BB%A3%E7%94%B0%E5%9F%8E&src=f698507d2cafd3537b8471017071ca47%2014.31.24.png",
@@ -148213,7 +148241,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5a3c3495d9caf96533bcb794890b7449814cf10e",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -148223,6 +148252,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0beb177ddde6047c9846b22b56dffd61e97e1e5a"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7bdb79e0917cbc2e5c2a8ade0a8d9e59248aee95",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6a3c9ab663e1a190fb204a1384f7a77a720be2c1",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/103ef5376c4c1b183f6c3c67a949931bec99a7c1",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5a3c3495d9caf96533bcb794890b7449814cf10e"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7bdb79e0917cbc2e5c2a8ade0a8d9e59248aee95",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6a3c9ab663e1a190fb204a1384f7a77a720be2c1",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/103ef5376c4c1b183f6c3c67a949931bec99a7c1",
@@ -148951,7 +148986,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bb29349047faacbfab58ffca7a5a3e42ca91d8b9",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -148961,6 +148997,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7b1a9d8e136a2b268565622d3014eb5d2d733351"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9bd7943ccddacafdd3baafad19514bde5712767a",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9f55d657a4b516d450a2727e20ddc4b93f24bae8",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b78d5e359e083788966aeaa7e77777c78cd33272",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bb29349047faacbfab58ffca7a5a3e42ca91d8b9"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9bd7943ccddacafdd3baafad19514bde5712767a",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9f55d657a4b516d450a2727e20ddc4b93f24bae8",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b78d5e359e083788966aeaa7e77777c78cd33272",
@@ -150548,7 +150590,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/839a43a40ff59c933bbdb81dc223e56c02a84e18",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -150558,6 +150601,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0d738a9901590f6c37a459caa31147d41b4b64f1"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/976fc9d68ae6881ce8b94c2f98cffb585d2d7714",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f3b87e93d04075d7c0727f7a1b89ee56f3c0c933",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c1dbb6c859a3f7364b91d2759e551e8c3c5b4c0",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/839a43a40ff59c933bbdb81dc223e56c02a84e18"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/976fc9d68ae6881ce8b94c2f98cffb585d2d7714",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f3b87e93d04075d7c0727f7a1b89ee56f3c0c933",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c1dbb6c859a3f7364b91d2759e551e8c3c5b4c0",
@@ -150760,7 +150809,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2f77a7910b4ae8e4c50ccc72d1889cfb4972981b",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -150770,6 +150820,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ba9ac0750a1836386531a6227d1d1fd075ddabf8"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fe2b8035b4d18f186718c1f22ad70d0e3bd454f1",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f0a52811f2111279cd34904bf7f1c1e7890111ab",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3ae32616077ae9f688dab725c15a95e6856d9e53",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2f77a7910b4ae8e4c50ccc72d1889cfb4972981b"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fe2b8035b4d18f186718c1f22ad70d0e3bd454f1",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f0a52811f2111279cd34904bf7f1c1e7890111ab",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3ae32616077ae9f688dab725c15a95e6856d9e53",
@@ -152923,7 +152979,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/72a5315beb7dc9b74fa7e7a1d39c5ae4d8a6afcd",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -152933,6 +152990,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/26cb94db66324a6f51c77f1cd3691e238986d8a1"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf236ce4c1aac0cefd302da7869948e8906f5f59",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/658c28a3065cbae02003ed36ced11f5d14c30f8b",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e7daf19b4344f58ef42063520687a9a918d1ba7",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/72a5315beb7dc9b74fa7e7a1d39c5ae4d8a6afcd"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf236ce4c1aac0cefd302da7869948e8906f5f59",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/658c28a3065cbae02003ed36ced11f5d14c30f8b",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e7daf19b4344f58ef42063520687a9a918d1ba7",
@@ -155557,7 +155620,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%A1%91%E5%90%8D%E5%9F%8E&src=501_tokugi_kai.png",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -155567,6 +155631,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf386e6e536d6edb4edf312380147872478cc4b0"
    },
    "改壱": {
+    "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%A1%91%E5%90%8D%E5%9F%8E&src=501_shiromusume_kai_wiki.png",
+    "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%A1%91%E5%90%8D%E5%9F%8E&src=501_ojou_wiki.png",
+    "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%A1%91%E5%90%8D%E5%9F%8E&src=501_taiha_kai.png",
+    "tokugiUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%A1%91%E5%90%8D%E5%9F%8E&src=501_tokugi_kai.png"
+   },
+   "改弐": {
     "illustUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%A1%91%E5%90%8D%E5%9F%8E&src=501_shiromusume_kai_wiki.png",
     "ojouUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%A1%91%E5%90%8D%E5%9F%8E&src=501_ojou_wiki.png",
     "taihaUrl": "https://scre.swiki.jp/index.php?plugin=ref&page=%E6%A1%91%E5%90%8D%E5%9F%8E&src=501_taiha_kai.png",
@@ -156889,7 +156959,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/faac3a5f8c970d0e65d1fb42199cdd6ddf6815e9",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -156899,6 +156970,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3cd26a136bda0d983a14a14ef5042d5b3410d50c"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/896dabb4e962cfaa151ba7cbb2cf3fc71f7c1ad4",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/88f1bda6ac8e9b37ff16bc49627542eca7d322a3",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0617e2f0a0ea62c23c5ce992b1ef5a0149df0046",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/faac3a5f8c970d0e65d1fb42199cdd6ddf6815e9"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/896dabb4e962cfaa151ba7cbb2cf3fc71f7c1ad4",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/88f1bda6ac8e9b37ff16bc49627542eca7d322a3",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0617e2f0a0ea62c23c5ce992b1ef5a0149df0046",
@@ -157895,7 +157972,8 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5a4331c6281a156be81dd4787dffa6fb0d849fc4",
   "remodelStages": [
    "無印",
-   "改壱"
+   "改壱",
+   "改弐"
   ],
   "remodelForms": {
    "無印": {
@@ -157905,6 +157983,12 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3139475fdf687cb17d265306ede7eef931a93322"
    },
    "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/47e9f577533724ca48546db1aa51709f7de4f3f2",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f85db4f39ebf71f225029f7288bf4c94c3a79cff",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0839d2f2c44cba2f0e248becb0c49116aa6ff873",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5a4331c6281a156be81dd4787dffa6fb0d849fc4"
+   },
+   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/47e9f577533724ca48546db1aa51709f7de4f3f2",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f85db4f39ebf71f225029f7288bf4c94c3a79cff",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0839d2f2c44cba2f0e248becb0c49116aa6ff873",
@@ -169739,17 +169823,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/201b90e60dc1438ea5bbf6b0037090fcd5606dbc",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/85b80f434ee2aa07e3e8bf6d2327fe6d9f4cc4b8",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d4ae18443e21a9a4565e4f3f36b5d7d8f05b3dc",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97e479816eccbbe05b32a528acb7205e03434075",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/201b90e60dc1438ea5bbf6b0037090fcd5606dbc",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/85b80f434ee2aa07e3e8bf6d2327fe6d9f4cc4b8"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d4ae18443e21a9a4565e4f3f36b5d7d8f05b3dc",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97e479816eccbbe05b32a528acb7205e03434075",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/201b90e60dc1438ea5bbf6b0037090fcd5606dbc",
@@ -173007,14 +173084,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［封琴］徳丹城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/90497895ca0df00baeddf19c78d3a638ad1c20cc",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/366439453c80199e0d83ce13420856540e55e572",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1cf5890208ab88ab5082183957f3ee53881a7e69",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c68bd54259c17d96da439719153734fe547a6dd",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b358d3f40be4fdec34b5a22c602c7706b4e2a7ee",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/157f831b241f966a1b702de998c8f2ea9a65e661",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ccf29ec24a43ad1700582daba24234ab82c0b506",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -173028,12 +173104,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1cf5890208ab88ab5082183957f3ee53881a7e69",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/157f831b241f966a1b702de998c8f2ea9a65e661",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ccf29ec24a43ad1700582daba24234ab82c0b506"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/90497895ca0df00baeddf19c78d3a638ad1c20cc",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1cf5890208ab88ab5082183957f3ee53881a7e69",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c68bd54259c17d96da439719153734fe547a6dd",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b358d3f40be4fdec34b5a22c602c7706b4e2a7ee"
    }
   },
   "illustrator": "水野魚月",
@@ -173196,14 +173266,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［海嵐］上関城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9a482046c8eb289e0c05376bb67981e5d5d878ad",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eb7c2f0ef804d363ca90d70f60ca7c76d8318c68",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/308b4867c3020c0c8777a40840e6c9676b729e6d",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9b55a0689658d8a1826a8ef4179448aff20fec90",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bebb270e6410bc8ddeb894427b51550513e38230",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/406ff316816493ff21f25226c68911be18210100",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/975a90fcbe34f4939fb09ee5e94ef201928b6066",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -173217,12 +173286,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/308b4867c3020c0c8777a40840e6c9676b729e6d",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/406ff316816493ff21f25226c68911be18210100",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/975a90fcbe34f4939fb09ee5e94ef201928b6066"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9a482046c8eb289e0c05376bb67981e5d5d878ad",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/308b4867c3020c0c8777a40840e6c9676b729e6d",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9b55a0689658d8a1826a8ef4179448aff20fec90",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bebb270e6410bc8ddeb894427b51550513e38230"
    }
   },
   "illustrator": "&uploader(0b009bbf705d1fe7d8d9b112d4dd02a6a5a03eb6_scre_19752",
@@ -173398,8 +173461,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cd165ef302e158367b9dd3e6164365825f6b3c4f",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -173409,12 +173471,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cd165ef302e158367b9dd3e6164365825f6b3c4f"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/926e1208e775acc2de7a272d08df81e323bc8439",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/75cf045d2046ee3f616a38c0f0f8b01f2197b9da",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/63aea5a22d6e647d3c22e7fe8c70aaa91bf5f2be",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cd165ef302e158367b9dd3e6164365825f6b3c4f"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/926e1208e775acc2de7a272d08df81e323bc8439",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/75cf045d2046ee3f616a38c0f0f8b01f2197b9da",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/63aea5a22d6e647d3c22e7fe8c70aaa91bf5f2be",
@@ -173549,8 +173605,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5f59bba486b087855adc00cd2ed928f146eac374",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -173560,12 +173615,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5f59bba486b087855adc00cd2ed928f146eac374"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/373a2f01930b73955aa220fe686d99fc45900495",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ce19d4e1288b9a20009b60b808da329bb8e193f",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d09764defbbfab26ce5e31ed6f05f54559f97e6d",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5f59bba486b087855adc00cd2ed928f146eac374"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/373a2f01930b73955aa220fe686d99fc45900495",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6ce19d4e1288b9a20009b60b808da329bb8e193f",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d09764defbbfab26ce5e31ed6f05f54559f97e6d",
@@ -173703,14 +173752,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "［毒禍］石山城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0d421c799017533674c52a5b9dfe9cb5f7a93660",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/546785848273d3e8016b096f927c2943e8b6b290",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/abd96564ba180ccf93268476a497d9cbfa2dc7ab",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/557a2a37265e3845315c26c62485506c85fd8f11",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ebe36d612d01319f44920042e6b36a5781a792aa",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/31d182df8e83839af747bd3921a27b1011195955",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b0710da196dbfeb1926f09aa0b3444c0b2f19b0e",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -173724,12 +173772,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/abd96564ba180ccf93268476a497d9cbfa2dc7ab",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/31d182df8e83839af747bd3921a27b1011195955",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b0710da196dbfeb1926f09aa0b3444c0b2f19b0e"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0d421c799017533674c52a5b9dfe9cb5f7a93660",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/abd96564ba180ccf93268476a497d9cbfa2dc7ab",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/557a2a37265e3845315c26c62485506c85fd8f11",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ebe36d612d01319f44920042e6b36a5781a792aa"
    }
   },
   "illustrator": "鶴亀",
@@ -173867,8 +173909,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6db7774eef549d25c4a815538baffbda82fb9e70",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -173878,12 +173919,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6db7774eef549d25c4a815538baffbda82fb9e70"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2b36f979bffef11929db1db4ab900f29af3ac335",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7e6d0173eebc55f791c276bab9a1894d316f20a6",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0559137f69d1ede6c53e6970f2c83fba93d02bbb",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6db7774eef549d25c4a815538baffbda82fb9e70"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2b36f979bffef11929db1db4ab900f29af3ac335",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7e6d0173eebc55f791c276bab9a1894d316f20a6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0559137f69d1ede6c53e6970f2c83fba93d02bbb",
@@ -174039,14 +174074,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［雲臥］備中松山城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ccae41b1d14d49c902918948cbd033bb71223fa7",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c8d80d5e4dc3a09a09284e66d0ff16b1179b6d81",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a1017565bab252fba6fde3b1d5ec671f5cb54b5c",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/145b730a38b52320cce4a0c4c383fffabfb0003e",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e2b03efd83b37abd643331b62a948d4519967f7f",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6071fb437e1b1ade906529c93666abe255c2fce7",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7793a678c073f0085646d0b1e8c4a5e2d1167546",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -174060,12 +174094,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a1017565bab252fba6fde3b1d5ec671f5cb54b5c",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6071fb437e1b1ade906529c93666abe255c2fce7",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7793a678c073f0085646d0b1e8c4a5e2d1167546"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ccae41b1d14d49c902918948cbd033bb71223fa7",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a1017565bab252fba6fde3b1d5ec671f5cb54b5c",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/145b730a38b52320cce4a0c4c383fffabfb0003e",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e2b03efd83b37abd643331b62a948d4519967f7f"
    }
   },
   "illustrator": "水野魚月",
@@ -174215,8 +174243,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/699771240a538da53abcc6b56c6294341bdfb664",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -174226,12 +174253,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/699771240a538da53abcc6b56c6294341bdfb664"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/77f86ac0ad5c899b667727c25b84d53baee95b62",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a836577d46c82a729619b746f775aef3f1498533",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0637b35c63fd54fc680941dfa2fecee88c48356e",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/699771240a538da53abcc6b56c6294341bdfb664"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/77f86ac0ad5c899b667727c25b84d53baee95b62",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a836577d46c82a729619b746f775aef3f1498533",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0637b35c63fd54fc680941dfa2fecee88c48356e",
@@ -174363,8 +174384,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5ddadea87ebd5dfcbd8cbcd65a82d9169335aaa3",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -174374,12 +174394,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5ddadea87ebd5dfcbd8cbcd65a82d9169335aaa3"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b3d5fa10448a479531dec6e6f1105f0e45dc651c",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eed16b0c493650f81595b822f09be5a2e4106f20",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/45281a87e52117657c6f41103b4a66326eb7462d",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5ddadea87ebd5dfcbd8cbcd65a82d9169335aaa3"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b3d5fa10448a479531dec6e6f1105f0e45dc651c",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eed16b0c493650f81595b822f09be5a2e4106f20",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/45281a87e52117657c6f41103b4a66326eb7462d",
@@ -174528,8 +174542,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41791b7928b94739d1fed31126e2e8e777e4a3c5",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -174539,12 +174552,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41791b7928b94739d1fed31126e2e8e777e4a3c5"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3045c2d328477b3f2b3cb04669e7d95896db90d6",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5586e49885e44a087f5fc348be6ae50637a217f8",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/029c95c54c1fe67fccddc9abcb5e6cb62449748d",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/41791b7928b94739d1fed31126e2e8e777e4a3c5"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3045c2d328477b3f2b3cb04669e7d95896db90d6",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5586e49885e44a087f5fc348be6ae50637a217f8",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/029c95c54c1fe67fccddc9abcb5e6cb62449748d",
@@ -174699,8 +174706,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/780d36173de1722fb1d80156e043a6515f0e88d3",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -174710,12 +174716,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/780d36173de1722fb1d80156e043a6515f0e88d3"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ef267a797d11744a2925692f5a8c27eea1f30fc0",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/23c7e25986ac1642ce888a099e1cfe129e04e5ce",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1b5c38f2cbcfe56803b6c11a23ba6be558784f2f",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/780d36173de1722fb1d80156e043a6515f0e88d3"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ef267a797d11744a2925692f5a8c27eea1f30fc0",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/23c7e25986ac1642ce888a099e1cfe129e04e5ce",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1b5c38f2cbcfe56803b6c11a23ba6be558784f2f",
@@ -174906,8 +174906,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/55a888bd6bc001be6d1ce220e8b457561a24c812",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -174917,12 +174916,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/55a888bd6bc001be6d1ce220e8b457561a24c812"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e8a64685e623a2e4cf2f303877a3663387a08c1b",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3add4c07c852abc779493a7af4b5f1eb65b4c04f",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f002a1eb8191f4ac5be3ea7b7d090e1ed3fb2d82",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/55a888bd6bc001be6d1ce220e8b457561a24c812"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e8a64685e623a2e4cf2f303877a3663387a08c1b",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3add4c07c852abc779493a7af4b5f1eb65b4c04f",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f002a1eb8191f4ac5be3ea7b7d090e1ed3fb2d82",
@@ -175066,8 +175059,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1787ec84b34fef1e82638342fe12b209d13c6be8",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -175077,12 +175069,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1787ec84b34fef1e82638342fe12b209d13c6be8"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6d767ee0e9a3e711ce81f890226edaae0b7dd994",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c0362f6422dcd8d827e074cb7c5069c566228b8",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d2c79edd6759bd1096da07bd1b1b33453676a1d7",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1787ec84b34fef1e82638342fe12b209d13c6be8"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6d767ee0e9a3e711ce81f890226edaae0b7dd994",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8c0362f6422dcd8d827e074cb7c5069c566228b8",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d2c79edd6759bd1096da07bd1b1b33453676a1d7",
@@ -175255,8 +175241,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/149cc292128f9be8656f69848e6fbbd6255f8cd0",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -175266,12 +175251,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/149cc292128f9be8656f69848e6fbbd6255f8cd0"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ffa96c4249f8cae4ffb912cabd845c760bf18464",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/64ba161e5441d6a31f425c8f3de7f9b687302fae",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/abd040dd0709386436f9e99b6c01a02ce9ae9225",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/149cc292128f9be8656f69848e6fbbd6255f8cd0"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ffa96c4249f8cae4ffb912cabd845c760bf18464",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/64ba161e5441d6a31f425c8f3de7f9b687302fae",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/abd040dd0709386436f9e99b6c01a02ce9ae9225",
@@ -175397,14 +175376,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "高陽城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/54a18938ce3b06055fb037b97e667c8001aef16d",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dbf41ed03788e432ba8c9dcd08adab020a3dc1ab",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2a97d769418f38252b26e0919b24ab52d5e75991",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4861a5b380789729dde97e3e82d3df820a2d9a9a",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/836e5da5edce93801f26f5173cc988db6fdf90d3",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b6eb48d54d186c1c55a0122eee4884c75210c9b8",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/40ed119c9de5e5b7f006c022bdf8575ebb24210c",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -175418,12 +175396,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2a97d769418f38252b26e0919b24ab52d5e75991",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b6eb48d54d186c1c55a0122eee4884c75210c9b8",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/40ed119c9de5e5b7f006c022bdf8575ebb24210c"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/54a18938ce3b06055fb037b97e667c8001aef16d",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2a97d769418f38252b26e0919b24ab52d5e75991",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4861a5b380789729dde97e3e82d3df820a2d9a9a",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/836e5da5edce93801f26f5173cc988db6fdf90d3"
    }
   },
   "illustrator": "&uploader(ce6e7642c50d078aba09b306839239f031eeafe9_scre_20962",
@@ -175540,8 +175512,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8d3e667a6470e8f179cd7377f1e0847a7eeae5b4",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -175551,12 +175522,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8d3e667a6470e8f179cd7377f1e0847a7eeae5b4"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0fd067e25264ad30d69c04fc23ab787dedc6980d",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/096a794415c7a2902fc89fb1a33dcde9b1caf2f6",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/026f1252e1dbf6051407c87b5fe1d25da7f7628e",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8d3e667a6470e8f179cd7377f1e0847a7eeae5b4"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0fd067e25264ad30d69c04fc23ab787dedc6980d",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/096a794415c7a2902fc89fb1a33dcde9b1caf2f6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/026f1252e1dbf6051407c87b5fe1d25da7f7628e",
@@ -175703,8 +175668,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eab2f00daa3269c5f46a7aa1dac14a0c002f4f3f",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -175714,12 +175678,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eab2f00daa3269c5f46a7aa1dac14a0c002f4f3f"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/56e92450c67e93111d5f253bacaa0c8a574045ac",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/565dab67b0d88c258c91656f8d20a485ca2e8d42",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/15ef6d52ec18ae3348b53cfae53b63d2f7b4669a",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eab2f00daa3269c5f46a7aa1dac14a0c002f4f3f"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/56e92450c67e93111d5f253bacaa0c8a574045ac",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/565dab67b0d88c258c91656f8d20a485ca2e8d42",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/15ef6d52ec18ae3348b53cfae53b63d2f7b4669a",
@@ -175884,8 +175842,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/762e2aab4c6cae0ae8d184a75b9db7483232a8f2",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -175895,12 +175852,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/762e2aab4c6cae0ae8d184a75b9db7483232a8f2"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/11c0c7cba4db9f85ae4ebcdbb02bcf414f098f7e",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/87b2b197d0bab2367a02dbc4bc0da3b3c59bf581",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9d0cf658ff84a0c440a7a04a047e010161b23433",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/762e2aab4c6cae0ae8d184a75b9db7483232a8f2"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/11c0c7cba4db9f85ae4ebcdbb02bcf414f098f7e",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/87b2b197d0bab2367a02dbc4bc0da3b3c59bf581",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9d0cf658ff84a0c440a7a04a047e010161b23433",
@@ -176031,8 +175982,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/deed22b653f6cdbcce8c0e9391be5269e2b8063b",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -176042,12 +175992,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/deed22b653f6cdbcce8c0e9391be5269e2b8063b"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d883fd316d0e47a47466ac2c59b82e8b90030b63",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7c60964e6c0548bd9afdf6247c45f31eaa746cbb",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/95fbcdf6c33322ebf92a2ad6d32b3586d93d5471",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/deed22b653f6cdbcce8c0e9391be5269e2b8063b"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/d883fd316d0e47a47466ac2c59b82e8b90030b63",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7c60964e6c0548bd9afdf6247c45f31eaa746cbb",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/95fbcdf6c33322ebf92a2ad6d32b3586d93d5471",
@@ -176180,14 +176124,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 10,
   "illustFile": "［夏］水口城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/268b0c3f07804b18d0b00bda3b9eaa9544b588ba",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8cf3bf9e125bb46352b8c909b42fbd88246ab55e",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea16b0ed5da4e52df3dc8df88d0dc325eaca2424",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/61fc8dc5b39a5af68737a7b5f38dc1416ddb05b2",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e8bb73cabdf581343da76d90596b4246f362885",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/67831472e79e9473382daf1797d6dfc26efebcd9",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/558c49cfc450d7424c8659037ce3b414bdad7db3",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -176201,12 +176144,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea16b0ed5da4e52df3dc8df88d0dc325eaca2424",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/67831472e79e9473382daf1797d6dfc26efebcd9",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/558c49cfc450d7424c8659037ce3b414bdad7db3"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/268b0c3f07804b18d0b00bda3b9eaa9544b588ba",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ea16b0ed5da4e52df3dc8df88d0dc325eaca2424",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/61fc8dc5b39a5af68737a7b5f38dc1416ddb05b2",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e8bb73cabdf581343da76d90596b4246f362885"
    }
   },
   "illustrator": "&uploader(783a349c82df0e4b08de38fddca8c859b09c1ef8_scre_21723",
@@ -176371,8 +176308,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1de78e54468c9f1aff3e2f80b486a87e05967c14",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -176382,12 +176318,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1de78e54468c9f1aff3e2f80b486a87e05967c14"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eac1661c849c093b256ab3ba42332cef9b4a4e60",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ec6353902f8d059ad7990d71b1b8b3a3d4f2e563",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/88cf8054e6ed5064ddf87f294ab799f78b12748e",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1de78e54468c9f1aff3e2f80b486a87e05967c14"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/eac1661c849c093b256ab3ba42332cef9b4a4e60",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ec6353902f8d059ad7990d71b1b8b3a3d4f2e563",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/88cf8054e6ed5064ddf87f294ab799f78b12748e",
@@ -176549,8 +176479,7 @@ window.SCRE_DATA = [
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b5a0d5c7d66cf9cf956288a256c43483fab7e274",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -176560,12 +176489,6 @@ window.SCRE_DATA = [
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b5a0d5c7d66cf9cf956288a256c43483fab7e274"
    },
    "改壱": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/985609abb904ee608641f34c42f5fbb860f83221",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d2d2f4f7cbfb9cd69ec03eeb7e26b2e5cdc2172",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4224494bf43b82b7ffc008251e5af822a9675970",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b5a0d5c7d66cf9cf956288a256c43483fab7e274"
-   },
-   "改弐": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/985609abb904ee608641f34c42f5fbb860f83221",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d2d2f4f7cbfb9cd69ec03eeb7e26b2e5cdc2172",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4224494bf43b82b7ffc008251e5af822a9675970",
@@ -176691,14 +176614,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 11,
   "illustFile": "［お月見］伊丹城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/aeda443acee90ff4a53953c9c21fbe0aa560b311",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cfddc527d52735a51b491e23d13f62f0e843d071",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3d33808bd10345fee71d258b9478fa3129907914",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/183d27570a06dcbb11263ef9698aba66d2b65231",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2169a4c1c25e718a80ebe3d68ef36027558e7362",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cdd6e049e5b67948bcb089a1173ff29747e9f4c1",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5c0a6aa125e415cdea7ecd77d86d55835c29726b",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -176712,12 +176634,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3d33808bd10345fee71d258b9478fa3129907914",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cdd6e049e5b67948bcb089a1173ff29747e9f4c1",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5c0a6aa125e415cdea7ecd77d86d55835c29726b"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/aeda443acee90ff4a53953c9c21fbe0aa560b311",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3d33808bd10345fee71d258b9478fa3129907914",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/183d27570a06dcbb11263ef9698aba66d2b65231",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2169a4c1c25e718a80ebe3d68ef36027558e7362"
    }
   },
   "illustrator": "&uploader(420daae1818f9fde17683e0211907c11afbaefaf_scre_22040",
@@ -176839,14 +176755,13 @@ window.SCRE_DATA = [
   "rangeKind": "遠",
   "cost": 10,
   "illustFile": "槇島城S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8a9c91181cff4ef43a965a71abde284049673f85",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5307607ddd7d19be1601f6e8c92692393a33ac95",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6b96bee6e2c4b140db344252f6a3d64d1790ecb6",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dedb4341241b858f9440ecba6b7be43246771233",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3f0b5be0f72f94cddd93ff1c69ced9cb7e1ecf23",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4cff9ad0e8640f7773ab816f291a8d63aa7075a7",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fa9e72e465ab1e3648196a81dd3041e9c1b94def",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -176860,12 +176775,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6b96bee6e2c4b140db344252f6a3d64d1790ecb6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4cff9ad0e8640f7773ab816f291a8d63aa7075a7",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/fa9e72e465ab1e3648196a81dd3041e9c1b94def"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8a9c91181cff4ef43a965a71abde284049673f85",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6b96bee6e2c4b140db344252f6a3d64d1790ecb6",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dedb4341241b858f9440ecba6b7be43246771233",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3f0b5be0f72f94cddd93ff1c69ced9cb7e1ecf23"
    }
   },
   "illustrator": "&uploader(b966026db79f1de622b5cbf903d21ed4dc5bbf23_scre_22135",
@@ -178543,17 +178452,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7e7471e02d6d10c91f5927c0c3c6ab76a49169c7",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dbbdf931fdb88d1938c6ca0cddde5f1016255f23",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ab336db5dc1071897229edbdb34a9a24ca446c10",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/37d15eab6b44bafe933f57fecfc5d064b0cc4c74",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7e7471e02d6d10c91f5927c0c3c6ab76a49169c7",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dbbdf931fdb88d1938c6ca0cddde5f1016255f23"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ab336db5dc1071897229edbdb34a9a24ca446c10",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/37d15eab6b44bafe933f57fecfc5d064b0cc4c74",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7e7471e02d6d10c91f5927c0c3c6ab76a49169c7",
@@ -178689,17 +178591,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/503e3a807ce1dffc2bd13e55b06b6a970869060f",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7e97590c858f1ed9402191361420a107be7e7f3f",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2a98b5d7036e828d9a52e3d541f4dd572bcd5a42",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf4735fde764b51b7913dfebca3304b149581f2a",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/503e3a807ce1dffc2bd13e55b06b6a970869060f",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7e97590c858f1ed9402191361420a107be7e7f3f"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2a98b5d7036e828d9a52e3d541f4dd572bcd5a42",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cf4735fde764b51b7913dfebca3304b149581f2a",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/503e3a807ce1dffc2bd13e55b06b6a970869060f",
@@ -179766,17 +179661,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/880eda81a5430ff5f0f25a76974f0f6c7d93c864",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a338548b8762bd78c78b7a27fa26a6541ff4cbbf",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b83b39f49620c0c1a532d50f9b4da7308f57fd6d",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/830954f33e5b20858745854c172a87b8977bf611",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/880eda81a5430ff5f0f25a76974f0f6c7d93c864",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/a338548b8762bd78c78b7a27fa26a6541ff4cbbf"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b83b39f49620c0c1a532d50f9b4da7308f57fd6d",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/830954f33e5b20858745854c172a87b8977bf611",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/880eda81a5430ff5f0f25a76974f0f6c7d93c864",
@@ -179893,17 +179781,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e266ecc980ed107d7d22e1631a03fa0b40eb894b",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cbd50c70d9e582d4fd348a03c21e9fb502525268",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f1f302fcd8520fb90c94ae27364178f09cab594d",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f0fbb7925c8778c19499df94c922c23341e1a5c6",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e266ecc980ed107d7d22e1631a03fa0b40eb894b",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/cbd50c70d9e582d4fd348a03c21e9fb502525268"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f1f302fcd8520fb90c94ae27364178f09cab594d",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f0fbb7925c8778c19499df94c922c23341e1a5c6",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e266ecc980ed107d7d22e1631a03fa0b40eb894b",
@@ -180020,17 +179901,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3604b04c8e2530d6cd10779c6fbe562ecb55234f",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dff14915bb3ebc622c20a12b9b6897ec8fdb05e7",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/23d3ed0771fecd35be4ae823944563aa3756091e",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/da8600c2f973a446adbae9b7e0f202df884d5f5c",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3604b04c8e2530d6cd10779c6fbe562ecb55234f",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dff14915bb3ebc622c20a12b9b6897ec8fdb05e7"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/23d3ed0771fecd35be4ae823944563aa3756091e",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/da8600c2f973a446adbae9b7e0f202df884d5f5c",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3604b04c8e2530d6cd10779c6fbe562ecb55234f",
@@ -180127,17 +180001,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6bb7f117d7549b5691d18136cda61e993c9491a7",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5944d16734ef299c13df868317fd071813aba913",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bca9107f87dc6a751b70e820a1b91ea0343fa722",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8530272ae9b915bdcd46415f8fd318e77dec5f04",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6bb7f117d7549b5691d18136cda61e993c9491a7",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5944d16734ef299c13df868317fd071813aba913"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bca9107f87dc6a751b70e820a1b91ea0343fa722",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8530272ae9b915bdcd46415f8fd318e77dec5f04",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6bb7f117d7549b5691d18136cda61e993c9491a7",
@@ -182251,17 +182118,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f0f9b660753ee976d511ac2344dd18b0aa824cae",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8b497fc7e3325d1954511c9dc80140d503429f6e",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/64def9b3d6dd0db4bc3149917b3ac5f7f97056de",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b1652010a18efb031fd4b1186c1596a0a64ba79a",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f0f9b660753ee976d511ac2344dd18b0aa824cae",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/8b497fc7e3325d1954511c9dc80140d503429f6e"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/64def9b3d6dd0db4bc3149917b3ac5f7f97056de",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/b1652010a18efb031fd4b1186c1596a0a64ba79a",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f0f9b660753ee976d511ac2344dd18b0aa824cae",
@@ -182358,17 +182218,10 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c2702f9f8bf9a8c232fd993935327b46442a518",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e65cbe0abb6d35150cd5a4978d62aee61d37b1b6",
   "remodelStages": [
-   "無印",
-   "改壱"
+   "無印"
   ],
   "remodelForms": {
    "無印": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c53f4c6b7db4859c427deb8384471ce0cbd7ca37",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/46ffda57cc852743fee9baa48295877e7fd5affb",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c2702f9f8bf9a8c232fd993935327b46442a518",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e65cbe0abb6d35150cd5a4978d62aee61d37b1b6"
-   },
-   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c53f4c6b7db4859c427deb8384471ce0cbd7ca37",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/46ffda57cc852743fee9baa48295877e7fd5affb",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6c2702f9f8bf9a8c232fd993935327b46442a518",

@@ -64,7 +64,12 @@ def extract_all_section_abilities(src: str, section_name: str, page_name: str):
                 if "改弐" in cleaned_name:
                     stage = "改弐"
                 elif "改壱" in cleaned_name:
-                    stage = "改壱"
+                    if any(r["stage"] == "改壱" for r in results):
+                        stage = "改弐"
+                    else:
+                        stage = "改壱"
+                if stage == "改弐" and cleaned_name.startswith("[改壱]"):
+                    cleaned_name = cleaned_name.replace("[改壱]", "[改弐]", 1)
                 effects = parse_ability_effects(cleaned_desc, section_name, page_name)
                 results.append({
                     "stage": stage,
@@ -154,6 +159,18 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
     def extract_images_from_block(text, p_name):
         imgs = {"illustUrl": "", "ojouUrl": "", "taihaUrl": "", "tokugiUrl": ""}
 
+        def check_pair(label, url):
+            if not url:
+                return
+            if "御嬢" in label and not imgs["ojouUrl"]:
+                imgs["ojouUrl"] = url
+            elif "城娘" in label and not imgs["illustUrl"]:
+                imgs["illustUrl"] = url
+            elif "大破" in label and not imgs["taihaUrl"]:
+                imgs["taihaUrl"] = url
+            elif "特技" in label and not imgs["tokugiUrl"]:
+                imgs["tokugiUrl"] = url
+
         # Two-cell tables with labels:
         # | img1 | img2 |
         # | label1 | label2 |
@@ -162,14 +179,8 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
             c1, c2, l1, l2 = m.group(1), m.group(2), m.group(3), m.group(4)
             u1 = resolve_url(c1, p_name)
             u2 = resolve_url(c2, p_name)
-            if "御嬢" in l1 and u1 and not imgs["ojouUrl"]:
-                imgs["ojouUrl"] = u1
-            if "城娘" in l2 and u2 and not imgs["illustUrl"]:
-                imgs["illustUrl"] = u2
-            if "大破" in l1 and u1 and not imgs["taihaUrl"]:
-                imgs["taihaUrl"] = u1
-            if "特技" in l2 and u2 and not imgs["tokugiUrl"]:
-                imgs["tokugiUrl"] = u2
+            check_pair(l1, u1)
+            check_pair(l2, u2)
 
         # Reversed labels and images:
         # | label1 | label2 |
@@ -178,14 +189,8 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
             l1, l2, c1, c2 = m.group(1), m.group(2), m.group(3), m.group(4)
             u1 = resolve_url(c1, p_name)
             u2 = resolve_url(c2, p_name)
-            if "御嬢" in l1 and u1 and not imgs["ojouUrl"]:
-                imgs["ojouUrl"] = u1
-            if "城娘" in l2 and u2 and not imgs["illustUrl"]:
-                imgs["illustUrl"] = u2
-            if "大破" in l1 and u1 and not imgs["taihaUrl"]:
-                imgs["taihaUrl"] = u1
-            if "特技" in l2 and u2 and not imgs["tokugiUrl"]:
-                imgs["tokugiUrl"] = u2
+            check_pair(l1, u1)
+            check_pair(l2, u2)
 
         # Fallbacks for single cell or inline
         if not imgs["illustUrl"]:
@@ -199,12 +204,16 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
                     if p: imgs["illustUrl"] = p
 
         if not imgs["ojouUrl"]:
-            m_oj_ref2 = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*御嬢[^\./,\)]*\.(?:png|jpg))', text, re.I)
-            if m_oj_ref2:
-                p = m_oj_ref2.group(1)
-                p = p_name if (not p or p == ".") else p
-                f = m_oj_ref2.group(2)
-                imgs["ojouUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p)}&src={quote(f)}"
+            m_oj = re.search(r'\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*御嬢[^\n|]*\|', text, re.I)
+            if m_oj:
+                imgs["ojouUrl"] = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_oj.group(1)}"
+            else:
+                m_oj_ref2 = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*御嬢[^\./,\)]*\.(?:png|jpg))', text, re.I)
+                if m_oj_ref2:
+                    p = m_oj_ref2.group(1)
+                    p = p_name if (not p or p == ".") else p
+                    f = m_oj_ref2.group(2)
+                    imgs["ojouUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p)}&src={quote(f)}"
 
         if not imgs["taihaUrl"]:
             m_th = re.search(r'\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*大破[^\n|]*\|', text, re.I)
@@ -219,12 +228,16 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
                     imgs["taihaUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p)}&src={quote(f)}"
 
         if not imgs["tokugiUrl"]:
-            m_tok_ref = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*特技[^\./,\)]*\.(?:png|jpg))', text, re.I)
-            if m_tok_ref:
-                p = m_tok_ref.group(1)
-                p = p_name if (not p or p == ".") else p
-                f = m_tok_ref.group(2)
-                imgs["tokugiUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p)}&src={quote(f)}"
+            m_tok = re.search(r'\|[^\n|]*&uploader\(([a-f0-9]+)_scre[^\)]*\)[^\n|]*\|[\r\n]+\|[^\n|]*特技[^\n|]*\|', text, re.I)
+            if m_tok:
+                imgs["tokugiUrl"] = f"https://uploader.swiki.jp/attachment/full/attachment_hash/{m_tok.group(1)}"
+            else:
+                m_tok_ref = re.search(r'&(?:attach)?ref\((?:([^/,\)]+)/)?([^/,\)]*特技[^\./,\)]*\.(?:png|jpg))', text, re.I)
+                if m_tok_ref:
+                    p = m_tok_ref.group(1)
+                    p = p_name if (not p or p == ".") else p
+                    f = m_tok_ref.group(2)
+                    imgs["tokugiUrl"] = f"https://scre.swiki.jp/index.php?plugin=ref&page={quote(p)}&src={quote(f)}"
 
         return imgs
 
@@ -245,46 +258,15 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
             cur_stage_name = "改壱"
         stage_texts[cur_stage_name] = cnt
 
-    stage_forms = {}
+    raw_stage_forms = {}
     for st_name, st_txt in stage_texts.items():
         imgs = extract_images_from_block(st_txt, page_name)
-        stage_forms[st_name] = imgs
+        raw_stage_forms[st_name] = imgs
 
     # Fallbacks: base inherits top header image if missing
-    base_form = stage_forms.get("無印", {})
+    base_form = raw_stage_forms.get("無印", {})
     if not base_form.get("illustUrl") and castle["illustUrl"]:
         base_form["illustUrl"] = castle["illustUrl"]
-
-    # Kai stages inherit base form images if not specially redrawn
-    for st_key in ["改壱", "改弐"]:
-        if st_key in stage_forms:
-            sf = stage_forms[st_key]
-            if not sf.get("illustUrl"):
-                sf["illustUrl"] = base_form.get("illustUrl", "")
-            if not sf.get("ojouUrl"):
-                sf["ojouUrl"] = base_form.get("ojouUrl", "")
-            if not sf.get("taihaUrl"):
-                sf["taihaUrl"] = base_form.get("taihaUrl", "")
-            if not sf.get("tokugiUrl"):
-                sf["tokugiUrl"] = base_form.get("tokugiUrl", "")
-
-    # Check which stages are applicable (from image sections and text mentions)
-    applicable_stages = ["無印"]
-    if "改壱" in stage_forms and (any(stage_forms["改壱"].values()) or "[改壱]" in src or "改壱" in src):
-        applicable_stages.append("改壱")
-    if "改弐" in stage_forms and (any(stage_forms["改弐"].values()) or "[改弐]" in src or "改弐" in src):
-        applicable_stages.append("改弐")
-
-    castle["remodelStages"] = applicable_stages
-    castle["remodelForms"] = stage_forms
-
-    # Set default top-level images to latest stage's images (e.g. Kai2 or Kai1)
-    latest_st = applicable_stages[-1]
-    latest_form = stage_forms.get(latest_st, base_form)
-    castle["illustUrl"] = latest_form.get("illustUrl") or base_form.get("illustUrl") or castle["illustUrl"]
-    castle["ojouUrl"] = latest_form.get("ojouUrl") or base_form.get("ojouUrl") or ""
-    castle["taihaUrl"] = latest_form.get("taihaUrl") or base_form.get("taihaUrl") or ""
-    castle["tokugiUrl"] = latest_form.get("tokugiUrl") or base_form.get("tokugiUrl") or ""
 
     # Lore
     m_lore = re.search(r"BGCOLOR\(#[A-Fa-f0-9]+\):CENTER:\'\'図鑑文章\'\'\|[\r\n]+\|>\|>\|>\|>\|([^\n|]+(?:\n[^\n|]+)*)", src)
@@ -469,6 +451,44 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
     if all_specs:
         castle["allSpecials"] = all_specs
         castle["special"] = all_specs[-1]
+
+    # 5. Remodel Stages and Forms Determination
+    all_abilities = (castle.get("allSkills") or []) + (castle.get("allStrategies") or []) + (castle.get("allSpecials") or [])
+    has_kai1 = any(s.get("stage") == "改壱" for s in all_abilities) or "[改壱]" in src or ("改壱" in raw_stage_forms and any(raw_stage_forms["改壱"].values()))
+    has_kai2 = any(s.get("stage") == "改弐" for s in all_abilities)
+    if has_kai2:
+        has_kai1 = True
+
+    applicable_stages = ["無印"]
+    stage_forms = {"無印": dict(base_form)}
+
+    if has_kai1:
+        applicable_stages.append("改壱")
+        k1_form = dict(raw_stage_forms.get("改壱", {}))
+        for k in ["illustUrl", "ojouUrl", "taihaUrl", "tokugiUrl"]:
+            if not k1_form.get(k):
+                k1_form[k] = base_form.get(k, "")
+        stage_forms["改壱"] = k1_form
+
+    if has_kai2:
+        applicable_stages.append("改弐")
+        k2_form = dict(raw_stage_forms.get("改弐", {}))
+        k1_ref = stage_forms.get("改壱", base_form)
+        for k in ["illustUrl", "ojouUrl", "taihaUrl", "tokugiUrl"]:
+            if not k2_form.get(k):
+                k2_form[k] = k1_ref.get(k) or base_form.get(k, "")
+        stage_forms["改弐"] = k2_form
+
+    castle["remodelStages"] = applicable_stages
+    castle["remodelForms"] = stage_forms
+
+    # Set default top-level images to latest stage's images (e.g. Kai2 or Kai1)
+    latest_st = applicable_stages[-1]
+    latest_form = stage_forms.get(latest_st, base_form)
+    castle["illustUrl"] = latest_form.get("illustUrl") or base_form.get("illustUrl") or castle["illustUrl"]
+    castle["ojouUrl"] = latest_form.get("ojouUrl") or base_form.get("ojouUrl") or ""
+    castle["taihaUrl"] = latest_form.get("taihaUrl") or base_form.get("taihaUrl") or ""
+    castle["tokugiUrl"] = latest_form.get("tokugiUrl") or base_form.get("tokugiUrl") or ""
 
     return castle
 
