@@ -3439,6 +3439,190 @@ async function runTests() {
     console.log('=> TEST 60 PASSED');
   }
 
+  // --- TEST 50 / TEST 61: Party Undo Extension & Robust Backup Restore (Prompt 15) ---
+  console.log('\n--- TEST 50 / TEST 61: Party Undo Extension & Backup Restore Validation (Prompt 15) ---');
+  {
+    // 1. Verify Strategy Toggle Undo
+    await page.click('button[data-tab="tab-dashboard"]');
+    await new Promise(r => setTimeout(r, 400));
+
+    // Ensure party has members
+    let partyCount = await page.$$eval('#partySlotList .party-card:not(.empty)', els => els.length);
+    if (partyCount === 0) {
+      await page.click('.preset-btn[data-preset-idx="0"]');
+      await new Promise(r => setTimeout(r, 300));
+      partyCount = await page.$$eval('#partySlotList .party-card:not(.empty)', els => els.length);
+    }
+
+    const stratBtn = await page.$('#partySlotList button[data-action="toggle-strat"][data-index="0"]');
+    if (stratBtn) {
+      const initStratActive = await page.evaluate(el => el.classList.contains('active'), stratBtn);
+      const initStratText = await page.evaluate(el => el.textContent.trim(), stratBtn);
+      console.log('Slot 0 initial strategy:', initStratText, 'active:', initStratActive);
+
+      // Toggle strategy
+      await page.$eval('#partySlotList button[data-action="toggle-strat"][data-index="0"]', el => el.click());
+      await new Promise(r => setTimeout(r, 300));
+
+      const toggledStratBtn = await page.$('#partySlotList button[data-action="toggle-strat"][data-index="0"]');
+      const toggledStratActive = await page.evaluate(el => el.classList.contains('active'), toggledStratBtn);
+      console.log('Slot 0 strategy after toggle active:', toggledStratActive);
+      if (toggledStratActive === initStratActive) {
+        throw new Error('TEST 50/61 FAILED: Strategy toggle button did not change state');
+      }
+
+      // Check undo button state before click
+      const undoBtnState = await page.evaluate(() => {
+        const btn = document.getElementById('btnUndoParty');
+        return {
+          disabled: btn ? btn.disabled : true,
+          stackLen: window.__getUndoStack ? window.__getUndoStack().length : -1
+        };
+      });
+      console.log('Undo button state before Undo click:', undoBtnState);
+
+      // Undo via button click
+      await page.$eval('#btnUndoParty', el => el.click());
+      await new Promise(r => setTimeout(r, 300));
+
+      const restoredStratBtn = await page.$('#partySlotList button[data-action="toggle-strat"][data-index="0"]');
+      const restoredStratActive = await page.evaluate(el => el.classList.contains('active'), restoredStratBtn);
+      console.log('Slot 0 strategy after Undo active:', restoredStratActive);
+      if (restoredStratActive !== initStratActive) {
+        throw new Error('TEST 50/61 FAILED: Undo did not restore strategy toggle state');
+      }
+    }
+
+    // 2. Verify Castle Slot Removal (×) Undo
+    const initPartyCount = await page.$$eval('#partySlotList .party-card:not(.empty)', els => els.length);
+    const firstCastleName = await page.$eval('#partySlotList .party-card:not(.empty) .castle-name', el => el.textContent.trim());
+    console.log(`Initial party count: ${initPartyCount}, first castle: ${firstCastleName}`);
+
+    // Click remove (×) button on slot 0
+    const removeBtn = await page.$('#partySlotList button[data-action="remove"][data-index="0"]');
+    if (!removeBtn) {
+      throw new Error('TEST 50/61 FAILED: Remove button not found on slot 0');
+    }
+    await removeBtn.click();
+    await new Promise(r => setTimeout(r, 300));
+
+    const afterRemoveCount = await page.$$eval('#partySlotList .party-card:not(.empty)', els => els.length);
+    console.log(`Party count after removing slot 0: ${afterRemoveCount}`);
+    if (afterRemoveCount !== initPartyCount - 1) {
+      throw new Error(`TEST 50/61 FAILED: Expected party count ${initPartyCount - 1}, got ${afterRemoveCount}`);
+    }
+
+    // Undo via Ctrl+Z
+    await page.keyboard.down('Control');
+    await page.keyboard.press('KeyZ');
+    await page.keyboard.up('Control');
+    await new Promise(r => setTimeout(r, 300));
+
+    const afterUndoCount = await page.$$eval('#partySlotList .party-card:not(.empty)', els => els.length);
+    const restoredCastleName = await page.$eval('#partySlotList .party-card:not(.empty) .castle-name', el => el.textContent.trim());
+    console.log(`Party count after Undo: ${afterUndoCount}, first castle: ${restoredCastleName}`);
+    if (afterUndoCount !== initPartyCount || restoredCastleName !== firstCastleName) {
+      throw new Error(`TEST 50/61 FAILED: Removed castle was not restored by Undo (count: ${afterUndoCount}, name: ${restoredCastleName})`);
+    }
+
+    // 3. Robust Backup Restore Validation (Prompt 2)
+    console.log('Testing Backup Restore Validation & Alert (Prompt 2)...');
+    const backupValidationResult = await page.evaluate(async () => {
+      // Direct unit test of window.validateBackupValue
+      const vValidJson = window.validateBackupValue('scre-helper:presets:v2', JSON.stringify([{ id: 'c1' }]));
+      const vInvalidJson = window.validateBackupValue('scre-helper:presets:v2', '{ broken json...');
+      const vInvalidRaw = window.validateBackupValue('scre-helper:corrupted:v1', '{ unclosed...');
+      const vTerrain = window.validateBackupValue('scre-helper:terrain:v1', '平');
+      const vDensity = window.validateBackupValue('scre-helper:density:v1', 'compact');
+      const vNull = window.validateBackupValue('scre-helper:null:v1', null);
+
+      if (!vValidJson.valid || vInvalidJson.valid || vInvalidRaw.valid || !vTerrain.valid || !vDensity.valid || vNull.valid) {
+        return {
+          success: false,
+          error: 'validateBackupValue unit test failed: ' + JSON.stringify({ vValidJson, vInvalidJson, vInvalidRaw, vTerrain, vDensity, vNull })
+        };
+      }
+
+      // Integration test through fullBackupFileInput change event
+      const testBackupPayload = {
+        version: "1.0",
+        app: "城プロRE 編成・バフ/デバフ統合ダッシュボード",
+        exportedAt: new Date().toISOString(),
+        data: {
+          "scre-helper:terrain:v1": "山",
+          "scre-helper:density:v1": "compact",
+          "scre-helper:corrupted_bad_json": "{ invalid_json: 123",
+          "scre-helper:invalid_presets": "{ unclosed presets"
+        }
+      };
+
+      let capturedAlert = "";
+      const origAlert = window.alert;
+      const origConfirm = window.confirm;
+      window.__mockReload = () => {};
+
+      window.alert = (msg) => { capturedAlert = msg; };
+      window.confirm = () => true;
+
+      try {
+        const fileInput = document.getElementById("fullBackupFileInput");
+        if (!fileInput) return { success: false, error: "#fullBackupFileInput element not found" };
+
+        const blob = new Blob([JSON.stringify(testBackupPayload)], { type: "application/json" });
+        const file = new File([blob], "test_backup.json", { type: "application/json" });
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        fileInput.files = dt.files;
+        fileInput.dispatchEvent(new Event("change", { bubbles: true }));
+
+        // Wait for FileReader onload
+        await new Promise(r => setTimeout(r, 400));
+
+        // Verify corrupted keys were NOT set in localStorage
+        const badKey = localStorage.getItem("scre-helper:corrupted_bad_json");
+        const badPresets = localStorage.getItem("scre-helper:invalid_presets");
+        const validTerrain = localStorage.getItem("scre-helper:terrain:v1");
+
+        // Clean up test keys
+        localStorage.removeItem("scre-helper:corrupted_bad_json");
+        localStorage.removeItem("scre-helper:invalid_presets");
+
+        return {
+          success: true,
+          capturedAlert,
+          badKey,
+          badPresets,
+          validTerrain
+        };
+      } finally {
+        window.alert = origAlert;
+        window.confirm = origConfirm;
+        delete window.__mockReload;
+      }
+    });
+
+    if (!backupValidationResult.success) {
+      throw new Error(`TEST 50/61 FAILED: ${backupValidationResult.error}`);
+    }
+
+    console.log('Backup restore alert message captured:\n', backupValidationResult.capturedAlert);
+    if (!backupValidationResult.capturedAlert.includes('除外された不正な項目') ||
+        !backupValidationResult.capturedAlert.includes('scre-helper:corrupted_bad_json') ||
+        !backupValidationResult.capturedAlert.includes('scre-helper:invalid_presets')) {
+      throw new Error('TEST 50/61 FAILED: Excluded keys were not properly listed in completion alert');
+    }
+
+    if (backupValidationResult.badKey !== null || backupValidationResult.badPresets !== null) {
+      throw new Error('TEST 50/61 FAILED: Corrupted keys were written to localStorage!');
+    }
+
+    if (backupValidationResult.validTerrain !== '山') {
+      throw new Error(`TEST 50/61 FAILED: Valid key scre-helper:terrain:v1 was not properly restored, got: ${backupValidationResult.validTerrain}`);
+    }
+
+    console.log('=> TEST 50 / TEST 61 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -3450,7 +3634,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (60/60)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (61/61)!');
   console.log('=====================================');
 }
 

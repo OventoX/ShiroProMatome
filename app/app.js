@@ -80,6 +80,8 @@
   const undoStack = [];
   const MAX_UNDO = 50;
   let isUndoing = false;
+  window.__getUndoStack = () => undoStack;
+  window.__getIsUndoing = () => isUndoing;
 
   function pushUndoSnapshot() {
     if (isUndoing) return;
@@ -1360,21 +1362,31 @@
 
     // Handle party slots click
   document.getElementById("partySlotList").addEventListener("click", e => {
-    const action = e.target.getAttribute("data-action");
-    const index = parseInt(e.target.getAttribute("data-index"), 10);
+    const actionEl = e.target.closest("[data-action]");
+    const action = actionEl ? actionEl.getAttribute("data-action") : e.target.getAttribute("data-action");
+    const index = actionEl ? parseInt(actionEl.getAttribute("data-index"), 10) : parseInt(e.target.getAttribute("data-index"), 10);
 
     if (action === "toggle-strat") {
-      party[index].strategyOn = !party[index].strategyOn;
-      saveParty();
-      renderDashboard();
+      if (party[index]) {
+        pushUndoSnapshot();
+        party[index].strategyOn = !party[index].strategyOn;
+        saveParty();
+        renderDashboard();
+      }
     } else if (action === "toggle-special") {
-      party[index].specialOn = !party[index].specialOn;
-      saveParty();
-      renderDashboard();
+      if (party[index]) {
+        pushUndoSnapshot();
+        party[index].specialOn = !party[index].specialOn;
+        saveParty();
+        renderDashboard();
+      }
     } else if (action === "remove") {
-      party.splice(index, 1);
-      saveParty();
-      renderDashboard();
+      if (party[index]) {
+        pushUndoSnapshot();
+        party.splice(index, 1);
+        saveParty();
+        renderDashboard();
+      }
     } else if (e.target.classList.contains("castle-name")) {
       const id = e.target.getAttribute("data-id");
       openCastleDetail(id, party.map(s => getCastleById(s.id)).filter(Boolean));
@@ -1388,6 +1400,7 @@
         alert("編成枠がいっぱいです(最大8体)。");
         return;
       }
+      pushUndoSnapshot();
       party.push({ id, strategyOn: true, specialOn: false });
       saveParty();
       renderDashboard();
@@ -2426,6 +2439,72 @@
     showNotification(`全データ（${Object.keys(backupData).length}項目）を一括書き出しました！💾`);
   });
 
+  // Helper to validate and serialize backup item values (B2 堅牢化)
+  function validateBackupValue(key, val) {
+    if (val === null || val === undefined) {
+      return { valid: false };
+    }
+
+    // If already an object or array (parsed JSON)
+    if (typeof val === "object") {
+      try {
+        const serialized = JSON.stringify(val);
+        return { valid: true, serialized };
+      } catch (e) {
+        return { valid: false };
+      }
+    }
+
+    // If number or boolean primitive
+    if (typeof val === "number" || typeof val === "boolean") {
+      return { valid: true, serialized: String(val) };
+    }
+
+    if (typeof val === "string") {
+      const trimmed = val.trim();
+
+      // Specific structured keys in scre-helper that MUST be valid JSON
+      const knownJsonKeys = [
+        "scre-helper:presets:v2",
+        "scre-helper:ownership:v1",
+        "scre-helper:stage-progress:v1",
+        "scre-helper:theme:v1",
+        "scre-helper:filter-presets:v1",
+        "scre-helper:tier-weights:v1",
+        "scre-helper:tier-overrides:v1",
+        "scre_custom_tiers"
+      ];
+
+      if (knownJsonKeys.includes(key)) {
+        try {
+          const parsedJson = JSON.parse(trimmed);
+          if (typeof parsedJson !== "object" || parsedJson === null) {
+            return { valid: false };
+          }
+          return { valid: true, serialized: trimmed };
+        } catch (e) {
+          return { valid: false };
+        }
+      }
+
+      // If string begins with { or [ it is intended to be a JSON object or array
+      if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
+        try {
+          JSON.parse(trimmed);
+          return { valid: true, serialized: trimmed };
+        } catch (e) {
+          return { valid: false };
+        }
+      }
+
+      // For non-JSON primitive string keys (e.g. terrain, density, font-size, view-mode, activePresetIdx, etc.)
+      return { valid: true, serialized: val };
+    }
+
+    return { valid: false };
+  }
+  window.validateBackupValue = validateBackupValue;
+
   const fullBackupTrigger = document.getElementById("btnFullBackupImportTrigger");
   const fullBackupFileInput = document.getElementById("fullBackupFileInput");
   if (fullBackupTrigger && fullBackupFileInput) {
@@ -2445,20 +2524,58 @@
             return;
           }
           const dataKeys = Object.keys(parsed.data);
-          const validKeys = dataKeys.filter(k => k.startsWith("scre-helper:") || k.startsWith("scre_"));
-          if (validKeys.length === 0) {
+          const candidateKeys = dataKeys.filter(k => k.startsWith("scre-helper:") || k.startsWith("scre_"));
+          if (candidateKeys.length === 0) {
             alert("有効な城プロRE設定データが含まれていません。");
             return;
           }
-          const confirmMsg = `【一括バックアップ復元の確認】\n対象データ項目数: ${validKeys.length}件\n作成日時: ${parsed.exportedAt || '不明'}\n\n現在のすべての編成・所持情報・設定がこのバックアップで上書きされます。\nよろしいですか？`;
+
+          const validItems = [];
+          const excludedKeys = [];
+
+          candidateKeys.forEach(k => {
+            const rawVal = parsed.data[k];
+            const check = validateBackupValue(k, rawVal);
+            if (check.valid) {
+              validItems.push({ key: k, value: check.serialized });
+            } else {
+              excludedKeys.push(k);
+            }
+          });
+
+          if (validItems.length === 0) {
+            let msg = "有効な復元データが存在しませんでした（すべての項目が不正または破損しています）。";
+            if (excludedKeys.length > 0) {
+              msg += `\n\n【除外された項目 (${excludedKeys.length}件)】:\n` + excludedKeys.join("\n");
+            }
+            alert(msg);
+            return;
+          }
+
+          let confirmMsg = `【一括バックアップ復元の確認】\n対象データ項目数: ${validItems.length}件`;
+          if (excludedKeys.length > 0) {
+            confirmMsg += ` (除外: ${excludedKeys.length}件)`;
+          }
+          confirmMsg += `\n作成日時: ${parsed.exportedAt || '不明'}\n\n現在のすべての編成・所持情報・設定がこのバックアップで上書きされます。\nよろしいですか？`;
           if (!window.confirm(confirmMsg)) {
             return;
           }
-          validKeys.forEach(k => {
-            localStorage.setItem(k, parsed.data[k]);
+
+          validItems.forEach(item => {
+            localStorage.setItem(item.key, item.value);
           });
-          alert(`一括バックアップの復元が完了しました（${validKeys.length}項目）。\nページを再読み込みします。`);
-          window.location.reload();
+
+          let alertMsg = `一括バックアップの復元が完了しました（${validItems.length}項目）。`;
+          if (excludedKeys.length > 0) {
+            alertMsg += `\n\n【除外された不正な項目 (${excludedKeys.length}件)】:\n` + excludedKeys.join("\n");
+          }
+          alertMsg += "\n\nページを再読み込みします。";
+          alert(alertMsg);
+          if (typeof window.__mockReload === "function") {
+            window.__mockReload();
+          } else {
+            window.location.reload();
+          }
         } catch (err) {
           alert("JSONファイルの解析に失敗しました: " + err.message);
         }
