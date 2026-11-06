@@ -3171,8 +3171,8 @@ async function runTests() {
     const kobayakawaKi = !kobayakawaBuffer.found ? await getCastleRoleData('［正月］小早川城', 'ki') : null;
     console.log('［正月］小早川城 buffer result:', kobayakawaBuffer, 'ki result:', kobayakawaKi);
     const kobayakawaTier = kobayakawaBuffer.found ? kobayakawaBuffer.tier : (kobayakawaKi?.tier || 'NONE');
-    if (!['SS', 'S'].includes(kobayakawaTier)) {
-      throw new Error(`TEST 57 FAILED: ［正月］小早川城 expected SS or S in buffer/ki, got ${kobayakawaTier}`);
+    if (kobayakawaTier !== 'SS') {
+      throw new Error(`TEST 57 FAILED: ［正月］小早川城 expected SS in buffer/ki, got ${kobayakawaTier}`);
     }
 
     // B) ［夏］ポエナリ城: バッファーで SS〜S
@@ -3187,7 +3187,7 @@ async function runTests() {
     console.log('Checking 崑崙...');
     const kunlun = await getCastleRoleData('崑崙', 'buffer');
     console.log('崑崙 result:', kunlun);
-    if (!kunlun.found || !['SS', 'S'].includes(kunlun.tier)) {
+    if (!kunlun.found || kunlun.tier !== 'SS') {
       throw new Error(`TEST 57 FAILED: 崑崙 expected SS in buffer, got ${JSON.stringify(kunlun)}`);
     }
 

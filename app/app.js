@@ -5660,20 +5660,28 @@
       // 1. Text Parsing & Enhancement
       // Kobu (鼓舞)
       let kobuScore = 0.0;
+      let kobuPct = 0;
       const kobuMatch = all_text.match(/【鼓舞】.*?自身の(?:攻撃(?:と防御)?)の(\d+)%/);
       if (kobuMatch) {
-        const pct = parseInt(kobuMatch[1], 10);
-        kobuScore += pct * 1.5;
+        kobuPct = parseInt(kobuMatch[1], 10);
+        kobuScore += kobuPct * 1.5;
       } else if (/自身の(?:攻撃(?:と防御)?)の(\d+)%.*?加算/.test(all_text)) {
         const m = all_text.match(/自身の(?:攻撃(?:と防御)?)の(\d+)%.*?加算/);
-        if (m) kobuScore += parseInt(m[1], 10) * 1.2;
+        if (m) {
+          kobuPct = parseInt(m[1], 10);
+          kobuScore += kobuPct * 1.2;
+        }
       }
       if (/(?:最大化時は)?加算値([\d\.]+)倍/.test(all_text)) {
         const m = all_text.match(/(?:最大化時は)?加算値([\d\.]+)倍/);
-        if (m) kobuScore *= parseFloat(m[1]);
+        if (m) {
+          kobuScore *= parseFloat(m[1]);
+          kobuPct = Math.round(kobuPct * parseFloat(m[1]));
+        }
       }
       if (c.weapon === "陣貝") {
         kobuScore = Math.max(kobuScore, 60.0);
+        kobuPct = Math.max(kobuPct, 50);
       }
 
       // Giantize Ki Reduction (巨大化気)
@@ -5736,7 +5744,8 @@
       if (/防御を?無視/.test(all_text)) atkMultScore += 25.0;
       if (/連続で?攻撃/.test(all_text)) atkMultScore += 15.0;
       // "与えるダメージ" general multiplier parsing (Prompt 13: 高防御でも実ダメが伸びる・重複可能・審議素通りのため高評価)
-      const dmgTargetMatches = all_text.matchAll(/与えるダメージ(?:が)?(?:約)?([\d\.]+)倍/g);
+      // Only count self/target multipliers towards personal attacker score, excluding ally team buffs (全城娘, 射程内, 味方)
+      const dmgTargetMatches = all_text.matchAll(/(?:自身|自分|標的|対象|敵|特殊能力中)[^。]*?与えるダメージ(?:が)?(?:約)?([\d\.]+)倍/g);
       for (const dtm of dmgTargetMatches) {
         const mult = parseFloat(dtm[1]);
         if (mult > 1.0) {
@@ -5855,27 +5864,39 @@
       const normSpec = Math.min(1.0, (kiScore + (giantKiScore * 0.8) + ((c.attributes && c.attributes.length >= 2) ? 12.0 : 0.0) + (tankScore * 0.5) + (allBuffScore * 0.4) + (tokenScore * 0.4)) / 70.0);
 
       let stratRaw = 0.0;
+      const hasSpecial = Boolean(sp) || c.weapon === "拳" || /特殊能力|「翔天招嶺」|「飛空昇岳」/.test(all_text);
       const activeAbility = st || sp;
-      if (activeAbility) {
-        let cd = activeAbility.cooldown || (c.strategy && c.strategy.cooldown);
-        let cost = activeAbility.cost || (c.strategy && c.strategy.cost);
-        if (!cd) {
-          const m = (activeAbility.name || "").match(/(?:再使用|使用まで)(\d+)秒/);
-          if (m) cd = parseInt(m[1], 10);
+      if (activeAbility || hasSpecial) {
+        let cd = null;
+        let cost = null;
+        if (activeAbility) {
+          cd = activeAbility.cooldown || (c.strategy && c.strategy.cooldown);
+          cost = activeAbility.cost || (c.strategy && c.strategy.cost);
+          if (!cd) {
+            const m = (activeAbility.name || "").match(/(?:再使用|使用まで)(\d+)秒/);
+            if (m) cd = parseInt(m[1], 10);
+          }
+          if (!cost) {
+            const m = (activeAbility.name || "").match(/消費気(\d+)/);
+            if (m) cost = parseInt(m[1], 10);
+          }
         }
-        if (!cost) {
-          const m = (activeAbility.name || "").match(/消費気(\d+)/);
-          if (m) cost = parseInt(m[1], 10);
+        if (cd == null && (c.weapon === "拳" || /特殊能力|「翔天招嶺」|「飛空昇岳」/.test(all_text))) {
+          cd = 25;
+          cost = 0;
         }
-        cd = cd || 50;
-        cost = cost || 7;
+        cd = cd != null ? cd : 50;
+        cost = cost != null ? cost : 7;
         stratRaw += Math.max(0, 1.0 - (cd / 80.0)) * 5.0 + Math.max(0, 1.0 - (cost / 15.0)) * 3.0;
-        if (st && sp) stratRaw += 3.0;
+        if (hasSpecial) stratRaw += 3.0;
         if (hasToken) stratRaw += 3.0;
+      } else if (c.weapon === "陣貝") {
+        const kobuRatio = Math.min(1.0, Math.max(0.5, (kobuPct || 50) / 60.0));
+        stratRaw = 8.0 * kobuRatio;
       } else {
         stratRaw = 0.0;
       }
-      const normStrat = Math.min(1.0, stratRaw / 11.0);
+      const normStrat = Math.min(1.0, stratRaw / 8.0);
 
       // Base norm depends on role!
       let baseNorm = 0.5;
