@@ -363,10 +363,10 @@
   }
 
   // ==========================================
-    function escapeHtml(str) {
+  function escapeHtml(str) {
     if (str == null) return "";
     return String(str)
-      .replace(/&/g, "&amp;")
+      .replace(/&(?!(?:amp|lt|gt|quot|#39|#x27|#\d+);)/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
@@ -405,6 +405,19 @@
 
   function getCastleById(id) {
     return window.SCRE_DATA.find(c => c.id === id || c.name === id) || null;
+  }
+
+  function getCastleFullText(c) {
+    if (!c) return "";
+    const parts = [
+      c.skill ? (c.skill.name + " " + c.skill.text) : "",
+      c.strategy ? (c.strategy.name + " " + c.strategy.text) : "",
+      c.special ? (c.special.name + " " + c.special.text) : ""
+    ];
+    if (c.allSkills) c.allSkills.forEach(s => parts.push(s.name + " " + s.text));
+    if (c.allStrategies) c.allStrategies.forEach(s => parts.push(s.name + " " + s.text));
+    if (c.allSpecials) c.allSpecials.forEach(s => parts.push(s.name + " " + s.text));
+    return parts.filter(Boolean).join(" ");
   }
 
   function getAttrBadgeHtml(castle) {
@@ -524,6 +537,8 @@
           const b = targetCastle.buffs;
 
           if (effect.mode === "share") {
+            // 鼓舞効果は自身以外の味方に適用（供与者自身への二重適用防止）
+            if (isSelf) return;
             b.shares.push({
               stat: effect.stat,
               shareSource: effect.shareSource || effect.from,
@@ -604,7 +619,7 @@
     activePartyMembers.forEach(({ castle }) => {
       const data = perCastle[castle.id];
       const b = data.buffs;
-      const base = castle.stats.giant5;
+      const base = (castle.stats && castle.stats.giant5) || { atk: 100, def: 100, hp: 1000, range: 100, recovery: 10 };
 
       const atkPerc = (b.atkPercent.max + b.atkPercent.stackSum) / 100;
       const defPerc = (b.defPercent.max + b.defPercent.stackSum) / 100;
@@ -692,7 +707,7 @@
   tabBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       tabBtns.forEach(b => b.classList.remove("active"));
-      tabContents.forEach(c => c.classList.remove("active"));
+      tabContents.forEach(el => el.classList.remove("active"));
       btn.classList.add("active");
       const targetId = btn.getAttribute("data-tab");
       document.getElementById(targetId).classList.add("active");
@@ -724,6 +739,7 @@
 
   // 1. Render Party Slots (Showing dynamic live stats & Terrain Matching)
   function renderPartyTab(calcResult) {
+    if (!calcResult) calcResult = calculateBuffs();
     const listEl = document.getElementById("partySlotList");
     listEl.innerHTML = "";
     document.getElementById("partyCounter").textContent = `編成 ${party.length}/8`;
@@ -1099,7 +1115,7 @@
     activePartyMembers.forEach(({ castle }) => {
       const data = perCastle[castle.id];
       const b = data.buffs;
-      const base = castle.stats.giant5;
+      const base = (castle.stats && castle.stats.giant5) || { atk: 100, def: 100, hp: 1000, range: 100, recovery: 10 };
       const calc = data.calculatedStats;
 
       const card = document.createElement("div");
@@ -4377,17 +4393,6 @@
     const hasAbnormal = isHades || /暗闇|状態異常|猛毒|毒|火傷|氷結|混乱|麻痺/.test(allText);
     const hasBossRamp = /時間経過|徐々に攻撃|徐々に.*強化|ゲージが無くなる|大幅に強化/.test(allText);
 
-    function getCastleFullText(c) {
-      const parts = [
-        c.skill ? (c.skill.name + " " + c.skill.text) : "",
-        c.strategy ? (c.strategy.name + " " + c.strategy.text) : "",
-        c.special ? (c.special.name + " " + c.special.text) : ""
-      ];
-      if (c.allSkills) c.allSkills.forEach(s => parts.push(s.name + " " + s.text));
-      if (c.allStrategies) c.allStrategies.forEach(s => parts.push(s.name + " " + s.text));
-      return parts.join(" ");
-    }
-
     function scoreCastle(c) {
       let score = getCastleBaseScore(c);
       const full = getCastleFullText(c);
@@ -5390,14 +5395,21 @@
   let cachedComputedScores = null;
 
   function parseStatNumber(v) {
-    if (!v) return 0;
-    const parts = String(v).split('/');
+    if (v == null) return 0;
+    let s = String(v).trim();
+    if (!s) return 0;
+    // Convert full-width digits and commas to half-width
+    s = s.replace(/[０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0));
+    s = s.replace(/[，]/g, ',');
+    const parts = s.split('/');
     if (parts.length > 1) {
-      const val = parseInt(parts[1].trim(), 10);
-      if (!isNaN(val) && val > 0) return val;
+      const cleanLast = parts[1].replace(/[,\s%]/g, '').trim();
+      const m = cleanLast.match(/^-?\d+/);
+      if (m) return parseInt(m[0], 10);
     }
-    const val0 = parseInt(parts[0].trim(), 10);
-    return isNaN(val0) ? 0 : val0;
+    const clean0 = parts[0].replace(/[,\s%]/g, '').trim();
+    const m0 = clean0.match(/^-?\d+/);
+    return m0 ? parseInt(m0[0], 10) : 0;
   }
 
   function getLatestAbilities(c) {
@@ -5420,6 +5432,15 @@
       special = k2 || k1 || c.allSpecials[c.allSpecials.length - 1];
     }
     return { skill, strategy, special };
+  }
+
+  function calcPercentile(val, sortedArr) {
+    if (!sortedArr || sortedArr.length === 0) return 0.5;
+    let count = 0;
+    for (let i = 0; i < sortedArr.length; i++) {
+      if (sortedArr[i] <= val) count++;
+    }
+    return count / sortedArr.length;
   }
 
   function precomputeRawNormScores() {
@@ -5451,15 +5472,6 @@
         cost: groups[rk].map(x => x.cost).sort((a,b) => a - b)
       };
     });
-
-    function calcPercentile(val, sortedArr) {
-      if (!sortedArr || sortedArr.length === 0) return 0.5;
-      let count = 0;
-      for (let i = 0; i < sortedArr.length; i++) {
-        if (sortedArr[i] <= val) count++;
-      }
-      return count / sortedArr.length;
-    }
 
     const rawMap = {};
     window.SCRE_DATA.forEach(c => {
@@ -5938,6 +5950,7 @@
       else if (idx < idxB) oTier = "B";
       else if (idx < idxC) oTier = "C";
       item.overallTier = oTier;
+      item.tier = oTier;
     });
 
     cachedComputedScores = result;
@@ -8495,7 +8508,8 @@ function getRecommendedWeapons(castle, limit = 3) {
     }
 
     // 10. モチーフ城名一致
-    if (eff.includes(castle.name) || (castle.baseName && eff.includes(castle.baseName))) {
+    const baseName = (castle.name || "").replace(/^［.*?］/, "");
+    if (eff.includes(castle.name) || (baseName && eff.includes(baseName))) {
       score += 30;
       reasons.push('専用モチーフ・特効シナジー');
     }
@@ -9182,4 +9196,45 @@ function showQuizResult() {
   window.calculateCastleSynergy = calculateCastleSynergy;
   window.calculateBuffs = calculateBuffs;
   window.getRecommendedWeapons = getRecommendedWeapons;
+
+  // White-box test exports (test-spec)
+  window.parseStatNumber = parseStatNumber;
+  window.getCastleById = getCastleById;
+  window.getCastleByName = getCastleByName;
+  window.getLatestAbilities = getLatestAbilities;
+  window.matchCastleNameOrRuby = matchCastleNameOrRuby;
+  window.escapeHtml = escapeHtml;
+  window.getCastleFullText = getCastleFullText;
+  window.calcPercentile = calcPercentile;
+  window.precomputeRawNormScores = precomputeRawNormScores;
+  window.computeCastleScores = computeCastleScores;
+  window.filterCastlesForStage = filterCastlesForStage;
+  window.generateAutoSuggestedParty = generateAutoSuggestedParty;
+  window.clearStageSuggestedPartyCache = clearStageSuggestedPartyCache;
+  window.loadSuggestedPartyToCurrent = loadSuggestedPartyToCurrent;
+  window.getShareUrl = getShareUrl;
+  window.checkShareUrlOnLoad = checkShareUrlOnLoad;
+  window.loadOwnership = loadOwnership;
+  window.getStageProgressData = getStageProgressData;
+  window.savePartyForStage = savePartyForStage;
+  window.restorePartyFromStage = restorePartyFromStage;
+  window.loadSavedCustomTiers = loadSavedCustomTiers;
+  window.calculateGiantizeSimulation = calculateGiantizeSimulation;
+  window.navigateDetailCastle = navigateDetailCastle;
+  window.openImageZoom = openImageZoom;
+  window.closeImageZoom = closeImageZoom;
+  window.resetZoomTransform = resetZoomTransform;
+  window.exportPartyImage = exportPartyImage;
+  window.exportTierToImage = exportTierToImage;
+  window.renderCoveragePanel = renderCoveragePanel;
+  window.openPresetCompareModal = openPresetCompareModal;
+  window.openStageDiagnostic = openStageDiagnostic;
+  window.getParty = () => party;
+  window.setParty = (p) => {
+    party = p;
+    if (partyPresets && partyPresets[currentPresetIdx]) {
+      partyPresets[currentPresetIdx].party = party;
+    }
+    renderDashboard();
+  };
 })();
