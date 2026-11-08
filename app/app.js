@@ -5805,13 +5805,21 @@
         });
       }
 
-      const sk_text = sk ? ((sk.name || "") + " " + (sk.text || "")) : "";
-      const st_text = st ? ((st.name || "") + " " + (st.text || "")) : "";
+      const activeStage = (st && st.stage) || (sk && sk.stage) || "無印";
+      const activeStrats = (c.allStrategies && c.allStrategies.length > 0)
+        ? c.allStrategies.filter(s => s.stage === activeStage)
+        : (st ? [st] : []);
+      // 鎌武器種は大破特技（全段階で特技テーブル内に存在）が特技と並行して実働するため、activeStageの全スキルを連結
+      const activeSkills = (c.weapon === "鎌" && c.allSkills && c.allSkills.length > 0)
+        ? c.allSkills.filter(s => s.stage === activeStage)
+        : (sk ? [sk] : []);
+      const sk_text = activeSkills.map(s => (s.name || "") + " " + (s.text || "")).join(" ");
+      const st_text = activeStrats.map(s => (s.name || "") + " " + (s.text || "")).join(" ");
       const sp_text = sp ? ((sp.name || "") + " " + (sp.text || "")) : "";
       const all_text = [sk_text, st_text, sp_text].filter(Boolean).join(" ");
 
-      if (sk) addEffects(sk.effects, sk_text);
-      if (st) addEffects(st.effects, st_text);
+      activeSkills.forEach(s => addEffects(s.effects, (s.name || "") + " " + (s.text || "")));
+      activeStrats.forEach(s => addEffects(s.effects, (s.name || "") + " " + (s.text || "")));
       if (sp) addEffects(sp.effects, sp_text);
 
       // Token analysis
@@ -5923,15 +5931,19 @@
 
       // Multiplier / Def Ignore / Target Count / Self Range (倍率・防御無視・対象数・自己射程)
       let atkMultScore = 0.0;
-      const multMatch = all_text.match(/攻撃の([\d\.]+)倍/);
+      const multMatch = all_text.match(/攻撃(?:の|が)?([\d\.]+)倍/);
       if (multMatch) {
         atkMultScore += parseFloat(multMatch[1]) * 8.0;
+        if (c.weapon === "陣貝") {
+          atkMultScore += parseFloat(multMatch[1]) * 6.0; // 陣貝の自己攻撃倍率は鼓舞加算値を直結倍化する最重要要素
+        }
       }
       if (/防御を?無視/.test(all_text)) atkMultScore += 25.0;
       if (/連続で?攻撃/.test(all_text)) atkMultScore += 15.0;
       // "与えるダメージ" general multiplier parsing (Prompt 13: 高防御でも実ダメが伸びる・重複可能・審議素通りのため高評価)
       // Only count self/target multipliers towards personal attacker score, excluding ally team buffs (全城娘, 射程内, 味方)
-      const dmgTargetMatches = all_text.matchAll(/(?:自身|自分|標的|対象|敵|特殊能力中)[^。]*?与えるダメージ(?:が)?(?:約)?([\d\.]+)倍/g);
+      // Includes "特殊攻撃で与えるダメージが○倍" (Prompt 25: 14体の特殊攻撃ダメージ倍率を加点対象に含める)
+      const dmgTargetMatches = all_text.matchAll(/(?:(?:自身|自分|標的|対象|敵|特殊能力中)[^。]*?与えるダメージ|特殊攻撃(?:で|の|時|時の範囲攻撃で)?(?:与える)?ダメージ(?:と[^\s、。0-9]+)?)(?:が|は)?(?:約)?([\d\.]+)倍/g);
       for (const dtm of dmgTargetMatches) {
         const mult = parseFloat(dtm[1]);
         if (mult > 1.0) {
@@ -5950,8 +5962,8 @@
       if (targetIncMatch) {
         atkMultScore += parseInt(targetIncMatch[1], 10) * 15.0;
       }
-      if (/射程が(?:約)?([\d\.]+)倍/.test(all_text)) {
-        const m = all_text.match(/射程が(?:約)?([\d\.]+)倍/);
+      if (/射程(?:が)?(?:約)?([\d\.]+)倍/.test(all_text)) {
+        const m = all_text.match(/射程(?:が)?(?:約)?([\d\.]+)倍/);
         if (m) atkMultScore += parseFloat(m[1]) * 12.0;
       }
 
@@ -5979,7 +5991,7 @@
       let debuffScore = 0.0;
       if (/敵の防御が?(\d+)%低下/.test(all_text)) debuffScore += 20.0;
       if (/敵の被ダメージが?(\d+)%上昇/.test(all_text)) debuffScore += 20.0;
-      if (/移動速度(?:が)?(\d+)%低下/.test(all_text)) debuffScore += 15.0;
+      if (/移動速度(?:が|を)?.*?(\d+)%低下/.test(all_text)) debuffScore += 15.0;
       if (/敵の攻撃が?(\d+)%低下/.test(all_text)) debuffScore += 15.0;
       if (/後退させる|ノックバック/.test(all_text)) debuffScore += 10.0;
       if (/猛毒|火傷|氷結|暗闇|混乱|行動不能/.test(all_text)) debuffScore += 10.0;
@@ -6050,7 +6062,8 @@
       const normSpec = Math.min(1.0, (kiScore + (giantKiScore * 0.8) + ((c.attributes && c.attributes.length >= 2) ? 12.0 : 0.0) + (tankScore * 0.5) + (allBuffScore * 0.4) + (tokenScore * 0.4)) / 70.0);
 
       let stratRaw = 0.0;
-      const hasSpecial = Boolean(sp) || c.weapon === "拳" || /特殊能力|「翔天招嶺」|「飛空昇岳」/.test(all_text);
+      // Prompt 25: 拳武器の特例を廃止し、ゲーム内の真の計略・特殊能力データに基づいて判定
+      const hasSpecial = Boolean(sp) || Boolean(c.special) || /特殊能力/.test(all_text);
       const activeAbility = st || sp;
       if (activeAbility || hasSpecial) {
         let cd = null;
@@ -6067,19 +6080,20 @@
             if (m) cost = parseInt(m[1], 10);
           }
         }
-        if (cd == null && (c.weapon === "拳" || /特殊能力|「翔天招嶺」|「飛空昇岳」/.test(all_text))) {
-          cd = 25;
-          cost = 0;
-        }
         cd = cd != null ? cd : 50;
         cost = cost != null ? cost : 7;
         stratRaw += Math.max(0, 1.0 - (cd / 80.0)) * 5.0 + Math.max(0, 1.0 - (cost / 15.0)) * 3.0;
+        if (/効果時間無限|永続/.test(all_text)) stratRaw += 3.0; // 永続・効果時間無限計略の常時稼働加点
+        if (/複数の計略を切り替え/.test(all_text) || (c.allStrategies && c.allStrategies.length >= 3)) stratRaw += 2.0; // 複数計略切替の高い戦術汎用性
         if (hasSpecial) stratRaw += 3.0;
         if (hasToken) stratRaw += 3.0;
-      } else if (c.weapon === "陣貝") {
+      }
+      if (c.weapon === "陣貝") {
+        // 陣貝は常時鼓舞オーラを持つため、計略所持時でも陣貝ベースライン効力（8.0*kobuRatio）を下回らない
         const kobuRatio = Math.min(1.0, Math.max(0.5, (kobuPct || 50) / 60.0));
-        stratRaw = 8.0 * kobuRatio;
-      } else {
+        stratRaw = Math.max(stratRaw, 8.0 * kobuRatio);
+      }
+      if (!activeAbility && !hasSpecial && c.weapon !== "陣貝") {
         stratRaw = 0.0;
       }
       const normStrat = Math.min(1.0, stratRaw / 8.0);

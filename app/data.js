@@ -170,19 +170,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 天下泰砲 (使用まで50秒：消費気7)",
     "text": "【火属性】範囲内の敵に攻撃の3.5倍の ダメージを与える(範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 天下泰平 (使用まで40秒：消費気7)",
     "text": "【火属性】範囲内の敵に攻撃の4倍の ダメージを与える(範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 天下泰平炎砲 （使用まで30秒：消費気7）",
     "text": "【火属性】範囲内の敵に攻撃の8倍の ダメージを与える(範囲:超特大[400])",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -394,7 +400,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% 大坂城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -410,7 +418,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% 大坂城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改弐",
@@ -426,7 +436,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 大坂城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -580,19 +592,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 招福 招き猫 (使用まで40秒：消費気3：青配置)",
     "text": "攻撃をしない伏兵を配置(1体まで) 気の自然増加量を増加、伏兵の射程(250)内の 城娘の回復が25上昇。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 開運 大招き猫 (使用まで40秒：消費気3：青配置)",
     "text": "攻撃をしない伏兵を配置(2体まで) 気の自然増加量を増加、伏兵の射程(300)内の 城娘の回復が30上昇。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 万福 大招き猫 (使用まで30秒：消費気3：青配置)",
     "text": "攻撃をしない伏兵を配置(4体まで) 気の自然増加量を増加、伏兵の射程(340)内の 城娘の回復が100、射程30上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -703,13 +721,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "CENTER:[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -741,14 +753,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "CENTER:[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -937,13 +942,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 包囲砲撃戦 （使用まで40秒：消費気7：青配置）",
     "text": "敵1体とその周囲を攻撃する伏兵を配置",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 包囲砲撃戦-改- （使用まで40秒：消費気7：青配置）",
     "text": "敵1体とその周囲を攻撃する伏兵を配置",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -959,7 +968,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 安平城・計略"
      }
-    ]
+    ],
+    "cooldown": 25,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -1112,7 +1123,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+120%(2.2倍) ノイシュヴァンシュタイン城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -1128,7 +1141,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) ノイシュヴァンシュタイン城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -1144,7 +1159,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+200%(3.0倍) ノイシュヴァンシュタイン城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -1337,7 +1354,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% 聚楽第・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -1353,7 +1372,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 聚楽第・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -1369,7 +1390,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) 聚楽第・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -1539,13 +1562,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 夢幻の如くなり （使用まで90秒：消費気15）",
     "text": "対象の攻撃が時間経過で徐々に上昇(上限300) 武器攻撃が標的の周囲の敵にもダメージを与える (自分のみが対象。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 90,
+    "cost": 15
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 滅せぬもののあるべきか （使用まで90秒：消費気15）",
     "text": "対象の攻撃が時間経過で徐々に上昇(上限400) 法術の移動速度低下効果が上昇し、攻撃が周囲の 敵にもダメージを与える(自分のみ。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 90,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -1760,7 +1787,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 肥後の虎 （使用まで45秒：消費気5）",
     "text": "20秒間射程が40上昇 射程内の全ての敵を攻撃(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -1785,7 +1814,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 熊本城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -1810,7 +1841,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 熊本城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -1944,19 +1977,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 月に叢雲 花に風 （使用まで55秒：消費気10）",
     "text": "範囲内の敵に攻撃の3.5倍のダメージを与え 敵を大きく後退させる(範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 55,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 花に嵐 （使用まで50秒：消費気7）",
     "text": "範囲内の敵に攻撃の3.5倍のダメージを与え 敵を劇的に後退させる(範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 花散らす 風の宿り （使用まで40秒：消費気5）",
     "text": "範囲内の敵に攻撃の5倍のダメージを与え 敵を劇的に後退させる(範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -2176,7 +2215,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 万里の長城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -2210,13 +2251,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 万里の長城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 巨龍臥万里 （使用まで40秒：消費気5：赤青配置）",
     "text": "術以外のダメージを半減し、敵2体を足止めする攻撃しない 伏兵を配置。配置中自身の攻撃が250、射程が100上昇 伏兵の射程(320)内の敵の移動速度が60%、攻撃が40%低下。",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -2404,7 +2449,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+67% 姫路城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -2420,7 +2467,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+67% 姫路城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -2583,19 +2632,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ボヘミアの光 （使用まで50秒：消費気7）",
     "text": "【火属性】範囲内の敵に攻撃の4倍の ダメージを与える(範囲：超特大[400])",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / ボヘミアの極光 （使用まで50秒：消費気7）",
     "text": "【火属性】範囲内の敵に攻撃の6倍の ダメージを与える(範囲：超特大[400])",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / ボヘミアの神光 （使用まで30秒：消費気7）",
     "text": "【火属性】範囲内の敵に攻撃の8倍のダメージを与える 計略発動毎にダメージが30%ずつ上昇(効果重複) (3回まで。範囲：超特大[400])",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -2735,7 +2790,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% 紫禁城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    },
    {
     "stage": "改壱",
@@ -2751,7 +2808,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% 紫禁城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -2921,7 +2980,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) 徳川大坂城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -2937,7 +2998,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) 徳川大坂城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -3132,7 +3195,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ウィンザー城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -3148,7 +3213,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ウィンザー城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -3164,7 +3231,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ウィンザー城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -3391,19 +3460,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / カルカスの鐘 （使用まで45秒：消費気5）",
     "text": "35秒間射程と回復が50上昇 敵の防御を50%無視 射程内の全ての敵を攻撃(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / カルカスの勝利の鐘 （使用まで45秒：消費気5）",
     "text": "35秒間攻撃と射程と回復が80上昇 敵の防御を50%無視 射程内の全ての敵を攻撃(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / カルカスの祝福の鐘 （使用まで45秒：消費気5）",
     "text": "35秒間攻撃と射程と回復が100%と150上昇 敵の防御を80%無視、射程内の全敵に攻撃を行い 20秒間攻撃を60%低下させる(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -3640,7 +3715,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% シェーンブルン宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -3665,13 +3742,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% シェーンブルン宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / マリア・テレジア （使用まで45秒：消費気5：赤青配置）",
     "text": "攻撃をしない伏兵を配置。配置中自身の攻撃100 射程50上昇。射程内(440)の城娘の与ダメージ40%上昇 敵の防御40%低下、全城娘の防御100、攻撃50上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -3885,13 +3966,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 錦城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 君臣豊楽の祈願 （使用まで45秒：消費気5）",
     "text": "25秒間範囲内の殿と城娘の攻撃速度を2倍 範囲内の敵の防御が0になり移動速度が50％低下 (範囲：特大。発動中の計略を解除しない)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -4084,19 +4169,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / フランスの庭 （使用まで60秒：消費気10）",
     "text": "20秒間範囲内の敵の移動速度と 攻撃速度が60%低下(範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / フランスの庭園 （使用まで60秒：消費気7）",
     "text": "25秒間範囲内の敵の移動速度と 攻撃速度が60%低下(範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / フランスの大庭園 （使用まで40秒：消費気5）",
     "text": "範囲内の敵の攻撃と移動速度が永続的に 25%低下(同種効果と重複)。30秒間移動速度と 攻撃速度が75%低下(範囲:極大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -4311,7 +4402,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［正月］熊本城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -4327,7 +4420,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［正月］熊本城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -4548,7 +4643,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 モン・サン＝ミッシェル・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -4573,7 +4670,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 モン・サン＝ミッシェル・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -4589,7 +4688,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% モン・サン＝ミッシェル・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -4795,7 +4896,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% ヴェルサイユ宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -4811,7 +4914,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% ヴェルサイユ宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -5012,7 +5117,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% 烏城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -5037,7 +5144,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% 烏城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -5062,7 +5171,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 烏城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -5256,7 +5367,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 鎌倉城・計略"
      }
-    ]
+    ],
+    "cooldown": 80,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -5272,7 +5385,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 鎌倉城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改弐",
@@ -5288,7 +5403,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+200%(3.0倍) 鎌倉城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -5459,7 +5576,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100% キャメロット城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -5475,7 +5594,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100% キャメロット城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -5621,19 +5742,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 一期一会 （使用まで45秒：消費気5）",
     "text": "30秒間対象の攻撃と爆風範囲が1.7倍 敵撃破時の獲得気が1増加(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 余情残心 （使用まで45秒：消費気5）",
     "text": "40秒間対象の攻撃と爆風範囲が1.8倍 敵撃破時の獲得気が1増加(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 独座観念 （使用まで30秒：消費気5）",
     "text": "45秒間対象の攻撃と爆風範囲、爆風ダメージが2倍 敵撃破時、2秒間攻撃後の隙が0になる。対象の射程内の 城娘の獲得気が1増加(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -5788,19 +5915,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 太陽の噴水 （使用まで60秒：消費気7）",
     "text": "25秒間範囲内の城娘の防御と回復が300上昇 (範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 太陽の大噴水 （使用まで60秒：消費気7）",
     "text": "25秒間範囲内の城娘の攻撃が100 防御と回復が350上昇 (範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 大帝の大噴水 （使用まで50秒：消費気5）",
     "text": "範囲内の城娘と殿を攻撃の5倍の値で回復。40秒間 回復、防御が400上昇。攻撃、防御が撤退まで永続 で200上昇(範囲:特大。発動中の計略を解除しない)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -5970,7 +6103,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) ロンドン塔・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -5986,7 +6121,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ロンドン塔・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -6160,19 +6297,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 断崖の牢獄 （使用まで50秒：消費気7）",
     "text": "範囲内の敵に攻撃の2.5倍のダメージを与え 20秒間攻撃速度が70%、射程が40%低下 (範囲:特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 断崖絶壁の牢獄 （使用まで50秒：消費気5）",
     "text": "範囲内の敵に攻撃の2.5倍のダメージを与え 20秒間攻撃速度が70%低下、射程が40%低下 (範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 断崖絶壁の永久牢獄 （使用まで30秒：消費気3）",
     "text": "範囲内の敵に攻撃の3.5倍のダメージを与え 20秒間攻撃速度、射程、移動速度が80%低下 (範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -6360,7 +6503,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% ［夏］シェーンブルン宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -6376,7 +6521,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% ［夏］シェーンブルン宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -6568,7 +6715,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% 成都城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -6584,13 +6733,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% 成都城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 10
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 天符の大熊猫 （使用まで30秒：消費気7：赤配置）",
     "text": "敵2体を2連続で攻撃し足止めする伏兵(1体まで)。配置中 自身の巨大化気と、自身と伏兵の被ダメ50%軽減。伏兵の 被攻撃時攻撃が100ずつ上昇、攻撃の2倍で反撃",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -6764,7 +6917,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% ウチヒサル城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -6780,7 +6935,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+35% ウチヒサル城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -6796,7 +6953,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ウチヒサル城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -6959,7 +7118,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 チャンドラ・マハル・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -6975,7 +7136,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 チャンドラ・マハル・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -7195,19 +7358,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / シーサー -舞- （使用まで40秒：消費気5：赤配置）",
     "text": "敵1体とその周囲を攻撃する伏兵を配置(2体まで) 攻撃した敵が10秒間防御40%低下、攻撃後の隙が 40%延長。配置中、全沖縄城娘の攻撃が100上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / シーサー -琉舞- （使用まで40秒：消費気5：赤配置）",
     "text": "敵1体とその周囲を攻撃する伏兵を配置(2体まで) 攻撃した敵が10秒間防御45%低下、攻撃後の隙が 45%延長。配置中、全沖縄城娘の攻撃が120上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / シーサー -球陽- （使用まで30秒：消費気5：赤配置）",
     "text": "敵1体とその周囲を攻撃する伏兵を配置(2体まで)。攻撃した敵が 10秒間防御60%低下、攻撃後の隙が60%延長。配置中全沖縄 城娘の攻撃250上昇、自身の攻撃1.3倍(効果重複)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -7405,7 +7574,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［正月］大坂城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -7421,7 +7592,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ［正月］大坂城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -7600,7 +7773,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 千万提灯 （使用まで45秒：消費気5）",
     "text": "20秒間対象の与ダメージが1.8倍 射程内の城娘の攻撃150上昇、攻撃速度が2倍 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -7616,7 +7791,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% ［正月］姫路城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -7814,7 +7991,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 竜宮城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -7830,7 +8009,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 竜宮城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -7973,7 +8154,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) ［バレンタイン］安土城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -7998,7 +8181,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［バレンタイン］安土城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -8152,19 +8337,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 伏見の名水 （使用まで45秒：消費気7）",
     "text": "20秒間対象の回復が10倍 対象と対象の射程内の蔵が 敵から狙われなくなる(足止め無効化)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 伏見の御香水 （使用まで45秒：消費気5）",
     "text": "25秒間対象の回復が10倍。対象の射程内の 城娘の回復が5倍。対象と対象の射程内の蔵が 敵から狙われなくなる(足止め無効化)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 伏見の御香宮 （使用まで45秒：消費気5）",
     "text": "30秒間対象の回復が15倍。対象の回復の2倍の値を 対象の攻撃と防御に加算。射程内の城娘の回復が7倍 対象と射程内蔵が敵から狙われない(足止め無効化)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -8266,21 +8457,30 @@ window.SCRE_DATA = [
    "effects": []
   },
   "strategy": {
-   "name": "[改壱] / 東照神君 （使用まで45秒：消費気10）",
-   "text": "30秒間対象の射程が2倍 巨大化に必要な気を40%軽減 射程内の敵の攻撃が50%低下(自分のみが対象)",
+   "name": "[改弐] / 慶長天下普請 （使用まで45秒：消費気7）",
+   "text": "40秒間対象の射程が2倍、巨大化に必要な気を50%軽減 射程内の城娘の被ダメージを50%軽減 射程内の敵の攻撃が60%低下(自分のみが対象)",
    "effects": [
     {
      "source": "計略",
      "stat": "rangePercent",
      "mode": "percent",
      "value": 100,
-     "target": "self",
+     "target": "inRange",
      "stackable": false,
      "raw": "+100%(2.0倍) 江戸城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% 江戸城・計略"
     }
    ],
    "cooldown": 45,
-   "cost": 10
+   "cost": 7
   },
   "special": null,
   "allSkills": [
@@ -8338,7 +8538,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) 江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -8354,7 +8556,63 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) 江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 10
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 慶長天下普請 （使用まで45秒：消費気7）",
+    "text": "40秒間対象の射程が2倍、巨大化に必要な気を50%軽減 射程内の城娘の被ダメージを50%軽減 射程内の敵の攻撃が60%低下(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) 江戸城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% 江戸城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 江戸五番方 （使用まで45秒：消費気7）",
+    "text": "40秒間対象の射程が1.5倍、攻撃が敵の防御を無視 射程内の敵の攻撃が60%低下、被ダメージが50%上昇 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 江戸城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60% 江戸城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -8525,19 +8783,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 金鯱双砲 （使用まで45秒：消費気7）",
     "text": "30秒間対象の攻撃対象が1増加、射程が120上昇 爆風ダメージが40%上昇(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 天下泰平双砲 （使用まで45秒：消費気7）",
     "text": "40秒間対象の攻撃対象が1増加、射程が120上昇 爆風ダメージが60%上昇(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 金輝　天下泰平双砲 （使用まで45秒：消費気5）",
     "text": "45秒間対象の攻撃対象が1増加、射程が200上昇 爆風ダメージが150%上昇。攻撃した敵の移動速度を 3秒間70%低下(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -8725,19 +8989,25 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% 虎臥城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 飛虎乗雲 （使用まで60秒：消費気10：赤配置）",
     "text": "射程内の全ての敵を攻撃する伏兵を配置(1体まで) 配置中自身と伏兵の被ダメを25%軽減、足止め数 1増加。伏兵の被攻撃時、敵の攻撃の30%を反射",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 天座乗虎 （使用まで50秒：消費気5：赤配置）",
     "text": "射程内の全敵を攻撃する伏兵(1体)。配置中自身と伏兵の 足止め数3増加、被ダメを50%、配置後10秒間はさらに 95%軽減。伏兵の被攻撃時、敵の攻撃の50%を反射",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -8942,13 +9212,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 北条流忍術 （使用まで60秒：消費気10：赤青配置）",
     "text": "自身の1倍の耐久、攻撃、防御で 敵3体に攻撃する伏兵を配置。時間経過で 耐久が減少し、最長120秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 風魔一党 （使用まで55秒：消費気10：赤青配置）",
     "text": "自身の1倍の耐久、攻撃、防御で敵3体に 攻撃する伏兵を配置。伏兵の射程内の敵の 攻撃が15％低下。最長120秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 55,
+    "cost": 10
    },
    {
     "stage": "改弐",
@@ -8964,7 +9238,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+300 小峯城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -9108,13 +9384,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 寧我負人 毋人負我 （使用まで35秒：消費気5）",
     "text": "30秒間対象の攻撃が敵の防御を50%無視 耐久が与ダメージの100%回復 (近接城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 35,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 老驥伏櫪 志在千里 （使用まで35秒：消費気5）",
     "text": "40秒間対象の攻撃が敵の防御を50%無視 回復の1倍の値を攻撃に加算 耐久が与ダメージの100%回復",
-    "effects": []
+    "effects": [],
+    "cooldown": 35,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -9130,7 +9410,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+75% 許昌城・計略"
      }
-    ]
+    ],
+    "cooldown": 35,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -9283,7 +9565,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 多聞天王の化生 （使用まで50秒：消費気7）",
     "text": "10秒間対象の攻撃対象が2になり 攻撃した敵が5秒間「火傷」になる (弓城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -9299,7 +9583,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70 千早城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -9497,7 +9783,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［花嫁衣装］ロンドン塔・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -9513,7 +9801,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［花嫁衣装］ロンドン塔・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -9653,7 +9943,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40 閻魔庁・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -9669,7 +9961,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 閻魔庁・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -9863,7 +10157,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 防人歌 （使用まで45秒：消費気5）",
     "text": "20秒間対象が射程内の全ての城娘に回復を行い 射程内の全ての敵に攻撃を行う(祓串城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -9888,7 +10184,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 大宰府・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -9913,7 +10211,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 大宰府・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -10092,13 +10392,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% オラヴィ城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 極夜の蒼湖 （使用まで60秒：消費気10：青水配置）",
     "text": "敵2体に術攻撃を行う伏兵を配置(1体。水上移動可) 配置中自身の射程120上昇。自身と伏兵の射程内の 味方の攻撃30%上昇、回復1.5倍、氷結無効",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -10284,13 +10588,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 水遊の楽 （使用まで45秒：消費気7）",
     "text": "35秒間対象が1.2倍のダメージを 3連続で与える攻撃を行う (弓城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 九夏水遊の楽 （使用まで45秒：消費気7）",
     "text": "35秒間対象が1.4倍のダメージを 3連続で与える攻撃を行う 敵の防御を30%無視(弓城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -10450,7 +10758,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 ［肝試し］松江城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -10484,7 +10794,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 ［肝試し］松江城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -10677,7 +10989,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 朱雀大路 （使用まで40秒：消費気3：青配置）",
     "text": "攻撃をしない伏兵を配置(1体まで) 気の自然増加量を増加、伏兵の射程内の城娘の 敵撃破時の獲得気が1増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    },
    {
     "stage": "改壱",
@@ -10702,7 +11016,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 平安京・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 3
    },
    {
     "stage": "改弐",
@@ -10727,7 +11043,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+120 平安京・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -10888,7 +11206,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% サン・レーオ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -10904,7 +11224,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% サン・レーオ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -11005,26 +11327,26 @@ window.SCRE_DATA = [
    "effects": []
   },
   "strategy": {
-   "name": "[改壱] / 四禽叶図 （使用まで45秒：消費気7）",
-   "text": "35秒間範囲内の城娘の攻撃と射程が100上昇 対象の射程内の城娘の攻撃と防御が80上昇 (範囲：特大[300])",
+   "name": "[改弐] / 百官之府 （使用まで45秒：消費気7）",
+   "text": "40秒間範囲内の味方の攻撃と射程が150上昇 対象の射程内の城娘の攻撃と防御が150上昇 (範囲：特大[300])",
    "effects": [
     {
      "source": "計略",
      "stat": "atkFlat",
      "mode": "flat",
-     "value": 100,
+     "value": 150,
      "target": "inRange",
      "stackable": false,
-     "raw": "+100 平城京・計略"
+     "raw": "+150 平城京・計略"
     },
     {
      "source": "計略",
      "stat": "rangeFlat",
      "mode": "flat",
-     "value": 100,
+     "value": 150,
      "target": "inRange",
      "stackable": false,
-     "raw": "+100 平城京・計略"
+     "raw": "+150 平城京・計略"
     }
    ],
    "cooldown": 45,
@@ -11075,7 +11397,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 平城京・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -11100,7 +11424,72 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 平城京・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 百官之府 （使用まで45秒：消費気7）",
+    "text": "40秒間範囲内の味方の攻撃と射程が150上昇 対象の射程内の城娘の攻撃と防御が150上昇 (範囲：特大[300])",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150 平城京・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150 平城京・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 四海所帰 （使用まで45秒：消費気7）",
+    "text": "40秒間対象の攻撃速度が2.5倍、射程内の味方1体につき 攻撃が120上昇。射程内の城娘の攻撃と射程が120上昇 (自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120 平城京・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "self",
+      "stackable": false,
+      "raw": "+120 平城京・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "self",
+      "stackable": false,
+      "raw": "+120 平城京・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -11241,7 +11630,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) 肥前名護屋城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -11257,7 +11648,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 肥前名護屋城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -11437,7 +11830,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) ［ハロウィン］万里の長城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 3
    },
    {
     "stage": "改壱",
@@ -11462,7 +11857,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% ［ハロウィン］万里の長城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -11612,7 +12009,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 城塞都市ニュールンベルク・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -11628,7 +12027,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% 城塞都市ニュールンベルク・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -11829,19 +12230,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / シテの時計台 （使用まで45秒：消費気7）",
     "text": "範囲内の敵に攻撃の3.5倍のダメージを与え 4秒間動きを封じる(範囲:大[200])",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 法と正義の時計 （使用まで45秒：消費気7）",
     "text": "範囲内の敵に攻撃の4.5倍のダメージを与え 4秒間動きを封じる(範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 裁きの時計塔 （使用まで30秒：消費気5）",
     "text": "範囲内の敵に攻撃の7倍のダメージを与え 5秒間防御を0にし、動きを封じる (範囲:超特大[400])",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -11991,13 +12398,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 大日様 （使用まで40秒：消費気7）",
     "text": "30秒間対象の攻撃対象が2増加 対象の射程内の城娘の回復が4倍 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 両界・大日如来 （使用まで40秒：消費気5）",
     "text": "30秒間対象の攻撃対象が2増加 対象の射程内の城娘の回復が5倍 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -12139,13 +12550,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / オールド・ラング・サイン （使用まで50秒：消費気7）",
     "text": "30秒間対象の攻撃対象が2増加 2連続で攻撃を行う(弓城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 十二夜の聖火 （使用まで50秒：消費気5）",
     "text": "40秒間対象の攻撃対象が2増加 2連続で攻撃を行う(弓城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -12315,7 +12730,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［聖夜］モン・サン＝ミッシェル・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -12331,7 +12748,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［聖夜］モン・サン＝ミッシェル・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -12491,7 +12910,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% ［正月］五稜郭・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -12507,7 +12928,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% ［正月］五稜郭・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -12678,13 +13101,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25 ［正月］小田原城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 錦冠祝賀砲 （使用まで50秒：消費気7）",
     "text": "60秒間対象の攻撃が500、射程が100上昇 攻撃対象が1増加、8秒毎に攻撃対象が1増加 攻撃が50、射程が25上昇(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -12786,11 +13213,11 @@ window.SCRE_DATA = [
    "effects": []
   },
   "strategy": {
-   "name": "[改壱] / 霹靂神 （使用まで50秒：消費気7）",
-   "text": "【雷属性】範囲内の敵に攻撃の1.5倍の 術ダメージを3連続で与える (範囲:超特大)",
+   "name": "[改弐] / 紫電鳴神 （使用まで30秒：消費気5）",
+   "text": "【雷属性】範囲内の敵に攻撃の2倍の 術ダメージを5連続で与える (範囲:超特大)",
    "effects": [],
-   "cooldown": 50,
-   "cost": 7
+   "cooldown": 30,
+   "cost": 5
   },
   "special": null,
   "allSkills": [
@@ -12847,13 +13274,43 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 天雷 （使用まで50秒：消費気7）",
     "text": "【雷属性】範囲内の敵に攻撃の1.2倍の 術ダメージを3連続で与える (範囲:特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 霹靂神 （使用まで50秒：消費気7）",
     "text": "【雷属性】範囲内の敵に攻撃の1.5倍の 術ダメージを3連続で与える (範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 紫電鳴神 （使用まで30秒：消費気5）",
+    "text": "【雷属性】範囲内の敵に攻撃の2倍の 術ダメージを5連続で与える (範囲:超特大)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 雷纏鳴神 （使用まで60秒：消費気7）",
+    "text": "60秒間対象の攻撃1.3倍(同種効果重複)、与ダメージ1.7倍 術ダメージを与える雷属性攻撃を行う 射程内の城娘の攻撃が200上昇(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "self",
+      "stackable": false,
+      "raw": "+200 二条亭・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -13004,13 +13461,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 死出の猟犬 （使用まで60秒：消費気10：赤配置）",
     "text": "敵2体に2連続で攻撃する伏兵を配置(1体まで) 伏兵の攻撃が敵の防御を20%無視 耐久が与ダメージの20%回復",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 冥境の狼犬 （使用まで60秒：消費気10：赤配置）",
     "text": "敵2体に2連続で攻撃する伏兵を配置(1体まで) 耐久が与ダメージの30%回復 配置中自身と伏兵が敵の防御を30%無視",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -13171,13 +13632,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ビルケバイネル （使用まで50秒：消費気7）",
     "text": "30秒間対象の砲弾直撃ボーナスが120%に上昇 3連続で攻撃を行う(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 白樺の脚 （使用まで50秒：消費気7）",
     "text": "35秒間対象の砲弾直撃ボーナスが140%に上昇 3連続で攻撃を行う(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -13328,13 +13793,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / サラマンドル・ブリュレ （使用まで45秒：消費気7）",
     "text": "30秒間対象の攻撃対象が3増加 射程内の敵の攻撃を50%低下。攻撃した敵の 攻撃をさらに5秒間30%低下(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / ガトー・サラマンドル （使用まで45秒：消費気5）",
     "text": "35秒間対象の攻撃対象が3増加。射程内の敵の 攻撃と与ダメージを50%低下。攻撃した敵の 攻撃をさらに5秒間30%低下(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -13484,7 +13953,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+75% ［バレンタイン］城塞都市カルカソンヌ・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -13500,7 +13971,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+75% ［バレンタイン］城塞都市カルカソンヌ・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -13670,7 +14143,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) アテナイ・アクロポリス・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -13686,7 +14161,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) アテナイ・アクロポリス・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -13849,7 +14326,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) バベルの塔・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    },
    {
     "stage": "改壱",
@@ -13865,7 +14344,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) バベルの塔・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -14015,13 +14496,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 大神宮祭 （使用まで10秒：消費気0） 初期使用回数2",
     "text": "範囲内の敵に攻撃の2倍のダメージを3回与え 射程と移動速度が5秒間50%低下(範囲：特大) 巨大化する度に計略の使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 0
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 甲府三大祭 （使用まで10秒：消費気0） 初期使用回数3",
     "text": "範囲内の敵に攻撃の2.2倍のダメージを3回与え 射程と移動速度が5秒間50%低下(範囲：超特大) 巨大化する度に計略の使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -14206,13 +14691,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 飛龍梅 （使用まで60秒：消費気10）",
     "text": "20秒間範囲内の祓串城娘の射程と攻撃速度が1.5倍 攻撃対象が1増加、武器攻撃が標的の 周囲の敵にもダメージを与える(範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 飛龍爛漫 （使用まで50秒：消費気10）",
     "text": "25秒間範囲内の祓串城娘の射程と攻撃速度が1.5倍 攻撃対象が1増加、武器攻撃が標的の 周囲の敵にもダメージを与える(範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改弐",
@@ -14229,7 +14718,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+100%(2.0倍) 墨俣一夜城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -14350,9 +14841,28 @@ window.SCRE_DATA = [
    ]
   },
   "strategy": {
-   "name": "[改弐] / 十一州の太守 （使用まで50秒：消費気5）",
-   "text": "40秒間対象の攻撃が300、射程が200上昇、攻撃が標的と その周囲の敵に攻撃の3倍のダメージを与える、敵の防御 が低い程与えるダメージ上昇(最大2倍。自分のみ)",
-   "effects": [],
+   "name": "[改壱] / 天性無欲 （使用まで50秒：消費気5）",
+   "text": "40秒間対象の攻撃と射程が100上昇 攻撃が標的とその周囲の敵に攻撃の1.4倍の ダメージを与える(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100 月山城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100 月山城・計略"
+    }
+   ],
    "cooldown": 50,
    "cost": 5
   },
@@ -14440,7 +14950,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 月山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -14465,13 +14977,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 月山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
-    "stage": "改弐",
-    "name": "[改弐] / 十一州の太守 （使用まで50秒：消費気5）",
+    "stage": "改壱",
+    "name": "[改壱] / 十一州の太守 （使用まで50秒：消費気5）",
     "text": "40秒間対象の攻撃が300、射程が200上昇、攻撃が標的と その周囲の敵に攻撃の3倍のダメージを与える、敵の防御 が低い程与えるダメージ上昇(最大2倍。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -14660,7 +15176,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) ラピュータ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -14676,7 +15194,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ラピュータ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -14820,7 +15340,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / リーベルタース （使用まで45秒：消費気5）",
     "text": "30秒間対象の射程が50、攻撃対象が3増加 爆風範囲が半減(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -14836,7 +15358,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 城塞都市ドゥブロヴニク・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -14986,13 +15510,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 神学の天球儀 （使用まで15秒：消費気0） 初期使用回数1",
     "text": "範囲内の敵の動きを2秒間封じ、攻撃の3倍 飛行には4.5倍のダメージを与える(範囲:大) 巨大化する度に計略の使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 神学の大天球 （使用まで15秒：消費気0） 初期使用回数2",
     "text": "範囲内の敵の動きを2秒間封じ、攻撃の3.4倍 飛行には5.1倍のダメージを与える(範囲:特大) 巨大化する度に計略の使用回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -15198,7 +15726,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［花嫁衣装］チャンドラ・マハル・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -15214,7 +15744,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［花嫁衣装］チャンドラ・マハル・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -15318,7 +15850,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 安平古堡人形・改 （使用まで35秒：消費気5：青水配置）",
+   "text": "自身の1.5倍の耐久で、敵1体とその周囲に攻撃し少し 後退させる伏兵を配置。射程内敵の攻撃と防御が80低下 配置中、自身の耐久が1000上昇、被ダメを35%軽減",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "hpFlat",
+     "mode": "flat",
+     "value": 1000,
+     "target": "self",
+     "stackable": false,
+     "raw": "+1000 ［夏］安平城・計略"
+    }
+   ],
+   "cooldown": 35,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -15363,7 +15911,86 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 安平古堡人形 （使用まで40秒：消費気5：青水配置）",
+    "text": "自身の1.5倍の耐久で、敵1体とその周囲に攻撃し 少し後退させる伏兵を配置。配置中、自身の耐久が 1000上昇、被ダメを30%軽減",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / オレンジ城人形 （使用まで40秒：消費気5：赤青水配置）",
+    "text": "自身の1.5倍の耐久で、敵1体に攻撃し後退させる 伏兵を配置。伏兵の射程内の[夏]城娘と伏兵の 攻撃が100上昇、配置中、自身の耐久が1500上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "hpFlat",
+      "mode": "flat",
+      "value": 1500,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1500 ［夏］安平城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ゼーランディア城人形 （使用まで40秒：消費気5：青水配置）",
+    "text": "自身の1.5倍の耐久で、敵1体に攻撃し大きく 後退させる伏兵を配置(消費気3で水上移動可能) 配置中、自身の耐久が1500上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "hpFlat",
+      "mode": "flat",
+      "value": 1500,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1500 ［夏］安平城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 安平古堡人形・改 （使用まで35秒：消費気5：青水配置）",
+    "text": "自身の1.5倍の耐久で、敵1体とその周囲に攻撃し少し 後退させる伏兵を配置。射程内敵の攻撃と防御が80低下 配置中、自身の耐久が1000上昇、被ダメを35%軽減",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "hpFlat",
+      "mode": "flat",
+      "value": 1000,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1000 ［夏］安平城・計略"
+     }
+    ],
+    "cooldown": 35,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / オレンジ城人形・改 （使用まで35秒：消費気5：赤青水配置）",
+    "text": "自身の1.5倍の耐久で、敵1体に攻撃し後退させる伏兵を 配置。伏兵の射程内の[夏]城娘と伏兵の攻撃が100上昇 敵の攻撃と防御80低下。配置中自身の耐久1500上昇",
+    "effects": [],
+    "cooldown": 35,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ゼーランディア城人形・改 （使用まで35秒：消費気5：青水配置）",
+    "text": "自身の1.5倍の耐久で、敵1体に攻撃し大きく後退させる 伏兵を配置(消費気3で水上移動可能)。伏兵の射程内の 敵の攻撃と防御80低下。配置中自身の耐久1500上昇",
+    "effects": [],
+    "cooldown": 35,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -15530,7 +16157,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 ［夏］紫禁城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -15556,7 +16185,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+30%(1.3倍) ［夏］紫禁城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -15744,7 +16375,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 白鳳城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -15760,7 +16393,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 白鳳城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -15912,13 +16547,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 金烏不夜 （使用まで40秒：消費気7）",
     "text": "30秒間対象の与ダメージが1.8倍 6連続で攻撃を行う(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] /紅焔白夜  （使用まで40秒：消費気7）",
     "text": "35秒間対象の与ダメージが1.8倍 耐久が与ダメージの30%回復 6連続で攻撃を行う(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -16070,13 +16709,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 開かずの古井戸 （使用まで40秒：消費気5）",
     "text": "30秒間対象の攻撃対象が1増加 法術の移動速度低下効果が大きく上昇 対象の射程内の敵の射程が50%低下(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 蛭子女尊 （使用まで40秒：消費気5）",
     "text": "40秒間対象の攻撃対象が2増加 法術の移動速度低下効果が大きく上昇 対象の射程内の敵の射程が50%低下(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -16265,7 +16908,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% ホッホオスターヴィッツ城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -16290,7 +16935,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% ホッホオスターヴィッツ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -16463,19 +17110,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 最上四十八砲 （使用まで50秒：消費気7）",
     "text": "15秒間対象が射程内の全ての敵を攻撃 射程内の敵の防御が100低下 (鉄砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 羽源四十八砲 （使用まで40秒：消費気7）",
     "text": "20秒間対象が射程内の全ての敵を攻撃 射程内の敵の防御が100低下 (鉄砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 最上四十八楯砲 （使用まで40秒：消費気7）",
     "text": "30秒間対象が射程内の全ての敵に2連続で ダメージを与える攻撃に変化。射程内の敵の 防御が200低下(鉄砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -16644,13 +17297,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 十五夜の羽衣 （使用まで45秒：消費気7）",
     "text": "対象の横方向の敵に攻撃の1.5倍の術ダメを5回与え 防御を15秒間0にする。最大化時、飛行敵に対しては 2倍の術ダメージを与える(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 月弓の天衣 （使用まで45秒：消費気5）",
     "text": "対象の横方向の敵に攻撃の1.5倍の術ダメを6回与え 防御を15秒間0にする。最大化時、飛行敵に対しては 2倍の術ダメージを与える(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -16784,13 +17441,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ジェド・マロース （使用まで15秒：消費気0） 初期使用回数1",
     "text": "範囲内の敵に攻撃の2倍の術ダメージを与え 10秒間「氷結」にする(範囲:特大) 巨大化毎に計略使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    },
    {
     "stage": "改壱",
     "name": "[改壱] / スネグーラチカ （使用まで15秒：消費気0） 初期使用回数2",
     "text": "範囲内の敵に攻撃の2.5倍の術ダメージを与え 10秒間「氷結」にする（攻撃速度低下が60%に上昇 (範囲:特大)。巨大化毎に使用回数2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -16961,7 +17622,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) ［ハロウィン］ブラン城・計略"
      }
-    ]
+    ],
+    "cooldown": 25,
+    "cost": 3
    },
    {
     "stage": "改壱",
@@ -16977,7 +17640,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ［ハロウィン］ブラン城・計略"
      }
-    ]
+    ],
+    "cooldown": 25,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -17107,7 +17772,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / トリアノンの仮装霊 （使用まで30秒：消費気5:赤配置）",
     "text": "敵から狙われず、射程内の敵全てに攻撃を する伏兵を配置。攻撃した敵の移動速度を 4秒間80%低下。最長100秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -17123,7 +17790,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［ハロウィン］ヴェルサイユ宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -17311,7 +17980,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) リヒテンシュタイン城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -17327,7 +17998,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) リヒテンシュタイン城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -17458,7 +18131,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / グルディッチ門 （使用まで50秒：消費気7）",
     "text": "40秒間範囲内の城娘の射程が60上昇 足止め数が2増加、耐久が与ダメージの60%回復 (範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -17474,7 +18149,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+35% 城塞都市コトル・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -17624,13 +18301,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / マイェスタス・カロリーナ （使用まで15秒：消費気0） 初期使用回数2",
     "text": "【火属性】範囲内の敵に攻撃の3.5倍のダメージを与え 30秒間撃破時追加で気が1増加(同種効果重複なし) 範囲:特大)。巨大化毎に計略使用回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    },
    {
     "stage": "改壱",
     "name": "[改壱] / マイェスタス・ボヘミア （使用まで15秒：消費気0） 初期使用回数3",
     "text": "【火属性】範囲内の敵に攻撃の4倍のダメージを与え 30秒間撃破時追加で気が1増加(同種効果重複なし) 範囲:超特大)。巨大化毎に計略使用回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -17760,13 +18441,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ボヘミアの輝夜 （使用まで40秒：消費気7）",
     "text": "範囲内の敵に攻撃の2.0倍のダメージを5回与え 射程と移動速度が20秒間50%低下 (範囲：超特大[400])",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / ボヘミアの聖夜 （使用まで40秒：消費気7）",
     "text": "範囲内の敵に攻撃の2.5倍のダメージを5回与え 射程と移動速度が20秒間60%低下 (範囲：超特大[400])",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -17936,7 +18621,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40 ［絢爛］大坂城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -17952,7 +18639,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 ［絢爛］大坂城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -18132,13 +18821,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［絢爛］福岡城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 福神三傘鉾 （使用まで50秒：消費気7）",
     "text": "30秒間範囲内の敵の攻撃が50% 攻撃速度が70%低下 攻撃後の隙が70%延長(範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -18327,7 +19020,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+120 ［絢爛］小谷城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -18352,7 +19047,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 ［絢爛］小谷城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -18473,13 +19170,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 甲府三饌 （使用まで15秒：消費気0） 初期使用回数3",
     "text": "範囲内の敵に5種の効果を与える(範囲:特大) ①2倍ダメ②3.5倍ダメ③20秒攻撃速度40%低下 ④20秒射程40%低下⑤5秒移動0。巨大化時回数2増",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 大年神五供 （使用まで15秒：消費気0） 初期使用回数5",
     "text": "範囲内の敵に5種の効果を与える(範囲:特大) ①2倍ダメ②4倍ダメ③20秒攻撃速度45%低下 ④20秒射程45%低下⑤5秒移動0。巨大化時回数2増",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -18650,7 +19351,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 初春の鬨 （使用まで50秒：消費気7）",
     "text": "50秒間対象の攻撃速度が2倍 敵の防御を70%無視、攻撃対象が4増加 10秒毎に攻撃対象が1減少(投剣城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -18666,7 +19369,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 ［正月］小峯城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -18807,7 +19512,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30%(1.3倍) マチュ・ピチュ・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -18823,7 +19530,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30%(1.3倍) マチュ・ピチュ・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -18994,7 +19703,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) 鬼ヶ島・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -19010,7 +19721,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) 鬼ヶ島・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -19133,13 +19846,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［バレンタイン］成都城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 大熊猫招愛 （使用まで45秒：消費気7：赤配置)",
     "text": "自身の1.4倍の攻撃と耐久で敵2体を足止めし攻撃する伏兵 (1体)。伏兵は被ダメ50%軽減、自身への攻撃を代わり に受ける。配置中自身と伏兵の攻撃、回復が120上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -19302,7 +20019,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40 蜂ヶ峰城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 3
    },
    {
     "stage": "改壱",
@@ -19318,7 +20037,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60 蜂ヶ峰城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -19507,7 +20228,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 鷹城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -19532,7 +20255,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+120 鷹城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -19688,7 +20413,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 寛永江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -19704,7 +20431,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) 寛永江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -19807,28 +20536,9 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 西国将軍",
-   "text": "自身の与ダメージが35%上昇、攻撃対象が1増加 射程内の城娘の射程が35上昇 攻撃した敵の攻撃後の隙が4秒間30%延長",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "dmgDealt",
-     "mode": "percent",
-     "value": 35,
-     "target": "self",
-     "stackable": false,
-     "raw": "+35% 白鷺城・特技"
-    },
-    {
-     "source": "特技",
-     "stat": "rangeFlat",
-     "mode": "flat",
-     "value": 35,
-     "target": "inRange",
-     "stackable": false,
-     "raw": "+35 白鷺城・特技"
-    }
-   ]
+   "name": "[改壱] / 怨みの古井戸",
+   "text": "自身を撃破した敵の防御が9秒間0になり、9秒間射程が55%低下 射程内の敵の移動速度が9秒間0になる",
+   "effects": []
   },
   "strategy": {
    "name": "[無印] / 刑部大神 （使用まで50秒：消費気7）",
@@ -19889,6 +20599,18 @@ window.SCRE_DATA = [
       "raw": "+35 白鷺城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 播州皿屋敷",
+    "text": "自身を撃破した敵の防御が9秒間0になり、9秒間射程が50%低下 射程内の敵の移動速度が9秒間0になる",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 怨みの古井戸",
+    "text": "自身を撃破した敵の防御が9秒間0になり、9秒間射程が55%低下 射程内の敵の移動速度が9秒間0になる",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -19906,7 +20628,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 白鷺城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -20077,7 +20801,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+90% ［学園］金亀城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -20093,7 +20819,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+90% ［学園］金亀城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -20282,7 +21010,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+120 ［学園］聚楽城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -20298,7 +21028,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 ［学園］聚楽城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -20439,7 +21171,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) 徳川伏見城・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 12
    },
    {
     "stage": "改壱",
@@ -20455,7 +21189,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 徳川伏見城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 12
    }
   ],
   "allSpecials": [],
@@ -20631,7 +21367,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) チャフティツェ城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -20647,7 +21385,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) チャフティツェ城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -20834,13 +21574,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / モンテ・エポメオ （使用まで50秒：消費気7）",
     "text": "40秒間対象の攻撃速度と特殊攻撃の ゲージ蓄積量が2倍、攻撃が敵を少し後退させる 特殊攻撃が敵の防御を80%無視(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / イスキアの岩漿 （使用まで50秒：消費気7）",
     "text": "45秒間対象の攻撃速度と特殊攻撃の ゲージ蓄積量が2倍、攻撃が敵を少し後退させる 特殊攻撃が敵の防御を90%無視(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -21003,13 +21747,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 両福 招き猫 （使用まで40秒：消費気3：赤青配置）",
     "text": "攻撃しない伏兵を配置(2体まで)、気の自然増加 量を増加。伏兵の射程(420)内の敵撃破時に追加で気が 1増加(同種効果の重複なし)。",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 大福 両招き猫 （使用まで35秒：消費気3：赤青配置）",
     "text": "敵から狙われず攻撃しない伏兵を配置(2体まで)。気の 自然増加量を増加。射程内城娘の巨大化気1軽減。射程内の 敵撃破時に追加で気が1増加(同種効果の重複なし)",
-    "effects": []
+    "effects": [],
+    "cooldown": 35,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -21160,7 +21908,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 ［絢爛］岡豊城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -21176,7 +21926,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+200 ［絢爛］岡豊城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -21345,13 +22097,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 八子八幡 （使用まで35秒：消費気5）",
     "text": "20秒間対象の射程100上昇、攻撃対象が3増加 直撃ボーナスが50%上昇 範囲攻撃の範囲が半減(槌城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 35,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 鶴山八幡大神 （使用まで35秒：消費気5）",
     "text": "25秒間対象の射程120上昇、攻撃対象が3増加 直撃ボーナスが50%上昇 範囲攻撃の範囲が半減(槌城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 35,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -21511,13 +22267,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / エクレール・アムール （使用まで15秒：消費気0） 初期使用回数2",
     "text": "【雷属性】範囲内の敵に攻撃の3倍の術ダメージ を与え、敵の動きを10秒間封じる(範囲:大) 巨大化する度に計略の使用回数が3増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    },
    {
     "stage": "改壱",
     "name": "[改壱] / エクレール・マリアージュ （使用まで15秒：消費気0） 初期使用回数3",
     "text": "【雷属性】範囲内の敵に攻撃の4倍の術ダメージ を与え、敵の動きを10秒間封じる(範囲:特大) 巨大化する度に計略の使用回数が3増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -21687,7 +22447,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) ［花嫁衣装］二条亭・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -21703,7 +22465,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ［花嫁衣装］二条亭・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -21854,13 +22618,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 藍波の剣舞 （使用まで45秒：消費気7）",
     "text": "45秒間対象の攻撃に防御の0.8倍の値を加算する 被攻撃時に2倍のダメージを与える反撃を行う (盾城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 蒼海の剣劇 （使用まで45秒：消費気7）",
     "text": "45秒間対象の攻撃に防御の1倍の値を加算する 被攻撃時に3倍のダメージを与える反撃を行い 防御が300ずつ上昇(最大1500、盾城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -22011,13 +22779,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / フォンタン・ネプトゥーン （使用まで45秒：消費気7）",
     "text": "範囲内の敵に攻撃の4倍のダメージを与え 後退させ移動速度を10秒間70%低下させる (範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 海神の噴水 （使用まで45秒：消費気7）",
     "text": "範囲内の敵に攻撃の5倍のダメージを与え 後退させ移動速度を10秒間70%低下させる (範囲:極大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -22165,13 +22937,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 黄金夏囃子 （使用まで50秒：消費気10：赤青配置）",
     "text": "敵に狙われず、自身の0.6倍の攻撃で歌舞を行う 伏兵を配置(2体まで)。伏兵の射程内の城娘の 攻撃と防御が60、射程が30上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 天下夏囃子 （使用まで50秒：消費気10：赤青配置）",
     "text": "敵に狙われず、自身の0.8倍の攻撃で歌舞を行う 伏兵を配置(2体まで)。伏兵の射程内の城娘の 攻撃と防御が120、射程が40上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -22349,13 +23125,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 水龍涼風 （使用まで20秒：消費気0：赤青配置） 初期使用可能数2",
     "text": "敵に狙われず、自身の1倍の攻撃で射程内の 全敵に術攻撃を行い後退させる伏兵を配置 (最長60秒で消滅)。巨大化毎に使用可能回数2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 青龍翠嵐 （使用まで20秒：消費気0：赤青配置） 初期使用可能数3",
     "text": "敵に狙われず、自身の1.2倍の攻撃で射程内の 全敵に術攻撃を行い大きく後退させる伏兵 (最長60秒で消滅)。巨大化毎に使用可能回数2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -22505,13 +23285,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ペイヴァルアスプ （使用まで60秒：消費気15）",
     "text": "対象が敵撃破毎に攻撃と射程が10ずつ上昇(上限200) 攻撃速度が4%ずつ上昇(上限80%) (自分のみが対象。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 15
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 悪しき光輪の神 （使用まで60秒：消費気15）",
     "text": "対象が敵撃破毎に攻撃と射程が10ずつ上昇(上限250) 攻撃速度が5%ずつ上昇(上限100%) (自分のみが対象。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -22701,13 +23485,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 天神之御剣 （使用まで45秒：消費気7）",
     "text": "20秒間対象の攻撃対象が1になり 攻撃が標的に2倍、周囲の敵に1.5倍の 術ダメージを与える(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 天神之御雷 （使用まで45秒：消費気5）",
     "text": "25秒間対象の攻撃対象が1になり 攻撃が標的に2倍、周囲の敵に1.5倍の 術ダメージを与える(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -22896,7 +23684,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% ［肝試し］伊予松山城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -22921,7 +23711,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［肝試し］伊予松山城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -23074,7 +23866,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -23091,7 +23885,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -23257,7 +24053,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) ノッティンガム城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -23273,7 +24071,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ノッティンガム城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -23471,7 +24271,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) ブダ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -23487,7 +24289,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) ブダ城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -23668,13 +24472,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 鬼君の風穴 （使用まで45秒：消費気5）",
     "text": "3種類の配置中自身を強化する伏兵をランダムで配置 敵を足止めする伏兵/射程内の敵の移動速度を 低下させる伏兵/攻撃した敵を後退させる伏兵",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 四鬼の窟 （使用まで35秒：消費気5）",
     "text": "4種類の配置中自身を強化する伏兵をランダムで配置 敵を足止め/射程内の敵の移動速度が低下 敵を後退させる/敵から狙われず、波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 35,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -23838,7 +24646,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) オリュンポス宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -23854,7 +24664,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) オリュンポス宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -24017,7 +24829,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 メヘラーンガル城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -24033,7 +24847,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 メヘラーンガル城・計略"
      }
-    ]
+    ],
+    "cooldown": 35,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -24184,13 +25000,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 魔女の毒滴 （使用まで40秒：消費気5）",
     "text": "範囲内の敵に攻撃の5倍のダメージを与え 20秒間「猛毒」にする (範囲:特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / ヴォアザンの毒滴 （使用まで40秒：消費気5）",
     "text": "範囲内の敵に攻撃の6倍のダメージを与え 25秒間「猛毒」にする (範囲:特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -24361,7 +25181,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［ハロウィン］クロンボー城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -24377,7 +25199,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［ハロウィン］クロンボー城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -24507,7 +25331,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 永久の獄火 （使用まで60秒：消費気7）",
     "text": "25秒間対象の射程と攻撃のダメージが3倍 耐久が0にならず、効果終了時に大破 撤退大破時の回復気が50%上昇(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -24641,7 +25467,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［裏］坂本城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -24657,7 +25485,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［裏］坂本城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -24809,13 +25639,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 火車輪の灯 （使用まで60秒：消費気7）",
     "text": "30秒間対象の耐久が減少し続ける 射程内の全ての敵に一定間隔で攻撃の1.5倍の ダメージを与える攻撃を行う(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 野望の火車 （使用まで50秒：消費気7）",
     "text": "30秒間対象の耐久が減少し続ける 射程内の全ての敵に一定間隔で攻撃の1.7倍の ダメージを与える攻撃を行う(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -24967,13 +25801,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 雪娘の吐息 （使用まで20秒：消費気0） 初期使用可能数2",
     "text": "範囲内の敵に攻撃の3倍の術ダメージを 与え、15秒間「氷結」にする(範囲:特大) 巨大化毎に計略使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
    },
    {
     "stage": "改壱",
     "name": "[改壱] / ズィームニイ・スネグラーチカ （使用まで20秒：消費気0） 初期使用可能数3",
     "text": "範囲内の敵に攻撃の3.5倍の術ダメージを 与え、15秒間「氷結」にする(範囲:超特大) 巨大化毎に計略使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -25182,7 +26020,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［聖夜］霞城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -25198,7 +26038,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［聖夜］霞城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -25329,13 +26171,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / シャクラの雷霆 （使用まで60秒：消費気7）",
     "text": "【雷属性】範囲内の敵に 攻撃の3.5倍の術ダメージを与え 5秒間動きを封じる(範囲:極大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 天帝の霹靂 （使用まで50秒：消費気7）",
     "text": "【雷属性】範囲内の敵に 攻撃の4倍の術ダメージを与え 5秒間動きを封じる(範囲:極大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -25543,7 +26389,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［正月］徳川伏見城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -25559,7 +26407,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+120 ［正月］徳川伏見城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -25721,7 +26571,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 年越大祓・牛鬼 （使用まで50秒：消費気7：青配置）",
     "text": "自身の1.2倍の攻撃と耐久で標的とその周囲を攻撃 する伏兵を配置(1体まで)。配置中、自身と伏兵の 爆風ダメージが1.4倍、敵撃破時の獲得気が1増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -25737,7 +26589,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［正月］宇和島城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -25898,13 +26752,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% ［正月］虎臥城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 獅子虎乗雲 （使用まで50秒：消費気7：赤配置）",
     "text": "敵2体とその周囲に防御無視攻撃を行い大きく後退させる 伏兵を配置（1体まで）。配置中、自身と伏兵の被ダメを 40%軽減。足止め数5増加、与ダメージの30%耐久が回復",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -26045,7 +26903,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) ［正月］錦城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -26061,7 +26921,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30%(1.3倍) ［正月］錦城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -26174,7 +27036,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 天下泰平・大祭 （使用まで50秒：消費気10）",
+   "text": "範囲内の対象の攻撃が2倍、撃破気が1増加 計略再使用時間40%短縮、[絢爛]城娘は50%短縮 ([絢爛]城娘と近接城娘が対象。効果時間無限)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［絢爛］名古屋城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -26219,7 +27097,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 天下泰平・祭 （使用まで50秒：消費気12）",
+    "text": "範囲内の対象の攻撃が1.8倍、撃破気が1増加 計略再使用時間40%短縮、[絢爛]城娘は50%短縮 ([絢爛]城娘と近接城娘が対象。効果時間無限)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［絢爛］名古屋城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 12
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 天下泰平・炎 （使用まで30秒：消費気5）",
+    "text": "【火属性】範囲内の敵に 攻撃の6倍のダメージを与える (範囲:極大)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天下泰平・大祭 （使用まで50秒：消費気10）",
+    "text": "範囲内の対象の攻撃が2倍、撃破気が1増加 計略再使用時間40%短縮、[絢爛]城娘は50%短縮 ([絢爛]城娘と近接城娘が対象。効果時間無限)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［絢爛］名古屋城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天下泰平・大炎 （使用まで30秒：消費気5）",
+    "text": "【火属性】範囲内の敵に 攻撃の7倍のダメージを与える (範囲:極大)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -26397,7 +27328,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［絢爛］会津若松城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -26422,7 +27355,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［絢爛］会津若松城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -26592,13 +27527,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 虎頭の舞 （使用まで50秒：消費気7：赤配置）",
     "text": "自身の2.5倍の耐久と回復で敵1体を攻撃し、敵5体を足止 めする伏兵(1体)。伏兵が足止めした敵の攻撃を20%低下 (効果重複)。伏兵の射程内の敵の与ダメが30%低下",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 虎獅子の舞 （使用まで45秒：消費気7：赤配置）",
     "text": "自身の2.5倍の耐久と回復で敵1体を攻撃し、敵5体を足止 めする伏兵(1体)。伏兵が足止めした敵の攻撃を20%低下 (効果重複)。伏兵の射程内の敵の与ダメが35%低下",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -26720,13 +27659,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 焼滅の灯火 （使用まで60秒：消費気7）",
     "text": "40秒間対象の直撃ボーナスが200%に上昇 防御の1倍の値を攻撃に加算 攻撃後の隙が50%延長(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 灼滅の篝火 （使用まで50秒：消費気7）",
     "text": "40秒間対象の直撃ボーナスが200%に上昇 防御の1.2倍の値を攻撃に加算 攻撃後の隙が50%延長(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -26914,13 +27857,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+35% ［バレンタイン］ウチヒサル城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / チコラータ・バロン （使用まで50秒：消費気5：赤青配置）",
     "text": "敵から狙われず攻撃しない伏兵(2体)、射程内の城娘の 与ダメ40%、[ﾊﾞﾚﾝﾀｲﾝ]は50%上昇。配置時20秒間、射程内 の城娘が敵から狙われず、攻撃20%上昇(効果重複)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -27083,7 +28030,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+400 ［バレンタイン］木幡山伏見城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -27099,7 +28048,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+400 ［バレンタイン］木幡山伏見城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -27275,7 +28226,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+75% クラック・デ・シュヴァリエ・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -27291,7 +28244,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+75% クラック・デ・シュヴァリエ・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -27393,28 +28348,9 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 洞穴の騎士",
-   "text": "自身の攻撃が35%上昇、与ダメージの30%耐久が 回復、被ダメージを25%軽減。撤退大破時の 回復気が45%上昇、再配置の時間が75%短縮",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "atkPercent",
-     "mode": "percent",
-     "value": 35,
-     "target": "self",
-     "stackable": false,
-     "raw": "+35% プレッドヤマ城・特技"
-    },
-    {
-     "source": "特技",
-     "stat": "dmgTakenDown",
-     "mode": "percent",
-     "value": 25,
-     "target": "inRange",
-     "stackable": false,
-     "raw": "+25% プレッドヤマ城・特技"
-    }
-   ]
+   "name": "[改壱] / エラゼムの怨讐",
+   "text": "射程内の全ての敵に攻撃の3倍のダメージを与え 移動速度を6秒間95%低下させる。大破する度に 耐久が800、防御が80上昇、足止め数が1増加(5回まで)",
+   "effects": []
   },
   "strategy": {
    "name": "[改壱] / 高貴なる義賊 （使用まで40秒：消費気5）",
@@ -27484,6 +28420,18 @@ window.SCRE_DATA = [
       "raw": "+25% プレッドヤマ城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / エラゼムの義憤",
+    "text": "射程内の全ての敵に攻撃の3倍のダメージを与え 移動速度を6秒間95%低下させる。大破する度に 耐久が600、防御が60上昇、足止め数が1増加(5回まで)",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / エラゼムの怨讐",
+    "text": "射程内の全ての敵に攻撃の3倍のダメージを与え 移動速度を6秒間95%低下させる。大破する度に 耐久が800、防御が80上昇、足止め数が1増加(5回まで)",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -27501,7 +28449,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% プレッドヤマ城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -27526,7 +28476,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% プレッドヤマ城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -27615,19 +28567,9 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 貴婦人の白霊",
-   "text": "自身の攻撃速度が35%上昇 攻撃後の隙が30%短縮 全ての敵の防御が70低下、被ダメージが25%上昇",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "atkSpeed",
-     "mode": "percent",
-     "value": 35,
-     "target": "self",
-     "stackable": false,
-     "raw": "+35% チリンガム城・特技"
-    }
-   ]
+   "name": "[改壱] / 幽冥のチリンガム",
+   "text": "大破時に10秒間、自身を撃破した敵と 射程内の全ての敵の防御を75%低下させ 「暗闇」にする",
+   "effects": []
   },
   "strategy": {
    "name": "[改壱] / 光耀の青霊 （使用まで45秒：消費気7）",
@@ -27679,6 +28621,18 @@ window.SCRE_DATA = [
       "raw": "+35% チリンガム城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ホーンテッド・チリンガム",
+    "text": "大破時に10秒間、自身を撃破した敵と 射程内の全ての敵の防御を70%低下させ 「暗闇」にする",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 幽冥のチリンガム",
+    "text": "大破時に10秒間、自身を撃破した敵と 射程内の全ての敵の防御を75%低下させ 「暗闇」にする",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -27696,7 +28650,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% チリンガム城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -27712,7 +28668,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% チリンガム城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -27870,7 +28828,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 四代目江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -27895,7 +28855,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 四代目江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -28070,13 +29032,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 孝の霊玉 （使用まで50秒：消費気7：赤配置）",
     "text": "自身の1倍の攻撃で敵2体に攻撃を行う伏兵を配置 (1体まで)。配置中自身の攻撃が敵の防御を25%無視 伏兵が攻撃した敵の防御が5秒間40%低下",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 仁義八行の霊玉 （使用まで50秒：消費気7：赤配置）",
     "text": "自身の1.2倍の攻撃で敵2体に攻撃を行う伏兵を配置 (1体まで)。配置中自身の攻撃が敵の防御を25%無視 伏兵が攻撃した敵の防御が5秒間45%低下",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -28277,7 +29243,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) ［学園］都於郡城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -28302,7 +29270,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［学園］都於郡城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -28464,13 +29434,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［学園］マルボルク城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / ペリカン・パレード （使用まで40秒：消費気5：赤青配置）",
     "text": "攻撃しない伏兵を配置。配置中の自身の伏兵1体につき 射程が25、防御無視効果が25%上昇。配置時40秒間 自身と伏兵の射程内の城娘の攻撃と攻撃速度が1.5倍",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -28643,7 +29617,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 冥界の女神 （使用まで60秒：消費気10）",
     "text": "20秒間対象の耐久が0にならない 被攻撃時に敵の攻撃の30%をダメージとして反射 (戦棍城娘のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -28819,7 +29795,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 吉野城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -28835,7 +29813,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 吉野城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -28986,7 +29966,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 金剛落華 （使用まで40秒：消費気7）",
     "text": "超広範囲の敵1体とその周囲に攻撃の8倍の ダメージを与え、移動速度を5秒間90%低下 させる単発攻撃を2回まで行う(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -29160,7 +30142,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 ヘレンキームゼー城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -29176,7 +30160,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ヘレンキームゼー城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -29364,7 +30350,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) ［絢爛］七尾城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -29380,7 +30368,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［絢爛］七尾城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -29554,13 +30544,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 打城科儀・請神 （使用まで50秒：消費気7）",
     "text": "30秒間対象の攻撃と特殊攻撃ゲージ 蓄積量が1.7倍。特殊攻撃時、 攻撃がさらに1.4倍(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 打城科儀・送神 （使用まで50秒：消費気7）",
     "text": "35秒間対象の攻撃と特殊攻撃ゲージ 蓄積量が1.8倍。特殊攻撃時、 攻撃がさらに1.4倍(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -29746,7 +30740,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［裏］淀城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -29762,7 +30758,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［裏］淀城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -29916,13 +30914,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / マアトの天秤 （使用まで60秒：消費気10：赤配置）",
     "text": "敵1体とその周囲に攻撃を行う伏兵を配置(1体まで) 気の自然回復量が増加。伏兵が敵を撃破する度に 伏兵の攻撃と防御が25ずつ上昇(上限値1000)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / アヌビスの審判 （使用まで50秒：消費気10：赤配置）",
     "text": "敵1体とその周囲に攻撃を行う伏兵を配置(1体まで) 気の自然回復量が増加。伏兵が敵を撃破する度に 伏兵の攻撃と防御が40ずつ上昇(上限値1200)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -30100,7 +31102,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+50%(1.5倍) ［花嫁衣装］春日山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -30117,7 +31121,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+50%(1.5倍) ［花嫁衣装］春日山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -30268,13 +31274,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 唯愛是挙 （使用まで60秒：消費気7）",
     "text": "対象の防御と耐久が1.8倍 防御の15%の値を回復に加算 (近接城娘が対象。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 六礼・比翼連理 （使用まで60秒：消費気5）",
     "text": "対象の防御と耐久が2倍、足止め数が2増加 防御の15%の値を回復に加算 (近接城娘が対象。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -30407,7 +31417,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+200 ［夏］烏城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -30423,7 +31435,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+300 ［夏］烏城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -30592,13 +31606,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 夏の狼 （使用まで20秒：消費気5：赤青配置）",
     "text": "敵1体に攻撃を行い少し後退させる伏兵(10体まで) 水上配置時、攻撃と射程が上昇し移動消費気が減少 配置中の伏兵1体につき、自身の攻撃が80ずつ上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 夏の壬生狼 （使用まで20秒：消費気3：赤青配置）",
     "text": "敵1体に攻撃を行い少し後退させる伏兵(10体まで) 水上配置時、攻撃と射程が上昇し移動消費気が減少 配置中の伏兵1体につき、自身の攻撃が100ずつ上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -30781,7 +31799,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% ［夏］島原城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -30797,7 +31817,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+75% ［夏］島原城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -30887,26 +31909,17 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 西国の夏将軍",
-   "text": "自身の攻撃対象が1増加、与ダメージが40%上昇 全鎌城娘の撤退大破時回復気が45%上昇、再配置 時間65%短縮、射程内の敵の被ダメージが40%上昇",
+   "name": "[改壱] / 水濡の揚羽蝶",
+   "text": "大破時に自身を撃破した敵と射程内全ての敵に攻撃の4.5倍の ダメージを与えて後退させ、移動速度を9秒間90%低下させる 大破する度に自身の攻撃が9%上昇(同種効果重複、5回まで)",
    "effects": [
     {
      "source": "特技",
-     "stat": "dmgDealt",
+     "stat": "atkPercent",
      "mode": "percent",
-     "value": 40,
-     "target": "all",
+     "value": 9,
+     "target": "self",
      "stackable": false,
-     "raw": "+40% ［夏］白鷺城・特技"
-    },
-    {
-     "source": "特技",
-     "stat": "enemyDmgTakenUp",
-     "mode": "percent",
-     "value": 40,
-     "target": "inRange",
-     "stackable": false,
-     "raw": "+40% ［夏］白鷺城・特技"
+     "raw": "+9% ［夏］白鷺城・特技"
     }
    ]
   },
@@ -30969,6 +31982,38 @@ window.SCRE_DATA = [
       "raw": "+40% ［夏］白鷺城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 怨みの水蝶",
+    "text": "大破時に自身を撃破した敵と射程内全ての敵に攻撃の4倍の ダメージを与えて後退させ、移動速度を9秒間90%低下させる 大破する度に自身の攻撃が9%上昇(同種効果重複、5回まで)",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 9,
+      "target": "self",
+      "stackable": false,
+      "raw": "+9% ［夏］白鷺城・特技"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 水濡の揚羽蝶",
+    "text": "大破時に自身を撃破した敵と射程内全ての敵に攻撃の4.5倍の ダメージを与えて後退させ、移動速度を9秒間90%低下させる 大破する度に自身の攻撃が9%上昇(同種効果重複、5回まで)",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 9,
+      "target": "self",
+      "stackable": false,
+      "raw": "+9% ［夏］白鷺城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -30986,7 +32031,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) ［夏］白鷺城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -31002,7 +32049,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) ［夏］白鷺城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -31200,7 +32249,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 ［絢爛］玉縄城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -31216,7 +32267,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ［絢爛］玉縄城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -31377,13 +32430,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［絢爛］佐倉城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / サムライの古径 （使用まで50秒：消費気7）",
     "text": "35秒間対象の攻撃が200、射程が120上昇 法術の移動速度低下効果が大きく上昇 射程内の全ての敵を攻撃(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -31581,7 +32638,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) ［絢爛］松倉城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -31597,7 +32656,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) ［絢爛］松倉城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -31772,13 +32833,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / エポメオの紅火 （使用まで50秒：消費気7）",
     "text": "30秒間対象の射程と 特殊攻撃ゲージ蓄積量が1.7倍 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / エポメオの業火 （使用まで50秒：消費気5）",
     "text": "35秒間対象の射程と 特殊攻撃ゲージ蓄積量が1.7倍 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -31951,7 +33016,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% ［肝試し］丸亀城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -31967,7 +33034,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% ［肝試し］丸亀城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -32145,13 +33214,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 羽黒山の天狗 （使用まで50秒：消費気7：青配置）",
     "text": "敵から狙われず、射程内(380)の敵3体を攻撃し少し後退させる 伏兵を配置(1体まで)。配置中、自身の与回復量が1.5倍 自身の攻撃が妖怪に対して2倍",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 羽黒山の大天狗 （使用まで50秒：消費気5：青配置）",
     "text": "敵から狙われず、射程内(400)の敵3体を攻撃し少し後退させる 伏兵を配置(1体まで)。配置中、自身の与回復量が1.5倍 攻撃が妖怪に対して2.2倍",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -32349,7 +33422,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 黒船 サスケハナ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -32365,7 +33440,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 黒船 サスケハナ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -32521,13 +33598,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ハロウィンの驚異 （使用まで60秒：消費気7）",
     "text": "40秒間対象の攻撃と範囲攻撃の範囲が1.8倍 被ダメージが60%軽減、与ダメージの50%耐久が回復 (近接城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 黄金のハロウィン （使用まで50秒：消費気7）",
     "text": "40秒間対象の攻撃と範囲攻撃の範囲が2倍 被ダメージが60%軽減、与ダメージの50%耐久が回復 (近接城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -32697,7 +33778,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 黄泉国・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -32713,7 +33796,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) 黄泉国・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -32903,7 +33988,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) タルタロス・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -32919,7 +34006,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) タルタロス・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -33110,7 +34199,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) ［裏］小田原城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -33136,7 +34227,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) ［裏］小田原城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -33307,7 +34400,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) ［聖夜］鞠智城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -33323,7 +34418,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ［聖夜］鞠智城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -33512,7 +34609,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ホワイトタイム （使用まで50秒：消費気10）",
     "text": "20秒間対象の射程内の敵の射程が50%低下 移動速度を0にし、攻撃対象にならない効果を 無効にする(一部敵は対象外。自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -33528,7 +34627,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［聖夜］ウェストミンスター宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -33696,7 +34797,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+300%(4.0倍) ［正月］江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -33721,7 +34824,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+300%(4.0倍) ［正月］江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -33903,7 +35008,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［正月］元和江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -33928,7 +35035,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［正月］元和江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -34084,13 +35193,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 上野御成街道 （使用まで60秒：消費気7）",
     "text": "30秒間対象の射程と攻撃速度が1.8倍、特殊攻撃ゲージ 蓄積量が1.5倍。対象の射程内の敵を撃破した時に追加で気が 1増加(同種効果の重複なし。自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 上野御成参拝道 （使用まで60秒：消費気7）",
     "text": "35秒間対象の射程と攻撃速度が2倍、特殊攻撃ゲージ 蓄積量が1.5倍。対象の射程内の敵を撃破した時に追加で気が 1増加(同種効果の重複なし。自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -34244,7 +35357,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［正月］四代目江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -34260,7 +35375,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［正月］四代目江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -34431,7 +35548,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+200 帆船 鳳凰丸・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -34447,7 +35566,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+200 帆船 鳳凰丸・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -34552,7 +35673,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 喪失ノ北条黄備 （使用まで45秒：消費気5）",
+   "text": "25秒間対象の攻撃と攻撃速度が2倍 防御が50%低下 対象の射程内の敵の移動速度が50%低下",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ［裏］川越城・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -34588,7 +35725,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 忘却ノ五色備 （使用まで50秒：消費気5）",
+    "text": "25秒間対象の攻撃と攻撃速度が1.8倍 防御が50%低下 対象の射程内の敵の移動速度が50%低下",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［裏］川越城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 喪失ノ北条黄備 （使用まで45秒：消費気5）",
+    "text": "25秒間対象の攻撃と攻撃速度が2倍 防御が50%低下 対象の射程内の敵の移動速度が50%低下",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［裏］川越城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -34691,7 +35865,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 平家御霊ノ揺り籠 （使用まで50秒：消費気7）",
+   "text": "30秒間対象の射程が1.7倍、攻撃後の隙が 50%短縮。対象の射程内の城娘の 射程が100増加(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70%(1.7倍) ［裏］桜尾城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -34727,7 +35917,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 平家ノ御霊 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程が1.5倍、攻撃後の隙が 50%短縮。対象の射程内の城娘の 射程が80増加(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［裏］桜尾城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 平家御霊ノ揺り籠 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程が1.7倍、攻撃後の隙が 50%短縮。対象の射程内の城娘の 射程が100増加(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70%(1.7倍) ［裏］桜尾城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -34839,7 +36066,32 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 六字名号・強制解脱 （使用まで40秒：消費気5）",
+   "text": "25秒間対象の攻撃と射程が120上昇 攻撃と回復の対象が2増加。対象の射程内の敵を 対象とする回復がダメージに変化(祓串城娘が対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 120,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+120 ［裏］伊勢長島城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 120,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+120 ［裏］伊勢長島城・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -34884,7 +36136,62 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 六字名号・煩悩解放 （使用まで45秒：消費気5）",
+    "text": "20秒間対象の攻撃と射程が120上昇 攻撃と回復の対象が2増加。対象の射程内の敵を 対象とする回復がダメージに変化(祓串城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120 ［裏］伊勢長島城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120 ［裏］伊勢長島城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 六字名号・強制解脱 （使用まで40秒：消費気5）",
+    "text": "25秒間対象の攻撃と射程が120上昇 攻撃と回復の対象が2増加。対象の射程内の敵を 対象とする回復がダメージに変化(祓串城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120 ［裏］伊勢長島城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120 ［裏］伊勢長島城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -34986,7 +36293,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 不滅のチョコレート （使用まで45秒：消費気7）",
+   "text": "30秒間対象の被ダメージを90%軽減 足止め数を5増加 (近接城娘と[バレンタイン]城娘が対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 90,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+90% ［バレンタイン］キャメロット城・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -35022,7 +36345,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / チョコレートの鞘 （使用まで50秒：消費気7）",
+    "text": "25秒間対象の被ダメージを90%軽減 足止め数を5増加 ([バレンタイン]城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 90,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+90% ［バレンタイン］キャメロット城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / クリームの白き竜 （使用まで45秒：消費気5）",
+    "text": "範囲内の城娘と殿を攻撃の8倍の値で回復 永続的に回復が1.5倍、耐久が4000上昇 (範囲:超特大)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 不滅のチョコレート （使用まで45秒：消費気7）",
+    "text": "30秒間対象の被ダメージを90%軽減 足止め数を5増加 (近接城娘と[バレンタイン]城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 90,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+90% ［バレンタイン］キャメロット城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 砂糖菓子の赤き竜 （使用まで40秒：消費気5）",
+    "text": "範囲内の城娘と殿を攻撃の8倍の値で回復 永続的に回復が2倍、耐久が5000上昇 (範囲:極大)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -35116,7 +36492,41 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 天空のショコラトル （使用まで60秒：消費気15）",
+   "text": "対象の射程内の[バレンタイン]城娘の射程が1.2倍、攻撃が1.8倍 射程内の城娘の攻撃と防御が200上昇、撃破獲得気が1増加 (同種効果の重複なし。自分のみ。効果時間無限)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20%(1.2倍) ［バレンタイン］マチュ・ピチュ・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 200,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+200 ［バレンタイン］マチュ・ピチュ・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 200,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+200 ［バレンタイン］マチュ・ピチュ・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 15
+  },
   "special": null,
   "allSkills": [
    {
@@ -35161,7 +36571,71 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 太陽のショコラトル （使用まで60秒：消費気15）",
+    "text": "対象の射程内の[バレンタイン]城娘の射程が1.2倍、攻撃が1.6倍 射程内の城娘の攻撃が170上昇、撃破獲得気が1増加 (同種効果の重複なし。自分のみ。効果時間無限)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［バレンタイン］マチュ・ピチュ・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60%(1.6倍) ［バレンタイン］マチュ・ピチュ・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 15
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天空のショコラトル （使用まで60秒：消費気15）",
+    "text": "対象の射程内の[バレンタイン]城娘の射程が1.2倍、攻撃が1.8倍 射程内の城娘の攻撃と防御が200上昇、撃破獲得気が1増加 (同種効果の重複なし。自分のみ。効果時間無限)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［バレンタイン］マチュ・ピチュ・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200 ［バレンタイン］マチュ・ピチュ・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200 ［バレンタイン］マチュ・ピチュ・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 15
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -35262,7 +36736,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 雷光王撃 （使用まで60秒：消費気12）",
+   "text": "45秒間対象の攻撃が攻撃の0.5倍の術ダメージを 5連続で与える攻撃に変化(自分のみが対象)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 12
+  },
   "special": null,
   "allSkills": [
    {
@@ -35288,7 +36768,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 雷光連撃 （使用まで60秒：消費気15）",
+    "text": "40秒間対象の攻撃が攻撃の0.5倍の術ダメージを 5連続で与える攻撃に変化(自分のみが対象)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 15
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 雷光王撃 （使用まで60秒：消費気12）",
+    "text": "45秒間対象の攻撃が攻撃の0.5倍の術ダメージを 5連続で与える攻撃に変化(自分のみが対象)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 12
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -35379,7 +36876,13 @@ window.SCRE_DATA = [
    "text": "【配置】射程内城娘の耐久が与ダメの25%回復 【鼓舞】自身の攻撃の40%、射程の12%の値を 射程内の伏兵と城娘に加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / カズィクル・ブラッド （使用まで60秒：消費気7：赤青配置）",
+   "text": "自身の2.0倍の攻撃で敵1体とその周囲を攻撃し 攻撃した敵の攻撃と防御を5秒間 35%低下させる伏兵を配置(1体まで)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -35395,7 +36898,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ドラクル・ブラッド （使用まで60秒：消費気7：赤青配置）",
+    "text": "自身の1.8倍の攻撃で敵1体とその周囲を攻撃し 攻撃した敵の攻撃と防御を5秒間 30%低下させる伏兵を配置(1体まで)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / カズィクル・ブラッド （使用まで60秒：消費気7：赤青配置）",
+    "text": "自身の2.0倍の攻撃で敵1体とその周囲を攻撃し 攻撃した敵の攻撃と防御を5秒間 35%低下させる伏兵を配置(1体まで)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -35486,7 +37006,32 @@ window.SCRE_DATA = [
    "text": "【配置】射程内の敵撃破時に追加で気が1増加 (重複なし)。最大化時、全味方の攻撃後の隙が 40%短縮。射程内の敵の攻撃と与ダメが40%低下",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 天翔舞鶴 （使用まで50秒：消費気7）",
+   "text": "50秒間対象の攻撃と射程が1.5倍。飛行敵以外に 狙われず全マス間を移動可能。射程内の城娘の 防御を60%上昇、被ダメージを60%軽減(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ［絢爛］柳川城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 60,
+     "target": "self",
+     "stackable": false,
+     "raw": "+60% ［絢爛］柳川城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -35502,7 +37047,62 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 飛天白鶴 （使用まで50秒：消費気7）",
+    "text": "50秒間対象の攻撃と射程が1.4倍。飛行敵以外に 狙われず全マス間を移動可能。射程内の城娘の 被ダメージを60%軽減(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40%(1.4倍) ［絢爛］柳川城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 60,
+      "target": "self",
+      "stackable": false,
+      "raw": "+60% ［絢爛］柳川城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天翔舞鶴 （使用まで50秒：消費気7）",
+    "text": "50秒間対象の攻撃と射程が1.5倍。飛行敵以外に 狙われず全マス間を移動可能。射程内の城娘の 防御を60%上昇、被ダメージを60%軽減(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［絢爛］柳川城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 60,
+      "target": "self",
+      "stackable": false,
+      "raw": "+60% ［絢爛］柳川城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -35604,7 +37204,32 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 桜花瑞玉・姫城督 （使用まで50秒：消費気7）",
+   "text": "35秒間対象の攻撃が1.8倍。回復を行わず敵4体に 攻撃を行い移動速度を3秒間80%低下させる 対象の射程内の城娘の与ダメージが50%上昇",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80%(1.8倍) ［絢爛］立花山城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgDealt",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ［絢爛］立花山城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -35640,7 +37265,62 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 桜花・姫城督 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の攻撃が1.7倍。回復を行わず敵4体に 攻撃を行い移動速度を3秒間80%低下させる 対象の射程内の城娘の与ダメージが50%上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70%(1.7倍) ［絢爛］立花山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［絢爛］立花山城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 桜花瑞玉・姫城督 （使用まで50秒：消費気7）",
+    "text": "35秒間対象の攻撃が1.8倍。回復を行わず敵4体に 攻撃を行い移動速度を3秒間80%低下させる 対象の射程内の城娘の与ダメージが50%上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［絢爛］立花山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［絢爛］立花山城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -35742,7 +37422,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 神君の御鷹 （使用まで50秒：消費気5）",
+   "text": "30秒間対象の攻撃速度が2.5倍、攻撃が敵の防御を 50%無視、対象の射程内の飛行敵の 被ダメージが80%上昇(弓城娘が対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80% ［絢爛］駿府城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -35778,7 +37474,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 将軍の大鷹 （使用まで50秒：消費気5）",
+    "text": "30秒間対象の攻撃速度が2倍、攻撃が敵の防御を 50%無視、対象の射程内の飛行敵の 被ダメージが70%上昇(弓城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［絢爛］駿府城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 神君の御鷹 （使用まで50秒：消費気5）",
+    "text": "30秒間対象の攻撃速度が2.5倍、攻撃が敵の防御を 50%無視、対象の射程内の飛行敵の 被ダメージが80%上昇(弓城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% ［絢爛］駿府城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -35880,7 +37613,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 寂滅・千手観音 （使用まで40秒：消費気10：赤青配置）",
+   "text": "射程内の敵1体とその周囲の敵に遠隔攻撃を行う伏兵を 配置(5体まで)。伏兵の射程内の城娘と自身の攻撃と防御が 100、射程が30上昇、攻撃が妖怪に半減されない",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -35916,7 +37655,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 金剛・千手観音 （使用まで40秒：消費気10：赤青配置）",
+    "text": "射程内の敵1体とその周囲の敵に遠隔攻撃を行う伏兵を 配置(4体まで)。伏兵の射程内の城娘と自身の攻撃と防御が 80、射程が20上昇、攻撃が妖怪に半減されない",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 寂滅・千手観音 （使用まで40秒：消費気10：赤青配置）",
+    "text": "射程内の敵1体とその周囲の敵に遠隔攻撃を行う伏兵を 配置(5体まで)。伏兵の射程内の城娘と自身の攻撃と防御が 100、射程が30上昇、攻撃が妖怪に半減されない",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -36018,7 +37774,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / Type.A[EX] （使用まで30秒：消費気3：赤青水配置）",
+   "text": "自身の1.3倍の攻撃で敵1体に攻撃し、消費気3で全 マス移動可能な伏兵を配置。配置中自身の攻撃が 125上昇。自身の伏兵1体につき消費気が2ずつ上昇",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 3
+  },
   "special": null,
   "allSkills": [
    {
@@ -36054,7 +37816,76 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / Type.A （使用まで30秒：消費気3：赤青水配置）",
+    "text": "自身の1倍の攻撃で敵1体に攻撃し、消費気3で全 マス移動可能な伏兵を配置。配置中自身の攻撃が 100上昇。自身の伏兵1体につき消費気が2ずつ上昇",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / Type.B （使用まで30秒：消費気3：赤配置）",
+    "text": "攻撃を行わず自身の2倍の耐久で敵5体を足止め する伏兵。伏兵の被攻撃時、30%をダメージとして 反射。自身の伏兵1体につき消費気が2ずつ上昇",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / Type.C （使用まで30秒：消費気3：赤青配置）",
+    "text": "飛行敵以外に狙われず、自身の0.5倍の攻撃で 歌舞を行う伏兵を配置。配置中自身の射程が30上昇 自身の伏兵1体につき消費気が2ずつ上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 ［学園］ラピュータ・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / Type.A[EX] （使用まで30秒：消費気3：赤青水配置）",
+    "text": "自身の1.3倍の攻撃で敵1体に攻撃し、消費気3で全 マス移動可能な伏兵を配置。配置中自身の攻撃が 125上昇。自身の伏兵1体につき消費気が2ずつ上昇",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / Type.B[EX] （使用まで30秒：消費気3：赤配置）",
+    "text": "攻撃を行わず自身の2.5倍の耐久で敵5体を足止め する伏兵。伏兵の被攻撃時、40%をダメージとして 反射。自身の伏兵1体につき消費気が2ずつ上昇",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / Type.C[EX] （使用まで30秒：消費気3：赤青配置）",
+    "text": "飛行敵以外に狙われず、自身の0.7倍の攻撃で 歌舞を行う伏兵を配置。配置中自身の射程が50上昇 自身の伏兵1体につき消費気が2ずつ上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［学園］ラピュータ・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -36157,7 +37988,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 風紀規範の衆目 （使用まで50秒：消費気7）",
+   "text": "40秒間対象の攻撃と特殊攻撃ゲージ蓄積量が1.7倍 射程内の城娘の被回復量が30%上昇 射程内の敵の攻撃が50%低下(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% ［学園］城塞都市ローテンブルク・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / プレーンライン・スパイラル",
@@ -36216,7 +38063,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 風紀の衆目 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃と特殊攻撃ゲージ蓄積量が1.7倍 射程内の敵の攻撃が40%低下 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ［学園］城塞都市ローテンブルク・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 風紀規範の衆目 （使用まで50秒：消費気7）",
+    "text": "40秒間対象の攻撃と特殊攻撃ゲージ蓄積量が1.7倍 射程内の城娘の被回復量が30%上昇 射程内の敵の攻撃が50%低下(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ［学園］城塞都市ローテンブルク・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -36330,7 +38214,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 帝釈七宝・二光 （使用まで40秒：消費気5）",
+   "text": "対象の攻撃と攻撃速度が撤退大破時まで永続で1.5倍 計略を使用する度に効果が変化 (自分のみが対象)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -36366,7 +38256,72 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 須弥七宝・二光 （使用まで50秒：消費気7）",
+    "text": "対象の攻撃と攻撃速度が撤退大破時まで永続で1.5倍 計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 須弥七宝・四光 （使用まで50秒：消費気7）",
+    "text": "対象の防御と耐久が撤退大破時まで永続で1.5倍 計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 須弥七宝・六光 （使用まで50秒：消費気7）",
+    "text": "対象の射程が撤退大破時まで永続で1.2倍 攻撃対象が1増加。計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 須弥七宝・極光 （使用まで50秒：消費気7）",
+    "text": "25秒間対象の与ダメージが1.5倍 対象の射程内の敵の与ダメージが50%低下 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 帝釈七宝・二光 （使用まで40秒：消費気5）",
+    "text": "対象の攻撃と攻撃速度が撤退大破時まで永続で1.5倍 計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 帝釈七宝・四光 （使用まで40秒：消費気5）",
+    "text": "対象の防御と耐久が撤退大破時まで永続で1.5倍 計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 帝釈七宝・六光 （使用まで40秒：消費気5）",
+    "text": "対象の射程が撤退大破時まで永続で1.2倍 攻撃対象が1増加。計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 帝釈七宝・極光 （使用まで40秒：消費気5）",
+    "text": "25秒間対象の与ダメージが1.5倍 対象の射程内の敵の与ダメージが50%低下 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -36450,7 +38405,13 @@ window.SCRE_DATA = [
    "text": "自身の砲弾直撃ボーナスが100%に上昇、全水城 の攻撃が30%、射程が30上昇、被ダメを30%軽減 【水上】射程内の海洋兜の被ダメージが60%上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 天下総船印 （使用まで40秒：消費気5）",
+   "text": "35秒間対象の与ダメージが1.8倍。対象の射程内の 城娘の敵撃破時の獲得気が1増加。(同種効果の 重複無し。海外・その他以外の城娘が対象)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -36476,7 +38437,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 御国総船印 （使用まで40秒：消費気5）",
+    "text": "30秒間対象の与ダメージが1.7倍。対象の射程内の 城娘の敵撃破時の獲得気が1増加。(同種効果の 重複無し。海外・その他以外の城娘が対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天下総船印 （使用まで40秒：消費気5）",
+    "text": "35秒間対象の与ダメージが1.8倍。対象の射程内の 城娘の敵撃破時の獲得気が1増加。(同種効果の 重複無し。海外・その他以外の城娘が対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -36578,7 +38556,33 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 陽月の双子神 （使用まで60秒：消費気7）",
+   "text": "40秒間対象の射程が100上昇、与ダメージが1.8倍 特殊攻撃で与えるダメージが1.5倍 (自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100 シバルバー・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) シバルバー・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 死界の恐刃",
@@ -36619,7 +38623,64 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 冥界の兄弟神 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の射程が70上昇、与ダメージが1.7倍 特殊攻撃で与えるダメージが1.5倍 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70 シバルバー・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) シバルバー・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 陽月の双子神 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の射程が100上昇、与ダメージが1.8倍 特殊攻撃で与えるダメージが1.5倍 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 シバルバー・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) シバルバー・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -36753,7 +38814,32 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 夢幻の栄華 （使用まで50秒：消費気5）",
+   "text": "40秒間対象の攻撃が1.8倍、攻撃後の隙が50%短縮 特殊攻撃ゲージの蓄積量が1.5倍 (鞭城娘が対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80%(1.8倍) ［裏］室町第・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ［裏］室町第・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 焦滅の炎花",
@@ -36823,7 +38909,62 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 残桜の栄華 （使用まで50秒：消費気5）",
+    "text": "30秒間対象の攻撃が1.7倍、攻撃後の隙が50%短縮 特殊攻撃ゲージの蓄積量が1.5倍 (鞭城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70%(1.7倍) ［裏］室町第・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［裏］室町第・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 夢幻の栄華 （使用まで50秒：消費気5）",
+    "text": "40秒間対象の攻撃が1.8倍、攻撃後の隙が50%短縮 特殊攻撃ゲージの蓄積量が1.5倍 (鞭城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［裏］室町第・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［裏］室町第・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -36929,7 +39070,13 @@ window.SCRE_DATA = [
    "text": "【配置】全ての盾城娘の足止め数が2増加、耐久が 20%上昇。射程内の敵の与ダメが30%低下。最大化 時、全城娘の耐久が2000、地獄城は3000上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 獄門銭之集中業火 （使用まで40秒：消費気5）",
+   "text": "25秒間対象が「火傷(弱)」になり、被ダメージを 70%軽減、攻撃対象が2増加し、攻撃した敵を 5秒間「火傷」にする(自分のみが対象)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -36945,7 +39092,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 六文銭之集中砲火 （使用まで50秒：消費気7）",
+    "text": "25秒間対象が「火傷(弱)」になり、被ダメージを 70%軽減、攻撃対象が2増加し、攻撃した敵を 5秒間「火傷」にする(自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 獄門銭之集中業火 （使用まで40秒：消費気5）",
+    "text": "25秒間対象が「火傷(弱)」になり、被ダメージを 70%軽減、攻撃対象が2増加し、攻撃した敵を 5秒間「火傷」にする(自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -37037,7 +39201,32 @@ window.SCRE_DATA = [
    "text": "全城娘の攻撃後の隙と計略再使用時間30%短縮。最大化時 自身の特殊攻撃のダメージと防御0の敵に与えるダメージ 1.4倍。飛行敵以外の敵に狙われず全マス間を移動可能",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 月宮の祝宴 （使用まで40秒：消費気5）",
+   "text": "40秒間対象の攻撃が2倍。さらに飛行敵に 対しての攻撃が2.5倍、最大化時は3倍 特殊攻撃が1回使用可能になる(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［花嫁衣装］月の都・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150%(2.5倍) ［花嫁衣装］月の都・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 祝矢・天満月",
@@ -37058,7 +39247,62 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 玉兎の祝宴 （使用まで50秒：消費気5）",
+    "text": "40秒間対象の攻撃が1.8倍。さらに飛行敵に 対しての攻撃が2.5倍、最大化時は3倍 特殊攻撃が1回使用可能になる(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［花嫁衣装］月の都・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) ［花嫁衣装］月の都・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 月宮の祝宴 （使用まで40秒：消費気5）",
+    "text": "40秒間対象の攻撃が2倍。さらに飛行敵に 対しての攻撃が2.5倍、最大化時は3倍 特殊攻撃が1回使用可能になる(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［花嫁衣装］月の都・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) ［花嫁衣装］月の都・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -37156,7 +39400,23 @@ window.SCRE_DATA = [
    "text": "自身の攻撃と特殊攻撃ゲージの蓄積量が35%上昇 殿への攻撃を代わりに受ける 射程内の敵の射程が30%、防御が20%低下",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 幽閉の婚宴 （使用まで50秒：消費気7）",
+   "text": "40秒間対象の射程と特殊攻撃の攻撃範囲が1.8倍 射程内の敵の移動速度が50%低下し、攻撃対象に ならない効果を無効化(一部敵は対象外。自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ［花嫁衣装］勝野城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 玉花の猛撃",
@@ -37177,7 +39437,44 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 幽閉の婚礼 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程と特殊攻撃の攻撃範囲が1.7倍 射程内の敵の移動速度が50%低下し、攻撃対象に ならない効果を無効化(一部敵は対象外。自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［花嫁衣装］勝野城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 幽閉の婚宴 （使用まで50秒：消費気7）",
+    "text": "40秒間対象の射程と特殊攻撃の攻撃範囲が1.8倍 射程内の敵の移動速度が50%低下し、攻撃対象に ならない効果を無効化(一部敵は対象外。自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［花嫁衣装］勝野城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -37285,7 +39582,32 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 大白波玉手箱 （使用まで50秒：消費気7）",
+   "text": "40秒間対象の射程内の城娘の射程が1.2倍 攻撃が敵の防御を50%無視。対象の射程内の 敵の被ダメージが50%上昇(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20%(1.2倍) ［夏］竜宮城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% ［夏］竜宮城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -37330,7 +39652,62 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 大波玉手箱 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程内の城娘の射程が1.2倍 攻撃が敵の防御を50%無視。対象の射程内の 敵の被ダメージが40%上昇(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［夏］竜宮城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ［夏］竜宮城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 大白波玉手箱 （使用まで50秒：消費気7）",
+    "text": "40秒間対象の射程内の城娘の射程が1.2倍 攻撃が敵の防御を50%無視。対象の射程内の 敵の被ダメージが50%上昇(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［夏］竜宮城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ［夏］竜宮城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -37433,7 +39810,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 遊楽・司録司命 （使用まで40秒：消費気5：青水配置）",
+   "text": "敵1体に攻撃し5秒間移動速度を80%低下させる伏 兵(2体まで)。伏兵の射程内の敵の射程が50%低下 配置時60秒自身と伏兵の攻撃2倍、射程150上昇",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -37487,7 +39870,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 遊休・司録司命 （使用まで40秒：消費気5：青水配置）",
+    "text": "敵1体に攻撃し5秒間移動速度を80%低下させる伏 兵(2体まで)。伏兵の射程内の敵の射程が50%低下 配置時50秒自身と伏兵の攻撃2倍、射程100上昇",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 遊楽・司録司命 （使用まで40秒：消費気5：青水配置）",
+    "text": "敵1体に攻撃し5秒間移動速度を80%低下させる伏 兵(2体まで)。伏兵の射程内の敵の射程が50%低下 配置時60秒自身と伏兵の攻撃2倍、射程150上昇",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -37571,7 +39971,13 @@ window.SCRE_DATA = [
    "text": "射程内の城娘の攻撃と与ダメが35%、[夏]城娘は45%上昇 自身の伏兵の攻撃と与ダメ45%上昇。全城娘と自身の伏兵の 攻撃150上昇。全敵の防御35%低下、被ダメ35%上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 波濤の猟犬 （使用まで45秒：消費気10：赤水配置）",
+   "text": "自身の2.5倍の攻撃と耐久で敵3体に攻撃し大きく 後退させる伏兵(1体まで、水上移動可)。配置中、自身と 伏兵が防御60%無視、耐久が与ダメの60%回復",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -37587,7 +39993,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 白波の猟犬 （使用まで50秒：消費気10：赤水配置）",
+    "text": "自身の2倍の攻撃と耐久で敵3体に攻撃し大きく 後退させる伏兵(1体まで、水上移動可)。配置中、自身と 伏兵が防御60%無視、耐久が与ダメの60%回復",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 波濤の猟犬 （使用まで45秒：消費気10：赤水配置）",
+    "text": "自身の2.5倍の攻撃と耐久で敵3体に攻撃し大きく 後退させる伏兵(1体まで、水上移動可)。配置中、自身と 伏兵が防御60%無視、耐久が与ダメの60%回復",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -37690,7 +40113,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 夏泳の神獣 （使用まで50秒：消費気10：赤水配置）",
+   "text": "敵2体を足止めし、敵1体とその周囲に攻撃し後退させる 伏兵(1体まで消費気5で水上移動可)。時間経過で伏兵の 攻撃と防御が最大1500まで上昇、50%の値を自身に加算",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 10
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / アアルの潮風",
@@ -37740,7 +40169,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 遊泳の神獣 （使用まで50秒：消費気10：赤水配置）",
+    "text": "敵2体を足止めし、敵1体とその周囲に攻撃し後退させる 伏兵(1体まで消費気5で水上移動可)。時間経過で伏兵の 攻撃と防御が最大1200まで上昇、45%の値を自身に加算",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 夏泳の神獣 （使用まで50秒：消費気10：赤水配置）",
+    "text": "敵2体を足止めし、敵1体とその周囲に攻撃し後退させる 伏兵(1体まで消費気5で水上移動可)。時間経過で伏兵の 攻撃と防御が最大1500まで上昇、50%の値を自身に加算",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -37856,7 +40302,32 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 高床式監護台 （使用まで30秒：消費気3：赤青配置）",
+   "text": "攻撃をしない伏兵を配置。伏兵の射程内の 蔵への攻撃を伏兵が代わりに受ける。配置中の 伏兵1体につき自身の攻撃と防御が150上昇",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150 ［夏］吉野ヶ里・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150 ［夏］吉野ヶ里・計略"
+    }
+   ],
+   "cooldown": 30,
+   "cost": 3
+  },
   "special": null,
   "allSkills": [
    {
@@ -37901,7 +40372,98 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 高床式監視台 （使用まで30秒：消費気5：赤青配置）",
+    "text": "攻撃をしない伏兵を配置。伏兵の射程内の 蔵への攻撃を伏兵が代わりに受ける。配置中の 伏兵1体につき自身の攻撃と防御が120上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120 ［夏］吉野ヶ里・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120 ［夏］吉野ヶ里・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 夏浜の神器 （使用まで60秒：消費気10）",
+    "text": "40秒間対象の攻撃対象が2増加、射程が2倍 攻撃が4倍のダメージを与える (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［夏］吉野ヶ里・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 高床式監護台 （使用まで30秒：消費気3：赤青配置）",
+    "text": "攻撃をしない伏兵を配置。伏兵の射程内の 蔵への攻撃を伏兵が代わりに受ける。配置中の 伏兵1体につき自身の攻撃と防御が150上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150 ［夏］吉野ヶ里・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150 ［夏］吉野ヶ里・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] /  夏浜の三神器 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃対象が3増加、射程が2倍 攻撃が4倍のダメージを与える (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［夏］吉野ヶ里・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -38013,7 +40575,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 金龍飛天 （使用まで60秒：消費気12）",
+   "text": "撤退大破時まで永続で対象の耐久が1.5倍、射程が 80上昇。40秒間対象の攻撃が1.8倍、耐久が与ダメ の50%回復。2回目以降は消費気が5軽減(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80%(1.8倍) 蓉城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 12
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 陰陽・円閃",
@@ -38073,7 +40651,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 金龍長城 （使用まで60秒：消費気12）",
+    "text": "撤退大破時まで永続で対象の耐久が1.5倍、射程が 50上昇。40秒間対象の攻撃が1.7倍、耐久が与ダメ の50%回復。2回目以降は消費気が5軽減(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70%(1.7倍) 蓉城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 12
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 金龍飛天 （使用まで60秒：消費気12）",
+    "text": "撤退大破時まで永続で対象の耐久が1.5倍、射程が 80上昇。40秒間対象の攻撃が1.8倍、耐久が与ダメ の50%回復。2回目以降は消費気が5軽減(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) 蓉城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 12
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -38171,7 +40786,23 @@ window.SCRE_DATA = [
    "text": "【配置】射程内城娘の撃破獲得気1増加(重複なし) 【鼓舞】自身の攻撃と防御の35%、射程の8% の値を射程内の城娘に加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 泰平の白貝 （使用まで50秒：消費気10）",
+   "text": "30秒間対象の鼓舞効果が1.8倍 対象の射程内の城娘の射程が1.4倍 (自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40%(1.4倍) 小早川城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -38187,7 +40818,44 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 和議の白貝 （使用まで60秒：消費気10）",
+    "text": "25秒間対象の鼓舞効果が1.8倍 対象の射程内の城娘の射程が1.4倍 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40%(1.4倍) 小早川城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 泰平の白貝 （使用まで50秒：消費気10）",
+    "text": "30秒間対象の鼓舞効果が1.8倍 対象の射程内の城娘の射程が1.4倍 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40%(1.4倍) 小早川城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "神奈川県"
@@ -38285,7 +40953,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 魔滅の鬼火 （使用まで50秒：消費気7）",
+   "text": "40秒間対象の与えるダメージと範囲攻撃の範囲が2倍 攻撃が敵の防御を無視する。敵撃破時10秒間攻撃力1.4倍 (自身の特技効果と重複。自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "defIgnore",
+     "mode": "flag",
+     "value": 1,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+1 ［肝試し］鬼ヶ島・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -38325,7 +41009,26 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 魔滅の鬼火 （使用まで50秒：消費気7）",
+    "text": "40秒間対象の与えるダメージと範囲攻撃の範囲が2倍 攻撃が敵の防御を無視する。敵撃破時10秒間攻撃力1.4倍 (自身の特技効果と重複。自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+1 ［肝試し］鬼ヶ島・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -38409,7 +41112,32 @@ window.SCRE_DATA = [
    "text": "自身の攻撃が敵を後退させる。全[肝試し]城娘の 攻撃が35%、射程が40上昇。射程内の敵の 被ダメージが40%、計略効果中は50%上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 龍神・白火蛇 （使用まで50秒：消費気7）",
+   "text": "35秒間対象の攻撃が2倍のダメージを与える 術攻撃になり、射程2倍、攻撃対象が1増加 妖怪に対して攻撃が2倍(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［肝試し］前田金沢城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［肝試し］前田金沢城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -38425,7 +41153,62 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 白蛇龍神 （使用まで50秒：消費気10）",
+    "text": "35秒間対象の攻撃が1.8倍のダメージを与える 術攻撃になり、射程2倍、攻撃対象が1増加 妖怪に対して攻撃が2倍(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［肝試し］前田金沢城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［肝試し］前田金沢城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 龍神・白火蛇 （使用まで50秒：消費気7）",
+    "text": "35秒間対象の攻撃が2倍のダメージを与える 術攻撃になり、射程2倍、攻撃対象が1増加 妖怪に対して攻撃が2倍(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［肝試し］前田金沢城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［肝試し］前田金沢城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -38536,7 +41319,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / ラスト・フリゲート （使用まで50秒：消費気5）",
+   "text": "35秒間対象の射程と爆風範囲と爆風ダメージが1.6倍 直撃ボーナスが200%に上昇 攻撃後の隙が少し増加(自分のみが対象)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -38581,7 +41370,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / マキシマム・フリゲート （使用まで50秒：消費気5）",
+    "text": "30秒間対象の射程と爆風範囲と爆風ダメージが1.5倍 直撃ボーナスが200%に上昇 攻撃後の隙が少し増加(自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ラスト・フリゲート （使用まで50秒：消費気5）",
+    "text": "35秒間対象の射程と爆風範囲と爆風ダメージが1.6倍 直撃ボーナスが200%に上昇 攻撃後の隙が少し増加(自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -38672,7 +41478,34 @@ window.SCRE_DATA = [
    "text": "自身の攻撃が敵の防御を35%無視。射程内城娘と 全遠隔城娘の射程50、与ダメージ35%上昇 射程内敵の防御30%低下、被ダメージ30%上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 蒼吹・速撃 （使用まで45秒：消費気5）",
+   "text": "30秒間対象の攻撃速度が2.5倍、攻撃後の 隙が80%短縮、耐久が60%以下の敵に対して 与えるダメージが1.7倍(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80% ［絢爛］今治城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 70,
+     "multiplier": 1.7,
+     "target": "self",
+     "stackable": true,
+     "raw": "+70%(1.7倍) [耐久が60%以下の敵] ［絢爛］今治城・計略",
+     "condition": "耐久が60%以下の敵"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -38698,7 +41531,131 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 蒼吹・速射 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の攻撃速度が2.5倍、攻撃後の 隙が80%短縮、耐久が50%以下の敵に対して 与えるダメージが1.7倍(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% ［絢爛］今治城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 70,
+      "multiplier": 1.7,
+      "target": "self",
+      "stackable": true,
+      "raw": "+70%(1.7倍) [耐久が50%以下の敵] ［絢爛］今治城・計略",
+      "condition": "耐久が50%以下の敵"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 蒼吹・剛射 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の攻撃が2倍、射程が1.5倍。攻撃が 周囲の敵にもダメージを与え、耐久50%以上の敵には 与えるダメージが1.8倍。攻撃後の隙延長(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［絢爛］今治城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［絢爛］今治城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 80,
+      "multiplier": 1.8,
+      "target": "self",
+      "stackable": true,
+      "raw": "+80%(1.8倍) [耐久50%以上の敵には] ［絢爛］今治城・計略",
+      "condition": "耐久50%以上の敵には"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 蒼吹・速撃 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の攻撃速度が2.5倍、攻撃後の 隙が80%短縮、耐久が60%以下の敵に対して 与えるダメージが1.7倍(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% ［絢爛］今治城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 70,
+      "multiplier": 1.7,
+      "target": "self",
+      "stackable": true,
+      "raw": "+70%(1.7倍) [耐久が60%以下の敵] ［絢爛］今治城・計略",
+      "condition": "耐久が60%以下の敵"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 蒼吹・剛撃 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の攻撃が2倍、射程が1.5倍。攻撃が周囲の 敵にもダメージを与え、耐久40%以上の敵には与える ダメージが1.8倍。攻撃後の隙が少し延長(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［絢爛］今治城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［絢爛］今治城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -38801,7 +41758,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 破堤・浪切 （使用まで35秒：消費気5）",
+   "text": "範囲内の敵に攻撃の6倍のダメージを与え 後退させ移動速度を10秒間80%低下させる (範囲:超特大)",
+   "effects": [],
+   "cooldown": 35,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -38839,7 +41802,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 破堤の波濤 （使用まで35秒：消費気7）",
+    "text": "範囲内の敵に攻撃の5.5倍のダメージを与え 後退させ移動速度を10秒間80%低下させる (範囲:超特大)",
+    "effects": [],
+    "cooldown": 35,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 大沼の守護 （使用まで35秒：消費気7）",
+    "text": "25秒間対象の足止め数が5上昇 対象の射程内の城娘の被ダメージを70%軽減 射程内の敵の移動速度が70%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70% ［絢爛］忍城・計略"
+     }
+    ],
+    "cooldown": 35,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 破堤・浪切 （使用まで35秒：消費気5）",
+    "text": "範囲内の敵に攻撃の6倍のダメージを与え 後退させ移動速度を10秒間80%低下させる (範囲:超特大)",
+    "effects": [],
+    "cooldown": 35,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 大沼の水護 （使用まで35秒：消費気7）",
+    "text": "30秒間対象の射程が100、足止め数が5上昇 対象の射程内の城娘の被ダメージを70%軽減 射程内の敵の移動速度が70%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70% ［絢爛］忍城・計略"
+     }
+    ],
+    "cooldown": 35,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -38950,7 +41966,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 多気如来一重桜 （使用まで80秒：消費気5）",
+   "text": "30秒間対象の攻撃が120、射程が60上昇 攻撃対象数が1増加 (石弓城娘と[関東七名城]が対象)",
+   "effects": [],
+   "cooldown": 80,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -39004,7 +42026,80 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 多気山一重桜 （使用まで80秒：消費気7）",
+    "text": "30秒間対象の攻撃が120、射程が60上昇 攻撃対象数が1増加 (石弓城娘と[関東七名城]が対象)",
+    "effects": [],
+    "cooldown": 80,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 多気山二重桜 （使用まで80秒：消費気7）",
+    "text": "30秒間対象の攻撃が140、射程が70上昇 攻撃対象数が2増加 (石弓城娘と[関東七名城]が対象)",
+    "effects": [],
+    "cooldown": 80,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 多気山三重桜 （使用まで80秒：消費気7）",
+    "text": "30秒間対象の攻撃が160、射程が80上昇 攻撃対象数が3増加 (石弓城娘と[関東七名城]が対象)",
+    "effects": [],
+    "cooldown": 80,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 多気山終桜 （使用まで80秒：消費気7）",
+    "text": "30秒間対象の攻撃が180、射程が90上昇 攻撃対象数が4増加 (石弓城娘と[関東七名城]が対象)",
+    "effects": [],
+    "cooldown": 80,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 多気如来一重桜 （使用まで80秒：消費気5）",
+    "text": "30秒間対象の攻撃が120、射程が60上昇 攻撃対象数が1増加 (石弓城娘と[関東七名城]が対象)",
+    "effects": [],
+    "cooldown": 80,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 多気如来二重桜 （使用まで80秒：消費気5）",
+    "text": "30秒間対象の攻撃が140、射程が70上昇 攻撃対象数が2増加 (石弓城娘と[関東七名城]が対象)",
+    "effects": [],
+    "cooldown": 80,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 多気如来三重桜 （使用まで80秒：消費気5）",
+    "text": "30秒間対象の攻撃が160、射程が80上昇 攻撃対象数が3増加 (石弓城娘と[関東七名城]が対象)",
+    "effects": [],
+    "cooldown": 80,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 多気如来終桜 （使用まで80秒：消費気5）",
+    "text": "30秒間対象の攻撃が180、射程が90上昇 攻撃対象数が4増加 (石弓城娘と[関東七名城]が対象)",
+    "effects": [],
+    "cooldown": 80,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 多気如来幻桜 （使用まで80秒：消費気5）",
+    "text": "35秒間対象の攻撃が240、射程が120上昇 攻撃対象数が5増加 (石弓城娘と[関東七名城]が対象)",
+    "effects": [],
+    "cooldown": 80,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "茨城県"
@@ -39100,7 +42195,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 天一生水地六成之 （使用まで40秒：消費気7）",
+   "text": "20秒間範囲内の敵の移動速度が0になり 攻撃と防御が50%低下(範囲：超特大)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% 天一閣・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -39136,7 +42247,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 天一生水 （使用まで45秒：消費気7）",
+    "text": "20秒間範囲内の敵の移動速度が0になり 攻撃と防御が50%低下(範囲：特大)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 天一閣・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天一生水地六成之 （使用まで40秒：消費気7）",
+    "text": "20秒間範囲内の敵の移動速度が0になり 攻撃と防御が50%低下(範囲：超特大)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 天一閣・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -39237,7 +42385,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / ハロウィン・マキア （使用まで45秒：消費気7）",
+   "text": "35秒間対象の攻撃速度と与ダメージが2倍､攻撃対象が 4増加｡対象の射程内の敵の被ダメージを50%上昇､撃破時 追加で気が1増加(同種効果の重複なし｡自分のみ)",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -39273,7 +42427,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ハロウィン・ギガント （使用まで45秒：消費気7）",
+    "text": "30秒間対象の攻撃速度と与ダメージが1.8倍､攻撃対象が 4増加｡対象の射程内の敵の被ダメージを50%上昇､撃破時 追加で気が1増加(同種効果の重複なし｡自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ハロウィン・マキア （使用まで45秒：消費気7）",
+    "text": "35秒間対象の攻撃速度と与ダメージが2倍､攻撃対象が 4増加｡対象の射程内の敵の被ダメージを50%上昇､撃破時 追加で気が1増加(同種効果の重複なし｡自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -39357,7 +42528,13 @@ window.SCRE_DATA = [
    "text": "全城娘と伏兵の攻撃と防御が140、射程が40上昇 【大魔法】配置中の自身の伏兵が120秒間消滅せず 全敵の移動速度と射程が30秒間80%低下",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 祝祭の守護神トリトン （使用まで40秒：消費気5：赤青水配置）",
+   "text": "敵から狙われず、攻撃をしない伏兵を配置 配置中、伏兵の射程内の城娘と自身の攻撃と射程が 70上昇、攻撃対象が1増加。最長30秒で消滅",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -39373,7 +42550,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 祝祭のトリトン （使用まで45秒：消費気7：赤青水配置）",
+    "text": "敵から狙われず、攻撃をしない伏兵を配置 配置中、伏兵の射程内の城娘と自身の攻撃と射程が 70上昇、攻撃対象が1増加。最長30秒で消滅",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 祝祭の守護神トリトン （使用まで40秒：消費気5：赤青水配置）",
+    "text": "敵から狙われず、攻撃をしない伏兵を配置 配置中、伏兵の射程内の城娘と自身の攻撃と射程が 70上昇、攻撃対象が1増加。最長30秒で消滅",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -39474,7 +42668,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / メスラムタエア （使用まで50秒：消費気7）",
+   "text": "40秒間対象の範囲攻撃の範囲が2倍 4連続で攻撃を行い、与ダメージの60%耐久が回復 (自分のみが対象)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -39510,7 +42710,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ネ・ウヌ・ガル （使用まで60秒：消費気7）",
+    "text": "40秒間対象の範囲攻撃の範囲が2倍 4連続で攻撃を行い、与ダメージの50%耐久が回復 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 宿命の死 （使用まで60秒：消費気10：赤水配置）",
+    "text": "敵から狙われず、自身の1倍の攻撃で敵1体に 防御を無視する攻撃を行う伏兵を配置(1体まで) 配置中、自身の被ダメージを40%軽減",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ガンジル宮殿・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / メスラムタエア （使用まで50秒：消費気7）",
+    "text": "40秒間対象の範囲攻撃の範囲が2倍 4連続で攻撃を行い、与ダメージの60%耐久が回復 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天命の死 （使用まで50秒：消費気10：赤水配置）",
+    "text": "敵から狙われず、自身の1倍の攻撃で敵1体に 防御を無視する攻撃を行う伏兵を配置(1体まで) 配置中、自身の被ダメージを50%軽減",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ガンジル宮殿・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -39614,7 +42867,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 金烏闇耀 （使用まで45秒：消費気7）",
+   "text": "40秒間対象の攻撃対象が2増加、攻撃が3連続で ダメージを与える。攻撃対象の耐久が低い程 与えるダメージが上昇(最大2倍。自分のみ)",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -39659,7 +42918,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 金烏黒耀 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の攻撃対象が2増加、攻撃が3連続で ダメージを与える。攻撃対象の耐久が低い程 与えるダメージが上昇(最大1.8倍。自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 金烏闇耀 （使用まで45秒：消費気7）",
+    "text": "40秒間対象の攻撃対象が2増加、攻撃が3連続で ダメージを与える。攻撃対象の耐久が低い程 与えるダメージが上昇(最大2倍。自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -39772,7 +43048,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 天下不競望の権謀術 （使用まで35秒：消費気5）",
+   "text": "25秒間対象の特殊攻撃ゲージ蓄積量が2倍になり 射程が70上昇、攻撃対象数が2増加(自分のみ) 計略発動時、特殊攻撃ゲージが即時回復する",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70 ［裏］吉田郡山城・計略"
+    }
+   ],
+   "cooldown": 35,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 三矢結束一穿・壊",
@@ -39833,7 +43125,34 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 天下不競望の智将 （使用まで40秒：消費気5）",
+    "text": "25秒間対象の特殊攻撃ゲージ蓄積量が2倍になり 攻撃対象数が2増加(自分のみ) 計略発動時、特殊攻撃ゲージが即時回復する",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天下不競望の権謀術 （使用まで35秒：消費気5）",
+    "text": "25秒間対象の特殊攻撃ゲージ蓄積量が2倍になり 射程が70上昇、攻撃対象数が2増加(自分のみ) 計略発動時、特殊攻撃ゲージが即時回復する",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70 ［裏］吉田郡山城・計略"
+     }
+    ],
+    "cooldown": 35,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -39948,7 +43267,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 九龍烽炎 （使用まで40秒：消費気7）",
+   "text": "35秒間対象の射程が1.5倍、攻撃が標的に3倍 その周囲に2倍のダメージを与え後退させる2連続 攻撃になる。特殊攻撃が1回使用可能(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) 九龍城砦・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 混沌・九頭龍",
@@ -39998,7 +43333,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 九曜烽炎 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程が1.5倍、攻撃が標的に3倍 その周囲に2倍のダメージを与え後退させる2連続 攻撃になる。特殊攻撃が1回使用可能(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 九龍城砦・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 九龍烽炎 （使用まで40秒：消費気7）",
+    "text": "35秒間対象の射程が1.5倍、攻撃が標的に3倍 その周囲に2倍のダメージを与え後退させる2連続 攻撃になる。特殊攻撃が1回使用可能(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 九龍城砦・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -40112,7 +43484,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / ア・バオ・ア・クゥー （使用まで50秒：消費気10）",
+   "text": "対象の攻撃対象が1増加、攻撃と防御と攻撃速度が 2秒毎に2%ずつ上昇(最大70%。効果時間無限) 対象が70秒間敵から狙われない(自分のみが対象)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 10
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 丹碧閃刀・颶",
@@ -40153,7 +43531,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ア・バオ・ア・クゥー （使用まで50秒：消費気10）",
+    "text": "対象の攻撃対象が1増加、攻撃と防御と攻撃速度が 2秒毎に2%ずつ上昇(最大70%。効果時間無限) 対象が70秒間敵から狙われない(自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ヴィジャイ・スタンバ （使用まで50秒：消費気10）",
+    "text": "対象の攻撃対象が1増加、攻撃と防御と攻撃速度が 2秒毎に2%ずつ上昇(最大80%。効果時間無限) 対象が80秒間敵から狙われない(自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -40267,7 +43662,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 天衝の聖塔 （使用まで60秒：消費気7）",
+   "text": "30秒間対象の射程が2倍、攻撃と爆風範囲が2.5倍 爆風ダメージが2倍。武器攻撃に攻撃の1.5倍の 術ダメージを追加。(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［聖夜］バベルの塔・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -40303,7 +43714,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 天衝の祝塔 （使用まで60秒：消費気7）",
+    "text": "30秒間対象の射程が2倍、攻撃と爆風範囲が2.5倍 武器攻撃に攻撃の1.2倍の術ダメージを追加 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［聖夜］バベルの塔・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 悠久の祝塔 （使用まで40秒：消費気10）",
+    "text": "対象の攻撃/射程/爆風範囲が1.5倍 撃破獲得気1増加。武器攻撃に攻撃の0.6倍の術ダメージ を追加(重複なし。自分のみが対象。効果時間無限)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天衝の聖塔 （使用まで60秒：消費気7）",
+    "text": "30秒間対象の射程が2倍、攻撃と爆風範囲が2.5倍 爆風ダメージが2倍。武器攻撃に攻撃の1.5倍の 術ダメージを追加。(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［聖夜］バベルの塔・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 悠久の聖塔 （使用まで40秒：消費気10）",
+    "text": "対象の攻撃/射程/爆風範囲/爆風ダメージ1.5倍 撃破獲得気1増加。武器攻撃に攻撃の0.8倍の術ダメージ を追加。(重複なし。自分のみが対象。効果時間無限)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -40413,7 +43877,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 聖夜大天神・霊霊石 （使用まで45秒：消費気5）",
+   "text": "30秒間対象の攻撃300、射程150上昇。射程内城娘の 射程が50上昇、被ダメージ40%軽減、巨大化気35%軽減 ［聖夜］城娘は効果が1.2倍(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% ［聖夜］基肄城・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -40467,7 +43947,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 聖夜天神・霊霊石 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の攻撃300、射程150上昇 射程内城娘の被ダメージ40%軽減、巨大化気30%軽減 ［聖夜］城娘は効果が1.2倍(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［聖夜］基肄城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 聖夜大天神・霊霊石 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の攻撃300、射程150上昇。射程内城娘の 射程が50上昇、被ダメージ40%軽減、巨大化気35%軽減 ［聖夜］城娘は効果が1.2倍(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［聖夜］基肄城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -40569,7 +44086,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 将軍府の威光 （使用まで20秒：消費気0：赤青配置）",
+   "text": "敵に狙われず、自身の1.4倍の攻撃で敵3体に2連続 攻撃し、5秒間射程と移動速度を40%低下させる 伏兵(最長120秒で消滅)。巨大化毎に使用回数1増加",
+   "effects": [],
+   "cooldown": 20,
+   "cost": 0
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 建武の新政 （消費気10：初回30秒：再使用45秒）",
@@ -40622,7 +44145,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 鎮守府の貴光 （使用まで20秒：消費気0：赤青配置）",
+    "text": "敵に狙われず、自身の1.4倍の攻撃で敵2体に2連続 攻撃し、5秒間射程と移動速度を40%低下させる 伏兵(最長100秒で消滅)。巨大化毎に使用回数1増加",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 将軍府の威光 （使用まで20秒：消費気0：赤青配置）",
+    "text": "敵に狙われず、自身の1.4倍の攻撃で敵3体に2連続 攻撃し、5秒間射程と移動速度を40%低下させる 伏兵(最長120秒で消滅)。巨大化毎に使用回数1増加",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -40743,7 +44283,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 袴の八戌・抜刀 （使用まで50秒：消費気7：赤配置）",
+   "text": "自身の2倍の耐久と攻撃で敵2体に攻撃を行う 特殊攻撃を使用できる伏兵を配置(1体まで)伏兵配置中 自身の与ダメージと特殊攻撃ゲージ蓄積量が1.5倍",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 御来光の氷刃",
@@ -40786,7 +44332,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 袴の八戌 （使用まで50秒：消費気7：赤配置）",
+    "text": "自身の1.5倍の耐久と攻撃で敵2体に攻撃を行う 特殊攻撃を使用できる伏兵を配置(1体まで)伏兵配置中 自身の与ダメージと特殊攻撃ゲージ蓄積量が1.4倍",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 袴の八戌・抜刀 （使用まで50秒：消費気7：赤配置）",
+    "text": "自身の2倍の耐久と攻撃で敵2体に攻撃を行う 特殊攻撃を使用できる伏兵を配置(1体まで)伏兵配置中 自身の与ダメージと特殊攻撃ゲージ蓄積量が1.5倍",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -40900,7 +44463,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 邪竜の新年祭 （使用まで50秒：消費気10）",
+   "text": "対象が与ダメージの50%回復、妖怪に対して攻撃が1.5倍 時間経過で耐久と攻撃と防御上昇(上限150%) 射程が上昇(上限40%)。(自分のみ。効果時間無限)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ［正月］クリンタ城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -40936,7 +44515,34 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 蛇竜の新年祭 （使用まで50秒：消費気10）",
+    "text": "対象の耐久が与ダメージの40%回復 時間経過で耐久と攻撃と防御が上昇(上限100%) 射程が上昇(上限30%)。(自分のみ。効果時間無限)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 邪竜の新年祭 （使用まで50秒：消費気10）",
+    "text": "対象が与ダメージの50%回復、妖怪に対して攻撃が1.5倍 時間経過で耐久と攻撃と防御上昇(上限150%) 射程が上昇(上限40%)。(自分のみ。効果時間無限)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［正月］クリンタ城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -41030,7 +44636,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 大大吉・八雷神 （使用まで60秒：消費気7：赤水配置）",
+   "text": "敵に狙われず、自身の1倍の攻撃で歌舞を行う伏兵 伏兵の射程内城娘の攻撃1.5倍、射程70上昇。配置時 伏兵の射程内城娘が10秒大破しない(100秒で消滅)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -41066,7 +44678,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 初詣・八雷神 （使用まで60秒：消費気7：赤水配置）",
+    "text": "敵に狙われず、自身の1倍の攻撃で歌舞を行う伏兵 伏兵の射程内城娘の攻撃1.4倍、射程50上昇。配置時 伏兵の射程内城娘が10秒大破しない(100秒で消滅)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 大大吉・八雷神 （使用まで60秒：消費気7：赤水配置）",
+    "text": "敵に狙われず、自身の1倍の攻撃で歌舞を行う伏兵 伏兵の射程内城娘の攻撃1.5倍、射程70上昇。配置時 伏兵の射程内城娘が10秒大破しない(100秒で消滅)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -41160,7 +44789,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 迎春のハデス （使用まで40秒：消費気5）",
+   "text": "対象の耐久が現在値の60%減少、30秒間対象の 攻撃対象が3増加、射程が1.5倍、攻撃と与ダメージ2倍 射程内の敵の移動速度を50%低下(近接城娘が対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ［正月］タルタロス・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -41196,7 +44841,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 歳旦のハデス （使用まで40秒：消費気5）",
+    "text": "対象の耐久が現在値の60%減少。30秒間対象の 攻撃対象が3増加、射程が1.4倍、攻撃と与ダメージ1.8倍 射程内の敵の移動速度を50%低下(近接城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40%(1.4倍) ［正月］タルタロス・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 迎春のハデス （使用まで40秒：消費気5）",
+    "text": "対象の耐久が現在値の60%減少、30秒間対象の 攻撃対象が3増加、射程が1.5倍、攻撃と与ダメージ2倍 射程内の敵の移動速度を50%低下(近接城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［正月］タルタロス・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -41297,7 +44979,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 賀正の大極殿 （使用まで30秒：消費気3：赤青配置）",
+   "text": "攻撃しない伏兵を配置(1体まで)。気の自然増加 量が増加。伏兵の射程内城娘と全［正月］城娘の撃破 気が1増加、攻撃速度30%上昇、被ダメ30%軽減",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 3
+  },
   "special": null,
   "allSkills": [
    {
@@ -41333,7 +45021,106 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 謹賀の大極殿 （使用まで30秒：消費気3：青配置）",
+    "text": "攻撃しない伏兵を配置(1体まで)。気の自然増加 量が増加。伏兵の射程内の城娘と全ての［正月］城娘 の撃破気が1増加、被ダメージを25%軽減",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% ［正月］平安京・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 寅・朱雀門 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の攻撃が1.8倍、攻撃対象が1増加 攻撃した敵を3秒間「火傷」にする(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［正月］平安京・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 辰・玄武門 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の槍の貫通距離が1.7倍 攻撃した敵の移動速度を1秒間0にする 対象の射程内の城娘の防御が1.7倍(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70%(1.7倍) ［正月］平安京・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 賀正の大極殿 （使用まで30秒：消費気3：赤青配置）",
+    "text": "攻撃しない伏兵を配置(1体まで)。気の自然増加 量が増加。伏兵の射程内城娘と全［正月］城娘の撃破 気が1増加、攻撃速度30%上昇、被ダメ30%軽減",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 寅・朱雀大門 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の攻撃が2倍、攻撃対象が2増加 攻撃した敵を3秒間「火傷」にする(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［正月］平安京・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 辰・偉鑒大門 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の防御と槍の貫通距離が2倍 攻撃した敵の移動速度を1秒間0にする 対象の射程内の城娘の防御が1.8倍(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［正月］平安京・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -41435,7 +45222,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 奈落の魔腕 （使用まで40秒：消費気5：赤青水配置）",
+   "text": "自身の1.2倍の攻撃で敵1体に1.5倍、その周囲に 1倍のダメージを与える攻撃を行う伏兵(4体まで) 伏兵配置中、自身の攻撃が120、射程が30上昇",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -41461,7 +45254,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 奈落の魔手 （使用まで40秒：消費気5：赤青水配置）",
+    "text": "自身の1倍の攻撃で敵1体に1.5倍、その周囲に 1倍のダメージを与える攻撃を行う伏兵(4体まで) 伏兵配置中、自身の攻撃が80、射程が30上昇",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ナーラーヤナーストラ （使用まで40秒：消費気5）",
+    "text": "25秒間対象が射程内の全ての敵に攻撃を行う 攻撃で与えるダメージが1.8倍になり 飛行敵に対する攻撃が1倍になる(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 0,
+      "target": "self",
+      "stackable": false,
+      "raw": "+0%(1.0倍) ナラカ・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 奈落の魔腕 （使用まで40秒：消費気5：赤青水配置）",
+    "text": "自身の1.2倍の攻撃で敵1体に1.5倍、その周囲に 1倍のダメージを与える攻撃を行う伏兵(4体まで) 伏兵配置中、自身の攻撃が120、射程が30上昇",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天上のアストラ （使用まで40秒：消費気5）",
+    "text": "30秒間対象が射程内の全ての敵に攻撃を行う 攻撃で与えるダメージが2倍になり 飛行敵に対する攻撃が1倍になる(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 0,
+      "target": "self",
+      "stackable": false,
+      "raw": "+0%(1.0倍) ナラカ・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -41553,7 +45399,13 @@ window.SCRE_DATA = [
    "text": "【配置】自身の撤退大破回復気45%上昇、再配置70% 短縮。射程内敵の被ダメが35%上昇。最大化時大破数が 多い程攻撃、攻撃速度上昇(上限60%。同種効果と重複)",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 此岸の冥刃 （使用まで30秒：消費気5）",
+   "text": "対象の攻撃と与ダメージが1.8倍、射程1.5倍 再配置時間80%短縮。撤退大破まで永続で 毎秒耐久が最大値の5%減少(効果時間無限。近接のみ)",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -41569,7 +45421,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 此岸の刈刃 （使用まで30秒：消費気5）",
+    "text": "対象の攻撃と与ダメージが1.7倍、射程1.4倍 再配置時間80%短縮。撤退大破まで永続で 毎秒耐久が最大値の5%減少(効果時間無限。近接のみ)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 此岸の冥刃 （使用まで30秒：消費気5）",
+    "text": "対象の攻撃と与ダメージが1.8倍、射程1.5倍 再配置時間80%短縮。撤退大破まで永続で 毎秒耐久が最大値の5%減少(効果時間無限。近接のみ)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -41682,7 +45551,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 冬暁の凍嵐 （使用まで40秒：消費気5）",
+   "text": "範囲内の敵に攻撃の4倍の術ダメージを与え 20秒間「氷結」にする(範囲：極大)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 雪華爛漫 （消費気5：初回15秒：再使用40秒）",
@@ -41743,7 +45618,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 冬暁の氷風 （使用まで40秒：消費気7）",
+    "text": "範囲内の敵に攻撃の3.5倍の術ダメージを与え 20秒間「氷結」にする(範囲：極大)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 霜雪の花 （使用まで50秒：消費気7）",
+    "text": "50秒間対象の攻撃が1.8倍、特殊攻撃時、攻撃が さらに1.2倍。射程内の敵に対して「氷結」が 無効化されない(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［雪華］古河城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 冬暁の凍嵐 （使用まで40秒：消費気5）",
+    "text": "範囲内の敵に攻撃の4倍の術ダメージを与え 20秒間「氷結」にする(範囲：極大)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 終雪の花 （使用まで40秒：消費気5）",
+    "text": "50秒間対象の攻撃が1.8倍、特殊攻撃時、攻撃が さらに1.2倍。射程内の敵に対して「氷結」が 無効化されない(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［雪華］古河城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -41862,7 +45790,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 甘美なる雷霆 （使用まで40秒：消費気5）",
+   "text": "【雷属性】範囲内の敵に 攻撃の3.5倍の術ダメージを与え 4秒間動きを封じる(範囲:極大)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -41899,7 +45833,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 甘き雷霆 （使用まで45秒：消費気5）",
+    "text": "【雷属性】範囲内の敵に 攻撃の3倍の術ダメージを与え 4秒間動きを封じる(範囲:極大)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / スパイシー・カジュロール （使用まで45秒：消費気7）",
+    "text": "対象の射程が100上昇、攻撃が敵撃破毎に10ずつ上昇 攻撃が標的の周囲に0.7倍の術ダメを与える。射程内 城娘の撃破気が1増加(自分のみ。効果時間無限)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 ［バレンタイン］ヴァイジャヤンタ・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 甘美なる雷霆 （使用まで40秒：消費気5）",
+    "text": "【雷属性】範囲内の敵に 攻撃の3.5倍の術ダメージを与え 4秒間動きを封じる(範囲:極大)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / シャクラ・カジュロール （使用まで45秒：消費気7）",
+    "text": "対象の射程が120上昇、攻撃が敵撃破毎に20ずつ上昇 攻撃が標的の周囲に1倍の術ダメを与える。射程内 城娘の撃破気が1増加(自分のみ。効果時間無限)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120 ［バレンタイン］ヴァイジャヤンタ・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -41983,7 +45970,23 @@ window.SCRE_DATA = [
    "text": "自身の足止め数が3増加、攻撃が50%、特殊攻撃時は 80%上昇。全ての城娘の耐久と防御が40%上昇 全ての[ﾊﾞﾚﾝﾀｲﾝ]城娘は50%上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 美々しき菓子城 （使用まで40秒：消費気5）",
+   "text": "40秒間対象の被ダメージを75%軽減し、ダメージを 合計25000まで防ぐ。対象の射程内の味方の被攻撃時に 攻撃の70%をダメージとして反射(近接城娘が対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 75,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+75% ［バレンタイン］クラック・デ・シュヴァリエ・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / ショコラ・デ・シュヴァリエ",
@@ -42004,7 +46007,44 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 難攻不落の菓子城 （使用まで40秒：消費気5）",
+    "text": "40秒間対象の被ダメージを70%軽減し、ダメージを 合計20000まで防ぐ。対象の射程内の味方の被攻撃時に 攻撃の70%をダメージとして反射(近接城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［バレンタイン］クラック・デ・シュヴァリエ・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 美々しき菓子城 （使用まで40秒：消費気5）",
+    "text": "40秒間対象の被ダメージを75%軽減し、ダメージを 合計25000まで防ぐ。対象の射程内の味方の被攻撃時に 攻撃の70%をダメージとして反射(近接城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 75,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+75% ［バレンタイン］クラック・デ・シュヴァリエ・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -42108,7 +46148,13 @@ window.SCRE_DATA = [
    "text": "自身が攻撃した敵の攻撃と防御が5秒間40%低下 射程内の城娘の被ダメを25%軽減、撃破気が1増加 射程内の殿と蔵へのダメージを代わりに受ける",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 舞鶴ふぇすてぃばる！ （使用まで50秒：消費気5）",
+   "text": "35秒間対象の特技が発動、攻撃対象が2増加 射程内の味方が多い程防御が上昇(上限2.5倍) 与ダメージの50%耐久が回復(自分のみが対象)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -42124,7 +46170,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 舞鶴おんすてーじ！ （使用まで50秒：消費気7）",
+    "text": "30秒間対象の特技が発動、攻撃対象が2増加 射程内の味方が多い程防御が上昇(上限2.5倍) 与ダメージの50%耐久が回復(自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 舞鶴ふぇすてぃばる！ （使用まで50秒：消費気5）",
+    "text": "35秒間対象の特技が発動、攻撃対象が2増加 射程内の味方が多い程防御が上昇(上限2.5倍) 与ダメージの50%耐久が回復(自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -42227,7 +46290,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 泰平☆爆発 （使用まで60秒：消費気10）",
+   "text": "50秒間対象の与ダメージが2倍、射程が1.2倍 射程内の敵全てに防御を無視する攻撃を行う 攻撃後の隙が少し延長(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20%(1.2倍) ［アイドル］江戸城＆信貴山城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -42263,7 +46342,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 天下☆下剋 （使用まで60秒：消費気10）",
+    "text": "45秒間対象の与ダメージが1.8倍、射程が1.2倍 射程内の敵全てに防御を無視する攻撃を行う 攻撃後の隙が少し延長(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［アイドル］江戸城＆信貴山城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 泰平☆爆発 （使用まで60秒：消費気10）",
+    "text": "50秒間対象の与ダメージが2倍、射程が1.2倍 射程内の敵全てに防御を無視する攻撃を行う 攻撃後の隙が少し延長(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［アイドル］江戸城＆信貴山城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -42348,7 +46464,23 @@ window.SCRE_DATA = [
    "text": "【配置】全地獄城、平城、[絢爛]城娘の攻撃が100、与ダメ50%上昇 耐久が与ダメの30%回復。最大化時、計略中与えるダメージが 1.4倍、標的の周囲に1倍の防御無視ダメージ",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 飛梅之花剣 （使用まで45秒：消費気7）",
+   "text": "35秒間対象の射程が1.5倍、射程内全ての敵に 1.8倍のダメージを与える防御無視攻撃を3連続で行う 攻撃後の隙が少し増加(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ［絢爛］［裏］大宰府・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -42375,7 +46507,44 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 飛梅之御剣 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の射程が1.5倍、射程内全ての敵に 1.6倍のダメージを与える防御無視攻撃を3連続で行う 攻撃後の隙が少し増加(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［絢爛］［裏］大宰府・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 飛梅之花剣 （使用まで45秒：消費気7）",
+    "text": "35秒間対象の射程が1.5倍、射程内全ての敵に 1.8倍のダメージを与える防御無視攻撃を3連続で行う 攻撃後の隙が少し増加(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［絢爛］［裏］大宰府・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -42477,7 +46646,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 軍法・野伏衆 （使用まで40秒：消費気5）",
+   "text": "40秒間対象が敵から狙われず、攻撃で与えるダメージと 範囲攻撃の範囲が2倍、巨大化気を40%軽減 攻撃動作が少し低速化(自分のみが対象)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -42513,7 +46688,40 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 軍法・野伏 （使用まで40秒：消費気7）",
+    "text": "40秒間対象が敵から狙われず、攻撃で与えるダメージと 範囲攻撃の範囲が1.8倍、巨大化気を35%軽減 攻撃動作が少し低速化(自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 兵法・示現 （使用まで40秒：消費気10）",
+    "text": "対象の耐久が全回復。40秒間与えるダメージと範囲 攻撃の範囲が3倍、受けるダメージを15000まで防ぐ 足止め数が4増加。攻撃動作が少し低速化(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 軍法・野伏衆 （使用まで40秒：消費気5）",
+    "text": "40秒間対象が敵から狙われず、攻撃で与えるダメージと 範囲攻撃の範囲が2倍、巨大化気を40%軽減 攻撃動作が少し低速化(自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 兵法・示現撃 （使用まで40秒：消費気7）",
+    "text": "対象の耐久が全回復。40秒間与えるダメージと範囲 攻撃の範囲が3倍、受けるダメージを20000まで防ぐ 足止め数が4増加。攻撃動作が少し低速化(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -42709,7 +46917,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［絢爛］高取城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -42725,7 +46935,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［絢爛］高取城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -42933,7 +47145,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+10% ［絢爛］中津城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -42958,7 +47172,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+10% ［絢爛］中津城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -43062,7 +47278,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / MADr.KINKI （使用まで40秒：消費気5：赤配置）",
+   "text": "自身の2倍の耐久で敵2体を足止めし、射程内の 敵全てに2連続で攻撃を行う伏兵を配置(1体まで) 自身の攻撃と攻撃速度が30%上昇(効果重複)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30% ［学園］千方窟・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -43098,7 +47330,92 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / Dr.KINKI （使用まで40秒：消費気5：赤配置）",
+    "text": "自身の2倍の耐久で敵2体を足止めし、射程内の 敵全てに2連続で攻撃を行う伏兵を配置(1体まで) 配置中、自身の攻撃が25%上昇(効果重複)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［学園］千方窟・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / Ky.SUIKI （使用まで40秒：消費気5：青配置）",
+    "text": "自身の1.2倍の射程で攻撃しない伏兵を配置(1体まで) 伏兵射程内の敵の射程40%低下、攻撃対象にならない効果 を無効。配置中、自身の攻撃が妖怪に対して1.5倍",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / Gt.FUKI （使用まで40秒：消費気5：青水配置）",
+    "text": "飛行敵以外に狙われず攻撃しない伏兵を配置(1体まで) 伏兵の射程内の味方と自身の攻撃150、射程80上昇 自身の攻撃が飛行敵に2倍(武器効果と重複しない)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / Ba.ONGYOKI （使用まで40秒：消費気5：赤青水配置）",
+    "text": "敵から狙われず、自身の1.5倍の攻撃で敵3体に 攻撃する伏兵を配置(1体まで)。最大100秒で消滅 配置中、自身が敵から狙われず、与ダメージが1.5倍",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / MADr.KINKI （使用まで40秒：消費気5：赤配置）",
+    "text": "自身の2倍の耐久で敵2体を足止めし、射程内の 敵全てに2連続で攻撃を行う伏兵を配置(1体まで) 自身の攻撃と攻撃速度が30%上昇(効果重複)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% ［学園］千方窟・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / MAKy.SUIKI （使用まで40秒：消費気5：赤青配置）",
+    "text": "自身の1.2倍の射程で攻撃しない伏兵を配置(1体まで) 伏兵射程内の敵の射程50%低下、攻撃対象にならない効果 を無効。配置中、自身の攻撃が妖怪に対して2倍",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / MAGt.FUKI （使用まで40秒：消費気5：青水配置）",
+    "text": "飛行敵以外に狙われず攻撃しない伏兵を配置(1体まで) 伏兵の射程内の味方と自身の攻撃200、射程100上昇 自身の攻撃が飛行敵に2倍(武器効果と重複しない)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / MABa.ONGYOKI （使用まで40秒：消費気5：赤青水配置）",
+    "text": "敵から狙われず、自身の1.5倍の攻撃で敵3体に 攻撃する伏兵を配置(1体まで)。最大120秒で消滅 配置中、自身が敵から狙われず、与ダメージが1.6倍",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "三重県"
@@ -43295,13 +47612,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ロミオへの愛 （使用まで40秒：消費気7：赤青配置）",
     "text": "攻撃せず、狙われない伏兵(1体まで)。配置中自身の射程 150上昇。射程内城娘の攻撃に伏兵の70%、[学園]城娘には 90%の値を加算。伏兵射程内の敵の防御50%低下",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 儚いロマンス （使用まで40秒：消費気7：赤青配置）",
     "text": "攻撃せず、狙われない伏兵(1体)。配置中自身の射程 150上昇。射程内城娘の攻撃に伏兵の80%、[学園]城娘には 110%の値を加算。伏兵射程内の敵の防御60%低下",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -43486,13 +47807,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 波上の城 （使用まで45秒：消費気7）",
     "text": "30秒間対象の攻撃と特殊攻撃ゲージ蓄積量が1.8倍 特殊攻撃時、攻撃がさらに1.4倍(自分のみが対象) 計略発動時、特殊攻撃ゲージが即時回復する",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 大波上の城 （使用まで45秒：消費気5）",
     "text": "30秒間対象の攻撃と特殊攻撃ゲージ蓄積量が2倍 特殊攻撃時、攻撃がさらに1.5倍(自分のみが対象) 計略発動時、特殊攻撃ゲージが即時回復する",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -43683,7 +48008,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+20%(1.2倍) ［天明］岐阜城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -43700,7 +48027,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+30%(1.3倍) ［天明］岐阜城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -43895,7 +48224,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+50%(1.5倍) ［破将］掛川城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -43912,7 +48243,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+50%(1.5倍) ［破将］掛川城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -44082,7 +48415,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% コーロア城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -44109,7 +48444,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+65% コーロア城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -44284,7 +48621,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% バロルの城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -44300,7 +48639,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% バロルの城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -44427,13 +48768,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 花散る碧の切れ間 （使用まで50秒：消費気7）",
     "text": "30秒間対象が射程内の全ての敵に一定間隔で 攻撃の1.3倍の術ダメージを与え、射程内の 自身を除く殿と城娘を継続的に回復する(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 花散る里に夢の浮橋 （使用まで45秒：消費気7）",
     "text": "30秒間対象が射程内の全ての敵に一定間隔で 攻撃の1.5倍の術ダメージを与え、射程内の 自身を除く殿と城娘を継続的に回復する(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -44557,7 +48902,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 松の如く末永き契り （使用まで50秒：消費気5）",
+   "text": "30秒間対象が2連続で攻撃の2.2倍のダメージを与える 術攻撃を行い、全ての攻撃を回避、味方よりも 優先して狙われるようになる(自分のみ)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -44622,7 +48973,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 一生水の盃 （使用まで50秒：消費気5）",
+    "text": "25秒間対象が2連続で攻撃の2倍のダメージを与える 術攻撃を行い、全ての攻撃を回避、味方よりも 優先して狙われるようになる(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 松の如く末永き契り （使用まで50秒：消費気5）",
+    "text": "30秒間対象が2連続で攻撃の2.2倍のダメージを与える 術攻撃を行い、全ての攻撃を回避、味方よりも 優先して狙われるようになる(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -44710,21 +49078,36 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 純白のホワイトドレス",
-   "text": "自身の撤退大破回復気50%上昇、再配置時間70%短縮 合戦中大破した数に応じて攻撃が250と15%上昇(効果重複) 攻撃後の隙が10%短縮、攻撃対象が1増加(5回まで)",
+   "name": "[改壱] / 祝福のブーケトス",
+   "text": "大破時に射程内の殿と城娘を攻撃の3倍で回復 15秒間、自身の攻撃の1倍を射程内の殿と城娘に加算 自身を撃破した敵の防御と射程が永続で50%低下",
+   "effects": []
+  },
+  "strategy": {
+   "name": "[改壱] / レディ・メアリの祝福 （使用まで45秒：消費気7）",
+   "text": "30秒間対象の射程が150上昇、攻撃が2倍 攻撃した敵を10秒間「混乱」にする 射程内の敵の移動速度が60%低下(自分のみ)",
    "effects": [
     {
-     "source": "特技",
-     "stat": "gapShorten",
-     "mode": "percent",
-     "value": 10,
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 150,
      "target": "inRange",
      "stackable": false,
-     "raw": "+10% ［花嫁衣装］チリンガム城・特技"
+     "raw": "+150 ［花嫁衣装］チリンガム城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［花嫁衣装］チリンガム城・計略"
     }
-   ]
+   ],
+   "cooldown": 45,
+   "cost": 7
   },
-  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -44758,9 +49141,76 @@ window.SCRE_DATA = [
       "raw": "+10% ［花嫁衣装］チリンガム城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 真愛のブーケトス",
+    "text": "大破時に射程内の殿と城娘を攻撃の3倍で回復 15秒間、自身の攻撃の0.8倍を射程内の殿と城娘に加算 自身を撃破した敵の防御と射程が永続で50%低下",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 祝福のブーケトス",
+    "text": "大破時に射程内の殿と城娘を攻撃の3倍で回復 15秒間、自身の攻撃の1倍を射程内の殿と城娘に加算 自身を撃破した敵の防御と射程が永続で50%低下",
+    "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 正礼装の青霊 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程が150上昇、攻撃が1.8倍 攻撃した敵を10秒間「混乱」にする 射程内の敵の移動速度が60%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150 ［花嫁衣装］チリンガム城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［花嫁衣装］チリンガム城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / レディ・メアリの祝福 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の射程が150上昇、攻撃が2倍 攻撃した敵を10秒間「混乱」にする 射程内の敵の移動速度が60%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150 ［花嫁衣装］チリンガム城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［花嫁衣装］チリンガム城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -44921,13 +49371,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) ［夏］善見城・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 大海より生まれし者 （使用まで70秒：消費気10）",
     "text": "50秒間対象の射程80上昇、ダメージを20000まで防ぎ 攻撃が標的とその周囲に1.7倍のダメージを与える 射程内城娘の攻撃1.2倍(同種効果と重複)(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 70,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -45065,7 +49519,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［夏］枉死城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -45081,7 +49537,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［夏］枉死城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -45191,7 +49649,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 蒼き奔流 （使用まで60秒：消費気7）",
+   "text": "40秒間対象の射程が1.8倍、範囲攻撃の範囲が半減 射程内の全敵に5連続攻撃後、攻撃の2倍のダメージを与え 大きく後退、移動速度を10秒間50%低下(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80%(1.8倍) ［夏］ガンジル宮殿・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -45229,7 +49703,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 瑠璃の激流 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の射程が1.8倍、範囲攻撃の範囲が半減 射程内の全敵に4連続攻撃後、攻撃の2倍のダメージを 与え後退させ、移動速度を10秒間50%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［夏］ガンジル宮殿・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 浮輪のナムタル （使用まで60秒：消費気7：赤青水配置）",
+    "text": "敵から狙われず、攻撃を行わない伏兵を配置(1体まで) 射程内の城娘の攻撃が30%、全ての［夏］城娘は40%上昇 配置中、自身の耐久が与ダメージの50%回復",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 蒼き奔流 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の射程が1.8倍、範囲攻撃の範囲が半減 射程内の全敵に5連続攻撃後、攻撃の2倍のダメージを与え 大きく後退、移動速度を10秒間50%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［夏］ガンジル宮殿・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ナムタルバカンス （使用まで50秒：消費気5：赤青水配置）",
+    "text": "敵から狙われず、攻撃を行わない伏兵を配置(1体まで) 射程内の城娘の攻撃が30%、全ての［夏］城娘は40%上昇 配置中、自身の耐久が与ダメージの50%回復",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -45398,7 +49925,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［夏］シバルバー・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -45414,7 +49943,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［夏］シバルバー・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -45520,7 +50051,23 @@ window.SCRE_DATA = [
    "text": "【配置】射程内城娘の巨大化気35%、［夏］は40%軽減 【鼓舞】自身の攻撃の60%、射程の6%の値を射程内の 城娘と伏兵に加算、［夏］と自身の伏兵は加算値1.5倍",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 夏を制する王者のバカンス （使用まで60秒：消費気7）",
+   "text": "50秒間対象の鼓舞効果と攻撃が2倍 自身の伏兵が特殊攻撃で与えるダメージが1.5倍 (自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［夏］ポエナリ城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -45536,7 +50083,60 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 徹底なる王者のバカンス （使用まで60秒：消費気10）",
+    "text": "50秒間対象の鼓舞効果と攻撃が2倍 自身の伏兵が特殊攻撃で与えるダメージが1.3倍 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［夏］ポエナリ城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ドラゴ・スプラッシュ （使用まで60秒：消費気7：赤青水配置）",
+    "text": "自身の1倍の攻撃と射程で敵1体とその周囲を攻撃し特殊 攻撃を使用できる伏兵(1体まで)。射程内の城娘と伏兵の 敵撃破時の獲得気1増加。配置中、自身の攻撃120上昇",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 夏を制する王者のバカンス （使用まで60秒：消費気7）",
+    "text": "50秒間対象の鼓舞効果と攻撃が2倍 自身の伏兵が特殊攻撃で与えるダメージが1.5倍 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［夏］ポエナリ城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ドラクル・スプラッシュ （使用まで60秒：消費気7：赤青水配置）",
+    "text": "自身の1倍の攻撃と射程で敵1体とその周囲を攻撃し特殊 攻撃を使用できる伏兵(1体まで)。射程内の城娘と伏兵の 敵撃破時の獲得気1増加。配置中、自身の攻撃150、射程30上昇",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -45732,7 +50332,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30%(1.3倍) ［裏］聚楽第・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -45748,7 +50350,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［裏］聚楽第・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -45885,13 +50489,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30%(1.3倍) 城塞都市カルタゴ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 抗う不屈の精神炎 （使用まで50秒：消費気7）",
     "text": "30秒間対象の射程と与ダメージが1.5倍 耐久が0にならず、耐久が低い程与えるダメージが上昇 (最大1.5倍、自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -45997,7 +50605,13 @@ window.SCRE_DATA = [
    "text": "全ての近接城娘の射程が50、槌、盾、戦棍、ランス城娘は更に 150上昇、足止め数2増加。遠隔城娘の攻撃が150上昇 鈴、法術、祓串城娘は更に150上昇、敵から狙われない",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 奪・侵掠如火 （使用まで45秒：消費気5）",
+   "text": "40秒間対象の足止め数が多い程与えるダメージが上昇 (最大2.2倍)、足止めした敵の攻撃50%低下、射程内の一部 敵の足止め対象にならない効果を無効化(自分のみ)",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 泰然自若 （消費気7：初回20秒：再使用40秒）",
@@ -46018,7 +50632,40 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 駆・疾如風 （使用まで45秒：消費気7）",
+    "text": "40秒間対象の足止め数が多い程与えるダメージが上昇 (最大2倍)、足止めした敵の攻撃50%低下、射程内の一部 敵の足止め対象にならない効果を無効化(自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 潜・疾如風 （使用まで10秒：消費気15）",
+    "text": "配置場所を遠近両用の平属性マスに変更 (平属性の耐久、攻撃、防御35%上昇、巨大化気20%軽減 地形属性と重複)。合計3回まで使用可能",
+    "effects": [],
+    "cooldown": 10,
+    "cost": 15
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 奪・侵掠如火 （使用まで45秒：消費気5）",
+    "text": "40秒間対象の足止め数が多い程与えるダメージが上昇 (最大2.2倍)、足止めした敵の攻撃50%低下、射程内の一部 敵の足止め対象にならない効果を無効化(自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 止・不動如山 （使用まで10秒：消費気10）",
+    "text": "配置場所を遠近両用の平属性マスに変更 (平属性の耐久、攻撃、防御35%上昇、巨大化気20%軽減 地形属性と重複)。合計5回まで使用可能",
+    "effects": [],
+    "cooldown": 10,
+    "cost": 10
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -46197,13 +50844,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 武田の威信 （使用まで45秒：消費気5）",
     "text": "45秒間対象の攻撃1.5倍、射程1.3倍(同種効果と重複) 攻撃対象2増加、移動攻撃のダメージが1.3倍。射程内敵の 与ダメ50%低下、隠密無効化(一部対象外。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 真・武田の威信 （使用まで45秒：消費気5）",
     "text": "45秒間対象の攻撃1.7倍、射程1.3倍(同種効果と重複) 攻撃対象2増加、移動攻撃のダメージが1.5倍。射程内敵の 与ダメ50%低下、隠密無効化(一部対象外。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -46331,13 +50982,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 始まりの狼煙 （使用まで60秒：消費気7）",
     "text": "対象の鼓舞効果が1.8倍、[異伝]城娘に対しては2倍 鼓舞対象の被回復量が1.2倍(同種効果と重複) (自分のみが対象。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 美しき鶴花 （使用まで60秒：消費気7）",
     "text": "対象の鼓舞効果が2倍、[異伝]城娘に対しては2.5倍 鼓舞対象の被回復量が1.2倍(同種効果と重複) (自分のみが対象。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -46461,7 +51116,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 美しき偽りの刑部姫 （使用まで45秒：消費気7）",
+   "text": "30秒間対象が敵から狙われず、攻撃が6倍のダメージを 与える攻撃を行い、敵の現在耐久を8%減少させる 自身と射程内敵の攻撃後の隙が100%増加(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 500,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+500%(6.0倍) ［肝試し］姫路城・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -46537,7 +51208,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 偽りの刑部姫 （使用まで45秒：消費気7）",
+    "text": "30秒間対象が敵から狙われず、攻撃が5倍のダメージを 与える攻撃を行い、敵の現在耐久を5%減少させる 自身と射程内敵の攻撃後の隙が100%増加(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 400,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+400%(5.0倍) ［肝試し］姫路城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 美しき偽りの刑部姫 （使用まで45秒：消費気7）",
+    "text": "30秒間対象が敵から狙われず、攻撃が6倍のダメージを 与える攻撃を行い、敵の現在耐久を8%減少させる 自身と射程内敵の攻撃後の隙が100%増加(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 500,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+500%(6.0倍) ［肝試し］姫路城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -46649,7 +51357,25 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 首なき幽霊 （使用まで45秒：消費気7）",
+   "text": "30秒間対象が妖怪と飛行敵に対して与えるダメージ2.5倍 射程内の妖怪と飛行敵の防御60%低下、被ダメ80%上昇 射程内の[肝試し]城娘が敵から狙われない(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 150,
+     "multiplier": 2.5,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+150%(2.5倍) [30秒間対象が妖怪と飛行敵] ［肝試し］長門指月城・計略",
+     "condition": "30秒間対象が妖怪と飛行敵"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -46703,7 +51429,48 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 首なし幽霊 （使用まで45秒：消費気7）",
+    "text": "30秒間対象が妖怪と飛行敵に対して与えるダメージ2.5倍 射程内の妖怪と飛行敵の防御50%低下、被ダメ70%上昇 射程内の[肝試し]城娘が敵から狙われない(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 150,
+      "multiplier": 2.5,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+150%(2.5倍) [30秒間対象が妖怪と飛行敵] ［肝試し］長門指月城・計略",
+      "condition": "30秒間対象が妖怪と飛行敵"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 首なき幽霊 （使用まで45秒：消費気7）",
+    "text": "30秒間対象が妖怪と飛行敵に対して与えるダメージ2.5倍 射程内の妖怪と飛行敵の防御60%低下、被ダメ80%上昇 射程内の[肝試し]城娘が敵から狙われない(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 150,
+      "multiplier": 2.5,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+150%(2.5倍) [30秒間対象が妖怪と飛行敵] ［肝試し］長門指月城・計略",
+      "condition": "30秒間対象が妖怪と飛行敵"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -46805,7 +51572,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 鉛の大嵐 （使用まで45秒：消費気7）",
+   "text": "30秒間対象の射程が80上昇、攻撃対象が4増加 巨大化気を30%軽減、爆風が発生しなくなり 敵を少し後退させる6連続攻撃を行う(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80 戦列艦 ヴィクトリー号・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -46841,7 +51624,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 鉛の嵐 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の攻撃対象が3増加、巨大化気を30%軽減 爆風が発生しなくなり、敵を少し後退させる 6連続攻撃を行う(自分のみが対象)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 艦隊戦列戦 （使用まで45秒：消費気7）",
+    "text": "60秒間対象の爆風範囲と爆風ダメージが1.5倍 直撃ボーナスが200%に上昇、巨大化気を30%軽減 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 鉛の大嵐 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の射程が80上昇、攻撃対象が4増加 巨大化気を30%軽減、爆風が発生しなくなり 敵を少し後退させる6連続攻撃を行う(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 戦列艦 ヴィクトリー号・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 艦隊戦列戦術 （使用まで45秒：消費気7）",
+    "text": "60秒間対象の射程が80上昇、爆風範囲と 爆風ダメージが1.7倍、直撃ボーナスが200%に上昇 巨大化気を30%軽減(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 戦列艦 ヴィクトリー号・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -47003,7 +51839,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 城塞都市ロンディニウム・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -47028,7 +51866,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 城塞都市ロンディニウム・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -47144,7 +51984,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 白光の月兎 （使用まで45秒：消費気5）",
+   "text": "30秒間対象の射程と与ダメが1.8倍、攻撃対象が4増加 全マス移動可、攻撃が貫通しなくなり、敵の防御を 無視する攻撃を5連続で行う(自分のみが対象)",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -47180,7 +52026,40 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 白き月の輝き （使用まで45秒：消費気5）",
+    "text": "30秒間対象の射程と与ダメが1.7倍、攻撃対象が3増加 全マス移動可、攻撃が貫通しなくなり、敵の防御を 無視する攻撃を5連続で行う(自分のみが対象)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 月夜の白兎 （使用まで60秒：消費気3：赤青水配置）",
+    "text": "飛行敵以外から狙われず攻撃しない伏兵を配置(1体まで) 気の自然増加量を大きく増加(重複時効果減少) 射程内の敵の撃破気が1増加(重複なし)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 白光の月兎 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の射程と与ダメが1.8倍、攻撃対象が4増加 全マス移動可、攻撃が貫通しなくなり、敵の防御を 無視する攻撃を5連続で行う(自分のみが対象)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 月読尊の化身 （使用まで45秒：消費気3：赤青水配置）",
+    "text": "飛行敵以外に狙われず攻撃しない伏兵(1体)。時間経過で 射程が徐々に上昇(上限200)。気の自然増加量を大きく増加 (重複時効果減少)。射程内敵の撃破気1増加(重複なし)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -47272,7 +52151,13 @@ window.SCRE_DATA = [
    "text": "射程内味方の攻撃と与ダメ35%上昇、敵の防御35%無視 射程内敵の被ダメ35%上昇。最大化時、自身の射程が 100上昇、飛行敵以外に狙われず全マス移動可能",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 蒼き満月 （使用まで50秒：消費気3）",
+   "text": "50秒間対象の射程内の味方の被ダメージが50%軽減 被攻撃時に攻撃の60%をダメージとして反射 射程内の敵の与ダメージが50%低下(自分のみ)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 3
+  },
   "special": null,
   "allSkills": [
    {
@@ -47288,7 +52173,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 幾望の月 （使用まで50秒：消費気7）",
+    "text": "50秒間対象の射程内の味方の被ダメージが50%軽減 被攻撃時に攻撃の50%をダメージとして反射 射程内の敵の与ダメージが50%低下(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 蒼き満月 （使用まで50秒：消費気3）",
+    "text": "50秒間対象の射程内の味方の被ダメージが50%軽減 被攻撃時に攻撃の60%をダメージとして反射 射程内の敵の与ダメージが50%低下(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -47429,7 +52331,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+40%(1.4倍) ［絢爛］弘前城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -47446,7 +52350,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+50%(1.5倍) ［絢爛］弘前城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -47577,7 +52483,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 極楽浄土へ、ごあんな～い！ （使用まで15秒：消費気0） 初期使用回数2",
+   "text": "範囲内の敵に攻撃の8倍の術ダメージを与え 移動速度と射程が20秒間50%低下 巨大化毎に計略使用回数が2増加(範囲：極大)",
+   "effects": [],
+   "cooldown": 15,
+   "cost": 0
+  },
   "special": null,
   "allSkills": [
    {
@@ -47658,7 +52570,40 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / お手を拝借、ナ～ムナム～♪ （使用まで15秒：消費気0） 初期使用回数2",
+    "text": "範囲内の敵に攻撃の8倍の術ダメージを与え 移動速度と射程が20秒間45%低下 巨大化毎に計略使用回数が1増加(範囲：極大)",
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 甲府の花盛り！ （使用まで15秒：消費気0） 初期使用回数1",
+    "text": "範囲内の殿と城娘を攻撃の8倍で回復 15秒間計略消費気が2、巨大化気を30%軽減 巨大化毎に計略使用回数が1増加(範囲：極大)",
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 極楽浄土へ、ごあんな～い！ （使用まで15秒：消費気0） 初期使用回数2",
+    "text": "範囲内の敵に攻撃の8倍の術ダメージを与え 移動速度と射程が20秒間50%低下 巨大化毎に計略使用回数が2増加(範囲：極大)",
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 桜花爛漫甲府の花盛り！ （使用まで15秒：消費気0） 初期使用回数1",
+    "text": "範囲内の殿と城娘を攻撃の8倍で回復 20秒間計略消費気が2、巨大化気を35%軽減 巨大化毎に計略使用回数が1増加(範囲：極大)",
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -47778,13 +52723,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 光り輝く竹 （使用まで60秒：消費気7）",
     "text": "対象の巨大化気を30%軽減し、特技が発動 変位系は1段上が発動。最大化時など一部効果は発動しない (効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 煌めく竹の姫 （使用まで60秒：消費気7）",
     "text": "対象の撃破気が1増加(重複なし)、巨大化気を35%軽減 特技が発動、変位系は1段上が発動 最大化時など一部効果は発動しない(効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -47875,11 +52824,27 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 白亜の城",
-   "text": "自身と攻撃対象の耐久が低い程与えるダメージが上昇 (最大2.4倍)大破する度に計略再使用時間が4秒短縮(最大20秒) 撤退大破回復気が45%上昇、再配置時間が65%短縮",
+   "name": "[改壱] / 反撃の狼煙",
+   "text": "自身を撃破した敵と射程内の敵に攻撃の4倍の防御無視 ダメージを与え、5秒間射程が90%、移動速度が100%低下 更に自身を攻撃した敵の射程と移動速度が永続で30%低下",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / ドレッサージュ （使用まで40秒：消費気7）",
+   "text": "40秒間対象の攻撃と射程が1.5倍 耐久が低い程与えるダメージが上昇(最大2.2倍) (近接城娘と伏兵が対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ソミュール城・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -47893,9 +52858,58 @@ window.SCRE_DATA = [
     "name": "[改壱] / 白亜の城",
     "text": "自身と攻撃対象の耐久が低い程与えるダメージが上昇 (最大2.4倍)大破する度に計略再使用時間が4秒短縮(最大20秒) 撤退大破回復気が45%上昇、再配置時間が65%短縮",
     "effects": []
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ヴァンデの反乱",
+    "text": "自身を撃破した敵と射程内の敵に攻撃の4倍の防御無視 ダメージを与え、4秒間射程が90%、移動速度が100%低下 更に自身を攻撃した敵の射程と移動速度が永続で30%低下",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 反撃の狼煙",
+    "text": "自身を撃破した敵と射程内の敵に攻撃の4倍の防御無視 ダメージを与え、5秒間射程が90%、移動速度が100%低下 更に自身を攻撃した敵の射程と移動速度が永続で30%低下",
+    "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 人馬一体 （使用まで40秒：消費気10）",
+    "text": "40秒間対象の攻撃と射程が1.5倍 耐久が低い程与えるダメージが上昇(最大2倍) (近接城娘と伏兵が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ソミュール城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ドレッサージュ （使用まで40秒：消費気7）",
+    "text": "40秒間対象の攻撃と射程が1.5倍 耐久が低い程与えるダメージが上昇(最大2.2倍) (近接城娘と伏兵が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ソミュール城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -48122,7 +53136,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) ［ハロウィン］九龍城砦・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -48138,7 +53154,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ［ハロウィン］九龍城砦・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -48321,7 +53339,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% ［温泉］伊予松山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -48337,7 +53357,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% ［温泉］伊予松山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -48431,7 +53453,13 @@ window.SCRE_DATA = [
    "text": "【配置】合戦中一度だけ20秒間大破しない 自身を継続的に回復、巨大化毎に回復量が20%上昇 最大化時、全山城の防御40%上昇、被ダメ40%軽減",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 箱根惣湯・一社巡り （使用まで40秒：消費気7）",
+   "text": "対象の最大耐久と被回復量が撤退大破時まで永続で2倍 計略を使用する度に効果が変化 (自分のみが対象)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -48457,7 +53485,92 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 箱根七湯・一番湯 （使用まで40秒：消費気7）",
+    "text": "対象の最大耐久と被回復量が撤退大破時まで永続で1.7倍 計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 箱根七湯・二番湯 （使用まで40秒：消費気7）",
+    "text": "対象の攻撃が1.7倍、足止め数が 撤退大破時まで永続で3増加 計略を使用する度に効果が変化(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70%(1.7倍) ［温泉］山中城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 箱根七湯・三番湯 （使用まで40秒：消費気7）",
+    "text": "対象の射程と回復が撤退大破時まで永続で100上昇 計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 瀑布の湯 （使用まで40秒：消費気5）",
+    "text": "範囲内の敵に攻撃の5倍のダメージを与え 大きく後退させ、移動速度が15秒間80%低下 (範囲：極大)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 箱根惣湯・一社巡り （使用まで40秒：消費気7）",
+    "text": "対象の最大耐久と被回復量が撤退大破時まで永続で2倍 計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 箱根惣湯・二社巡り （使用まで40秒：消費気7）",
+    "text": "対象の攻撃が1.8倍、足止め数が 撤退大破時まで永続で5増加 計略を使用する度に効果が変化(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［温泉］山中城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 箱根惣湯・三社巡り （使用まで40秒：消費気7）",
+    "text": "対象の射程と回復が撤退大破時まで永続で140上昇 計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 瀑布の惣湯 （使用まで40秒：消費気3）",
+    "text": "範囲内の敵に攻撃の6倍のダメージを与え 大きく後退させ、移動速度が15秒間80%低下 (範囲：極大)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -48568,7 +53681,32 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 九字秘印・火遁 （使用まで45秒：消費気5）",
+   "text": "30秒間対象の攻撃が1.8倍、攻撃速度が少し低下、2.2倍 のダメージを与える火属性攻撃を行い5秒間「火傷(弱)」 にする。射程内の味方の攻撃が200上昇(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80%(1.8倍) ［泡影］伊賀上野城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 200,
+     "target": "self",
+     "stackable": false,
+     "raw": "+200 ［泡影］伊賀上野城・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 万川集海・正心 (気:7 初回:15秒 再使用:60秒)",
@@ -48637,7 +53775,143 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 九字印・火遁 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の攻撃が1.8倍、攻撃速度が少し低下 2倍のダメージを与える火属性攻撃を行い 攻撃した敵を5秒間「火傷(弱)」にする(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［泡影］伊賀上野城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 九字印・氷遁 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の射程が1.4倍、攻撃対象が1増加、攻撃速度 が少し低下、攻撃が1.4倍のダメージを与える術攻撃となり 攻撃した敵を5秒間「氷結」にする(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40%(1.4倍) ［泡影］伊賀上野城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40%(1.4倍) ［泡影］伊賀上野城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 九字印・雷遁 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の射程が1.2倍、攻撃対象が2増加 攻撃速度が少し低下、3連続で0.8倍の術ダメージを 与える雷属性攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［泡影］伊賀上野城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 九字秘印・火遁 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の攻撃が1.8倍、攻撃速度が少し低下、2.2倍 のダメージを与える火属性攻撃を行い5秒間「火傷(弱)」 にする。射程内の味方の攻撃が200上昇(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［泡影］伊賀上野城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "self",
+      "stackable": false,
+      "raw": "+200 ［泡影］伊賀上野城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 九字秘印・氷遁 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の射程が1.5倍、攻撃対象が1増加、攻撃速度 が少し低下、攻撃が1.6倍のダメージを与える術攻撃となり 攻撃した敵を5秒間「氷結」にする(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［泡影］伊賀上野城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 60,
+      "target": "self",
+      "stackable": false,
+      "raw": "+60%(1.6倍) ［泡影］伊賀上野城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 九字秘印・雷遁 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の射程が1.2倍、攻撃対象が4増加 攻撃速度が少し低下、3連続で術ダメージを与える 雷属性攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［泡影］伊賀上野城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -48757,7 +54031,32 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 絃合・天響 （使用まで45秒：消費気5）",
+   "text": "30秒間対象の射程が1.3倍、特殊能力で与えるダメージが 2倍。射程内の敵の被ダメージが50%上昇 (自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30%(1.3倍) ［響乱］室町第・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% ［響乱］室町第・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 最秘曲・啄木 (気:10 初回:10秒 再使用:60秒)",
@@ -48798,7 +54097,98 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 絃合・天鳴 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の射程が1.2倍、特殊能力で与えるダメージが 1.7倍。射程内の敵の被ダメージが50%上昇 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［響乱］室町第・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ［響乱］室町第・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 絃合・地鳴 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の射程が1.2倍、与回復量が2倍 射程内の敵の与ダメージが50%、射程が40%低下 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［響乱］室町第・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 絃合・天響 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の射程が1.3倍、特殊能力で与えるダメージが 2倍。射程内の敵の被ダメージが50%上昇 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) ［響乱］室町第・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ［響乱］室町第・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 絃合・地響 （使用まで45秒：消費気5）",
+    "text": "30秒間対象の射程が1.3倍、与回復量が2倍 射程内の敵の与ダメージと射程が50%低下 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) ［響乱］室町第・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -48944,7 +54334,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% ［聖夜］プレッドヤマ城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    },
    {
     "stage": "改壱",
@@ -48960,7 +54352,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% ［聖夜］プレッドヤマ城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -49124,13 +54518,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 白樺のニッセ （使用まで60秒：消費気10）",
     "text": "45秒間対象の与ダメが1.8倍、撃破気2増加、攻撃後の 隙が50%延長、攻撃が3連続になり、10秒間「氷結」に する。飛行敵以外に狙われず全マス移動可(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 聖夜の白樺 （使用まで60秒：消費気10）",
     "text": "50秒間対象の与ダメが2倍、撃破気2増加、攻撃後の 隙が50%延長、攻撃が3連続になり、10秒間「氷結」に する。飛行敵以外に狙われず全マス移動可(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -49379,7 +54777,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+75% ファルケンシュタイン城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -49404,7 +54804,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% ファルケンシュタイン城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -49574,7 +54976,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［正月］平城京・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -49590,7 +54994,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［正月］平城京・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -49693,7 +55099,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 黄金の初暁 （使用まで50秒：消費気7）",
+   "text": "40秒間対象の射程内城娘の与ダメ1.6倍、[正月]は1.8倍 射程内の城娘の撃破獲得気が1増加。射程内敵の 撃破時の獲得気1増加(同種効果重複なし。自分のみ)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -49719,7 +55131,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 黄金の御光来 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程内城娘の与ダメが1.5倍、[正月]は1.7倍 射程内の城娘の撃破獲得気が1増加。射程内敵の 撃破時の獲得気1増加(同種効果重複なし。自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 黄金の初暁 （使用まで50秒：消費気7）",
+    "text": "40秒間対象の射程内城娘の与ダメ1.6倍、[正月]は1.8倍 射程内の城娘の撃破獲得気が1増加。射程内敵の 撃破時の獲得気1増加(同種効果重複なし。自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -49821,7 +55250,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] /謹賀・成田流水芸 （使用まで60秒：消費気7）",
+   "text": "45秒間対象の攻撃が2倍 移動攻撃で与えるダメージが1.7倍 射程内敵の攻撃と与ダメージが40%低下(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［正月］忍城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -49857,7 +55302,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 賀正・成田流水芸 （使用まで60秒：消費気7）",
+    "text": "45秒間対象の攻撃が1.8倍 移動攻撃で与えるダメージが1.5倍 射程内敵の攻撃と与ダメージが40%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［正月］忍城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] /謹賀・成田流水芸 （使用まで60秒：消費気7）",
+    "text": "45秒間対象の攻撃が2倍 移動攻撃で与えるダメージが1.7倍 射程内敵の攻撃と与ダメージが40%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［正月］忍城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -50026,7 +55508,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% ［正月］城塞都市ディーテ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -50042,7 +55526,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+85% ［正月］城塞都市ディーテ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -50138,7 +55624,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 地のガダカ （使用まで30秒：消費気5：赤配置）",
+   "text": "自身の1倍の攻撃で敵2体に2連続攻撃を行う伏兵(4体まで) 伏兵の攻撃は地上敵に2.5倍のダメージを与える 配置中、自身の射程50上昇、攻撃1.2倍(同種効果重複)",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -50174,7 +55666,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 地のガダカ （使用まで40秒：消費気5：赤配置）",
+    "text": "自身の1倍の攻撃で敵2体に2連続攻撃を行う伏兵(4体まで) 伏兵の攻撃は地上敵に2倍のダメージを与える 配置中、自身の射程50上昇、攻撃1.2倍(同種効果重複)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 天のアストラ （使用まで40秒：消費気5：青配置）",
+    "text": "自身の1倍の攻撃で敵1体に攻撃を行う伏兵(4体まで) 伏兵の攻撃は飛行敵に2.5倍のダメージ。配置中自身の 攻撃対象が1増加、攻撃後の隙25%短縮(同種効果重複)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% ［正月］ナラカ・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 地のガダカ （使用まで30秒：消費気5：赤配置）",
+    "text": "自身の1倍の攻撃で敵2体に2連続攻撃を行う伏兵(4体まで) 伏兵の攻撃は地上敵に2.5倍のダメージを与える 配置中、自身の射程50上昇、攻撃1.2倍(同種効果重複)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天のアストラ （使用まで30秒：消費気5：青配置）",
+    "text": "自身の1倍の攻撃で敵1体に攻撃を行う伏兵(4体まで) 伏兵の攻撃は飛行敵に3倍のダメージ。配置中自身の 攻撃対象が1増加、攻撃後の隙25%短縮(同種効果重複)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% ［正月］ナラカ・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -50275,7 +55820,24 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 死爪の軍勢 （使用まで30秒：消費気5：赤青水配置）",
+   "text": "敵から狙われず自身の1.2倍の攻撃で標的とその周囲を 攻撃する伏兵(3体)。伏兵の射程内敵の撃破気1増加。配置 中の伏兵1体につき自身の与えるダメージが1.2倍",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "self",
+     "stackable": true,
+     "raw": "+20%(1.2倍) ナグルファル・計略"
+    }
+   ],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -50311,7 +55873,62 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 死爪の軍 （使用まで40秒：消費気5：赤青水配置）",
+    "text": "敵から狙われず自身の1倍の攻撃で標的とその周囲を攻撃 する伏兵(3体)。伏兵の射程内敵の撃破気1増加。配置中の 伏兵1体につき自身の与えるダメージが1.2倍",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ナグルファル・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 滅神の西征 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の水上特技が発動。直撃ボーナス、爆風範囲 爆風ダメージが1.5倍、飛行敵以外に狙われず全マス移動可 敵の耐久を5%減少させる単発攻撃を行う(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 死爪の軍勢 （使用まで30秒：消費気5：赤青水配置）",
+    "text": "敵から狙われず自身の1.2倍の攻撃で標的とその周囲を 攻撃する伏兵(3体)。伏兵の射程内敵の撃破気1増加。配置 中の伏兵1体につき自身の与えるダメージが1.2倍",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ナグルファル・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 滅神の咆哮 （使用まで50秒：消費気7）",
+    "text": "40秒間対象の水上特技が発動。直撃ボーナス、爆風範囲 爆風ダメージが1.7倍、飛行敵以外に狙われず全マス移動可 敵の耐久を5%減少させる単発攻撃を行う(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -50504,13 +56121,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 堕落の使徒 （使用まで15秒：消費気0：赤青配置） 初期使用回数1",
     "text": "自身の2倍の攻撃、耐久で2体に防御無視攻撃を行う伏兵 伏兵は与ダメの50%回復し、指定方向に3.5倍のダメージ を与える特殊攻撃を発動可。巨大化毎に回数1増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 堕天の使徒 （使用まで15秒：消費気0：赤青配置） 初期使用回数2",
     "text": "自身の2.5倍の攻撃、耐久で2体に防御無視攻撃を行う伏兵 伏兵は与ダメの50%回復し、指定方向に4倍のダメージ を与える特殊攻撃を発動可。巨大化毎に回数1増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -50643,7 +56264,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) エレボス・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -50659,7 +56282,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) エレボス・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -50841,7 +56466,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 ［バレンタイン］ヘレンキームゼー城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -50857,7 +56484,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［バレンタイン］ヘレンキームゼー城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -50970,7 +56599,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 甘威・夜陽 （使用まで50秒：消費気7）",
+   "text": "40秒間対象の与ダメージが1.7倍、射程が2.5倍 標的に7倍、その周囲に3倍のダメージを与え、移動速度を 5秒間75%低下させる単発攻撃を行う(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150%(2.5倍) ［バレンタイン］不夜城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -51015,7 +56660,80 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 甘威・白夜 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の与ダメージが1.5倍、射程が2.5倍 標的に6倍、その周囲に3倍のダメージを与え、移動速度を 5秒間75%低下させる単発攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) ［バレンタイン］不夜城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 甘威・灼心 （使用まで60秒：消費気5）",
+    "text": "20秒間対象の与ダメージが1.8倍、射程が2.5倍 標的に8倍、その周囲に4倍のダメージを与え、移動速度を 2秒間0にする単発攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) ［バレンタイン］不夜城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 甘威・夜陽 （使用まで50秒：消費気7）",
+    "text": "40秒間対象の与ダメージが1.7倍、射程が2.5倍 標的に7倍、その周囲に3倍のダメージを与え、移動速度を 5秒間75%低下させる単発攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) ［バレンタイン］不夜城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 甘威・灼愛 （使用まで50秒：消費気5）",
+    "text": "20秒間対象の与ダメージが2倍、射程が2.5倍 標的に9倍、その周囲に4倍のダメージを与え、移動速度を 2秒間0にする単発攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) ［バレンタイン］不夜城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -51110,7 +56828,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 弩級の大艦隊 （使用まで30秒：消費気10：赤青水配置）",
+   "text": "自身の1.2倍の耐久/攻撃/防御で敵2体とその周囲に 4連続攻撃を行う伏兵を配置(水上移動可) 伏兵の射程内の城娘の攻撃が120、射程が30上昇",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -51157,7 +56881,78 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 弩級の艦隊 （使用まで40秒：消費気10：赤青水配置）",
+    "text": "自身の1倍の耐久/攻撃/防御で敵2体とその周囲に 4連続攻撃を行う伏兵を配置(水上移動可) 伏兵の射程内の城娘の攻撃が120、射程が30上昇",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 片舷斉射 （使用まで50秒：消費気7）",
+    "text": "40秒間対象の射程が1.5倍、射程内の対象を除く味方 1体につき攻撃が120、与えるダメージが10%ずつ上昇 対象と自身の伏兵の攻撃が2倍(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 軍艦 ドレッドノート・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) 軍艦 ドレッドノート・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 弩級の大艦隊 （使用まで30秒：消費気10：赤青水配置）",
+    "text": "自身の1.2倍の耐久/攻撃/防御で敵2体とその周囲に 4連続攻撃を行う伏兵を配置(水上移動可) 伏兵の射程内の城娘の攻撃が120、射程が30上昇",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ブロードサイド （使用まで50秒：消費気7）",
+    "text": "40秒間対象の射程が1.5倍、射程内の対象を除く味方 1体につき攻撃が150、与えるダメージが15%ずつ上昇 対象と自身の伏兵の攻撃が2倍(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 軍艦 ドレッドノート・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) 軍艦 ドレッドノート・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -51353,7 +57148,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ルーヴル宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -51369,7 +57166,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+120 ルーヴル宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -51505,7 +57304,32 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 遅早のと金 （使用まで15秒：消費気3：赤配置）",
+   "text": "自身の2倍の攻撃で直線上に攻撃を行う伏兵(9体まで) 配置中自身の攻撃1.1倍、防御が1.2倍(同種効果と重複) 配置30秒後、伏兵の耐久/攻撃/防御が1.5倍",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20%(1.2倍) ［学園］金剛山城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ［学園］金剛山城・計略"
+    }
+   ],
+   "cooldown": 15,
+   "cost": 3
+  },
   "special": null,
   "allSkills": [
    {
@@ -51541,7 +57365,136 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 千金の歩兵 （使用まで20秒：消費気3：赤配置）",
+    "text": "自身の1.5倍の攻撃で直線上に攻撃を行う伏兵(9体まで) 配置中自身の攻撃1.1倍、防御が1.2倍(同種効果と重複) 配置30秒後、伏兵の耐久/攻撃/防御が1.5倍",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［学園］金剛山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［学園］金剛山城・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 菊水の飛車 （使用まで25秒：消費気7：赤青水配置）",
+    "text": "敵から狙われず自身の2.5倍の攻撃で敵1体に攻撃を行う 伏兵(1体まで、全マス移動可)。配置中自身の被ダメージを 50%軽減。配置30秒後、伏兵の攻撃が敵の防御を無視",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+1 ［学園］金剛山城・計略"
+     }
+    ],
+    "cooldown": 25,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 建武の角行 （使用まで25秒：消費気7：赤青水配置）",
+    "text": "自身の3倍の攻撃で敵1体とその周囲に2連続攻撃を行う 伏兵(1体。全マス移動可)。配置中自身の巨大化気を5軽減。 配置30秒後、伏兵が攻撃で与えるダメージが1.5倍",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［学園］金剛山城・計略"
+     }
+    ],
+    "cooldown": 25,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 遅早のと金 （使用まで15秒：消費気3：赤配置）",
+    "text": "自身の2倍の攻撃で直線上に攻撃を行う伏兵(9体まで) 配置中自身の攻撃1.1倍、防御が1.2倍(同種効果と重複) 配置30秒後、伏兵の耐久/攻撃/防御が1.5倍",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［学園］金剛山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［学園］金剛山城・計略"
+     }
+    ],
+    "cooldown": 15,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 菊水の竜王 （使用まで20秒：消費気7：赤青水配置）",
+    "text": "敵から狙われず自身の3倍の攻撃で敵1体に攻撃を行う 伏兵(1体まで、全マス移動可)。配置中自身の被ダメージを 50%軽減。配置30秒後、伏兵の攻撃が敵の防御を無視",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+1 ［学園］金剛山城・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 建武の竜馬 （使用まで20秒：消費気7：赤青水配置）",
+    "text": "自身の3.5倍の攻撃で敵1体とその周囲に2連続攻撃を行う 伏兵(1体。全マス移動可)。配置中自身の巨大化気を5軽減。 配置30秒後、伏兵が攻撃で与えるダメージが1.5倍",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［学園］金剛山城・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "大阪府"
@@ -51701,13 +57654,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 千成のチア （使用まで60秒：消費気7）",
     "text": "45秒間対象の射程1.4倍、攻撃を行わず射程内の殿と城娘を 継続回復。対象の攻撃の40%の値を対象を除く射程内城娘 に加算。射程内城娘の与ダメージが1.5倍(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 千成のエール （使用まで60秒：消費気7）",
     "text": "50秒間対象の射程1.5倍、攻撃を行わず射程内の殿と城娘を 継続回復。対象の攻撃の40%の値を対象を除く射程内城娘 に加算。射程内城娘の与ダメージが1.6倍(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -51820,7 +57777,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 灼光の太陽炉 （使用まで60秒：消費気7）",
+   "text": "40秒間対象の射程が300上昇、攻撃が敵の防御を60%無視 術攻撃を80%軽減。標的とその周囲に2.5倍のダメージを 与える遠隔攻撃を行う(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 300,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+300 城塞都市シュラクサイ・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / アルキメデスの鉤爪",
@@ -51879,7 +57852,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 灼光の太陽鏡 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の射程が200上昇、攻撃が敵の防御を60%無視 術攻撃を80%軽減。標的とその周囲に2倍のダメージを 与える遠隔攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200 城塞都市シュラクサイ・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 灼光の太陽炉 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の射程が300上昇、攻撃が敵の防御を60%無視 術攻撃を80%軽減。標的とその周囲に2.5倍のダメージを 与える遠隔攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 300,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+300 城塞都市シュラクサイ・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -52075,7 +58085,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) 京都新城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -52091,7 +58103,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 京都新城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -52231,7 +58245,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 天道・四剣 （使用まで60秒：消費気7）",
+   "text": "40秒間対象の攻撃が2倍、射程80上昇、被ダメージ 70%軽減、与ダメージの50%耐久が回復 特殊攻撃の性能が変化(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) 二条御所・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 一之太刀・武衛",
@@ -52283,7 +58313,69 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 天の四剣 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃が1.8倍、被ダメージを70%軽減 与ダメージの50%耐久が回復 特殊攻撃の性能が変化(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) 二条御所・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70% 二条御所・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 地の二剣 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の与ダメージと特殊攻撃ゲージの 蓄積量が1.8倍、攻撃が敵の防御を70%無視する (自分のみが対象)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天道・四剣 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃が2倍、射程80上昇、被ダメージ 70%軽減、与ダメージの50%耐久が回復 特殊攻撃の性能が変化(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) 二条御所・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 地道・二剣 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の射程80上昇、与ダメージと特殊攻撃ゲージの 蓄積量が1.8倍、攻撃が敵の防御を80%無視する (自分のみが対象)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -52416,7 +58508,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 海神の末裔 （使用まで15秒：消費気0）",
+   "text": "40秒間対象の射程が1.4倍、標的とその周囲に5倍のダメージ を与える攻撃を行う。対象の射程内敵の撃破獲得気が1増加 巨大化毎に使用回数1増加(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40%(1.4倍) アトランティス・計略"
+    }
+   ],
+   "cooldown": 15,
+   "cost": 0
+  },
   "special": null,
   "allSkills": [
    {
@@ -52479,7 +58587,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 海神の加護 （使用まで15秒：消費気0）",
+    "text": "40秒間対象の射程が1.3倍、標的とその周囲に4倍のダメージ を与える攻撃を行う。対象の射程内敵の撃破獲得気が1増加 巨大化毎に使用回数1増加(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) アトランティス・計略"
+     }
+    ],
+    "cooldown": 15,
+    "cost": 0
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 大神の裁き （使用まで15秒：消費気0）",
+    "text": "範囲内の敵に攻撃の6倍のダメージを与え 大きく後退させ、移動速度が15秒間75%低下 巨大化毎に使用回数2増加(範囲:極大)",
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 海神の末裔 （使用まで15秒：消費気0）",
+    "text": "40秒間対象の射程が1.4倍、標的とその周囲に5倍のダメージ を与える攻撃を行う。対象の射程内敵の撃破獲得気が1増加 巨大化毎に使用回数1増加(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40%(1.4倍) アトランティス・計略"
+     }
+    ],
+    "cooldown": 15,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 神裁の波濤 （使用まで15秒：消費気0）",
+    "text": "範囲内の敵に攻撃の7倍のダメージを与え 大きく後退させ、移動速度が15秒間80%低下 巨大化毎に使用回数2増加(範囲:極大)",
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -52613,13 +58774,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 泰山府君フェス （使用まで60秒：消費気7）",
     "text": "45秒間対象の射程1.3倍、標的とその周囲に2倍の ダメージを与え、現在耐久を5%減少させる攻撃を行う 特殊攻撃ゲージが攻撃でも蓄積する(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 泰山府君フェス feat.邪神 （使用まで60秒：消費気7）",
     "text": "45秒間対象の射程1.4倍、標的とその周囲に2.4倍の ダメージを与え、現在耐久を5%減少させる攻撃を行う 特殊攻撃ゲージが攻撃でも蓄積する(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -52738,8 +58903,29 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
-  "special": null,
+  "strategy": {
+   "name": "[改壱] / 下天の花嵐 （使用まで50秒：消費気7）",
+   "text": "30秒間対象の射程が1.2倍、射程内の全敵に継続的に防御 無視攻撃を行う。射程内敵の移動速度80%、射程が35%低下 被ダメージ1.7倍(自分のみ。武器切替の特性無効)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20%(1.2倍) ［アイドル］安土城＆一乗谷城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
+  "special": {
+   "stage": "無印",
+   "name": "[無印] / センターチェンジ （気3：初回0秒：再使用5秒）",
+   "text": "武器攻撃を切り替える。発動時、計略効果解除 安土城：敵2体に攻撃の2倍のダメージを与える 一乗谷城：敵4体に攻撃。飛行敵には攻撃2.5倍",
+   "effects": []
+  },
   "allSkills": [
    {
     "stage": "無印",
@@ -52783,8 +58969,78 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
-  "allSpecials": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 天下の花風 （使用まで50秒：消費気7）",
+    "text": "25秒間対象の射程が1.2倍、射程内の全敵に継続的に防御 無視攻撃を行う。対象の射程内敵の移動速度80%低下 被ダメージ1.7倍(自分のみ。武器切替の特性無効)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［アイドル］安土城＆一乗谷城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 相剋の舞 （使用まで50秒：消費気7）",
+    "text": "40秒間対象の攻撃が2連続になり、与ダメージ1.8倍 対象の射程内の味方の攻撃が敵の防御を50%無視 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 下天の花嵐 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程が1.2倍、射程内の全敵に継続的に防御 無視攻撃を行う。射程内敵の移動速度80%、射程が35%低下 被ダメージ1.7倍(自分のみ。武器切替の特性無効)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［アイドル］安土城＆一乗谷城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 相剋の奏舞 （使用まで50秒：消費気7）",
+    "text": "40秒間対象の攻撃が2連続になり、与ダメージ2倍 対象の射程内の味方の攻撃が200上昇 敵の防御を50%無視(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "self",
+      "stackable": false,
+      "raw": "+200 ［アイドル］安土城＆一乗谷城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
+  "allSpecials": [
+   {
+    "stage": "無印",
+    "name": "[無印] / センターチェンジ （気3：初回0秒：再使用5秒）",
+    "text": "武器攻撃を切り替える。発動時、計略効果解除 安土城：敵2体に攻撃の2倍のダメージを与える 一乗谷城：敵4体に攻撃。飛行敵には攻撃2.5倍",
+    "effects": []
+   }
+  ],
   "parseWarnings": []
  },
  {
@@ -52867,7 +59123,13 @@ window.SCRE_DATA = [
    "text": "自身の特殊攻撃ゲージ蓄積速度が1.4倍 射程内の城娘の耐久と被回復量が1.5倍 射程内の敵の攻撃と射程と攻撃速度が40%低下",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 中秋月下Fushimi-LIVE! （使用まで40秒：消費気7）",
+   "text": "30秒間対象の与ダメージと回復量が2倍 対象の射程内の味方の撃破獲得気が1増加 (自分のみが対象)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 輝け！桃山の名月",
@@ -52898,7 +59160,60 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / Fushimi-LIVE! （使用まで50秒：消費気7）",
+    "text": "30秒間対象の与ダメージと回復量が1.8倍 対象の射程内の味方の撃破獲得気が1増加 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / SGT-Remix （使用まで50秒：消費気7：赤青配置）",
+    "text": "敵から狙われず攻撃しない伏兵(1体まで)。伏兵の射程内の 城娘と自身の射程が70上昇、攻撃と防御に攻撃の50%の値 を加算。時間経過で伏兵の攻撃上昇(最大600)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70 ［アイドル］伏見城三姉妹・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 中秋月下Fushimi-LIVE! （使用まで40秒：消費気7）",
+    "text": "30秒間対象の与ダメージと回復量が2倍 対象の射程内の味方の撃破獲得気が1増加 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / SGT-DGRemix↑↑ （使用まで40秒：消費気7：赤青配置）",
+    "text": "敵から狙われず攻撃しない伏兵(1体まで)。伏兵の射程内の 城娘と自身の射程が70上昇、攻撃と防御に攻撃の60%の値 を加算。時間経過で伏兵の攻撃上昇(最大600)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70 ［アイドル］伏見城三姉妹・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -53093,13 +59408,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 五稜の星 （使用まで50秒：消費気7）",
     "text": "40秒間対象の直撃ボーナスが250%に上昇 攻撃と爆風ダメージが1.8倍、敵撃破時の獲得気が2増加 巨大化に応じて更に攻撃上昇(最大1.4倍。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 五稜の明星 （使用まで50秒：消費気7）",
     "text": "40秒間対象の直撃ボーナスが300%に上昇 攻撃と爆風ダメージが1.8倍、敵撃破時の獲得気が2増加 巨大化に応じて更に攻撃上昇(最大1.5倍。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -53212,7 +59531,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 伊賀手裏剣・皆伝 （使用まで30秒：消費気5）",
+   "text": "対象が大破撤退時まで永続で射程80上昇、敵に狙われない 30秒間攻撃対象2増加、射程内敵の移動速度50%低下 対象と自身の伏兵の攻撃が敵の防御を無視(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "defIgnore",
+     "mode": "flag",
+     "value": 1,
+     "target": "self",
+     "stackable": false,
+     "raw": "+1 ［絢爛］千賀地氏城・計略"
+    }
+   ],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -53257,7 +59592,80 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 伊賀手裏剣術 （使用まで40秒：消費気5）",
+    "text": "対象が大破撤退時まで永続で敵から狙われない 30秒間攻撃対象2増加、射程内敵の移動速度50%低下 対象と自身の伏兵の攻撃が敵の防御を無視(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 ［絢爛］千賀地氏城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 空蝉術・花咲 （使用まで40秒：消費気5：赤青配置）",
+    "text": "敵から狙われず、自身の1.4倍の攻撃で敵4体に 攻撃する伏兵を配置(2体まで)。配置中、自身の 攻撃と攻撃速度が40%上昇(同種効果と重複)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ［絢爛］千賀地氏城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 伊賀手裏剣・皆伝 （使用まで30秒：消費気5）",
+    "text": "対象が大破撤退時まで永続で射程80上昇、敵に狙われない 30秒間攻撃対象2増加、射程内敵の移動速度50%低下 対象と自身の伏兵の攻撃が敵の防御を無視(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 ［絢爛］千賀地氏城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 空蝉術・爛漫 （使用まで30秒：消費気5：赤青配置）",
+    "text": "敵から狙われず、自身の1.5倍の攻撃で敵4体に 攻撃する伏兵を配置(2体まで)。配置中、自身の 攻撃と攻撃速度が40%上昇(同種効果と重複)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ［絢爛］千賀地氏城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -53414,7 +59822,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% ［絢爛］高島城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -53439,7 +59849,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% ［絢爛］高島城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -53603,7 +60015,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ［龍毘］春日山城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -53619,7 +60033,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［龍毘］春日山城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -53781,13 +60197,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 黎明の星 （使用まで50秒：消費気7）",
     "text": "30秒対象の耐久が高い程与えるダメージ上昇(最大1.8倍) 対象の射程内城娘の攻撃と防御1.2倍(同種効果と重複) 対象の射程内敵の被ダメージ1.5倍(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 黎明の荒星 （使用まで50秒：消費気7）",
     "text": "40秒対象の耐久が高い程与えるダメージ上昇(最大2倍) 対象の射程内城娘の攻撃と防御1.2倍(同種効果と重複) 対象の射程内敵の被ダメージ1.5倍(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -54006,7 +60426,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［桔響］福知山城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -54022,7 +60444,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［桔響］福知山城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -54134,7 +60558,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 比翼連射・無尽 （使用まで60秒：消費気7）",
+   "text": "45秒間対象の射程1.3倍、攻撃後の隙が0、攻撃の1倍の わずかに後退させる連続攻撃を行う。攻撃する度攻撃と攻撃 速度が3秒間15%ずつ上昇(最大150%、自分のみ)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -54172,7 +60602,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 比翼連射・三段 （使用まで60秒：消費気7）",
+    "text": "45秒間対象の射程1.3倍、攻撃後の隙が0、攻撃の0.8倍の わずかに後退させる連続攻撃を行う。攻撃する度攻撃と攻撃 速度が3秒間10%ずつ上昇(最大140%、自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 比翼連射・無尽 （使用まで60秒：消費気7）",
+    "text": "45秒間対象の射程1.3倍、攻撃後の隙が0、攻撃の1倍の わずかに後退させる連続攻撃を行う。攻撃する度攻撃と攻撃 速度が3秒間15%ずつ上昇(最大150%、自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -54291,13 +60738,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 紫陽の縁結び （使用まで50秒：消費気7）",
     "text": "40秒間対象の爆風範囲が2倍 攻撃した敵の移動速度が2秒間0になる 射程内敵の射程が40%低下(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 紫陽の契り （使用まで50秒：消費気7）",
     "text": "40秒間対象の爆風範囲が2.5倍 攻撃した敵の移動速度が2秒間0になる 射程内敵の射程が50%低下(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -54476,7 +60927,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) ［夏］バロルの城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -54492,7 +60945,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ［夏］バロルの城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -54591,7 +61046,13 @@ window.SCRE_DATA = [
    "text": "自身伏兵1体毎に攻撃上昇(最大80%、効果重複)、攻撃対象が1 増加。【大魔法】全敵6倍ダメージ、15秒間移動速度75%低下 30秒間全［夏］と自身伏兵の攻撃2倍、攻撃速度と射程1.5倍。",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / ヴェルサイユの蜃気楼 （使用まで30秒：消費気5：赤青配置）",
+   "text": "敵から狙われず、自身攻撃の1.5倍で射程内全敵に術攻撃を 行い後退、10秒間移動速度50%低下させる伏兵(4体)。配置 中、自身と伏兵射程内城娘の射程40、攻撃100上昇",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -54607,7 +61068,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / トリアノンの陽炎 （使用まで40秒：消費気5：赤青配置）",
+    "text": "敵から狙われず、自身攻撃の1.4倍で射程内全敵に術攻撃を 行い後退、10秒間移動速度50%低下させる伏兵(4体)。配置 中、自身と伏兵射程内城娘の射程40、攻撃100上昇",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ヴェルサイユの蜃気楼 （使用まで30秒：消費気5：赤青配置）",
+    "text": "敵から狙われず、自身攻撃の1.5倍で射程内全敵に術攻撃を 行い後退、10秒間移動速度50%低下させる伏兵(4体)。配置 中、自身と伏兵射程内城娘の射程40、攻撃100上昇",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -54761,13 +61239,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 砂岩の防壁 （使用まで60秒：消費気7）",
     "text": "50秒間対象が受ける術以外のダメージが70%軽減 与ダメージと特殊攻撃ゲージ蓄積速度1.7倍 耐久が与ダメージの50%回復(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / ラグストーン城壁 （使用まで60秒：消費気7）",
     "text": "50秒間対象が受ける術以外のダメージが70%軽減 与ダメージと特殊攻撃ゲージ蓄積速度1.8倍 耐久が与ダメージの50%回復(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -54883,7 +61365,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 海開きの違い鎌 （使用まで45秒：消費気7）",
+   "text": "35秒間対象の射程が1.5倍、射程内全ての敵に1倍の ダメージを与える攻撃を6連続で行う 攻撃後の隙が少し延長(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ［夏］金烏城・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -54919,7 +61417,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 夏開きの違い鎌 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の射程が1.5倍、射程内全ての敵に1倍の ダメージを与える攻撃を5連続で行う 攻撃後の隙が少し延長(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［夏］金烏城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 海開きの違い鎌 （使用まで45秒：消費気7）",
+    "text": "35秒間対象の射程が1.5倍、射程内全ての敵に1倍の ダメージを与える攻撃を6連続で行う 攻撃後の隙が少し延長(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［夏］金烏城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "岡山県"
@@ -55014,7 +61549,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 真夏忍法海鼓の潮騒 （使用まで60秒：消費気10）",
+   "text": "30秒間範囲内の殿と城娘の攻撃と攻撃速度が1.25倍 攻撃後の隙が40%短縮(同種効果重複) (範囲：超特大、発動中の計略を解除しない)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% ［夏］十河城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -55040,7 +61591,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 真夏忍術水鼓の響き （使用まで60秒：消費気10）",
+    "text": "20秒間範囲内の殿と城娘の攻撃と攻撃速度が1.2倍 攻撃後の隙が30%短縮(同種効果重複) (範囲：特大、発動中の計略を解除しない)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% ［夏］十河城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 真夏忍術水しぶき （使用まで30秒：消費気5）",
+    "text": "範囲内の敵に攻撃の5倍のダメージを与え 大きく後退させ、移動速度が10秒間70%低下(範囲：特大)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 真夏忍法海鼓の潮騒 （使用まで60秒：消費気10）",
+    "text": "30秒間範囲内の殿と城娘の攻撃と攻撃速度が1.25倍 攻撃後の隙が40%短縮(同種効果重複) (範囲：超特大、発動中の計略を解除しない)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［夏］十河城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 真夏忍法波しぶき （使用まで20秒：消費気5）",
+    "text": "範囲内の敵に攻撃の7倍のダメージを与え 大きく後退させ、移動速度が10秒間70%低下(範囲：超特大)",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -55142,7 +61746,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 四十伊賀衆 （使用まで50秒：消費気7）",
+   "text": "35秒間対象の射程が1.4倍、敵に1.2倍のダメージを与える 攻撃を6連続で行う。耐久75%以上の敵に対して 与えるダメージが更に1.5倍(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40%(1.4倍) 千鳥城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -55178,7 +61798,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 四十忍者衆 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程が1.3倍、敵に1.2倍のダメージを与える 攻撃を6連続で行う。耐久75%以上の敵に対して 与えるダメージが更に1.5倍(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) 千鳥城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 四十伊賀衆 （使用まで50秒：消費気7）",
+    "text": "35秒間対象の射程が1.4倍、敵に1.2倍のダメージを与える 攻撃を6連続で行う。耐久75%以上の敵に対して 与えるダメージが更に1.5倍(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40%(1.4倍) 千鳥城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -55362,13 +62019,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 銀杏の響枝 （使用まで60秒：消費気7）",
     "text": "40秒間対象が射程内全敵を攻撃し、少し後退させる 攻撃と与ダメージ1.8倍 特殊攻撃ゲージの蓄積量が1.8倍(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 大銀杏の響枝 （使用まで60秒：消費気5）",
     "text": "40秒間対象が射程内全敵を攻撃し、少し後退させる 攻撃と与ダメージ2倍 特殊攻撃ゲージの蓄積量が1.8倍(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -55495,7 +62156,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 神仏不畏の蜘蛛網 （使用まで30秒：消費気5：赤青配置））",
+   "text": "敵から狙われず、自身の1.5倍の攻撃で射程内の全敵に 継続的に術ダメージを与える伏兵を配置(5体まで) 射程内敵の移動速度70%低下、攻撃後の隙70%延長",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 世界征服の悪華",
@@ -55554,7 +62221,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 悪虐の蜘蛛網 （使用まで40秒：消費気5：赤青配置）",
+    "text": "敵から狙われず、自身の1.4倍の攻撃で射程内の全敵に 継続的に術ダメージを与える伏兵を配置(5体まで) 射程内敵の移動速度70%低下、攻撃後の隙70%延長",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 神仏不畏の蜘蛛網 （使用まで30秒：消費気5：赤青配置））",
+    "text": "敵から狙われず、自身の1.5倍の攻撃で射程内の全敵に 継続的に術ダメージを与える伏兵を配置(5体まで) 射程内敵の移動速度70%低下、攻撃後の隙70%延長",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -55669,7 +62353,33 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 斬雷の闘将 （使用まで50秒：消費気7）",
+   "text": "35秒間対象の射程が1.3倍、特殊攻撃で与えるダメージ1.5倍 対象を除く射程内の味方1体毎に攻撃80上昇(最大800) 射程内城娘の撃破獲得気1増加(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30%(1.3倍) 立花城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+50%(1.5倍) 立花城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 弓神八幡の一矢",
@@ -55700,7 +62410,64 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 雷切の鬼道雪 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程が1.3倍、特殊攻撃で与えるダメージ1.5倍 対象を除く射程内の味方1体毎に攻撃60上昇(最大600) 射程内城娘の撃破獲得気1増加(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) 立花城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+50%(1.5倍) 立花城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 斬雷の闘将 （使用まで50秒：消費気7）",
+    "text": "35秒間対象の射程が1.3倍、特殊攻撃で与えるダメージ1.5倍 対象を除く射程内の味方1体毎に攻撃80上昇(最大800) 射程内城娘の撃破獲得気1増加(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) 立花城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+50%(1.5倍) 立花城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -55815,7 +62582,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / ヴァヴェル大聖堂 （使用まで50秒：消費気7）",
+   "text": "20秒間対象が受ける術以外のダメージ75%軽減 防御2.2倍、被攻撃時1.2倍のダメージを与える反撃を行う 射程内の敵の与ダメージ50%低下(自分のみ)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 竜の逆鱗",
@@ -55846,7 +62619,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ジグムントの鐘 （使用まで50秒：消費気7）",
+    "text": "20秒間対象が受ける術以外のダメージ70%軽減、防御2倍 被攻撃時に1.2倍のダメージを与える反撃を行う 射程内の敵の与ダメージ50%低下(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ヴァヴェル大聖堂 （使用まで50秒：消費気7）",
+    "text": "20秒間対象が受ける術以外のダメージ75%軽減 防御2.2倍、被攻撃時1.2倍のダメージを与える反撃を行う 射程内の敵の与ダメージ50%低下(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -55950,7 +62740,32 @@ window.SCRE_DATA = [
    "text": "自身の射程100上昇、攻撃した敵の移動速度を3秒間70%低下 敵の耐久/移動速度が低い程与えるダメージ上昇(最大2.4倍) 射程内遠隔と[肝試し]の攻撃100上昇、計略中はさらに100上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 古井戸の尾白狐 （使用まで60秒：消費気7）",
+   "text": "40秒間対象の攻撃が1.8倍、攻撃対象数が2増加 攻撃が2連続になり、標的とその周囲にダメージを与える 敵撃破時2秒間攻撃後の隙80%短縮(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80%(1.8倍) ［肝試し］高天神城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 80,
+     "target": "self",
+     "stackable": false,
+     "raw": "+80% ［肝試し］高天神城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -55966,7 +62781,53 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 古井戸の怪物 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃が1.7倍、攻撃対象数が2増加 攻撃が2連続になり、標的とその周囲にダメージを与える (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70%(1.7倍) ［肝試し］高天神城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 古井戸の尾白狐 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃が1.8倍、攻撃対象数が2増加 攻撃が2連続になり、標的とその周囲にダメージを与える 敵撃破時2秒間攻撃後の隙80%短縮(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［肝試し］高天神城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80% ［肝試し］高天神城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -56068,7 +62929,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 四谷の復讐 （使用まで60秒：消費気7）",
+   "text": "40秒間対象の射程が1.8倍。射程内の城娘の攻撃後隙が 60%短縮。射程内の敵の与ダメージを50%低下、撃破時 追加で気が1増加(効果重複なし。祓串城娘が対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80%(1.8倍) ［肝試し］元和江戸城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -56094,7 +62971,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 四谷の亡霊 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の射程が1.7倍。射程内の城娘の攻撃後隙が 50%短縮。射程内の敵の与ダメージを50%低下、撃破時 追加で気が1増加(効果重複なし。祓串城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70%(1.7倍) ［肝試し］元和江戸城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 四谷の復讐 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の射程が1.8倍。射程内の城娘の攻撃後隙が 60%短縮。射程内の敵の与ダメージを50%低下、撃破時 追加で気が1増加(効果重複なし。祓串城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［肝試し］元和江戸城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -56197,7 +63111,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 白漆喰の狭間壁 （使用まで30秒：消費気5：赤青配置）",
+   "text": "敵2体を足止めし、少し後退させる2連続攻撃を行う伏兵 (最大2体)。配置中伏兵が受ける術以外のダメージ75%軽減 射程内敵の攻撃50%低下、撃破獲得気1増加",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 白刃無双・螺旋式 （消費気5：初回10秒：再使用50秒）",
@@ -56240,7 +63160,40 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 隠し狭間の城壁 （使用まで30秒：消費気7：赤青配置）",
+    "text": "敵2体を足止めし、少し後退させる2連続攻撃を行う伏兵 (最大2体)。配置中伏兵が受ける術以外のダメージ70%軽減 射程内敵の攻撃50%低下、撃破獲得気1増加",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 西国の将軍 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の与ダメージ1.8倍。対象と対象の伏兵の 攻撃1.8倍、耐久が与ダメージの50%回復 対象の射程内敵の与ダメージ50%低下(自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 白漆喰の狭間壁 （使用まで30秒：消費気5：赤青配置）",
+    "text": "敵2体を足止めし、少し後退させる2連続攻撃を行う伏兵 (最大2体)。配置中伏兵が受ける術以外のダメージ75%軽減 射程内敵の攻撃50%低下、撃破獲得気1増加",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 姫路の宰相 （使用まで45秒：消費気7）",
+    "text": "40秒間対象の与ダメージ2倍。対象と対象の伏兵の 攻撃2倍、耐久が与ダメージの50%回復 対象の射程内敵の与ダメージ50%低下(自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -56401,7 +63354,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% ［月狼］月山富田城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -56417,7 +63372,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% ［月狼］月山富田城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -56580,7 +63537,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% ［飢渇］鳥取城・計略"
      }
-    ]
+    ],
+    "cooldown": 20,
+    "cost": 3
    },
    {
     "stage": "改壱",
@@ -56596,7 +63555,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% ［飢渇］鳥取城・計略"
      }
-    ]
+    ],
+    "cooldown": 20,
+    "cost": 3
    }
   ],
   "allSpecials": [
@@ -56755,13 +63716,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 嫦娥昇月 （使用まで60秒：消費気7）",
     "text": "40秒間対対象の攻撃1.8倍、射程300上昇、飛行敵に対して 攻撃2倍、標的に8倍その周囲に5倍のダメージを与える 単発遠隔攻撃を行う。全マス間移動可能(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 嫦娥奔月 （使用まで60秒：消費気7）",
     "text": "40秒間対対象の攻撃2倍、射程300上昇、飛行敵に対して 攻撃2倍、標的に10倍その周囲に5倍のダメージを与える 単発遠隔攻撃を行う。全マス間移動可能(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -56911,13 +63876,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 麟閣照らす月 （使用まで45秒：消費気7）",
     "text": "30秒間対象の射程1.5倍、攻撃が妖怪に対して2倍 対象が攻撃した敵の射程と攻撃速度が5秒間50%低下 (自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 麟閣照らす十五夜 （使用まで45秒：消費気5）",
     "text": "30秒間対象の射程1.5倍、攻撃が妖怪に対して2.5倍 対象が攻撃した敵の射程と攻撃速度が5秒間50%低下 (自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -57112,7 +64081,9 @@ window.SCRE_DATA = [
       "raw": "+100%(2.0倍) [地上敵] 駿河府中城・計略",
       "condition": "地上敵"
      }
-    ]
+    ],
+    "cooldown": 20,
+    "cost": 0
    },
    {
     "stage": "改壱",
@@ -57130,7 +64101,9 @@ window.SCRE_DATA = [
       "raw": "+150%(2.5倍) [地上敵] 駿河府中城・計略",
       "condition": "地上敵"
      }
-    ]
+    ],
+    "cooldown": 20,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -57224,7 +64197,13 @@ window.SCRE_DATA = [
    "text": "【配置】城娘の能力が一定値まで徐々に上昇 耐久：3000、攻撃/防御：500。平山城には効果1.5倍 最大化時、全敵の射程20%低下(効果重複)",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 霧吹井戸の霧障壁 （使用まで50秒：消費気5）",
+   "text": "30秒間対象の射程内の城娘が敵から狙われない 射程内の敵の防御40%低下 移動速度50%低下(自分のみ)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 深蒸し掛川茶",
@@ -57256,7 +64235,60 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 井戸の霧障壁 （使用まで60秒：消費気5）",
+    "text": "30秒間対象の射程内の城娘が敵から狙われない 射程内の敵の移動速度50%低下(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 攻勢の霧 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の射程内城娘の攻撃50%上昇 攻撃後の隙50%短縮、近接城娘に対しては効果1.2倍 射程内の遠隔城娘が敵から狙われない(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 雲霧城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 霧吹井戸の霧障壁 （使用まで50秒：消費気5）",
+    "text": "30秒間対象の射程内の城娘が敵から狙われない 射程内の敵の防御40%低下 移動速度50%低下(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 攻勢の濃霧 （使用まで60秒：消費気5）",
+    "text": "40秒間対象の射程内城娘の攻撃60%上昇 攻撃後の隙50%短縮、近接城娘に対しては効果1.2倍 射程内の遠隔城娘が敵から狙われない(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 雲霧城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -57462,7 +64494,9 @@ window.SCRE_DATA = [
       "raw": "+100%(2.0倍) [攻撃1.8倍､射程150上昇､耐久が50%以上の敵] 黄金郷エル・ドラード・計略",
       "condition": "攻撃1.8倍､射程150上昇､耐久が50%以上の敵"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -57480,7 +64514,9 @@ window.SCRE_DATA = [
       "raw": "+100%(2.0倍) [攻撃2倍､射程200上昇､耐久が50%以上の敵] 黄金郷エル・ドラード・計略",
       "condition": "攻撃2倍､射程200上昇､耐久が50%以上の敵"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -57626,7 +64662,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) 諏訪原城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -57642,7 +64680,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) 諏訪原城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -57801,13 +64841,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 赤色の風呂 （使用まで50秒：消費気7）",
     "text": "15秒間対象の特殊攻撃ゲージが最大になり特殊攻撃のみ を行う。30秒間対象の攻撃と与ダメージ1.8倍。対象の 射程内の敵の被ダメージ50%上昇(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 鮮血の長風呂 （使用まで50秒：消費気7）",
     "text": "15秒間対象の特殊攻撃ゲージが最大になり特殊攻撃のみ を行う。35秒間対象の攻撃と与ダメージ2倍。対象の 射程内の敵の被ダメージ50%上昇(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -57923,7 +64967,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / パンプキン・メテオ （使用まで20秒：消費気0）",
+   "text": "範囲内の敵の動きを2秒間封じ、攻撃の9倍の ダメージを与え、10秒間移動速度を85%低下させる (範囲:特大)。巨大化する度の計略の使用回数が3増加",
+   "effects": [],
+   "cooldown": 20,
+   "cost": 0
+  },
   "special": null,
   "allSkills": [
    {
@@ -57949,7 +64999,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / フォール・パンプキン （使用まで20秒：消費気0）",
+    "text": "範囲内の敵の動きを2秒間封じ、攻撃の8倍の ダメージを与え、10秒間移動速度を80%低下させる (範囲:特大)。巨大化する度の計略の使用回数が3増加",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / パンプキン・メテオ （使用まで20秒：消費気0）",
+    "text": "範囲内の敵の動きを2秒間封じ、攻撃の9倍の ダメージを与え、10秒間移動速度を85%低下させる (範囲:特大)。巨大化する度の計略の使用回数が3増加",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -58040,7 +65107,13 @@ window.SCRE_DATA = [
    "text": "【配置】敵撃破毎に自身の攻撃5%と70(効果重複)、射程7上昇 (20回まで)。最大化時、自身を除く射程内城娘に自身の攻撃の 30%の値を加算。【水上】自身の巨大化気を半減",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 海軍の悪魔 （使用まで45秒：消費気3）",
+   "text": "30秒間対象の水上特技が発動し、射程1.2倍 直撃ボーナスが300%に上昇、爆風範囲と 爆風ダメージ2倍(自分のみ)",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 3
+  },
   "special": null,
   "allSkills": [
    {
@@ -58056,7 +65129,40 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 海賊のナイト （使用まで50秒：消費気3）",
+    "text": "30秒間対象の水上特技が発動し、射程1.2倍 直撃ボーナスが300%に上昇、爆風範囲と 爆風ダメージ1.8倍(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 私掠の海軍提督 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程1.5倍、直撃ボーナスが300%に上昇 攻撃と爆風範囲と爆風ダメージ1.8倍 射程内敵の撃破獲得気2増加(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 海軍の悪魔 （使用まで45秒：消費気3）",
+    "text": "30秒間対象の水上特技が発動し、射程1.2倍 直撃ボーナスが300%に上昇、爆風範囲と 爆風ダメージ2倍(自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 私掠の赤竜提督 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の射程1.5倍、直撃ボーナスが300%に上昇 攻撃と爆風範囲と爆風ダメージ2倍 射程内敵の撃破獲得気2増加(自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -58214,13 +65320,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 海とのマリアージュ （使用まで40秒：消費気5）",
     "text": "30秒間対象の攻撃と攻撃速度1.8倍 特殊攻撃中、さらに攻撃1.4倍(自分のみ) 計略発動時、特殊攻撃ゲージが即時回復する",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 大海とのマリアージュ （使用まで40秒：消費気3）",
     "text": "30秒間対象の攻撃と攻撃速度2倍 特殊攻撃中、さらに攻撃1.4倍(自分のみ) 計略発動時、特殊攻撃ゲージが即時回復する",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [
@@ -58337,7 +65447,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 鎮守府の物資補給 （使用まで20秒：消費気0）",
+   "text": "範囲内の殿と城娘を攻撃の6倍で回復 20秒間攻撃と防御と回復が1.25倍(効果重複) (範囲:大)巨大化する度に計略の使用回数1増加",
+   "effects": [],
+   "cooldown": 20,
+   "cost": 0
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 海軍魚形大水雷",
@@ -58380,7 +65496,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 東港の物資補給 （使用まで20秒：消費気0）",
+    "text": "範囲内の殿と城娘を攻撃の5倍で回復 20秒間攻撃と防御と回復が1.2倍(効果重複) (範囲:大)巨大化する度に計略の使用回数1増加",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 沈黙の提督 （使用まで20秒：消費気0）",
+    "text": "35秒間対象の特殊攻撃ゲージ蓄積速度1.8倍。射程内城娘 の与ダメ1.5倍、攻撃後の隙50%短縮、撃破獲得気2増加 (自分のみ)。巨大化する度に計略の使用回数1増加",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 軍港 舞鶴・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 鎮守府の物資補給 （使用まで20秒：消費気0）",
+    "text": "範囲内の殿と城娘を攻撃の6倍で回復 20秒間攻撃と防御と回復が1.25倍(効果重複) (範囲:大)巨大化する度に計略の使用回数1増加",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 沈黙の元帥海軍大将 （使用まで20秒：消費気0）",
+    "text": "45秒間対象の特殊攻撃ゲージ蓄積速度2倍。射程内城娘 の与ダメ1.5倍、攻撃後の隙50%短縮、撃破獲得気2増加 (自分のみ)。巨大化する度に計略の使用回数1増加",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 軍港 舞鶴・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 0
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -58582,13 +65751,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 断崖に咲くアザミ （使用まで20秒：消費気3）",
     "text": "計略使用時1.5倍の射程で射程内全敵に攻撃の2倍の5連続 攻撃を行う。10秒間対象の与ダメ/攻撃速度2.5倍、敵の耐久 が低い程与えるダメージ上昇(最大2倍。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 断崖絶壁に咲くアザミ （使用まで15秒：消費気3）",
     "text": "計略使用時1.5倍の射程で射程内全敵に攻撃の2倍の5連続 攻撃を行う。10秒間対象の与ダメ/攻撃速度2.5倍、敵の耐久 が低い程与えるダメージ上昇(最大2.5倍。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -58794,7 +65967,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+300 ［絢爛］天童城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -58828,7 +66003,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+400 ［絢爛］天童城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -58978,13 +66155,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 四川の熊猫師匠 （使用まで60秒：消費気7：赤配置）",
     "text": "敵2体を足止めし自身の1.4倍の攻撃、耐久で4連続攻撃を 行う伏兵(1体)。配置中自身と伏兵の攻撃/防御250、与える ダメージ70%上昇、被ダメ50%軽減。全マス移動可",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 四川の熊猫師匠 （使用まで60秒：消費気7：赤配置）",
     "text": "敵2体を足止めし自身の1.5倍の攻撃、耐久で4連続攻撃を 行う伏兵(1体)。配置中自身と伏兵の攻撃/防御350、与える ダメージ70%上昇、被ダメ50%軽減。全マス移動可",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -59097,13 +66278,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 三河の出世城 （使用まで60秒：消費気7）",
     "text": "30秒間対象の射程1.3倍、鼓舞効果2倍 自身の攻撃の0.8倍の値を射程内の ［絢爛］城娘の攻撃と防御に加算(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 日ノ本の出世城 （使用まで60秒：消費気7）",
     "text": "40秒間対象の射程1.3倍、鼓舞効果2倍 自身の攻撃の1倍の値を射程内の ［絢爛］城娘の攻撃と防御に加算(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -59255,13 +66440,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 温泉袈裟斬り （使用まで60秒：消費気7）",
     "text": "40秒間対象の与ダメージ1.8倍、攻撃時標的とその周囲に 追加で攻撃の3倍のダメージを与え後退させ 移動速度が10秒間50%低下(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 温泉袈裟斬り・霧島 （使用まで60秒：消費気7）",
     "text": "40秒間対象の与ダメージ2倍、攻撃時標的とその周囲に 追加で攻撃の3.5倍のダメージを与え後退させ 移動速度が10秒間50%低下(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -59462,13 +66651,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 温泉都市の浴場 （使用まで30秒：消費気5：赤青配置）",
     "text": "攻撃しない伏兵(4体)。配置中、伏兵の射程内城娘の攻撃と 防御が時間経過で上昇(最大400)、10秒毎に殿と城娘の 耐久と状態異常を回復。射程内敵の被ダメ40%上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 温泉都市の大浴場 （使用まで30秒：消費気5：赤青配置）",
     "text": "攻撃しない伏兵(4体)。配置中、伏兵の射程内城娘の攻撃と 防御が時間経過で上昇(最大500)、10秒毎に殿と城娘の 耐久と状態異常を回復。射程内敵の被ダメ50%上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -59601,13 +66794,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 赤薔薇の紋章 （使用まで30秒：消費気3：赤青配置）",
     "text": "射程内全敵に継続的術ダメージを与え敵1体に 術攻撃を行う伏兵。伏兵の射程内敵の移動速度50%低下 更に攻撃/防御/移動速度5%低下(効果重複)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / ランカスター家の赤薔薇 （使用まで20秒：消費気3：赤青配置）",
     "text": "敵から狙われず、射程内全敵に継続的術ダメージを与え 敵1体に術攻撃を行う伏兵。伏兵の射程内敵の移動速度50% 低下。更に攻撃/防御/移動速度5%低下(効果重複)",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -59792,7 +66989,9 @@ window.SCRE_DATA = [
       "raw": "+50%(1.5倍) [耐久が50%以上の敵] ［獅聖］ガイヤール城・計略",
       "condition": "耐久が50%以上の敵"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -59810,7 +67009,9 @@ window.SCRE_DATA = [
       "raw": "+100%(2.0倍) [耐久が50%以上の敵] ［獅聖］ガイヤール城・計略",
       "condition": "耐久が50%以上の敵"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -60015,13 +67216,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 竜の咆哮 （使用まで60秒：消費気7）",
     "text": "35秒間対象の特殊攻撃ゲージの蓄積量が1.5倍 攻撃1.5倍(効果重複)、巨大化段階に応じて 射程が上昇(最大300、自身のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 焔竜の咆哮 （使用まで60秒：消費気7）",
     "text": "45秒間対象の特殊攻撃ゲージの蓄積量が1.5倍 攻撃1.5倍(効果重複)、巨大化段階に応じて 射程が上昇(最大400、自身のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -60142,7 +67347,13 @@ window.SCRE_DATA = [
    "text": "自身の攻撃対象2増加、法術の移動速度低下効果が大きく上昇 射程内の城娘が受ける3000以下のダメージを無効化 特殊能力中の与ダメ上昇効果/被ダメ軽減効果が65%に上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 軍神招来 （使用まで60秒：消費気7）",
+   "text": "40秒間対象の攻撃2倍、射程1.3倍。射程内城娘の 攻撃と防御に対象の攻撃の30%の値を加算 被攻撃時に敵の攻撃の50%を反射(自分のみ)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 鎮守の大結界 （消費気7：初回5秒：再使用40秒）",
@@ -60163,7 +67374,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 北天招来 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃1.8倍、射程1.3倍。射程内城娘の 攻撃と防御に対象の攻撃の25%の値を加算 被攻撃時に敵の攻撃の50%を反射(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 軍神招来 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃2倍、射程1.3倍。射程内城娘の 攻撃と防御に対象の攻撃の30%の値を加算 被攻撃時に敵の攻撃の50%を反射(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -60289,13 +67517,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ワイン樽の管理人 （使用まで60秒：消費気7）",
     "text": "45秒間対象の射程内城娘の防御2倍、被回復量1.5倍 射程内の敵の攻撃と射程が50%低下 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 雪夜の宮廷道化師 （使用まで60秒：消費気7）",
     "text": "45秒間対象の射程内城娘の防御2.2倍、被回復量1.8倍 射程内の敵の攻撃と射程が50%低下 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -60458,7 +67690,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［聖夜］城塞都市イントラムロス・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -60483,7 +67717,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% ［聖夜］城塞都市イントラムロス・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -60600,7 +67836,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 魔王の祝賀 （使用まで45秒：消費気7）",
+   "text": "30秒間対象の攻撃対象2増加、攻撃の3.5倍で範囲攻撃を行う 移動速度低下効果が大きく上昇。敵の移動速度が低い程射程 内城娘の与えるダメージ上昇(最大1.5倍。自分のみ)",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -60636,7 +67878,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 萬の黄金 （使用まで45秒：消費気7）",
+    "text": "30秒間対象が標的とその周囲に攻撃の3.5倍で攻撃し移動 速度低下効果が大きく上昇。敵の移動速度が低い程射程内 城娘の与えるダメージ上昇(最大1.3倍。自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 魔王の祝賀 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の攻撃対象2増加、攻撃の3.5倍で範囲攻撃を行う 移動速度低下効果が大きく上昇。敵の移動速度が低い程射程 内城娘の与えるダメージ上昇(最大1.5倍。自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -60728,7 +67987,13 @@ window.SCRE_DATA = [
    "text": "射程内の城娘の攻撃200、[正月]城娘はさらに250上昇 遠隔城娘の攻撃20%上昇(効果重複)、攻撃対象2増加 射程内の敵の攻撃速度と移動速度が50%、妖怪は70%低下",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 幻都の慶賀光春 （使用まで50秒：消費気7）",
+   "text": "50秒間対象の攻撃2倍、射程1.5倍 射程内の敵の被ダメージ50%上昇、撃破獲得気2増加 妖怪には効果2倍(祓串城娘が対象)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -60744,7 +68009,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 新年の幻都 （使用まで50秒：消費気7）",
+    "text": "50秒間対象の攻撃1.8倍、射程1.5倍 射程内の敵の被ダメージ40%上昇、撃破獲得気2増加 妖怪には効果2倍(祓串城娘が対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 幻都の慶賀光春 （使用まで50秒：消費気7）",
+    "text": "50秒間対象の攻撃2倍、射程1.5倍 射程内の敵の被ダメージ50%上昇、撃破獲得気2増加 妖怪には効果2倍(祓串城娘が対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -60836,7 +68118,13 @@ window.SCRE_DATA = [
    "text": "【配置】射程内城娘の巨大化気35%、[正月]城娘は40%軽減 【鼓舞】自身の攻撃と防御の50%、射程の8%の値を射程内の 城娘に加算、最大化時は加算値1.5倍",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 北条新年会の支柱 （使用まで60秒：消費気7）",
+   "text": "50秒間対象の攻撃2倍、射程1.6倍。対象の攻撃と防御の 75%、射程の10%の値を鼓舞対象に加算。射程内城娘の 撃破獲得気1増加、[正月]城娘は2増加(自分のみ)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -60852,7 +68140,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 北条新年会のまとめ役 （使用まで60秒：消費気7）",
+    "text": "50秒間対象の攻撃2倍、射程1.5倍。対象の攻撃と防御の 60%、射程の10%の値を鼓舞対象に加算。射程内城娘の 撃破獲得気1増加、[正月]城娘は2増加(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 北条新年会の支柱 （使用まで60秒：消費気7）",
+    "text": "50秒間対象の攻撃2倍、射程1.6倍。対象の攻撃と防御の 75%、射程の10%の値を鼓舞対象に加算。射程内城娘の 撃破獲得気1増加、[正月]城娘は2増加(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "神奈川県"
@@ -60933,31 +68238,27 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 境目の謹賀新年",
-   "text": "自身の撤退大破回復気が50%上昇、再配置時間75%短縮。部隊 の城娘の大破数に応じて自身の攻撃が150上昇、計略再使用 時間が3秒短縮(最大15秒)。計略中与えるダメージが1.5倍",
+   "name": "[改壱] / 華策・飛翔門松",
+   "text": "大破時に自身を撃破した敵に攻撃の10倍のダメージを与え 10秒間動きを封じる。射程内すべての敵に4倍のダメージを 与え、10秒間敵味方問わず最も近い対象を攻撃させる",
+   "effects": []
+  },
+  "strategy": {
+   "name": "[無印] / 謹賀刃年・笑 （使用まで30秒：消費気3）",
+   "text": "20秒間対象の攻撃、射程、与ダメージが70%上昇 大破数5回以上でさらに攻撃が40%上昇。撤退大破まで 永続で対象の最大耐久が70%低下(自分のみ)",
    "effects": [
     {
-     "source": "特技",
-     "stat": "atkFlat",
-     "mode": "flat",
-     "value": 150,
-     "target": "self",
-     "stackable": false,
-     "raw": "+150 ［正月］鎌刃城・特技"
-    },
-    {
-     "source": "特技",
-     "stat": "dmgDealtTarget",
+     "source": "計略",
+     "stat": "dmgDealt",
      "mode": "percent",
-     "value": 50,
-     "multiplier": 1.5,
-     "target": "self",
-     "stackable": true,
-     "raw": "+50%(1.5倍) ［正月］鎌刃城・特技"
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% ［正月］鎌刃城・計略"
     }
-   ]
+   ],
+   "cooldown": 30,
+   "cost": 3
   },
-  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -61002,9 +68303,166 @@ window.SCRE_DATA = [
       "raw": "+50%(1.5倍) ［正月］鎌刃城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 奇策・飛行門松",
+    "text": "大破時に自身を撃破した敵に攻撃の9倍のダメージを与え 10秒間動きを封じる。射程内すべての敵に4倍のダメージを 与え、10秒間敵味方問わず最も近い対象を攻撃させる",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 華策・飛翔門松",
+    "text": "大破時に自身を撃破した敵に攻撃の10倍のダメージを与え 10秒間動きを封じる。射程内すべての敵に4倍のダメージを 与え、10秒間敵味方問わず最も近い対象を攻撃させる",
+    "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 謹賀刃年・笑 （使用まで30秒：消費気3）",
+    "text": "20秒間対象の攻撃、射程、与ダメージが70%上昇 大破数5回以上でさらに攻撃が40%上昇。撤退大破まで 永続で対象の最大耐久が70%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［正月］鎌刃城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 謹賀刃年・門 （使用まで30秒：消費気3）",
+    "text": "20秒間対象の攻撃、射程、与ダメージが85%上昇 大破数5回以上でさらに攻撃が50%上昇。撤退大破まで 永続で対象の最大耐久が70%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 85,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+85% ［正月］鎌刃城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 謹賀刃年・来 （使用まで30秒：消費気3）",
+    "text": "20秒間対象の攻撃、射程、与ダメージが100%上昇 大破数5回以上でさらに攻撃が60%上昇。撤退大破まで 永続で対象の最大耐久が70%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100% ［正月］鎌刃城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 謹賀刃年・福 （使用まで30秒：消費気3）",
+    "text": "20秒間対象の攻撃、射程、与ダメージが115%上昇 大破数5回以上でさらに攻撃が70%上昇。撤退大破まで 永続で対象の最大耐久が70%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 115,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+115% ［正月］鎌刃城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 恭賀刃年・新 （使用まで30秒：消費気3）",
+    "text": "20秒間対象の攻撃、射程、与ダメージが80%上昇 大破数5回以上でさらに攻撃が50%上昇。撤退大破まで 永続で対象の最大耐久が70%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% ［正月］鎌刃城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 恭賀刃年・春 （使用まで30秒：消費気3）",
+    "text": "20秒間対象の攻撃、射程、与ダメージが95%上昇 大破数5回以上でさらに攻撃が65%上昇。撤退大破まで 永続で対象の最大耐久が70%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 95,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+95% ［正月］鎌刃城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 恭賀刃年・万 （使用まで30秒：消費気3）",
+    "text": "20秒間対象の攻撃、射程、与ダメージが110%上昇 大破数5回以上でさらに攻撃が80%上昇。撤退大破まで 永続で対象の最大耐久が70%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 110,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+110% ［正月］鎌刃城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 恭賀刃年・福 （使用まで30秒：消費気3）",
+    "text": "20秒間対象の攻撃、射程、与ダメージが125%上昇 大破数5回以上でさらに攻撃が100%上昇。撤退大破まで 永続で対象の最大耐久が70%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 125,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+125% ［正月］鎌刃城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -61173,7 +68631,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100% ［正月］鶴丸城・計略"
      }
-    ]
+    ],
+    "cooldown": 35,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -61189,7 +68649,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100% ［正月］鶴丸城・計略"
      }
-    ]
+    ],
+    "cooldown": 35,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -61352,7 +68814,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 韮山城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -61377,7 +68841,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+75% 韮山城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -61493,7 +68959,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 名薬師ハコタン （使用まで30秒：消費気0）",
+   "text": "敵から狙われず自身の2倍の攻撃で歌舞を行う伏兵 配置中射程内味方の全状態異常を回復し無効化。全城娘 の攻撃100、射程25上昇。巨大化毎に計略回数1増加",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 0
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 活命懸場 （消費気5：初回10秒：再使用40秒）",
@@ -61534,7 +69006,40 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 薬師ハコタン （使用まで45秒：消費気0）",
+    "text": "敵から狙われず自身の1.5倍の攻撃で歌舞を行う伏兵 配置中射程内味方の全状態異常を回復し無効化。全城娘 の攻撃100、射程25上昇。巨大化毎に計略回数1増加",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 0
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 富山反魂丹 （使用まで15秒：消費気0）",
+    "text": "15秒間射程内の敵の攻撃と攻撃速度を50%低下 範囲内の殿と城娘に攻撃の7倍で回復(射程：特大) 巨大化毎に計略回数3増加",
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 名薬師ハコタン （使用まで30秒：消費気0）",
+    "text": "敵から狙われず自身の2倍の攻撃で歌舞を行う伏兵 配置中射程内味方の全状態異常を回復し無効化。全城娘 の攻撃100、射程25上昇。巨大化毎に計略回数1増加",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 霊薬・反魂丹 （使用まで15秒：消費気0）",
+    "text": "15秒間射程内の敵の攻撃と攻撃速度を60%低下 範囲内の殿と城娘に攻撃の8倍で回復(射程：特大) 巨大化毎に計略回数3増加",
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -61643,7 +69148,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 聖天使のチョコレート （使用まで30秒：消費気5）",
+   "text": "対象が受けるダメージを35000まで防ぎ、被ダメージ 75%軽減。対象の射程内の[ﾊﾞﾚﾝﾀｲﾝ]城娘の巨大化気50% 軽減(殿/城娘/蔵/伏兵が対象。効果時間永続)",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -61679,7 +69190,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 天使のチョコレート （使用まで30秒：消費気5）",
+    "text": "対象が受けるダメージを30000まで防ぎ、被ダメージ 70%軽減。対象の射程内の[ﾊﾞﾚﾝﾀｲﾝ]城娘の巨大化気50% 軽減(殿/城娘/蔵/伏兵が対象。効果時間永続)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 聖天使のチョコレート （使用まで30秒：消費気5）",
+    "text": "対象が受けるダメージを35000まで防ぎ、被ダメージ 75%軽減。対象の射程内の[ﾊﾞﾚﾝﾀｲﾝ]城娘の巨大化気50% 軽減(殿/城娘/蔵/伏兵が対象。効果時間永続)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -61817,7 +69345,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［バレンタイン］城塞都市ニュールンベルク・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -61833,7 +69363,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［バレンタイン］城塞都市ニュールンベルク・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -61927,7 +69459,23 @@ window.SCRE_DATA = [
    "text": "自身の防御の1.2倍の値を攻撃に加算。全近接城娘の耐久と 防御が35%上昇(同種効果重複)。射程内の敵に10秒毎に攻撃 の5倍のダメージを与え、15秒間攻撃を25%低下(効果重複)",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / テオドシウス陸海双璧 （使用まで60秒：消費気7）",
+   "text": "40秒間対象の攻撃と防御とゲージ蓄積量1.8倍、自身を 除く射程内味方の数に応じて更に上昇(最大1.5倍) 射程内城娘の被ダメージ70%軽減(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 70,
+     "target": "self",
+     "stackable": false,
+     "raw": "+70% 城塞都市コンスタンティノープル・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / ギリシアの大炎",
@@ -61948,7 +69496,44 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / テオドシウスの城壁 （使用まで60秒：消費気7）",
+    "text": "30秒間対象の攻撃と防御とゲージ蓄積量1.7倍、自身を 除く射程内味方の数に応じて更に上昇(最大1.5倍) 射程内城娘の被ダメージ70%軽減(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70% 城塞都市コンスタンティノープル・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / テオドシウス陸海双璧 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃と防御とゲージ蓄積量1.8倍、自身を 除く射程内味方の数に応じて更に上昇(最大1.5倍) 射程内城娘の被ダメージ70%軽減(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70% 城塞都市コンスタンティノープル・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -62053,7 +69638,13 @@ window.SCRE_DATA = [
    "text": "全城塞都市と自身の伏兵の耐久と攻撃60%上昇、自身の 伏兵の被ダメ軽減効果2倍。【大魔法】全敵に9倍のダメージ 40秒間全城娘と自伏兵の攻撃と防御1.5倍(効果重複)",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 太陽の巨像コロッソス （使用まで40秒：消費気5：赤配置）",
+   "text": "敵3体を足止めし、標的に3倍、その周囲に2倍の遠隔攻撃 を行う伏兵(1体)。配置中、伏兵が優先攻撃対象となり被ダメ 40%軽減。特技発動中、伏兵の与ダメと防御2倍",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -62069,7 +69660,56 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 巨像コロッソス （使用まで40秒：消費気5：赤配置）",
+    "text": "敵3体を足止めし、標的に2.5倍、その周囲に2倍の遠隔攻撃 を行う伏兵(1体)。配置中、伏兵が優先攻撃対象となり被ダメ 40%軽減。特技発動中、伏兵の与ダメと防御1.8倍",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ヘーリオスの炎 （使用まで30秒：消費気7）",
+    "text": "対象が標的とその周囲に攻撃の2倍で物理攻撃を行う 対象と対象の伏兵の攻撃300上昇。さらに対象の射程内 城娘の攻撃100上昇(自分のみ。効果時間無限)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ヘーリオスの加護 （使用まで30秒：消費気7）",
+    "text": "対象が標的とその周囲に攻撃の1.5倍で術攻撃を行う 対象の射程内の城娘の回復150上昇、対象の 伏兵の回復300上昇(自分のみ。効果時間無限)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 太陽の巨像コロッソス （使用まで40秒：消費気5：赤配置）",
+    "text": "敵3体を足止めし、標的に3倍、その周囲に2倍の遠隔攻撃 を行う伏兵(1体)。配置中、伏兵が優先攻撃対象となり被ダメ 40%軽減。特技発動中、伏兵の与ダメと防御2倍",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 太陽神の炎 （使用まで30秒：消費気5）",
+    "text": "対象が標的とその周囲に攻撃の2.5倍で物理攻撃を行う 対象と対象の伏兵の攻撃300上昇。さらに対象の射程内 城娘の攻撃100上昇(自分のみ。効果時間無限)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 太陽神の加護 （使用まで30秒：消費気5）",
+    "text": "対象が標的とその周囲に攻撃の2倍で術攻撃を行う 対象の射程内の城娘の回復150上昇、対象の 伏兵の回復300上昇(自分のみ。効果時間無限)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -62180,7 +69820,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 赤兎馬の千里駆け （使用まで40秒：消費気5）",
+   "text": "30秒間対象の耐久2.5倍、攻撃2倍 被ダメージ80%軽減、ゲージ蓄積量1.5倍 耐久が与ダメージの50%回復(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80% 虎牢関・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 後漢最強の虎撃",
@@ -62241,7 +69897,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 赤兎馬の単騎駆け （使用まで50秒：消費気5）",
+    "text": "30秒間対象の耐久2.5倍、攻撃1.8倍 被ダメージ80%軽減、ゲージ蓄積量1.5倍 耐久が与ダメージの50%回復(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% 虎牢関・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 赤兎馬の千里駆け （使用まで40秒：消費気5）",
+    "text": "30秒間対象の耐久2.5倍、攻撃2倍 被ダメージ80%軽減、ゲージ蓄積量1.5倍 耐久が与ダメージの50%回復(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% 虎牢関・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -62345,7 +70038,23 @@ window.SCRE_DATA = [
    "text": "【配置】城娘の能力が一定値まで徐々に上昇 攻撃/防御:500、射程50。遠隔城娘には効果1.3倍 気の自然増加量を大きく増加(重複時効果減少)",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 武家社会の茶 （使用まで40秒：消費気5）",
+   "text": "40秒間対象の射程内城娘の攻撃と攻撃速度が1.6倍 射程内の遠隔城娘の攻撃後の隙50%短縮 射程内の敵の攻撃が50%低下(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% 霞ヶ城・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 石州流の武家茶道",
@@ -62387,7 +70096,44 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 武家の嗜み （使用まで40秒：消費気7）",
+    "text": "40秒間対象の射程内城娘の攻撃と攻撃速度が1.5倍 射程内の遠隔城娘の攻撃後の隙50%短縮 射程内の敵の攻撃が50%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% 霞ヶ城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 武家社会の茶 （使用まで40秒：消費気5）",
+    "text": "40秒間対象の射程内城娘の攻撃と攻撃速度が1.6倍 射程内の遠隔城娘の攻撃後の隙50%短縮 射程内の敵の攻撃が50%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% 霞ヶ城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -62615,7 +70361,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 城塞都市ヴァレッタ・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -62631,7 +70379,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 城塞都市ヴァレッタ・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -62724,7 +70474,23 @@ window.SCRE_DATA = [
    "text": "自身の法術の移動速度低下効果が大きく上昇、計略 消費気1軽減。全城娘の攻撃120上昇、計略再使用 時間40%短縮。射程内敵の被ダメージ40%上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 稲荷郭の守護神 （使用まで40秒：消費気7）",
+   "text": "30秒間対象の攻撃対象数が3増加し射程が2倍 攻撃した敵の射程と攻撃後の隙が 10秒間50%低下(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100%(2.0倍) 館林城・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -62750,7 +70516,114 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 狐の守護神 （使用まで40秒：消費気7）",
+    "text": "30秒間対象の攻撃対象数が2増加し射程が1.8倍 攻撃した敵の射程と攻撃後の隙が 10秒間50%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80%(1.8倍) 館林城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 狐の恩義・初曳 （使用まで30秒：消費気5）",
+    "text": "対象の特技が発動。変位系は1段上が発動 最大化時特技など一部の効果は発動しない (最大化した城娘は対象外。効果時間無限)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 狐の恩義・夜明 （使用まで30秒：消費気0 回数制限:4回）",
+    "text": "撤退大破時まで対象の攻撃と防御が200上昇 5秒間対象の計略再使用時間95%短縮",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200 館林城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200 館林城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 稲荷郭の守護神 （使用まで40秒：消費気7）",
+    "text": "30秒間対象の攻撃対象数が3増加し射程が2倍 攻撃した敵の射程と攻撃後の隙が 10秒間50%低下(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) 館林城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 稲荷の神使・初曳 （使用まで20秒：消費気3）",
+    "text": "対象の特技が発動。変位系は1段上が発動 最大化時特技など一部の効果は発動しない (最大化した城娘は対象外。効果時間無限)",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 稲荷の神使・夜明 （使用まで20秒：消費気0 回数制限:4回）",
+    "text": "撤退大破時まで対象の攻撃と防御が250上昇 5秒間対象の計略再使用時間95%短縮",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 250,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+250 館林城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 250,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+250 館林城・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 0
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -62851,7 +70724,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 金桜・八重散華 （使用まで40秒：消費気7）",
+   "text": "15秒間対象の射程が150上昇、攻撃の0.8倍で 8連続のダメージを与える。攻撃した敵の 防御が5%ずつ低下(最大100%、自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150 平泉館・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -62887,7 +70776,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 八重散華 （使用まで40秒：消費気7）",
+    "text": "15秒間対象の射程が100上昇、攻撃の0.8倍で 8連続のダメージを与える。攻撃した敵の 防御が4%ずつ低下(最大100%、自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 平泉館・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 金桜・八重散華 （使用まで40秒：消費気7）",
+    "text": "15秒間対象の射程が150上昇、攻撃の0.8倍で 8連続のダメージを与える。攻撃した敵の 防御が5%ずつ低下(最大100%、自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150 平泉館・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -62988,7 +70914,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 翔天招嶺 （使用まで60秒：消費気10）",
+   "text": "対象の射程400上昇、攻撃の8倍で射程内全敵に2連続防御 無視攻撃を行い移動速度を7秒間80%低下。敵撃破毎に攻撃 70上昇。全マス移動可(自分のみ。効果時間無限)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -63024,7 +70956,40 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 飛空昇岳 （使用まで60秒：消費気10）",
+    "text": "対象の射程400上昇、攻撃の7倍で射程内全敵に2連続防御 無視攻撃を行い移動速度を7秒間80%低下。敵撃破毎に攻撃 50上昇。全マス移動可(自分のみ。効果時間無限)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 霊岩落波 （使用まで30秒：消費気7）",
+    "text": "範囲内の敵に攻撃の7倍のダメージを与え 4秒間移動速度を95%低下、攻撃速度が50%低下 (範囲：超特大)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 翔天招嶺 （使用まで60秒：消費気10）",
+    "text": "対象の射程400上昇、攻撃の8倍で射程内全敵に2連続防御 無視攻撃を行い移動速度を7秒間80%低下。敵撃破毎に攻撃 70上昇。全マス移動可(自分のみ。効果時間無限)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 神峰轟破 （使用まで30秒：消費気7）",
+    "text": "範囲内の敵に攻撃の7倍のダメージを与え 7秒間移動速度を95%低下、攻撃速度が50%低下 (範囲：超特大)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -63146,7 +71111,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 征戦太平の砲陣展開 （使用まで60秒：消費気5）",
+   "text": "60秒間対象の射程内城娘の攻撃と与ダメージ 60%上昇、巨大化気35%軽減、対象は効果2倍となり 特殊攻撃ゲージ蓄積量1.5倍(自分のみ)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 慶長式高速移動砲台・無疆号 (気:5 初回:5秒 再使用60秒)",
@@ -63264,7 +71235,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 府城の砲陣展開 （使用まで60秒：消費気5）",
+    "text": "60秒間対象の射程内城娘の攻撃と与ダメージ 50%上昇、巨大化気35%軽減、対象は効果2倍となり 特殊攻撃ゲージ蓄積量1.3倍(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 征戦太平の砲陣展開 （使用まで60秒：消費気5）",
+    "text": "60秒間対象の射程内城娘の攻撃と与ダメージ 60%上昇、巨大化気35%軽減、対象は効果2倍となり 特殊攻撃ゲージ蓄積量1.5倍(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -63428,13 +71416,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ［燦華］聚楽第・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 燦宴・楽聚鈴奏 （使用まで40秒：消費気5）",
     "text": "40秒間対象の攻撃と攻撃速度が2倍 射程内の敵1体毎に攻撃と攻撃速度が さらに10%ずつ上昇(最大100%。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -63545,7 +71537,24 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / カチャーシーサー -三線陽舞- （使用まで30秒：消費気3：赤青配置）",
+   "text": "自身の攻撃の2.2倍で敵1体とその周囲に攻撃を行う伏兵 (1体)。配置中、気の自然回復量増加(重複時効果減少)。耐久 が80%以上の射程内味方の与えるダメージ1.2倍",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "all",
+     "stackable": true,
+     "raw": "+20%(1.2倍) ［球陽］首里城・計略"
+    }
+   ],
+   "cooldown": 30,
+   "cost": 3
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 琉球の太陽 （消費気3：初回3秒：再使用40秒）",
@@ -63596,7 +71605,84 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / カチャーシーサー -陽舞- （使用まで30秒：消費気3：赤青配置）",
+    "text": "自身の攻撃の2倍で敵1体とその周囲に攻撃を行う伏兵 (1体)。配置中、気の自然回復量増加(重複時効果減少)。耐久 が80%以上の射程内味方の与えるダメージ1.15倍",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 15,
+      "multiplier": 1.15,
+      "target": "all",
+      "stackable": true,
+      "raw": "+15%(1.15倍) ［球陽］首里城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 演舞・かぎやで風節 （使用まで60秒：消費気5）",
+    "text": "40秒間対象と自身の伏兵の攻撃と与えるダメージ1.8倍 射程1.3倍。対象を除く射程内城娘の射程に 自身の射程の25%の値加算(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 80,
+      "multiplier": 1.8,
+      "target": "self",
+      "stackable": true,
+      "raw": "+80%(1.8倍) ［球陽］首里城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / カチャーシーサー -三線陽舞- （使用まで30秒：消費気3：赤青配置）",
+    "text": "自身の攻撃の2.2倍で敵1体とその周囲に攻撃を行う伏兵 (1体)。配置中、気の自然回復量増加(重複時効果減少)。耐久 が80%以上の射程内味方の与えるダメージ1.2倍",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "all",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［球陽］首里城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 演舞・かぎやで風節 （使用まで60秒：消費気5）",
+    "text": "40秒間対象と自身の伏兵の攻撃と与えるダメージが2倍 射程1.3倍。対象を除く射程内城娘の射程に 自身の射程の30%の値加算(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［球陽］首里城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -63725,7 +71811,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 黒禁忌・無名祭祀書 （使用まで20秒：消費気0：赤青配置）",
+   "text": "攻撃を行わない伏兵。配置中、伏兵の射程内の 敵の攻撃と防御と移動速度が70%低下 被ダメージが50%上昇、巨大化毎に回数1増加",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% ミスカトニック大学・計略"
+    }
+   ],
+   "cooldown": 20,
+   "cost": 0
+  },
   "special": null,
   "allSkills": [
    {
@@ -63781,7 +71883,76 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 無名祭祀書 （使用まで25秒：消費気0：赤青配置）",
+    "text": "攻撃を行わない伏兵。配置中、伏兵の射程内の 敵の攻撃と防御と移動速度が60%低下 被ダメージが50%上昇、巨大化毎に回数1増加",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60% ミスカトニック大学・計略"
+     }
+    ],
+    "cooldown": 25,
+    "cost": 0
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / エイボンの書 （使用まで25秒：消費気0：赤青配置）",
+    "text": "攻撃を行わない伏兵(最大1体)。配置中、10秒毎に気が 追加で1増加。伏兵の射程内の味方の攻撃と攻撃速度が 20%上昇(効果重複)、巨大化毎に回数1増加",
+    "effects": [],
+    "cooldown": 25,
+    "cost": 0
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ナコト写本 （使用まで25秒：消費気0：赤青配置）",
+    "text": "敵3体に攻撃の1.4倍で攻撃を行う伏兵 配置中、伏兵の射程内の敵1体毎に伏兵の攻撃と 攻撃速度が10%ずつ上昇、巨大化毎に回数1増加",
+    "effects": [],
+    "cooldown": 25,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 黒禁忌・無名祭祀書 （使用まで20秒：消費気0：赤青配置）",
+    "text": "攻撃を行わない伏兵。配置中、伏兵の射程内の 敵の攻撃と防御と移動速度が70%低下 被ダメージが50%上昇、巨大化毎に回数1増加",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ミスカトニック大学・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 創魔書・エイボンの書 （使用まで20秒：消費気0：赤青配置）",
+    "text": "攻撃を行わない伏兵(最大1体)。配置中、10秒毎に気が 追加で1増加。伏兵の射程内の味方の攻撃と攻撃速度が 25%上昇(効果重複)、巨大化毎に回数1増加",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 幻夢書・ナコト写本 （使用まで20秒：消費気0：赤青配置）",
+    "text": "敵3体に攻撃の1.5倍で攻撃を行う伏兵 配置中、伏兵の射程内の敵1体毎に伏兵の攻撃と 攻撃速度が10%ずつ上昇、巨大化毎に回数1増加",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -63960,7 +72131,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 高槻城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -63985,7 +72158,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+200 高槻城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -64078,7 +72253,13 @@ window.SCRE_DATA = [
    "text": "自身の攻撃対象2増加、射程250上昇 敵撃破時、5秒間計略再使用時間が95%短縮 射程内の[学園]城娘の計略消費気2軽減、攻撃150上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 百万一心・三矢の魔球 （使用まで60秒：消費気5）",
+   "text": "20秒間対象の攻撃3倍、与ダメージ2倍、攻撃対象2増加 標的とその周囲に攻撃の3.5倍のダメージを与え 3秒間対象の防御を0にする攻撃を行う(自分のみ)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -64094,7 +72275,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 百万一心の魔球 （使用まで60秒：消費気5）",
+    "text": "20秒間対象の攻撃2.5倍、与ダメージ2倍、攻撃対象2増加 標的とその周囲に攻撃の3倍のダメージを与え 3秒間対象の防御を0にする攻撃を行う(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 百万一心・三矢の魔球 （使用まで60秒：消費気5）",
+    "text": "20秒間対象の攻撃3倍、与ダメージ2倍、攻撃対象2増加 標的とその周囲に攻撃の3.5倍のダメージを与え 3秒間対象の防御を0にする攻撃を行う(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -64186,7 +72384,23 @@ window.SCRE_DATA = [
    "text": "自身の射程100上昇、攻撃が標的の周囲にもダメージを与える 射程内城娘の攻撃と攻撃速度が50%、[学園]はさらに20%上昇 自身の伏兵が1度だけ大破しない秒数が5秒増加",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 超感覚ライブペインティング （使用まで10秒：消費気15：使用可能回数5回）",
+   "text": "配置場所を「近接/遠隔マス」に変更し、強化する (配置した城娘の耐久と攻撃と防御が1.3倍、地形属性と 重複、未配置の近接マスまたは遠隔マスが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30%(1.3倍) ［学園］若桜鬼ヶ城・計略"
+    }
+   ],
+   "cooldown": 10,
+   "cost": 15
+  },
   "special": null,
   "allSkills": [
    {
@@ -64202,7 +72416,60 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 感覚的ペインティング （使用まで10秒：消費気20：使用可能回数3回）",
+    "text": "配置場所を「近接/遠隔マス」に変更し、強化する (配置した城娘の耐久と攻撃と防御が1.3倍、地形属性と 重複、未配置の近接マスまたは遠隔マスが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) ［学園］若桜鬼ヶ城・計略"
+     }
+    ],
+    "cooldown": 10,
+    "cost": 20
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / チビ若桜の部員活動 （使用まで30秒：消費気5：赤配置）",
+    "text": "敵5体を足止めし攻撃せず自身の攻撃の0.8倍の伏兵(1体) 1度だけ大破せず、10秒間耐久が0にならない。伏兵の攻撃 の1.2倍の値を自身を除く伏兵の射程内城娘に加算",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 超感覚ライブペインティング （使用まで10秒：消費気15：使用可能回数5回）",
+    "text": "配置場所を「近接/遠隔マス」に変更し、強化する (配置した城娘の耐久と攻撃と防御が1.3倍、地形属性と 重複、未配置の近接マスまたは遠隔マスが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) ［学園］若桜鬼ヶ城・計略"
+     }
+    ],
+    "cooldown": 10,
+    "cost": 15
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / チビ若桜のアシスタント活動 （使用まで30秒：消費気5：赤配置）",
+    "text": "敵7体を足止めし攻撃せず自身の攻撃の0.8倍の伏兵(1体) 1度だけ大破せず、10秒間耐久が0にならない。伏兵の攻撃 の1.3倍の値を自身を除く伏兵の射程内城娘に加算",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -64294,7 +72561,13 @@ window.SCRE_DATA = [
    "text": "自身の攻撃対象3増加、自身を除く射程内城娘1体毎に 攻撃が20%と100上昇。射程内の城娘の被回復量が40%上昇 敵の移動速度が低い程与えるダメージ上昇(最大1.5倍)",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 四帝・后土皇地衹 （使用まで30秒：消費気3）",
+   "text": "30秒間対象の射程1.5倍、与ダメージ2倍 射程内味方が天候の影響を受けず 撃破獲得気が1、地獄城娘は2増加(自分のみ)",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 3
+  },
   "special": null,
   "allSkills": [
    {
@@ -64320,7 +72593,58 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 土皇地衹 （使用まで30秒：消費気3）",
+    "text": "30秒間対象の射程1.4倍、与ダメージ1.8倍 射程内味方が天候の影響を受けず 撃破獲得気が1、地獄城娘は2増加(自分のみ)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 五行中央の統治者 （使用まで60秒：消費気5）",
+    "text": "60秒間対象の射程1.4倍、与ダメージ2倍、攻撃した敵の 移動速度を少しの間0にする。射程内の城娘の攻撃と 防御に自身の攻撃の25%の値を加算(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "shareAtk",
+      "mode": "share",
+      "value": 25.0,
+      "shareSource": "幽都",
+      "raw": "+ (幽都の攻撃の25.0%) 幽都・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 四帝・后土皇地衹 （使用まで30秒：消費気3）",
+    "text": "30秒間対象の射程1.5倍、与ダメージ2倍 射程内味方が天候の影響を受けず 撃破獲得気が1、地獄城娘は2増加(自分のみ)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 五行中央の土地神 （使用まで60秒：消費気5）",
+    "text": "60秒間対象の射程1.5倍、与ダメージ2.2倍、攻撃した敵の 移動速度を少しの間0にする。射程内の城娘の攻撃と 防御に自身の攻撃の25%の値を加算(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "shareAtk",
+      "mode": "share",
+      "value": 25.0,
+      "shareSource": "幽都",
+      "raw": "+ (幽都の攻撃の25.0%) 幽都・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -64424,7 +72748,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 大友抱き杏葉のノビシャド （使用まで30秒：消費気5：赤青配置）",
+   "text": "攻撃しない伏兵(3体)。伏兵の射程内城娘の撃破気が1 [絢爛]と九州は2増加。伏兵1体毎に自身の直撃ボーナスが 20%(効果重複)、攻撃50%ずつ上昇、攻撃対象1増加",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -64469,7 +72799,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 杏葉のノビシャド （使用まで40秒：消費気5：赤青配置）",
+    "text": "攻撃しない伏兵(2体)。伏兵の射程内城娘の撃破気が1 [絢爛]と九州は2増加。伏兵1体毎に自身の直撃ボーナスが 20%(効果重複)、攻撃50%ずつ上昇、攻撃対象1増加",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 大友抱き杏葉のノビシャド （使用まで30秒：消費気5：赤青配置）",
+    "text": "攻撃しない伏兵(3体)。伏兵の射程内城娘の撃破気が1 [絢爛]と九州は2増加。伏兵1体毎に自身の直撃ボーナスが 20%(効果重複)、攻撃50%ずつ上昇、攻撃対象1増加",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -64562,7 +72909,23 @@ window.SCRE_DATA = [
    "text": "自身の特殊攻撃ダメージとゲージ蓄積量1.5倍、被攻撃毎に 30秒間回復が400ずつ上昇(最大2000)。全城娘の1500 以下のダメージを無効化。全ての敵の与ダメージを35%低下",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / アイアンリングの最終兵器 （使用まで50秒：消費気7）",
+   "text": "30秒間対象の被ダメージを75%軽減、優先攻撃対象になり 受けるダメージを配置中の城娘全員で分割して受ける 全城娘の回復400上昇、対象城娘はさらに800上昇",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 75,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+75% ［絢爛］ビューマリス城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 鉄環の竜炎",
@@ -64583,7 +72946,44 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 完成せし最終兵器 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の被ダメージを70%軽減、優先攻撃対象になり 受けるダメージを配置中の城娘全員で分割して受ける 全城娘の回復300上昇、対象城娘はさらに600上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［絢爛］ビューマリス城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / アイアンリングの最終兵器 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の被ダメージを75%軽減、優先攻撃対象になり 受けるダメージを配置中の城娘全員で分割して受ける 全城娘の回復400上昇、対象城娘はさらに800上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 75,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+75% ［絢爛］ビューマリス城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -64697,7 +73097,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 十二刻の時計盤 （使用まで60秒：消費気7）",
+   "text": "60秒間対象の攻撃対象が2増加 3連続で射程内の城娘と敵に攻撃と回復を行う 射程内城娘の攻撃速度が2倍(祓串城娘が対象)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -64733,7 +73139,94 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 定刻の時計盤 （使用まで60秒：消費気7）",
+    "text": "50秒間対象の攻撃対象が2増加 3連続で射程内の城娘と敵に攻撃と回復を行う 射程内城娘の攻撃速度が1.8倍(祓串城娘が対象)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 銀鐘・初刻 （使用まで60秒：消費気5）",
+    "text": "20秒間範囲内の殿と城娘の攻撃速度が2.5倍 攻撃後の隙が70%短縮、範囲内の敵の移動速度が70%低下 (範囲:極大。発動中の計略を解除しない)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［絢爛］久能山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［絢爛］久能山城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 銀鐘・終刻 （使用まで5秒：消費気3：回数3回）",
+    "text": "15秒間範囲内の敵の攻撃速度が80%低下 攻撃後の隙が100%延長、移動速度と防御が0になる 合戦中3回のみ使用可能(範囲:極大)",
+    "effects": [],
+    "cooldown": 5,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 十二刻の時計盤 （使用まで60秒：消費気7）",
+    "text": "60秒間対象の攻撃対象が2増加 3連続で射程内の城娘と敵に攻撃と回復を行う 射程内城娘の攻撃速度が2倍(祓串城娘が対象)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 時鐘・初刻の響 （使用まで60秒：消費気5）",
+    "text": "20秒間範囲内の殿と城娘の攻撃速度が2.5倍 攻撃後の隙が80%短縮、範囲内の敵の移動速度が80%低下 (範囲:極大。発動中の計略を解除しない)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% ［絢爛］久能山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% ［絢爛］久能山城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 時鐘・終刻の響 （使用まで5秒：消費気3：回数3回）",
+    "text": "20秒間範囲内の敵の攻撃速度が80%低下 攻撃後の隙が150%延長、移動速度と防御が0になる 合戦中3回のみ使用可能(範囲:極大)",
+    "effects": [],
+    "cooldown": 5,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -64825,7 +73318,32 @@ window.SCRE_DATA = [
    "text": "自身の攻撃速度が高い程与えるダメージ上昇(最大1.7倍) 被攻撃毎に20秒間攻撃と防御と攻撃速度が25%ずつ 上昇(最大150%)。敵撃破時、20秒間攻撃1.5倍(効果重複)",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 華爛・郡上おどり （使用まで45秒：消費気7）",
+   "text": "30秒間対象の足止め数が5増加、被ダメージ70%軽減 耐久が与ダメージの50%回復、対象が足止めした 敵の攻撃が50%低下(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% ［絢爛］郡上八幡城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% ［絢爛］郡上八幡城・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -64841,7 +73359,62 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 郡上爛舞 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の足止め数が5増加、被ダメージ70%軽減 耐久が与ダメージの40%回復、対象が足止めした 敵の攻撃が40%低下(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［絢爛］郡上八幡城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ［絢爛］郡上八幡城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 華爛・郡上おどり （使用まで45秒：消費気7）",
+    "text": "30秒間対象の足止め数が5増加、被ダメージ70%軽減 耐久が与ダメージの50%回復、対象が足止めした 敵の攻撃が50%低下(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［絢爛］郡上八幡城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ［絢爛］郡上八幡城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -64933,7 +73506,13 @@ window.SCRE_DATA = [
    "text": "自身が攻撃した敵の移動速度が少しの間0、射程内の味方 1体毎に自身の攻撃が150ずつ上昇、攻撃対象が1増加。射程内 敵の与ダメージ40%低下、隠密効果無効化(一部敵を除く)",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 芳香のフラージュステップ （使用まで40秒：消費気5）",
+   "text": "40秒間対象の射程100上昇、優先攻撃対象になる。射程内敵 の攻撃60%低下。射程内味方の被ダメ50%、対象は80%軽 減。最大化時対象の被ダメを更に50%軽減(自分のみ)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / リミュエル・サント",
@@ -64954,7 +73533,40 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 軽快なるフラージュステップ （使用まで40秒：消費気7）",
+    "text": "40秒間対象の射程100上昇、優先攻撃対象になる。射程内敵 の攻撃60%低下。射程内味方の被ダメ50%、対象は75%軽 減。最大化時対象の被ダメを更に50%軽減(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 華麗なるロワールステップ （使用まで40秒：消費気7）",
+    "text": "40秒間対象の射程100、攻撃80%上昇、2連続で攻撃･回復 を行う。射程内の味方の与ダメージ60%、対象は100%上昇 最大化時、対象の攻撃が更に1.6倍(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 芳香のフラージュステップ （使用まで40秒：消費気5）",
+    "text": "40秒間対象の射程100上昇、優先攻撃対象になる。射程内敵 の攻撃60%低下。射程内味方の被ダメ50%、対象は80%軽 減。最大化時対象の被ダメを更に50%軽減(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 魅惑のロワールステップ （使用まで40秒：消費気5）",
+    "text": "40秒間対象の射程100、攻撃100%上昇、2連続で攻撃と 回復を行う。射程内の味方の与ダメージ60%、対象は100% 上昇。最大化時、対象の攻撃が更に1.6倍(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -65064,7 +73676,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 死の牢獄ライブ！ （使用まで40秒：消費気5）",
+   "text": "40秒間対象の射程1.3倍、射程内全敵に攻撃の5倍で攻撃 射程内敵の防御と射程50%低下。計略発動時の射程内敵の 移動速度が5秒間0、永続で撃破気5増加(自分のみ)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -65104,7 +73722,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 恋のギロチンライブ！ （使用まで40秒：消費気5）",
+    "text": "40秒間対象の射程1.3倍、射程内全敵に攻撃の4倍で攻撃 射程内敵の防御と射程40%低下。計略発動時の射程内敵の 移動速度が5秒間0、永続で撃破気5増加(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 死の牢獄ライブ！ （使用まで40秒：消費気5）",
+    "text": "40秒間対象の射程1.3倍、射程内全敵に攻撃の5倍で攻撃 射程内敵の防御と射程50%低下。計略発動時の射程内敵の 移動速度が5秒間0、永続で撃破気5増加(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -65195,7 +73830,13 @@ window.SCRE_DATA = [
    "text": "【配置】気の自然増加量を大きく増加(重複時効果減少)、城娘 の能力が一定値まで徐々に上昇。攻撃/防御:600。山城には 効果1.5倍。特殊能力使用時、特殊攻撃の使用回数1増加",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 起爆型九十九髪茄子・大寅 （使用まで10秒：消費気3：赤青配置）",
+   "text": "敵から狙われず自身の攻撃の10倍で特殊攻撃時に消滅する 伏兵。被攻撃時または「爆炎釜の茶会」を伏兵に適用時 射程内の全敵に伏兵の攻撃の1倍の特殊攻撃を行う",
+   "effects": [],
+   "cooldown": 10,
+   "cost": 3
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 椀の中の真心 （消費気5：初回5秒：再使用40秒）",
@@ -65216,7 +73857,78 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 起爆型九十九髪茄子 （使用まで15秒：消費気3：赤青配置）",
+    "text": "敵から狙われず自身の攻撃の9倍で特殊攻撃時に消滅する 伏兵。被攻撃時または「愚者の爆釜」を伏兵に適用時 射程内の全敵に伏兵の攻撃の1倍の特殊攻撃を行う",
+    "effects": [],
+    "cooldown": 15,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 追尾型平蜘蛛茶釜 （使用まで30秒：消費気3：赤青配置）",
+    "text": "敵から狙われず自身の攻撃の4倍で敵1体とその周囲に 攻撃する伏兵。射程内に敵が入った瞬間に発動し 5秒間防御と移動速度を0にする。攻撃時に消滅",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 愚者の爆釜 （使用まで10秒：消費気3）",
+    "text": "20秒間範囲内の自身の伏兵の与えるダメージが1.5倍 計略発動時、範囲内の「起爆型九十九髪茄子」が 特殊攻撃を行い消滅する(範囲：特大)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［蛛絲］信貴山城・計略"
+     }
+    ],
+    "cooldown": 10,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 起爆型九十九髪茄子・大寅 （使用まで10秒：消費気3：赤青配置）",
+    "text": "敵から狙われず自身の攻撃の10倍で特殊攻撃時に消滅する 伏兵。被攻撃時または「爆炎釜の茶会」を伏兵に適用時 射程内の全敵に伏兵の攻撃の1倍の特殊攻撃を行う",
+    "effects": [],
+    "cooldown": 10,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 追尾型平蜘蛛茶釜・白虎 （使用まで30秒：消費気3：赤青配置）",
+    "text": "敵から狙われず自身の攻撃の5倍で敵1体とその周囲に 攻撃する伏兵。射程内に敵が入った瞬間に発動し 7秒間防御と移動速度を0にする。攻撃時に消滅",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 爆炎釜の茶会 （使用まで5秒：消費気3）",
+    "text": "20秒間範囲内の自身の伏兵の与えるダメージが2倍 計略発動時、範囲内の「起爆型九十九髪茄子・大寅」が 特殊攻撃を行い消滅する(範囲：極大)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［蛛絲］信貴山城・計略"
+     }
+    ],
+    "cooldown": 5,
+    "cost": 3
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -65335,7 +74047,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 必勝無敗の賽の目 （使用まで60秒：消費気7）",
+   "text": "45秒間対象の攻撃と与ダメージ2.2倍。射程120上昇 被ダメージ80%軽減、敵撃破時、対象の耐久を90%回復 20秒間攻撃がさらに40%上昇(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80% ［漆磊］広島城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 破杭の喧闘 （消費気5：初回10秒：再使用40秒）",
@@ -65406,7 +74134,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 必勝の賽の目 （使用まで60秒：消費気7）",
+    "text": "45秒間対象の攻撃と与ダメージ2倍 被ダメージ80%軽減、敵撃破時、対象の耐久を90%回復 20秒間攻撃がさらに40%上昇(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% ［漆磊］広島城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 必勝無敗の賽の目 （使用まで60秒：消費気7）",
+    "text": "45秒間対象の攻撃と与ダメージ2.2倍。射程120上昇 被ダメージ80%軽減、敵撃破時、対象の耐久を90%回復 20秒間攻撃がさらに40%上昇(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% ［漆磊］広島城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -65526,7 +74291,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 悪退の俱利伽羅龍 （使用まで60秒：消費気5）",
+   "text": "60秒間対象の攻撃が2.2倍、攻撃対象2増加 対象を除く射程内の城娘の攻撃と防御に 対象の攻撃の25%の値を加算(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 120,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+120%(2.2倍) ［夢双］福岡城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 無双の休日 （消費気3：初回5秒：再使用5秒）",
@@ -65567,7 +74348,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 不動明王の化身 （使用まで60秒：消費気7）",
+    "text": "60秒間対象の攻撃が2倍、攻撃対象2増加 対象を除く射程内の城娘の攻撃と防御に 対象の攻撃の25%の値を加算(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［夢双］福岡城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 悪退の俱利伽羅龍 （使用まで60秒：消費気5）",
+    "text": "60秒間対象の攻撃が2.2倍、攻撃対象2増加 対象を除く射程内の城娘の攻撃と防御に 対象の攻撃の25%の値を加算(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120%(2.2倍) ［夢双］福岡城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -65662,30 +74480,27 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / ロマンスの要塞",
-   "text": "自身の撤退大破気が45%上昇、再配置時間70%短縮 自身の攻撃と攻撃速度が70%上昇、攻撃後の隙60%短縮 自身の耐久が低い程与えるダメージが上昇(最大2.2倍)",
+   "name": "[改壱] / 分かたれし二人の霊魂",
+   "text": "大破時に自身を撃破した敵に攻撃の10倍のダメージを与え、15秒間 移動速度を100%低下、射程内の全敵に敵味方問わず最も近い対象を 攻撃させる。30秒間射程内の城娘の攻撃が1.5倍(効果重複)",
    "effects": [
     {
      "source": "特技",
-     "stat": "atkSpeed",
+     "stat": "atkPercent",
      "mode": "percent",
-     "value": 70,
-     "target": "self",
+     "value": 50,
+     "target": "inRange",
      "stackable": false,
-     "raw": "+70% ［花嫁衣装］バルディ城・特技"
-    },
-    {
-     "source": "特技",
-     "stat": "gapShorten",
-     "mode": "percent",
-     "value": 60,
-     "target": "self",
-     "stackable": false,
-     "raw": "+60% ［花嫁衣装］バルディ城・特技"
+     "raw": "+50%(1.5倍) ［花嫁衣装］バルディ城・特技"
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 騎士の鉄小片 （使用まで10秒：消費気5）",
+   "text": "対象の現在耐久が80%減少。撤退大破時まで永続で 対象の攻撃力が2.7倍(同種効果重複)、射程が200上昇 (自分のみが対象)",
+   "effects": [],
+   "cooldown": 10,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -65728,9 +74543,114 @@ window.SCRE_DATA = [
       "raw": "+60% ［花嫁衣装］バルディ城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / すれ違う二人の霊魂",
+    "text": "大破時に自身を撃破した敵に攻撃の10倍のダメージを与え、15秒間 移動速度を100%低下、射程内の全敵に敵味方問わず最も近い対象を 攻撃させる。30秒間射程内の城娘の攻撃が1.4倍(効果重複)",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40%(1.4倍) ［花嫁衣装］バルディ城・特技"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 分かたれし二人の霊魂",
+    "text": "大破時に自身を撃破した敵に攻撃の10倍のダメージを与え、15秒間 移動速度を100%低下、射程内の全敵に敵味方問わず最も近い対象を 攻撃させる。30秒間射程内の城娘の攻撃が1.5倍(効果重複)",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［花嫁衣装］バルディ城・特技"
+     }
+    ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 騎士の生還 （使用まで10秒：消費気5）",
+    "text": "対象の現在耐久が80%減少。撤退大破時まで永続で 対象の攻撃力が2.5倍(同種効果重複)、射程が150上昇 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 10,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ソレステの恋情 （使用まで30秒：消費気3）",
+    "text": "5秒間対象の攻撃が2.8倍(同種効果重複)、射程が150上昇 与えるダメージが3倍、計略発動時から5秒後に大破する (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 180,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+180%(2.8倍) ［花嫁衣装］バルディ城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 200,
+      "multiplier": 3.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+200%(3.0倍) ［花嫁衣装］バルディ城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 騎士の鉄小片 （使用まで10秒：消費気5）",
+    "text": "対象の現在耐久が80%減少。撤退大破時まで永続で 対象の攻撃力が2.7倍(同種効果重複)、射程が200上昇 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 10,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ヴェールの幸穴 （使用まで30秒：消費気3）",
+    "text": "5秒間対象の攻撃が3倍(同種効果重複)、射程が200上昇 与えるダメージが3倍、計略発動時から5秒後に大破する (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200%(3.0倍) ［花嫁衣装］バルディ城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 200,
+      "multiplier": 3.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+200%(3.0倍) ［花嫁衣装］バルディ城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -65825,7 +74745,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 祝宴の餅投げ （使用まで60秒：消費気5）",
+   "text": "45秒間対象の射程200上昇、敵の移動速度が低いほど 与えるダメージ上昇(最大3.5倍)、攻撃した敵の移動速度と 防御を5秒間0にし、攻撃が5秒間70%低下(自分のみ)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -65870,7 +74796,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 婚姻のきめ酒 （使用まで60秒：消費気5）",
+    "text": "30秒間対象の射程200上昇、敵の移動速度が低いほど 与えるダメージ上昇(最大3倍)、攻撃した敵の移動速度と 防御を5秒間0にし、攻撃が5秒間70%低下(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 祝宴の餅投げ （使用まで60秒：消費気5）",
+    "text": "45秒間対象の射程200上昇、敵の移動速度が低いほど 与えるダメージ上昇(最大3.5倍)、攻撃した敵の移動速度と 防御を5秒間0にし、攻撃が5秒間70%低下(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -66038,13 +74981,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 自由な海水浴 （使用まで45秒：消費気3）",
     "text": "30秒間対象の攻撃と与ダメージ2倍、攻撃対象数2増加 敵の移動速度が低い程与えるダメージ上昇(最大1.8倍) 射程内敵の射程が20%低下(効果重複。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 完璧な海水浴 （使用まで45秒：消費気3）",
     "text": "30秒間対象の攻撃と与ダメージ2.2倍、攻撃対象数2増加 敵の移動速度が低い程与えるダメージ上昇(最大2倍) 射程内敵の射程が20%低下(効果重複。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -66167,7 +75114,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 熱波水砕拳 （使用まで60秒：消費気10）",
+   "text": "対象の与ダメージ2倍、射程500上昇、標的に攻撃の7倍 その周囲に4倍のダメージを与え、少し後退させる 4連続攻撃を行う(自分のみが対象。効果時間無限)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -66232,7 +75185,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 酷夏水破拳 （使用まで60秒：消費気10）",
+    "text": "対象の与ダメージ2倍、射程400上昇、標的に攻撃の6倍 その周囲に4倍のダメージを与え、少し後退させる 4連続攻撃を行う(自分のみが対象。効果時間無限)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 熱波水砕拳 （使用まで60秒：消費気10）",
+    "text": "対象の与ダメージ2倍、射程500上昇、標的に攻撃の7倍 その周囲に4倍のダメージを与え、少し後退させる 4連続攻撃を行う(自分のみが対象。効果時間無限)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -66316,7 +75286,23 @@ window.SCRE_DATA = [
    "text": "自身の攻撃速度が70%、直撃ボーナスが220%上昇 全地獄城と[夏]城娘の攻撃を200、耐久を500上昇 【水上】射程内城娘の攻撃30%上昇(効果重複)、撃破気2増加",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 終焉のスパイク （使用まで50秒：消費気7）",
+   "text": "50秒間対象が敵から狙われず、水上特技が発動、攻撃が2倍 攻撃後の隙が70%短縮、攻撃の6倍と敵の最大耐久の 8%のダメージを与える単発攻撃を行う(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［夏］ナグルファル・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -66332,7 +75318,44 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 獄夏のスパイク （使用まで50秒：消費気7）",
+    "text": "50秒間対象が敵から狙われず、水上特技が発動、攻撃が2倍 攻撃後の隙が70%短縮、攻撃の5倍と敵の最大耐久の 5%のダメージを与える単発攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［夏］ナグルファル・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 終焉のスパイク （使用まで50秒：消費気7）",
+    "text": "50秒間対象が敵から狙われず、水上特技が発動、攻撃が2倍 攻撃後の隙が70%短縮、攻撃の6倍と敵の最大耐久の 8%のダメージを与える単発攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［夏］ナグルファル・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -66470,7 +75493,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 軍港 ポーツマス・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -66486,7 +75511,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 軍港 ポーツマス・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -66591,7 +75618,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 破壊の四連電砲 （使用まで60秒：消費気7）",
+   "text": "40秒間対象の攻撃と与ダメージ2.2倍、撃破獲得気2増加 直撃ボーナス170%上昇、15秒間敵の防御を25%ずつ 低下させる4連続攻撃を行う(最大100%。自分のみ)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -66645,7 +75678,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 破壊の四連砲火 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃と与ダメージ2倍、撃破獲得気2増加 直撃ボーナス150%上昇、15秒間敵の防御を25%ずつ 低下させる4連続攻撃を行う(最大100%。自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 破壊の四連電砲 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃と与ダメージ2.2倍、撃破獲得気2増加 直撃ボーナス170%上昇、15秒間敵の防御を25%ずつ 低下させる4連続攻撃を行う(最大100%。自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -66736,7 +75786,13 @@ window.SCRE_DATA = [
    "text": "【配置】城娘の能力が一定値まで徐々に上昇、攻撃/防御:500、射程:50 水城には効果1.5倍。自身が敵の攻撃対象にならない。最大化時 8秒毎に射程内全敵に攻撃の5倍のダメージを与え大きく後退させる",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 北前港湾・宮津 （使用まで40秒：消費気7）",
+   "text": "40秒間対象の射程内の城娘と殿の攻撃400上昇 射程内敵の攻撃対象にならない効果を無効(一部敵を除く) 移動速度60%低下、被ダメージ60%上昇(自分のみ)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 銘茶・三斎流",
@@ -66767,7 +75823,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 北前港湾 （使用まで40秒：消費気7）",
+    "text": "40秒間対象の射程内の城娘と殿の攻撃300上昇 射程内敵の攻撃対象にならない効果を無効(一部敵を除く) 移動速度50%低下、被ダメージ60%上昇(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 北前港湾・宮津 （使用まで40秒：消費気7）",
+    "text": "40秒間対象の射程内の城娘と殿の攻撃400上昇 射程内敵の攻撃対象にならない効果を無効(一部敵を除く) 移動速度60%低下、被ダメージ60%上昇(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -66901,7 +75974,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / アリマタヤの白き盾 （使用まで40秒：消費気7）",
+   "text": "40秒間対象の耐久が2.5倍、与ダメージが2倍 攻撃に現在耐久の10%の値を加算 特殊攻撃ストック数が1増加(自分のみ)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / ロンギヌスの永傷一閃",
@@ -66953,7 +76032,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / アリマタヤの盾 （使用まで40秒：消費気7）",
+    "text": "40秒間対象の耐久が2.2倍、与ダメージが2倍 攻撃に現在耐久の5%の値を加算 特殊攻撃ストック数が1増加(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 聖杯の輝き （使用まで20秒：消費気3）",
+    "text": "範囲内の伏兵と蔵を除く敵味方を攻撃の8倍で回復 30秒間城娘の耐久と防御が30%上昇(効果重複) (範囲：中。発動中の計略を解除しない)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 聖杯城コルベニック・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / アリマタヤの白き盾 （使用まで40秒：消費気7）",
+    "text": "40秒間対象の耐久が2.5倍、与ダメージが2倍 攻撃に現在耐久の10%の値を加算 特殊攻撃ストック数が1増加(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 聖杯の奇跡 （使用まで20秒：消費気3）",
+    "text": "範囲内の伏兵と蔵を除く敵味方を攻撃の10倍で回復 30秒間城娘の耐久と防御が35%上昇(効果重複) (範囲：中。発動中の計略を解除しない)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 35,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+35% 聖杯城コルベニック・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 3
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -67084,7 +76216,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 天下の波濤一閃 （使用まで50秒：消費気7）",
+   "text": "35秒間対象の巨大化気が80%軽減、攻撃と与ダメージが 2.2倍、射程が2倍、射程内全ての敵に攻撃の8倍の ダメージを与える攻撃を行う(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［夏］江戸城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -67124,7 +76272,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 夏海の閃撃 （使用まで50秒：消費気7）",
+    "text": "35秒間対象の巨大化気が80%軽減、攻撃と与ダメージが 2.2倍、射程が1.8倍、射程内全ての敵に攻撃の7倍の ダメージを与える攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［夏］江戸城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天下の波濤一閃 （使用まで50秒：消費気7）",
+    "text": "35秒間対象の巨大化気が80%軽減、攻撃と与ダメージが 2.2倍、射程が2倍、射程内全ての敵に攻撃の8倍の ダメージを与える攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［夏］江戸城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "東京都"
@@ -67258,7 +76443,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+20%(1.2倍) ［夏］パンデモニウム・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 0
    },
    {
     "stage": "改壱",
@@ -67275,7 +76462,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+20%(1.2倍) ［夏］パンデモニウム・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -67463,13 +76652,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 王の避暑室 （使用まで30秒：消費気5）",
     "text": "30秒間対象の与ダメージと射程と特殊攻撃ゲージ 蓄積量が2倍、自身を除く射程内の味方1体につき攻撃が 10%ずつ上昇(効果重複、最大100%。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / キャビネット・デュ・ソレイユ （使用まで30秒：消費気5）",
     "text": "30秒間対象の与ダメージが2.2倍、射程と特殊攻撃ゲージ 蓄積量が2倍、自身を除く射程内の味方1体につき攻撃が 12%ずつ上昇（効果重複、最大120%。自分のみ）",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -67690,13 +76883,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 秘技！人魂手裏剣 （使用まで50秒：消費気7）",
     "text": "35秒間対象の射程1.2倍、攻撃と与ダメージが2倍 敵に10連続で攻撃を行う。対象の巨大化段階 に応じて攻撃がさらに10%ずつ上昇(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 奥義！人魂分銅紋手裏剣 （使用まで50秒：消費気7）",
     "text": "35秒間対象の射程1.3倍、攻撃と与ダメージが2.2倍 敵に10連続で攻撃を行う。対象の巨大化段階 に応じて攻撃がさらに10%ずつ上昇(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -67799,7 +76996,25 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 雨夜響鳴ホイホイ （使用まで60秒：消費気10）",
+   "text": "対象の攻撃と与ダメージが2.2倍、射程1.3倍、耐久が 最大の敵に与えるダメージ2倍。発動後10秒毎に計略 消費気が1ずつ軽減(最大5。効果時間無限。自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) [最大の敵] ［肝試し］龍王山城・計略",
+     "condition": "最大の敵"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -67825,7 +77040,64 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 夜響のホイホイ （使用まで60秒：消費気10）",
+    "text": "対象の攻撃と与ダメージが2倍、射程1.3倍、耐久が 最大の敵に与えるダメージ2倍。発動後15秒毎に計略 消費気が1ずつ軽減(最大5。効果時間無限。自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [最大の敵] ［肝試し］龍王山城・計略",
+      "condition": "最大の敵"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 鬼火のジャンジャン火 （使用まで30秒：消費気7）",
+    "text": "【火属性】範囲内の敵に攻撃の6倍のダメージを 2連続で与え、15秒間攻撃と攻撃速度が60%低下 (範囲：大)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 雨夜響鳴ホイホイ （使用まで60秒：消費気10）",
+    "text": "対象の攻撃と与ダメージが2.2倍、射程1.3倍、耐久が 最大の敵に与えるダメージ2倍。発動後10秒毎に計略 消費気が1ずつ軽減(最大5。効果時間無限。自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [最大の敵] ［肝試し］龍王山城・計略",
+      "condition": "最大の敵"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天降鬼火のジャンジャン火 （使用まで30秒：消費気7）",
+    "text": "【火属性】範囲内の敵に攻撃の7倍のダメージを 2連続で与え、15秒間攻撃と攻撃速度が70%低下 (範囲：大)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -68023,13 +77295,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 駿河富士の眺め （使用まで50秒：消費気7）",
     "text": "50秒間対象の耐久が高い程与えるダメージが 上昇(最大1.8倍)、攻撃速度と与ダメージが2倍 特殊攻撃ダメージと蓄積量が2倍(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 駿河富士の天下大眺 （使用まで50秒：消費気7）",
     "text": "50秒間対象の耐久が高い程与えるダメージが 上昇(最大2倍)、攻撃速度と与ダメージが2.2倍 特殊攻撃ダメージと蓄積量が2倍(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -68130,7 +77406,13 @@ window.SCRE_DATA = [
    "text": "射程内の城娘の射程が100、回復が600上昇、攻撃に自身の 回復の100%の値を加算。特殊能力中、射程内の敵の 攻撃速度が50%低下、攻撃後の隙が50%延長",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 桶狭間の強襲 （使用まで45秒：消費気7）",
+   "text": "45秒間対象の攻撃と与ダメージが2.2倍 射程内敵の射程が50%低下、術攻撃による被ダメージが 100%上昇(同種効果重複なし、自分のみ)",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 草薙の加護 （消費気7：初回5秒：再使用70秒）",
@@ -68170,7 +77452,60 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 雨中の強襲 （使用まで45秒：消費気7）",
+    "text": "45秒間対象の攻撃と与ダメージが2倍 射程内敵の射程が50%低下、術攻撃による被ダメージが 90%上昇(同種効果重複なし、自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 天下の勝利祈願 （使用まで20秒：消費気3：使用可能回数3回）",
+    "text": "配置場所を「近接/遠隔マス」に変更し、強化する (配置した城娘の攻撃が1.3倍、射程1.1倍、地形属性と 重複、未配置の水上マス以外が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) ［祀叢］清洲城・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 桶狭間の強襲 （使用まで45秒：消費気7）",
+    "text": "45秒間対象の攻撃と与ダメージが2.2倍 射程内敵の射程が50%低下、術攻撃による被ダメージが 100%上昇(同種効果重複なし、自分のみ)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天下の必勝祈願 （使用まで20秒：消費気3：使用可能回数5回）",
+    "text": "配置場所を「近接/遠隔マス」に変更し、強化する (配置した城娘の攻撃が1.3倍、射程1.1倍、地形属性と 重複、未配置の水上マス以外が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) ［祀叢］清洲城・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 3
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -68388,7 +77723,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［鉄堅］盛岡城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 3
    },
    {
     "stage": "改壱",
@@ -68404,7 +77741,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［鉄堅］盛岡城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [
@@ -68600,7 +77939,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% 金田城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -68625,7 +77966,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 金田城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -68768,7 +78111,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+100%(2.0倍) ［お月見］青葉城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -68785,7 +78130,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+120%(2.2倍) ［お月見］青葉城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -69011,13 +78358,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% ［お月見］小牧山城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 天地双照の満月光名称 （使用まで30秒：消費気5）",
     "text": "30秒間対象の与ダメージと特殊攻撃ゲージ蓄積速度 が2倍、射程内の敵の防御が80%と200低下(自分のみ) 計略発動時、対象の特殊攻撃ゲージが即時回復",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -69250,13 +78601,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 空城の計 （使用まで30秒：消費気5）",
     "text": "対象の特技が発動し、変位系は1段上が発動。最大化時 などの一部効果は発動しない。撤退大破時まで対象の 計略再使用時間が40%短縮(効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 空城篝火の計 （使用まで20秒：消費気5）",
     "text": "対象の特技が発動し、変位系は1段上が発動。最大化時 などの一部効果は発動しない。撤退大破時まで対象の 計略再使用時間が50%短縮(効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -69440,7 +78795,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［裏］松代城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -69456,7 +78813,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［裏］松代城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -69586,7 +78945,13 @@ window.SCRE_DATA = [
    "text": "【配置】殿と自伏兵へのダメージを代わりに受け、自身と伏兵が 攻撃の1.2倍で反撃する。最大化時、自身と自身の伏兵の被ダメージを 50%軽減(効果重複)。自身の攻撃に防御の1.2倍の値を加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 黄金の指環の呪い （使用まで60秒：消費気5）",
+   "text": "対象が直接攻撃を受ける度に攻撃/防御が12%ずつ上昇 (最大240%)。与ダメが2.2倍、敵の防御を80%無視。5秒間 計略再使用時間が95%短縮(自分のみ。効果時間無限)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 魔の炎の音楽",
@@ -69607,7 +78972,62 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 黄金の指環 （使用まで60秒：消費気10）",
+    "text": "対象が直接攻撃を受ける度に防御が10%ずつ上昇 (最大200%)。与ダメが2倍、敵の防御を80%無視。5秒間 計略再使用時間が95%短縮(自分のみ。効果時間無限)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 黄金を抱擁せしもの （使用まで60秒：消費気5）",
+    "text": "自身の3倍の耐久/攻撃/防御で射程内全敵を攻撃する伏兵 (1体)。配置中、自身と伏兵の被ダメが70%軽減。伏兵射程内 の城娘の与えるダメージ1.2倍、攻撃と防御200上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+20%(1.2倍) ［裏］ファルケンシュタイン城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 黄金の指環の呪い （使用まで60秒：消費気5）",
+    "text": "対象が直接攻撃を受ける度に攻撃/防御が12%ずつ上昇 (最大240%)。与ダメが2.2倍、敵の防御を80%無視。5秒間 計略再使用時間が95%短縮(自分のみ。効果時間無限)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 黄金を抱擁せし邪竜 （使用まで60秒：消費気5）",
+    "text": "自身の3倍の耐久/攻撃/防御で射程内全敵を攻撃する伏兵 (1体)。配置中、自身と伏兵の被ダメが70%軽減。伏兵射程内 の城娘の与えるダメージ1.3倍、攻撃と防御250上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+30%(1.3倍) ［裏］ファルケンシュタイン城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -69776,7 +79196,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ゲヘナ・計略"
      }
-    ]
+    ],
+    "cooldown": 80,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -69801,7 +79223,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ゲヘナ・計略"
      }
-    ]
+    ],
+    "cooldown": 80,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -70020,13 +79444,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 魂選定の使い （使用まで20秒：消費気5）",
     "text": "敵1体と直線上の敵を攻撃する伏兵。伏兵の攻撃に自身の 1.5倍の値を加算、敵1体とその周囲に4倍のダメージを 与え、気が1増加し、自動で発動する特殊攻撃を持つ",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / エインヘリヤルの使い （使用まで20秒：消費気3）",
     "text": "敵1体と直線上の敵を攻撃する伏兵。伏兵の攻撃に自身の 1.5倍の値を加算、敵1体とその周囲に5倍のダメージを 与え、気が1増加し、自動で発動する特殊攻撃を持つ",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
    }
   ],
   "allSpecials": [
@@ -70220,13 +79648,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 鬼の怪力 （使用まで30秒：消費気10）",
     "text": "30秒間対象の攻撃と与ダメージと直撃ボーナスが 100%上昇、計略発動毎に効果値が40%ずつ上昇し 計略消費気が20増加(2回まで。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 茨木童子の怪力 （使用まで30秒：消費気10）",
     "text": "30秒間対象の攻撃と与ダメージと直撃ボーナスが 120%上昇、計略発動毎に効果値が50%ずつ上昇し 計略消費気が20増加(2回まで。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -70312,7 +79744,23 @@ window.SCRE_DATA = [
    "text": "【配置】攻撃する度に自身の攻撃が50ずつ上昇(最大5000) 最大化時、射程内の山城娘の攻撃対象が1、自身は2増加 射程内の敵の防御と移動速度が50%、妖怪は90%低下",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 大海の磯もとどろに （使用まで40秒：消費気5）",
+   "text": "対象の巨大化気が40%軽減。撤退大破まで 永続で対象の攻撃が60%上昇(効果重複) (自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 60,
+     "target": "self",
+     "stackable": false,
+     "raw": "+60% ［絢爛］鎌倉城・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -70328,7 +79776,118 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 身に積もる （使用まで50秒：消費気5）",
+    "text": "対象の巨大化気が40%軽減。撤退大破まで 永続で対象の攻撃が50%上昇(効果重複) (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ［絢爛］鎌倉城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 罪やいかなる （使用まで50秒：消費気5）",
+    "text": "撤退大破時まで永続で攻撃後の隙が 50%短縮(効果重複)、攻撃対象が2増加 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 罪ならん！ （使用まで50秒：消費気5）",
+    "text": "40秒間対象の攻撃と与ダメージが2倍、攻撃が 10000以上の時与えるダメージ2倍、攻撃対象数 が5以上の時与えるダメージ2倍(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［絢爛］鎌倉城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［絢爛］鎌倉城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 大海の磯もとどろに （使用まで40秒：消費気5）",
+    "text": "対象の巨大化気が40%軽減。撤退大破まで 永続で対象の攻撃が60%上昇(効果重複) (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 60,
+      "target": "self",
+      "stackable": false,
+      "raw": "+60% ［絢爛］鎌倉城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 寄する波 （使用まで40秒：消費気5）",
+    "text": "撤退大破時まで永続で攻撃後の隙が 60%短縮(効果重複)、攻撃対象が2増加 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 割れて砕けて裂けて散るかも （使用まで40秒：消費気5）",
+    "text": "40秒間対象の攻撃と与ダメージが2.2倍、攻撃が 10000以上の時与えるダメージ2倍、攻撃対象数 が5以上の時与えるダメージ2倍(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［絢爛］鎌倉城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［絢爛］鎌倉城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -70476,13 +80035,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 神楽歌・四剣 （使用まで60秒：消費気7）",
     "text": "60秒間対象が敵3体とその周囲に攻撃の4倍で防御無視の 物理攻撃を行う。射程内城娘の攻撃と与ダメージ50%上昇 平山は効果1.5倍、[絢爛]は効果2倍(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 神楽歌・四神 （使用まで60秒：消費気7）",
     "text": "60秒間対象が敵3体とその周囲に攻撃の5倍で防御無視の 物理攻撃を行う。射程内城娘の攻撃と与ダメージ60%上昇 平山は効果1.5倍、[絢爛]は効果2倍(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -70630,13 +80193,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 神教の籠城 （使用まで50秒：消費気7）",
     "text": "範囲内の敵を劇的に後退させる。範囲内に自身がいる時 20秒間自身の射程内城娘の攻撃150、攻撃速度80%上昇 [絢爛]は効果1.5倍(範囲：極大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 祝福の籠城 （使用まで50秒：消費気7）",
     "text": "範囲内の敵を劇的に後退させる。範囲内に自身がいる時 20秒間自身の射程内城娘の攻撃200、攻撃速度100%上昇 [絢爛]は効果1.5倍(範囲：極大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -70787,13 +80354,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ジャック・オー・ワンワン （使用まで40秒：消費気5：赤青配置）",
     "text": "攻撃の1倍で敵1体に3連続攻撃を行う伏兵(2体まで) 伏兵が攻撃した敵の移動速度と攻撃を3秒間90%低下 配置中自身の攻撃が60%(効果重複)、射程100上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / ズューセス・オーダー・ザウレス （使用まで40秒：消費気5：赤青配置）",
     "text": "攻撃の1.2倍で敵1体に3連続攻撃を行う伏兵(2体まで) 伏兵が攻撃した敵の移動速度と攻撃を3秒間90%低下 配置中自身の攻撃が70%(効果重複)、射程100上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -70896,7 +80467,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / ゴーレム錬成 （使用まで20秒：消費気3）",
+   "text": "配置後1度だけ大破せず、3秒間耐久が0にならない伏兵 伏兵1体毎に自身の撃破獲得気が1ずつ増加。伏兵は 全敵を足止めし射程内全敵に防御無視攻撃を行う",
+   "effects": [],
+   "cooldown": 20,
+   "cost": 3
+  },
   "special": null,
   "allSkills": [
    {
@@ -70932,7 +80509,40 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 土人形の錬成 （使用まで30秒：消費気3）",
+    "text": "配置後1度だけ大破せず、3秒間耐久が0にならない伏兵 伏兵1体毎に自身の撃破獲得気が1ずつ増加。伏兵は 全敵を足止めし射程内全敵に防御無視攻撃を行う",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / アルケミー・オア・トリート （使用まで30秒：消費気0） 初期使用回数3",
+    "text": "【火属性】範囲内敵の撃破気が永続で1増加、攻撃の5倍の ダメージを与える。自伏兵1体毎に計略ダメージが50%ずつ 上昇(最大300%。範囲：超特大)。巨大化時回数3増加",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 0
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ゴーレム錬成 （使用まで20秒：消費気3）",
+    "text": "配置後1度だけ大破せず、3秒間耐久が0にならない伏兵 伏兵1体毎に自身の撃破獲得気が1ずつ増加。伏兵は 全敵を足止めし射程内全敵に防御無視攻撃を行う",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ウィル・オー・ザ・アルケミー （使用まで20秒：消費気0） 初期使用回数4",
+    "text": "【火属性】範囲内敵の撃破気が永続で1増加、攻撃の6倍の ダメージを与える。自伏兵1体毎に計略ダメージが50%ずつ 上昇(最大300%。範囲：超特大)。巨大化時回数3増加",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -71127,7 +80737,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+7086 DMM城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -71143,7 +80755,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+7242 DMM城・計略"
      }
-    ]
+    ],
+    "cooldown": 55,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -71304,13 +80918,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / DMM城親衛隊参戦！ （使用まで60秒：消費気3：赤青配置）",
     "text": "攻撃しない伏兵を配置(2体まで)、時間経過で攻撃が徐々に 上昇(上限500)。配置中、10秒毎に気が追加で2増加 伏兵の攻撃の0.5倍を自身と射程内の城娘に加算",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / DMM城親衛隊参上！ （使用まで60秒：消費気3：赤青配置）",
     "text": "攻撃しない伏兵を配置(2体まで)、時間経過で攻撃が徐々に 上昇(上限750)。配置中、10秒毎に気が追加で2増加 伏兵の攻撃の0.7倍を自身と射程内の城娘に加算",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -71396,7 +81014,32 @@ window.SCRE_DATA = [
    "text": "【配置】自身が受ける天候効果を無効化、飛行敵以外に 狙われない。最大化時、自身の耐久が高い程与えるダメージが 上昇(最大2倍)。射程内敵の移動速度と与ダメージが40%低下",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 此なるは六天の伏華 （使用まで60秒：消費気10）",
+   "text": "対象の射程が1.5倍、攻撃が2.5倍 攻撃が3連続でダメージを与える 射程内敵の防御60%低下(効果時間無限。自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ［大華の神衣］善見城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150%(2.5倍) ［大華の神衣］善見城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -71422,7 +81065,78 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 此なるは天上の伏華 （使用まで60秒：消費気10）",
+    "text": "対象の射程が1.5倍、攻撃が2.3倍 攻撃が3連続でダメージを与える 射程内敵の防御50%低下(効果時間無限。自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［大華の神衣］善見城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 130,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+130%(2.3倍) ［大華の神衣］善見城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 大華の風輪 （使用まで25秒：消費気3）",
+    "text": "範囲内の敵に攻撃の5倍のダメージを3連続で与え 敵を大きく後退させる(範囲：小)",
+    "effects": [],
+    "cooldown": 25,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 此なるは六天の伏華 （使用まで60秒：消費気10）",
+    "text": "対象の射程が1.5倍、攻撃が2.5倍 攻撃が3連続でダメージを与える 射程内敵の防御60%低下(効果時間無限。自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［大華の神衣］善見城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) ［大華の神衣］善見城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天華の風輪 （使用まで20秒：消費気3）",
+    "text": "範囲内の敵に攻撃の6倍のダメージを3連続で与え 敵を大きく後退させる(範囲：小)",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -71506,7 +81220,23 @@ window.SCRE_DATA = [
    "text": "【配置】全敵の攻撃を自身の25％値減少。連続攻撃時、最初 の攻撃ダメージ1.8倍。最大化時、攻撃対象の耐久が低い程 自身の与えるダメージ上昇(最大2倍)。全敵の被ダメ35%上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 乱れ撃ち……だわん！ （使用まで45秒：消費気7）",
+   "text": "30秒間対象の攻撃と与ダメージが1.8倍、射程1.5倍 攻撃後の隙50%短縮、6連続攻撃を行う(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ［魔犬の冥衣］タルタロス・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -71522,7 +81252,44 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 撃ちます……わん！ （使用まで45秒：消費気7）",
+    "text": "30秒間対象の攻撃と与ダメージが1.7倍、射程1.5倍 攻撃後の隙40%短縮、6連続攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［魔犬の冥衣］タルタロス・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 乱れ撃ち……だわん！ （使用まで45秒：消費気7）",
+    "text": "30秒間対象の攻撃と与ダメージが1.8倍、射程1.5倍 攻撃後の隙50%短縮、6連続攻撃を行う(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［魔犬の冥衣］タルタロス・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -71693,7 +81460,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［雷鳥の天衣］ヴァイジャヤンタ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -71709,7 +81478,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［雷鳥の天衣］ヴァイジャヤンタ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -71795,7 +81566,13 @@ window.SCRE_DATA = [
    "text": "【配置】攻撃が時間経過で徐々に上昇(上限300%)。射程内敵 の被ダメ40%上昇。最大化時、自身の攻撃対象2増加、部隊の 城娘の大破数に応じて自身の攻撃が更に上昇(上限1.4倍)",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 冥府紡ぐ災歌・宵闇 （使用まで60秒：消費気5）",
+   "text": "40秒間対象の与ダメ、射程、範囲攻撃の範囲1.5倍、攻撃が 1.5倍のダメージを与え、10秒間「氷結」状態にする。射程 内の「氷結」状態の敵の被ダメ60%上昇(自分のみ)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 双神の亡霊",
@@ -71816,7 +81593,86 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 冥府紡ぐ歌・宵闇 （使用まで60秒：消費気5）",
+    "text": "40秒間対象の射程と範囲攻撃の範囲1.5倍、攻撃が1.5倍の ダメージを与え、10秒間「氷結」状態にする。射程内の 「氷結」状態の敵の被ダメ50%上昇(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［死氷の黒衣］シバルバー・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 冥府紡ぐ歌・宵禍 （使用まで60秒：消費気10）",
+    "text": "40秒間対象の射程と範囲攻撃の範囲1.7倍、攻撃が2倍の ダメージを与え、10秒間「氷結」状態にする。射程内の 「氷結」状態の敵の被ダメ60%上昇(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［死氷の黒衣］シバルバー・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 冥府紡ぐ歌・死氷 （使用まで60秒：消費気20）",
+    "text": "40秒間対象の射程と範囲攻撃の範囲2倍、攻撃が3倍の ダメージを与え、15秒間「氷結」状態にする。射程内敵の 「氷結」が無効化されず、被ダメ80%上昇(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200%(3.0倍) ［死氷の黒衣］シバルバー・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 20
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 冥府紡ぐ災歌・宵闇 （使用まで60秒：消費気5）",
+    "text": "40秒間対象の与ダメ、射程、範囲攻撃の範囲1.5倍、攻撃が 1.5倍のダメージを与え、10秒間「氷結」状態にする。射程 内の「氷結」状態の敵の被ダメ60%上昇(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 冥府紡ぐ災歌・宵禍 （使用まで60秒：消費気10）",
+    "text": "40秒間対象の与ダメ、射程、範囲攻撃の範囲1.7倍、攻撃が 2倍のダメージを与え、10秒間「氷結」状態にする。射程 内の「氷結」状態の敵の被ダメ70%上昇(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 冥府紡ぐ災歌・死氷 （使用まで60秒：消費気20）",
+    "text": "40秒間対象の与ダメ、射程、範囲攻撃の範囲2倍。攻撃が 3倍のダメージを与え15秒間「氷結」状態にする。射程内敵の 「氷結」が無効化されず、被ダメ90%上昇(自分のみ)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 20
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -71974,7 +81830,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 伊達政宗・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -72101,7 +81959,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+250 北条氏康・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -72209,7 +82069,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 示現・鬼十字 （使用まで60秒：消費気15）",
     "text": "50秒間対象の攻撃と範囲攻撃の範囲が2.5倍 (攻撃上昇効果は特技と重複。自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -72357,7 +82219,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 明智光秀・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -72485,7 +82349,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 穿ツ覇王ノ業火 （使用まで70秒：消費気15）",
     "text": "60秒間対象の与ダメが1.8倍、射程内敵に継続的に 術ダメを与える。射程内の敵に攻撃の10倍のダメージを 与える特殊攻撃を一度だけ使用可能(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 70,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -72636,7 +82502,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) 豊臣秀吉・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [
@@ -72793,7 +82661,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 真田幸村・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -72925,7 +82795,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 徳川家康・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [
@@ -73038,7 +82910,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 海道一の弓取り （使用まで50秒：消費気15）",
+   "text": "50秒間対象の射程1.3倍、攻撃の1.4倍で3連続攻撃を行う 攻撃速度が高い程与えるダメージ上昇 (最大1.5倍。自分のみ)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 15
+  },
   "special": null,
   "allSkills": [
    {
@@ -73067,7 +82945,34 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 海道一の弓取り （使用まで50秒：消費気15）",
+    "text": "50秒間対象の射程1.3倍、攻撃の1.4倍で3連続攻撃を行う 攻撃速度が高い程与えるダメージ上昇 (最大1.5倍。自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 15
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 自律弓撃浮遊兜 （使用まで25秒：消費気3）",
+    "text": "自身の攻撃の0.8倍で敵1体に3連続攻撃を行う伏兵 配置中、自身の攻撃速度が15%上昇(効果重複) 全マス間を移動可能",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% 今川義元・計略"
+     }
+    ],
+    "cooldown": 25,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -73187,7 +83092,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 甲斐の虎 （使用まで60秒：消費気15）",
     "text": "60秒間対象の与ダメージ2倍、射程100上昇、被ダメージ 70%軽減、全ての敵を足止めし、射程内の一部敵の 足止め対象にならない効果を無効化(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [
@@ -73330,7 +83237,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 越後の龍 （使用まで60秒：消費気15）",
     "text": "60秒間対象の与ダメージ2倍、射程1.5倍、攻撃対象の 移動速度が低い程与えるダメージ上昇(最大1.5倍) 射程内の敵に対する特技効果が2倍(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -73475,7 +83384,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 忠義の覇道槍 （使用まで60秒：消費気15）",
     "text": "60秒間対象の与ダメージ2.2倍、射程1.3倍、攻撃が貫通 しなくなり、攻撃の3倍で射程内全敵に防御無視攻撃 を行う。全城娘の攻撃30%上昇(効果重複。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -73645,7 +83556,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30%(1.3倍) リチャード1世・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [
@@ -73808,7 +83721,9 @@ window.SCRE_DATA = [
       "raw": "+150%(2.5倍) [50%以上の敵] 織田吉法師・計略",
       "condition": "50%以上の敵"
      }
-    ]
+    ],
+    "cooldown": 65,
+    "cost": 15
    }
   ],
   "allSpecials": [
@@ -73978,7 +83893,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / セイクリッド・アロー （使用まで40秒：消費気15）",
     "text": "15秒間対象の攻撃範囲が3倍、攻撃が100上昇、 回復が10倍（自分のみが対象）",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -74103,7 +84020,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 花鳥風月 （使用まで45秒：消費気7）",
     "text": "20秒間対象の範囲が25%上昇、被ダメージ軽減 効果が敵の被ダメージ増加に変化（自分のみが対象）",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -74229,7 +84148,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% 紅月カレン・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -74309,8 +84230,8 @@ window.SCRE_DATA = [
    "effects": []
   },
   "strategy": {
-   "name": "[無印] / 光輝燦然のスーパーノヴァ （使用まで10秒：消費気5）",
-   "text": "計略使用前の状態に戻る（自分のみ）",
+   "name": "[無印] / 紅蓮炎獄のカタストロフィ （使用まで10秒：消費気5）",
+   "text": "標的とその周囲への攻撃になり、攻撃した敵の攻撃 と防御を3秒間20%下げる特技に変化（自分のみ）",
    "effects": [],
    "cooldown": 10,
    "cost": 5
@@ -74335,13 +84256,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 紅蓮炎獄のカタストロフィ （使用まで10秒：消費気5）",
     "text": "標的とその周囲への攻撃になり、攻撃した敵の攻撃 と防御を3秒間20%下げる特技に変化（自分のみ）",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 5
    },
    {
     "stage": "無印",
     "name": "[無印] / 光輝燦然のスーパーノヴァ （使用まで10秒：消費気5）",
     "text": "計略使用前の状態に戻る（自分のみ）",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -74504,7 +84429,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 希望ヶ峰学園・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 0
    },
    {
     "stage": "改壱",
@@ -74520,7 +84447,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 希望ヶ峰学園・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -74595,19 +84524,9 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "無印",
-   "name": "[無印] / 最大最悪の絶望的カリスマ",
-   "text": "全ての「絶望」状態の敵の被ダメージが50%上昇 攻撃した敵の攻撃と防御と射程が10秒間35%低下",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "enemyDmgTakenUp",
-     "mode": "percent",
-     "value": 50,
-     "target": "all",
-     "stackable": false,
-     "raw": "+50% 江ノ島盾子・特技"
-    }
-   ]
+   "name": "[無印] / 超高校級の絶望的おしおき",
+   "text": "射程内の全ての敵と味方に攻撃の2倍のダメージを与え 撃破/撤退するまで永続的に、攻撃と攻撃速度と受けるダメージが 1.5倍になり、継続ダメージが発生する「絶望」状態にする",
+   "effects": []
   },
   "strategy": {
    "name": "[無印] / 絶望の始まり （使用まで66秒：消費気6）",
@@ -74633,6 +84552,12 @@ window.SCRE_DATA = [
       "raw": "+50% 江ノ島盾子・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 超高校級の絶望的おしおき",
+    "text": "射程内の全ての敵と味方に攻撃の2倍のダメージを与え 撃破/撤退するまで永続的に、攻撃と攻撃速度と受けるダメージが 1.5倍になり、継続ダメージが発生する「絶望」状態にする",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -74640,7 +84565,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 絶望の始まり （使用まで66秒：消費気6）",
     "text": "範囲内の敵、味方全てに攻撃の2倍のダメージを 与え、20秒間「絶望」状態にする (範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 66,
+    "cost": 6
    }
   ],
   "allSpecials": [],
@@ -74793,7 +84720,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ガリア解放の拠点 （使用まで50秒：消費気5）",
     "text": "対象の特技効果が1.5倍 敵に狙われる状態になる (効果中は移動不可。自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -74809,7 +84738,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70 501JFW ブリタニア基地・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -74934,7 +84865,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 黒い悪魔 （使用まで50秒：消費気7）",
     "text": "30秒間対象の攻撃が4連続攻撃になり、特殊 攻撃のダメージが1.5倍、攻撃範囲と射程が上昇 射程内の味方の攻撃速度が1.7倍(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -75055,13 +84988,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 絶望の壁 （使用まで50秒：消費気10：赤配置）",
     "text": "自身の1倍の耐久と防御で敵3体を足止めし、射程内 の敵と味方を「絶望」にする伏兵を配置(3体まで) 射程内の味方と蔵は「絶望」の味方から狙われない",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 絶望のバリケード （使用まで50秒：消費気7：赤配置）",
     "text": "自身の1.2倍の耐久と防御で敵3体を足止めし、射程内 の敵と味方を「絶望」にする伏兵を配置(3体まで) 射程内の味方と蔵は「絶望」の味方から狙われない",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -75140,7 +85077,13 @@ window.SCRE_DATA = [
    "text": "敵から狙われず、「絶望」を無効化。時間経過で 攻撃と防御が徐々に上昇(上限700)。自身を除く 全ての味方の攻撃と防御に自身の25%を加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / ゲーミング・コマンド （使用まで70秒：消費気20）",
+   "text": "対象の射程内の味方の攻撃と防御が15秒間2倍になり 全ての敵に攻撃の4倍の術ダメージを与える (自分のみが対象)",
+   "effects": [],
+   "cooldown": 70,
+   "cost": 20
+  },
   "special": null,
   "allSkills": [
    {
@@ -75150,7 +85093,32 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ゲーミング・コマンド （使用まで70秒：消費気20）",
+    "text": "対象の射程内の味方の攻撃と防御が15秒間2倍になり 全ての敵に攻撃の4倍の術ダメージを与える (自分のみが対象)",
+    "effects": [],
+    "cooldown": 70,
+    "cost": 20
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / モノミ登場 （使用まで60秒：消費気10：青配置）",
+    "text": "敵から狙われず、攻撃を行わない伏兵を 配置(1体まで)。伏兵の射程内の味方の攻撃と 防御が80、射程が40上昇、「絶望」を回復し無効化",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ギャラオメガ （使用まで50秒：消費気5：赤青水配置）",
+    "text": "自身の1倍の攻撃で敵1体に遠隔攻撃を行い 全てのマスの間を移動可能な伏兵を配置",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -75237,7 +85205,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 守護者の神盾 （使用まで40秒：消費気5）",
+   "text": "20秒間対象の防御が2倍、足止め数が1増加 攻撃を行わず、被攻撃時に敵の攻撃の 50%をダメージとして反射(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) 光の守護者 アルティア・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -75257,7 +85241,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 守護者の神盾 （使用まで40秒：消費気5）",
+    "text": "20秒間対象の防御が2倍、足止め数が1増加 攻撃を行わず、被攻撃時に敵の攻撃の 50%をダメージとして反射(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) 光の守護者 アルティア・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 援護要請・撃滅 （使用まで40秒：消費気7）",
+    "text": "対象の攻撃が2.3倍、攻撃後の待ち時間が増加 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 130,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+130%(2.3倍) 光の守護者 アルティア・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -75375,7 +85396,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+120%(2.2倍) 【グリフォン娘】クリフォ・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -75461,7 +85484,13 @@ window.SCRE_DATA = [
    "text": "自身に対する3000以下のダメージを無効化、特殊攻撃と計略中 のダメージ1.5倍。射程内の味方の防御40%上昇、被ダメージ を40%軽減、自身と[能力者][魔術師][学園]への効果は1.5倍",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 特級警報 （使用まで50秒：消費気10）",
+   "text": "30秒間対象が特殊攻撃を行わず射程内の敵1体と その周囲に5倍ダメージと3倍の術ダメージを 与える攻撃に変化。攻撃後の隙が少し延長(自分のみ)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 10
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / クロウリーの六芒星",
@@ -75482,7 +85511,76 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 一級警報 （使用まで50秒：消費気10）",
+    "text": "25秒間対象が特殊攻撃を行わず射程内の敵1体と その周囲に4倍ダメージと3倍の術ダメージを 与える攻撃に変化。攻撃後の隙が少し延長(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 風力発電 （使用まで45秒：消費気5：青配置）",
+    "text": "敵から狙われず攻撃しない伏兵を配置(5体まで) 気の自然増加量を増加。(同種2体目以降は効果減少) 15秒毎に気が1増加",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 観測用飛行船 （使用まで60秒：消費気7：赤青水配置）",
+    "text": "敵から狙われず全マスを移動可能な伏兵を配置(1体まで) 射程内の味方の射程を100上昇 射程内の敵の防御が40%低下、被ダメージが40%上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "all",
+      "stackable": false,
+      "raw": "+40% 学園都市・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 特級警報 （使用まで50秒：消費気10）",
+    "text": "30秒間対象が特殊攻撃を行わず射程内の敵1体と その周囲に5倍ダメージと3倍の術ダメージを 与える攻撃に変化。攻撃後の隙が少し延長(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 蓄電風車 （使用まで45秒：消費気3：青配置）",
+    "text": "敵から狙われず攻撃しない伏兵を配置(5体まで) 気の自然増加量を増加。(同種2体目以降は効果減少) 15秒毎に気が1増加",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 偵察用飛行船 （使用まで60秒：消費気5：赤青水配置）",
+    "text": "敵から狙われず全マスを移動可能な伏兵を配置(1体まで) 射程内の味方の射程を120上昇 射程内の敵の防御が40%低下、被ダメージが50%上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "all",
+      "stackable": false,
+      "raw": "+40% 学園都市・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -75643,7 +85741,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 雷撃の槍 （使用まで60秒：消費気10）",
     "text": "40秒間対象の特殊攻撃ゲージ蓄積量が2.5倍、敵撃破時 10秒間更に1.5倍。対象の攻撃と特殊攻撃のダメージが 2倍、特殊攻撃範囲が上昇(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -75729,7 +85829,23 @@ window.SCRE_DATA = [
    "text": "射程内の味方が攻撃を30%の確率で回避 天候効果を無効化 自身の計略効果中、敵から狙われない",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 刻詠の宿業 （使用まで60秒：消費気7）",
+   "text": "対象の射程が1.8倍 (自分のみが対象、効果時間無限)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 80,
+     "target": "self",
+     "stackable": false,
+     "raw": "+80%(1.8倍) 刻詠の風水士 リンネ・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -75739,7 +85855,34 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 刻詠の宿業 （使用まで60秒：消費気7）",
+    "text": "対象の射程が1.8倍 (自分のみが対象、効果時間無限)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80%(1.8倍) 刻詠の風水士 リンネ・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 避禍予見の鏡影 （使用まで60秒：消費気5：青配置）",
+    "text": "攻撃を行わない伏兵を配置(1体まで) 伏兵射程内の味方の撤退大破時の回復気が40%上昇 再配置時間が40%短縮、大破扱いにならない",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -75877,7 +86020,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+15%(1.15倍) 冥界の魔術師 ヘカティエ・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -75977,7 +86122,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / フロストスタンプ （使用まで45秒：消費気7）",
     "text": "30秒間対象が攻撃の3倍の術ダメを与える攻撃を行い 範囲攻撃の範囲が2倍、攻撃後の隙が延長 攻撃した敵を10秒間「氷結」にする(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -76082,7 +86229,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 自由への翼 （使用まで45秒：消費気7）",
+   "text": "20秒間対象の与ダメージが2倍 足止め数が2増加 耐久が0にならない",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 心臓を捧げよ！",
@@ -76132,7 +86285,40 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 自由の翼 （使用まで50秒：消費気7）",
+    "text": "20秒間対象の与ダメージが1.8倍 足止め数が2増加 耐久が0にならない",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 調査兵団兵士長 （使用まで60秒：消費気10：赤配置）",
+    "text": "敵2体に2連続攻撃し、敵から狙われず攻撃を回避する 伏兵(1体まで)。射程内の全敵に防御無視の8連続攻撃を 行う特殊攻撃が1回使用可能。最長100秒で消滅",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 自由への翼 （使用まで45秒：消費気7）",
+    "text": "20秒間対象の与ダメージが2倍 足止め数が2増加 耐久が0にならない",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 人類最強の兵士 （使用まで60秒：消費気7：赤配置）",
+    "text": "敵2体に2連続攻撃し、敵から狙われず攻撃を回避する 伏兵(1体まで)。射程内の全敵に防御無視の8連続攻撃を 行う特殊攻撃が1回使用可能。最長120秒で消滅",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -76226,7 +86412,32 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 私は強い！ （使用まで50秒：消費気7）",
+   "text": "25秒間対象の攻撃が1.8倍、攻撃後の隙が50%短縮 全ての攻撃を回避する (自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80%(1.8倍) ミカサ・アッカーマン・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% ミカサ・アッカーマン・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 雷槍斉射",
@@ -76251,7 +86462,43 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 私は強い！ （使用まで50秒：消費気7）",
+    "text": "25秒間対象の攻撃が1.8倍、攻撃後の隙が50%短縮 全ての攻撃を回避する (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ミカサ・アッカーマン・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ミカサ・アッカーマン・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 超大型巨人の継承者 （使用まで60秒：消費気90：赤青配置）",
+    "text": "配置時全ての敵に大ダメージを与える伏兵を 配置(1体まで)。伏兵の配置中、伏兵の射程内の敵に 継続的にダメージを与える。最長90秒で消滅",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 90
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -76432,7 +86679,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+35% ヒストリア・レイス・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -76511,7 +86760,41 @@ window.SCRE_DATA = [
    "text": "自身への全ての状態異常を無効化、射程内の敵の 被ダメージ40%上昇。計略中、最大耐久1.5倍 計略を使用していない間、飛行敵以外に狙われない",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 火尖槍・焔玉 （使用まで40秒：消費気5）",
+   "text": "30秒間対象の攻撃と防御が2倍、射程が1.2倍、足止め数 と攻撃対象1増加、攻撃の10%の値を回復に加算 攻撃が敵の防御を無視する(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) 紅輪の道士 ナタク・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20%(1.2倍) 紅輪の道士 ナタク・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defIgnore",
+     "mode": "flag",
+     "value": 1,
+     "target": "self",
+     "stackable": false,
+     "raw": "+1 紅輪の道士 ナタク・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 大羅仙の連撃",
@@ -76526,7 +86809,44 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 火尖槍・焔玉 （使用まで40秒：消費気5）",
+    "text": "30秒間対象の攻撃と防御が2倍、射程が1.2倍、足止め数 と攻撃対象1増加、攻撃の10%の値を回復に加算 攻撃が敵の防御を無視する(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) 紅輪の道士 ナタク・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) 紅輪の道士 ナタク・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 紅輪の道士 ナタク・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -76620,7 +86940,32 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 破断の魔鎌 （使用まで30秒：消費気5）",
+   "text": "20秒間対象の攻撃が2.5倍、射程が1.5倍 攻撃対象が2増加 対象の射程内の味方の攻撃が1.5倍(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150%(2.5倍) 黒翼の魔兵 エスネア・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50%(1.5倍) 黒翼の魔兵 エスネア・計略"
+    }
+   ],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -76640,7 +86985,35 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 破断の魔鎌 （使用まで30秒：消費気5）",
+    "text": "20秒間対象の攻撃が2.5倍、射程が1.5倍 攻撃対象が2増加 対象の射程内の味方の攻撃が1.5倍(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) 黒翼の魔兵 エスネア・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 黒翼の魔兵 エスネア・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -76717,7 +87090,23 @@ window.SCRE_DATA = [
    "text": "「猛毒」を無効化。自身の耐久が低い程 与えるダメージが上昇(最大200%) 足止めした敵の攻撃を40%低下させる",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / デュラハンフォーム （使用まで50秒：消費気7）",
+   "text": "20秒間対象の攻撃が2倍 攻撃対象と足止め数が2増加 耐久が0にならない(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100%(2.0倍) 【デュラハン娘】プラチナ・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -76727,7 +87116,26 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / デュラハンフォーム （使用まで50秒：消費気7）",
+    "text": "20秒間対象の攻撃が2倍 攻撃対象と足止め数が2増加 耐久が0にならない(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100%(2.0倍) 【デュラハン娘】プラチナ・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -76830,7 +87238,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 島の守護神 （使用まで60秒：消費気10：赤青）",
+   "text": "攻撃を行わない伏兵を配置(1体まで)。配置中 時間経過で気が徐々に増加。射程内の味方の攻撃と 防御が150、射程が70上昇、敵撃破獲得気が1増加",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -76884,7 +87298,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 島の象徴 （使用まで60秒：消費気10：赤青）",
+    "text": "攻撃を行わない伏兵を配置(1体まで)。配置中 時間経過で気が徐々に増加。射程内の味方の攻撃と 防御が100、射程が50上昇、敵撃破獲得気が1増加",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 島の守護神 （使用まで60秒：消費気10：赤青）",
+    "text": "攻撃を行わない伏兵を配置(1体まで)。配置中 時間経過で気が徐々に増加。射程内の味方の攻撃と 防御が150、射程が70上昇、敵撃破獲得気が1増加",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -77025,7 +87456,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30%(1.3倍) ［城姫］五稜郭・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -77165,7 +87598,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 根固めの千本杭 （使用まで45秒：消費気7）",
     "text": "30秒間対象の足止め数が2増加、被ダメージが50%軽減 対象が受けるダメージを20000まで防ぎ 2000以下のダメージを無効化(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -77269,7 +87704,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 大地を紡ぐ者 （使用まで10秒：消費気10） 初期使用回数5",
+   "text": "指定した配置場所を強化する (配置した城娘の攻撃と耐久が1.4倍、撃破気が1増加 地形属性と重複)",
+   "effects": [],
+   "cooldown": 10,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -77289,7 +87730,34 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 大地を紡ぐ者 （使用まで10秒：消費気10） 初期使用回数5",
+    "text": "指定した配置場所を強化する (配置した城娘の攻撃と耐久が1.4倍、撃破気が1増加 地形属性と重複)",
+    "effects": [],
+    "cooldown": 10,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / ジオ・レイライン （使用まで30秒：消費気3）",
+    "text": "20秒間対象の攻撃と射程が1.8倍 攻撃対象数が4増加(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80%(1.8倍) 大地を紡ぐ者 サナラ・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -77412,7 +87880,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 幽体離脱の術 （使用まで45秒：消費気5）",
     "text": "20秒間対象の与ダメージが2倍、全ての攻撃を回避 特殊攻撃時、攻撃がさらに2倍 特殊攻撃が1回使用可能(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -77498,7 +87968,32 @@ window.SCRE_DATA = [
    "text": "射程内の伏兵の攻撃と防御に自身の80%の値を加算 全ての城娘の攻撃150、射程100上昇。計略中は更に 自身の伏兵の攻撃と防御に自身の120%の値を加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 神話と伝説の塔 （使用まで60秒：消費気5）",
+   "text": "60秒間自身の射程が1.3倍、攻撃が3連続攻撃に変化 全ての城娘と自身の伏兵の 攻撃と防御が1.5倍(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30%(1.3倍) 英傑の塔・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50%(1.5倍) 英傑の塔・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -77508,7 +88003,69 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 神話と伝説の塔 （使用まで60秒：消費気5）",
+    "text": "60秒間自身の射程が1.3倍、攻撃が3連続攻撃に変化 全ての城娘と自身の伏兵の 攻撃と防御が1.5倍(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) 英傑の塔・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 英傑の塔・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 幻影使役・ソラス （使用まで30秒：消費気8：青配置）",
+    "text": "敵1体とその周囲に攻撃する伏兵(1体)。伏兵は特殊能力中 攻撃を行わず能力が徐々に増加(攻撃：9000/攻撃対象：3) 特殊能力解除時、増加した能力が徐々に低下",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 8
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 幻影使役・アルティア （使用まで30秒：消費気6：赤配置）",
+    "text": "敵2体を足止めする伏兵(1体)。10秒毎に気1増加 全近接の攻撃、防御100上昇。特殊能力中は攻撃せず 防御2倍(効果重複)、被攻撃時100%反射",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 6
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 幻影使役・ナタク （使用まで30秒：消費気8：赤水配置）",
+    "text": "特殊能力中を除き飛行敵以外から狙われない 3回攻撃毎に2倍ダメージを与える伏兵(1体)。特殊能力中 伏兵が敵の防御を無視し、攻撃と防御2倍(効果重複)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+1 英傑の塔・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 8
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -77666,7 +88223,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) 【シェイプシフター娘】アスタ・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -77806,7 +88365,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) 大華の母たる者 徐華・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -77921,7 +88482,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ジュエリーフラッシュ （使用まで30秒：消費気5）",
     "text": "20秒間対象の攻撃と与ダメージ1.8倍、受けるダメージを 25000まで防ぐ。計略発動時、2倍の射程で射程内の 敵5体に攻撃の3倍で2連続攻撃を行う(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -78033,7 +88596,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 常盤台の守護者 （使用まで30秒：消費気5）",
+   "text": "敵3体を足止めし、自身の攻撃の1.5倍で敵2体に攻撃する 伏兵(2体)。配置中、伏兵の被ダメージ50%軽減(効果重複) 射程内の敵の攻撃と射程50%低下",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% 常盤台中学・計略"
+    }
+   ],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -78058,7 +88637,132 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 常盤台の校章 （使用まで30秒：消費気5）",
+    "text": "敵3体を足止めし、自身の攻撃の1.4倍で敵2体に攻撃する 伏兵(2体)。配置中、伏兵の被ダメージ50%軽減(効果重複) 射程内の敵の攻撃と射程40%低下",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 常盤台中学・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 能力開発：電撃使い （使用まで40秒：消費気5）",
+    "text": "40秒間対象の射程1.3倍、標的とその周囲に攻撃の3.5倍の 術攻撃を行う。敵の耐久が高い程与えるダメージ上昇 (最大1.5倍)。射程内敵の被ダメ50%上昇(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 能力開発：念動使い （使用まで40秒：消費気5）",
+    "text": "40秒間対象の射程1.4倍、標的に3.5倍、その周囲に2倍の 防御無視攻撃を行い、5秒間移動速度75%低下 射程内の味方の被ダメージ50%軽減(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% 常盤台中学・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 能力開発：空力使い （使用まで40秒：消費気5）",
+    "text": "40秒間対象の射程1.4倍、攻撃対象2増加 攻撃の2倍で3連続物理攻撃を行う 射程内の味方の攻撃後の隙40%短縮(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% 常盤台中学・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 常盤台の守護者 （使用まで30秒：消費気5）",
+    "text": "敵3体を足止めし、自身の攻撃の1.5倍で敵2体に攻撃する 伏兵(2体)。配置中、伏兵の被ダメージ50%軽減(効果重複) 射程内の敵の攻撃と射程50%低下",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 常盤台中学・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 超能力開発：電撃使い （使用まで40秒：消費気5）",
+    "text": "40秒間対象の射程1.4倍、標的とその周囲に攻撃の4倍の 術攻撃を行う。敵の耐久が高い程与えるダメージ上昇 (最大1.5倍)。射程内敵の被ダメ50%上昇(自分のみ)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 超能力開発：念動使い （使用まで40秒：消費気5）",
+    "text": "40秒間対象の射程1.4倍、標的に4倍、その周囲に2倍の 防御無視攻撃を行い、10秒間移動速度75%低下 射程内の味方の被ダメージ50%軽減(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% 常盤台中学・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 超能力開発：空力使い （使用まで40秒：消費気5）",
+    "text": "40秒間対象の射程1.4倍、攻撃対象2増加 攻撃の2.5倍で3連続物理攻撃を行う 射程内の味方の攻撃後の隙50%短縮(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% 常盤台中学・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -78131,17 +88835,17 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "無印",
-   "name": "[無印] / 常盤台の能力者",
-   "text": "自身と敵の耐久が高いほど自身の与えるダメージ上昇 (最大2倍)。射程内の味方の攻撃速度が40%上昇。全敵の 被ダメージを40%、射程内の敵は60%上昇",
+   "name": "[無印] / 学生寮のルームメイト （気3：初回0秒：再使用5秒）",
+   "text": "計略中、以下発動。攻撃回数でのゲージ蓄積量変化なし 御坂美琴：2.5倍ダメージの攻撃、攻撃後の隙が50%短縮 白井黒子：4連続攻撃に変化、移動速度低下効果が上昇",
    "effects": [
     {
      "source": "特技",
-     "stat": "atkSpeed",
+     "stat": "gapShorten",
      "mode": "percent",
-     "value": 40,
+     "value": 50,
      "target": "inRange",
      "stackable": false,
-     "raw": "+40% 御坂美琴＆白井黒子・特技"
+     "raw": "+50% 御坂美琴＆白井黒子・特技"
     }
    ]
   },
@@ -78174,6 +88878,22 @@ window.SCRE_DATA = [
       "raw": "+40% 御坂美琴＆白井黒子・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 学生寮のルームメイト （気3：初回0秒：再使用5秒）",
+    "text": "計略中、以下発動。攻撃回数でのゲージ蓄積量変化なし 御坂美琴：2.5倍ダメージの攻撃、攻撃後の隙が50%短縮 白井黒子：4連続攻撃に変化、移動速度低下効果が上昇",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 御坂美琴＆白井黒子・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -78181,7 +88901,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 最強無敵の電撃姫ですの （使用まで30秒：消費気5）",
     "text": "30秒間対象の攻撃と与ダメージが2倍、射程1.2倍 特殊攻撃ゲージ蓄積量が1.5倍 敵撃破時の獲得気が2増加(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -78293,7 +89015,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 幻想殺し （使用まで60秒：消費気7）",
     "text": "敵1体に攻撃を行い、20秒間一部敵技能の攻撃/防御上昇を 打ち消す伏兵(1体)、一度だけ10秒間大破しない。配置中 伏兵が受ける術ダメージ無効。自動で特殊攻撃発動",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -78405,7 +89129,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 一方通行 （使用まで60秒：消費気5）",
     "text": "敵2体に2倍の攻撃を行う伏兵(1体)、伏兵が受けるダメージ 無効、被攻撃時敵の攻撃の1倍で反射。全マス移動可能 特殊攻撃を1回使用可能。配置後30秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -78574,7 +89300,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) 初代白の皇帝ヴィラヘルム・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -78734,7 +89462,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 【川熊娘】イオ・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -78839,7 +89569,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 拒絶する焔 （使用まで30秒：消費気3）",
     "text": "20秒間対象の射程1.3倍、与ダメージが2.2倍、攻撃が 炎属性となり攻撃の3倍で2連続攻撃を行う。敵の耐久が 低い程与えるダメージ上昇(最大2倍。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [
@@ -78994,7 +89726,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) 大洗女子学園艦・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -79010,7 +89744,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+180%(2.8倍) 大洗女子学園艦・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -79200,7 +89936,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / やっと見つけたよ、私の戦車道！ （使用まで60秒：消費気5）",
     "text": "25秒間対象の与ダメージ2倍、対象を除く射程内の 「戦車搭乗」中の[GuP]1体毎に自身の攻撃と防御が500 ずつ上昇。射程内敵の被ダメージ50%上昇(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -79342,7 +90080,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 受けた勝負は逃げませんの （使用まで50秒：消費気10）",
     "text": "50秒間対象の攻撃2倍、標的へのダメージ2.5倍 射程内味方の撃破獲得気2増加。対象を除く射程内味方の 攻撃と防御に対象の30%の値を加算(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -79509,7 +90249,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 邪道は叩き潰してやるわ （使用まで20秒：消費気3）",
     "text": "20秒間範囲内の敵が優先対象となり 移動速度を0にし、防御が80%低下 (同種効果の重複なし。範囲:小)",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
    }
   ],
   "allSpecials": [
@@ -79727,7 +90469,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+50%(1.5倍) ミカ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -79877,7 +90621,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30%(1.3倍) T.O.W.E.R. typeC・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [
@@ -80048,16 +90794,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 蝦夷の黒印状 （使用まで60秒：消費気10）",
     "text": "対象の射程内の城娘の攻撃が100、射程が30上昇 全ての北海道城娘の攻撃が150、射程が50上昇 (効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -80155,13 +90897,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -80197,14 +90933,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -80334,16 +91063,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改壱",
     "name": "[改壱] / せんべい汁（使用まで35秒：消費気5）",
     "text": "10秒間範囲内の城娘の回復が5倍 (範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 35,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -80437,13 +91162,7 @@ window.SCRE_DATA = [
    "text": "自身の攻撃が27%、防御が30上昇 攻撃が妖怪に半減されない",
    "effects": []
   },
-  "strategy": {
-   "name": "CENTER:[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -80469,14 +91188,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "CENTER:[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -80625,7 +91337,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 盛岡城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -80736,13 +91450,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -80794,14 +91502,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -80912,13 +91613,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -80972,14 +91667,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -81071,13 +91759,7 @@ window.SCRE_DATA = [
    "text": "自身の耐久が27%、防御が10%上昇 殿の攻撃と防御に自身の15%の値を加算",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -81103,14 +91785,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -81212,13 +91887,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -81254,14 +91923,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -81440,12 +92102,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 狐術・霞隠れ （使用まで10秒：消費気3）",
     "text": "15秒間対象の攻撃が2.5倍、全ての攻撃を回避 計略使用毎に攻撃が25%低下、再使用時間が10秒延長 消費気1増加(4回まで。自分のみが対象)",
@@ -81459,7 +92115,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) 山形城・計略"
      }
-    ]
+    ],
+    "cooldown": 10,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -81563,13 +92221,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -81605,14 +92257,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "山形県"
@@ -81707,13 +92352,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -81749,14 +92388,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -81858,13 +92490,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -81900,14 +92526,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -82009,13 +92628,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -82051,14 +92664,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -82160,13 +92766,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -82202,14 +92802,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -82311,13 +92904,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "CENTER:[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -82353,14 +92940,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "CENTER:[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -82490,16 +93070,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改壱",
     "name": "[改壱] / 三つ葉葵の印籠 （使用まで30秒：消費気5）",
     "text": "15秒間範囲内の城娘の回復が5倍 (範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -82603,13 +93179,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -82645,14 +93215,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "群馬県"
@@ -82747,13 +93310,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -82789,14 +93346,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -82906,13 +93456,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -82956,14 +93500,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -83112,7 +93649,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 鉄狛召喚 (使用まで60秒：消費気5：赤配置)",
     "text": "敵1体を攻撃する伏兵を配置 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -83216,13 +93755,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -83258,14 +93791,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -83434,16 +93960,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 上総国の槍大膳 （使用まで60秒：消費気5）",
     "text": "40秒間対象の被ダメージが50%軽減 対象の射程内城娘の撃破時獲得気が1増加 (同種効果重複なし)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -83601,19 +94123,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 底知らずの井戸 (使用まで60秒：消費気5：青配置)",
     "text": "攻撃をしない伏兵を配置 伏兵の射程(400)内の城娘の回復が25上昇 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 底知らずの深井戸 (使用まで55秒：消費気5：青配置)",
     "text": "攻撃をしない伏兵を配置 伏兵の射程(400)内の城娘の回復が40上昇 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 55,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 無尽の底なし井戸 （使用まで20秒：消費気3：青配置）",
     "text": "攻撃をしない伏兵を配置 伏兵の射程(440)内の城娘の攻撃と回復が200上昇 射程が30上昇。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -83717,13 +94245,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -83759,14 +94281,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -83895,16 +94410,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 十五町五十間の城下町 （使用まで20秒：消費気3）",
     "text": "20秒間対象の耐久が0になっても大破扱いにならない 大破数に応じて攻撃と防御が200、射程が30ずつ上昇 大破数5回以上で攻撃と防御がさらに1.2倍",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -84042,16 +94553,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改壱",
     "name": "[改壱] / 大井戸 （使用まで60秒：消費気5：青配置）",
     "text": "攻撃をしない伏兵を配置 伏兵の射程(400)内の城娘の回復が25上昇 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -84067,7 +94574,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 滝山城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -84172,13 +94681,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -84214,14 +94717,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -84354,13 +94850,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印]",
     "text": "BGなし",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 竹束（使用まで60秒：消費気5：赤配置）",
     "text": "攻撃をしない伏兵を配置 敵5体を足止めできる 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -84464,13 +94964,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -84506,14 +95000,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "長野県"
@@ -84619,13 +95106,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 竹束 （使用まで60秒：消費気5：赤配置）",
     "text": "攻撃をしない伏兵を配置 敵5体を足止めできる 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 大竹束 （使用まで50秒：消費気5：赤配置）",
     "text": "攻撃をしない伏兵を配置 敵5体を足止めできる 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -84736,13 +95227,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -84794,14 +95279,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -84903,13 +95381,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -84945,14 +95417,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -85061,13 +95526,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -85099,14 +95558,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "愛知県"
@@ -85258,12 +95710,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 那古野合戦 （使用まで50秒：消費気5）",
     "text": "25秒間対象の攻撃が2連続でダメージを与え 攻撃する度に攻撃と攻撃速度が5%上昇 (自分のみ)",
@@ -85277,7 +95723,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+5% 那古野城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -85371,13 +95819,7 @@ window.SCRE_DATA = [
    "text": "自身の防御が27%、射程が20上昇 被攻撃時に敵の攻撃の15%をダメージとして反射",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -85403,14 +95845,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -85582,13 +96017,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 木曽川の竜 （使用まで45秒：消費気5）",
     "text": "範囲内の敵に攻撃の1倍のダメージを与え 敵を後退させる(範囲：中[150])",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 木曽川の大竜 （使用まで30秒：消費気3）",
     "text": "範囲内の敵に攻撃の3倍のダメージを与え 大きく後退させる(範囲：中[150])",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -85752,16 +96191,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改壱",
     "name": "[改壱] / 上田衆 （使用まで60秒：消費気5：赤配置）",
     "text": "敵2体を攻撃する伏兵を配置 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -85786,7 +96221,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 坂戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -85918,16 +96355,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改壱",
     "name": "[改壱] / 反魂丹 (使用まで40秒：消費気5)",
     "text": "25秒間対象の回復が4倍に上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -86038,13 +96471,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -86086,14 +96513,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -86192,13 +96612,7 @@ window.SCRE_DATA = [
    "text": "自身の攻撃対象が2増加、攻撃が妖怪に対して2倍 射程内の城娘の攻撃と防御が30%、北陸城娘は50%上昇",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -86230,14 +96644,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -86339,13 +96746,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -86371,14 +96772,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -86470,13 +96864,7 @@ window.SCRE_DATA = [
    "text": "自身の足止め数が4増加 被攻撃時に自身の攻撃の70%で反撃",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -86492,14 +96880,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -86679,12 +97060,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 津留賀の籠城 （使用まで50秒：消費気5）",
     "text": "50秒間対象の攻撃後の隙が100%短縮、射程が100%上昇 効果が10秒毎に20%ずつ低下(自分のみ対象)",
@@ -86698,7 +97073,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100% 津留賀城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -86814,13 +97191,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -86883,14 +97254,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -86982,13 +97346,7 @@ window.SCRE_DATA = [
    "text": "自身の撤退、大破時に回復する気が37%上昇 再配置までの時間が47%短縮",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -87004,14 +97362,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -87113,13 +97464,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -87145,14 +97490,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "三重県"
@@ -87284,7 +97622,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% 伊賀上野城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -87438,13 +97778,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 火薬入り茶釜 （使用まで40秒：消費気5）",
     "text": "【火属性】範囲内の敵に攻撃の2.5倍の ダメージを与える（範囲：中[150]）",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 大仏殿焼き討ち （使用まで30秒：消費気3）",
     "text": "【火属性】範囲内の敵に攻撃の3.5倍のダメージを与え 15秒間撃破時追加で気が2増加(同種効果重複なし) (範囲：大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -87557,13 +97901,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -87608,14 +97946,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -87717,13 +98048,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -87759,14 +98084,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -87859,13 +98177,7 @@ window.SCRE_DATA = [
    "text": "自身の耐久が25%、回復が20上昇",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -87891,14 +98203,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -88032,13 +98337,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 雑賀衆 （使用まで60秒：消費気10：青配置）",
     "text": "敵1体を攻撃し少し後退させる伏兵を配置 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 雑賀惣国 （使用まで50秒：消費気7：青配置）",
     "text": "敵1体を攻撃し少し後退させる伏兵を配置 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -88219,12 +98528,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "CENTER:[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 三木合戦 （使用まで40秒：消費気5）",
     "text": "30秒間対象の射程が100上昇。耐久が高い程与える ダメージが上昇し、耐久が低い程与えるダメージが低下 (上限300%/下限10%。自分のみが対象)",
@@ -88238,7 +98541,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 三木城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -88342,13 +98647,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -88384,14 +98683,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -88524,7 +98816,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 岡山城・計略"
      }
-    ]
+    ],
+    "cooldown": 20,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -88540,7 +98834,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 岡山城・計略"
      }
-    ]
+    ],
+    "cooldown": 20,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -88644,13 +98940,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -88686,14 +98976,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -88796,13 +99079,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[改壱]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -88838,20 +99115,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
-    "stage": "改壱",
-    "name": "[改壱]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -88953,13 +99217,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -88995,14 +99253,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -89184,7 +99435,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 白兎神社 （使用まで40秒：消費気3：青配置）",
     "text": "攻撃をしない伏兵を配置(1体まで) 気の自然増加量を増加、伏兵の射程(200)内の 城娘の耐久が10%上昇。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    },
    {
     "stage": "改弐",
@@ -89200,7 +99453,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% 鹿野城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -89374,13 +99629,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 落雷 （使用まで50秒：消費気5）",
     "text": "【雷属性】範囲内の敵に攻撃の2倍の 術ダメージを与える(範囲:中[150])",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 疾雷 （使用まで25秒：消費気3）",
     "text": "【雷属性】範囲内の敵に攻撃の3倍の 術ダメージを与える(範囲:中[150])",
-    "effects": []
+    "effects": [],
+    "cooldown": 25,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -89485,13 +99744,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -89527,14 +99780,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -89626,13 +99872,7 @@ window.SCRE_DATA = [
    "text": "射程内の城娘の耐久が15%、回復が20上昇",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -89658,14 +99898,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -89814,7 +100047,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 物見櫓 （使用まで60秒：消費気5：青配置）",
     "text": "敵1体を攻撃する伏兵を配置 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -89918,13 +100153,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -89960,14 +100189,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "山口県"
@@ -90062,13 +100284,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "CENTER:[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -90104,14 +100320,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "CENTER:[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "香川県"
@@ -90264,16 +100473,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 白鳥の虎獅子 （使用まで50秒：消費気7）",
     "text": "5秒間射程内の城娘が攻撃を回避 (自身のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -90384,13 +100589,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -90442,14 +100641,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -90551,13 +100743,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -90593,14 +100779,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -90702,13 +100881,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -90744,14 +100917,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -90853,13 +101019,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -90895,14 +101055,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "大分県"
@@ -91028,13 +101181,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ゾンターク （使用まで60秒：消費気7：青配置）",
     "text": "攻撃をしない伏兵を配置 伏兵の射程(300)内の敵の攻撃速度が60%低下 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 松囃子・ゾンターク （使用まで50秒：消費気5：青配置）",
     "text": "攻撃をしない伏兵を配置。伏兵の射程(320)内の敵の 攻撃速度が70%低下。配置中、全ての敵の移動速度が 8%低下、攻撃後の隙が8%延長(同種効果と重複)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -91128,13 +101285,7 @@ window.SCRE_DATA = [
    "text": "自身の攻撃が15%、射程が30上昇 水上マス配置時、射程と攻撃が70上昇",
    "effects": []
   },
-  "strategy": {
-   "name": "CENTER:[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -91160,14 +101311,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "CENTER:[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -91277,13 +101421,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -91335,14 +101473,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -91444,13 +101575,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -91486,14 +101611,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "佐賀県"
@@ -91626,12 +101744,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改壱",
     "name": "[改壱] / 葉隠（使用まで40秒：消費気3）",
     "text": "40秒対象の防御が1.5倍 足止め数が2増加(自分のみが対象)",
@@ -91645,7 +101757,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 佐賀城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -91757,13 +101871,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -91815,14 +101923,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -91942,7 +102043,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 海賊（使用まで50秒：消費気5：赤配置）",
     "text": "敵2体を攻撃する伏兵を配置 水上マス配置時、伏兵の攻撃と耐久と防御が上昇 移動消費気が減少。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -92046,13 +102149,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -92088,14 +102185,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "熊本県"
@@ -92217,7 +102307,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 回復薬（使用まで30秒：消費気5）",
     "text": "10秒間対象の回復が10倍 耐久が最大値の15%回復",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -92304,13 +102396,7 @@ window.SCRE_DATA = [
    "text": "射程内の城娘の防御が17%、回復が15上昇 全ての[伊東四十八城]の防御が40、回復が15上昇",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -92336,14 +102422,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -92505,16 +102584,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 群鶏十一鶴 （使用まで60秒：消費気7）",
     "text": "30秒間対象の被ダメージが100%上昇 対象を除く射程内の味方1体につき攻撃が100、攻撃速度 が25%ずつ上昇、敵の防御を10%無視する(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -92679,12 +102754,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改壱",
     "name": "[改壱] / ハナリジー （使用まで40秒：消費気5）",
     "text": "30秒間対象の攻撃が1.5倍",
@@ -92698,7 +102767,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 浦添城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -92714,7 +102785,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) 浦添城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -92865,7 +102938,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 海賊（使用まで50秒：消費気5：赤配置）",
     "text": "敵2体を攻撃する伏兵を配置 水上マス配置時、伏兵の攻撃と耐久と防御が上昇 移動消費気が減少。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -93030,12 +103105,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改壱",
     "name": "[改壱] / 尼子十勇士 （使用まで50秒：消費気7：赤配置）",
     "text": "敵2体を攻撃する伏兵を配置 配置中自身の攻撃と防御と回復が15上昇 波終了で消滅",
@@ -93049,7 +103118,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+15 月山富田城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -93065,7 +103136,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 月山富田城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -93167,13 +103240,7 @@ window.SCRE_DATA = [
    "text": "自身の足止め数3増加、撤退大破時に回復する気が40%上昇 再配置60%短縮。大破数に応じて自身の耐久と攻撃と防御が 上昇(最大2倍)。全ての城娘の再配置までの時間35%短縮",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -93195,14 +103262,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -93320,13 +103380,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -93387,14 +103441,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -93503,13 +103550,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -93551,14 +103592,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -93730,13 +103764,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 天狗の蹴り上げ岩 （使用まで45秒：消費気5）",
     "text": "範囲内の敵に攻撃の2.5倍のダメージを与え 5秒間移動速度が90%、攻撃速度が50%低下 (範囲：中[150])",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 岩櫃山の巨岩 （使用まで45秒：消費気5）",
     "text": "範囲内の敵に攻撃の5倍のダメージを与え 10秒間移動速度が90%、攻撃速度が50%低下 攻撃後の隙が50%延長(範囲：中[150])",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -93837,13 +103875,7 @@ window.SCRE_DATA = [
    "text": "自身の足止め数と攻撃対象数が4増加 耐久が与ダメの15%回復 攻撃した敵の攻撃を50%低下",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -93865,14 +103897,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "佐賀県"
@@ -94024,12 +104049,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "CENTER:[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 水利の籠城 （使用まで40秒：消費気3）",
     "text": "対象の射程内城娘の耐久を50%回復 20秒間対象の射程が1.5倍、攻撃対象数が2増加 (自分のみが対象)",
@@ -94043,7 +104062,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 原城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -94194,7 +104215,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 僧兵（使用まで60秒：消費気5：赤配置）",
     "text": "直線上の全ての敵を攻撃する伏兵を配置 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -94417,7 +104440,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 海賊（使用まで50秒：消費気5：赤配置）",
     "text": "敵2体を攻撃する伏兵を配置 水上マス配置時、伏兵の攻撃と耐久と防御が上昇 移動消費気が減少。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -94433,7 +104458,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+10% 鳥羽城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -94537,13 +104564,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -94579,14 +104600,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "京都府"
@@ -94682,13 +104696,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -94724,14 +104732,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -94824,13 +104825,7 @@ window.SCRE_DATA = [
    "text": "射程内の敵の防御が25% 攻撃と与ダメージが10%低下",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -94856,14 +104851,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -94955,13 +104943,7 @@ window.SCRE_DATA = [
    "text": "自身の防御が25% 撤退、大破時に回復する気が37%上昇 再配置までの時間が47%短縮",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -94977,14 +104959,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -95076,13 +105051,7 @@ window.SCRE_DATA = [
    "text": "自身の防御が25%、射程が20上昇",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -95108,14 +105077,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -95297,7 +105259,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 与板城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -95313,7 +105277,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) 与板城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -95478,12 +105444,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 海女の剣舞 （使用まで40秒：消費気7）",
     "text": "20秒間対象の攻撃が3倍、攻撃対象数が5増加 攻撃が300以下の敵に対して与えるダメージ2倍 射程が90%低下(自分のみ)",
@@ -95508,7 +105468,9 @@ window.SCRE_DATA = [
       "raw": "+100%(2.0倍) [攻撃が300以下の敵] 久慈城・計略",
       "condition": "攻撃が300以下の敵"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -95612,13 +105574,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -95654,14 +105610,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "長野県"
@@ -95774,10 +105723,10 @@ window.SCRE_DATA = [
    ]
   },
   "strategy": {
-   "name": "[改壱] / 三柱神社 （使用まで40秒：消費気3：青配置）",
-   "text": "攻撃をしない伏兵を配置(1体まで) 気の自然増加量を増加、伏兵の射程(250)内の 城娘の防御が10%上昇。波終了で消滅",
+   "name": "[改弐] / 三柱神社の御祭神 （使用まで30秒：消費気3：青配置）",
+   "text": "攻撃をしない伏兵を配置(1体まで) 気の自然増加量を大きく増加、伏兵の射程(290)内の 城娘の耐久と防御が20%上昇(効果重複)",
    "effects": [],
-   "cooldown": 40,
+   "cooldown": 30,
    "cost": 3
   },
   "special": null,
@@ -95840,13 +105789,33 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 柳川城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 三柱神社 （使用まで40秒：消費気3：青配置）",
     "text": "攻撃をしない伏兵を配置(1体まで) 気の自然増加量を増加、伏兵の射程(250)内の 城娘の防御が10%上昇。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 三柱神社の御祭神 （使用まで30秒：消費気3：青配置）",
+    "text": "攻撃をしない伏兵を配置(1体まで) 気の自然増加量を大きく増加、伏兵の射程(290)内の 城娘の耐久と防御が20%上昇(効果重複)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 難攻不落の柳川 （使用まで30秒：消費気3）",
+    "text": "45秒間対象の防御2倍、耐久が2000上昇 被ダメージが50%軽減 対象が受けるダメージを10000まで防ぐ",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -96040,7 +106009,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 石垣山城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -96056,7 +106027,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 石垣山城・計略"
      }
-    ]
+    ],
+    "cooldown": 10,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -96227,7 +106200,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+10 今治城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -96378,7 +106353,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 集中砲火（使用まで30秒：消費気7）",
     "text": "【火属性】範囲内の敵に攻撃の3倍の ダメージを与える(範囲:小[90])",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -96567,18 +106544,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
-    "stage": "改壱",
-    "name": "[改壱] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 希望の傘連判 （使用まで40秒：消費気10）",
     "text": "10秒間対象の耐久が0にならない 20秒間対象の被回復量が50%上昇 被ダメージを80%軽減(城娘のみが対象)",
@@ -96592,7 +106557,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% 尾山御坊・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -96696,13 +106663,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -96738,14 +106699,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -96878,13 +106832,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "BG[無印] / 兵糧攻め無血開城 (使用まで70秒：消費気10：青配置)",
     "text": "攻撃をしない伏兵を配置 伏兵の射程(300)内の敵の攻撃と防御と移動速度が20% 低下。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 70,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 妙計・無血開城 (使用まで60秒：消費気10：青配置)",
     "text": "攻撃をしない伏兵を配置 伏兵の射程内の敵の攻撃と防御と移動速度が20% 射程が15%低下。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -97016,16 +106974,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改壱",
     "name": "[改壱] / 垂井の泉（使用まで40秒：消費気3）",
     "text": "5秒間対象の回復が10倍",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -97119,13 +107073,7 @@ window.SCRE_DATA = [
    "text": "巨大化する度に射程内の城娘の攻撃が50、射程が10上昇 与回復量が6%上昇、歌舞城娘には効果1.5倍",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -97167,14 +107115,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -97283,13 +107224,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -97341,14 +107276,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -97450,13 +107378,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -97492,14 +107414,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "宮城県"
@@ -97594,13 +107509,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -97636,14 +107545,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "宮城県"
@@ -97728,13 +107630,7 @@ window.SCRE_DATA = [
    "text": "自身の攻撃が20% 撤退、大破時の回復気が40%上昇 再配置までの時間が50%短縮",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -97750,14 +107646,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -97884,13 +107773,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -97960,14 +107843,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -98160,7 +108036,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 安平古堡・計略"
      }
-    ]
+    ],
+    "cooldown": 25,
+    "cost": 3
    },
    {
     "stage": "改弐",
@@ -98176,7 +108054,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) 安平古堡・計略"
      }
-    ]
+    ],
+    "cooldown": 25,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -98270,13 +108150,7 @@ window.SCRE_DATA = [
    "text": "自身の攻撃が15%、射程が35上昇",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -98302,14 +108176,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -98465,12 +108332,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改壱",
     "name": "[改壱] / 河童明神 （使用まで40秒：消費気5）",
     "text": "20秒間対象の攻撃速度が1.5倍 攻撃後の隙が30%短縮",
@@ -98484,7 +108345,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% 笹原城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -98500,7 +108363,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 笹原城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -98665,16 +108530,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 水天宮の加護 （使用まで40秒：消費気5）",
     "text": "20秒間対象の射程内の海洋兜と妖怪の攻撃、射程 与ダメージ、移動速度が60%低下",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -98794,13 +108655,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -98879,14 +108734,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -98978,13 +108826,7 @@ window.SCRE_DATA = [
    "text": "全城娘の撤退、大破時に回復する気が30%上昇 再配置までの時間が35%短縮",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -99000,14 +108842,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -99109,13 +108944,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -99151,14 +108980,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -99260,13 +109082,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -99292,14 +109108,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -99459,16 +109268,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 大牛鬼護 （使用まで60秒：消費気7）",
     "text": "20秒間対象への術攻撃以外のダメージを100%軽減 攻撃後の隙が大きく延長",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -99563,13 +109368,7 @@ window.SCRE_DATA = [
    "text": "自身の耐久が27%、回復が20上昇",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -99595,14 +109394,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -99795,7 +109587,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 亀居城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -99811,7 +109605,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 亀居城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -99912,13 +109708,7 @@ window.SCRE_DATA = [
    "text": "【配置】全平山城娘の耐久が30%、射程が40上昇 配置後20秒毎に自身の耐久が2000ずつ上昇(最大20000) 200秒後、自身の足止め数が10増加、耐久がさらに60%上昇",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -99950,14 +109740,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "熊本県"
@@ -100060,13 +109843,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -100118,14 +109895,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -100295,7 +110065,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / アイアンリング （使用まで70秒：消費気5）",
     "text": "10秒間対象が受けるダメージを 配置中の城娘全員で分割して受ける",
-    "effects": []
+    "effects": [],
+    "cooldown": 70,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -100311,7 +110083,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+1000 カーナーヴォン城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -100455,13 +110229,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30 村尾城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 村尾合戦 （使用まで60秒：消費気5）",
     "text": "対象の防御が50、射程が20上昇 (効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -100605,7 +110383,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 曳馬城・計略"
      }
-    ]
+    ],
+    "cooldown": 25,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -100757,7 +110537,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 堅牢の勝山（使用まで60秒：消費気7）",
     "text": "30秒間範囲内の城娘の足止め数が2増加(範囲:大[200])",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -100858,13 +110640,7 @@ window.SCRE_DATA = [
    "text": "自身の攻撃速度50%上昇。射程内城娘が与ダメの20%耐久 回復。【大魔法】全敵に攻撃の3倍のダメージを与え、10秒間 攻撃80%低下。全城娘と殿の耐久が最大の100%回復",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -100906,14 +110682,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -101012,13 +110781,7 @@ window.SCRE_DATA = [
    "text": "巨大化する度に射程内の敵の攻撃が7%と30 与ダメージが6%、移動速度が8%低下 3秒毎に攻撃の0.1倍の術ダメージを与える",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -101050,14 +110813,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -101193,7 +110949,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 江戸氏館・計略"
      }
-    ]
+    ],
+    "cooldown": 20,
+    "cost": 3
    },
    {
     "stage": "改壱",
@@ -101209,13 +110967,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+110 江戸氏館・計略"
      }
-    ]
+    ],
+    "cooldown": 20,
+    "cost": 3
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 桜田の高台 （使用まで20秒：消費気3）",
     "text": "10秒間対象の射程が50%と150上昇 対象の攻撃に対象の射程の50%の値を加算 (遠隔城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -101312,13 +111074,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -101344,14 +111100,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -101453,13 +111202,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -101495,14 +111238,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -101604,13 +111340,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -101646,14 +111376,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -101824,13 +111547,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 突き掛かり戦法 （使用まで50秒：消費気5）",
     "text": "25秒間対象の武器攻撃の貫通距離が2倍 (槍城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 相居飛車戦法 （使用まで50秒：消費気5）",
     "text": "50秒間対象の攻撃速度100%上昇、敵の防御を 100%無視する、効果が10秒毎に20%ずつ低下 武器攻撃の貫通距離が3倍(槍城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -101981,7 +111708,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 佐土原城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -102133,7 +111862,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 尼崎城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -102301,7 +112032,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% 伊勢長島城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -102317,7 +112050,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% 伊勢長島城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -102333,7 +112068,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 伊勢長島城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -102445,13 +112182,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -102493,14 +112224,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -102656,7 +112380,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 大難三護 （使用まで60秒：消費気7）",
     "text": "対象の射程内の城娘と蔵の耐久が20%回復 (祓串城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -102672,13 +112398,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 白石城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 武振彦命の神護 （使用まで60秒：消費気7）",
     "text": "20秒間対象の射程と与回復量が1.6倍 対象の射程内の城娘と蔵の耐久が 最大の40%回復(祓串城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -102850,7 +112580,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 赤穂城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -103039,7 +112771,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25 結城城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -103190,7 +112924,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 時の太鼓（使用まで40秒：消費気5）",
     "text": "30秒間対象が攻撃した敵の移動速度が 3秒間40%低下(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -103361,7 +113097,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) トームペア城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -103581,7 +113319,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) 美作一ノ瀬城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -103597,7 +113337,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) 美作一ノ瀬城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -103741,7 +113483,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 伊賀流忍術 （使用まで60秒：消費気7：赤青配置）",
     "text": "敵3体に自身の1倍の攻撃で攻撃する 伏兵を配置。配置中自身は攻撃を 行わず、敵から狙われない。最長60秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -103866,13 +113610,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+0%(1.0倍) 葛根城・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 飛脚白狐 (使用まで70秒：消費気5)",
     "text": "15秒間対象の攻撃対象が2増加 (弓城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 70,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -104007,13 +113755,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 辰市合戦 （使用まで45秒：消費気3）",
     "text": "20秒間対象の攻撃速度が2倍 (鉄砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 陽舜房 （使用まで40秒：消費気3）",
     "text": "25秒間対象の攻撃速度が2倍 (鉄砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -104184,7 +113936,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40 多気城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -104298,7 +114052,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 洲本八景 （使用まで60秒：消費気3）",
     "text": "30秒間対象の敵撃破時の獲得気が1増加 (同種効果の重複なし。大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -104449,7 +114205,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 甲府開創 （使用まで50秒：消費気3）",
     "text": "対象の特技が発動。変位系は1段上が発動 最大化時のみの効果は発動しない(元が★4以下 の城娘が対象。最大化城娘は対象外。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -104613,7 +114371,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 佐倉城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -104764,7 +114524,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60 浪岡城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -104976,7 +114738,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 日暮城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -104992,7 +114756,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% 日暮城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -105156,7 +114922,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 神辺城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -105300,13 +115068,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 琴天板の井戸 （使用まで50秒：消費気5）",
     "text": "30秒間対象の耐久が与ダメージの40%回復",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 神祇の琴歌((じんぎのギの字はﾈ氏)) （使用まで40秒：消費気5）",
     "text": "対象の耐久が与ダメージの60%回復 射程内城娘の攻撃150上昇、[古代城柵]は さらに攻撃が20%上昇(効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -105458,7 +115230,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 武田四天王 （使用まで40秒：消費気5）",
     "text": "20秒間対象が2連続で攻撃を行う (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -105620,7 +115394,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+1 敦賀城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -105786,7 +115562,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% ベリー・ポメロイ城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -106004,7 +115782,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40 仙台城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -106020,7 +115800,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 仙台城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -106210,12 +115992,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 駿河侵攻 （使用まで40秒：消費気5）",
     "text": "25秒対象の射程が1.5倍、攻撃対象が1増加 対象の射程内の敵1体につき攻撃が100上昇(最大2000) (自分のみが対象)",
@@ -106238,7 +116014,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 駿府城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -106389,7 +116167,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 天下布武 （使用まで60秒：消費気10：青配置）",
     "text": "攻撃をしない伏兵を配置 伏兵の射程(400)内の城娘の耐久と攻撃と 防御が20%上昇。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -106561,7 +116341,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 坂本城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -106695,13 +116477,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 百雷 （使用まで60秒：消費気7）",
     "text": "【雷属性】範囲内の敵に攻撃の2.2倍の 術ダメージを与える(範囲:大[200])",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 天守の百雷 （使用まで40秒：消費気7）",
     "text": "【雷属性】範囲内の敵に攻撃の5倍の 術ダメージを与え、敵の動きを3秒間封じる(範囲:大[200?])",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -106879,7 +116665,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 影武者六人衆 （使用まで60秒：消費気7：赤配置）",
     "text": "敵2体を攻撃する伏兵を配置 無制限に敵を足止めし、殿への攻撃を 代わりに受ける。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -107053,13 +116841,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 丸亀うちわ旋風 （使用まで55秒：消費気7）",
     "text": "範囲内の敵に攻撃の1.2倍のダメージを与え 敵を後退させる(範囲:大[200])",
-    "effects": []
+    "effects": [],
+    "cooldown": 55,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 丸亀うちわ大嵐 （使用まで30秒：消費気3）",
     "text": "範囲内の敵に攻撃の2倍のダメージを与え 敵を大きく後退させる(範囲:特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -107160,13 +116952,7 @@ window.SCRE_DATA = [
    "text": "自身の耐久が50%、攻撃と防御が100%上昇 足止め数が1増加 自身が敵を倒した時の獲得気が3増加",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -107188,14 +116974,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -107306,13 +117085,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -107357,14 +117130,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -107513,7 +117279,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 毘沙門堂 （使用まで40秒：消費気3：青配置）",
     "text": "攻撃をしない伏兵を配置(1体まで) 気の自然増加量を増加、伏兵の射程(200)内の 城娘の攻撃が10%上昇。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -107624,13 +117392,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -107682,14 +117444,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -107850,7 +117605,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 塔の巨人召喚 （使用まで60秒：消費気10：赤配置）",
     "text": "敵2体を攻撃する伏兵を配置",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改弐",
@@ -107866,7 +117623,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 フランケンシュタイン城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -107977,10 +117736,10 @@ window.SCRE_DATA = [
    ]
   },
   "strategy": {
-   "name": "[無印] / 千手観音像 （使用まで60秒：消費気15：赤配置）",
-   "text": "敵4体を攻撃する伏兵を配置 (3体まで)",
+   "name": "[改弐] / 蓮華王・千手観音 （使用まで30秒：消費気15）",
+   "text": "敵4体に1.5倍ダメージを与え、与ダメージの 50%耐久が回復する伏兵を配置。配置中、時間経過で 伏兵の攻撃が上昇(上限2000。4体まで)",
    "effects": [],
-   "cooldown": 60,
+   "cooldown": 30,
    "cost": 15
   },
   "special": null,
@@ -108039,7 +117798,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 千手観音像 （使用まで60秒：消費気15：赤配置）",
     "text": "敵4体を攻撃する伏兵を配置 (3体まで)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 15
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 蓮華王・千手観音 （使用まで30秒：消費気15）",
+    "text": "敵4体に1.5倍ダメージを与え、与ダメージの 50%耐久が回復する伏兵を配置。配置中、時間経過で 伏兵の攻撃が上昇(上限2000。4体まで)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 15
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 大悲・衆生救済 （使用まで30秒：消費気15）",
+    "text": "対象の被ダメージを50%軽減。対象の伏兵の攻撃と 防御1.7倍(同種効果と重複)、受ける術以外の ダメージを50%軽減(自分のみが対象。効果時間無限)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 観音寺城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -108224,13 +118011,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 萩城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 白妙の銃眼土塀 （使用まで50秒：消費気5）",
     "text": "45秒間対象の防御が200、射程が40上昇 足止め数が5増加。対象の射程内の城娘の 防御が100、射程が20上昇、足止め数が1増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -108419,7 +118210,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+125 岡豊城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -108611,13 +118404,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 非情なりし玄蕃石 （使用まで55秒：消費気7）",
     "text": "範囲内の敵に攻撃の2.7倍のダメージを与え 5秒間移動速度が90%、攻撃速度が50%低下 (範囲:大[200])",
-    "effects": []
+    "effects": [],
+    "cooldown": 55,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 冷酷無比の玄蕃石 （使用まで50秒：消費気7）",
     "text": "範囲内の敵に攻撃の5倍のダメージを与え 5秒間移動速度が90%、攻撃速度が50%低下 (範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -108768,7 +118565,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30 尾山城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -108873,13 +118672,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -108905,14 +118698,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -109073,13 +118859,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 平蜘蛛焙烙玉 （使用まで30秒：消費気3：赤青配置）",
     "text": "自身の1.7倍の攻撃で射程内の全ての敵を攻撃 する伏兵を配置。伏兵の射程内に敵が入った 3秒後に発動。攻撃または波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 梟雄の平蜘蛛焙烙玉 （使用まで25秒：消費気3：赤青配置）",
     "text": "自身の3倍の攻撃で射程内の全敵を攻撃する伏兵を配置 伏兵の射程内に敵が入った3秒後に発動。配置中、伏兵の 攻撃力が徐々に上昇(最大150%、効果重複)。攻撃で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 25,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -109233,13 +119023,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 天運時至り （使用まで60秒：消費気5）",
     "text": "10秒間対象の計略使用までの時間が73%短縮",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 将器・天運時至り （使用まで50秒：消費気5）",
     "text": "15秒間範囲内の対象の計略使用までの時間が73%短縮 計略消費気を5軽減 (範囲:小。発動中の計略を解除しない)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -109394,7 +119188,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 吉田郡山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -109410,7 +119206,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 吉田郡山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -109561,7 +119359,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 帰らずの山 （使用まで30秒：消費気5）",
     "text": "範囲内の敵に攻撃の3倍のダメージを与え 5秒間移動速度が90%、攻撃速度が50%低下 (範囲:小[90])",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -109712,7 +119512,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 清洲会議 （使用まで60秒：消費気5）",
     "text": "配置場所を「近接/遠隔マス」に変更する (未配置の近接マスまたは遠隔マスが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -109863,7 +119665,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 有岡の土牢 （使用まで45秒：消費気3：赤青配置）",
     "text": "自身の1倍の攻撃で射程内の全ての敵を攻撃する伏 兵を配置。伏兵の射程内に敵が入った3秒後に発動 5秒間動きを封じる。攻撃または波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -109994,7 +119798,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 守護者の加護（使用まで60秒：消費気5）",
     "text": "対象が受けるダメージを合計7500まで防ぐ (殿/城娘/蔵/伏兵が対象。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -110167,13 +119973,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 老牛伏草 （使用まで45秒：消費気3：赤青配置）",
     "text": "攻撃をしない伏兵を配置 伏兵の射程(400)内の敵を撃破した時に追加で気が 1増加(同種効果の重複なし)。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 3
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 臥牛山 （使用まで40秒：消費気3：赤青配置）",
     "text": "攻撃をしない伏兵を配置。射程内(440)の城娘の攻撃が100上昇 射程内敵の撃破時の獲得気1増加(同種効果の重複なし) 自身の伏兵1体につき自身の撃破獲得気が1増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -110324,7 +120134,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 蛇神の呪い（使用まで20秒：消費気5）",
     "text": "30秒間対象が攻撃した敵の 移動速度を2秒間40%下げる",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -110485,12 +120297,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 軍楽栄藩 (使用まで60秒：消費気7)",
     "text": "40秒間対象の最大耐久が80%減少 攻撃が2倍、射程が1.5倍になり、与えるダメージが8倍 (自分のみが対象)",
@@ -110523,7 +120329,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+700%(8.0倍) 中津城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -110694,7 +120502,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% ガイヤール城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -110857,13 +120667,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / カンナカムイ （使用まで35秒：消費気7）",
     "text": "【雷属性】範囲内の敵に攻撃の2.5倍の 術ダメージを与える(範囲:小[90])",
-    "effects": []
+    "effects": [],
+    "cooldown": 35,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / カムイイメル （使用まで30秒：消費気3）",
     "text": "【雷属性】範囲内の敵に 攻撃の4倍の術ダメージを与え 4秒間動きを封じる(範囲:小[90])",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -110994,7 +120808,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 阿波踊り （使用まで60秒：消費気7）",
     "text": "30秒間範囲内の城娘の攻撃が25%上昇 (範囲：大[200])",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -111010,7 +120826,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) 徳島城・計略"
      }
-    ]
+    ],
+    "cooldown": 55,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -111026,7 +120844,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 徳島城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -111177,12 +120997,6 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 厳松軒寂心 （使用まで30秒：消費気5）",
     "text": "30秒間対象の射程内の九州城娘の 攻撃速度が2倍、攻撃後の隙が50%短縮 (九州城娘が対象)",
@@ -111196,7 +121010,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 隈本城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -111395,7 +121211,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 淀城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -111411,7 +121229,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 淀城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -111627,7 +121447,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+15% 井伊谷城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改弐",
@@ -111643,7 +121465,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 井伊谷城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -111765,7 +121589,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ノビシャド （使用まで50秒：消費気3：青配置）",
     "text": "攻撃をしない伏兵を配置(2体まで) 伏兵の射程(350)内の城娘の敵撃破時の獲得気が1増加 (同種効果の重複なし)。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -111929,7 +121755,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 津山城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -111945,7 +121773,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 津山城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -112049,13 +121879,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -112081,14 +121905,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -112247,7 +122064,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+33% 浜田城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -112398,7 +122217,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 敵は本能寺にあり （使用まで60秒：消費気5）",
     "text": "【火属性】範囲内の敵に攻撃の3倍の ダメージを与える（範囲：大[200]）",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -112569,7 +122390,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% 岩殿山城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -112673,13 +122496,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -112705,14 +122522,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -112851,7 +122661,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 宰相殿の空弁当 （使用まで40秒：消費気5）",
     "text": "10秒間対象の回復が15倍",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -112967,13 +122779,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 雪華図説（使用まで60秒：消費気3）",
     "text": "範囲内の敵の動きを5秒間封じる (範囲:中[150])",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 続雪華図説（使用まで55秒：消費気3）",
     "text": "範囲内の敵の動きを5秒間封じる (範囲:大[200])",
-    "effects": []
+    "effects": [],
+    "cooldown": 55,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -113137,7 +122953,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 無刀取り （使用まで60秒：消費気5）",
     "text": "30秒間対象が受けるダメージを合計5000まで防ぐ 被攻撃時に敵の攻撃の40%を反射 (殿/城娘/伏兵/蔵が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -113153,7 +122971,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 柳生城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -113330,13 +123150,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 神の啓示 （使用まで70秒：消費気7）",
     "text": "30秒間範囲内の城娘の攻撃が25%上昇 防御が20%減少(範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 70,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / オルレアンの奇跡 （使用まで60秒：消費気7）",
     "text": "30秒間範囲内の城娘の攻撃が25%上昇 近接城娘の攻撃が35%上昇(範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -113361,7 +123185,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) シノン城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -113465,13 +123291,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -113507,14 +123327,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -113634,7 +123447,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 大洲の下台所（使用まで40秒：消費気7）",
     "text": "30秒間範囲内の城娘の防御が50 回復が3倍上昇(範囲:大[200])",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -113745,13 +123560,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -113783,14 +123592,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -113938,7 +123740,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) 津城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -114086,7 +123890,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 新宮城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -114102,13 +123908,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 新宮城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 幻惑の黒兎 （使用まで30秒：消費気3：青配置）",
     "text": "攻撃をしない伏兵を配置(3体)伏兵の射程内の敵の移動 速度60%、防御300低下、被ダメ40%上昇。伏兵射程内に [幼き]城娘が配置中、伏兵が攻撃対象にならない",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -114230,7 +124040,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 兜は外、城娘は内 （使用まで20秒：消費気3）",
     "text": "範囲内の敵に攻撃の0.5倍のダメージを3連続で与え 敵を少しだけ後退させる(範囲:特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -114381,7 +124193,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30%(1.3倍) 天童城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -114525,13 +124339,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 黒船迎撃 （使用まで40秒：消費気5）",
     "text": "5秒間対象の射程内の敵が後退し続ける (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 異国船打払令 （使用まで25秒：消費気3）",
     "text": "5秒間対象の射程内の敵の射程が70%減少し 後退し続ける (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 25,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -114720,7 +124538,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 スピシュ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -114870,7 +124690,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+33% 郡上八幡城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -115011,7 +124833,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20 近江八幡城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -115115,13 +124939,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -115157,14 +124975,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -115313,7 +125124,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 長谷堂ころり観音 （使用まで50秒：消費気5）",
     "text": "範囲内の対象が受けるダメージを合計3000まで防ぐ (殿/城娘/伏兵/蔵が対象。効果時間無限) (範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -115442,13 +125255,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -115518,14 +125325,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -115639,13 +125439,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 雪火図説 （使用まで50秒：消費気5）",
     "text": "【火属性】範囲内の敵に攻撃の2倍のダメージを与え 3秒間動きを封じる(範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 続・雪火図説 （使用まで40秒：消費気5）",
     "text": "【火属性】範囲内の敵に攻撃の2.5倍のダメージを与え 3秒間動きを封じる(範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -115786,7 +125590,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) 岩村城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -115980,7 +125786,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% マルクスブルク城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -115996,7 +125804,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% マルクスブルク城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -116136,7 +125946,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% 麗江古城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -116266,7 +126078,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 良将は戦わずして勝つ （使用まで50秒：消費気5）",
     "text": "【火属性】範囲内の敵に攻撃の2.5倍のダメージを与え 5秒間敵が後退し続ける(範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -116417,7 +126231,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30 松坂城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -116597,7 +126413,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30 今帰仁城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -116768,7 +126586,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 百地丹波城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -116933,7 +126753,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 フレデリクスボー城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -117124,7 +126946,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 甘崎城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -117140,7 +126964,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 甘崎城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -117271,7 +127097,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 皇帝の冠（使用まで45秒：消費気5）",
     "text": "30秒間範囲内の敵の攻撃速度が40%低下 攻撃後の隙が40%延長(範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -117441,16 +127269,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / 西洋軍学の対砲撃戦 （使用まで60秒：消費気10）",
     "text": "対象の特技が発動、巨大化気が25%軽減 対象の最大化時、特技の爆風範囲と爆風ダメージ 上昇効果が1.5倍(効果時間無限。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -117551,13 +127375,7 @@ window.SCRE_DATA = [
    "text": "自身の耐久が50%、回復が100上昇 攻撃時に耐久が与ダメージの25%回復 攻撃した敵の攻撃が5秒間40%低下",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -117579,14 +127397,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -117737,7 +127548,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 名胡桃城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -117753,7 +127566,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 名胡桃城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -117887,13 +127702,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 千人殺しの石垣 （使用まで60秒：消費気7）",
     "text": "範囲内の敵に攻撃の2.5倍のダメージを与え 5秒間移動速度が90%、攻撃速度が50%低下 (範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 千人殺しの大石垣 （使用まで50秒：消費気5）",
     "text": "範囲内の敵に攻撃の4倍のダメージを与え 5秒間移動速度が90%、攻撃速度が50%低下 (範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -118044,7 +127863,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 豊穣の福犬 （使用まで40秒：消費気5：赤青配置）",
     "text": "攻撃をしない伏兵を配置(1体まで) 配置中殿の回復が50上昇。伏兵の射程(400)内 の城娘と殿の回復が4倍。最長25秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -118185,7 +128006,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 正道高志 （使用まで35秒：消費気5）",
     "text": "25秒間対象の城娘の足止め数が3増加 耐久が30%回復",
-    "effects": []
+    "effects": [],
+    "cooldown": 35,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -118349,7 +128172,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 スフォルツェスコ城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    },
    {
     "stage": "改弐",
@@ -118365,7 +128190,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 スフォルツェスコ城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -118515,7 +128342,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 夏至南風（使用まで45秒：消費気3）",
     "text": "範囲内の敵を後退させる (範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -118676,7 +128505,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) ［夏］富山城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -118827,7 +128658,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 古太神 （使用まで60秒：消費気7:赤青配置）",
     "text": "敵から狙われず、射程(300)内の全ての敵を攻撃する 伏兵を配置。攻撃した敵の移動速度が3秒間 90%低下、攻撃速度が50%低下。最長25秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -118978,7 +128811,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 御主殿の滝 （使用まで50秒：消費気7）",
     "text": "範囲内の敵の攻撃と防御が20秒間30%と100低下 (範囲:中)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -119129,7 +128964,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 古橋の猿鏡 （使用まで60秒：消費気7：赤青配置）",
     "text": "攻撃をしない伏兵を配置 伏兵の射程(280)内の城娘の被攻撃時に敵の攻撃 の15%をダメージとして反射。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -119299,7 +129136,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40 阿波一宮城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -119450,7 +129289,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ハロウィン・リーゼ （使用まで60秒：消費気10：赤配置）",
     "text": "敵2体を攻撃し、敵1体を足止めする伏兵を配置 配置中、自身の足止め数を1増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -119620,7 +129461,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 レーヴェンブルク城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -119767,7 +129610,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) 駿河田中城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -119783,7 +129628,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) 駿河田中城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -119955,7 +129802,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ドーヴァー城・計略"
      }
-    ]
+    ],
+    "cooldown": 35,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -120125,7 +129974,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% 新発田城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -120296,7 +130147,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% 岸和田城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -120494,7 +130347,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 ［聖夜］エステンセ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -120705,7 +130560,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 置塩城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -120721,7 +130578,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 置塩城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -120872,7 +130731,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 鉄狛招福 （使用まで50秒：消費気7：赤配置）",
     "text": "敵1体に術攻撃を行う伏兵を配置 攻撃した敵の移動速度が2秒間60%低下",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -121023,7 +130884,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% ［正月］柳川城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -121212,7 +131075,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% 魚津城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -121366,7 +131231,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / カカオあらし （使用まで50秒：消費気7）",
     "text": "25秒間対象が味方よりも優先して狙われるようになる 与ダメージと範囲攻撃の範囲が1.5倍(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -121518,7 +131385,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ちょこ尺玉 （使用まで45秒：消費気5）",
     "text": "範囲内の敵に攻撃の3倍のダメージを与え 移動速度が5秒間100%低下(範囲:特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -121619,13 +131488,7 @@ window.SCRE_DATA = [
    "text": "全ての城娘の攻撃が150、射程が50上昇 射程内の[古代城柵]の攻撃と攻撃速度が 30%上昇(効果重複)、敵の防御を75%無視",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -121667,14 +131530,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -121882,13 +131738,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 無形の位 （使用まで60秒：消費気7）",
     "text": "40秒間対象の攻撃対象が1になり 被攻撃時に攻撃と防御が20ずつ上昇(上限200) 対象の攻撃の120%で反撃(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 無形の位・活 （使用まで60秒：消費気7）",
     "text": "60秒間対象の攻撃対象が1になり、優先攻撃対象になる 被攻撃時に攻撃と防御が100ずつ上昇(上限3000) 対象の攻撃の150%で反撃(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -122059,7 +131919,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% 足利学校・計略"
      }
-    ]
+    ],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -122210,7 +132072,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 因幡の若桜 （使用まで60秒：消費気5）",
     "text": "攻撃をしない伏兵を配置(1体まで) 敵5体を足止めできる 伏兵の被攻撃時、耐久が1のみ減少",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -122382,7 +132246,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+1 栗橋城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -122524,7 +132390,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) カステル・ヴェッキオ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -122644,7 +132512,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 虜囚の井戸 （使用まで15秒：消費気0） 初期使用可能数1",
     "text": "範囲内の敵に攻撃の1倍のダメージを与え 攻撃と移動速度が10秒間30%低下(範囲:中) 巨大化する度に計略の使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -122814,7 +132684,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70 湯築城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -122965,7 +132837,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 高鍋城・計略"
      }
-    ]
+    ],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -123116,7 +132990,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / リンディスファーンの福音書 （使用まで60秒：消費気5）",
     "text": "40秒間対象の攻撃速度が1.5倍 射程内の敵を撃破した時に追加で気が1増加 (同種効果の重複なし)(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -123266,7 +133142,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 最上八婚 （使用まで60秒：消費気5）",
     "text": "10秒間範囲内の城娘の 計略使用までの時間が60%短縮 (範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -123455,7 +133333,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 ［花嫁衣装］アイリーン・ドナン城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -123625,7 +133505,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40 ［夏］甘崎城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -123814,7 +133696,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 ［夏］柳川城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -123955,7 +133839,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 海遊の般若 （使用まで30秒：消費気3：赤青水配置）",
     "text": "自身の3倍の攻撃で敵1体とその周囲を 攻撃し大きく後退させる伏兵を配置 攻撃で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -124096,7 +133982,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 天王石 （使用まで50秒：消費気5）",
     "text": "20秒間範囲内の敵の攻撃速度が40%低下 (範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -124248,7 +134136,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 臥龍桜 （使用まで50秒：消費気5：赤青水配置）",
     "text": "城娘1体を回復する伏兵を配置(2体まで。 消費気3で水上移動可能)水上マス配置時 伏兵の攻撃が上昇。回復対象が1増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -124419,7 +134309,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［肝試し］三木城・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -124554,13 +134446,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 忍術応義傅 （使用まで50秒：消費気5）",
     "text": "25秒間対象が3連続で攻撃を行う 攻撃対象が1減少 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 望月の駒 （使用まで45秒：消費気5）",
     "text": "30秒間対象が3連続で攻撃を行う 攻撃対象が1減少 (投剣城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -124724,7 +134620,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+15% プファルツ城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -124875,7 +134773,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 大津籠城合戦 （使用まで60秒：消費気7）",
     "text": "50秒間対象の足止め数が2増加 被攻撃時に攻撃と防御が5%ずつ 上昇(上限50%)(近接城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -125016,7 +134916,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 ［お月見］備中高松城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -125187,7 +135089,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［ハロウィン］平遥古城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -125362,7 +135266,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) リープ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -125562,7 +135468,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+140%(2.4倍) 大野城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -125578,7 +135486,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+200%(3.0倍) 大野城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -125722,7 +135632,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / エトワール・ド・ノエル （使用まで60秒：消費気5）",
     "text": "30秒間対象の攻撃速度が1.5倍 射程内の敵1体につき攻撃後の隙が10%ずつ短縮 (上限80%。自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -125893,7 +135805,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 花巻城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -126044,7 +135958,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20 ［正月］一条小山城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -126224,7 +136140,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 風魔党乱破 （使用まで60秒：消費気7：赤青配置）",
     "text": "自身の0.8倍の耐久、攻撃、防御で 敵3体に攻撃する伏兵を配置。時間経過で 耐久が減少し、最長60秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -126242,7 +136160,9 @@ window.SCRE_DATA = [
       "raw": "+200%(3.0倍) [伏兵の耐久が30%以下] 飯沼城・計略",
       "condition": "伏兵の耐久が30%以下"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -126404,7 +136324,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 愛の与板打刃物 （使用まで50秒：消費気7）",
     "text": "30秒間対象が攻撃した敵は5秒間攻撃が30% 攻撃速度が30%低下、攻撃後の隙が30%延長 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -126549,7 +136471,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 堤上の朱槍 （使用まで45秒：消費気7）",
     "text": "30秒間対象の武器攻撃の貫通距離が1.5倍 敵の防御を40%無視する (槍城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -126725,7 +136649,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% ムーア城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -126882,7 +136808,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / カルパティアの真珠 （使用まで15秒：消費気0） 初期使用可能数1",
     "text": "範囲内の敵に攻撃の1.5倍のダメージを与え 10秒間攻撃後の隙が40%延長(範囲:中) 巨大化する度に計略の使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -127032,7 +136960,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 魔球・ドラゴンゲイル （使用まで60秒：消費気7:青配置）",
     "text": "敵1体に攻撃を行う伏兵を配置（1体まで） 攻撃した敵を少し後退させる",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -127203,7 +137133,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+200 宇佐山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -127360,7 +137292,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 塔の火竜 （使用まで60秒：消費気10：赤青配置）",
     "text": "敵2体に攻撃を行う伏兵を配置(1体まで) 配置中自身の特殊攻撃ゲージの蓄積量が15%上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -127512,7 +137446,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 新波止祝砲台 （使用まで50秒：消費気7）",
     "text": "25秒間対象の攻撃対象が1増加 攻撃後の隙が20%延長(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -127528,7 +137464,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［花嫁衣装］鹿児島城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -127700,7 +137638,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［夏］三原城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -127871,7 +137811,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) ［肝試し］前橋城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 12
    }
   ],
   "allSpecials": [],
@@ -127960,9 +137902,9 @@ window.SCRE_DATA = [
    }
   },
   "skill": {
-   "stage": "改壱",
-   "name": "[改壱] / 赤碧玉の岩崖",
-   "text": "自身の攻撃が25%、射程が10上昇 攻撃した敵の移動速度が2秒間30%低下",
+   "stage": "無印",
+   "name": "[無印] / 悲恋のソレステ",
+   "text": "大破時に射程内の敵の移動速度が10秒間60%低下 敵味方問わず最も近い対象を攻撃させる",
    "effects": []
   },
   "strategy": {
@@ -128005,6 +137947,12 @@ window.SCRE_DATA = [
     "name": "[改壱] / 赤碧玉の岩崖",
     "text": "自身の攻撃が25%、射程が10上昇 攻撃した敵の移動速度が2秒間30%低下",
     "effects": []
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 悲恋のソレステ",
+    "text": "大破時に射程内の敵の移動速度が10秒間60%低下 敵味方問わず最も近い対象を攻撃させる",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -128022,7 +137970,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+120 バルディ城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -128103,20 +138053,10 @@ window.SCRE_DATA = [
    }
   },
   "skill": {
-   "stage": "改壱",
-   "name": "[改壱] / ラムリーズインベントリ",
-   "text": "自身の防御が25%上昇 全城娘の計略使用までの時間が15%短縮",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "defPercent",
-     "mode": "percent",
-     "value": 25,
-     "target": "self",
-     "stackable": false,
-     "raw": "+25% ラムリー城・特技"
-    }
-   ]
+   "stage": "無印",
+   "name": "[無印] / レディ・リリーの怨念",
+   "text": "大破時に射程内全ての敵に攻撃の1.5倍のダメージを与え 後退させ移動速度を10秒間70%低下",
+   "effects": []
   },
   "strategy": {
    "name": "[無印] / ゴースト・オブ・ラムリー （使用まで60秒：消費気7）",
@@ -128158,6 +138098,12 @@ window.SCRE_DATA = [
       "raw": "+25% ラムリー城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / レディ・リリーの怨念",
+    "text": "大破時に射程内全ての敵に攻撃の1.5倍のダメージを与え 後退させ移動速度を10秒間70%低下",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -128165,7 +138111,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ゴースト・オブ・ラムリー （使用まで60秒：消費気7）",
     "text": "20秒間対象の攻撃と攻撃速度が1.5倍 防御が0になり、現在耐久が60%低下 （自分のみが対象）",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -128305,7 +138253,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) トルツェルツ城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -128448,7 +138398,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 黒パン布教の祝夜 （使用まで60秒：消費気7）",
     "text": "30秒間対象の足止め数が2増加 受けるダメージを合計3000まで防ぐ (殿/城娘/伏兵/蔵が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -128620,7 +138572,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［聖夜］坂戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -128645,7 +138599,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［聖夜］坂戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -128814,7 +138770,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 泰平祈願・松例祭 （使用まで50秒：消費気5）",
     "text": "30秒間対象の攻撃速度が1.5倍 発動時に対象の射程内の城娘の耐久が20%回復 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -128991,7 +138949,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% フリント城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -129168,7 +139128,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% ［バレンタイン］盛岡城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -129343,7 +139305,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 新納石城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改弐",
@@ -129359,7 +139323,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% 新納石城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -129510,7 +139476,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 天雲の海 （使用まで30秒：消費気0） 初期使用回数1",
     "text": "範囲内の敵の射程を15秒間30%低下させる 範囲内の城娘が15秒間敵から狙われない 巨大化毎に計略使用回数が1増加(範囲：大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -129662,7 +139630,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 戦術：特攻！ （使用まで50秒：消費気7）",
     "text": "20秒間対象の攻撃速度が3倍 防御と回復が0になり、味方よりも優先して 狙われるようになる(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -129856,7 +139826,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 アルモウロル城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -130038,7 +140010,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% ［花嫁衣装］リープ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -130233,7 +140207,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) ［夏］唐津城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -130369,13 +140345,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 夏宵の河童霊 （使用まで40秒：消費気3：赤青配置）",
     "text": "敵から狙われず、自身の2倍の攻撃で敵1体に 術ダメージを与え5秒間移動速度を70%低下 させる伏兵を配置。攻撃時に消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 夏夜の河童霊 （使用まで30秒：消費気3：赤青配置）",
     "text": "敵から狙われず、自身の2.5倍の攻撃で敵1体に 術ダメージを与え5秒間移動速度を70%低下 させる伏兵を配置。攻撃時に消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -130457,20 +140437,10 @@ window.SCRE_DATA = [
    }
   },
   "skill": {
-   "stage": "改壱",
-   "name": "[改壱] / 育霊神社奥の院",
-   "text": "自身の射程が20上昇 計略再使用までの時間が25%短縮 自身の伏兵の攻撃が25%上昇",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "atkPercent",
-     "mode": "percent",
-     "value": 25,
-     "target": "self",
-     "stackable": false,
-     "raw": "+25% 育野城・特技"
-    }
-   ]
+   "stage": "無印",
+   "name": "[無印] / 丑の刻参り",
+   "text": "大破時に射程内全ての敵が優先攻撃対象になり 防御を永続で30%低下させる",
+   "effects": []
   },
   "strategy": {
    "name": "[無印] / 猫に九生あり （使用まで40秒：消費気7：赤青配置）",
@@ -130512,6 +140482,12 @@ window.SCRE_DATA = [
       "raw": "+25% 育野城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 丑の刻参り",
+    "text": "大破時に射程内全ての敵が優先攻撃対象になり 防御を永続で30%低下させる",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -130519,7 +140495,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 猫に九生あり （使用まで40秒：消費気7：赤青配置）",
     "text": "敵から狙われず、自身の1倍の攻撃で射程内の 全ての敵と城娘に継続的に術ダメージを与える 伏兵を配置。最長30秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -130648,13 +140626,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / トリック・オア・コンウィ （使用まで60秒：消費気5）",
     "text": "10秒間対象の被ダメージが2倍 被攻撃時に敵の攻撃の50%をダメージとして反射 ダメージを配置中の城娘全員で分割して受ける",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / トリート・オア・コンウィ （使用まで60秒：消費気5）",
     "text": "15秒間対象の被ダメージが2倍 被攻撃時に敵の攻撃の60%をダメージとして反射 ダメージを配置中の城娘全員で分割して受ける",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -130788,13 +140770,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ジャンジャン氷 （使用まで60秒：消費気7）",
     "text": "範囲内の敵に攻撃の2倍の術ダメージを与え 15秒間「氷結」にする(範囲：中)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / ジャンジャン氷結 （使用まで55秒：消費気7）",
     "text": "範囲内の敵に攻撃の2.5倍の術ダメージを与え 15秒間「氷結」にする(範囲：中)",
-    "effects": []
+    "effects": [],
+    "cooldown": 55,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -130950,7 +140936,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 聖炎祈祷 （使用まで60秒：消費気10）",
     "text": "【火属性】範囲内の敵に攻撃の3倍のダメージを与え 4秒間「火傷」にする(範囲：小)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -131043,7 +141031,13 @@ window.SCRE_DATA = [
    "text": "射程内の城娘の耐久が700、防御が15%上昇 [正月]城娘の攻撃が60上昇",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 大福茶・花びら餅 （使用まで50秒：消費気5）",
+   "text": "【火属性】範囲内の敵に攻撃の5倍の ダメージを与える。(範囲：小)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -131069,7 +141063,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 大福茶・花びら餅 （使用まで50秒：消費気5）",
+    "text": "【火属性】範囲内の敵に攻撃の5倍の ダメージを与える。(範囲：小)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 大福茶・常盤饅頭 （使用まで50秒：消費気7）",
+    "text": "【火属性】範囲内の敵に攻撃の2.5倍の ダメージを与える。(範囲：特大)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -131171,7 +141182,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 恋の大高坂山 （使用まで50秒：消費気5）",
+   "text": "20秒間範囲内の対象の回復が5倍 被ダメージを30%、[バレンタイン]城娘は50%軽減 (範囲:大)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -131207,7 +141224,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 恋の大高坂山 （使用まで50秒：消費気5）",
+    "text": "20秒間範囲内の対象の回復が5倍 被ダメージを30%、[バレンタイン]城娘は50%軽減 (範囲:大)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -131309,7 +141335,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 鮭のお裾分け （使用まで50秒：消費気5）",
+   "text": "30秒間対象の防御と回復が250上昇",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "recoveryFlat",
+     "mode": "flat",
+     "value": 250,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+250 鮭延城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 鮭延武勇",
@@ -131350,7 +141392,26 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 鮭のお裾分け （使用まで50秒：消費気5）",
+    "text": "30秒間対象の防御と回復が250上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 250,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+250 鮭延城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -131449,7 +141510,23 @@ window.SCRE_DATA = [
    "text": "【配置】射程内の城娘の攻撃後の隙を15%短縮 【鼓舞】自身の耐久と攻撃の30%の値を 射程内の城娘に加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 緑化山霊 （使用まで60秒：消費気7）",
+   "text": "40秒間対象の射程が1.2倍、鼓舞効果が1.4倍 近接城娘には鼓舞効果が1.8倍(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20%(1.2倍) 石動山城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -131465,7 +141542,26 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 緑化山霊 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の射程が1.2倍、鼓舞効果が1.4倍 近接城娘には鼓舞効果が1.8倍(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) 石動山城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -131567,7 +141663,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / へしこでげんき！ （使用まで30秒：消費気5）",
+   "text": "20秒間対象の射程と攻撃が80上昇",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80 杣山城・計略"
+    }
+   ],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 駒返し斬り",
@@ -131618,7 +141730,26 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / へしこでげんき！ （使用まで30秒：消費気5）",
+    "text": "20秒間対象の射程と攻撃が80上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 杣山城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -131727,7 +141858,13 @@ window.SCRE_DATA = [
    "text": "【配置】射程内敵全てに40秒毎に自身の攻撃の 4倍のダメージを与える。【鼓舞】自身の 防御と攻撃の30%の値を射程内の城娘に加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 大波ヒヤー （使用まで50秒：消費気5）",
+   "text": "範囲内の敵に攻撃の2倍のダメージを与え 敵を大きく後退させ移動速度を 20秒間30%低下させる(範囲：中)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -131743,7 +141880,16 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 大波ヒヤー （使用まで50秒：消費気5）",
+    "text": "範囲内の敵に攻撃の2倍のダメージを与え 敵を大きく後退させ移動速度を 20秒間30%低下させる(範囲：中)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -131845,7 +141991,32 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / ぽんぽこ応援団 （使用まで50秒：消費気7：青配置）",
+   "text": "攻撃をしない伏兵を配置 射程内の城娘の攻撃と防御が40上昇 [学園]城娘は60上昇",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40 ［学園］阿波一宮城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40 ［学園］阿波一宮城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -131881,7 +142052,35 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ぽんぽこ応援団 （使用まで50秒：消費気7：青配置）",
+    "text": "攻撃をしない伏兵を配置 射程内の城娘の攻撃と防御が40上昇 [学園]城娘は60上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40 ［学園］阿波一宮城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40 ［学園］阿波一宮城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -131973,7 +142172,23 @@ window.SCRE_DATA = [
    "text": "【配置】射程内の城娘の計略再使用時間を25%短縮 【鼓舞】自身の耐久と防御の30%の値を 射程内の城娘に加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 激情荒波割り （使用まで50秒：消費気7）",
+   "text": "30秒間対象の防御が1.5倍 射程内の鼓舞対象の攻撃に自身の防御の 30%の値を加算(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50%(1.5倍) 荒神城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -131989,7 +142204,26 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 激情荒波割り （使用まで50秒：消費気7）",
+    "text": "30秒間対象の防御が1.5倍 射程内の鼓舞対象の攻撃に自身の防御の 30%の値を加算(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 荒神城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "愛媛県"
@@ -132084,7 +142318,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 真愛求婚 （使用まで35秒：消費気3）",
+   "text": "40秒間対象の回復と防御が500上昇 計略使用毎に上昇値が100低下(4回まで)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 500,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+500 ［花嫁衣装］千代城・計略"
+    }
+   ],
+   "cooldown": 35,
+   "cost": 3
+  },
   "special": null,
   "allSkills": [
    {
@@ -132120,7 +142370,26 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 真愛求婚 （使用まで35秒：消費気3）",
+    "text": "40秒間対象の回復と防御が500上昇 計略使用毎に上昇値が100低下(4回まで)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 500,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+500 ［花嫁衣装］千代城・計略"
+     }
+    ],
+    "cooldown": 35,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -132153,10 +142422,17 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/769feabd15b20c0d49af81dd0d8ed9f1c88b0ace",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf7a1f834548c91f79b8bc3b8f6ecd8e99962bf3",
   "remodelStages": [
-   "無印"
+   "無印",
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/22cfb0f5638e9b27c89aa9ccd663cf3f71f2daa1",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/03ea957076ca007ee06aa2ba5b4551fdbe2dc9c4",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/769feabd15b20c0d49af81dd0d8ed9f1c88b0ace",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/bf7a1f834548c91f79b8bc3b8f6ecd8e99962bf3"
+   },
+   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/22cfb0f5638e9b27c89aa9ccd663cf3f71f2daa1",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/03ea957076ca007ee06aa2ba5b4551fdbe2dc9c4",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/769feabd15b20c0d49af81dd0d8ed9f1c88b0ace",
@@ -132215,7 +142491,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 遊泳関税 （使用まで50秒：消費気5）",
+   "text": "30秒間対象の射程内の敵の攻撃と移動速度が30%低下 海洋兜は50%低下(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30% ［夏］上関城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -132235,7 +142527,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 浜辺の関所 （使用まで50秒：消費気7）",
+    "text": "25秒間対象の射程内の敵の攻撃と 移動速度が30%低下 海洋兜は50%低下(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% ［夏］上関城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 遊泳関税 （使用まで50秒：消費気5）",
+    "text": "30秒間対象の射程内の敵の攻撃と移動速度が30%低下 海洋兜は50%低下(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% ［夏］上関城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "山口県"
@@ -132320,7 +142649,23 @@ window.SCRE_DATA = [
    "text": "【配置】射程内の城娘の攻撃後の隙を15%短縮 【鼓舞】自身の防御と攻撃の30%の値を 射程内の城娘に加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / とどめの3度目 （使用まで50秒：消費気7）",
+   "text": "30秒間対象の射程が1.2倍、鼓舞効果が1.5倍 計略の使用回数が3回目以降は射程内の 妖怪の被ダメージが50%上昇(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20%(1.2倍) 下館城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -132336,7 +142681,26 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / とどめの3度目 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程が1.2倍、鼓舞効果が1.5倍 計略の使用回数が3回目以降は射程内の 妖怪の被ダメージが50%上昇(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) 下館城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -132438,7 +142802,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 不動十一面観音 （使用まで60秒：消費気10）",
+   "text": "25秒間対象の攻撃に防御の0.5倍の値を加算する 被攻撃時に1倍のダメージを与える反撃を行う (自分のみが対象)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 10
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 不退の願い",
@@ -132479,7 +142849,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 不動十一面観音 （使用まで60秒：消費気10）",
+    "text": "25秒間対象の攻撃に防御の0.5倍の値を加算する 被攻撃時に1倍のダメージを与える反撃を行う (自分のみが対象)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -132588,7 +142967,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 松田の赤鬼 （使用まで50秒：消費気7：赤青配置）",
+   "text": "敵から狙われず攻撃をしない伏兵を配置 射程内の[肝試し]城娘の 攻撃と防御を100上昇(最長70秒で消滅)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -132624,7 +143009,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 松田の赤鬼 （使用まで50秒：消費気7：赤青配置）",
+    "text": "敵から狙われず攻撃をしない伏兵を配置 射程内の[肝試し]城娘の 攻撃と防御を100上昇(最長70秒で消滅)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -132717,7 +143111,23 @@ window.SCRE_DATA = [
    "text": "【配置】射程内の城娘の攻撃速度を20%上昇 【鼓舞】自身の防御と攻撃の25%の値を 射程内の城娘に加算、遠隔城娘は更に10%加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 琵琶聖域の加護 （使用まで50秒：消費気10）",
+   "text": "25秒間対象の攻撃と鼓舞効果が1.4倍 射程内の城娘の攻撃後の隙が40%短縮(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40% 大溝城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -132733,7 +143143,26 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 琵琶聖域の加護 （使用まで50秒：消費気10）",
+    "text": "25秒間対象の攻撃と鼓舞効果が1.4倍 射程内の城娘の攻撃後の隙が40%短縮(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% 大溝城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -132766,10 +143195,17 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/32c1c2f35aed50a2a356438d4d1873f24926ac82",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c5e88ec7a074367ea27fa7253ebadf1ded6b0bd",
   "remodelStages": [
-   "無印"
+   "無印",
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6f420823f3296a4657c8a8d5725cd3c25dd4c3f6",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b8cbaf9e2b658447ec32832584e096c065952f8",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/32c1c2f35aed50a2a356438d4d1873f24926ac82",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2c5e88ec7a074367ea27fa7253ebadf1ded6b0bd"
+   },
+   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/6f420823f3296a4657c8a8d5725cd3c25dd4c3f6",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5b8cbaf9e2b658447ec32832584e096c065952f8",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/32c1c2f35aed50a2a356438d4d1873f24926ac82",
@@ -132828,7 +143264,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 茶ノ道・利休七哲 （使用まで50秒：消費気5）",
+   "text": "30秒間対象の防御と回復が150上昇 自身の攻撃に防御の30%の値を加算 (自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "recoveryFlat",
+     "mode": "flat",
+     "value": 150,
+     "target": "self",
+     "stackable": false,
+     "raw": "+150 八代城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 茶武両道の極",
@@ -132853,7 +143305,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 茶ノ道・二天一流 （使用まで50秒：消費気7）",
+    "text": "25秒間対象の防御と回復が150上昇 自身の攻撃に防御の30%の値を加算 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "self",
+      "stackable": false,
+      "raw": "+150 八代城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 茶ノ道・利休七哲 （使用まで50秒：消費気5）",
+    "text": "30秒間対象の防御と回復が150上昇 自身の攻撃に防御の30%の値を加算 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "self",
+      "stackable": false,
+      "raw": "+150 八代城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -132962,7 +143451,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 縣神楽 （使用まで50秒：消費気5）",
+   "text": "30秒間対象の与ダメージが40%上昇 敵撃破時の獲得気が1増加 (同種効果の重複無し。近接城娘が対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealt",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% 縣城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 天下一閃",
@@ -133003,7 +143508,26 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 縣神楽 （使用まで50秒：消費気5）",
+    "text": "30秒間対象の与ダメージが40%上昇 敵撃破時の獲得気が1増加 (同種効果の重複無し。近接城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% 縣城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -133037,10 +143561,17 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dc5cfac4d690801397b94886a7eb25d47090dd4c",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f7f836ee50b9f66253df2248e1a7e073f625c091",
   "remodelStages": [
-   "無印"
+   "無印",
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1ce159867b7bb2edf5fd685aa687a985d3fe9e44",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9450c5e51f58c46f4608e0615d0284e3b3090402",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dc5cfac4d690801397b94886a7eb25d47090dd4c",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f7f836ee50b9f66253df2248e1a7e073f625c091"
+   },
+   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1ce159867b7bb2edf5fd685aa687a985d3fe9e44",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9450c5e51f58c46f4608e0615d0284e3b3090402",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dc5cfac4d690801397b94886a7eb25d47090dd4c",
@@ -133085,21 +143616,17 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "無印",
-   "name": "[無印] / 共謀誅殺",
-   "text": "自身の攻撃後の隙が20%短縮 与ダメージが15%上昇",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "dmgDealt",
-     "mode": "percent",
-     "value": 15,
-     "target": "self",
-     "stackable": false,
-     "raw": "+15% 米子城・特技"
-    }
-   ]
+   "name": "[無印] / 若年嫉妬",
+   "text": "大破時に射程内全ての敵に 攻撃の3倍のダメージを与え 防御を10秒間50%低下させる",
+   "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 米子総滅亡 （使用まで45秒：消費気7）",
+   "text": "20秒間対象の攻撃対象が2増加 攻撃と攻撃速度が1.6倍。敵味方問わず 最も近い対象に攻撃を行う。(自分のみが対象)",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -133117,9 +143644,32 @@ window.SCRE_DATA = [
       "raw": "+15% 米子城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 若年嫉妬",
+    "text": "大破時に射程内全ての敵に 攻撃の3倍のダメージを与え 防御を10秒間50%低下させる",
+    "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 米子騒動 （使用まで45秒：消費気7）",
+    "text": "20秒間対象の攻撃対象が2増加 攻撃と攻撃速度が1.5倍。敵味方問わず 最も近い対象に攻撃を行う。(自分のみが対象)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 米子総滅亡 （使用まで45秒：消費気7）",
+    "text": "20秒間対象の攻撃対象が2増加 攻撃と攻撃速度が1.6倍。敵味方問わず 最も近い対象に攻撃を行う。(自分のみが対象)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -133221,7 +143771,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / ギリシャハニー （使用まで50秒：消費気5）",
+   "text": "範囲内の敵が20秒間優先攻撃対象になり 移動速度と攻撃速度が40%低下(範囲:大)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / ハニーヨーグルト",
@@ -133262,7 +143818,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ギリシャハニー （使用まで50秒：消費気5）",
+    "text": "範囲内の敵が20秒間優先攻撃対象になり 移動速度と攻撃速度が40%低下(範囲:大)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -133373,7 +143938,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / ドライ・トートゥガス （使用まで45秒：消費気5）",
+   "text": "30秒間特殊攻撃のゲージ蓄積量が1.5倍 特殊攻撃時、範囲攻撃の範囲が1.5倍 (自分のみが対象)",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 環海の銃眼",
@@ -133434,7 +144005,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ドライ・トートゥガス （使用まで45秒：消費気5）",
+    "text": "30秒間特殊攻撃のゲージ蓄積量が1.5倍 特殊攻撃時、範囲攻撃の範囲が1.5倍 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -133518,7 +144098,13 @@ window.SCRE_DATA = [
    "text": "射程内の城娘の回復が30、[聖夜]城娘は40上昇 射程内の敵の与ダメージが15%低下",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 聖夜の薬屋 （使用まで50秒：消費気5）",
+   "text": "20秒間対象の回復が5倍 対象の回復の1倍の値を攻撃に加算",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -133528,7 +144114,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 聖夜の薬屋 （使用まで50秒：消費気5）",
+    "text": "20秒間対象の回復が5倍 対象の回復の1倍の値を攻撃に加算",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 聖夜の薬師 （使用まで45秒：消費気5）",
+    "text": "20秒間対象の回復が6倍 対象の回復の1倍の値を攻撃に加算",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "熊本県"
@@ -133624,7 +144227,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 朝霜の桃弧棘矢 （使用まで40秒：消費気7）",
+   "text": "【雷属性】範囲内の敵に攻撃の3倍の 術ダメージを与え、2秒間動きを封じる(範囲:小)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -133661,7 +144270,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 朝霜の桃弧棘矢 （使用まで40秒：消費気7）",
+    "text": "【雷属性】範囲内の敵に攻撃の3倍の 術ダメージを与え、2秒間動きを封じる(範囲:小)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -133763,7 +144381,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 恋の蹴り上げチョコレート （使用まで50秒：消費気10）",
+   "text": "範囲内の敵に3倍のダメージを与え 5秒間移動速度を80%低下 範囲内の城娘と殿を攻撃の4倍で回復(範囲：大)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -133789,7 +144413,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 恋の蹴り上げチョコレート （使用まで50秒：消費気10）",
+    "text": "範囲内の敵に3倍のダメージを与え 5秒間移動速度を80%低下 範囲内の城娘と殿を攻撃の4倍で回復(範囲：大)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -133958,7 +144591,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［学園］菩提山城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -134129,7 +144764,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［学園］柳川城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -134281,7 +144918,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+90% ［幼き］小倉城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -134432,7 +145071,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ハンドモルチール （使用まで40秒：消費気5）",
     "text": "20秒間対象の砲弾直撃ボーナスが 100%に上昇、爆風範囲が2倍 射程が10%低下(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -134582,7 +145223,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 婚礼の〆うどん （使用まで50秒：消費気7）",
     "text": "範囲内の城娘と殿を攻撃の8倍の値で回復(範囲:中)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -134723,7 +145366,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 熱き不滅の村上水軍 （使用まで45秒：消費気7）",
     "text": "30秒間対象の射程内の敵の与ダメージが15%低下 初回計略使用時、射程内の城娘と舟が 10秒間大破しない(鉄砲城娘と軍船城娘のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -134845,7 +145490,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 落ちぬ武者 （使用まで50秒：消費気5）",
     "text": "対象への攻撃を自身が代わりに受ける (効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -134986,7 +145633,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+-40%(0.6倍) ［お月見］高松城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -135092,7 +145741,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 伝説の片鱗 （使用まで45秒：消費気10）",
+   "text": "30秒間対象の攻撃と特殊攻撃ゲージ蓄積速度が1.5倍 (自分のみが対象)",
+   "effects": [],
+   "cooldown": 45,
+   "cost": 10
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 突通る騎士の槍",
@@ -135151,7 +145806,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 伝説の片鱗 （使用まで45秒：消費気10）",
+    "text": "30秒間対象の攻撃と特殊攻撃ゲージ蓄積速度が1.5倍 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 10
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -135276,7 +145940,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 熱湯湯釜 （使用まで40秒：消費気10）",
     "text": "範囲内の敵に攻撃の3倍のダメージを与え 大きく後退させ、移動速度が5秒間90%低下 (範囲:小)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -135437,7 +146103,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 ［聖夜］品川台場・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -135606,7 +146274,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 憧憬の紅白牡丹 （使用まで60秒：消費気5）",
     "text": "30秒間射程内の城娘の敵撃破時の獲得気が1増加 (同種効果の重複なし)。射程内の敵の被ダメージが 25%上昇、妖怪は50%上昇(祓串城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -135804,7 +146474,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% ［正月］飯沼城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -135968,7 +146640,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% ［バレンタイン］コッヘム・ライヒスブルク城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -136128,7 +146802,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 開陽丸・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -136242,13 +146918,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 届け！わたしの五帖御文 （使用まで45秒：消費気5）",
     "text": "30秒間対象が攻撃した敵を少し後退させ 移動速度を3秒間50%低下 射程内城娘の攻撃を90上昇(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 説法☆JDO☆ハート （使用まで45秒：消費気5）",
     "text": "30秒間対象が攻撃した敵を少し後退させ 移動速度を3秒間60%低下 射程内城娘の攻撃を120上昇(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -136374,7 +147054,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 途上の城 （使用まで60秒：消費気7）",
     "text": "40秒間対象の特殊攻撃時、攻撃1.3倍(効果重複) 射程内の城娘の巨大化回数が少ないほど 巨大化気を軽減(最大50%/最小10%。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -136525,7 +147207,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / お仕置きの井戸掘り （使用まで60秒：消費気0）",
     "text": "範囲内の敵に攻撃の2倍のダメージを与え 10秒間攻撃速度50%低下、攻撃後の隙50%延長(範囲：大) 巨大化する度に計略の使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -136708,7 +147392,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 小田原城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -136733,7 +147419,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 小田原城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -136934,7 +147622,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% 佐和山城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -136950,7 +147640,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+35% 佐和山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -137122,13 +147814,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 礎石落とし （使用まで50秒：消費気7）",
     "text": "範囲内の敵に攻撃の3倍のダメージを与え 5秒間移動速度が90%、攻撃速度が50%低下 (範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 御罰 礎石落とし （使用まで30秒：消費気5）",
     "text": "範囲内の敵に攻撃の5倍のダメージを与え 5秒間移動速度が90%、攻撃速度が50%低下 (範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -137324,7 +148020,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% 首里城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 3
    },
    {
     "stage": "改弐",
@@ -137340,7 +148038,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 首里城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -137481,7 +148181,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 福知山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -137602,7 +148304,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 万雷（使用まで70秒：消費気7）",
     "text": "【雷属性】範囲内の敵に攻撃の2.5倍の 術ダメージを与える(範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 70,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -137746,13 +148450,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 火あぶりの刑 （使用まで45秒：消費気7）",
     "text": "【火属性】範囲内の敵に攻撃の3.5倍の ダメージを与える(範囲:大[200])",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 業火の刑 （使用まで45秒：消費気5）",
     "text": "【火属性】範囲内の敵に攻撃の6倍の ダメージを与え、7秒間「火傷」にする (範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -137900,7 +148608,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "BG[無印] / 八八式速射砲台 (使用まで45秒：消費気7：赤青配置)",
     "text": "敵3体を攻撃する伏兵を配置 時間経過で耐久が減少し、最長30秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -138054,13 +148764,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) 吉野ヶ里・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 高床大倉庫 （使用まで30秒：消費気5：赤青配置）",
     "text": "攻撃しない伏兵。伏兵の射程内の蔵の耐久と防御4倍 3000以下のダメージを無効化 配置中自身の攻撃と防御200上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -138164,13 +148878,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -138206,14 +148914,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -138385,13 +149086,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 銀虎 （使用まで60秒：消費気10：赤配置）",
     "text": "敵1体とその周囲を攻撃する伏兵を配置 伏兵の被攻撃時に伏兵の攻撃の100%で反撃",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 天銀虎 （使用まで40秒：消費気5：赤配置）",
     "text": "敵2体を足止めし、敵1体とその周囲を攻撃する伏兵を配置 伏兵の被攻撃時に攻撃200%で反撃。配置時、30秒間 自身と伏兵が術攻撃以外のダメージ80%軽減",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -138563,7 +149268,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印]",
     "text": "無し",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -138667,13 +149374,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -138709,14 +149410,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -138858,13 +149552,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 弘前ねぷた （使用まで60秒：消費気5：赤青配置）",
     "text": "敵1体を攻撃する伏兵を配置 伏兵の射程(350)内の城娘の計略使用までの 時間が40%短縮。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 弘前武者ねぷた （使用まで40秒：消費気5：赤青配置）",
     "text": "敵1体を攻撃する伏兵を配置。伏兵の射程(380)内の 城娘の計略使用までの時間が40%短縮。 配置中、全ての城娘の攻撃が80、射程が20上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -139005,7 +149703,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 道後温泉 （使用まで40秒：消費気7：赤青配置）",
     "text": "攻撃をしない伏兵を配置 伏兵の射程(400)内の城娘の回復が10倍 攻撃が100上昇。最長30秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -139140,13 +149840,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 浜松出世城 （使用まで40秒：消費気3）",
     "text": "対象の特技が発動。変位系は1段上が発動 最大化時特技など一部の効果は発動しない (最大化した城娘は対象外。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 浜松大出世城 （使用まで40秒：消費気3）",
     "text": "対象の巨大化気が2減少し特技が発動 変位系は1段上が発動。最大化時などの一部効果 は発動しない(最大化城娘は対象外。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -139359,7 +150063,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+120 宇和島城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -139384,7 +150090,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 宇和島城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -139505,7 +150213,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 大蛇霞 （使用まで50秒：消費気7：赤青配置）",
     "text": "敵1体とその周囲を5連続で攻撃する伏兵を配置 伏兵の砲弾直撃ボーナス20% 時間経過で耐久が減少し、最長30秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -139666,7 +150376,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 内城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -139818,16 +150530,12 @@ window.SCRE_DATA = [
   ],
   "allStrategies": [
    {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
     "stage": "改弐",
     "name": "[改弐] / トルンの平和条約 （使用まで60秒：消費気7）",
     "text": "30秒間対象の回復が500と20%上昇(効果重複) 術ダメージを100%軽減。射程内の敵の 攻撃速度が50%低下(盾城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -139954,19 +150662,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 眠りの森 （使用まで60秒：消費気7）",
     "text": "範囲内の敵に攻撃の2.5倍の術ダメージを与え 7秒間動きを封じる(範囲：超特大[400])",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 眠りの森の城 （使用まで50秒：消費気5）",
     "text": "範囲内の敵に攻撃の2.5倍の術ダメージを与え 7秒間動きを封じる(範囲：超特大[400])",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 眠りの森の目覚め （使用まで30秒：消費気3）",
     "text": "範囲内の敵に攻撃の3倍の術ダメージを与え 10秒間動きを封じる 永続で移動速度を25%低下(効果重複。範囲：超特大[400])",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -140116,7 +150830,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 表裏比興の者（使用まで30秒：消費気3）",
     "text": "30秒間対象が敵から狙われなくなる (城娘/伏兵/蔵が対象。足止め無効化)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -140319,7 +151035,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 聚楽城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -140344,7 +151062,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 聚楽城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -140490,7 +151210,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 白い夫人 （使用まで60秒：消費気7：青配置）",
     "text": "敵から狙われず敵1体に術攻撃を行う伏兵を配置",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -140506,7 +151228,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 シュノンソー城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -140609,13 +151333,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -140651,14 +151369,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -140751,13 +151462,7 @@ window.SCRE_DATA = [
    "text": "巨大化する度に射程内の敵の攻撃が40 与ダメージが5%、攻撃速度が8%低下 攻撃後の隙が6%延長",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -140773,14 +151478,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -140807,14 +151505,13 @@ window.SCRE_DATA = [
   "rangeKind": "近",
   "cost": 11,
   "illustFile": "亀田御役所土塁S.png",
-  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1adbd90fd99f5a544f8cf29895967979e94ededb",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/5f38e487216835a92597309b53904eaa3786f884",
   "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9c64fed2fc547ad28f2a98a000ffe6f058ff4c75",
-  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4801375be3ba2153437c4e23ba511cb6a41c652e",
-  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dc3200c41e3a7cbfa214dbeae032230a31474842",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/709c9a401d9d34ec05b682fd4174eacd17677e84",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e0997fb1e9d721ac12f0e7c5508a39c35361301",
   "remodelStages": [
    "無印",
-   "改壱",
-   "改弐"
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
@@ -140828,12 +151525,6 @@ window.SCRE_DATA = [
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9c64fed2fc547ad28f2a98a000ffe6f058ff4c75",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/709c9a401d9d34ec05b682fd4174eacd17677e84",
     "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0e0997fb1e9d721ac12f0e7c5508a39c35361301"
-   },
-   "改弐": {
-    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/1adbd90fd99f5a544f8cf29895967979e94ededb",
-    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/9c64fed2fc547ad28f2a98a000ffe6f058ff4c75",
-    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/4801375be3ba2153437c4e23ba511cb6a41c652e",
-    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/dc3200c41e3a7cbfa214dbeae032230a31474842"
    }
   },
   "illustrator": "&attachref(./亀田御役所土塁 入手.jpg",
@@ -140873,8 +151564,8 @@ window.SCRE_DATA = [
    }
   },
   "skill": {
-   "stage": "改弐",
-   "name": "[改弐] / 天然理心流・印可",
+   "stage": "改壱",
+   "name": "[改壱] / 天然理心流・印可",
    "text": "自身の計略消費気を3軽減、再使用時間50%短縮 自身と自身の伏兵の耐久と攻撃と攻撃速度が40%上昇 被ダメ50%軽減、射程内の自身の伏兵に対して効果1.5倍",
    "effects": [
     {
@@ -140940,8 +151631,8 @@ window.SCRE_DATA = [
     ]
    },
    {
-    "stage": "改弐",
-    "name": "[改弐] / 天然理心流・印可",
+    "stage": "改壱",
+    "name": "[改壱] / 天然理心流・印可",
     "text": "自身の計略消費気を3軽減、再使用時間50%短縮 自身と自身の伏兵の耐久と攻撃と攻撃速度が40%上昇 被ダメ50%軽減、射程内の自身の伏兵に対して効果1.5倍",
     "effects": [
      {
@@ -140961,7 +151652,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 誠の狼 （使用まで20秒：消費気5：赤配置）",
     "text": "敵2体を攻撃する伏兵を配置(4体まで) 波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 5
    },
    {
     "stage": "改壱",
@@ -140977,7 +151670,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 亀田御役所土塁・計略"
      }
-    ]
+    ],
+    "cooldown": 20,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -141142,7 +151837,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 大垣城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -141246,13 +151943,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -141288,14 +151979,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -141405,13 +152089,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -141456,14 +152134,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -141611,7 +152282,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ottagono（使用まで40秒：消費気5）",
     "text": "30秒間対象の範囲攻撃の範囲が2倍 敵撃破時の獲得気が1増加(近接城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -141804,7 +152477,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 髑髏の槍  （使用まで40秒：消費気7）",
     "text": "40秒間対象の射程内の敵の防御を50%低下 (近接城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -141820,7 +152495,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30%(1.3倍) 松江城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -142007,7 +152684,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 祭り囃子 （使用まで40秒：消費気7：赤青配置）",
     "text": "攻撃をしない伏兵を配置(5体まで) 伏兵の射程内の城娘の耐久が800 攻撃と防御が50、[夏]城娘は80上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -142128,7 +152807,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / さまーばけーしょん （使用まで40秒：消費気5）",
     "text": "20秒範囲内の敵の攻撃速度が80%低下 (範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -142259,7 +152940,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 天下泰嵐 （使用まで50秒：消費気5）",
     "text": "範囲内の敵に攻撃の2.5倍のダメージを与え 敵を大きく後退させる(範囲:大[200])",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -142372,32 +153055,31 @@ window.SCRE_DATA = [
    ]
   },
   "strategy": {
-   "name": "[無印] / 天神様の助勢 （使用まで45秒：消費気7）",
-   "text": "30秒間対象の射程が80上昇、耐久が 50%以上の敵に対して与えるダメージが1.4倍 攻撃対象が1増加(自分のみが対象)",
+   "name": "[改弐] / 高・天陣力 （使用まで45秒：消費気5）",
+   "text": "40秒間対象の射程が120上昇、耐久が50%以上の敵に 対して与えるダメージが1.7倍、攻撃対象が1増加、射程内 の敵の隠密を無効化(一部敵は対象外、自分のみ)",
    "effects": [
     {
      "source": "計略",
      "stat": "rangeFlat",
      "mode": "flat",
-     "value": 80,
+     "value": 120,
      "target": "inRange",
      "stackable": false,
-     "raw": "+80 高天神城・計略"
+     "raw": "+120 高天神城・計略"
     },
     {
      "source": "計略",
      "stat": "dmgDealtTarget",
      "mode": "percent",
-     "value": 40,
-     "multiplier": 1.4,
+     "value": 70,
+     "multiplier": 1.7,
      "target": "self",
      "stackable": true,
-     "raw": "+40%(1.4倍) [50%以上の敵] 高天神城・計略",
-     "condition": "50%以上の敵"
+     "raw": "+70%(1.7倍) 高天神城・計略"
     }
    ],
    "cooldown": 45,
-   "cost": 7
+   "cost": 5
   },
   "special": null,
   "allSkills": [
@@ -142457,7 +153139,55 @@ window.SCRE_DATA = [
       "raw": "+40%(1.4倍) [50%以上の敵] 高天神城・計略",
       "condition": "50%以上の敵"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 高・天陣力 （使用まで45秒：消費気5）",
+    "text": "40秒間対象の射程が120上昇、耐久が50%以上の敵に 対して与えるダメージが1.7倍、攻撃対象が1増加、射程内 の敵の隠密を無効化(一部敵は対象外、自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120 高天神城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 70,
+      "multiplier": 1.7,
+      "target": "self",
+      "stackable": true,
+      "raw": "+70%(1.7倍) 高天神城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 5
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 高・天陣眼 （使用まで10秒：消費気3）",
+    "text": "範囲内の敵が優先攻撃対象になり 10秒間防御が50%低下 (範囲：小)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 高天神城・計略"
+     }
+    ],
+    "cooldown": 10,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -142558,13 +153288,7 @@ window.SCRE_DATA = [
    "text": "巨大化する度に射程内の敵の攻撃と防御が60低下 与ダメージが10%低下、被ダメージが10%上昇 全ての敵の射程が6%低下",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -142586,14 +153310,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -142769,13 +153486,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / モンス・メグ （使用まで30秒：消費気5）",
     "text": "30秒間対象の攻撃速度が20%低下 砲弾直撃ボーナスが100%に上昇 爆風範囲が2倍(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 超重砲モンス・メグ （使用まで30秒：消費気5）",
     "text": "40秒間対象の攻撃速度が20%低下 砲弾直撃ボーナスが300%に上昇 爆風範囲2倍、与ダメージ1.5倍(大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -142885,13 +153606,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -142943,14 +153658,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -143068,13 +153776,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -143135,14 +153837,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -143291,7 +153986,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 道鬼流兵法（使用まで40秒：消費気5）",
     "text": "25秒間範囲内の敵の攻撃が35% 防御が100低下(範囲:大[200])",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -143449,13 +154146,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 鉄砲隊 （使用まで50秒：消費気10：青配置）",
     "text": "敵1体に3連続で攻撃し 少し後退させる伏兵を配置",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 火縄三千挺兵隊 （使用まで30秒：消費気5：青配置）",
     "text": "自身の攻撃の1.2倍で敵1体に3連続攻撃し少し後退させる 伏兵。伏兵が攻撃する度に10秒攻撃と攻撃速度が 10%ずつ上昇、攻撃後の隙が5%ずつ短縮(10回まで)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -143549,13 +154250,7 @@ window.SCRE_DATA = [
    "text": "巨大化する度に射程内の敵の 防御が45、移動速度が10%低下 被ダメージが5%上昇",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -143571,14 +154266,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -143746,7 +154434,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% 柳之御所・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -143847,13 +154537,7 @@ window.SCRE_DATA = [
    "text": "自身の耐久が50%、防御と回復が700上昇、被ダメージを 60%軽減(効果重複)。射程内の敵の与ダメージが50%低下 攻撃した敵の攻撃が5秒間60%低下",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -143875,14 +154559,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -144032,13 +154709,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / お菓子かいたずらか （使用まで50秒：消費気7：赤配置）",
     "text": "敵から狙われず、射程内の全ての敵を攻撃する 伏兵を配置(4体まで)。攻撃した敵の移動速度が 1.8秒間70%低下",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / トリック・オア・トリート （使用まで40秒：消費気5：赤配置）",
     "text": "敵から狙われず、射程内の全ての敵を攻撃する 伏兵を配置(4体まで)。攻撃した敵の移動速度が 1.8秒間70%低下。配置中の[ﾊﾛｳｨﾝ]の攻撃が80上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -144209,7 +154890,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% クロンボー城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -144360,7 +155043,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ゆがみ （使用まで60秒：消費気5）",
     "text": "範囲内の敵に攻撃の2.2倍のダメージを与え 20秒間射程が50%低下(範囲:特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -144464,13 +155149,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[改壱] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -144506,20 +155185,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   },
-   {
-    "stage": "改壱",
-    "name": "[改壱] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -144688,7 +155354,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 長門指月城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -144810,11 +155478,21 @@ window.SCRE_DATA = [
    ]
   },
   "strategy": {
-   "name": "[無印] / カルペパー・ガーデン （使用まで60秒：消費気7）",
-   "text": "範囲内の対象が受けるダメージを合計9000まで防ぐ (殿/城娘/伏兵/蔵が対象。効果時間無限) (範囲:大)",
-   "effects": [],
+   "name": "[改弐] / 貴族の庭園 （使用まで60秒：消費気5）",
+   "text": "範囲内の殿/城娘/伏兵/蔵が受けるダメージを 合計20000まで防ぎ、被ダメージを25%軽減 (効果時間無限。範囲:大)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% リーズ城・計略"
+    }
+   ],
    "cooldown": 60,
-   "cost": 7
+   "cost": 5
   },
   "special": null,
   "allSkills": [
@@ -144881,7 +155559,35 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / カルペパー・ガーデン （使用まで60秒：消費気7）",
     "text": "範囲内の対象が受けるダメージを合計9000まで防ぐ (殿/城娘/伏兵/蔵が対象。効果時間無限) (範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 貴族の庭園 （使用まで60秒：消費気5）",
+    "text": "範囲内の殿/城娘/伏兵/蔵が受けるダメージを 合計20000まで防ぎ、被ダメージを25%軽減 (効果時間無限。範囲:大)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% リーズ城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 王妃の庭園 （使用まで30秒：消費気5）",
+    "text": "30秒間対象が受けるダメージを合計40000まで防ぐ 味方よりも優先して狙われるようになる (自分のみが対象)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -145049,7 +155755,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% ウォリック城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -145074,7 +155782,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% ウォリック城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -145090,7 +155800,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ウォリック城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -145248,7 +155960,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 爆発！？壱億円お年玉 （使用まで30秒：消費気3：赤青配置）",
     "text": "3倍の攻撃で射程内の全敵を攻撃する伏兵 射程内に敵が入った3秒後発動、20秒間敵味方問わ ず最も近い対象を攻撃させる。攻撃で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -145352,13 +156066,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -145394,14 +156102,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -145571,7 +156272,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 水府城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -145587,7 +156290,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 水府城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -145708,19 +156413,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 海の守護神トリトン （使用まで70秒：消費気3：赤青水配置）",
     "text": "攻撃をしない伏兵を配置 伏兵の射程内の城娘の攻撃対象が2増加 時間経過で耐久減少、最長25秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 70,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 宮殿の守護神トリトン （使用まで60秒：消費気3：赤青水配置）",
     "text": "攻撃をしない伏兵を配置 伏兵の射程内の城娘の攻撃対象が2増加 時間経過で耐久減少、最長30秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 3
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 世界創造の象徴トリトン （使用まで50秒：消費気3：赤青水配置）",
     "text": "攻撃しない伏兵を配置。配置中、自身の大魔法消費気 40%軽減。伏兵の射程内城娘の攻撃100上昇、攻撃対象 2増加。時間経過で耐久減少、最長40秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -145855,7 +156566,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% ウェストミンスター宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -145871,7 +156584,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% ウェストミンスター宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -146045,13 +156760,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 洛陽城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 芳花・魏紫姚黄 （使用まで40秒：消費気5）",
     "text": "60秒間対象の攻撃と攻撃速度が1.8倍 耐久が与ダメージの40%回復 (近接城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -146202,7 +156921,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 篠山城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -146379,7 +157100,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 城塞都市アビラ・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -146395,7 +157118,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 城塞都市アビラ・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -146420,7 +157145,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% 城塞都市アビラ・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -146560,7 +157287,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 松代城・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -146655,13 +157384,7 @@ window.SCRE_DATA = [
    "text": "射程内の城娘の射程が30、回復が60上昇 【大魔法】40秒間全城娘の回復が8倍 被回復量が1.8倍、回復の2倍の値を防御に加算",
    "effects": []
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -146687,14 +157410,7 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -146836,7 +157552,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 明智薮 （使用まで30秒：消費気5：赤青配置）",
     "text": "自身の2.5倍の攻撃で射程内の全ての敵を攻撃する伏 兵を配置。射程内に敵が入った3秒後に発動し 敵の防御が20秒間60%低下。攻撃時に消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -147008,7 +157726,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ネスヴィジ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -147197,7 +157917,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+140 府内城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -147332,13 +158054,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 尚武のこいのぼり （使用まで30秒：消費気7：赤青配置）",
     "text": "攻撃をしない伏兵を配置(4体まで) 配置中、全ての[幼き]の攻撃が30上昇 伏兵の射程内(400)の城娘の射程が20上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 尚武の鯉幟旗 （使用まで30秒：消費気7：赤青配置）",
     "text": "攻撃をしない伏兵を配置(4体まで) 配置中、全ての[幼き]の攻撃が50上昇 伏兵の射程内(400)の城娘の射程が30上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -147470,7 +158196,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 赤の守護竜（使用まで45秒：消費気5）",
     "text": "40秒間対象の攻撃対象と足止め数が1増加 耐久が与ダメージの50%回復 (近接城娘のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -147574,13 +158302,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印]",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -147616,14 +158338,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印]",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -147810,7 +158525,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 金華山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -147945,7 +158662,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［花嫁衣装］アンボワーズ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -148105,7 +158824,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+35% カゼルタ宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -148284,7 +159005,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 十河城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -148453,7 +159176,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+35% 鉢形城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -148617,13 +159342,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 日影の井 （使用まで60秒：消費気5：赤青配置）",
     "text": "攻撃しない伏兵を配置 伏兵の射程(400)内の城娘の耐久が20% 回復が40上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 日影の清水井 （使用まで45秒：消費気3：赤青配置）",
     "text": "攻撃しない伏兵を配置。伏兵の射程(400)内の 城娘の耐久が50%上昇、巨大化気を30%軽減 全ての城娘の回復が100上昇",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -148794,7 +159523,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) 城塞都市アンベール・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -148944,7 +159675,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 黄金酒宴 （使用まで50秒：消費気5）",
     "text": "45秒間対象の射程内の 城娘の耐久が与ダメージの30%回復",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -149116,7 +159849,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+10% 城塞都市トレド・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -149256,7 +159991,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 城塞都市アッシジ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -149396,7 +160133,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) 川越城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -149537,7 +160276,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 掛川城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -149689,7 +160430,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 人吉城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -149830,7 +160573,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 湖岸浸食 （使用まで50秒：消費気5）",
     "text": "30秒間対象の攻撃が貫通せず 標的とその周囲にダメージを与える 敵の防御を50%無視(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -150028,13 +160773,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ヤークトフント （使用まで50秒：消費気7：青配置）",
     "text": "敵2体を攻撃する伏兵を配置(2体まで) 伏兵が攻撃した敵の移動速度が 3秒間45%低下。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / ヤークトフント・ツヴァイ （使用まで40秒：消費気7：青配置）",
     "text": "敵2体を攻撃する伏兵を配置(2体まで) 伏兵が攻撃した敵の移動速度が3秒間70%低下 伏兵の射程内の敵の隠密を無効化(一部敵は対象外)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -150168,13 +160917,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 聖夜の贈り物 （使用まで50秒：消費気7）",
     "text": "40秒間範囲内の対象の回復が5倍 受けるダメージを合計10000まで防ぐ (殿/城娘/伏兵/蔵が対象。範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 聖天使の贈り物 （使用まで50秒：消費気7）",
     "text": "40秒間範囲内の対象の回復が6倍 受けるダメージを合計15000まで防ぐ (殿/城娘/伏兵/蔵が対象。範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -150314,7 +161067,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 愛の前立 （使用まで50秒：消費気5）",
     "text": "30秒間対象の攻撃速度が2倍 敵の防御を50%無視 与ダメージの25%耐久が回復(遠隔城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -150512,7 +161267,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) エステンセ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -150682,7 +161439,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) 久能山城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -150817,13 +161576,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 摂津峡の断崖 （使用まで45秒：消費気7）",
     "text": "30秒間対象の攻撃対象が2増加 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 摂津の耶馬渓 （使用まで45秒：消費気7）",
     "text": "35秒間対象の攻撃対象が2増加 攻撃した敵の防御と射程が5秒間35%低下 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -151044,19 +161807,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 姫城督 （使用まで10秒：消費気3）",
     "text": "対象が射程内の全ての敵へ継続的にダメージを 与える術攻撃を行い、射程内の敵の防御と 攻撃速度を下げる特技に変化(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 3
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 姫城督 （使用まで10秒：消費気3）",
     "text": "対象が射程内の全敵へ継続的にダメージを与える 術攻撃を行い、射程内の敵の防御と攻撃速度を 下げ、被ダメを上昇させる特技に変化(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 3
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 姫城督・天資婉麗 （使用まで10秒：消費気3）",
     "text": "対象が射程内全敵へ継続的にダメージを与える術攻撃を 行い、射程内敵の攻撃/防御/射程/攻撃速度を下げ 被ダメを上昇させる特技に変化(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -151199,7 +161968,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+10%(1.1倍) 館山城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -151333,13 +162104,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 山吹伝説 （使用まで60秒：消費気10：赤青配置）",
     "text": "敵1体に攻撃を行う伏兵を配置(1体まで) 配置中自身の攻撃が飛行敵に対して1.5倍 自身と伏兵の射程(280)内の城娘の巨大化気を20%軽減",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 山吹の花 （使用まで40秒：消費気7：赤青配置）",
     "text": "敵から狙われず、自身の攻撃の2倍で敵1体に攻撃を行う 伏兵(1体)。配置中自身と伏兵の攻撃が飛行敵に2.5倍 自身と伏兵の射程(300)内の城娘の巨大化気を35%軽減",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -151504,7 +162279,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 室町殿の糸桜 (使用まで45秒：消費気5)",
     "text": "30秒間対象の攻撃速度が2倍 攻撃と回復の対象が1増加(祓串城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -151520,7 +162297,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 室町第・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -151635,13 +162414,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 鬼義重 （使用まで60秒：消費気10）",
     "text": "10秒間対象の攻撃対象が6増加(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 常陸の鬼 （使用まで60秒：消費気7）",
     "text": "15秒間対象の攻撃対象が6増加(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -151762,7 +162545,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 黄金の龍と鷹 （使用まで45秒：消費気3：赤青配置）",
     "text": "攻撃をしない伏兵を配置。配置中自身の射程が 20上昇。伏兵の射程(420)内の敵撃破時に追加で気が 1増加(同種効果の重複なし)。波終了で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -151866,13 +162651,7 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": {
-   "name": "[無印] / なし",
-   "text": "なし",
-   "effects": [],
-   "cooldown": 40,
-   "cost": 5
-  },
+  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -151898,14 +162677,7 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [
-   {
-    "stage": "無印",
-    "name": "[無印] / なし",
-    "text": "なし",
-    "effects": []
-   }
-  ],
+  "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -152092,7 +162864,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［花嫁衣装］シノン城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -152286,7 +163060,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 和霊大祭・牛鬼 （使用まで60秒：消費気10：赤配置）",
     "text": "敵2体に攻撃し、後退させる伏兵を配置 (1体まで)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改弐",
@@ -152312,7 +163088,9 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+20%(1.2倍) 鶴島城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -152463,7 +163241,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% 山崎城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -152634,7 +163414,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 吹揚城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -152759,13 +163541,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［夏］真田丸・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 荒波・夏の陣 （使用まで45秒：消費気5）",
     "text": "35秒間範囲内の城娘の攻撃1.3倍、[夏]城娘は1.8倍 撤退大破時まで[夏]城娘の攻撃がさらに1.2倍 (範囲:特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -152916,7 +163702,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 幽蛇霞 （使用まで50秒：消費気7:赤青配置）",
     "text": "敵から狙われず、敵5体とその周囲に術攻撃を行う 伏兵を配置。配置中、自身が敵から狙われなくなる 最長60秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -153121,7 +163909,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ラースタチカ （使用まで60秒：消費気5：赤青配置）",
     "text": "攻撃をしない伏兵を配置 伏兵の射程内の城娘の射程が25、攻撃速度が 30%上昇。計略使用までの時間が30%短縮",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -153310,7 +164100,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+1 鶴丸城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -153461,7 +164253,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 赤牛の厄祓い （使用まで40秒：消費気7）",
     "text": "25秒間対象の攻撃が妖怪に対して1.7倍 対象が攻撃した敵は5秒間攻撃速度が50%低下 攻撃後の隙が50%延長(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -153613,7 +164407,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ア・ドライグ・ゴッホ （使用まで40秒：消費気5）",
     "text": "【火属性】範囲内の敵に攻撃の5倍のダメージを与え 5秒間「火傷」にする(範囲:特大[300])",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -153743,7 +164539,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 機略の法螺 （使用まで45秒：消費気5）",
     "text": "40秒間対象の攻撃速度が2倍 対象の射程内の城娘、殿、伏兵の攻撃が50上昇 (殿/城娘/伏兵が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -153947,7 +164745,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 扇城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -153963,7 +164763,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+300 扇城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -154200,7 +165002,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% ハーレック城・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -154216,7 +165020,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+25% ハーレック城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -154387,7 +165193,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 ［聖夜］城塞都市トレド・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -154557,7 +165365,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 新高山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -154728,7 +165538,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［正月］竹田城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -154899,7 +165711,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 都於郡城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -155070,7 +165884,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) 黒井城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -155239,7 +166055,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 白龍昇風 （使用まで10秒：消費気0） 初期使用可能数1",
     "text": "範囲内の敵に攻撃の3倍のダメージを与え 敵を後退させる(範囲:大) 巨大化する度に計略の使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -155390,7 +166208,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 甘きゆがみ （使用まで30秒：消費気5）",
     "text": "20秒間対象の砲弾直撃ボーナスが0%になる 爆風範囲が2.5倍、爆風ダメージが3倍 (大砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -155511,7 +166331,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 御館の乱 （使用まで50秒：消費気7）",
     "text": "30秒間対象の攻撃対象が2増加 敵の防御を50%無視。射程内の 甲信越城娘の与ダメージが1.4倍(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -155662,7 +166484,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 尾張の虎 （使用まで50秒：消費気5）",
     "text": "30秒間対象の武器攻撃が貫通せず標的と その周囲にダメージを与える。武器攻撃に 攻撃の1.2倍のダメージを追加(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -155793,7 +166617,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 諏訪水 （使用まで30秒：消費気3）",
     "text": "20秒間対象の回復が10倍 足止め数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -155944,7 +166770,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 蜈蚣切 （使用まで60秒：消費気7）",
     "text": "30秒間対象の武器攻撃が直線上の全ての 敵にダメージを与える。妖怪に対して攻撃が 2倍になり、半減されない(刀城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -156133,7 +166961,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 玉縄城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -156337,13 +167167,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 和歌の浦 （使用まで35秒：消費気7）",
     "text": "30秒間対象の攻撃が攻撃の5倍の ダメージを与え、大きく後退させる 単発攻撃になる(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 35,
+    "cost": 7
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 城下の船溜り （使用まで35秒：消費気7）",
     "text": "30秒間対象の射程100上昇、攻撃の7倍のダメージを 与え、大きく後退させる単発攻撃を行う。敵撃破時 10秒間攻撃が50%上昇(効果重複。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 35,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -156487,7 +167321,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / モンテ・ヴェスヴィオ （使用まで50秒：消費気7）",
     "text": "30秒間対象の範囲攻撃の範囲とダメージが1.8倍 範囲攻撃が攻撃の0.8倍の追加ダメージを与える (槌城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -156675,7 +167511,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 鞠智城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -156826,7 +167664,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 朱藍の双塔 （使用まで70秒：消費気15）",
     "text": "対象が被攻撃時、防御が10秒間10%ずつ上昇 (上限80%)。攻撃した敵の攻撃が5秒間8%ずつ 低下(上限40%)(自分のみが対象。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 70,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -156999,7 +167839,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 聖血の祭壇 （使用まで50秒：消費気5）",
     "text": "30秒間対象の攻撃が敵の防御を50%無視 対象の射程内の敵の防御が200低下 (近接城娘のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -157183,7 +168025,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［花嫁衣装］萩城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -157304,7 +168148,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 輝月妙印 （使用まで25秒：消費気3）",
     "text": "10秒間範囲内の敵の移動速度を0にし 射程を60%低下 (範囲:超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 25,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -157393,32 +168239,56 @@ window.SCRE_DATA = [
    }
   },
   "skill": {
-   "stage": "改壱",
-   "name": "[改壱] / 琉舞若夏",
-   "text": "自身と自身の伏兵の攻撃と耐久が30%上昇 敵を撃破する度に自身の計略使用までの 時間が5秒短縮、自身の伏兵の射程が50上昇",
+   "stage": "無印",
+   "name": "[無印] / 常夏のサーちゃん （使用まで45秒：消費気5：赤配置）",
+   "text": "敵1体とその周囲を攻撃し、射程内の城娘の撃破気が 1増加する伏兵を配置(同種効果の重複なし)、配置中 自身の攻撃と射程が30上昇。波終了で消滅",
    "effects": [
     {
      "source": "特技",
-     "stat": "hpPercent",
-     "mode": "percent",
+     "stat": "atkFlat",
+     "mode": "flat",
      "value": 30,
-     "target": "self",
+     "target": "inRange",
      "stackable": false,
-     "raw": "+30% ［夏］首里城・特技"
+     "raw": "+30 ［夏］首里城・特技"
     },
     {
      "source": "特技",
      "stat": "rangeFlat",
      "mode": "flat",
-     "value": 50,
-     "target": "self",
+     "value": 30,
+     "target": "inRange",
      "stackable": false,
-     "raw": "+50 ［夏］首里城・特技"
+     "raw": "+30 ［夏］首里城・特技"
     }
    ]
   },
   "strategy": null,
-  "special": null,
+  "special": {
+   "stage": "無印",
+   "name": "[無印] / 常夏のサーちゃん （使用まで45秒：消費気5：赤配置）",
+   "text": "敵1体とその周囲を攻撃し、射程内の城娘の撃破気が 1増加する伏兵を配置(同種効果の重複なし)、配置中 自身の攻撃と射程が30上昇。波終了で消滅",
+   "effects": [
+    {
+     "source": "特殊攻撃",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30 ［夏］首里城・特殊攻撃"
+    },
+    {
+     "source": "特殊攻撃",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30 ［夏］首里城・特殊攻撃"
+    }
+   ]
+  },
   "allSkills": [
    {
     "stage": "無印",
@@ -157460,10 +168330,93 @@ window.SCRE_DATA = [
       "raw": "+50 ［夏］首里城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 常夏のシーちゃん （使用まで45秒：消費気5：赤配置）",
+    "text": "敵1体とその周囲を攻撃し、射程内の城娘の撃破気が 1増加する伏兵を配置(同種効果の重複なし)、配置中 自身の防御と射程が30上昇。波終了で消滅",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 ［夏］首里城・特技"
+     }
+    ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 常夏のサーちゃん （使用まで45秒：消費気5：赤配置）",
+    "text": "敵1体とその周囲を攻撃し、射程内の城娘の撃破気が 1増加する伏兵を配置(同種効果の重複なし)、配置中 自身の攻撃と射程が30上昇。波終了で消滅",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30 ［夏］首里城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30 ［夏］首里城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [],
-  "allSpecials": [],
+  "allSpecials": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 常夏のシーちゃん （使用まで45秒：消費気5：赤配置）",
+    "text": "敵1体とその周囲を攻撃し、射程内の城娘の撃破気が 1増加する伏兵を配置(同種効果の重複なし)、配置中 自身の防御と射程が30上昇。波終了で消滅",
+    "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 ［夏］首里城・特殊攻撃"
+     }
+    ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 常夏のサーちゃん （使用まで45秒：消費気5：赤配置）",
+    "text": "敵1体とその周囲を攻撃し、射程内の城娘の撃破気が 1増加する伏兵を配置(同種効果の重複なし)、配置中 自身の攻撃と射程が30上昇。波終了で消滅",
+    "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30 ［夏］首里城・特殊攻撃"
+     },
+     {
+      "source": "特殊攻撃",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30 ［夏］首里城・特殊攻撃"
+     }
+    ]
+   }
+  ],
   "parseWarnings": [],
   "realCastle": {
    "name": "首里城",
@@ -157612,7 +168565,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100% ［夏］久留米城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -157828,7 +168783,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［夏］立花山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -157999,7 +168956,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) 佐柿国吉城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -158175,7 +169134,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) エゲル城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -158328,7 +169289,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［肝試し］川越城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -158484,7 +169447,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% ［肝試し］平戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -158500,7 +169465,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+45% ［肝試し］平戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -158651,7 +169618,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 太閤鷹 （使用まで45秒：消費気5）",
     "text": "15秒間対象の武器攻撃の貫通距離が1.5倍 対象が攻撃した敵を大きく後退させる （自分のみが対象）",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -158807,7 +169776,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ヴェアヴォルフ （使用まで45秒：消費気5）",
     "text": "20秒間対象の攻撃と攻撃速度が1.7倍 防御が50%低下(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -159016,7 +169987,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 桑名城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
@@ -159032,7 +170005,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 桑名城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -159203,7 +170178,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［お月見］新宮城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -159354,7 +170331,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 月下三餅 （使用まで45秒：消費気7）",
     "text": "30秒間対象の範囲攻撃の範囲が2倍 耐久が与ダメージの30%回復 2連続で攻撃を行う(槌城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -159505,7 +170484,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 浅間大神 （使用まで50秒：消費気5）",
     "text": "25秒間対象の攻撃と回復の対象が3増加 攻撃が攻撃の1.5倍のダメージを与える (祓串城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -159687,7 +170668,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) 岩剣城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -159859,7 +170842,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% ［ハロウィン］安平古堡・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -160010,7 +170995,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / エクレール・シャンティイ （使用まで15秒：消費気0） 初期使用回数1",
     "text": "【雷属性】範囲内の敵に攻撃の2.5倍の 術ダメージを与える(範囲:特大) 巨大化毎に計略使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -160181,7 +171168,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+1 真岡城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -160339,19 +171328,25 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 鎮守俘饗 （使用まで40秒：消費気7）",
     "text": "20秒間対象の攻撃対象が1増加、攻撃が20%低下 法術の移動速度低下効果が上昇 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 鎮守八幡 （使用まで40秒：消費気5）",
     "text": "20秒間対象の攻撃対象が1増加 法術の移動速度低下効果が上昇 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    },
    {
     "stage": "改弐",
     "name": "[改弐] / 奥州鎮護 （使用まで40秒：消費気5）",
     "text": "25秒間対象の攻撃対象3増加、法術の 移動速度低下効果が大きく上昇。全ての[古代城柵]の 敵撃破時の獲得気3増加(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -160523,7 +171518,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% 雨城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -160694,7 +171691,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［聖夜］スピシュ城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -160815,7 +171814,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ユールマン （使用まで60秒：消費気7：赤青配置）",
     "text": "敵から狙われず射程内の殿と城娘を徐々に回復する 伏兵を配置。配置中、自身の攻撃が40、射程が30上昇 伏兵の射程内の敵の与ダメージが30%低下",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -161012,7 +172013,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80%(1.8倍) ［正月］福山城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -161201,7 +172204,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［正月］天童城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -161382,7 +172387,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+200 七飯台場・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改弐",
@@ -161398,7 +172405,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+300 七飯台場・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -161548,7 +172557,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ゲント・フローラリア （使用まで50秒：消費気7）",
     "text": "30秒間対象の耐久が与ダメージの40％回復 被ダメージを40％軽減 (近接城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -161724,7 +172735,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) ［バレンタイン］十河城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -161846,7 +172859,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ショコラ・レーヌ （使用まで50秒：消費気7）",
     "text": "30秒間対象の武器攻撃が標的とその周囲の 敵に攻撃の1.5倍のダメージを与え、攻撃した敵の 攻撃と射程が5秒間40%低下(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -161996,7 +173011,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 水噴･鬼犾頭 （使用まで15秒：消費気0） 初期使用可能数1",
     "text": "範囲内の敵に攻撃の3倍ダメージを与え後退 させ、移動速度が10秒間50%低下(範囲:特大) 巨大化する度に計略の使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 15,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -162168,7 +173185,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 麋城・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -162312,7 +173331,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 元和江戸城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -162433,7 +173454,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 麦わらへびさん （使用まで45秒：消費気7：赤青配置）",
     "text": "敵1体とその周囲を攻撃し攻撃と攻撃速度を 5秒間50%低下させる伏兵を配置(2体まで)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -162568,7 +173591,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) エカテリーナ宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -162584,7 +173609,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) エカテリーナ宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -162734,7 +173761,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / センナケリブ・プリズム （使用まで10秒：消費気0） 初期使用可能数1",
     "text": "範囲内の敵に攻撃の3.5倍のダメージを与え 5秒間移動速度が90%、攻撃速度が50%低下 (範囲：大)。巨大化毎に計略使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -162922,7 +173951,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+300 ［花嫁衣装］フォンテーヌブロー宮殿・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -163011,19 +174042,9 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / エルツ・バッフェルホーン",
-   "text": "自身の与ダメージが30%上昇 攻撃後の隙が25%短縮、撤退大破時に 回復する気が40%上昇、再配置時間が50%短縮",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "dmgDealt",
-     "mode": "percent",
-     "value": 30,
-     "target": "self",
-     "stackable": false,
-     "raw": "+30% エルツ城・特技"
-    }
-   ]
+   "name": "[改壱] / 金獅子の大斧",
+   "text": "大破時に射程内の全ての敵に攻撃の4.5倍のダメージを与える",
+   "effects": []
   },
   "strategy": {
    "name": "[無印] / 銀色の獅子 （使用まで45秒：消費気5）",
@@ -163084,6 +174105,18 @@ window.SCRE_DATA = [
       "raw": "+30% エルツ城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 金獅子の斧",
+    "text": "大破時に射程内の敵に攻撃の4倍のダメージを与える",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 金獅子の大斧",
+    "text": "大破時に射程内の全ての敵に攻撃の4.5倍のダメージを与える",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -163110,7 +174143,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) エルツ城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -163260,7 +174295,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 千賀地白波 （使用まで40秒：消費気5：赤水配置）",
     "text": "攻撃を行わない伏兵。自身と射程内の城娘への攻撃を 代わりに受け、配置時自身が30秒間敵から狙われなくなる 水上マス配置時自身の伏兵が敵から狙われなくなる",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -163412,7 +174449,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 笹羅踊り （使用まで45秒：消費気5）",
     "text": "30秒間対象が3連続で攻撃を行う (鉄砲城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -163615,7 +174654,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［夏］エゲル城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -163817,7 +174858,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 アンジェ城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -163987,7 +175030,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% ［肝試し］岩殿山城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -164159,7 +175204,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 高田城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -164346,7 +175393,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 荒穂天神・霊霊石 （使用まで50秒：消費気7）",
     "text": "30秒間対象の攻撃が妖怪に対して2倍になる 対象の射程内の城娘の攻撃速度が1.5倍 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -164517,7 +175566,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+75% 日出城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -164658,7 +175709,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 計謀の主従 （使用まで60秒：消費気3）",
     "text": "40秒間対象の計略使用までの時間が50%短縮 計略消費気を3軽減(近接城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -164814,7 +175867,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ヤークトヴォルフ （使用まで45秒：消費気7）",
     "text": "20秒間対象の特殊攻撃ゲージが最大になり 特殊攻撃のみを行う。攻撃後の隙が少し延長 （自分のみが対象）",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -165002,7 +176057,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) リーガースブルク城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -165185,7 +176242,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) ［聖夜］レーヴェンブルク城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -165353,7 +176412,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% シャトー・ディフ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -165610,7 +176671,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+300 ［正月］七飯台場・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -165828,7 +176891,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) ［正月］一乗谷城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -165979,7 +177044,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 謹賀臥牛 （使用まで45秒：消費気5：赤青配置）",
     "text": "攻撃をしない伏兵を配置 配置時30秒間自身の攻撃が術攻撃になる 伏兵の射程内の敵を撃破した時に追加で気が1増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -166069,19 +177136,9 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 金烏黒耀",
-   "text": "自身の攻撃が25%、攻撃速度が30%上昇 射程内の敵の被ダメージが25%上昇",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "atkSpeed",
-     "mode": "percent",
-     "value": 30,
-     "target": "inRange",
-     "stackable": false,
-     "raw": "+30% 金烏城・特技"
-    }
-   ]
+   "name": "[改壱] / 詭計の毒刃",
+   "text": "大破時に射程内全ての敵に攻撃の2.5倍のダメージを与え 20秒間「猛毒」にする",
+   "effects": []
   },
   "strategy": {
    "name": "[無印] / 諏訪明神の違い鎌 （使用まで60秒：消費気7）",
@@ -166133,6 +177190,18 @@ window.SCRE_DATA = [
       "raw": "+30% 金烏城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 謀計の毒刃",
+    "text": "大破時に射程内全ての敵に攻撃の2.5倍のダメージを与え 15秒間「猛毒」にする",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 詭計の毒刃",
+    "text": "大破時に射程内全ての敵に攻撃の2.5倍のダメージを与え 20秒間「猛毒」にする",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -166150,7 +177219,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 金烏城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -166294,7 +177365,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 常陸の鬼ちょこ （使用まで50秒：消費気10）",
     "text": "35秒間対象の攻撃速度が2倍 敵撃破毎に射程が20、攻撃対象が1ずつ増加 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -166489,7 +177562,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40% 勝野城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -166666,7 +177741,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40 マルメゾン城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -166816,7 +177893,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 宥座の実験薬 （使用まで60秒：消費気0） 初期使用可能数1",
     "text": "範囲内の敵に攻撃の4倍のダメージを与え 殿と城娘を攻撃の4倍で回復し特技を発動させる 巨大化毎に使用可能回数が1増加(範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -166989,7 +178068,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) ［学園］城塞都市アビラ・計略"
      }
-    ]
+    ],
+    "cooldown": 80,
+    "cost": 10
    },
    {
     "stage": "改壱",
@@ -167005,7 +178086,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) ［学園］城塞都市アビラ・計略"
      }
-    ]
+    ],
+    "cooldown": 80,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -167156,7 +178239,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 赤竜の炎 （使用まで20秒：消費気0）",
     "text": "【火属性】範囲内の敵に攻撃の3倍のダメージを与え 3秒間「火傷」にする(範囲:大) 巨大化する度に計略の使用可能回数が2増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -167239,28 +178324,9 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 比志の柱礎",
-   "text": "自身の攻撃が30%上昇 敵撃破時、攻撃対象が5秒間2増加 射程内の敵の被ダメージが20%上昇",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "atkPercent",
-     "mode": "percent",
-     "value": 30,
-     "target": "self",
-     "stackable": false,
-     "raw": "+30% 比志城・特技"
-    },
-    {
-     "source": "特技",
-     "stat": "enemyDmgTakenUp",
-     "mode": "percent",
-     "value": 20,
-     "target": "inRange",
-     "stackable": false,
-     "raw": "+20% 比志城・特技"
-    }
-   ]
+   "name": "[改壱] / 肱川の氷嵐",
+   "text": "大破時に射程内全ての敵に攻撃の2.5倍の 術ダメージを与え、15秒間「氷結」にする",
+   "effects": []
   },
   "strategy": {
    "name": "[無印] / 白霧の冷風 （使用まで45秒：消費気5）",
@@ -167311,6 +178377,18 @@ window.SCRE_DATA = [
       "raw": "+20% 比志城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 肱川の嵐",
+    "text": "大破時に射程内全ての敵に攻撃の2.5倍の 術ダメージを与え、10秒間「氷結」にする",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 肱川の氷嵐",
+    "text": "大破時に射程内全ての敵に攻撃の2.5倍の 術ダメージを与え、15秒間「氷結」にする",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -167318,7 +178396,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 白霧の冷風 （使用まで45秒：消費気5）",
     "text": "25秒間対象の攻撃に0.7倍の術ダメージを追加し 攻撃した敵を5秒間「氷結」にする (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -167462,7 +178542,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 矢代明神の祝福 （使用まで50秒：消費気5）",
     "text": "対象の特技が発動し、射程が80、攻撃対象が2増加 変位系は1段上が発動、一部効果は発動しない ([花嫁衣装]と遠隔城娘が対象。効果時間無限)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -167633,7 +178715,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% 安宅船 日本丸・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -167822,7 +178906,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+1 ［夏］栗橋城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -168011,7 +179097,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［夏］丹波亀山城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -168162,7 +179250,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 遊興の法螺 （使用まで40秒：消費気5）",
     "text": "20秒間対象が被攻撃時に攻撃の1.5倍で反撃を行う 射程内の敵の与ダメージが30%低下、対象をのぞく 射程内の城娘と蔵と伏兵が敵から狙われなくなる",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -168338,7 +179428,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 城塞都市イントラムロス・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -168506,7 +179598,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 水神の御嶽 （使用まで30秒：消費気3）",
     "text": "範囲内の敵に攻撃の2.5倍のダメージを与え後退させ 移動速度を15秒間50%低下させる (範囲:大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [
@@ -168671,7 +179765,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 邪気祓いの鬼瓦 （使用まで45秒：消費気7）",
     "text": "30秒間対象の範囲攻撃の範囲が2倍 攻撃が術攻撃になり、攻撃した敵の攻撃速度が 5秒間50%低下(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -168861,7 +179957,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 鳴海城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -169012,7 +180110,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 黒船 ミシシッピ・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -169162,7 +180262,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150 鉄甲船 大宮丸・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -169307,13 +180409,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ヴァイセ・フラウ （使用まで60秒：消費気7：赤青配置）",
     "text": "敵から狙われず、敵3体を攻撃し後退させる 伏兵を配置。伏兵が攻撃した敵の防御と 移動速度が5秒間60%低下。最長90秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
     "name": "[改壱] / リ・ヴァイセ・フラウ （使用まで60秒：消費気7：赤青配置）",
     "text": "敵から狙われず、敵3体を攻撃し大きく後退させる 伏兵を配置。伏兵が攻撃した敵の防御と 移動速度が5秒間60%低下。最長100秒で消滅",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -169500,7 +180606,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) アーカート城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -169621,7 +180729,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 赤竜の福音 （使用まで30秒：消費気0：赤青水配置） 初期使用可能回数1",
     "text": "飛行敵以外に狙われず自身の2倍の攻撃で1体 に攻撃し2秒「火傷(弱)」にする伏兵(消費気3で全 マス移動、120秒で消滅)。巨大化毎に回数1増加",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 0
    }
   ],
   "allSpecials": [],
@@ -169769,7 +180879,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 圓光寺流兵法 （使用まで60秒：消費気7）",
     "text": "25秒間耐久が与ダメージの50%回復 敵の防御を100%無視する。(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -169933,7 +181045,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 初空鷹狩 （使用まで60秒：消費気10：赤青水配置）",
     "text": "敵に狙われず自身の攻撃の1.5倍で攻撃し敵を後退させ る伏兵(1体。消費気5で全マス移動)。射程内飛行敵の移動 速度が50%低下。配置中自身の攻撃が飛行敵に2倍",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -170104,7 +181218,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 ［正月］江戸氏館・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -170268,7 +181384,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［正月］立花山城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -170425,7 +181543,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 王冠の塔 （使用まで60秒：消費気7）",
     "text": "30秒間対象の射程と 特殊攻撃ゲージの蓄積速度が1.5倍 (戦棍城娘が対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -170541,7 +181661,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 東御廻り （使用まで70秒：消費気10）",
+   "text": "60秒間対象の攻撃と防御が1.5倍 射程内の沖縄城娘の敵撃破時の獲得気が1増加 (同種効果の重複なし。自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) 玉城城・計略"
+    }
+   ],
+   "cooldown": 70,
+   "cost": 10
+  },
   "special": null,
   "allSkills": [
    {
@@ -170577,7 +181713,26 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 東御廻り （使用まで70秒：消費気10）",
+    "text": "60秒間対象の攻撃と防御が1.5倍 射程内の沖縄城娘の敵撃破時の獲得気が1増加 (同種効果の重複なし。自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 玉城城・計略"
+     }
+    ],
+    "cooldown": 70,
+    "cost": 10
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -170679,7 +181834,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / バレンタインの騎士 （使用まで50秒：消費気7：青配置）",
+   "text": "敵1体を攻撃し、攻撃した敵とその周囲の敵を 5秒間敵味方問わず最も近い対象を攻撃させる 伏兵を配置(2体まで)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -170715,7 +181876,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / バレンタインの騎士 （使用まで50秒：消費気7：青配置）",
+    "text": "敵1体を攻撃し、攻撃した敵とその周囲の敵を 5秒間敵味方問わず最も近い対象を攻撃させる 伏兵を配置(2体まで)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -170801,22 +181971,28 @@ window.SCRE_DATA = [
    }
   },
   "skill": {
-   "stage": "無印",
-   "name": "[無印] / 王室刑務所",
-   "text": "自身の射程が35上昇 攻撃速度が30%上昇",
+   "stage": "改壱",
+   "name": "[改壱] / 白骸の娘",
+   "text": "自身を撃破した敵と射程内全ての敵が優先攻撃対象に なり、移動速度を永続で50%低下させる",
+   "effects": []
+  },
+  "strategy": {
+   "name": "[改壱] / 嘆きの亡霊 （使用まで40秒：消費気5）",
+   "text": "25秒間対象の攻撃が1.7倍 攻撃後の隙が0になる(自分のみが対象)",
    "effects": [
     {
-     "source": "特技",
-     "stat": "atkSpeed",
+     "source": "計略",
+     "stat": "atkPercent",
      "mode": "percent",
-     "value": 30,
+     "value": 70,
      "target": "self",
      "stackable": false,
-     "raw": "+30% ドラショルム城・特技"
+     "raw": "+70%(1.7倍) ドラショルム城・計略"
     }
-   ]
+   ],
+   "cooldown": 40,
+   "cost": 5
   },
-  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -170834,9 +182010,58 @@ window.SCRE_DATA = [
       "raw": "+30% ドラショルム城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 白霊の娘",
+    "text": "自身を撃破した敵と射程内全ての敵が優先攻撃対象に なり、移動速度を永続で40%低下させる",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 白骸の娘",
+    "text": "自身を撃破した敵と射程内全ての敵が優先攻撃対象に なり、移動速度を永続で50%低下させる",
+    "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 呻きの亡霊 （使用まで40秒：消費気5）",
+    "text": "20秒間対象の攻撃が1.6倍 攻撃後の隙が0になる(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 60,
+      "target": "self",
+      "stackable": false,
+      "raw": "+60%(1.6倍) ドラショルム城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 嘆きの亡霊 （使用まで40秒：消費気5）",
+    "text": "25秒間対象の攻撃が1.7倍 攻撃後の隙が0になる(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70%(1.7倍) ドラショルム城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -170922,12 +182147,18 @@ window.SCRE_DATA = [
    }
   },
   "skill": {
-   "stage": "無印",
-   "name": "[無印] / 7つの湖",
-   "text": "自身の撃破獲得気が1増加 計略再使用時間が10秒短縮",
+   "stage": "改壱",
+   "name": "[改壱] / 湖上の宝玉",
+   "text": "大破する度に計略再使用時間が12%短縮 計略範囲が10%上昇(4回まで)",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 守護精霊ペーター （使用まで55秒：消費気5）",
+   "text": "範囲内の敵の撃破気を2増加 20秒間 敵味方問わず最も近い対象を攻撃させる (同種効果の重複無し。範囲：大)",
+   "effects": [],
+   "cooldown": 55,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -170935,9 +182166,38 @@ window.SCRE_DATA = [
     "name": "[無印] / 7つの湖",
     "text": "自身の撃破獲得気が1増加 計略再使用時間が10秒短縮",
     "effects": []
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 湖上の宝石",
+    "text": "大破する度に計略再使用時間が10%短縮 計略範囲が10%上昇(4回まで)",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 湖上の宝玉",
+    "text": "大破する度に計略再使用時間が12%短縮 計略範囲が10%上昇(4回まで)",
+    "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ペーターのいたずら （使用まで60秒：消費気5）",
+    "text": "範囲内の敵の撃破気を2増加 20秒間 敵味方問わず最も近い対象を攻撃させる (同種効果の重複無し。範囲：中)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 守護精霊ペーター （使用まで55秒：消費気5）",
+    "text": "範囲内の敵の撃破気を2増加 20秒間 敵味方問わず最も近い対象を攻撃させる (同種効果の重複無し。範囲：大)",
+    "effects": [],
+    "cooldown": 55,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -171025,21 +182285,17 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 超大漁嵐舞",
-   "text": "自身の射程が60上昇 射程内の城娘と全ての[学園]城娘の 攻撃速度と与ダメージが30%上昇",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "dmgDealt",
-     "mode": "percent",
-     "value": 30,
-     "target": "self",
-     "stackable": false,
-     "raw": "+30% ［学園］比志城・特技"
-    }
-   ]
+   "name": "[改壱] / 肱川の大流",
+   "text": "大破時に射程内全ての敵に 攻撃の3倍のダメージを与え後退させ 移動速度を20秒間70%低下",
+   "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 白霧の氷締め （使用まで50秒：消費気7）",
+   "text": "30秒間対象が標的とその周囲の敵に攻撃の0.5倍の 術ダメージを追加で与える攻撃を行い5秒間「氷結」にする 「氷結」状態の射程内敵の被ダメ50%上昇(自分のみ)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -171073,9 +182329,30 @@ window.SCRE_DATA = [
       "raw": "+30% ［学園］比志城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 肱川の水流",
+    "text": "大破時に射程内全ての敵に 攻撃の3倍のダメージを与え後退させ 移動速度を20秒間60%低下",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 肱川の大流",
+    "text": "大破時に射程内全ての敵に 攻撃の3倍のダメージを与え後退させ 移動速度を20秒間70%低下",
+    "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 白霧の氷締め （使用まで50秒：消費気7）",
+    "text": "30秒間対象が標的とその周囲の敵に攻撃の0.5倍の 術ダメージを追加で与える攻撃を行い5秒間「氷結」にする 「氷結」状態の射程内敵の被ダメ50%上昇(自分のみ)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "愛媛県"
@@ -171170,7 +182447,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 悲恋の麗人 （使用まで40秒：消費気5）",
+   "text": "30秒間対象の耐久が減少し続ける状態になり 攻撃と特殊攻撃のダメージが1.7倍 特殊攻撃のゲージ蓄積量が1.2倍(自分のみが対象)",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 鎧懐・誅殺",
@@ -171195,7 +182478,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 美人薄命 （使用まで50秒：消費気5）",
+    "text": "30秒間対象の耐久が減少し続ける状態になり 攻撃と特殊攻撃のダメージが1.7倍 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 悲恋の麗人 （使用まで40秒：消費気5）",
+    "text": "30秒間対象の耐久が減少し続ける状態になり 攻撃と特殊攻撃のダメージが1.7倍 特殊攻撃のゲージ蓄積量が1.2倍(自分のみが対象)",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -171310,7 +182610,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / ガーデンドレス （使用まで50秒：消費気5）",
+   "text": "25秒間対象の射程が100上昇 射程内の城娘と蔵の1000以下のダメージを 無効化(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100 ［花嫁衣装］リーガースブルク城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 魔女のブーケトス",
@@ -171360,7 +182676,26 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ガーデンドレス （使用まで50秒：消費気5）",
+    "text": "25秒間対象の射程が100上昇 射程内の城娘と蔵の1000以下のダメージを 無効化(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ［花嫁衣装］リーガースブルク城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -171484,7 +182819,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 小田原海流拳 （使用まで40秒：消費気5）",
+   "text": "30秒間対象の射程が80上昇し、敵1体に4倍の ダメージ、その周囲の敵に2倍ダメージを与え 大きく後退させる単発攻撃に変化(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80 ［夏］伊豆下田城・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -171514,7 +182865,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 伊豆水流拳 （使用まで40秒：消費気5）",
+    "text": "25秒間対象の射程が50上昇し、敵1体に4倍の ダメージ、その周囲の敵に2倍ダメージを与え 大きく後退させる単発攻撃に変化(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50 ［夏］伊豆下田城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 小田原海流拳 （使用まで40秒：消費気5）",
+    "text": "30秒間対象の射程が80上昇し、敵1体に4倍の ダメージ、その周囲の敵に2倍ダメージを与え 大きく後退させる単発攻撃に変化(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 ［夏］伊豆下田城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "prefecture": "静岡県"
@@ -171609,7 +182997,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 薩摩のひと夏 （使用まで90秒：消費気12）",
+   "text": "80秒間対象の射程が2倍、与ダメが1.5倍、攻撃対象 が1になる。計略が範囲内の敵にダメージを与え後退 させ、移動速度を低下させる計略に変化(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［夏］岩剣城・計略"
+    }
+   ],
+   "cooldown": 90,
+   "cost": 12
+  },
   "special": null,
   "allSkills": [
    {
@@ -171645,7 +183049,34 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 薩摩のひと夏 （使用まで90秒：消費気12）",
+    "text": "80秒間対象の射程が2倍、与ダメが1.5倍、攻撃対象 が1になる。計略が範囲内の敵にダメージを与え後退 させ、移動速度を低下させる計略に変化(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［夏］岩剣城・計略"
+     }
+    ],
+    "cooldown": 90,
+    "cost": 12
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 岩剣の大波 （使用まで20秒：消費気3）",
+    "text": "範囲内の敵に攻撃の2倍のダメージを与えて後退させ 移動速度を10秒間70%低下させる(範囲:中)",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -171747,7 +183178,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 最優船クルーズ （使用まで50秒：消費気7）",
+   "text": "25秒間対象の防御が1000上昇(5秒ごとに200低下) 直撃ボーナスが100%に上昇 攻撃に防御の0.8倍の値を加算。(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 1000,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+1000 ［夏］安宅船 日本丸・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -171767,7 +183214,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 日本丸クルーズ （使用まで50秒：消費気7）",
+    "text": "25秒間対象の防御が1000上昇(5秒ごとに200低下) 直撃ボーナスが80%に上昇 攻撃に防御の0.6倍の値を加算。(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 1000,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+1000 ［夏］安宅船 日本丸・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 最優船クルーズ （使用まで50秒：消費気7）",
+    "text": "25秒間対象の防御が1000上昇(5秒ごとに200低下) 直撃ボーナスが100%に上昇 攻撃に防御の0.8倍の値を加算。(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 1000,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+1000 ［夏］安宅船 日本丸・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -171869,7 +183353,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 鳳凰万名塔 （使用まで60秒：消費気7）",
+   "text": "10秒間対象の耐久が0にならず、回復が500上昇 (近接城娘と[中国都城]が対象)",
+   "effects": [],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -171905,7 +183395,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 鳳凰万名塔 （使用まで60秒：消費気7）",
+    "text": "10秒間対象の耐久が0にならず、回復が500上昇 (近接城娘と[中国都城]が対象)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -172006,7 +183505,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 長春有棘華 （使用まで50秒：消費気5）",
+   "text": "範囲内の敵に攻撃の2倍のダメージを与え 10秒間範囲内の敵を「猛毒」にする(範囲:大)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -172032,7 +183537,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 長春有棘華 （使用まで50秒：消費気5）",
+    "text": "範囲内の敵に攻撃の2倍のダメージを与え 10秒間範囲内の敵を「猛毒」にする(範囲:大)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 万紫千紅園 （使用まで50秒：消費気5）",
+    "text": "範囲内の城娘と殿を攻撃の 4倍の値で回復(範囲：特大)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -172123,7 +183645,23 @@ window.SCRE_DATA = [
    "text": "【配置】射程内城娘の攻撃が敵の防御を25%無視 【鼓舞】自身の攻撃の35%、射程の10%の値を 射程内の城娘に加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 背水の三河箱 （使用まで60秒：消費気7）",
+   "text": "30秒間対象の攻撃と射程が1.8倍 射程内の城娘の防御が30%低下 (自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 80,
+     "target": "self",
+     "stackable": false,
+     "raw": "+80%(1.8倍) 吉田城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -172139,7 +183677,26 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 背水の三河箱 （使用まで60秒：消費気7）",
+    "text": "30秒間対象の攻撃と射程が1.8倍 射程内の城娘の防御が30%低下 (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80%(1.8倍) 吉田城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -172250,7 +183807,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 鎮魂羅刹鬼札 （使用まで40秒：消費気5：赤配置）",
+   "text": "自身の耐久の2倍で敵2体を足止めする 攻撃しない伏兵を配置 配置中自身の攻撃を80上昇、射程を20上昇",
+   "effects": [],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -172279,7 +183842,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 鎮魂温羅札 （使用まで40秒：消費気5：赤配置）",
+    "text": "自身の耐久の1.8倍で敵2体を足止めする 攻撃しない伏兵を配置 配置中自身の攻撃を80上昇",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 鎮魂羅刹鬼札 （使用まで40秒：消費気5：赤配置）",
+    "text": "自身の耐久の2倍で敵2体を足止めする 攻撃しない伏兵を配置 配置中自身の攻撃を80上昇、射程を20上昇",
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -172392,7 +183972,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 二刀の真髄 （使用まで50秒：消費気5）",
+   "text": "30秒間自身の射程が70、攻撃が120上昇 攻撃対象が1増加(自分のみが対象)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 大剣豪の幻桜",
@@ -172444,7 +184030,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 二刀の真髄 （使用まで50秒：消費気5）",
+    "text": "30秒間自身の射程が70、攻撃が120上昇 攻撃対象が1増加(自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -172561,7 +184156,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 竜神化身 （使用まで50秒：消費気5）",
+   "text": "30秒間対象の特殊攻撃ゲージの蓄積速度が半減 攻撃が300上昇、攻撃対象と足止め数が1増加 攻撃が敵の防御を100%無視する(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 300,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+300 陽城・計略"
+    }
+   ],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / 三帝王神",
@@ -172595,7 +184206,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 上竜化身 （使用まで50秒：消費気5）",
+    "text": "25秒間対象の特殊攻撃ゲージの蓄積速度が半減 攻撃が250上昇、攻撃対象と足止め数が1増加 攻撃が敵の防御を100%無視する(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 250,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+250 陽城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 竜神化身 （使用まで50秒：消費気5）",
+    "text": "30秒間対象の特殊攻撃ゲージの蓄積速度が半減 攻撃が300上昇、攻撃対象と足止め数が1増加 攻撃が敵の防御を100%無視する(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 300,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+300 陽城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -172702,7 +184350,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / シナイアスイート （使用まで20秒：消費気0）",
+   "text": "範囲内の敵に5倍のダメージを与え､10秒間攻撃速度を 60%低下｡範囲内の殿と城娘を攻撃の6倍で回復し､15秒間 攻撃を200上昇(範囲：特大[300])巨大化毎に回数2増加",
+   "effects": [],
+   "cooldown": 20,
+   "cost": 0
+  },
   "special": null,
   "allSkills": [
    {
@@ -172738,7 +184392,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / シナイアスイート （使用まで20秒：消費気0）",
+    "text": "範囲内の敵に5倍のダメージを与え､10秒間攻撃速度を 60%低下｡範囲内の殿と城娘を攻撃の6倍で回復し､15秒間 攻撃を200上昇(範囲：特大[300])巨大化毎に回数2増加",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -172848,7 +184511,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / コングリーヴ・ロケット （使用まで50秒：消費気7）",
+   "text": "30秒間対象の与ダメージが1.6倍 攻撃が敵の防御を50%無視、直撃ボーナスが 100%に上昇、爆風範囲が半減(自分のみが対象)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -172893,7 +184562,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / コングリーヴ・ロケット （使用まで50秒：消費気7）",
+    "text": "30秒間対象の与ダメージが1.6倍 攻撃が敵の防御を50%無視、直撃ボーナスが 100%に上昇、爆風範囲が半減(自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -173004,7 +184682,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / アイアンリース （使用まで60秒：消費気5）",
+   "text": "30秒間対象の防御が2.5倍、足止め数5増加 受けるダメージを配置中の城娘全員で分割して受ける 全ての［聖夜］城娘の回復100上昇",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150%(2.5倍) ［聖夜］カーナーヴォン城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -173058,7 +184752,26 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / アイアンリース （使用まで60秒：消費気5）",
+    "text": "30秒間対象の防御が2.5倍、足止め数5増加 受けるダメージを配置中の城娘全員で分割して受ける 全ての［聖夜］城娘の回復100上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) ［聖夜］カーナーヴォン城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -173149,7 +184862,13 @@ window.SCRE_DATA = [
    "text": "【配置】射程内の城娘が被攻撃時、攻撃の20%を反射 【鼓舞】自身の耐久と防御の25% 射程の5%の値を射程内の城娘に加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 祓魔立螺 （使用まで50秒：消費気5）",
+   "text": "30秒間対象の射程内の城娘の攻撃が妖怪に 対して半減しなくなる。対象の射程内の 妖怪の防御が50%低下(自分のみが対象)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 5
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 抗戦の鬨 （消費気7：初回20秒：再使用50秒）",
@@ -173174,7 +184893,24 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 祓魔立螺 （使用まで50秒：消費気5）",
+    "text": "30秒間対象の射程内の城娘の攻撃が妖怪に 対して半減しなくなる。対象の射程内の 妖怪の防御が50%低下(自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 心・祓魔立螺 （使用まで45秒：消費気5）",
+    "text": "35秒間対象の射程内の城娘の攻撃が妖怪に対して 半減しなくなる。対象の射程内の妖怪の防御が 50%低下(自分のみが対象)",
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -173224,10 +184960,17 @@ window.SCRE_DATA = [
   "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/201b90e60dc1438ea5bbf6b0037090fcd5606dbc",
   "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/85b80f434ee2aa07e3e8bf6d2327fe6d9f4cc4b8",
   "remodelStages": [
-   "無印"
+   "無印",
+   "改壱"
   ],
   "remodelForms": {
    "無印": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d4ae18443e21a9a4565e4f3f36b5d7d8f05b3dc",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97e479816eccbbe05b32a528acb7205e03434075",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/201b90e60dc1438ea5bbf6b0037090fcd5606dbc",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/85b80f434ee2aa07e3e8bf6d2327fe6d9f4cc4b8"
+   },
+   "改壱": {
     "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/7d4ae18443e21a9a4565e4f3f36b5d7d8f05b3dc",
     "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/97e479816eccbbe05b32a528acb7205e03434075",
     "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/201b90e60dc1438ea5bbf6b0037090fcd5606dbc",
@@ -173286,7 +185029,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 賀正・礼智 （使用まで50秒：消費気7）",
+   "text": "対象の攻撃対象が撤退大破時まで永続で2増加 足止め数が1増加。計略を使用する度に効果が変化 (自分のみが対象)",
+   "effects": [],
+   "cooldown": 50,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -173306,7 +185055,114 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 賀・礼智 （使用まで50秒：消費気10）",
+    "text": "対象の攻撃対象が撤退大破時まで永続で1増加 足止め数が1増加。計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 新・忠信 （使用まで50秒：消費気10）",
+    "text": "撤退大破時まで永続で対象の攻撃が1.5倍、射程が1.2倍 計略を使用する度に効果が変化([正月]城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［正月］館山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［正月］館山城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 10
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 春・孝悌 （使用まで50秒：消費気10）",
+    "text": "25秒間対象の射程内の敵の射程と攻撃が40%低下 (近接城娘と[正月]城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［正月］館山城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 賀正・礼智 （使用まで50秒：消費気7）",
+    "text": "対象の攻撃対象が撤退大破時まで永続で2増加 足止め数が1増加。計略を使用する度に効果が変化 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 新月・忠信 （使用まで50秒：消費気7）",
+    "text": "撤退大破時まで永続で対象の攻撃が1.6倍、射程が1.2倍 計略を使用する度に効果が変化([正月]城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60%(1.6倍) ［正月］館山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) ［正月］館山城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 春祝・孝悌 （使用まで50秒：消費気7）",
+    "text": "30秒間対象の射程内の敵の射程と攻撃が40%低下 (近接城娘と[正月]城娘が対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［正月］館山城・計略"
+     }
+    ],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -173417,7 +185273,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 手水噴・鬼犾頭 （使用まで20秒：消費気0） 初期使用可能数1",
+   "text": "範囲内の敵に攻撃の4倍ダメージを与え大きく後退 させ、移動速度が5秒間80%低下(範囲:大) 巨大化する度に計略の使用可能回数が2増加",
+   "effects": [],
+   "cooldown": 20,
+   "cost": 0
+  },
   "special": null,
   "allSkills": [
    {
@@ -173462,7 +185324,16 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 手水噴・鬼犾頭 （使用まで20秒：消費気0） 初期使用可能数1",
+    "text": "範囲内の敵に攻撃の4倍ダメージを与え大きく後退 させ、移動速度が5秒間80%低下(範囲:大) 巨大化する度に計略の使用可能回数が2増加",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 0
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -173555,7 +185426,32 @@ window.SCRE_DATA = [
    "text": "【配置】射程内の城娘の攻撃後の隙を30%短縮 [バレンタイン]城娘は40%短縮。【鼓舞】自身の攻撃 の45%、射程の6%の値を射程内の城娘に加算",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 乙女の王城 （使用まで45秒：消費気7）",
+   "text": "30秒間対象の射程が1.3倍、鼓舞効果が1.5倍 射程内の[バレンタイン]城娘の攻撃が1.5倍となり 敵から狙われない(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30%(1.3倍) ［バレンタイン］アーカート城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ［バレンタイン］アーカート城・計略"
+    }
+   ],
+   "cooldown": 45,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -173571,7 +185467,35 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 乙女の王城 （使用まで45秒：消費気7）",
+    "text": "30秒間対象の射程が1.3倍、鼓舞効果が1.5倍 射程内の[バレンタイン]城娘の攻撃が1.5倍となり 敵から狙われない(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) ［バレンタイン］アーカート城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［バレンタイン］アーカート城・計略"
+     }
+    ],
+    "cooldown": 45,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -173724,7 +185648,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ギマランイス城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -173820,30 +185746,9 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 誠の権謀術",
-   "text": "自身の与ダメージが30%上昇、耐久30%以下の敵に 与えるダメージが3倍、撤退大破時に回復する気が 30%上昇、再配置時間が50%短縮",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "dmgDealt",
-     "mode": "percent",
-     "value": 30,
-     "target": "self",
-     "stackable": false,
-     "raw": "+30% 鎌刃城・特技"
-    },
-    {
-     "source": "特技",
-     "stat": "dmgDealtTarget",
-     "mode": "percent",
-     "value": 200,
-     "multiplier": 3.0,
-     "target": "self",
-     "stackable": true,
-     "raw": "+200%(3.0倍) [耐久30%以下の敵] 鎌刃城・特技",
-     "condition": "耐久30%以下の敵"
-    }
-   ]
+   "name": "[改壱] / 誠慧眼の士",
+   "text": "大破時に自身を撃破した敵に攻撃の6倍のダメージを与え 永続で優先攻撃対象にし、25秒間「暗闇」にする 射程内全ての敵に3倍のダメージを与え20秒間「暗闇」にする",
+   "effects": []
   },
   "strategy": {
    "name": "[無印] / 境目の城 （使用まで45秒：消費気5）",
@@ -173898,6 +185803,18 @@ window.SCRE_DATA = [
       "condition": "耐久30%以下の敵"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 偽慧眼の士",
+    "text": "大破時に自身を撃破した敵に攻撃の6倍のダメージを与え 永続で優先攻撃対象にし、20秒間「暗闇」にする 射程内全ての敵に3倍のダメージを与え15秒間「暗闇」にする",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 誠慧眼の士",
+    "text": "大破時に自身を撃破した敵に攻撃の6倍のダメージを与え 永続で優先攻撃対象にし、25秒間「暗闇」にする 射程内全ての敵に3倍のダメージを与え20秒間「暗闇」にする",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -173905,7 +185822,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 境目の城 （使用まで45秒：消費気5）",
     "text": "20秒間対象が味方よりも優先して狙われるようになり 被攻撃時に敵の攻撃の2倍をダメージとして反射する (鎌城娘のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -174070,7 +185989,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［一刃］小谷城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -174267,7 +186188,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［幼き］熊本城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -174389,7 +186312,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 岩山の猿 （使用まで40秒：消費気7：青配置）",
     "text": "敵1体とその周囲に攻撃を行う伏兵を配置(1体まで) 射程内の一部敵の足止め対象にならない効果を無効化",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -174544,7 +186469,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 鬼門封じ （使用まで45秒：消費気7）",
     "text": "30秒間対象の攻撃が術攻撃となり 射程内の妖怪の与ダメージが40%低下 被ダメージが40%上昇(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -174641,19 +186568,9 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "改壱",
-   "name": "[改壱] / 蒼き渚",
-   "text": "自身の攻撃対象が1増加、撤退大破回復気が40%上昇 射程内の自身を含まない味方の数1体につき 自身の攻撃が100上昇、再配置時間が25%短縮",
-   "effects": [
-    {
-     "source": "特技",
-     "stat": "atkFlat",
-     "mode": "flat",
-     "value": 100,
-     "target": "self",
-     "stackable": false,
-     "raw": "+100 ［夏］米子城・特技"
-    }
-   ]
+   "name": "[改壱] / 夜に咲く閃花",
+   "text": "大破時に射程内の全ての敵に攻撃の1.1倍のダメージを 3連続で与え、1秒間「火傷」にする",
+   "effects": []
   },
   "strategy": {
    "name": "[無印] / 恋は陽炎 （使用まで20秒：消費気10）",
@@ -174695,6 +186612,18 @@ window.SCRE_DATA = [
       "raw": "+100 ［夏］米子城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 夜に咲く煌花",
+    "text": "大破時に射程内の全ての敵に攻撃の1倍のダメージを 3連続で与え、1秒間「火傷」にする",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 夜に咲く閃花",
+    "text": "大破時に射程内の全ての敵に攻撃の1.1倍のダメージを 3連続で与え、1秒間「火傷」にする",
+    "effects": []
    }
   ],
   "allStrategies": [
@@ -174702,7 +186631,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 恋は陽炎 （使用まで20秒：消費気10）",
     "text": "対象の与ダメ1.5倍、射程1.2倍。射程内の敵1体につき 大破特技ダメージが10%上昇(最大2倍)、計略使用時 対象が5秒後に大破(効果時間無限。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 20,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -174871,7 +186802,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 砂上の王城 （使用まで60秒：消費気7：赤配置）",
     "text": "自身の1倍の耐久と防御で敵1体を足止めし攻撃をしない 伏兵(1体まで)。伏兵は攻撃の1倍を射程内の城娘に加算し 時間経過で攻撃が徐々に低下(最長60秒で消滅)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -175072,7 +187005,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 千鬼夜行 （使用まで50秒：消費気10：赤青水配置）",
     "text": "自身の1倍の射程で敵1体に術攻撃を行い、移動速度を 低下させる伏兵を配置(1体まで)。配置中、自身の攻撃の 貫通距離が1.5倍、攻撃した敵を5秒間「混乱」にする",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -175316,7 +187251,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+15% ［命護］尼崎城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -175491,7 +187428,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / アイアンリングの誇り （使用まで60秒：消費気10）",
     "text": "30秒間対象の回復が5倍、被ダメージが50%軽減 受けるダメージを配置中の全員で分割して受ける (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -175653,13 +187592,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 表裏比輿の謀 （使用まで50秒：消費気5）",
     "text": "範囲内の敵の防御と攻撃速度が20秒間70%低下 永続的に攻撃と防御を25%低下させる(同種効果と重複) (範囲：特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 表裏比輿の神謀 （使用まで50秒：消費気5）",
     "text": "範囲内の敵の防御と攻撃速度が30秒間70%低下 永続的に攻撃と防御を35%低下させる(同種効果と重複) (範囲：超特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -175862,7 +187805,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) ［刃衣］米沢城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -175896,7 +187841,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［刃衣］米沢城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -176100,7 +188047,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60%(1.6倍) ［暁鴉］雑賀城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -176211,7 +188160,23 @@ window.SCRE_DATA = [
    "text": "自身の足止めが2増加、自身の足止め数に応じて防御 と耐久が上昇(最大2倍)。全ての[大宰府と古代山城]が 受ける1800以下のダメージを無効化",
    "effects": []
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 防人の水盾 （使用まで40秒：消費気7）",
+   "text": "20秒間範囲内の城娘の被ダメージを70%軽減、撤退 大破時まで永続で足止め数が2増加。[大宰府と古代山城]は 10秒間耐久が0にならない(範囲:特大)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% 水城・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -176227,7 +188192,26 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 防人の水盾 （使用まで40秒：消費気7）",
+    "text": "20秒間範囲内の城娘の被ダメージを70%軽減、撤退 大破時まで永続で足止め数が2増加。[大宰府と古代山城]は 10秒間耐久が0にならない(範囲:特大)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% 水城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -176396,7 +188380,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 軍艦 三笠・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -176508,7 +188494,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 解放の戦旗 （使用まで40秒：消費気5）",
+   "text": "30秒間対象が回復を行わず、射程内の全敵に 1.8倍のダメージを与える攻撃を行う。射程内の敵の 被ダメージが40%上昇(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40% ロシュ城・計略"
+    }
+   ],
+   "cooldown": 40,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -176553,7 +188555,44 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 解放の戦旗 （使用まで40秒：消費気5）",
+    "text": "30秒間対象が回復を行わず、射程内の全敵に 1.8倍のダメージを与える攻撃を行う。射程内の敵の 被ダメージが40%上昇(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ロシュ城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 聖女の癒旗 （使用まで40秒：消費気5）",
+    "text": "30秒間対象の射程内城娘の被ダメージ40%軽減。対象 の与回復量が1.8倍、射程内の全城娘に回復のみを行う (回復無効、ダメージ変化効果を受けない。自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ロシュ城・計略"
+     }
+    ],
+    "cooldown": 40,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -176746,7 +188785,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 霊弦の律べ （使用まで60秒：消費気10）",
     "text": "対象の攻撃が射程内の敵と味方1体につき60上昇 対象の射程内の敵の攻撃と射程が20%低下(同種効果重複) (効果時間無限。自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -176875,7 +188916,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 風待の守護者 （使用まで60秒：消費気7）",
+   "text": "40秒間対象の攻撃が1.7倍、特殊攻撃時はさらに1.3倍 攻撃した敵の移動速度を5秒間70%低下させる (自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70%(1.7倍) ［海嵐］上関城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 嵐の矜持 （消費気7：初回10秒：再使用60秒）",
@@ -176944,7 +189001,26 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 風待の守護者 （使用まで60秒：消費気7）",
+    "text": "40秒間対象の攻撃が1.7倍、特殊攻撃時はさらに1.3倍 攻撃した敵の移動速度を5秒間70%低下させる (自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70%(1.7倍) ［海嵐］上関城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -177102,7 +189178,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 陽炎の奇跡 （使用まで30秒：消費気10）",
     "text": "範囲内の敵に攻撃の3倍の術ダメージを与え 10秒間移動速度を50%低下(範囲：大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -177241,7 +189319,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% 三刀屋城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -177352,7 +189432,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / くたくたナイーブ （使用まで30秒：消費気3）",
+   "text": "15秒間範囲内の敵の攻撃と防御と 攻撃速度と移動速度が70%低下 (範囲：小)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% ［毒禍］石山城・計略"
+    }
+   ],
+   "cooldown": 30,
+   "cost": 3
+  },
   "special": {
    "stage": "無印",
    "name": "[無印] / 梟盧千擲 （消費気7：初回10秒：再使用40秒）",
@@ -177393,7 +189489,80 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / くたくたナイーブ （使用まで30秒：消費気3）",
+    "text": "15秒間範囲内の敵の攻撃と防御と 攻撃速度と移動速度が70%低下 (範囲：小)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［毒禍］石山城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / むきむきドーピング （使用まで30秒：消費気5）",
+    "text": "50秒間対象の攻撃と防御1.2倍(同種効果と重複) 攻撃後の隙50%短縮、与ダメージ1.5倍",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［毒禍］石山城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / くたくたナイーブ （使用まで30秒：消費気3）",
+    "text": "15秒間範囲内の敵の攻撃と防御と 攻撃速度と移動速度が70%低下 (範囲：小)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［毒禍］石山城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / むきむきドーピング （使用まで30秒：消費気5）",
+    "text": "50秒間対象の攻撃と防御1.2倍(同種効果と重複) 攻撃後の隙50%短縮、与ダメージ1.5倍",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［毒禍］石山城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 5
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -177570,7 +189739,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% ［幼き］萩城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -177726,7 +189897,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 万里霧中 （使用まで50秒：消費気5）",
     "text": "30秒間範囲内の敵の射程が50%低下 撃破気を4増加(範囲：中)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -177874,7 +190047,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+60% 岩屋城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -178056,7 +190231,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% ペンブルック城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -178239,7 +190416,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% 城塞都市サン・マロ・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -178361,7 +190540,24 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / ハドリアヌス帝の大浴場 （使用まで60秒：消費気7）",
+   "text": "30秒間対象の特殊攻撃ゲージ蓄積速度2倍 射程1.3倍、与ダメージ1.8倍 特殊攻撃で与えるダメージ1.5倍(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) レプティス・マグナ・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": {
    "stage": "改壱",
    "name": "[改壱] / メデューサの眼光",
@@ -178429,7 +190625,27 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ハドリアヌス帝の大浴場 （使用まで60秒：消費気7）",
+    "text": "30秒間対象の特殊攻撃ゲージ蓄積速度2倍 射程1.3倍、与ダメージ1.8倍 特殊攻撃で与えるダメージ1.5倍(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) レプティス・マグナ・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [
    {
     "stage": "無印",
@@ -178575,7 +190791,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 燃楓の鋭葉 （使用まで60秒：消費気7）",
     "text": "30秒間対象の攻撃速度が2倍、攻撃対象の 防御が低い程与えるダメージ上昇(最大1.5倍) 攻撃毎に攻撃が100ずつ上昇(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -178768,7 +190986,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% ［聖夜］ティンタジェル城・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -178915,7 +191135,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 美濃絹の晴れ着 （使用まで60秒：消費気7）",
     "text": "30秒間対象の射程1.2倍、10秒間攻撃した敵の移動速度が 10%ずつ低下(最大80%)。攻撃した敵の撃破獲得気が 2回攻撃毎に1ずつ増加(最大10。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -179019,7 +191241,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[改壱] / 高陽の調 （使用まで20秒：消費気3）",
+   "text": "20秒間範囲内の殿と城娘の攻撃が1.6倍 射程が100上昇 (範囲:大。発動中の計略を解除しない)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 60,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+60%(1.6倍) 高陽城・計略"
+    }
+   ],
+   "cooldown": 20,
+   "cost": 3
+  },
   "special": null,
   "allSkills": [
    {
@@ -179055,7 +191293,60 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 高陽の調 （使用まで20秒：消費気3）",
+    "text": "20秒間範囲内の殿と城娘の攻撃が1.6倍 射程が100上昇 (範囲:大。発動中の計略を解除しない)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60%(1.6倍) 高陽城・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 3
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 流転の律 （使用まで20秒：消費気3）",
+    "text": "範囲内の敵の射程が15秒間50%低下 撃破獲得気が永続で4増加(同種効果の重複なし) (範囲:中)",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 高陽の調 （使用まで20秒：消費気3）",
+    "text": "20秒間範囲内の殿と城娘の攻撃が1.6倍 射程が100上昇 (範囲:大。発動中の計略を解除しない)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60%(1.6倍) 高陽城・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 流転の律 （使用まで20秒：消費気3）",
+    "text": "範囲内の敵の射程が15秒間50%低下 撃破獲得気が永続で4増加(同種効果の重複なし) (範囲:中)",
+    "effects": [],
+    "cooldown": 20,
+    "cost": 3
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -179134,31 +191425,38 @@ window.SCRE_DATA = [
    }
   },
   "skill": {
-   "stage": "改壱",
-   "name": "[改壱] / 九死の八屋形",
-   "text": "自身が優先攻撃対象になる 射程内の城娘の攻撃が70上昇。自身の大破数9回以上で 自身の射程が1.7倍。攻撃が600上昇",
+   "stage": "無印",
+   "name": "[無印] / 捲土重来の執念",
+   "text": "大破時に20秒間射程内の殿と城娘の攻撃に自身の攻撃の 40%を加算、敵撃破時に獲得する気が追加で1増加 自身の大破数9回以上で自身の攻撃が1.5倍(効果重複)",
    "effects": [
     {
      "source": "特技",
-     "stat": "atkFlat",
-     "mode": "flat",
-     "value": 70,
-     "target": "self",
-     "stackable": false,
-     "raw": "+70 小田城・特技"
-    },
-    {
-     "source": "特技",
-     "stat": "rangePercent",
+     "stat": "atkPercent",
      "mode": "percent",
-     "value": 70,
+     "value": 50,
      "target": "inRange",
      "stackable": false,
-     "raw": "+70%(1.7倍) 小田城・特技"
+     "raw": "+50%(1.5倍) 小田城・特技"
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印][改壱] / 九転び八起き （使用まで15秒：消費気3）",
+   "text": "対象の攻撃が100上昇。撤退大破まで永続で 対象の撤退大破時の回復気が50%上昇 再配置の時間が100%短縮(効果時間無限)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100 小田城・計略"
+    }
+   ],
+   "cooldown": 15,
+   "cost": 3
+  },
   "special": null,
   "allSkills": [
    {
@@ -179201,9 +191499,62 @@ window.SCRE_DATA = [
       "raw": "+70%(1.7倍) 小田城・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 捲土重来の執念",
+    "text": "大破時に20秒間射程内の殿と城娘の攻撃に自身の攻撃の 40%を加算、敵撃破時に獲得する気が追加で1増加 自身の大破数9回以上で自身の攻撃が1.5倍(効果重複)",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 小田城・特技"
+     }
+    ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "改壱",
+    "name": "[無印][改壱] / 九転び八起き （使用まで15秒：消費気3）",
+    "text": "対象の攻撃が100上昇。撤退大破まで永続で 対象の撤退大破時の回復気が50%上昇 再配置の時間が100%短縮(効果時間無限)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 小田城・計略"
+     }
+    ],
+    "cooldown": 15,
+    "cost": 3
+   },
+   {
+    "stage": "改壱",
+    "name": "[無印][改壱] / 常陸の不死鳥 （使用まで20秒：消費気5）",
+    "text": "対象の攻撃が2倍 撤退大破時の回復気が40%上昇 再配置の時間が70%短縮(効果時間無限)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) 小田城・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 5
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -179357,7 +191708,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 八幡山城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -179549,7 +191902,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) ［アイドル］ドーヴァー城・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -179661,7 +192016,23 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 正義の挙式 （使用まで60秒：消費気7）",
+   "text": "30秒間対象の射程が1.3倍、対象の射程内の [花嫁衣装]城娘の巨大化気50%軽減 与ダメージが1.8倍(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30%(1.3倍) ［花嫁衣装］越中高岡城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 7
+  },
   "special": null,
   "allSkills": [
    {
@@ -179706,7 +192077,26 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 正義の挙式 （使用まで60秒：消費気7）",
+    "text": "30秒間対象の射程が1.3倍、対象の射程内の [花嫁衣装]城娘の巨大化気50%軽減 与ダメージが1.8倍(自分のみが対象)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) ［花嫁衣装］越中高岡城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": [],
   "realCastle": {
@@ -179881,7 +192271,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 綺麗さびの極意 （使用まで60秒：消費気7）",
     "text": "40秒間対象が全ての攻撃を回避し、攻撃速度が1.8倍 攻撃した敵を大きく後退させる。計略使用毎に 計略効果時間が5秒減少(4回まで。自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -180036,7 +192428,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70% ［夏］三崎城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    },
    {
     "stage": "改壱",
@@ -180052,7 +192446,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80% ［夏］三崎城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -180193,7 +192589,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30%(1.3倍) ［肝試し］大和郡山城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -180334,7 +192732,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) ［お月見］伊丹城・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -180498,7 +192898,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 槇島城・計略"
      }
-    ]
+    ],
+    "cooldown": 45,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -180632,7 +193034,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 前田利家・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -180778,7 +193182,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 武威照炎 （使用まで70秒：消費気15）",
     "text": "50秒間対象の砲弾直撃ボーナスが300%に上昇 爆風範囲と爆風ダメージが1.5倍 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 70,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -180906,7 +193312,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% 毛利元就・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -181034,7 +193442,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) シュテファン・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -181154,7 +193564,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 大一大万大極砲炎 （使用まで40秒：消費気5）",
     "text": "対象が向いている横方向の敵に 6連続で攻撃の1.5倍の術ダメージを与える (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -181262,7 +193674,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 一番槍・大地雷動 （使用まで60秒：消費気15）",
     "text": "40秒間対象の与ダメージが1.5倍 射程内の全ての敵に4連続攻撃を行う (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -181409,7 +193823,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) 片倉小十郎・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -181568,7 +193984,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20%(1.2倍) 上杉景勝・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -181716,7 +194134,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) 山県昌景・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -181868,7 +194288,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100%(2.0倍) 蒲生氏郷・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -182051,7 +194473,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) 藤堂高虎・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -182183,7 +194607,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+500%(6.0倍) 桃形兜・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [
@@ -182297,7 +194723,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 六花の氷結 （使用まで60秒：消費気12）",
     "text": "60秒間対象の武器攻撃に攻撃の0.4倍の術ダメージを 追加。攻撃した敵を3秒間「氷結」にする。対象の 射程内の城娘の「氷結」を回復し無効化(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 12
    }
   ],
   "allSpecials": [],
@@ -182446,7 +194874,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+80 兎形兜・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -182546,7 +194976,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 調伏鳴響 （使用まで60秒：消費気10）",
     "text": "50秒間対象が射程内の全ての敵に1.2倍 妖怪に対しては1.8倍のダメージを与える攻撃を行う (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -182666,7 +195098,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+150%(2.5倍) ケトルハット兜・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -182766,7 +195200,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 突撃式回転撃 （使用まで60秒：消費気10）",
     "text": "60秒間対象の射程1.2倍、射程内の全ての敵に 6連続攻撃を行う、攻撃後の隙が50%延長 範囲攻撃の範囲が80%低下(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -182866,7 +195302,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 癒しの旋律 （使用まで40秒：消費気15）",
     "text": "15秒間対象が攻撃速度2倍、攻撃後の隙が 50%短縮し、回復が10倍（自身のみが対象）",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -183004,7 +195442,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ライト・オブ・セイバー （使用まで50秒：消費気7）",
     "text": "20秒間対象の攻撃対象が直線上の敵全てになる （自分のみが対象）",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -183110,7 +195550,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 長距離バズーカ （使用まで50秒：消費気7）",
     "text": "15秒間攻撃と範囲が2倍、1回攻撃になる代わりに 着弾した標的とその周囲を攻撃に変化(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -183209,9 +195651,19 @@ window.SCRE_DATA = [
    ]
   },
   "strategy": {
-   "name": "[無印] / 偶像崇拝のレゾンデートル （使用まで10秒：消費気5）",
-   "text": "計略使用前の状態に戻る(自分のみ)",
-   "effects": [],
+   "name": "[無印] / 賦活のクリムゾンゴア （使用まで10秒：消費気5）",
+   "text": "近接攻撃を行い、ラボメンの攻撃速度が20%上昇 被攻撃後に攻撃が上昇する特技に変化(自分のみが対象)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% フェイリス・計略"
+    }
+   ],
    "cooldown": 10,
    "cost": 5
   },
@@ -183283,13 +195735,17 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+20% フェイリス・計略"
      }
-    ]
+    ],
+    "cooldown": 10,
+    "cost": 5
    },
    {
     "stage": "無印",
     "name": "[無印] / 偶像崇拝のレゾンデートル （使用まで10秒：消費気5）",
     "text": "計略使用前の状態に戻る(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -183409,7 +195865,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% 舞園さやか・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -183529,7 +195987,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50% セレスティア・ルーデンベルク・計略"
      }
-    ]
+    ],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -183629,7 +196089,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 地上最強の一撃 （使用まで99秒：消費気50）",
     "text": "超広範囲の敵1体に10倍のダメージを 与える攻撃を1度だけ行う (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 99,
+    "cost": 50
    }
   ],
   "allSpecials": [],
@@ -183734,7 +196196,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ドーナツの神様 （使用まで50秒：消費気7）",
     "text": "範囲内の敵と味方を攻撃の3倍の値で回復 (伏兵と蔵を除く。範囲:特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -183866,7 +196330,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ノブレス・オブリージュ （使用まで70秒：消費気7）",
     "text": "40秒間対象の攻撃と特殊攻撃の蓄積速度が1.5倍 特殊攻撃時、攻撃がさらに1.2倍 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 70,
+    "cost": 7
    }
   ],
   "allSpecials": [
@@ -184031,7 +196497,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+200%(3.0倍) リネット・ビショップ・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -184131,7 +196599,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / オートフォーカス （使用まで60秒：消費気5）",
     "text": "範囲内の敵の動きを5秒間封じ、移動速度を0にする (範囲：大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -184289,7 +196759,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50 罪木蜜柑・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -184425,7 +196897,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 要返し （使用まで40秒：消費気5）",
     "text": "25秒間対象の特技効果が1.4倍 対象の射程内の味方の攻撃速度が1.4倍 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -184530,7 +197004,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 桃色筋肉 （使用まで40秒：消費気5）",
     "text": "対象の次の攻撃が特殊攻撃になる 20秒間特技効果が1.5倍 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -184657,7 +197133,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 魔導聖歌 （使用まで50秒：消費気7）",
     "text": "40秒間射程内の伏兵を除く味方を継続的に回復 射程内の味方の被回復量が40%上昇 対象の射程内の敵の与ダメージを35%低下",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -184781,7 +197259,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 守る為の戦い （使用まで60秒：消費気7：青配置）",
     "text": "敵1体を攻撃し少し後退させる伏兵を配置(1体まで) 伏兵の配置中、自身への攻撃を伏兵が代わりに受ける",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -184881,7 +197361,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 時間停止 （使用まで40秒：消費気15）",
     "text": "15秒間対象の範囲内の敵の攻撃速度と移動速度が 50%低下し、自身の回復が10倍（自分のみが対象）",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -185001,7 +197483,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ティロ・フィナーレ （使用まで40秒：消費気15）",
     "text": "15秒間対象の攻撃対象が3増え、 回復が10倍（自分のみが対象）",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -185101,7 +197585,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 魔槍乱舞 （使用まで40秒：消費気15）",
     "text": "15秒間対象が3連続攻撃になり、 回復が10倍（自分のみが対象）",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 15
    }
   ],
   "allSpecials": [],
@@ -185247,7 +197733,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+30% めぐみん・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -185354,7 +197842,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / デコイ （使用まで40秒：消費気7）",
     "text": "20秒間対象が伏兵を除く味方よりも優先して 狙われるようになり、回復が5倍（自分のみ）",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -185492,7 +197982,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / ドレインタッチ （使用まで50秒：消費気7）",
     "text": "20秒間与ダメージの100%耐久を回復 敵撃破時に気が1増える（自分のみが対象）",
-    "effects": []
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -185648,7 +198140,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+1 アーニャ・アールストレイム・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -185728,8 +198222,8 @@ window.SCRE_DATA = [
    "effects": []
   },
   "strategy": {
-   "name": "[無印] / 不可避のラピッドファイア （使用まで10秒：消費気5）",
-   "text": "計略使用前の状態に戻る（自分のみ）",
+   "name": "[無印] / 獅子奮迅のﾏｰｼｬﾙｱｰﾂ （使用まで10秒：消費気5）",
+   "text": "近接攻撃になり、攻撃と防御が20%上昇 足止め数が1増加する特技に変化（自分のみ）",
    "effects": [],
    "cooldown": 10,
    "cost": 5
@@ -185764,13 +198258,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 獅子奮迅のﾏｰｼｬﾙｱｰﾂ （使用まで10秒：消費気5）",
     "text": "近接攻撃になり、攻撃と防御が20%上昇 足止め数が1増加する特技に変化（自分のみ）",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 5
    },
    {
     "stage": "無印",
     "name": "[無印] / 不可避のラピッドファイア （使用まで10秒：消費気5）",
     "text": "計略使用前の状態に戻る（自分のみ）",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -185870,7 +198368,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 観察眼 （使用まで30秒：消費気5）",
     "text": "範囲内の敵の防御と移動速度が20秒間 60%低下し優先攻撃対象となる（範囲：小）",
-    "effects": []
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -185950,8 +198450,8 @@ window.SCRE_DATA = [
    "effects": []
   },
   "strategy": {
-   "name": "[ジェノサイダー翔] / クシャミ （使用まで10秒：消費気3）",
-   "text": "「腐川 冬子」となり、1ダメージを与える攻撃を行う 時間経過で低下した攻撃と攻撃速度と攻撃対象 が徐々に回復(自分のみが対象)",
+   "name": "[腐川冬子] / クシャミ （使用まで10秒：消費気3）",
+   "text": "「ジェノサイダー翔」となり、継続して攻撃を行う 時間経過で攻撃と攻撃速度と攻撃対象数が低下 (自分のみが対象)",
    "effects": [],
    "cooldown": 10,
    "cost": 3
@@ -185976,13 +198476,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[腐川冬子] / クシャミ （使用まで10秒：消費気3）",
     "text": "「ジェノサイダー翔」となり、継続して攻撃を行う 時間経過で攻撃と攻撃速度と攻撃対象数が低下 (自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 3
    },
    {
     "stage": "無印",
     "name": "[ジェノサイダー翔] / クシャミ （使用まで10秒：消費気3）",
     "text": "「腐川 冬子」となり、1ダメージを与える攻撃を行う 時間経過で低下した攻撃と攻撃速度と攻撃対象 が徐々に回復(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -186122,7 +198626,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100% 宮藤芳佳・計略"
      }
-    ]
+    ],
+    "cooldown": 70,
+    "cost": 10
    }
   ],
   "allSpecials": [],
@@ -186262,7 +198768,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+100 坂本美緒・計略"
      }
-    ]
+    ],
+    "cooldown": 30,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -186382,7 +198890,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 固有魔法：空間把握 （使用まで40秒：消費気5）",
     "text": "範囲内の敵が優先攻撃対象となり、撃破気が4増加 20秒間移動速度が50%低下 (同種効果の重複なし。範囲:小)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 5
    }
   ],
   "allSpecials": [],
@@ -186479,7 +198989,13 @@ window.SCRE_DATA = [
     }
    ]
   },
-  "strategy": null,
+  "strategy": {
+   "name": "[無印] / 護衛開始 （使用まで30秒：消費気5）",
+   "text": "対象のダメージを代わりに受ける",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 5
+  },
   "special": null,
   "allSkills": [
    {
@@ -186507,7 +199023,24 @@ window.SCRE_DATA = [
     ]
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 護衛開始 （使用まで30秒：消費気5）",
+    "text": "対象のダメージを代わりに受ける",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 紫電一閃 （使用まで50秒：消費気7）",
+    "text": "30秒間自身の攻撃と攻撃速度が1.7倍 (自分のみが対象)",
+    "effects": [],
+    "cooldown": 50,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -186625,7 +199158,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 王女の威風 （使用まで40秒：消費気3）",
     "text": "範囲内の敵を15秒間「服従」状態にする 合戦中、最大8回まで使用可能(範囲:特大)",
-    "effects": []
+    "effects": [],
+    "cooldown": 40,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -186745,7 +199280,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 君にも届け （使用まで10秒：消費気3）",
     "text": "対象の特技が味方の与ダメージと敵の被ダメージを 上昇する効果に変化。回復を行わず、射程内の敵に 継続的にダメージを与える攻撃を行う(自分のみ)",
-    "effects": []
+    "effects": [],
+    "cooldown": 10,
+    "cost": 3
    }
   ],
   "allSpecials": [],
@@ -186865,7 +199402,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+75% 神裂火織・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -186965,7 +199504,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 空間移動 （使用まで60秒：消費気7）",
     "text": "35秒間対象の移動消費気が0になり、攻撃1.7倍 射程1.5倍、敵の攻撃を回避。攻撃した敵の移動速度を0 にする時間が延長(自分のみが対象)",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],
@@ -187110,7 +199651,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+40%(1.4倍) ピーク・フィンガー・計略"
      }
-    ]
+    ],
+    "cooldown": 50,
+    "cost": 5
    }
   ],
   "allSpecials": [
@@ -187270,7 +199813,9 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 鎧の巨人の継承者 （使用まで60秒：消費気15：赤配置）",
     "text": "敵2体に攻撃を行う伏兵を配置(1体まで) 伏兵は指定した方向の敵に4倍のダメージを与える 特殊攻撃を使用可能",
-    "effects": []
+    "effects": [],
+    "cooldown": 60,
+    "cost": 15
    }
   ],
   "allSpecials": [
@@ -187362,32 +199907,27 @@ window.SCRE_DATA = [
   },
   "skill": {
    "stage": "無印",
-   "name": "[無印] / 超高校級の軍人",
-   "text": "近接武器装備中、敵から狙われない 耐久が50%以下の敵に対して与えるダメージが1.5倍 「絶望」状態時、自身の攻撃が2倍",
+   "name": "[無印] / 装備変更 （気3：初回0秒：再使用5秒）",
+   "text": "武器攻撃を切り替える 攻撃方法に応じて一部の性能が変化 武器切替発動時、計略効果は解除される",
+   "effects": []
+  },
+  "strategy": {
+   "name": "[無印] / 迎撃態勢 （使用まで60秒：消費気7）",
+   "text": "30秒間対象の攻撃が敵の防御を50%無視 対象の射程内の敵の被ダメージが40%上昇",
    "effects": [
     {
-     "source": "特技",
-     "stat": "dmgDealtTarget",
+     "source": "計略",
+     "stat": "enemyDmgTakenUp",
      "mode": "percent",
-     "value": 50,
-     "multiplier": 1.5,
-     "target": "self",
-     "stackable": true,
-     "raw": "+50%(1.5倍) [耐久が50%以下の敵] 戦刃むくろ・特技",
-     "condition": "耐久が50%以下の敵"
-    },
-    {
-     "source": "特技",
-     "stat": "atkPercent",
-     "mode": "percent",
-     "value": 100,
+     "value": 40,
      "target": "inRange",
      "stackable": false,
-     "raw": "+100%(2.0倍) 戦刃むくろ・特技"
+     "raw": "+40% 戦刃むくろ・計略"
     }
-   ]
+   ],
+   "cooldown": 60,
+   "cost": 7
   },
-  "strategy": null,
   "special": null,
   "allSkills": [
    {
@@ -187416,9 +199956,34 @@ window.SCRE_DATA = [
       "raw": "+100%(2.0倍) 戦刃むくろ・特技"
      }
     ]
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 装備変更 （気3：初回0秒：再使用5秒）",
+    "text": "武器攻撃を切り替える 攻撃方法に応じて一部の性能が変化 武器切替発動時、計略効果は解除される",
+    "effects": []
    }
   ],
-  "allStrategies": [],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 迎撃態勢 （使用まで60秒：消費気7）",
+    "text": "30秒間対象の攻撃が敵の防御を50%無視 対象の射程内の敵の被ダメージが40%上昇",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% 戦刃むくろ・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 7
+   }
+  ],
   "allSpecials": [],
   "parseWarnings": []
  },
@@ -187536,7 +200101,9 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+70%(1.7倍) 五和・計略"
      }
-    ]
+    ],
+    "cooldown": 60,
+    "cost": 7
    }
   ],
   "allSpecials": [],

@@ -41,16 +41,19 @@ def clean_wiki(s: str) -> str:
     return s
 
 def extract_all_section_abilities(src: str, section_name: str, page_name: str):
-    pattern = r"\|>\|>\|>\|>\|BGCOLOR\(#[A-Fa-f0-9]+\):CENTER:\'\'(?:\[\[)?" + section_name + r"(?:\]\])?\'\'\|(.*?)(?=\|>\|>\|>\|>\|BGCOLOR|\Z)"
-    m = re.search(pattern, src, re.S)
-    if not m:
+    start_pat = r"\|(?:>\|)+\s*(?:BGCOLOR\(#[A-Fa-f0-9]+\):)?CENTER:\'\'(?:\[\[)?" + section_name + r"(?:\]\])?\'\'\|"
+    m_start = re.search(start_pat, src)
+    if not m_start:
         return []
-    chunk = m.group(1)
+    rest = src[m_start.end():]
+    m_end = re.search(r"\n(?:[ \t]*\|(?:>\|)+\s*(?:BGCOLOR\(#[A-Fa-f0-9]+\):)?CENTER:\'\'(?:\[\[)?(特技|所持特技|編成特技|特殊能力|特殊攻撃|移動攻撃|計略|図鑑文章)(?:\]\])?\'\'\||\*{1,3}\s+|#table_edit2|\Z)", rest)
+    chunk = rest[:m_end.start()] if m_end else rest
+
     lines = chunk.splitlines()
     results = []
     for line in lines:
         line_clean = line.strip()
-        if line_clean.startswith("//") or "|>|>|>|" not in line_clean:
+        if line_clean.startswith("//") or "|>|>|>|" not in line_clean or line_clean.startswith("|>"):
             continue
         parts = line_clean.split("|>|>|>|")
         if len(parts) >= 2:
@@ -58,18 +61,15 @@ def extract_all_section_abilities(src: str, section_name: str, page_name: str):
             raw_desc = parts[1]
             cleaned_name = clean_wiki(raw_name)
             cleaned_desc = clean_wiki(raw_desc)
-            if cleaned_desc and cleaned_desc not in ("~", "||", "|~|"):
+            if not cleaned_name:
+                continue
+            if cleaned_desc and cleaned_desc not in ("~", "||", "|~|", "なし") and cleaned_desc.strip() != "なし" and not cleaned_name.endswith("/ なし"):
                 # Detect stage [無印], [改壱], [改弐]
                 stage = "無印"
                 if "改弐" in cleaned_name:
                     stage = "改弐"
                 elif "改壱" in cleaned_name:
-                    if any(r["stage"] == "改壱" for r in results):
-                        stage = "改弐"
-                    else:
-                        stage = "改壱"
-                if stage == "改弐" and cleaned_name.startswith("[改壱]"):
-                    cleaned_name = cleaned_name.replace("[改壱]", "[改弐]", 1)
+                    stage = "改壱"
                 effects = parse_ability_effects(cleaned_desc, section_name, page_name)
                 results.append({
                     "stage": stage,
@@ -427,24 +427,29 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
 
     all_strats = extract_all_section_abilities(src, "計略", page_name)
     if all_strats:
+        for s in all_strats:
+            cd = 40
+            ct = 5
+            m_cd = re.search(r"(\d+)秒", s["name"])
+            if m_cd:
+                try: cd = int(m_cd.group(1))
+                except: pass
+            m_ct = re.search(r"消費気(\d+)", s["name"])
+            if m_ct:
+                try: ct = int(m_ct.group(1))
+                except: pass
+            s["cooldown"] = cd
+            s["cost"] = ct
         castle["allStrategies"] = all_strats
-        latest = all_strats[-1]
-        cooldown = 40
-        cost = 5
-        m_cd = re.search(r"(\d+)秒", latest["name"])
-        if m_cd:
-            try: cooldown = int(m_cd.group(1))
-            except: pass
-        m_ct = re.search(r"消費気(\d+)", latest["name"])
-        if m_ct:
-            try: cost = int(m_ct.group(1))
-            except: pass
+        k2 = [s for s in all_strats if s.get("stage") == "改弐"]
+        k1 = [s for s in all_strats if s.get("stage") == "改壱"]
+        latest = (k2 or k1 or all_strats)[0]
         castle["strategy"] = {
             "name": latest["name"],
             "text": latest["text"],
             "effects": latest["effects"],
-            "cooldown": cooldown,
-            "cost": cost
+            "cooldown": latest["cooldown"],
+            "cost": latest["cost"]
         }
 
     all_specs = extract_all_section_abilities(src, "特殊能力", page_name) or extract_all_section_abilities(src, "特殊攻撃", page_name)
