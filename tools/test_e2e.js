@@ -3927,6 +3927,174 @@ async function runTests() {
   }
   console.log('=> TEST 64 PASSED');
 
+  // -------------------------------------------------------------
+  // Test 65: Prompt 29 (おひげ式ティアビュー)
+  // -------------------------------------------------------------
+  {
+    console.log('\n[TEST 65] Testing Prompt 29: おひげ式ティアビュー...');
+
+    // 1. おひげ式スコアが全城娘（1,161体）に付くこと
+    const ohigeScores = await page.evaluate(() => window.computeOhigeScores());
+    console.log('Ohige scores computed length:', ohigeScores ? ohigeScores.length : 0);
+    if (!ohigeScores || ohigeScores.length !== 1161) {
+      throw new Error(`TEST 65 FAILED: Expected 1161 scores, got ${ohigeScores ? ohigeScores.length : 0}`);
+    }
+    const allNumeric = ohigeScores.every(s => typeof s.ohigeScore === 'number' && !isNaN(s.ohigeScore));
+    if (!allNumeric) {
+      throw new Error('TEST 65 FAILED: Not all castles have numeric ohigeScore');
+    }
+
+    // 2. 役割別ビューとおひげ式ビューの切替が動作すること
+    await page.evaluate(() => {
+      window.scrollTo(0, 0);
+      document.querySelector('button[data-tab="tab-tier"]')?.click();
+    });
+    await new Promise(r => setTimeout(r, 300));
+
+    await page.evaluate(() => {
+      document.getElementById('btnTierModeOhige')?.click();
+    });
+    await new Promise(r => setTimeout(r, 300));
+    const ohigeVisible = await page.$eval('#tierViewOhige', el => el.style.display !== 'none');
+    const autoHidden = await page.$eval('#tierViewAuto', el => el.style.display === 'none');
+    console.log('Ohige view visible:', ohigeVisible, 'Auto view hidden:', autoHidden);
+    if (!ohigeVisible || !autoHidden) {
+      throw new Error('TEST 65 FAILED: Switch to Ohige view failed');
+    }
+
+    // Check notice banner presence and required text
+    const bannerText = await page.$eval('#tierNoticeBannerOhige', el => el.textContent);
+    if (!bannerText.includes('おひげチャンネルの評価ルールを data.js から機械的に再現した目安') || !bannerText.includes('手動上書きで吸収')) {
+      throw new Error(`TEST 65 FAILED: Notice banner missing required text: ${bannerText}`);
+    }
+
+    // Switch back to 役割別 (既存) view
+    await page.evaluate(() => {
+      document.getElementById('btnTierModeAuto')?.click();
+    });
+    await new Promise(r => setTimeout(r, 300));
+    const autoVisible = await page.$eval('#tierViewAuto', el => el.style.display !== 'none');
+    const ohigeHidden = await page.$eval('#tierViewOhige', el => el.style.display === 'none');
+    console.log('Switch back to Auto: Auto visible:', autoVisible, 'Ohige hidden:', ohigeHidden);
+    if (!autoVisible || !ohigeHidden) {
+      throw new Error('TEST 65 FAILED: Switch back to Auto view failed');
+    }
+
+    // Return to Ohige view
+    await page.evaluate(() => {
+      document.getElementById('btnTierModeOhige')?.click();
+    });
+    await new Promise(r => setTimeout(r, 300));
+
+    // 3. 武器種別ビューで Tier0〜Tier3 に分布すること（0人の Tier があってもよい）
+    await page.click('#btnOhigeScopeWeapon');
+    await new Promise(r => setTimeout(r, 300));
+    const tierDistribution = await page.evaluate(() => {
+      const rows = Array.from(document.querySelectorAll('#tierOhigeBoard .tier-ohige-row'));
+      const tiersFound = new Set(rows.map(r => r.getAttribute('data-tier')).filter(Boolean));
+      return {
+        hasTier0: tiersFound.has('Tier0'),
+        hasTier1: tiersFound.has('Tier1'),
+        hasTier2: tiersFound.has('Tier2'),
+        hasTier3: tiersFound.has('Tier3'),
+        totalChips: document.querySelectorAll('#tierOhigeBoard .tier-ohige-chip').length
+      };
+    });
+    console.log('Tier distribution in weapon view:', tierDistribution);
+    if (!tierDistribution.hasTier0 || !tierDistribution.hasTier1 || !tierDistribution.hasTier2 || !tierDistribution.hasTier3) {
+      throw new Error(`TEST 65 FAILED: Missing one of Tier0~3 rows: ${JSON.stringify(tierDistribution)}`);
+    }
+    if (tierDistribution.totalChips === 0) {
+      throw new Error('TEST 65 FAILED: No chips rendered in weapon view');
+    }
+
+    // Check 12px font size floor in Ohige View
+    const minFontSizePx = await page.evaluate(() => {
+      const elements = Array.from(document.querySelectorAll('#tierViewOhige, #tierViewOhige *'));
+      let minSize = 999;
+      elements.forEach(el => {
+        const fs = parseFloat(window.getComputedStyle(el).fontSize);
+        if (!isNaN(fs) && fs > 0 && fs < minSize) {
+          minSize = fs;
+        }
+      });
+      return minSize;
+    });
+    console.log('Minimum font size in #tierViewOhige:', minFontSizePx, 'px');
+    if (minFontSizePx < 12) {
+      throw new Error(`TEST 65 FAILED: Font size dropped below 12px floor: ${minFontSizePx}px`);
+    }
+
+    // Check label width uniformity across all rows
+    const labelWidths = await page.evaluate(() => {
+      const headers = Array.from(document.querySelectorAll('#tierOhigeBoard .tier-ohige-row-header'));
+      return headers.map(h => h.getBoundingClientRect().width);
+    });
+    const allWidthsMatch = labelWidths.every(w => Math.abs(w - labelWidths[0]) < 1);
+    console.log('Label header widths match uniformly:', allWidthsMatch, 'width:', labelWidths[0]);
+    if (!allWidthsMatch || labelWidths.length === 0) {
+      throw new Error('TEST 65 FAILED: Tier label widths are not unified across rows');
+    }
+
+    // 4. 属性別ビューで上位7体が表示されること
+    await page.click('#btnOhigeScopeTerrain');
+    await new Promise(r => setTimeout(r, 300));
+    const terrainTopCheck = await page.evaluate(() => {
+      const rows = Array.from(document.querySelectorAll('#tierOhigeBoard .tier-ohige-row'));
+      return rows.map(r => {
+        const terrain = r.getAttribute('data-terrain');
+        const chips = r.querySelectorAll('.tier-ohige-chip');
+        return { terrain, chipCount: chips.length };
+      });
+    });
+    console.log('Terrain top check (神セブン):', terrainTopCheck);
+    if (terrainTopCheck.length === 0) {
+      throw new Error('TEST 65 FAILED: No terrain sections rendered');
+    }
+    const allAtMost7 = terrainTopCheck.every(tc => tc.chipCount <= 7 && tc.chipCount >= 1);
+    if (!allAtMost7) {
+      throw new Error(`TEST 65 FAILED: Expected up to 7 chips in 神セブン: ${JSON.stringify(terrainTopCheck)}`);
+    }
+
+    // 5. 手動上書きが保存・復元されること
+    await page.evaluate(() => {
+      document.getElementById('btnOhigeScopeWeapon').click();
+    });
+    await new Promise(r => setTimeout(r, 200));
+
+    await page.evaluate(() => {
+      const c = SCRE_DATA.find(x => x.name === '［無疆］江戸城');
+      const key = 'scre-helper:tier-overrides:v1';
+      const saved = JSON.parse(localStorage.getItem(key) || '{}');
+      saved[c.id] = 'Tier0';
+      localStorage.setItem(key, JSON.stringify(saved));
+      window.renderTierOhige();
+    });
+    await new Promise(r => setTimeout(r, 200));
+
+    const overrideVerified = await page.evaluate(() => {
+      const chip = document.querySelector('.tier-ohige-chip[data-castle-name="［無疆］江戸城"]');
+      return chip ? chip.classList.contains('is-overridden') : false;
+    });
+    console.log('Manual override applied and detected:', overrideVerified);
+    if (!overrideVerified) {
+      throw new Error('TEST 65 FAILED: Overridden chip did not receive .is-overridden class');
+    }
+
+    // Clean up override
+    await page.evaluate(() => {
+      const c = SCRE_DATA.find(x => x.name === '［無疆］江戸城');
+      const key = 'scre-helper:tier-overrides:v1';
+      const saved = JSON.parse(localStorage.getItem(key) || '{}');
+      delete saved[c.id];
+      localStorage.setItem(key, JSON.stringify(saved));
+      window.renderTierOhige();
+    });
+    await new Promise(r => setTimeout(r, 200));
+
+    console.log('=> TEST 65 PASSED');
+  }
+
   // Final check for console errors
   if (pageErrors.length > 0) {
     throw new Error('Page encountered JavaScript errors: ' + pageErrors.join('; '));
@@ -3938,7 +4106,7 @@ async function runTests() {
 
   await browser.close();
   console.log('\n=====================================');
-  console.log('ALL E2E AUTOMATED TESTS PASSED (64/64)!');
+  console.log('ALL E2E AUTOMATED TESTS PASSED (65/65)!');
   console.log('=====================================');
 }
 

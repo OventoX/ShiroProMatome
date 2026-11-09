@@ -6695,34 +6695,587 @@
     }
   }
 
+  // ==========================================
+  // D1: おひげ式ティア (Ohige-style Tier View)
+  // ==========================================
+  const OHIGE_WEIGHTS = {
+    // 1. 編成インフラ・巨大化気軽減
+    giantKiReduction: 18.0,
+    // 2. 計略短縮・気ブースト (置くだけ効果は高め)
+    stratCooldownAlly: 18.0,
+    stratCooldownSelf: 7.0,
+    kiBoost: 15.0,
+    kiBoostPassive: 18.0,
+    // 3. 状態異常・高難度CC (麻痺は0件。猛毒/火傷/氷結/暗闇/混乱/行動不能/状態異常)
+    ailment: 12.0,
+    ailmentImmune: 10.0,
+    movementSlow: 10.0,
+    // 4. 手数: 連撃・複数対象・攻撃速度系の効果
+    multiHit: 14.0,
+    targetInc: 10.0,
+    atkSpeed: 10.0,
+    gapShort: 8.0,
+    // 5. 防御無視・耐久割合削りなど高難度で効く特性
+    defIgnore: 15.0,
+    hpPercentCut: 14.0,
+    dmgDealtTarget: 12.0,
+    // 6. 配置自由度: 遠近両対応・複合属性・全マス移動/配置マス変更
+    bothRange: 8.0,
+    multiAttr: 6.0,
+    tileFlexibility: 12.0,
+    // 7. トークンの質（気軽減など実用的なものは加点、攻撃のみの軽減トークンは加点しない）
+    usefulToken: 12.0,
+    // 置くだけ味方支援 (特技で味方/全城娘の攻防上昇等)
+    passiveTeamBuff: 10.0,
+    // 減点・抑制要素: チャージ・一撃型の単発倍率上限
+    chargeCap: 12.0,
+    conditionalDiscount: 0.85
+  };
+
+  let cachedOhigeScores = null;
+  let ohigeTierScope = "weapon"; // "weapon" | "terrain"
+  let ohigeTerrainTopCount = 7; // 7 | 10
+
+  function computeOhigeScores(forceRecalculate = false) {
+    if (cachedOhigeScores && !forceRecalculate) return cachedOhigeScores;
+    if (!window.SCRE_DATA) return [];
+
+    const list = window.SCRE_DATA.map(c => {
+      // 兜城娘は評価対象外
+      if (c.name.includes("兜") || c.castleType === "兜") {
+        return {
+          id: c.id,
+          name: c.name,
+          weapon: c.weapon || "その他",
+          castleType: c.castleType || "無",
+          attributes: c.attributes || [c.castleType || "無"],
+          rangeKind: c.rangeKind || "近",
+          rarity: c.rarity,
+          ohigeScore: 0,
+          isKabuto: true,
+          castle: c
+        };
+      }
+
+      // Latest active abilities (通常特技・計略・特殊能力のみで評価。大破特技は除外)
+      const sk = (c.allSkills && c.allSkills.length > 0)
+        ? (c.allSkills.find(s => s.stage === "改弐") || c.allSkills.find(s => s.stage === "改壱") || c.allSkills[0])
+        : c.skill;
+      const st = (c.allStrategies && c.allStrategies.length > 0)
+        ? (c.allStrategies.find(s => s.stage === "改弐") || c.allStrategies.find(s => s.stage === "改壱") || c.allStrategies[0])
+        : c.strategy;
+      const sp = c.special;
+
+      const skText = sk ? ((sk.name || "") + " " + (sk.text || "")) : "";
+      const stText = st ? ((st.name || "") + " " + (st.text || "")) : "";
+      const spText = sp ? ((sp.name || "") + " " + (sp.text || "")) : "";
+      const allText = [skText, stText, spText].filter(Boolean).join(" ");
+
+      let rawScore = 0.0;
+
+      // 1. 編成インフラ・巨大化気軽減
+      const giantKiMatch = allText.match(/巨大化(?:に必要な)?気を?(?:約)?(\d+)%?軽減|巨大化消費気(?:が|を)?(\d+)%?軽減/);
+      if (giantKiMatch) {
+        const val = parseInt(giantKiMatch[1] || giantKiMatch[2] || 25, 10);
+        const isTeam = /(?:全て|全城娘|射程内|味方)/.test(giantKiMatch[0]);
+        rawScore += (isTeam ? OHIGE_WEIGHTS.giantKiReduction : (OHIGE_WEIGHTS.giantKiReduction * 0.55)) * Math.min(1.2, val / 30.0);
+      }
+
+      // 2. 計略短縮・気ブーストを他者に与える（置くだけ効果は高め）
+      const cdMatch = allText.match(/(?:計略再使用(?:時間)?|使用までの時間)(?:が)?(?:約)?(\d+)%短縮/);
+      if (cdMatch) {
+        const val = parseInt(cdMatch[1], 10);
+        const isTeam = /(?:全て|全城娘|射程内|味方)/.test(allText);
+        const isPassive = skText.includes(cdMatch[0]);
+        rawScore += (isTeam ? (isPassive ? OHIGE_WEIGHTS.stratCooldownAlly : (OHIGE_WEIGHTS.stratCooldownAlly * 0.8)) : OHIGE_WEIGHTS.stratCooldownSelf) * Math.min(1.2, val / 35.0);
+      }
+
+      if (/気の自然増加量(?:が)?(?:徐々に)?増加|撃破時に気が(?:約)?(\d+)増加|気を(?:約)?(\d+)回復|気(?:が|を)(?:約)?(\d+)増加/.test(allText)) {
+        const isPassive = /気の自然増加量|撃破時/.test(skText);
+        rawScore += isPassive ? OHIGE_WEIGHTS.kiBoostPassive : OHIGE_WEIGHTS.kiBoost;
+      }
+
+      // 3. 状態異常の付与 (猛毒|火傷|氷結|暗闇|混乱|行動不能|状態異常)
+      if (/猛毒|火傷|氷結|暗闇|混乱|行動不能|状態異常/.test(allText)) {
+        rawScore += OHIGE_WEIGHTS.ailment;
+      }
+      if (/状態異常を(?:全て)?(?:回復し)?無効化/.test(allText)) {
+        rawScore += OHIGE_WEIGHTS.ailmentImmune;
+      }
+      const slowMatch = allText.match(/移動速度(?:が|を)?.*?(\d+)%低下/);
+      if (slowMatch) {
+        const val = parseInt(slowMatch[1], 10);
+        rawScore += OHIGE_WEIGHTS.movementSlow * Math.min(1.0, val / 50.0);
+      }
+
+      // 4. 手数: 連撃・複数対象・攻撃速度系の効果
+      const multiHitMatch = allText.match(/(\d+)連続(?:攻撃|で攻撃)/);
+      if (multiHitMatch) {
+        const hits = parseInt(multiHitMatch[1], 10);
+        rawScore += Math.min(OHIGE_WEIGHTS.multiHit, hits * 3.5);
+      } else if (/連続で攻撃/.test(allText)) {
+        rawScore += OHIGE_WEIGHTS.multiHit * 0.6;
+      }
+
+      const targetIncMatch = allText.match(/攻撃対象(?:が)?(\d+)増加/);
+      if (targetIncMatch) {
+        rawScore += Math.min(OHIGE_WEIGHTS.targetInc, parseInt(targetIncMatch[1], 10) * 5.0);
+      }
+      if (/射程内の(?:全て|全)の敵|全敵に攻撃/.test(allText)) {
+        rawScore += OHIGE_WEIGHTS.targetInc;
+      }
+
+      if (/攻撃速度(?:が)?(?:約)?(\d+)%上昇|攻撃速度(?:が)?([\d\.]+)倍/.test(allText)) {
+        rawScore += OHIGE_WEIGHTS.atkSpeed;
+      }
+      if (/攻撃後の隙(?:が)?(?:約)?(\d+)%短縮/.test(allText)) {
+        rawScore += OHIGE_WEIGHTS.gapShort;
+      }
+
+      // 5. 防御無視・耐久割合削りなど高難度で効く特性
+      if (/防御を?無視/.test(allText)) rawScore += OHIGE_WEIGHTS.defIgnore;
+      if (/現在耐久の(?:\d+)%|耐久が低い程.*?与えるダメージ|最大耐久の(?:\d+)%|割合(?:ダメージ|削り)/.test(allText)) {
+        rawScore += OHIGE_WEIGHTS.hpPercentCut;
+      }
+
+      // 与ダメ・与えるダメージ倍率
+      const multMatches = allText.matchAll(/(?:(?:自身|自分|標的|対象|敵|特殊能力中)[^。]*?与えるダメージ|特殊攻撃(?:で|の|時|時の範囲攻撃で)?(?:与える)?ダメージ)(?:が|は)?(?:約)?([\d\.]+)倍/g);
+      for (const mm of multMatches) {
+        const m = parseFloat(mm[1]);
+        if (m > 1.0) rawScore += Math.min(OHIGE_WEIGHTS.dmgDealtTarget, (m - 1.0) * 10.0);
+      }
+
+      // 6. 配置自由度: 遠近両対応・複合属性・全マス移動/配置マス変更
+      if (c.rangeKind === "遠近") rawScore += OHIGE_WEIGHTS.bothRange;
+      if (c.attributes && c.attributes.length >= 2) rawScore += OHIGE_WEIGHTS.multiAttr;
+      if (/全マス移動可能|配置場所を.*?マス.*?に変更/.test(allText)) {
+        rawScore += OHIGE_WEIGHTS.tileFlexibility;
+      }
+
+      // 7. トークンの質（気軽減など実用的なものは加点、攻撃のみの軽減トークンは加点しない）
+      const hasToken = /伏兵/.test(allText);
+      if (hasToken) {
+        if (/気|自然増加|再使用|巨大化|足止め|軽減|回復|無効化/.test(allText)) {
+          rawScore += OHIGE_WEIGHTS.usefulToken;
+        }
+      }
+
+      // 置くだけ味方支援 (特技で味方/全城娘の攻防上昇等)
+      if (/(?:射程内の城娘|全ての城娘|味方).*?(?:攻撃|防御|与ダメージ).*?上昇/.test(skText)) {
+        rawScore += OHIGE_WEIGHTS.passiveTeamBuff;
+      }
+
+      // 減点・抑制要素: チャージ・一撃型の単発倍率上限
+      const isCharge = /溜め|チャージ|一撃|単発/.test(allText);
+      const rawMultMatch = allText.match(/攻撃(?:の|が)?([\d\.]+)倍/);
+      if (rawMultMatch) {
+        const m = parseFloat(rawMultMatch[1]);
+        const pts = (m - 1.0) * 5.0;
+        rawScore += isCharge ? Math.min(OHIGE_WEIGHTS.chargeCap * 0.5, pts) : Math.min(OHIGE_WEIGHTS.chargeCap, pts);
+      }
+
+      // 条件が極端に限定的な効果（特定の敵種・特定マップ前提）は割引
+      if (/妖怪に対して|飛行敵に対して|水上|水マス/.test(allText)) {
+        rawScore *= OHIGE_WEIGHTS.conditionalDiscount;
+      }
+
+      // レアリティ加味
+      rawScore += (c.rarity || 5) * 2.0;
+
+      const finalScore = Math.round(rawScore * 10) / 10;
+      return {
+        id: c.id,
+        name: c.name,
+        weapon: c.weapon || "その他",
+        castleType: c.castleType || "無",
+        attributes: c.attributes || [c.castleType || "無"],
+        rangeKind: c.rangeKind || "近",
+        rarity: c.rarity,
+        ohigeScore: finalScore,
+        isKabuto: false,
+        castle: c
+      };
+    });
+
+    // 武器種内相対評価 & 順位
+    const weaponGroups = {};
+    list.forEach(item => {
+      if (item.isKabuto) return;
+      const w = item.weapon;
+      if (!weaponGroups[w]) weaponGroups[w] = [];
+      weaponGroups[w].push(item);
+    });
+
+    Object.keys(weaponGroups).forEach(w => {
+      const g = weaponGroups[w];
+      g.sort((a, b) => b.ohigeScore - a.ohigeScore);
+      const n = g.length;
+      g.forEach((item, idx) => {
+        item.weaponRank = idx + 1;
+        item.weaponTotal = n;
+
+        // Tier0〜Tier3 thresholds
+        let t = "選外";
+        if (idx === 0 && item.ohigeScore >= 55) {
+          t = "Tier0";
+        } else if (idx < Math.max(1, Math.floor(n * 0.04)) && item.ohigeScore >= 55) {
+          t = "Tier0";
+        } else if (idx < Math.max(2, Math.floor(n * 0.14)) && item.ohigeScore >= 46) {
+          t = "Tier1";
+        } else if (idx < Math.max(4, Math.floor(n * 0.30)) && item.ohigeScore >= 36) {
+          t = "Tier2";
+        } else if (idx < Math.max(6, Math.floor(n * 0.52)) && item.ohigeScore >= 26) {
+          t = "Tier3";
+        }
+        item.ohigeWeaponTier = t;
+      });
+    });
+
+    // 属性内相対評価 & 順位
+    const TERRAINS = ["平", "山", "平山", "水", "地獄", "無"];
+    const terrainGroups = {};
+    TERRAINS.forEach(t => terrainGroups[t] = []);
+
+    list.forEach(item => {
+      if (item.isKabuto) return;
+      TERRAINS.forEach(t => {
+        const attrs = item.attributes || [item.castleType || ""];
+        if (attrs.includes(t)) {
+          terrainGroups[t].push(item);
+        }
+      });
+    });
+
+    TERRAINS.forEach(t => {
+      const g = terrainGroups[t];
+      g.sort((a, b) => b.ohigeScore - a.ohigeScore);
+      g.forEach((item, idx) => {
+        if (!item.terrainRanks) item.terrainRanks = {};
+        item.terrainRanks[t] = { rank: idx + 1, total: g.length };
+      });
+    });
+
+    cachedOhigeScores = list;
+    return cachedOhigeScores;
+  }
+
+  function promptOhigeTierOverride(item) {
+    loadTierOverrides();
+    const current = tierOverrides[item.id] || tierOverrides[item.name] || item.effectiveTier || item.ohigeWeaponTier;
+    const val = prompt(`【${item.name}】のおひげ式ティア手動上書き\n(Tier0, Tier1, Tier2, Tier3 を入力。解除は空欄または「解除」)`, current || "Tier1");
+    if (val === null) return;
+    const trimmed = val.trim();
+    if (trimmed === "" || trimmed === "解除") {
+      delete tierOverrides[item.id];
+      delete tierOverrides[item.name];
+      saveTierOverrides();
+      renderTierOhige();
+      showToast(`「${item.name}」の手動上書きを解除しました`);
+    } else if (["Tier0", "Tier1", "Tier2", "Tier3", "SS", "S", "A", "B", "C", "D"].includes(trimmed)) {
+      let normalized = trimmed;
+      if (trimmed === "SS") normalized = "Tier0";
+      else if (trimmed === "S") normalized = "Tier1";
+      else if (trimmed === "A") normalized = "Tier2";
+      else if (trimmed === "B") normalized = "Tier3";
+      tierOverrides[item.id] = normalized;
+      saveTierOverrides();
+      renderTierOhige();
+      showToast(`「${item.name}」のティアを ${normalized} に手動設定しました`);
+    } else {
+      alert("ティアは Tier0, Tier1, Tier2, Tier3 のいずれかで入力してください。");
+    }
+  }
+
+  function createOhigeChip(item, rankBadgeText) {
+    const c = item.castle;
+    const chip = document.createElement("div");
+    chip.className = "tier-auto-chip tier-ohige-chip" + (item.isOverridden ? " is-overridden" : "");
+    chip.setAttribute("data-castle-id", c.id);
+    chip.setAttribute("data-castle-name", c.name);
+
+    const avatar = document.createElement("img");
+    avatar.className = "tier-ohige-chip-avatar";
+    avatar.alt = c.name;
+    avatar.loading = "lazy";
+    avatar.src = c.illustUrl || c.ojouUrl || "";
+    avatar.onerror = () => {
+      avatar.style.display = "none";
+    };
+
+    const body = document.createElement("div");
+    body.className = "tier-ohige-chip-body";
+
+    const top = document.createElement("div");
+    top.className = "tier-ohige-chip-top";
+
+    if (rankBadgeText) {
+      const rankTag = document.createElement("span");
+      rankTag.className = "tier-ohige-rank-tag";
+      rankTag.textContent = rankBadgeText;
+      top.appendChild(rankTag);
+    }
+
+    const nameEl = document.createElement("span");
+    nameEl.className = "tier-ohige-chip-name";
+    nameEl.textContent = (item.isOverridden ? "✏️ " : "") + c.name;
+    nameEl.title = c.name + (item.isOverridden ? ` (手動上書き: ${item.effectiveTier})` : "");
+    top.appendChild(nameEl);
+
+    const sub = document.createElement("div");
+    sub.className = "tier-ohige-chip-sub";
+
+    const raritySpan = document.createElement("span");
+    raritySpan.className = `tier-ohige-badge badge-rarity-${c.rarity || 5}`;
+    raritySpan.textContent = `★${c.rarity || 5}`;
+    sub.appendChild(raritySpan);
+
+    const typeSpan = document.createElement("span");
+    typeSpan.className = `tier-ohige-badge badge-attr-${c.castleType || "plain"}`;
+    typeSpan.textContent = (c.attributes && c.attributes.length > 1) ? c.attributes.join("/") : (c.castleType || "無");
+    sub.appendChild(typeSpan);
+
+    const weaponSpan = document.createElement("span");
+    weaponSpan.className = "tier-ohige-badge badge-weapon";
+    weaponSpan.textContent = c.weapon || "その他";
+    sub.appendChild(weaponSpan);
+
+    const scoreSpan = document.createElement("span");
+    scoreSpan.className = "tier-ohige-score-tag";
+    scoreSpan.textContent = `${item.ohigeScore}pt`;
+    sub.appendChild(scoreSpan);
+
+    body.appendChild(top);
+    body.appendChild(sub);
+
+    chip.appendChild(avatar);
+    chip.appendChild(body);
+
+    chip.addEventListener("click", (e) => {
+      if (e.shiftKey) {
+        promptOhigeTierOverride(item);
+      } else {
+        openCastleDetail(c.id);
+      }
+    });
+
+    chip.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+      promptOhigeTierOverride(item);
+    });
+
+    return chip;
+  }
+
+  function renderTierOhige() {
+    const board = document.getElementById("tierOhigeBoard");
+    if (!board) return;
+
+    loadTierOverrides();
+    const allScores = computeOhigeScores();
+
+    const overrideCount = Object.keys(tierOverrides).length;
+    const countBadge = document.getElementById("tierOhigeOverrideCount");
+    if (countBadge) countBadge.textContent = `(${overrideCount})`;
+
+    const filterWeapon = (document.getElementById("tierOhigeFilterWeapon")?.value || "").trim();
+    const filterTerrain = (document.getElementById("tierOhigeFilterTerrain")?.value || "").trim();
+    const filterRangeKind = (document.getElementById("tierOhigeFilterRangeKind")?.value || "").trim();
+    const filterOwnership = (document.getElementById("tierOhigeFilterOwnership")?.value || "").trim();
+    const filterSearch = (document.getElementById("tierOhigeSearchInput")?.value || "").trim().toLowerCase();
+
+    const isMatchFilter = (item) => {
+      if (item.isKabuto) return false;
+      const c = item.castle;
+      if (filterWeapon && c.weapon !== filterWeapon) return false;
+      if (filterTerrain) {
+        const attrs = c.attributes || [c.castleType || ""];
+        if (!attrs.includes(filterTerrain) && c.castleType !== filterTerrain) return false;
+      }
+      if (filterRangeKind && c.rangeKind !== filterRangeKind) return false;
+      if (filterOwnership === "owned" && (!ownership.owned || !ownership.owned[c.id])) return false;
+      if (filterOwnership === "unowned" && (ownership.owned && ownership.owned[c.id])) return false;
+      if (filterOwnership === "favorites" && (!ownership.favorites || !ownership.favorites[c.id])) return false;
+      if (filterSearch && !matchCastleNameOrRuby(c, filterSearch)) return false;
+      return true;
+    };
+
+    board.innerHTML = "";
+
+    if (ohigeTierScope === "weapon") {
+      const WEAPON_TYPES = [
+        "刀", "双剣", "槍", "槌", "戦棍", "大砲", "弓", "石弓", "鉄砲", "法術",
+        "杖", "歌舞", "鈴", "本", "祓串", "投剣", "鞭", "茶器", "盾", "拳",
+        "ランス", "鎌", "軍船", "陣貝", "その他"
+      ];
+
+      const targetWeapons = filterWeapon ? [filterWeapon] : WEAPON_TYPES;
+
+      const TIER_DEFS = [
+        { key: "Tier0", label: "Tier0", sub: "殿堂入り", cls: "tier-ohige-t0" },
+        { key: "Tier1", label: "Tier1", sub: "ぶっ壊れ", cls: "tier-ohige-t1" },
+        { key: "Tier2", label: "Tier2", sub: "壊れ", cls: "tier-ohige-t2" },
+        { key: "Tier3", label: "Tier3", sub: "ワンポイント", cls: "tier-ohige-t3" }
+      ];
+
+      targetWeapons.forEach(w => {
+        const weaponCastles = allScores.filter(it => it.weapon === w && isMatchFilter(it));
+        if (weaponCastles.length === 0 && filterWeapon) {
+          board.innerHTML = `<div style="padding:20px; text-align:center; color:#888; font-size:12px;">該当する城娘がいません</div>`;
+          return;
+        }
+        if (weaponCastles.length === 0) return;
+
+        const groups = { Tier0: [], Tier1: [], Tier2: [], Tier3: [], 選外: [] };
+        weaponCastles.forEach(item => {
+          const override = tierOverrides[item.id] || tierOverrides[item.name];
+          const effTier = override || item.ohigeWeaponTier || "選外";
+          if (groups[effTier]) {
+            groups[effTier].push({ ...item, isOverridden: Boolean(override), effectiveTier: effTier });
+          } else {
+            groups["選外"].push({ ...item, isOverridden: Boolean(override), effectiveTier: "選外" });
+          }
+        });
+
+        if (!filterWeapon) {
+          const secHeader = document.createElement("div");
+          secHeader.className = "tier-ohige-section-header";
+          secHeader.innerHTML = `<span>⚔️ 【${escapeHtml(w)}】 (全${weaponCastles.length}体)</span>`;
+          board.appendChild(secHeader);
+        }
+
+        TIER_DEFS.forEach(tDef => {
+          const row = document.createElement("div");
+          row.className = "tier-row tier-ohige-row";
+          row.setAttribute("data-tier", tDef.key);
+
+          const rowHeader = document.createElement("div");
+          rowHeader.className = `tier-row-label-col tier-ohige-row-header ${tDef.cls}`;
+          const count = groups[tDef.key] ? groups[tDef.key].length : 0;
+          rowHeader.innerHTML = `
+            <div class="tier-row-letter tier-ohige-letter">${tDef.label}</div>
+            <div class="tier-row-sub tier-ohige-sub">${tDef.sub}</div>
+            <div class="tier-ohige-count">(${count}体)</div>
+          `;
+          row.appendChild(rowHeader);
+
+          const content = document.createElement("div");
+          content.className = "tier-row-content tier-ohige-content";
+          const items = groups[tDef.key] || [];
+          if (items.length === 0) {
+            content.classList.add("empty");
+            content.textContent = "該当者なし";
+          } else {
+            items.forEach(item => {
+              const chip = createOhigeChip(item, item.weaponRank ? `#${item.weaponRank}` : null);
+              content.appendChild(chip);
+            });
+          }
+          row.appendChild(content);
+          board.appendChild(row);
+        });
+      });
+    } else {
+      const TERRAINS = ["平", "山", "平山", "水", "地獄", "無"];
+      const targetTerrains = filterTerrain ? [filterTerrain] : TERRAINS;
+      const topLimit = ohigeTerrainTopCount || 7;
+      const limitLabel = (topLimit === 7) ? "神セブン" : "TOP10";
+
+      const TERRAIN_ICONS = {
+        "平": "🌾", "山": "⛰️", "平山": "🏯", "水": "🌊", "地獄": "🌋", "無": "⚪"
+      };
+
+      targetTerrains.forEach(t => {
+        const terrainCastles = allScores.filter(it => {
+          const attrs = it.attributes || [it.castleType || ""];
+          return attrs.includes(t) && isMatchFilter(it);
+        });
+
+        if (terrainCastles.length === 0 && filterTerrain) {
+          board.innerHTML = `<div style="padding:20px; text-align:center; color:#888; font-size:12px;">該当する城娘がいません</div>`;
+          return;
+        }
+        if (terrainCastles.length === 0) return;
+
+        terrainCastles.sort((a, b) => b.ohigeScore - a.ohigeScore);
+        const topCastles = terrainCastles.slice(0, topLimit);
+
+        const secHeader = document.createElement("div");
+        secHeader.className = "tier-ohige-section-header";
+        const icon = TERRAIN_ICONS[t] || "🏯";
+        secHeader.innerHTML = `
+          <span>${icon} 【${escapeHtml(t)}属性】 ${limitLabel} (全${terrainCastles.length}体中 上位${topCastles.length}体)</span>
+          <span style="font-size:12px; color:var(--text-sub); font-weight:normal;">基準: おひげ式スコア順</span>
+        `;
+        board.appendChild(secHeader);
+
+        const row = document.createElement("div");
+        row.className = "tier-row tier-ohige-row";
+        row.setAttribute("data-terrain", t);
+
+        const rowHeader = document.createElement("div");
+        rowHeader.className = "tier-row-label-col tier-ohige-row-header tier-ohige-t0";
+        rowHeader.innerHTML = `
+          <div class="tier-row-letter tier-ohige-letter">${icon} ${escapeHtml(t)}</div>
+          <div class="tier-row-sub tier-ohige-sub">${limitLabel}</div>
+          <div class="tier-ohige-count">(${topCastles.length}体)</div>
+        `;
+        row.appendChild(rowHeader);
+
+        const content = document.createElement("div");
+        content.className = "tier-row-content tier-ohige-content";
+        topCastles.forEach((item, idx) => {
+          const override = tierOverrides[item.id] || tierOverrides[item.name];
+          const itemWithOverride = { ...item, isOverridden: Boolean(override), effectiveTier: override || item.ohigeWeaponTier };
+          const rankLabel = `${idx + 1}位`;
+          const chip = createOhigeChip(itemWithOverride, rankLabel);
+          content.appendChild(chip);
+        });
+        row.appendChild(content);
+        board.appendChild(row);
+      });
+    }
+  }
+
   function renderTierTab() {
     loadSavedCustomTiers();
     loadTierWeights();
     loadTierOverrides();
 
     const btnAuto = document.getElementById("btnTierModeAuto");
+    const btnOhige = document.getElementById("btnTierModeOhige");
     const btnCurated = document.getElementById("btnTierModeCurated");
     const btnCustom = document.getElementById("btnTierModeCustom");
     const viewAuto = document.getElementById("tierViewAuto");
+    const viewOhige = document.getElementById("tierViewOhige");
     const viewCurated = document.getElementById("tierViewCurated");
     const viewCustom = document.getElementById("tierViewCustom");
 
     if (btnAuto) btnAuto.classList.toggle("active", currentTierMode === "auto");
+    if (btnOhige) btnOhige.classList.toggle("active", currentTierMode === "ohige");
     if (btnCurated) btnCurated.classList.toggle("active", currentTierMode === "curated");
     if (btnCustom) btnCustom.classList.toggle("active", currentTierMode === "custom");
 
     if (currentTierMode === "auto") {
       if (viewAuto) viewAuto.style.display = "block";
+      if (viewOhige) viewOhige.style.display = "none";
       if (viewCurated) viewCurated.style.display = "none";
       if (viewCustom) viewCustom.style.display = "none";
       renderTierAuto();
+    } else if (currentTierMode === "ohige") {
+      if (viewAuto) viewAuto.style.display = "none";
+      if (viewOhige) viewOhige.style.display = "block";
+      if (viewCurated) viewCurated.style.display = "none";
+      if (viewCustom) viewCustom.style.display = "none";
+      renderTierOhige();
     } else if (currentTierMode === "curated") {
       if (viewAuto) viewAuto.style.display = "none";
+      if (viewOhige) viewOhige.style.display = "none";
       if (viewCurated) viewCurated.style.display = "block";
       if (viewCustom) viewCustom.style.display = "none";
       renderTierCurated();
     } else {
       if (viewAuto) viewAuto.style.display = "none";
+      if (viewOhige) viewOhige.style.display = "none";
       if (viewCurated) viewCurated.style.display = "none";
       if (viewCustom) viewCustom.style.display = "block";
       renderTierCustomMaker(true);
@@ -7315,12 +7868,19 @@
 
   // Tier Event Listeners Initialization
   const btnTierAuto = document.getElementById("btnTierModeAuto");
+  const btnTierOhige = document.getElementById("btnTierModeOhige");
   const btnTierCurated = document.getElementById("btnTierModeCurated");
   const btnTierCustom = document.getElementById("btnTierModeCustom");
 
   if (btnTierAuto) {
     btnTierAuto.addEventListener("click", () => {
       currentTierMode = "auto";
+      renderTierTab();
+    });
+  }
+  if (btnTierOhige) {
+    btnTierOhige.addEventListener("click", () => {
+      currentTierMode = "ohige";
       renderTierTab();
     });
   }
@@ -7334,6 +7894,96 @@
     btnTierCustom.addEventListener("click", () => {
       currentTierMode = "custom";
       renderTierTab();
+    });
+  }
+
+  // Ohige Tier Controls
+  const btnOhigeScopeW = document.getElementById("btnOhigeScopeWeapon");
+  const btnOhigeScopeT = document.getElementById("btnOhigeScopeTerrain");
+  const toggleOhigeTerrainTop = document.getElementById("ohigeTerrainTopToggle");
+  const btnOhigeT7 = document.getElementById("btnOhigeTop7");
+  const btnOhigeT10 = document.getElementById("btnOhigeTop10");
+
+  function setOhigeTierScope(scope) {
+    ohigeTierScope = scope;
+    if (btnOhigeScopeW) btnOhigeScopeW.classList.toggle("active", scope === "weapon");
+    if (btnOhigeScopeT) btnOhigeScopeT.classList.toggle("active", scope === "terrain");
+    if (toggleOhigeTerrainTop) {
+      toggleOhigeTerrainTop.style.display = (scope === "terrain") ? "flex" : "none";
+    }
+    renderTierOhige();
+  }
+
+  if (btnOhigeScopeW) btnOhigeScopeW.addEventListener("click", () => setOhigeTierScope("weapon"));
+  if (btnOhigeScopeT) btnOhigeScopeT.addEventListener("click", () => setOhigeTierScope("terrain"));
+
+  if (btnOhigeT7) {
+    btnOhigeT7.addEventListener("click", () => {
+      ohigeTerrainTopCount = 7;
+      btnOhigeT7.classList.add("active");
+      if (btnOhigeT10) btnOhigeT10.classList.remove("active");
+      renderTierOhige();
+    });
+  }
+  if (btnOhigeT10) {
+    btnOhigeT10.addEventListener("click", () => {
+      ohigeTerrainTopCount = 10;
+      btnOhigeT10.classList.add("active");
+      if (btnOhigeT7) btnOhigeT7.classList.remove("active");
+      renderTierOhige();
+    });
+  }
+
+  ["tierOhigeFilterWeapon", "tierOhigeFilterTerrain", "tierOhigeFilterRangeKind", "tierOhigeFilterOwnership"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("change", renderTierOhige);
+  });
+  const searchInputOhige = document.getElementById("tierOhigeSearchInput");
+  if (searchInputOhige) {
+    searchInputOhige.addEventListener("input", renderTierOhige);
+  }
+
+  const btnClearOhigeOverrides = document.getElementById("btnClearOhigeOverrides");
+  if (btnClearOhigeOverrides) {
+    btnClearOhigeOverrides.addEventListener("click", () => {
+      const count = Object.keys(tierOverrides).length;
+      if (count === 0) {
+        showToast("手動上書きされた城娘はありません");
+        return;
+      }
+      if (confirm(`設定されている手動上書き(${count}体)をすべて解除しておひげ式スコアに戻しますか？`)) {
+        tierOverrides = {};
+        saveTierOverrides();
+        renderTierOhige();
+        showToast("すべての手動上書きを解除しました");
+      }
+    });
+  }
+
+  const btnExportOhige = document.getElementById("btnExportOhigeImage");
+  if (btnExportOhige) {
+    btnExportOhige.addEventListener("click", () => {
+      const board = document.getElementById("tierOhigeBoard");
+      if (!board) return;
+      showToast("📷 おひげ式ティア表の画像を生成中...");
+      if (typeof html2canvas === "undefined") {
+        showToast("⚠️ html2canvas が読み込まれていません");
+        return;
+      }
+      html2canvas(board, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#f5f3f0"
+      }).then(canvas => {
+        const a = document.createElement("a");
+        a.download = `shiropro_ohige_tier_${ohigeTierScope}.png`;
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+        showToast("✅ おひげ式ティア表画像を保存しました");
+      }).catch(err => {
+        console.error("Export error:", err);
+        showToast("⚠️ 画像の保存に失敗しました: " + (err.message || err));
+      });
     });
   }
 
@@ -9683,6 +10333,11 @@ function showQuizResult() {
   window.cleanVoiceActorName = cleanVoiceActorName;
   window.selectCastleForSlot = selectCastleForSlot;
   window.showNotification = showNotification;
+  window.computeOhigeScores = computeOhigeScores;
+  window.renderTierOhige = renderTierOhige;
+  window.promptOhigeTierOverride = promptOhigeTierOverride;
+  window.OHIGE_WEIGHTS = OHIGE_WEIGHTS;
+  window.setOhigeTierScope = setOhigeTierScope;
   window.getParty = () => party;
   window.setParty = (p) => {
     party = p;

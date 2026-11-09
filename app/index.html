@@ -493,7 +493,8 @@
           <div class="tier-subtitle">環境メタ・高難易度攻略に基づくおすすめティアの閲覧から、自分好みのカスタムティア表作成・画像保存まで対応</div>
         </div>
         <div class="tier-mode-toggle">
-          <button type="button" class="tier-mode-btn active" id="btnTierModeAuto" data-mode="auto">🤖 自動スコアティア (SS〜D)</button>
+          <button type="button" class="tier-mode-btn active" id="btnTierModeAuto" data-mode="auto">🤖 自動スコア (役割別・既存)</button>
+          <button type="button" class="tier-mode-btn" id="btnTierModeOhige" data-mode="ohige">🧔 おひげ式ティア</button>
           <button type="button" class="tier-mode-btn" id="btnTierModeCurated" data-mode="curated">🌟 環境おすすめティア</button>
           <button type="button" class="tier-mode-btn" id="btnTierModeCustom" data-mode="custom">🎨 カスタムティアメーカー</button>
         </div>
@@ -654,6 +655,101 @@
 
         <!-- Tier Auto Board (Rendered Container) -->
         <div id="tierAutoBoard" class="tier-board"></div>
+      </div>
+
+      <!-- VIEW 3: おひげ式ティア (Ohige-style Tier Board) -->
+      <div id="tierViewOhige" class="tier-view-panel" style="display:none;">
+        <!-- Notice Banner -->
+        <div class="tier-notice-banner" id="tierNoticeBannerOhige">
+          <div class="tier-notice-icon">🧔</div>
+          <div class="tier-notice-body">
+            <div class="tier-notice-primary">このビューはおひげチャンネルの評価ルールを data.js から機械的に再現した目安です</div>
+            <div class="tier-notice-secondary">順位の丸写しではなく、評価ルールの再現です。環境変化（新城娘・バランス調整・新高難度）は手動上書きで吸収します。全員所持前提の武器種内・属性内の相対評価です（兜城娘は除外）。</div>
+          </div>
+        </div>
+
+        <!-- Controls Bar -->
+        <div class="tier-auto-controls-bar">
+          <div class="tier-auto-left-controls">
+            <!-- Scope Switcher: 武器種別 vs 属性別 -->
+            <div class="tier-scope-toggle">
+              <button type="button" class="tier-scope-btn active" id="btnOhigeScopeWeapon" data-scope="weapon">⚔️ 武器種別 (Tier0〜Tier3)</button>
+              <button type="button" class="tier-scope-btn" id="btnOhigeScopeTerrain" data-scope="terrain">🌾 属性別 (神セブン / TOP10)</button>
+            </div>
+
+            <!-- Terrain scope toggle (神セブン vs TOP10) -->
+            <div class="btn-group" id="ohigeTerrainTopToggle" style="display:none; margin-left:6px;">
+              <button type="button" class="btn btn-sm active" id="btnOhigeTop7" style="font-size:12px; font-weight:bold;">🏆 神セブン (TOP7)</button>
+              <button type="button" class="btn btn-sm" id="btnOhigeTop10" style="font-size:12px; font-weight:bold;">🎖️ TOP10</button>
+            </div>
+
+            <!-- Filters -->
+            <div class="tier-auto-filters">
+              <select id="tierOhigeFilterWeapon" class="btn btn-sm" style="font-size:12px;">
+                <option value="">武器種 (すべて)</option>
+                <option value="刀">刀</option>
+                <option value="双剣">双剣</option>
+                <option value="槍">槍</option>
+                <option value="槌">槌</option>
+                <option value="戦棍">戦棍</option>
+                <option value="大砲">大砲</option>
+                <option value="弓">弓</option>
+                <option value="石弓">石弓</option>
+                <option value="鉄砲">鉄砲</option>
+                <option value="法術">法術</option>
+                <option value="杖">杖</option>
+                <option value="歌舞">歌舞</option>
+                <option value="鈴">鈴</option>
+                <option value="本">本</option>
+                <option value="祓串">祓串</option>
+                <option value="投剣">投剣</option>
+                <option value="鞭">鞭</option>
+                <option value="茶器">茶器</option>
+                <option value="盾">盾</option>
+                <option value="拳">拳</option>
+                <option value="ランス">ランス</option>
+                <option value="鎌">鎌</option>
+                <option value="軍船">軍船</option>
+                <option value="陣貝">陣貝</option>
+                <option value="その他">その他</option>
+              </select>
+
+              <select id="tierOhigeFilterTerrain" class="btn btn-sm" style="font-size:12px;">
+                <option value="">地形属性 (すべて)</option>
+                <option value="平">平</option>
+                <option value="山">山</option>
+                <option value="平山">平山</option>
+                <option value="水">水</option>
+                <option value="地獄">地獄</option>
+                <option value="無">無</option>
+              </select>
+
+              <select id="tierOhigeFilterRangeKind" class="btn btn-sm" style="font-size:12px;">
+                <option value="">配置 (すべて)</option>
+                <option value="近">近接</option>
+                <option value="遠">遠隔</option>
+                <option value="遠近">遠近</option>
+              </select>
+
+              <select id="tierOhigeFilterOwnership" class="btn btn-sm" style="font-size:12px;">
+                <option value="">所持・お気に入り (すべて)</option>
+                <option value="owned">所持城娘のみ</option>
+                <option value="unowned">未所持のみ</option>
+                <option value="favorites">お気に入りのみ</option>
+              </select>
+
+              <input type="text" id="tierOhigeSearchInput" class="input-text" placeholder="城娘名・ふりがな検索..." style="width:140px; font-size:12px; padding:3px 7px;">
+            </div>
+          </div>
+
+          <div class="tier-auto-right-controls">
+            <button type="button" class="btn btn-sm" id="btnClearOhigeOverrides" title="手動で設定したティア上書きをすべてリセット" style="font-size:12px;">✏️ 上書き解除 <span id="tierOhigeOverrideCount">(0)</span></button>
+            <button type="button" class="btn btn-sm" id="btnExportOhigeImage" style="background:#2d3436; color:#fff; font-size:12px;" title="おひげ式ティア表をPNG画像で保存">📸 画像保存</button>
+          </div>
+        </div>
+
+        <!-- Tier Ohige Board (Rendered Container) -->
+        <div id="tierOhigeBoard" class="tier-board tier-ohige-board"></div>
       </div>
 
       <!-- VIEW 1: 環境おすすめティア (Curated Tier Browser) -->
