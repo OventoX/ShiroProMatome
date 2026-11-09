@@ -212,6 +212,40 @@
         </div>
       </section>
 
+      <!-- 第32弾: 3. 気の家計簿 (ウェーブ別収支タイムライン) -->
+      <section class="section-box" id="sectionKiLedger" style="margin-top: 14px; background:#f9fbfa; border-color:#cbe2d3;">
+        <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" id="kiLedgerHeader">
+          <div class="section-title" style="margin-bottom:0; color:#1e6b37;">
+            📊 気の家計簿 (ウェーブ別収支タイムライン)
+            <span style="font-size:12px; font-weight:normal; color:var(--text-sub); margin-left:6px;">何波で気が尽きるかを可視化し、巨大化の最適順序を提案</span>
+          </div>
+          <button type="button" class="btn btn-sm" id="btnToggleKiLedger" style="font-size:12px; padding:2px 8px;">開く ▾</button>
+        </div>
+        <div id="kiLedgerBody" style="display:none; margin-top:12px;">
+          <!-- Controls: starting ki & wave duration -->
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; background:#fff; padding:8px 12px; border-radius:6px; border:1px solid #cbe2d3; margin-bottom:10px;">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <label for="kiLedgerStartKi" style="font-size:12px; font-weight:bold;">開始気:</label>
+              <input type="number" id="kiLedgerStartKi" class="input-text" value="30" style="width:65px; padding:3px 6px; font-size:12px;">
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <label for="kiLedgerWaveSec" style="font-size:12px; font-weight:bold;">1波の平均秒数:</label>
+              <select id="kiLedgerWaveSec" class="btn btn-sm" style="font-size:12px;">
+                <option value="60">60秒 (標準)</option>
+                <option value="45">45秒 (短め)</option>
+                <option value="80">80秒 (長め)</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="btnRecalcKiLedger" style="font-size:12px; font-weight:bold; padding:3px 10px;">再計算 ⚡</button>
+          </div>
+          <div id="kiLedgerVerdictBanner" style="margin-bottom:10px;"></div>
+          <!-- Wave timeline cards -->
+          <div id="kiLedgerWaveCards" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px; margin-bottom:12px;"></div>
+          <!-- Recommended Giantize Order -->
+          <div id="kiLedgerGiantizeSequence" style="background:#fff; border:1px solid #cbe2d3; border-radius:6px; padding:10px 12px;"></div>
+        </div>
+      </section>
+
       <!-- 第9弾: ロマン砲シミュレータ (最大火力ダメージ算出) -->
       <section class="section-box" id="sectionRomanSimulator" style="margin-top: 14px;">
         <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" id="romanSimulatorHeader">
@@ -345,6 +379,37 @@
           </div>
           <div style="margin-top:8px; font-size:11px; color:var(--text-sub); line-height:1.45; background:#fbf9f6; padding:6px 10px; border-radius:4px; border-left:3px solid #2980b9;">
             💡 <strong>ダメージ計算に関する注記:</strong> 基本ダメージ式「(攻撃力 − 有効防御力) × 与ダメージ上昇 × 被ダメージ軽減」に基づく1ヒットあたりの概算です。連続攻撃武器（鉄砲・鈴等）やマルチロック、攻撃速度・隙によるDPSは考慮していません。
+          </div>
+        </div>
+      </section>
+
+      <!-- 第32弾: 実戦シミュレーション支援センター (40秒問題タイマー・デバフ競合マップ・伏兵成績表) -->
+      <section class="section-box" id="sectionCombatTactics" style="margin-top: 14px; background:#fbfbff; border-color:#d5d4ef;">
+        <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" id="combatTacticsHeader">
+          <div class="section-title" style="margin-bottom:0; color:#382d73;">
+            ⚔️ 実戦シミュレーション支援センター
+            <span style="font-size:12px; font-weight:normal; color:var(--text-sub); margin-left:6px;">40秒周期シンクロ・デバフ競合・伏兵成績表</span>
+          </div>
+          <button type="button" class="btn btn-sm" id="btnToggleCombatTactics" style="font-size:12px; padding:2px 8px;">開く ▾</button>
+        </div>
+        <div id="combatTacticsBody" style="display:none; margin-top:12px;">
+          <!-- 5. 40秒問題タイマー (周期シンクロ支援) -->
+          <div style="background:#fff; border:1px solid #dcdbf5; border-radius:6px; padding:12px; margin-bottom:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+              <strong style="font-size:14px; color:#41338a;">⏱️ 40秒問題タイマー (計略・特殊周期シンクロ支援)</strong>
+              <div style="display:flex; gap:6px; align-items:center;">
+                <button type="button" class="btn btn-sm" id="btnTimerStart40" style="font-size:12px; font-weight:bold; background:#6c5ce7; color:#fff;">40秒タイマー開始 ⏱️</button>
+                <button type="button" class="btn btn-sm" id="btnTimerReset" style="font-size:12px;">リセット</button>
+                <span id="cycleTimerDisplay" style="font-size:16px; font-weight:bold; color:#d63031; min-width:60px; text-align:right;">40.0s</span>
+              </div>
+            </div>
+            <div id="cycleSyncPairsContainer" style="font-size:13px; color:#444; line-height:1.5;"></div>
+          </div>
+
+          <!-- 8. 伏兵の成績表 -->
+          <div style="background:#fff; border:1px solid #dcdbf5; border-radius:6px; padding:12px;">
+            <strong style="font-size:14px; color:#41338a; display:block; margin-bottom:8px;">🎖️ 伏兵の成績表 (編成内トークンの役割 & 避雷針適性)</strong>
+            <div id="tokenReportCardContainer" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:8px;"></div>
           </div>
         </div>
       </section>
@@ -1363,6 +1428,102 @@
         <!-- Party Evaluation List -->
         <div class="section-title" style="margin-bottom:8px;">編成メンバーの適格性判定</div>
         <div id="diagPartyEvaluation" style="display:flex; flex-direction:column; gap:6px; margin-bottom:14px;"></div>
+
+        <!-- 実戦プレイ動画解析に基づく新戦術セクション群 (第32弾) -->
+
+        <!-- 9. 形態変化・変身後飛行化警告バッジ -->
+        <div id="diagTransformationBadgesSection" style="display:none; margin-bottom:12px;"></div>
+
+        <!-- 1. 審議相性マトリクス（詰み審議警告） -->
+        <section class="section-box" id="diagDelibMatrixSection" style="margin-top:0; margin-bottom:14px; padding:10px 12px; background:#fffcf9; border-color:#ecdac7;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
+            <div style="font-weight:bold; font-size:14px; color:#a03a08; display:flex; align-items:center; gap:6px;">
+              <span>⚠️ 審議相性マトリクス (詰み審議警告)</span>
+            </div>
+            <div id="diagDelibMatrixSummaryBadge" style="font-size:12px; font-weight:bold;"></div>
+          </div>
+          <div style="display:flex; gap:6px; margin-bottom:8px; flex-wrap:wrap;">
+            <button type="button" class="btn btn-sm active" id="btnFilterDelibAll" style="font-size:12px; padding:2px 8px;">全審議表示</button>
+            <button type="button" class="btn btn-sm" id="btnFilterDelibWarnings" style="font-size:12px; padding:2px 8px; color:#c0392b; font-weight:bold;">⚠️ 詰み・要対策のみ</button>
+          </div>
+          <div id="diagDelibMatrixList" style="display:flex; flex-direction:column; gap:6px; max-height:280px; overflow-y:auto; padding-right:4px;"></div>
+        </section>
+
+        <!-- 4 & 10. 殿スナイプ予報・大破カウントダウン & 倒し切りレース (TTK) -->
+        <section class="section-box" id="diagSnipeAndCountdownSection" style="margin-top:0; margin-bottom:14px; padding:10px 12px; background:#f9fbfe; border-color:#c8ddf3;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
+            <div style="font-weight:bold; font-size:14px; color:#185a9d; display:flex; align-items:center; gap:6px;">
+              <span>🎯 殿スナイプ予報 & 被弾耐久カウントダウン</span>
+            </div>
+            <span id="diagSnipeRiskBadge" class="badge" style="font-size:12px; padding:2px 8px;">判定中</span>
+          </div>
+          <div id="diagSnipeWarningText" style="font-size:13px; color:#444; line-height:1.5; margin-bottom:10px; background:#fff; padding:8px 10px; border-radius:4px; border:1px solid #d4e3f3;"></div>
+
+          <!-- 10. 倒し切りレース (TTK) -->
+          <div id="diagTtkRaceBox" style="background:#fff; border:1px solid #d4e3f3; border-radius:6px; padding:8px 10px; margin-bottom:10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+              <span style="font-weight:bold; font-size:12px; color:#2c3e50;">⏱️ ボス倒し切りレース (想定TTK vs 殿到達時間):</span>
+              <span id="diagTtkStatusBadge" class="badge" style="font-size:12px;">算出中</span>
+            </div>
+            <div id="diagTtkRaceBarWrap" style="background:#ecf0f1; border-radius:10px; height:18px; position:relative; overflow:hidden; margin:6px 0;">
+              <div id="diagTtkDpsBar" style="background:linear-gradient(90deg, #27ae60, #2ecc71); height:100%; width:0%; transition:width 0.3s; position:absolute; left:0; top:0;"></div>
+              <div id="diagTtkBossBar" style="background:rgba(231, 76, 60, 0.4); height:100%; width:100%; position:absolute; left:0; top:0; border-right:3px solid #e74c3c;"></div>
+            </div>
+            <div id="diagTtkDetailText" style="font-size:12px; color:#555; display:flex; justify-content:space-between; flex-wrap:wrap;"></div>
+          </div>
+
+          <!-- 耐久被弾回数テーブル -->
+          <div style="font-weight:bold; font-size:12px; color:#2c3e50; margin-bottom:4px;">🛡️ ボス直撃時の被弾耐性（何発耐えて大破するか）:</div>
+          <div style="max-height:200px; overflow-y:auto; border:1px solid #e1e8ed; border-radius:4px;">
+            <table class="giantize-sim-table" style="width:100%; font-size:12px;">
+              <thead>
+                <tr>
+                  <th style="width:40px;">枠</th>
+                  <th>城娘</th>
+                  <th style="width:75px;">耐久/防御</th>
+                  <th style="width:90px;">被ダメ/発</th>
+                  <th style="width:85px;">大破まで</th>
+                  <th>受け手・デコイ適性</th>
+                </tr>
+              </thead>
+              <tbody id="diagBossHitCountdownTbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 2. デバフ重ね掛けチェッカー（脱法重複・貫通判定） -->
+        <section class="section-box" id="diagDebuffStackSection" style="margin-top:0; margin-bottom:14px; padding:10px 12px; background:#fcfcfe; border-color:#d7d3ee;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
+            <div style="font-weight:bold; font-size:14px; color:#4a3f85;">
+              <span>🔮 デバフ重ね掛けチェッカー (重複競合 & 審議貫通マップ)</span>
+            </div>
+            <div id="diagDebuffSynergyBadge" class="badge" style="background:#6c5ce7; color:#fff; font-size:12px; padding:2px 8px;"></div>
+          </div>
+          <div id="diagDebuffPenetrationNotice" style="font-size:12px; color:#555; background:#fff; padding:6px 10px; border-radius:4px; border:1px solid #e2def2; margin-bottom:8px; line-height:1.45;"></div>
+          <div id="diagDebuffCategoryList" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:6px;"></div>
+        </section>
+
+        <!-- 6. 次の波カード（ウェーブ別カンペ & メモ） -->
+        <section class="section-box" id="diagWaveCheatCardsSection" style="margin-top:0; margin-bottom:14px; padding:10px 12px; background:#f8faf8; border-color:#cfe3cf;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
+            <div style="font-weight:bold; font-size:14px; color:#23632f;">
+              <span>📜 次の波カード (ウェーブ別カンペ & 手順メモ)</span>
+            </div>
+            <span style="font-size:12px; color:#555;">自動保存対応</span>
+          </div>
+          <div id="diagWaveCardsGrid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:8px;"></div>
+        </section>
+
+        <!-- 7. 置くとこない探知機（マス過密診断） -->
+        <section class="section-box" id="diagTileCongestionSection" style="margin-top:0; margin-bottom:14px; padding:10px 12px; background:#fffbf7; border-color:#ebd3ba;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-weight:bold; font-size:14px; color:#b05500;">
+              <span>📍 置くとこない探知機 (近遠マス過密・枯渇アラート)</span>
+            </div>
+            <span id="diagTileCongestionBadge" class="badge" style="font-size:12px;">判定中</span>
+          </div>
+          <div id="diagTileCongestionContent" style="font-size:13px; color:#444; line-height:1.5;"></div>
+        </section>
 
         <!-- Recommended Castle Filter Action -->
         <div style="background:#fdfaf3; border:1px solid #ebd3a8; border-radius:6px; padding:10px 12px; display:flex; justify-content:space-between; align-items:center;">

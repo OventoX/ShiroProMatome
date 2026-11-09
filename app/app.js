@@ -840,6 +840,9 @@
     if (typeof renderChallengeUI === "function") renderChallengeUI();
     if (typeof renderDamageChecker === "function") renderDamageChecker(calcResult);
     if (typeof renderRomanSimulator === "function") renderRomanSimulator();
+    if (typeof renderKiLedger === "function") renderKiLedger();
+    if (typeof renderCycleSyncSection === "function") renderCycleSyncSection();
+    if (typeof renderTokenReportCardSection === "function") renderTokenReportCardSection();
   }
 
   // 1. Render Party Slots (Showing dynamic live stats & Terrain Matching)
@@ -4540,6 +4543,7 @@
           </div>
         </div>
         ${savedPartyHtml}
+        <div id="diagLossCausesContainer"></div>
       `;
 
       document.getElementById("diagStageClearedCheckbox").addEventListener("change", (e) => {
@@ -4558,7 +4562,20 @@
           openStageDiagnostic(foundStage.title);
         });
       }
+
+      if (typeof renderLossCauseSection === "function") {
+        renderLossCauseSection(foundStage.title);
+      }
     }
+
+    // 第32弾: 実戦プレイ動画解析に基づく新戦術シミュレーション群
+    if (typeof renderTransformationBadges === "function") renderTransformationBadges(foundStage);
+    if (typeof renderDeliberationMatrix === "function") renderDeliberationMatrix(foundStage);
+    if (typeof renderBossSnipeAndCountdown === "function") renderBossSnipeAndCountdown(foundStage);
+    if (typeof renderTtkRace === "function") renderTtkRace(foundStage);
+    if (typeof renderDebuffStackChecker === "function") renderDebuffStackChecker(foundStage);
+    if (typeof renderWaveCheatCards === "function") renderWaveCheatCards(foundStage);
+    if (typeof renderTileCongestionSection === "function") renderTileCongestionSection(foundStage);
 
     document.getElementById("modalStageDiagnostic").classList.add("open");
   }
@@ -10298,6 +10315,1340 @@ function showQuizResult() {
     }
   });
 
+  // =========================================================================
+  // 第32弾: 実戦プレイ動画解析に基づく新戦術シミュレーション群 (1〜11)
+  // =========================================================================
+
+  const SCRE_BOSS_CATALOG = [
+    {
+      id: "odin",
+      name: "オーディン",
+      stageKeyword: "オーディン",
+      hp: 1200000,
+      atk: 18000,
+      def: 2500,
+      range: 480,
+      moveSpeed: "低速 (0.8)",
+      moveSpeedVal: 0.8,
+      isFlying: true,
+      appearanceWave: 3,
+      attackInterval: 3.2,
+      snipeThreat: "高 (射程480・蔵および殿直撃ゾーン)",
+      hasTransform: true,
+      transformDesc: "合戦後半に形態変化。攻撃対象が全敵同時攻撃に変化し、飛行状態を維持。",
+      transformKeywords: ["飛行化", "全体同時攻撃"],
+      gimmick: "長射程全対象攻撃。正面のデコイまたは足止め役がいないと殿が即死。"
+    },
+    {
+      id: "toshiie",
+      name: "覇・前田利家",
+      stageKeyword: "前田利家",
+      hp: 1450000,
+      atk: 19500,
+      def: 3200,
+      range: 360,
+      moveSpeed: "中速 (1.0)",
+      moveSpeedVal: 1.0,
+      isFlying: false,
+      appearanceWave: 4,
+      attackInterval: 2.8,
+      snipeThreat: "高 (高耐久・直線突進型・殿侵入危険)",
+      hasTransform: true,
+      transformDesc: "耐久50%以下で猛進・攻撃力1.5倍・足止め無効化。",
+      transformKeywords: ["猛進", "火力倍増", "足止め無効"],
+      gimmick: "高防御かつ近接多段攻撃。足止め役の即死回避と防御低下デバフが必須。"
+    },
+    {
+      id: "chronos",
+      name: "クロノス",
+      stageKeyword: "クロノス",
+      hp: 1350000,
+      atk: 17500,
+      def: 2800,
+      range: 520,
+      moveSpeed: "低速 (0.7)",
+      moveSpeedVal: 0.7,
+      isFlying: true,
+      appearanceWave: 4,
+      attackInterval: 3.5,
+      snipeThreat: "極高 (超長射程520・殿スナイプ警戒)",
+      hasTransform: true,
+      transformDesc: "第2形態で時間停止と全域スナイプを発動。",
+      transformKeywords: ["飛行化", "全体同時攻撃"],
+      gimmick: "超射程による殿スナイプ。避雷針トークンを常に殿の射線上に置くことが必須。"
+    },
+    {
+      id: "enma",
+      name: "閻魔大王",
+      stageKeyword: "閻魔大王",
+      hp: 1500000,
+      atk: 16000,
+      def: 3500,
+      range: 420,
+      moveSpeed: "低速 (0.8)",
+      moveSpeedVal: 0.8,
+      isFlying: false,
+      appearanceWave: 4,
+      attackInterval: 3.0,
+      snipeThreat: "中 (前衛防衛可能・範囲術攻撃)",
+      hasTransform: true,
+      transformDesc: "裁判ギミック発動時、攻撃対象が3体同時攻撃に増加。",
+      transformKeywords: ["巨大化", "全体同時攻撃"],
+      gimmick: "審判による防御無視術攻撃。術耐性バフと回復歌舞がキー。"
+    },
+    {
+      id: "izanagi",
+      name: "イザナギ",
+      stageKeyword: "イザナギ",
+      hp: 1400000,
+      atk: 18500,
+      def: 3000,
+      range: 450,
+      moveSpeed: "中速 (1.0)",
+      moveSpeedVal: 1.0,
+      isFlying: false,
+      appearanceWave: 4,
+      attackInterval: 2.6,
+      snipeThreat: "高 (高回転多段連撃・殿被弾注意)",
+      hasTransform: true,
+      transformDesc: "黄泉津大神招来により広域持続ダメージフィールド展開。",
+      transformKeywords: ["影解除", "全体同時攻撃"],
+      gimmick: "連続斬撃。盾役の不屈計略または射程外からの移動速度低下ハメが有効。"
+    },
+    {
+      id: "hel",
+      name: "ヘル",
+      stageKeyword: "ヘル",
+      hp: 1300000,
+      atk: 17000,
+      def: 2600,
+      range: 460,
+      moveSpeed: "中速 (0.9)",
+      moveSpeedVal: 0.9,
+      isFlying: false,
+      appearanceWave: 4,
+      attackInterval: 3.1,
+      snipeThreat: "高 (死者召喚・射程内即死級術攻撃)",
+      hasTransform: true,
+      transformDesc: "半死半生の姿。耐久減少時に被ダメージ50%カットと攻撃速度2倍。",
+      transformKeywords: ["影解除", "火力倍増"],
+      gimmick: "死霊召喚によるタゲ逸らし。爆風武器または貫通攻撃で本体を狙い撃つ。"
+    },
+    {
+      id: "vishnu",
+      name: "ヴィシュヌ",
+      stageKeyword: "ヴィシュヌ",
+      hp: 1600000,
+      atk: 21000,
+      def: 3800,
+      range: 550,
+      moveSpeed: "低速 (0.7)",
+      moveSpeedVal: 0.7,
+      isFlying: true,
+      appearanceWave: 4,
+      attackInterval: 3.6,
+      snipeThreat: "極高 (最長射程550・殿即死ゾーン)",
+      hasTransform: true,
+      transformDesc: "変身後、全体光弾スナイプ。影解除とともに全画面攻撃。",
+      transformKeywords: ["飛行化", "巨大化", "全体同時攻撃"],
+      gimmick: "超高火力・超射程。避雷針伏兵なしでは殿が2発で沈む。"
+    },
+    {
+      id: "osiris",
+      name: "オシリス",
+      stageKeyword: "オシリス",
+      hp: 1550000,
+      atk: 16500,
+      def: 4000,
+      range: 400,
+      moveSpeed: "極低速 (0.5)",
+      moveSpeedVal: 0.5,
+      isFlying: false,
+      appearanceWave: 4,
+      attackInterval: 3.4,
+      snipeThreat: "中 (低速接近・高防御壁)",
+      hasTransform: true,
+      transformDesc: "冥界の審問官形態。撃破後に1度だけ耐久100%で蘇生・影解除。",
+      transformKeywords: ["巨大化", "影解除"],
+      gimmick: "復活ギミック。撃破後第2形態への移行に備えて計略温存が必要。"
+    },
+    {
+      id: "satake",
+      name: "幻・佐竹義重",
+      stageKeyword: "佐竹義重",
+      hp: 1100000,
+      atk: 15500,
+      def: 2200,
+      range: 350,
+      moveSpeed: "高速 (1.4)",
+      moveSpeedVal: 1.4,
+      isFlying: true,
+      appearanceWave: 3,
+      attackInterval: 2.2,
+      snipeThreat: "極高 (飛行突進・高速で殿肉薄)",
+      hasTransform: false,
+      transformDesc: "高速飛行強襲形態。",
+      transformKeywords: ["飛行化", "猛進"],
+      gimmick: "高速飛行による殿突進。法術・鈴による多段移動低下または弓・鉄砲の対空撃墜が急務。"
+    },
+    {
+      id: "todo",
+      name: "真・武神 藤堂高虎",
+      stageKeyword: "藤堂高虎",
+      hp: 1380000,
+      atk: 19000,
+      def: 3100,
+      range: 390,
+      moveSpeed: "中速 (1.0)",
+      moveSpeedVal: 1.0,
+      isFlying: false,
+      appearanceWave: 4,
+      attackInterval: 2.7,
+      snipeThreat: "高 (高攻撃力・近接2体同時攻撃)",
+      hasTransform: true,
+      transformDesc: "武神化により攻撃対象増加と被ダメ軽減。",
+      transformKeywords: ["火力倍増", "巨大化"],
+      gimmick: "近接同時なぎ払い。単体盾受けだけでなくデバフ多段掛けによる火力封殺が必須。"
+    }
+  ];
+
+  function getBossForStage(stageObj) {
+    if (!stageObj) return SCRE_BOSS_CATALOG[0];
+    const targetTitle = (stageObj.title || "") + " " + (stageObj.hadesMeta ? stageObj.hadesMeta.bossName : "");
+    const found = SCRE_BOSS_CATALOG.find(b => targetTitle.includes(b.stageKeyword) || (stageObj.bossInfo && stageObj.bossInfo.some(txt => txt.includes(b.stageKeyword))));
+    if (found) return found;
+
+    const points = stageObj.totalDelibPoints || (stageObj.deliberations ? stageObj.deliberations.length : 10);
+    const isFly = /飛行|鳥|虫|天|天狗/.test(JSON.stringify(stageObj.bossInfo || "")) || /飛行/.test(stageObj.title || "");
+    const hasTrans = /変身|形態|巨大化|解除|復活|第二/.test(JSON.stringify(stageObj.bossInfo || ""));
+
+    return {
+      id: "generic_" + (stageObj.id || "boss"),
+      name: stageObj.hadesMeta ? stageObj.hadesMeta.bossName : (stageObj.title.split("-")[1] || "大将兜 / 総大将"),
+      stageKeyword: stageObj.title,
+      hp: Math.min(1600000, 600000 + points * 30000),
+      atk: Math.min(22000, 10000 + points * 350),
+      def: Math.min(4000, 1500 + points * 70),
+      range: 380,
+      moveSpeed: "中速 (1.0)",
+      moveSpeedVal: 1.0,
+      isFlying: isFly,
+      appearanceWave: 4,
+      attackInterval: 3.0,
+      snipeThreat: points >= 20 ? "高 (高審議ステータス強化・直撃危険)" : "中 (前衛防衛可能)",
+      hasTransform: hasTrans,
+      transformDesc: hasTrans ? "合戦後半に強化または形態変化する可能性あり。" : "通常形態を維持。",
+      transformKeywords: isFly ? ["飛行化"] : (hasTrans ? ["巨大化", "火力倍増"] : []),
+      gimmick: "ステージ審議に応じたステータス強化が施された総大将兜。"
+    };
+  }
+
+  // 1. 審議相性マトリクス（詰み審議警告）
+  let currentDelibFilterMode = "all";
+
+  function renderDeliberationMatrix(stageObj) {
+    const container = document.getElementById("diagDelibMatrixList");
+    const summaryEl = document.getElementById("diagDelibMatrixSummaryBadge");
+    if (!container) return;
+    container.innerHTML = "";
+
+    if (!stageObj) {
+      if (summaryEl) summaryEl.textContent = "";
+      return;
+    }
+
+    const deliberations = stageObj.deliberations || [];
+    if (deliberations.length === 0) {
+      if (summaryEl) summaryEl.innerHTML = `<span style="color:#27ae60;">✓ 審議設定なし（安全）</span>`;
+      container.innerHTML = `<div style="font-size:12px; color:#666; padding:8px;">このステージには審議が設定されていません。</div>`;
+      return;
+    }
+
+    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+    const attrCounts = { "平": 0, "水": 0, "山": 0, "平山": 0, "地獄": 0, "無": 0 };
+    const weaponCounts = {};
+    partyCastles.forEach(c => {
+      (c.attributes || []).forEach(a => { if (attrCounts[a] !== undefined) attrCounts[a]++; });
+      weaponCounts[c.weapon] = (weaponCounts[c.weapon] || 0) + 1;
+    });
+
+    const hasKiProducer = partyCastles.some(c => {
+      const fullText = getCastleFullText(c);
+      return /気の自然増加|気生成|計略消費気/.test(fullText);
+    });
+
+    const hasAilmentImmunity = partyCastles.some(c => {
+      const fullText = getCastleFullText(c);
+      return /状態異常|暗闇|火傷|麻痺|氷結/.test(fullText) && /無効|回復|軽減/.test(fullText);
+    });
+
+    let fatalCount = 0;
+    let warningCount = 0;
+    let safeCount = 0;
+
+    const evaluatedList = deliberations.map(d => {
+      const text = (d.name || "") + " " + (d.effect || "");
+      let level = "safe";
+      let reason = "現在の編成で影響なし、または対策済みです。";
+
+      if (text.includes("近接限定城娘の与ダメージ99%低下")) {
+        const affected = partyCastles.filter(c => c.rangeKind === "近" || c.rangeKind === "近接");
+        if (affected.length > 0) {
+          level = "fatal";
+          reason = `近接限定城娘（${affected.map(c => c.name).join("、")}）の与ダメージが99%カットされます。遠近両用または遠隔城娘への交代が必須です。`;
+        }
+      } else if (text.includes("遠隔限定城娘の与ダメージ99%低下")) {
+        const affected = partyCastles.filter(c => c.rangeKind === "遠" || c.rangeKind === "遠隔");
+        if (affected.length > 0) {
+          level = "fatal";
+          reason = `遠隔限定城娘（${affected.map(c => c.name).join("、")}）の与ダメージが99%カットされます。近接または遠近両用城娘への交代が必須です。`;
+        }
+      } else {
+        let limitHit = false;
+        for (const attr of ["平", "水", "山", "平山", "地獄", "無"]) {
+          const m = text.match(new RegExp(`${attr}配置制限[（(](\\d+)[）)]`));
+          if (m) {
+            const limit = parseInt(m[1], 10);
+            if (attrCounts[attr] > limit) {
+              level = "fatal";
+              reason = `${attr}属性の配置制限（${limit}体）を超過して編成中（現在${attrCounts[attr]}体）。制限超過ペナルティ（攻撃・防御激減または巨大化気倍増）を受けます。`;
+              limitHit = true;
+              break;
+            }
+          }
+        }
+
+        if (!limitHit) {
+          if (text.includes("巨大化気") && (text.includes("以外") || text.includes("異なる")) && stageObj.terrain && stageObj.terrain !== "無") {
+            const mismatch = partyCastles.filter(c => !(c.attributes || []).includes(stageObj.terrain));
+            if (mismatch.length > 0) {
+              level = mismatch.length >= 4 ? "fatal" : "warning";
+              reason = `地形不一致城娘（${mismatch.map(c => c.name).join("、")}）の巨大化消費気が激増します。${stageObj.terrain}属性への統一または気役の大量投入が必要です。`;
+            }
+          } else {
+            let weaponHit = false;
+            for (const [wName, count] of Object.entries(weaponCounts)) {
+              if (text.includes(wName) && (text.includes("与ダメージ99%低下") || text.includes("無効化") || text.includes("無効"))) {
+                level = "fatal";
+                reason = `編成内の武器種【${wName}】(${count}体)が大幅低下または無効化されます。他武器種へ変更してください。`;
+                weaponHit = true;
+                break;
+              } else if (text.includes(wName) && (text.includes("低下") || text.includes("半減"))) {
+                level = "warning";
+                reason = `武器種【${wName}】へのステータス低下審議。火力減少に注意。`;
+                weaponHit = true;
+                break;
+              }
+            }
+
+            if (!weaponHit) {
+              if (text.includes("能力低下無効") || text.includes("ステータス低下無効")) {
+                level = "warning";
+                reason = "敵の攻撃力・防御力低下デバフが無効化されます。被ダメージ上昇・与ダメージ低下・隙延長等の「通るデバフ」で対抗してください。";
+              } else if (text.includes("気増加") && (text.includes("低下") || text.includes("半減") || text.includes("無効"))) {
+                if (!hasKiProducer) {
+                  level = "fatal";
+                  reason = "気の自然増加が制限されているにもかかわらず、編成に気生成役がいません。初手で展開不能になる恐れがあります。";
+                } else {
+                  level = "warning";
+                  reason = "気増加量低下審議。気役トークン（ノビシャド等）や撃破気計略を積極的に使用してください。";
+                }
+              } else if (/暗闇|火傷|麻痺|氷結/.test(text) && (text.includes("発生") || text.includes("付与") || text.includes("霊魂"))) {
+                if (!hasAilmentImmunity) {
+                  level = "warning";
+                  reason = "状態異常（暗闇等）が発生します。解除・無効化持ち、または歌舞等の継続回復役の配置を推奨します。";
+                } else {
+                  level = "safe";
+                  reason = "編成に対策城娘が配備されており、状態異常を無力化または軽減可能です。";
+                }
+              }
+            }
+          }
+        }
+      }
+
+      if (level === "fatal") fatalCount++;
+      else if (level === "warning") warningCount++;
+      else safeCount++;
+
+      return { deliberation: d, level, reason };
+    });
+
+    if (summaryEl) {
+      summaryEl.innerHTML = `
+        <span style="color:#c0392b; font-weight:bold;">🚨 詰み: ${fatalCount}件</span> ｜ 
+        <span style="color:#d35400; font-weight:bold;">⚠️ 要対策: ${warningCount}件</span> ｜ 
+        <span style="color:#27ae60; font-weight:bold;">✓ 安全: ${safeCount}件</span>
+      `;
+    }
+
+    const itemsToRender = currentDelibFilterMode === "warnings"
+      ? evaluatedList.filter(item => item.level !== "safe")
+      : evaluatedList;
+
+    if (itemsToRender.length === 0) {
+      container.innerHTML = `<div style="font-size:12px; color:#27ae60; padding:10px; text-align:center; background:#f7faf8; border-radius:4px;">🎉 詰み・要対策の審議はありません。すべての審議に対応できています！</div>`;
+      return;
+    }
+
+    itemsToRender.forEach(item => {
+      const d = item.deliberation;
+      const card = document.createElement("div");
+      card.className = `delib-matrix-card is-${item.level}`;
+
+      let badgeHtml = "";
+      if (item.level === "fatal") {
+        badgeHtml = `<span class="badge" style="background:#c0392b; color:#fff; font-size:12px;">🚨 詰み審議 (致命的)</span>`;
+      } else if (item.level === "warning") {
+        badgeHtml = `<span class="badge" style="background:#d35400; color:#fff; font-size:12px;">⚠️ 要対策</span>`;
+      } else {
+        badgeHtml = `<span class="badge" style="background:#27ae60; color:#fff; font-size:12px;">✓ 対策済み/安全</span>`;
+      }
+
+      card.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+          <strong style="font-size:13px; color:#2c3e50;">[${d.point}審] ${escapeHtml(d.name)}</strong>
+          ${badgeHtml}
+        </div>
+        <div style="color:#555; margin-bottom:4px;">${escapeHtml(d.effect)}</div>
+        <div style="font-size:12px; font-weight:bold; color:${item.level === 'fatal' ? '#c0392b' : (item.level === 'warning' ? '#b05500' : '#27ae60')};">
+          👉 ${escapeHtml(item.reason)}
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // 2. デバフ重ね掛けチェッカー
+  function renderDebuffStackChecker(stageObj) {
+    const container = document.getElementById("diagDebuffCategoryList");
+    const synergyBadge = document.getElementById("diagDebuffSynergyBadge");
+    const penetrationNotice = document.getElementById("diagDebuffPenetrationNotice");
+    if (!container) return;
+    container.innerHTML = "";
+
+    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+
+    const debuffCategories = [
+      { key: "atkDown", name: "敵攻撃力低下", unit: "%", regex: /敵の攻撃(?:力)?(?:が|を)?(\d+)%?(?:低下|半減)/g, isStat: true },
+      { key: "dmgDealtDown", name: "敵与ダメ低下", unit: "%", regex: /(?:敵の)?与(?:える)?ダメージ(?:が|を)?(\d+)%?(?:低下|減)/g, isStat: false },
+      { key: "gapExtend", name: "敵攻撃隙延長", unit: "%", regex: /隙が(\d+)%?(?:延長|増加)/g, isStat: false },
+      { key: "atkSpeedDown", name: "敵攻撃速度低下", unit: "%", regex: /攻撃速度が(\d+)%?(?:低下|減)/g, isStat: false },
+      { key: "defDown", name: "敵防御力低下", unit: "%", regex: /敵の防御(?:力)?(?:が|を)?(\d+)%?(?:低下|半減)/g, isStat: true },
+      { key: "dmgTakenUp", name: "敵被ダメ上昇", unit: "%", regex: /被ダメージが(\d+)%?(?:上昇|増加)/g, isStat: false },
+      { key: "speedDown", name: "敵移動速度低下", unit: "%", regex: /移動速度が(\d+)%?(?:低下|減)/g, isStat: false },
+      { key: "rangeDown", name: "敵射程低下", unit: "%", regex: /射程が(\d+)%?(?:低下|減)/g, isStat: true },
+      { key: "ailment", name: "状態異常付与", unit: "", regex: /足止め|混乱|氷結|火傷|麻痺|暗闇/g, isStat: false }
+    ];
+
+    const results = {};
+    debuffCategories.forEach(cat => {
+      results[cat.key] = {
+        name: cat.name,
+        isStat: cat.isStat,
+        providers: [],
+        maxVal: 0
+      };
+    });
+
+    partyCastles.forEach(c => {
+      const fullText = getCastleFullText(c);
+
+      debuffCategories.forEach(cat => {
+        if (cat.key === "ailment") {
+          const matches = fullText.match(cat.regex);
+          if (matches) {
+            const unique = Array.from(new Set(matches));
+            results[cat.key].providers.push({
+              castleName: c.name,
+              value: unique.join("・"),
+              isApplied: true
+            });
+          }
+        } else {
+          const matches = [...fullText.matchAll(cat.regex)];
+          matches.forEach(m => {
+            const val = parseInt(m[1], 10);
+            if (val > 0) {
+              results[cat.key].providers.push({
+                castleName: c.name,
+                value: val,
+                raw: m[0]
+              });
+            }
+          });
+        }
+      });
+    });
+
+    debuffCategories.forEach(cat => {
+      if (cat.key !== "ailment") {
+        const list = results[cat.key].providers;
+        if (list.length > 0) {
+          list.sort((a, b) => b.value - a.value);
+          results[cat.key].maxVal = list[0].value;
+          list.forEach((p, idx) => {
+            p.isApplied = (idx === 0);
+          });
+        }
+      }
+    });
+
+    const atkDownRate = (results.atkDown.maxVal || 0) / 100;
+    const dmgDealtDownRate = (results.dmgDealtDown.maxVal || 0) / 100;
+    const gapExtendRate = (results.gapExtend.maxVal || 0) / 100;
+    const atkSpeedDownRate = (results.atkSpeedDown.maxVal || 0) / 100;
+
+    const dmgMultiplier = (1 - atkDownRate) * (1 - dmgDealtDownRate) * (1 / (1 + gapExtendRate)) * (1 - atkSpeedDownRate);
+    const cutRate = Math.max(0, Math.min(99.9, (1 - dmgMultiplier) * 100));
+    const effectiveHpMult = dmgMultiplier > 0 ? (1 / dmgMultiplier) : 1;
+
+    if (synergyBadge) {
+      synergyBadge.textContent = `脱法耐久シナジー: 被ダメ ${cutRate.toFixed(1)}% カット (実質耐久 ${effectiveHpMult.toFixed(2)}倍)`;
+    }
+
+    const stageRulesText = stageObj ? ((stageObj.rules || []).concat((stageObj.deliberations || []).map(d => d.effect)).join(" ")) : "";
+    const isStatImmune = stageRulesText.includes("能力低下無効") || stageRulesText.includes("ステータス低下無効");
+
+    if (penetrationNotice) {
+      if (isStatImmune) {
+        penetrationNotice.innerHTML = `
+          <div style="color:#c0392b; font-weight:bold; margin-bottom:2px;">⚠️ ステージ審議「能力低下無効」が発動中:</div>
+          <div>❌ <strong>無効化:</strong> 敵攻撃力低下、敵防御力低下、射程低下（ステータス低下）</div>
+          <div>⭕ <strong>貫通して有効:</strong> 敵与ダメ低下、敵被ダメ上昇、攻撃隙延長、移動低下、状態異常（脱法重複可能！）</div>
+        `;
+      } else {
+        penetrationNotice.innerHTML = `
+          <span style="color:#27ae60; font-weight:bold;">✓ 審議によるデバフ無効化はありません。</span> 全カテゴリのデバフが有効に機能します。
+        `;
+      }
+    }
+
+    debuffCategories.forEach(cat => {
+      const data = results[cat.key];
+      const card = document.createElement("div");
+      card.className = "debuff-stack-card";
+
+      const penetBadge = isStatImmune
+        ? (data.isStat
+            ? `<span class="badge" style="background:#c0392b; color:#fff; font-size:12px;">審議無効</span>`
+            : `<span class="badge" style="background:#27ae60; color:#fff; font-size:12px;">審議貫通 ✓</span>`)
+        : "";
+
+      let providersHtml = "";
+      if (data.providers.length === 0) {
+        providersHtml = `<div style="color:#999; font-style:italic;">付与者なし (0%)</div>`;
+      } else if (cat.key === "ailment") {
+        providersHtml = data.providers.map(p => `<div>• <strong>${escapeHtml(p.castleName)}</strong>: <span style="color:#6c5ce7; font-weight:bold;">${escapeHtml(p.value)}</span></div>`).join("");
+      } else {
+        providersHtml = data.providers.map(p => `
+          <div class="${p.isApplied ? 'debuff-provider-applied' : 'debuff-provider-overwritten'}">
+            • ${escapeHtml(p.castleName)}: -${p.value}% ${p.isApplied ? '★適用中' : '(上書き無効化)'}
+          </div>
+        `).join("");
+      }
+
+      card.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; border-bottom:1px solid #eee; padding-bottom:3px;">
+          <strong style="color:#2c3e50; font-size:12.5px;">${cat.name}</strong>
+          <div>
+            ${penetBadge}
+            ${cat.key !== 'ailment' && data.maxVal > 0 ? `<span class="badge" style="background:#27ae60; color:#fff; font-size:12px; margin-left:4px;">最大 -${data.maxVal}%</span>` : ''}
+          </div>
+        </div>
+        <div style="line-height:1.45; font-size:12px;">${providersHtml}</div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // 3. 気の家計簿 (ウェーブ別収支タイムライン)
+  function renderKiLedger() {
+    const verdictEl = document.getElementById("kiLedgerVerdictBanner");
+    const waveCardsEl = document.getElementById("kiLedgerWaveCards");
+    const giantSeqEl = document.getElementById("kiLedgerGiantizeSequence");
+    if (!waveCardsEl) return;
+
+    const startKiInput = document.getElementById("kiLedgerStartKi");
+    const startKi = startKiInput ? (parseInt(startKiInput.value, 10) || 30) : 30;
+
+    const waveSecSelect = document.getElementById("kiLedgerWaveSec");
+    const waveSec = waveSecSelect ? (parseInt(waveSecSelect.value, 10) || 60) : 60;
+
+    const calcResult = calculateBuffs();
+    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+
+    if (partyCastles.length === 0) {
+      if (verdictEl) verdictEl.innerHTML = `<div style="color:#777; font-size:12px;">城娘が編成されていません。部隊に城娘を追加してください。</div>`;
+      waveCardsEl.innerHTML = "";
+      if (giantSeqEl) giantSeqEl.innerHTML = "";
+      return;
+    }
+
+    let extraKiPerSec = 0;
+    partyCastles.forEach(c => {
+      const fullText = getCastleFullText(c);
+      if (/気の自然増加が?.*?秒/.test(fullText) || /気の自然増加量を?.*?増/.test(fullText)) {
+        extraKiPerSec = Math.max(extraKiPerSec, 0.4);
+      }
+      if (/ノビシャド|気トークン|シーサー|白兎/.test(fullText)) {
+        extraKiPerSec += 0.3;
+      }
+    });
+    const kiRate = 1.0 + extraKiPerSec;
+
+    const totalDeploy = calcResult.totalDeployCost || 80;
+    const totalGiant = calcResult.totalGiantCost || 500;
+
+    const waveKillKi = [22, 35, 45, 30];
+    const waveDeployKi = [Math.round(totalDeploy * 0.55), Math.round(totalDeploy * 0.45), 0, 0];
+    const waveGiantKi = [
+      Math.round(totalGiant * 0.15),
+      Math.round(totalGiant * 0.35),
+      Math.round(totalGiant * 0.35),
+      Math.round(totalGiant * 0.15)
+    ];
+    const waveStratKi = [10, 20, 30, 30];
+
+    let currentKi = startKi;
+    let deficitWave = null;
+    const waveReports = [];
+
+    for (let w = 0; w < 4; w++) {
+      const naturalIncome = Math.round(waveSec * kiRate);
+      const killIncome = waveKillKi[w];
+      const totalIncome = naturalIncome + killIncome;
+      const totalExpense = waveDeployKi[w] + waveGiantKi[w] + waveStratKi[w];
+
+      const projectedKi = currentKi + totalIncome - totalExpense;
+      if (projectedKi < 0 && deficitWave === null) {
+        deficitWave = w + 1;
+      }
+
+      waveReports.push({
+        waveNum: w + 1,
+        startKi: currentKi,
+        naturalIncome,
+        killIncome,
+        totalIncome,
+        deployExp: waveDeployKi[w],
+        giantExp: waveGiantKi[w],
+        stratExp: waveStratKi[w],
+        totalExpense,
+        endKi: projectedKi,
+        isDeficit: projectedKi < 0
+      });
+
+      currentKi = Math.max(0, projectedKi);
+    }
+
+    if (verdictEl) {
+      if (deficitWave !== null) {
+        verdictEl.innerHTML = `
+          <div style="background:#fdf2f2; border:1px solid #e8b4b4; color:#c0392b; padding:8px 12px; border-radius:6px; font-size:12px; font-weight:bold;">
+            ⚠️ 第${deficitWave}波で気破綻のリスクを検知！計画支出が自然収入を超過しています。気生成役（［夏］枉死城・彦根城・臼杵城など）の採用、または序盤の巨大化抑制を推奨します。
+          </div>
+        `;
+      } else {
+        verdictEl.innerHTML = `
+          <div style="background:#f2faf4; border:1px solid #b7e4c7; color:#1e6b37; padding:8px 12px; border-radius:6px; font-size:12px; font-weight:bold;">
+            ✅ 気の収支は安定（全ウェーブ黒字維持）。予定通りの巨大化進行が可能です。（気生成速度: 約${kiRate.toFixed(2)}気/秒）
+          </div>
+        `;
+      }
+    }
+
+    waveCardsEl.innerHTML = "";
+    waveReports.forEach(r => {
+      const card = document.createElement("div");
+      card.className = "ki-ledger-card";
+      if (r.isDeficit) {
+        card.style.borderColor = "#e74c3c";
+        card.style.background = "#fff8f8";
+      }
+
+      card.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e1e8ed; padding-bottom:4px; margin-bottom:4px;">
+          <strong style="color:#1e6b37; font-size:13px;">第${r.waveNum}波 (${waveSec}秒)</strong>
+          <span class="badge" style="background:${r.isDeficit ? '#c0392b' : '#27ae60'}; color:#fff; font-size:12px;">
+            ${r.isDeficit ? '⚠️ 赤字警戒' : '✓ 安定'}
+          </span>
+        </div>
+        <div style="font-size:12px; line-height:1.5;">
+          <div>📥 <strong>収入:</strong> +${r.totalIncome}気 <small style="color:#666;">(自然:${r.naturalIncome} / 撃破:${r.killIncome})</small></div>
+          <div>📤 <strong>支出:</strong> -${r.totalExpense}気 <small style="color:#666;">(配置:${r.deployExp} / 巨大:${r.giantExp} / 計略:${r.stratExp})</small></div>
+          <div style="margin-top:2px; font-weight:bold; color:${r.isDeficit ? '#c0392b' : '#2c3e50'};">
+            💰 終了時残気: 約 ${r.endKi} 気
+          </div>
+        </div>
+      `;
+      waveCardsEl.appendChild(card);
+    });
+
+    if (giantSeqEl) {
+      const sortedCastles = [...partyCastles].sort((a, b) => {
+        const getPrio = (c) => {
+          const fullText = getCastleFullText(c);
+          if (/気の自然増加|気生成|計略消費気/.test(fullText)) return 1;
+          if (["歌舞", "陣貝", "本"].includes(c.weapon)) return 2;
+          if (["盾", "戦棍", "槌"].includes(c.weapon)) return 3;
+          return 4;
+        };
+        return getPrio(a) - getPrio(b);
+      });
+
+      const prioLabels = { 1: "⚡ 気稼ぎ最優先", 2: "🎶 範囲バフ・回復支援", 3: "🛡️ 前線封鎖・耐久", 4: "💥 決戦火力完成" };
+
+      giantSeqEl.innerHTML = `
+        <strong style="font-size:13px; color:#1e6b37; display:block; margin-bottom:6px;">📈 実戦巨大化の最適進行順序（実戦動画解析）:</strong>
+        <div style="display:flex; flex-direction:column; gap:4px; font-size:12px;">
+          ${sortedCastles.map((c, i) => {
+            const fullText = getCastleFullText(c);
+            let prio = 4;
+            if (/気の自然増加|気生成|計略消費気/.test(fullText)) prio = 1;
+            else if (["歌舞", "陣貝", "本"].includes(c.weapon)) prio = 2;
+            else if (["盾", "戦棍", "槌"].includes(c.weapon)) prio = 3;
+            return `
+              <div style="display:flex; justify-content:space-between; align-items:center; background:#f7faf8; padding:3px 8px; border-radius:4px; border:1px solid #e1ece1;">
+                <div>
+                  <strong>${i + 1}位. ${escapeHtml(c.name)}</strong>
+                  <span style="color:#777; margin-left:4px;">★${c.rarity} ${c.weapon}</span>
+                </div>
+                <span class="badge" style="background:#2c6f4f; color:#fff; font-size:12px;">${prioLabels[prio]}</span>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+  }
+
+  // 4. 殿スナイプ予報と大破までカウントダウン
+  function renderBossSnipeAndCountdown(stageObj) {
+    const riskBadge = document.getElementById("diagSnipeRiskBadge");
+    const warnText = document.getElementById("diagSnipeWarningText");
+    const tbody = document.getElementById("diagBossHitCountdownTbody");
+    if (!warnText || !tbody) return;
+
+    const boss = getBossForStage(stageObj);
+    const calcResult = calculateBuffs();
+    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+
+    if (partyCastles.length === 0) {
+      if (riskBadge) riskBadge.textContent = "部隊未編成";
+      warnText.textContent = "城娘が編成されていません。";
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:10px; color:#888;">部隊に城娘を編成してください。</td></tr>`;
+      return;
+    }
+
+    let threatLevel = "中";
+    let threatColor = "#f39c12";
+    if (boss.range >= 480 || /極高/.test(boss.snipeThreat)) {
+      threatLevel = "極高 (殿直撃ゾーン)";
+      threatColor = "#c0392b";
+    } else if (boss.range >= 400 || /高/.test(boss.snipeThreat)) {
+      threatLevel = "高 (長射程警戒)";
+      threatColor = "#d35400";
+    }
+
+    if (riskBadge) {
+      riskBadge.style.background = threatColor;
+      riskBadge.style.color = "#fff";
+      riskBadge.textContent = `🎯 殿スナイプ危険度: ${threatLevel}`;
+    }
+
+    warnText.innerHTML = `
+      <strong>【総大将・ボス想定: ${escapeHtml(boss.name)}】</strong> 攻撃力: <span style="color:#c0392b; font-weight:bold;">${boss.atk.toLocaleString()}</span> ｜ 射程: <span style="color:#185a9d; font-weight:bold;">${boss.range}</span> ｜ 攻撃間隔: ${boss.attackInterval}秒 ｜ 移動: ${boss.moveSpeed}<br>
+      💡 <strong>スナイプ脅威評価:</strong> ${escapeHtml(boss.snipeThreat)}。${escapeHtml(boss.gimmick)}<br>
+      🛡️ <strong>避雷針戦術:</strong> 殿の射線手前に高耐久デコイ（避雷針伏兵や盾城娘）を優先配置してターゲットを誘導してください。
+    `;
+
+    tbody.innerHTML = "";
+
+    party.forEach((slot, idx) => {
+      const c = getCastleById(slot.id);
+      if (!c) return;
+
+      const calc = calcResult.perCastle[c.id] ? calcResult.perCastle[c.id].calculatedStats : { hp: (c.stats ? c.stats.hp : 3000), def: (c.stats ? c.stats.def : 200), dmgTakenReduction: 0 };
+      const debuffDmgDealtRate = (calcResult.targetEnemyDebuffs ? calcResult.targetEnemyDebuffs.dmgDealtDown : 0) || 0;
+
+      const effectiveBossAtk = boss.atk * (1 - debuffDmgDealtRate);
+      const rawDmg = Math.max(1, effectiveBossAtk - calc.def);
+      const finalDmgPerHit = Math.max(1, Math.round(rawDmg * (1 - (calc.dmgTakenReduction || 0))));
+
+      const hitsToWipeout = Math.ceil(calc.hp / finalDmgPerHit);
+
+      let roleTag = "";
+      if (hitsToWipeout >= 5) {
+        roleTag = `<span class="badge" style="background:#27ae60; color:#fff; font-size:12px;">🛡️ 盾受け適格 (${hitsToWipeout}発耐え)</span>`;
+      } else if (hitsToWipeout >= 3) {
+        roleTag = `<span class="badge" style="background:#f39c12; color:#fff; font-size:12px;">⚠️ 緊急受け可 (${hitsToWipeout}発耐え)</span>`;
+      } else {
+        roleTag = `<span class="badge" style="background:#c0392b; color:#fff; font-size:12px;">💥 即死・危険 (${hitsToWipeout}発耐え)</span>`;
+      }
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td style="text-align:center; font-weight:bold;">${idx + 1}</td>
+        <td><strong>${escapeHtml(c.name)}</strong> <small style="color:#777;">★${c.rarity} ${c.weapon}</small></td>
+        <td style="text-align:right;">${calc.hp.toLocaleString()} / ${calc.def}</td>
+        <td style="text-align:right; font-weight:bold; color:#c0392b;">${finalDmgPerHit.toLocaleString()}</td>
+        <td style="text-align:center; font-weight:bold; font-size:13px;">${hitsToWipeout} 発</td>
+        <td>${roleTag}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // 5. 40秒問題タイマー (周期シンクロ支援)
+  let cycleTimerInterval = null;
+
+  function renderCycleSyncSection() {
+    const container = document.getElementById("cycleSyncPairsContainer");
+    if (!container) return;
+
+    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+
+    const cyclicalAbilities = [];
+    partyCastles.forEach(c => {
+      if (c.strategy) {
+        const ctMatch = c.strategy.text.match(/(?:再使用|使用可能まで)(\d+)秒/);
+        const ct = ctMatch ? parseInt(ctMatch[1], 10) : 40;
+        cyclicalAbilities.push({
+          castleName: c.name,
+          type: "計略",
+          name: c.strategy.name,
+          seconds: ct
+        });
+      }
+      if (c.special) {
+        const ctMatch = c.special.text.match(/(\d+)秒(?:毎|ごと)/);
+        const ct = ctMatch ? parseInt(ctMatch[1], 10) : 25;
+        cyclicalAbilities.push({
+          castleName: c.name,
+          type: "特殊能力",
+          name: c.special.name,
+          seconds: ct
+        });
+      }
+    });
+
+    container.innerHTML = `
+      <div style="margin-bottom:6px;">
+        💡 <strong>代理時計（周期シンクロ）解説:</strong> 計略や特殊能力はクールダウン（25秒・40秒・50秒等）が異なるため、実戦中に同時に点火すると徐々に周期ズレを起こします。<br>
+        例: <strong>［活命］富山城の特殊（25秒）</strong>は2周（50秒）で<strong>50秒系計略</strong>と完全にシンクロし、<strong>40秒計略（久能山城等）</strong>とは10秒ズレが発生します。
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:4px;">
+        ${cyclicalAbilities.slice(0, 8).map(ab => `
+          <span class="badge" style="background:#f1f2f6; color:#2f3542; border:1px solid #dcdde1; font-size:12px; padding:3px 8px;">
+            ⏱️ ${escapeHtml(ab.castleName)} [${ab.type}]: <strong>約${ab.seconds}秒周期</strong>
+          </span>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function startCycleTimer40() {
+    const display = document.getElementById("cycleTimerDisplay");
+    if (!display) return;
+    if (cycleTimerInterval) clearInterval(cycleTimerInterval);
+
+    display.style.color = "#27ae60";
+
+    const startTime = Date.now();
+    cycleTimerInterval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const rem = Math.max(0, 40000 - elapsed);
+      display.textContent = (rem / 1000).toFixed(1) + "s";
+
+      if (rem <= 5000) {
+        display.style.color = "#d63031";
+      }
+      if (rem === 0) {
+        clearInterval(cycleTimerInterval);
+        cycleTimerInterval = null;
+        display.textContent = "⏱️ 点火！";
+      }
+    }, 100);
+  }
+
+  function resetCycleTimer() {
+    const display = document.getElementById("cycleTimerDisplay");
+    if (cycleTimerInterval) {
+      clearInterval(cycleTimerInterval);
+      cycleTimerInterval = null;
+    }
+    if (display) {
+      display.style.color = "#d63031";
+      display.textContent = "40.0s";
+    }
+  }
+
+  // 6. 次の波カード (ウェーブ別カンペ & メモ)
+  function renderWaveCheatCards(stageObj) {
+    const container = document.getElementById("diagWaveCardsGrid");
+    if (!container) return;
+    container.innerHTML = "";
+
+    const stageTitle = stageObj ? stageObj.title : "stage";
+    const boss = getBossForStage(stageObj);
+
+    let savedNotes = {};
+    try {
+      const raw = localStorage.getItem("scre-helper:wave-notes:v1");
+      if (raw) savedNotes = JSON.parse(raw);
+    } catch (e) {
+      savedNotes = {};
+    }
+
+    const waveTemplates = [
+      {
+        num: 1,
+        title: "第1波 (W1): 序盤展開・気稼ぎ",
+        hints: [
+          "気スペシャリストを最優先で配置・巨大化",
+          "低コスト遠隔で初期雑魚を素早く処理",
+          "初手計略は温存し、気自然増加を待つ"
+        ]
+      },
+      {
+        num: 2,
+        title: "第2波 (W2): 中型ラッシュ・陣形整備",
+        hints: [
+          "歌舞・陣貝の巨大化で前衛回復ライン確立",
+          "物理／術属性の使い分けで硬い敵を突破",
+          "飛行敵の出現ルートに対空射程を確保"
+        ]
+      },
+      {
+        num: 3,
+        title: "第3波 (W3): 強敵・妖怪分隊",
+        hints: [
+          "妖怪敵への術攻撃・歌舞祓串サポート",
+          "デバフ計略を点火し被ダメを抑制",
+          "蔵防衛ラインの再点検・裏抜け警戒"
+        ]
+      },
+      {
+        num: 4,
+        title: `第4波 (W4): 総大将・決戦 (${boss.name})`,
+        hints: [
+          `${boss.name}出現。40秒バフ・全計略点火`,
+          "殿の射線手前に避雷針デコイを投下",
+          "形態変化の瞬間に集中火力・足止め発動"
+        ]
+      }
+    ];
+
+    waveTemplates.forEach(w => {
+      const card = document.createElement("div");
+      card.className = "wave-cheat-card";
+      const noteKey = `${stageTitle}_w${w.num}`;
+      const curNote = savedNotes[noteKey] || "";
+
+      card.innerHTML = `
+        <div class="wave-cheat-header">
+          <span>${escapeHtml(w.title)}</span>
+        </div>
+        <div style="font-size:12px; color:#444; line-height:1.4;">
+          ${w.hints.map(h => `• ${escapeHtml(h)}`).join("<br>")}
+        </div>
+        <div style="margin-top:auto;">
+          <label style="font-size:12px; font-weight:bold; color:#23632f; display:flex; justify-content:space-between; align-items:center; margin-bottom:2px;">
+            <span>📝 手順カンペメモ:</span>
+            <span id="waveNoteSavedBadge_${w.num}" style="font-size:12px; color:#27ae60; font-weight:normal;"></span>
+          </label>
+          <textarea class="wave-cheat-memo-input" id="waveNoteInput_${w.num}" placeholder="例: 0:45で彦根計略、1:10でデコイ配置...">${escapeHtml(curNote)}</textarea>
+        </div>
+      `;
+      container.appendChild(card);
+
+      const txtArea = card.querySelector(`#waveNoteInput_${w.num}`);
+      const badge = card.querySelector(`#waveNoteSavedBadge_${w.num}`);
+      if (txtArea) {
+        txtArea.addEventListener("input", () => {
+          try {
+            const raw = localStorage.getItem("scre-helper:wave-notes:v1");
+            const allNotes = raw ? JSON.parse(raw) : {};
+            allNotes[noteKey] = txtArea.value;
+            localStorage.setItem("scre-helper:wave-notes:v1", JSON.stringify(allNotes));
+            if (badge) {
+              badge.textContent = "✓ 保存済";
+              setTimeout(() => { badge.textContent = ""; }, 1500);
+            }
+          } catch (e) {}
+        });
+      }
+    });
+  }
+
+  // 7. 置くとこない探知機
+  function renderTileCongestionSection(stageObj) {
+    const badge = document.getElementById("diagTileCongestionBadge");
+    const content = document.getElementById("diagTileCongestionContent");
+    if (!content) return;
+
+    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+    if (partyCastles.length === 0) {
+      if (badge) badge.textContent = "未編成";
+      content.textContent = "部隊に城娘を編成してください。";
+      return;
+    }
+
+    let meleeCount = 0;
+    let rangedCount = 0;
+    let bothCount = 0;
+
+    partyCastles.forEach(c => {
+      if (c.rangeKind === "遠近") bothCount++;
+      else if (c.rangeKind === "近" || c.rangeKind === "近接") meleeCount++;
+      else if (c.rangeKind === "遠" || c.rangeKind === "遠隔") rangedCount++;
+    });
+
+    let statusText = "";
+    let badgeText = "✅ バランス良好";
+    let badgeColor = "#27ae60";
+
+    if (meleeCount >= 6) {
+      badgeText = "⚠️ 近接偏重 (前線マス過密)";
+      badgeColor = "#d35400";
+      statusText = `近接城娘が多め（${meleeCount}体）です。前線の近接マスや蔵周辺マスの奪い合いが発生しやすくなります。遠近両用や射程延長持ちを採用して前線密集を緩和してください。`;
+    } else if (rangedCount >= 6) {
+      badgeText = "⚠️ 遠隔偏重 (高台マス枯渇)";
+      badgeColor = "#d35400";
+      statusText = `遠隔城娘が多め（${rangedCount}体）です。安全な高台マスが埋まり、前線を抑えきれずに敵がすり抜ける危険があります。足止め盾や前衛の採用を推奨します。`;
+    } else {
+      statusText = `近接（${meleeCount}体）と遠隔（${rangedCount}体）${bothCount > 0 ? `・遠近両用（${bothCount}体）` : ''}の配置マス比率がバランス良く整っています。`;
+    }
+
+    if (badge) {
+      badge.style.background = badgeColor;
+      badge.style.color = "#fff";
+      badge.textContent = badgeText;
+    }
+
+    content.innerHTML = `
+      <div>${escapeHtml(statusText)}</div>
+      <div style="margin-top:6px; font-size:12px; color:#666; background:#fff; padding:6px 10px; border-radius:4px; border:1px dashed #dcd2c4;">
+        📐 <strong>マップ配置マスデータ設計案（拡張仕様）:</strong> 将来データ構造として各ステージに <code>{ meleeTiles: 12, rangedTiles: 7, vanishTiles: [3] }</code> を持たせることで、配置マスの過密・消滅を100%自動検証可能です。
+      </div>
+    `;
+  }
+
+  // 8. 伏兵の成績表
+  function renderTokenReportCardSection() {
+    const container = document.getElementById("tokenReportCardContainer");
+    if (!container) return;
+    container.innerHTML = "";
+
+    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+
+    const tokensFound = [];
+    partyCastles.forEach(c => {
+      const fullText = getCastleFullText(c);
+      if (/伏兵|トークン/.test(fullText)) {
+        let role = "支援";
+        let roleBadge = `<span class="badge" style="background:#6c5ce7; color:#fff; font-size:12px;">🌟 オーラ支援型</span>`;
+        let decoyGrade = "B (通常)";
+        if (/気/.test(fullText) && /自然増加|増加|生成/.test(fullText)) {
+          role = "気生成";
+          roleBadge = `<span class="badge" style="background:#27ae60; color:#fff; font-size:12px;">⚡ 気生成型</span>`;
+          decoyGrade = "A (後方配置推奨・緊急避雷針可)";
+        } else if (/足止め|耐久|防御|ダメージを代わりに/.test(fullText)) {
+          role = "避雷針";
+          roleBadge = `<span class="badge" style="background:#2980b9; color:#fff; font-size:12px;">🛡️ 避雷針・デコイ型</span>`;
+          decoyGrade = "S (優秀な身代わり・タゲ逸らし)";
+        } else if (/自爆|爆発|撃破時/.test(fullText)) {
+          role = "特攻";
+          roleBadge = `<span class="badge" style="background:#c0392b; color:#fff; font-size:12px;">💥 特攻・時限爆弾型</span>`;
+          decoyGrade = "B (使い捨て・敵密集地投下)";
+        }
+
+        tokensFound.push({
+          castleName: c.name,
+          roleBadge,
+          decoyGrade,
+          summary: c.strategy ? c.strategy.text : (c.special ? c.special.text : "伏兵を配置")
+        });
+      }
+    });
+
+    if (tokensFound.length === 0) {
+      container.innerHTML = `
+        <div style="font-size:12px; color:#555; background:#fbfbff; padding:10px 12px; border-radius:6px; border:1px dashed #cfcfee; grid-column:1/-1; line-height:1.5;">
+          現在編成に伏兵（トークン）持ち城娘がいません。<br>
+          💡 <strong>避雷針戦術のワンポイント:</strong> ハデス・武神超難などの高難度マップでは、ボスの長射程即死スナイプから殿や主力城娘を守るために、<strong>臼杵城（ノビシャド）、平安京、［ハロウィン］カルルシュテイン城</strong>などの伏兵持ちを採用すると勝率が劇的に上がります。
+        </div>
+      `;
+      return;
+    }
+
+    tokensFound.forEach(tok => {
+      const card = document.createElement("div");
+      card.className = "token-report-card";
+      card.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; border-bottom:1px solid #e5e5f5; padding-bottom:3px;">
+          <strong style="color:#2c3e50; font-size:13px;">${escapeHtml(tok.castleName)} の伏兵</strong>
+          ${tok.roleBadge}
+        </div>
+        <div style="font-size:12px; color:#444; margin-bottom:4px;">
+          🎯 <strong>避雷針適性:</strong> <span style="font-weight:bold; color:#185a9d;">${escapeHtml(tok.decoyGrade)}</span>
+        </div>
+        <div style="font-size:12px; color:#666; line-height:1.4;">
+          ${escapeHtml(tok.summary.slice(0, 90))}${tok.summary.length > 90 ? '...' : ''}
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // 9. 変身後バッジ
+  function renderTransformationBadges(stageObj) {
+    const container = document.getElementById("diagTransformationBadgesSection");
+    if (!container) return;
+
+    const boss = getBossForStage(stageObj);
+    if (!boss || (!boss.hasTransform && (!boss.transformKeywords || boss.transformKeywords.length === 0))) {
+      container.style.display = "none";
+      container.innerHTML = "";
+      return;
+    }
+
+    container.style.display = "block";
+
+    const badgeMap = {
+      "飛行化": { icon: "🦅", bg: "#2980b9", desc: "飛行化（近接無力化・対空特効/遠隔必須）" },
+      "巨大化": { icon: "👹", bg: "#c0392b", desc: "巨大化（超火力倍増・単発即死警戒）" },
+      "火力倍増": { icon: "🔥", bg: "#d35400", desc: "火力倍増（足止め即死・多段デバフ必須）" },
+      "全体同時攻撃": { icon: "⚡", bg: "#8e44ad", desc: "全体同時攻撃（殿・蔵直撃・デコイ必須）" },
+      "影解除": { icon: "👁️", bg: "#27ae60", desc: "影解除（ステルス解除・集中砲火）" },
+      "猛進": { icon: "💨", bg: "#e67e22", desc: "猛進（高速直進・足止め無効化）" },
+      "足止め無効": { icon: "🚫", bg: "#7f8c8d", desc: "足止め無効（遅延不可・射程外撃破推奨）" }
+    };
+
+    const badgesHtml = (boss.transformKeywords || []).map(kw => {
+      const meta = badgeMap[kw] || { icon: "⚠️", bg: "#8e44ad", desc: kw };
+      return `<span class="transform-badge-pill" style="background:${meta.bg};">${meta.icon} 形態変化: ${meta.desc}</span>`;
+    }).join("");
+
+    container.innerHTML = `
+      <div style="background:#fffcf7; border:1px solid #ebd2b9; border-radius:6px; padding:8px 10px;">
+        <div style="font-weight:bold; font-size:13px; color:#a03a08; margin-bottom:4px;">
+          👹 ボス形態変化・変身後特性予告 (${escapeHtml(boss.name)}):
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:4px;">
+          ${badgesHtml}
+        </div>
+        <div style="font-size:12px; color:#555; line-height:1.45;">
+          ${escapeHtml(boss.transformDesc)} 💡 変身前の対策が変身後に通用しなくなるケースに注意し、移行タイミングでの計略リロードを徹底してください。
+        </div>
+      </div>
+    `;
+  }
+
+  // 10. 倒し切りレース (TTK表示)
+  function renderTtkRace(stageObj) {
+    const statusBadge = document.getElementById("diagTtkStatusBadge");
+    const dpsBar = document.getElementById("diagTtkDpsBar");
+    const detailText = document.getElementById("diagTtkDetailText");
+    if (!detailText) return;
+
+    const boss = getBossForStage(stageObj);
+    const calcResult = calculateBuffs();
+    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+
+    if (partyCastles.length === 0) {
+      if (statusBadge) statusBadge.textContent = "未編成";
+      detailText.textContent = "部隊に城娘を編成してください。";
+      if (dpsBar) dpsBar.style.width = "0%";
+      return;
+    }
+
+    let totalDps = 0;
+    partyCastles.forEach(c => {
+      const calc = calcResult.perCastle[c.id] ? calcResult.perCastle[c.id].calculatedStats : { atk: (c.stats ? c.stats.atk : 500), singleHit: 500 };
+      const rawHit = Math.max(1, (calc.singleHit || calc.atk) - boss.def);
+      const dps = rawHit / 1.5;
+      totalDps += dps;
+    });
+
+    const ttkSeconds = Math.max(1, boss.hp / Math.max(1, totalDps));
+    const travelSeconds = Math.max(20, Math.round(50 / (boss.moveSpeedVal || 1.0)));
+
+    const ratio = (travelSeconds / ttkSeconds);
+    const barPercent = Math.min(100, Math.max(5, Math.round(ratio * 50)));
+
+    if (dpsBar) {
+      dpsBar.style.width = barPercent + "%";
+    }
+
+    if (statusBadge) {
+      if (ttkSeconds < travelSeconds * 0.75) {
+        statusBadge.style.background = "#27ae60";
+        statusBadge.style.color = "#fff";
+        statusBadge.textContent = `🏁 撃破余裕 (${ttkSeconds.toFixed(1)}秒で撃破想定)`;
+      } else if (ttkSeconds <= travelSeconds) {
+        statusBadge.style.background = "#f39c12";
+        statusBadge.style.color = "#fff";
+        statusBadge.textContent = `⚠️ 接戦・殿直前撃破 (${ttkSeconds.toFixed(1)}秒)`;
+      } else {
+        statusBadge.style.background = "#c0392b";
+        statusBadge.style.color = "#fff";
+        statusBadge.textContent = `🚨 殿崩壊警報 (所要 ${ttkSeconds.toFixed(1)}秒 > 猶予 ${travelSeconds}秒)`;
+      }
+    }
+
+    detailText.innerHTML = `
+      <span>総有効DPS: <strong>約 ${Math.round(totalDps).toLocaleString()}</strong> /秒</span>
+      <span>ボス耐久: <strong>${boss.hp.toLocaleString()}</strong></span>
+      <span>想定TTK: <strong>${ttkSeconds.toFixed(1)} 秒</strong></span>
+      <span>殿到達猶予: <strong>約 ${travelSeconds} 秒</strong></span>
+    `;
+  }
+
+  // 11. 敗因タグと次の一手
+  function renderLossCauseSection(stageTitle) {
+    const container = document.getElementById("diagLossCausesContainer");
+    if (!container) return;
+
+    const lossCauses = [
+      { key: "ki", label: "⚡ 気が足りない", advice: "［夏］枉死城・彦根城・四代目江戸城・臼杵城（気生成・気軽減特化）" },
+      { key: "snipe", label: "🎯 殿・蔵スナイプ", advice: "平安京・臼杵城・［ハロウィン］カルルシュテイン城（避雷針伏兵）" },
+      { key: "youkai", label: "👻 妖怪・術火力不足", advice: "［絢爛］久能山城・［活命］富山城・［学園］若桜鬼ヶ城（歌舞・祓串）" },
+      { key: "antiAir", label: "🦅 対空・飛行敵抜け", advice: "［無疆］江戸城・小早川城・［絢爛］彦根城（弓・鉄砲・大砲）" },
+      { key: "tank", label: "🛡️ 前線耐久崩壊", advice: "サン・フェリペ城・アンボワーズ城・盾／戦棍城娘（不屈・高防御）" },
+      { key: "bossDps", label: "⏱️ ボス削りきれない", advice: "［夏］ルーヴル宮殿・［燦華］聚楽第・重複デバフ城娘（高倍率アタッカー）" }
+    ];
+
+    let savedCauses = {};
+    try {
+      const raw = localStorage.getItem("scre-helper:loss-causes:v1");
+      if (raw) savedCauses = JSON.parse(raw);
+    } catch (e) {
+      savedCauses = {};
+    }
+    const stageTags = new Set(savedCauses[stageTitle] || []);
+
+    container.innerHTML = `
+      <div style="margin-top:10px; border-top:1px dashed #dcd2c4; padding-top:8px;">
+        <div style="font-weight:bold; font-size:12.5px; color:#a03a08; margin-bottom:4px;">
+          💀 敗因タグ記録 & 次の一手（入れ替え候補）:
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px;" id="diagLossTagsRow">
+          ${lossCauses.map(lc => `
+            <button type="button" class="btn btn-sm diag-loss-tag-btn ${stageTags.has(lc.key) ? 'active' : ''}" data-key="${lc.key}" style="font-size:12px; padding:3px 8px; border-radius:12px; ${stageTags.has(lc.key) ? 'background:#c0392b; color:#fff; border-color:#962d22;' : 'background:#fff;'}">
+              ${lc.label}
+            </button>
+          `).join("")}
+        </div>
+        <div id="diagNextStepsBox" style="font-size:12px; color:#444; background:#fff; padding:6px 10px; border-radius:4px; border:1px solid #ebdccb; line-height:1.45;"></div>
+      </div>
+    `;
+
+    function updateNextSteps() {
+      const nextBox = document.getElementById("diagNextStepsBox");
+      if (!nextBox) return;
+      const activeKeys = Array.from(stageTags);
+      if (activeKeys.length === 0) {
+        nextBox.innerHTML = `💡 敗因タグを選択すると、実戦プレイ動画解析に基づいた<strong>「次の一手 (入れ替え推奨城娘)」</strong>が自動提示されます。`;
+        return;
+      }
+
+      const recs = activeKeys.map(k => {
+        const item = lossCauses.find(x => x.key === k);
+        return `• <strong>${item.label}:</strong> おすすめ入れ替え ➡️ <span style="color:#185a9d; font-weight:bold;">${item.advice}</span>`;
+      });
+      nextBox.innerHTML = recs.join("<br>");
+    }
+
+    updateNextSteps();
+
+    container.querySelectorAll(".diag-loss-tag-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const k = btn.dataset.key;
+        if (stageTags.has(k)) {
+          stageTags.delete(k);
+          btn.classList.remove("active");
+          btn.style.background = "#fff";
+          btn.style.color = "";
+          btn.style.borderColor = "";
+        } else {
+          stageTags.add(k);
+          btn.classList.add("active");
+          btn.style.background = "#c0392b";
+          btn.style.color = "#fff";
+          btn.style.borderColor = "#962d22";
+        }
+        try {
+          const raw = localStorage.getItem("scre-helper:loss-causes:v1");
+          const allCauses = raw ? JSON.parse(raw) : {};
+          allCauses[stageTitle] = Array.from(stageTags);
+          localStorage.setItem("scre-helper:loss-causes:v1", JSON.stringify(allCauses));
+        } catch (e) {}
+        updateNextSteps();
+      });
+    });
+  }
+
+  // Event Listeners for Prompt 32
+  const btnFilterDelibAll = document.getElementById("btnFilterDelibAll");
+  const btnFilterDelibWarnings = document.getElementById("btnFilterDelibWarnings");
+  if (btnFilterDelibAll && btnFilterDelibWarnings) {
+    btnFilterDelibAll.addEventListener("click", () => {
+      currentDelibFilterMode = "all";
+      btnFilterDelibAll.classList.add("active");
+      btnFilterDelibWarnings.classList.remove("active");
+      if (activeDiagStage) renderDeliberationMatrix(activeDiagStage);
+    });
+    btnFilterDelibWarnings.addEventListener("click", () => {
+      currentDelibFilterMode = "warnings";
+      btnFilterDelibWarnings.classList.add("active");
+      btnFilterDelibAll.classList.remove("active");
+      if (activeDiagStage) renderDeliberationMatrix(activeDiagStage);
+    });
+  }
+
+  const btnToggleKi = document.getElementById("btnToggleKiLedger");
+  const hdrKi = document.getElementById("kiLedgerHeader");
+  const bodyKi = document.getElementById("kiLedgerBody");
+  function toggleKiLedger() {
+    if (!bodyKi) return;
+    const isHidden = bodyKi.style.display === "none";
+    bodyKi.style.display = isHidden ? "block" : "none";
+    if (btnToggleKi) btnToggleKi.textContent = isHidden ? "閉じる ▴" : "開く ▾";
+    if (isHidden) renderKiLedger();
+  }
+  if (btnToggleKi) btnToggleKi.addEventListener("click", (e) => { e.stopPropagation(); toggleKiLedger(); });
+  if (hdrKi) hdrKi.addEventListener("click", toggleKiLedger);
+
+  const btnRecalcKi = document.getElementById("btnRecalcKiLedger");
+  if (btnRecalcKi) btnRecalcKi.addEventListener("click", renderKiLedger);
+  const inputStartKi = document.getElementById("kiLedgerStartKi");
+  if (inputStartKi) inputStartKi.addEventListener("change", renderKiLedger);
+  const selectWaveSec = document.getElementById("kiLedgerWaveSec");
+  if (selectWaveSec) selectWaveSec.addEventListener("change", renderKiLedger);
+
+  const btnToggleCombat = document.getElementById("btnToggleCombatTactics");
+  const hdrCombat = document.getElementById("combatTacticsHeader");
+  const bodyCombat = document.getElementById("combatTacticsBody");
+  function toggleCombatTactics() {
+    if (!bodyCombat) return;
+    const isHidden = bodyCombat.style.display === "none";
+    bodyCombat.style.display = isHidden ? "block" : "none";
+    if (btnToggleCombat) btnToggleCombat.textContent = isHidden ? "閉じる ▴" : "開く ▾";
+    if (isHidden) {
+      renderCycleSyncSection();
+      renderTokenReportCardSection();
+    }
+  }
+  if (btnToggleCombat) btnToggleCombat.addEventListener("click", (e) => { e.stopPropagation(); toggleCombatTactics(); });
+  if (hdrCombat) hdrCombat.addEventListener("click", toggleCombatTactics);
+
+  const btnTimer40 = document.getElementById("btnTimerStart40");
+  if (btnTimer40) btnTimer40.addEventListener("click", startCycleTimer40);
+  const btnTimerRst = document.getElementById("btnTimerReset");
+  if (btnTimerRst) btnTimerRst.addEventListener("click", resetCycleTimer);
+
 
   // Initial render
   loadOwnership();
@@ -10396,6 +11747,21 @@ function showQuizResult() {
   window.mapToOhigeTier = mapToOhigeTier;
   window.OHIGE_WEIGHTS = OHIGE_WEIGHTS;
   window.setOhigeTierScope = setOhigeTierScope;
+  window.SCRE_BOSS_CATALOG = SCRE_BOSS_CATALOG;
+  window.getBossForStage = getBossForStage;
+  window.renderDeliberationMatrix = renderDeliberationMatrix;
+  window.renderDebuffStackChecker = renderDebuffStackChecker;
+  window.renderBossSnipeAndCountdown = renderBossSnipeAndCountdown;
+  window.renderTtkRace = renderTtkRace;
+  window.renderTransformationBadges = renderTransformationBadges;
+  window.renderWaveCheatCards = renderWaveCheatCards;
+  window.renderTileCongestionSection = renderTileCongestionSection;
+  window.renderLossCauseSection = renderLossCauseSection;
+  window.renderKiLedger = renderKiLedger;
+  window.renderCycleSyncSection = renderCycleSyncSection;
+  window.renderTokenReportCardSection = renderTokenReportCardSection;
+  window.startCycleTimer40 = startCycleTimer40;
+  window.resetCycleTimer = resetCycleTimer;
   window.getParty = () => party;
   window.setParty = (p) => {
     party = p;
