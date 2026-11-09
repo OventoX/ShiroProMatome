@@ -10546,6 +10546,12 @@ function showQuizResult() {
   // 1. 審議相性マトリクス（詰み審議警告）
   let currentDelibFilterMode = "all";
 
+  function isWeaponDeliberationMatch(text, wName) {
+    const escapedW = wName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const pattern = new RegExp(`(?:^|[、，,・/／:：\\s「」【】()（）\\[\\]\\n\\r]|武器種|対象|限定|と)${escapedW}(?:[、，,・/／:：\\s「」【】()（）\\[\\]\\n\\r]|の城娘|城娘|限定|の与ダメ|の攻撃|の防御|の射程|の武器種特性|低下|無効|半減|軽減|制限|と|$)`);
+    return pattern.test(text);
+  }
+
   function renderDeliberationMatrix(stageObj) {
     const container = document.getElementById("diagDelibMatrixList");
     const summaryEl = document.getElementById("diagDelibMatrixSummaryBadge");
@@ -10628,12 +10634,12 @@ function showQuizResult() {
           } else {
             let weaponHit = false;
             for (const [wName, count] of Object.entries(weaponCounts)) {
-              if (text.includes(wName) && (text.includes("与ダメージ99%低下") || text.includes("無効化") || text.includes("無効"))) {
+              if (isWeaponDeliberationMatch(text, wName) && (text.includes("与ダメージ99%低下") || text.includes("無効化") || text.includes("無効"))) {
                 level = "fatal";
                 reason = `編成内の武器種【${wName}】(${count}体)が大幅低下または無効化されます。他武器種へ変更してください。`;
                 weaponHit = true;
                 break;
-              } else if (text.includes(wName) && (text.includes("低下") || text.includes("半減"))) {
+              } else if (isWeaponDeliberationMatch(text, wName) && (text.includes("低下") || text.includes("半減") || text.includes("軽減"))) {
                 level = "warning";
                 reason = `武器種【${wName}】へのステータス低下審議。火力減少に注意。`;
                 weaponHit = true;
@@ -11019,6 +11025,7 @@ function showQuizResult() {
             `;
           }).join("")}
         </div>
+        <div style="font-size:12px; color:#777; margin-top:8px;">※撃破気・ウェーブ時間・計略使用頻度は標準的な合戦展開に基づく推計・シミュレーション上の近似値です。ステージや敵の出現数によって変動します。</div>
       `;
     }
   }
@@ -11061,6 +11068,7 @@ function showQuizResult() {
       <strong>【総大将・ボス想定: ${escapeHtml(boss.name)}】</strong> 攻撃力: <span style="color:#c0392b; font-weight:bold;">${boss.atk.toLocaleString()}</span> ｜ 射程: <span style="color:#185a9d; font-weight:bold;">${boss.range}</span> ｜ 攻撃間隔: ${boss.attackInterval}秒 ｜ 移動: ${boss.moveSpeed}<br>
       💡 <strong>スナイプ脅威評価:</strong> ${escapeHtml(boss.snipeThreat)}。${escapeHtml(boss.gimmick)}<br>
       🛡️ <strong>避雷針戦術:</strong> 殿の射線手前に高耐久デコイ（避雷針伏兵や盾城娘）を優先配置してターゲットを誘導してください。
+      <div style="font-size:12px; color:#777; margin-top:4px;">※総大将・ボスの耐久・攻撃力・射程等は代表的な敵データに基づくシミュレーション推計値です。合戦審議・難易度・ギミックにより変動します。</div>
     `;
 
     tbody.innerHTML = "";
@@ -11069,12 +11077,19 @@ function showQuizResult() {
       const c = getCastleById(slot.id);
       if (!c) return;
 
-      const calc = calcResult.perCastle[c.id] ? calcResult.perCastle[c.id].calculatedStats : { hp: (c.stats ? c.stats.hp : 3000), def: (c.stats ? c.stats.def : 200), dmgTakenReduction: 0 };
-      const debuffDmgDealtRate = (calcResult.targetEnemyDebuffs ? calcResult.targetEnemyDebuffs.dmgDealtDown : 0) || 0;
+      const castleEntry = calcResult.perCastle ? (calcResult.perCastle[c.id] || calcResult.perCastle[c.name]) : null;
+      const calc = castleEntry ? castleEntry.calculatedStats : { hp: (c.stats ? c.stats.hp : 3000), def: (c.stats ? c.stats.def : 200) };
 
-      const effectiveBossAtk = boss.atk * (1 - debuffDmgDealtRate);
+      const dmgTakenDownRate = castleEntry && castleEntry.buffs && castleEntry.buffs.dmgTakenDown
+        ? ((castleEntry.buffs.dmgTakenDown.max || 0) + (castleEntry.buffs.dmgTakenDown.stackSum || 0)) / 100
+        : 0;
+      const enemyAtkDownRate = calcResult.enemyDebuffs && calcResult.enemyDebuffs.enemyAtkDown
+        ? ((calcResult.enemyDebuffs.enemyAtkDown.max || 0) / 100)
+        : 0;
+
+      const effectiveBossAtk = Math.max(1, Math.round(boss.atk * (1 - enemyAtkDownRate)));
       const rawDmg = Math.max(1, effectiveBossAtk - calc.def);
-      const finalDmgPerHit = Math.max(1, Math.round(rawDmg * (1 - (calc.dmgTakenReduction || 0))));
+      const finalDmgPerHit = Math.max(1, Math.round(rawDmg * (1 - dmgTakenDownRate)));
 
       const hitsToWipeout = Math.ceil(calc.hp / finalDmgPerHit);
 
@@ -11112,8 +11127,11 @@ function showQuizResult() {
     const cyclicalAbilities = [];
     partyCastles.forEach(c => {
       if (c.strategy) {
-        const ctMatch = c.strategy.text.match(/(?:再使用|使用可能まで)(\d+)秒/);
-        const ct = ctMatch ? parseInt(ctMatch[1], 10) : 40;
+        let ct = (typeof c.strategy.cooldown === "number" && !isNaN(c.strategy.cooldown)) ? c.strategy.cooldown : null;
+        if (ct === null) {
+          const ctMatch = (c.strategy.text || "").match(/(?:再使用|使用可能まで)(\d+)秒/);
+          ct = ctMatch ? parseInt(ctMatch[1], 10) : 40;
+        }
         cyclicalAbilities.push({
           castleName: c.name,
           type: "計略",
@@ -11494,7 +11512,7 @@ function showQuizResult() {
       } else {
         statusBadge.style.background = "#c0392b";
         statusBadge.style.color = "#fff";
-        statusBadge.textContent = `🚨 殿崩壊警報 (所要 ${ttkSeconds.toFixed(1)}秒 > 猶予 ${travelSeconds}秒)`;
+        statusBadge.textContent = `🚨 殿到達注意（火力不足の恐れ・推定） (所要 ${ttkSeconds.toFixed(1)}秒 > 猶予 ${travelSeconds}秒)`;
       }
     }
 
@@ -11503,6 +11521,7 @@ function showQuizResult() {
       <span>ボス耐久: <strong>${boss.hp.toLocaleString()}</strong></span>
       <span>想定TTK: <strong>${ttkSeconds.toFixed(1)} 秒</strong></span>
       <span>殿到達猶予: <strong>約 ${travelSeconds} 秒</strong></span>
+      <div style="font-size:12px; color:#777; width:100%; margin-top:4px;">※総有効DPS・想定TTK・到達猶予は直線進行を仮定したシミュレーション推計値です。足止めや移動ルート、撃破順により実戦とは異なります。</div>
     `;
   }
 

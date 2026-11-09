@@ -217,7 +217,7 @@
         <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" id="kiLedgerHeader">
           <div class="section-title" style="margin-bottom:0; color:#1e6b37;">
             📊 気の家計簿 (ウェーブ別収支タイムライン)
-            <span style="font-size:12px; font-weight:normal; color:var(--text-sub); margin-left:6px;">何波で気が尽きるかを可視化し、巨大化の最適順序を提案</span>
+            <span style="font-size:12px; font-weight:normal; color:var(--text-sub); margin-left:6px;">何波で気が尽きるかを可視化し、巨大化の最適順序を提案（※推計値）</span>
           </div>
           <button type="button" class="btn btn-sm" id="btnToggleKiLedger" style="font-size:12px; padding:2px 8px;">開く ▾</button>
         </div>
@@ -1453,7 +1453,7 @@
         <section class="section-box" id="diagSnipeAndCountdownSection" style="margin-top:0; margin-bottom:14px; padding:10px 12px; background:#f9fbfe; border-color:#c8ddf3;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
             <div style="font-weight:bold; font-size:14px; color:#185a9d; display:flex; align-items:center; gap:6px;">
-              <span>🎯 殿スナイプ予報 & 被弾耐久カウントダウン</span>
+              <span>🎯 殿スナイプ予報 & 被弾耐久カウントダウン <small style="font-size:12px; font-weight:normal; color:#666;">（※推計値）</small></span>
             </div>
             <span id="diagSnipeRiskBadge" class="badge" style="font-size:12px; padding:2px 8px;">判定中</span>
           </div>
@@ -1462,7 +1462,7 @@
           <!-- 10. 倒し切りレース (TTK) -->
           <div id="diagTtkRaceBox" style="background:#fff; border:1px solid #d4e3f3; border-radius:6px; padding:8px 10px; margin-bottom:10px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-              <span style="font-weight:bold; font-size:12px; color:#2c3e50;">⏱️ ボス倒し切りレース (想定TTK vs 殿到達時間):</span>
+              <span style="font-weight:bold; font-size:12px; color:#2c3e50;">⏱️ ボス倒し切りレース (想定TTK vs 殿到達時間・推計):</span>
               <span id="diagTtkStatusBadge" class="badge" style="font-size:12px;">算出中</span>
             </div>
             <div id="diagTtkRaceBarWrap" style="background:#ecf0f1; border-radius:10px; height:18px; position:relative; overflow:hidden; margin:6px 0;">
@@ -1473,7 +1473,7 @@
           </div>
 
           <!-- 耐久被弾回数テーブル -->
-          <div style="font-weight:bold; font-size:12px; color:#2c3e50; margin-bottom:4px;">🛡️ ボス直撃時の被弾耐性（何発耐えて大破するか）:</div>
+          <div style="font-weight:bold; font-size:12px; color:#2c3e50; margin-bottom:4px;">🛡️ ボス直撃時の被弾耐性（何発耐えて大破するか・推計）:</div>
           <div style="max-height:200px; overflow-y:auto; border:1px solid #e1e8ed; border-radius:4px;">
             <table class="giantize-sim-table" style="width:100%; font-size:12px;">
               <thead>
