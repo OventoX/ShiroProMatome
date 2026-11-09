@@ -6581,17 +6581,23 @@
     const tierGroups = { SS: [], S: [], A: [], B: [], C: [], D: [] };
 
     list.forEach(item => {
-      const override = tierOverrides[item.id] || tierOverrides[item.name];
-      let effectiveTier = override;
+      const rawOverride = tierOverrides[item.id] || tierOverrides[item.name];
+      let effectiveTier = rawOverride;
+      if (effectiveTier) {
+        if (effectiveTier === "Tier0") effectiveTier = "SS";
+        else if (effectiveTier === "Tier1") effectiveTier = "S";
+        else if (effectiveTier === "Tier2") effectiveTier = "A";
+        else if (effectiveTier === "Tier3") effectiveTier = "B";
+      }
       if (!effectiveTier) {
         if (autoTierScope === "role") effectiveTier = item.roleTier;
         else if (autoTierScope === "weapon") effectiveTier = item.weaponTier;
         else effectiveTier = item.overallTier;
       }
       if (tierGroups[effectiveTier]) {
-        tierGroups[effectiveTier].push({ ...item, isOverridden: Boolean(override), effectiveTier });
+        tierGroups[effectiveTier].push({ ...item, isOverridden: Boolean(rawOverride), effectiveTier });
       } else {
-        tierGroups["D"].push({ ...item, isOverridden: Boolean(override), effectiveTier: "D" });
+        tierGroups["D"].push({ ...item, isOverridden: Boolean(rawOverride), effectiveTier: "D" });
       }
     });
 
@@ -6719,6 +6725,11 @@
     defIgnore: 15.0,
     hpPercentCut: 14.0,
     dmgDealtTarget: 12.0,
+    // 敵デバフ (攻撃・防御・被ダメ・与ダメ)
+    debuffAtk: 8.0,
+    debuffDef: 8.0,
+    debuffDmgTaken: 8.0,
+    debuffDmgDealt: 6.0,
     // 6. 配置自由度: 遠近両対応・複合属性・全マス移動/配置マス変更
     bothRange: 8.0,
     multiAttr: 6.0,
@@ -6735,6 +6746,16 @@
   let cachedOhigeScores = null;
   let ohigeTierScope = "weapon"; // "weapon" | "terrain"
   let ohigeTerrainTopCount = 7; // 7 | 10
+
+  function mapToOhigeTier(rawTier) {
+    if (!rawTier) return null;
+    const t = String(rawTier).trim();
+    if (t === "Tier0" || t === "SS") return "Tier0";
+    if (t === "Tier1" || t === "S") return "Tier1";
+    if (t === "Tier2" || t === "A") return "Tier2";
+    if (t === "Tier3" || t === "B" || t === "C" || t === "D") return "Tier3";
+    return null;
+  }
 
   function computeOhigeScores(forceRecalculate = false) {
     if (cachedOhigeScores && !forceRecalculate) return cachedOhigeScores;
@@ -6774,18 +6795,18 @@
       let rawScore = 0.0;
 
       // 1. 編成インフラ・巨大化気軽減
-      const giantKiMatch = allText.match(/巨大化(?:に必要な)?気を?(?:約)?(\d+)%?軽減|巨大化消費気(?:が|を)?(\d+)%?軽減/);
+      const giantKiMatch = allText.match(/([^。]*?(?:巨大化(?:に必要な)?気を?(?:約)?(\d+)%?軽減|巨大化消費気(?:が|を)?(\d+)%?軽減)[^。]*)/);
       if (giantKiMatch) {
-        const val = parseInt(giantKiMatch[1] || giantKiMatch[2] || 25, 10);
-        const isTeam = /(?:全て|全城娘|射程内|味方)/.test(giantKiMatch[0]);
+        const val = parseInt(giantKiMatch[2] || giantKiMatch[3] || 25, 10);
+        const isTeam = /(?:全て|全城娘|射程内の?城娘|味方)/.test(giantKiMatch[1]) && !/自身のみ|自身(?:の(?:巨大化)?|は)/.test(giantKiMatch[1]);
         rawScore += (isTeam ? OHIGE_WEIGHTS.giantKiReduction : (OHIGE_WEIGHTS.giantKiReduction * 0.55)) * Math.min(1.2, val / 30.0);
       }
 
-      // 2. 計略短縮・気ブーストを他者に与える（置くだけ効果は高め）
-      const cdMatch = allText.match(/(?:計略再使用(?:時間)?|使用までの時間)(?:が)?(?:約)?(\d+)%短縮/);
+      // 2. 計略短縮・気ブーストを他者に与える（マッチ箇所のみの判定に統一）
+      const cdMatch = allText.match(/([^。]*?(?:計略再使用(?:時間)?|使用までの時間)(?:が)?(?:約)?(\d+)%短縮[^。]*)/);
       if (cdMatch) {
-        const val = parseInt(cdMatch[1], 10);
-        const isTeam = /(?:全て|全城娘|射程内|味方)/.test(allText);
+        const val = parseInt(cdMatch[2], 10);
+        const isTeam = /(?:全て|全城娘|射程内の?城娘|味方)/.test(cdMatch[1]) && !/自身のみ|自身(?:の(?:計略)?|は)/.test(cdMatch[1]);
         const isPassive = skText.includes(cdMatch[0]);
         rawScore += (isTeam ? (isPassive ? OHIGE_WEIGHTS.stratCooldownAlly : (OHIGE_WEIGHTS.stratCooldownAlly * 0.8)) : OHIGE_WEIGHTS.stratCooldownSelf) * Math.min(1.2, val / 35.0);
       }
@@ -6805,15 +6826,31 @@
       const slowMatch = allText.match(/移動速度(?:が|を)?.*?(\d+)%低下/);
       if (slowMatch) {
         const val = parseInt(slowMatch[1], 10);
-        rawScore += OHIGE_WEIGHTS.movementSlow * Math.min(1.0, val / 50.0);
+        const isPerGiant = /巨大化する度に/.test(allText);
+        const mult = isPerGiant ? 5 : 1;
+        rawScore += OHIGE_WEIGHTS.movementSlow * Math.min(1.0, (val * mult) / 50.0);
       }
 
+      // 敵デバフ (攻撃・防御・被ダメ・与ダメ)
+      const enemyClauses = allText.match(/[^。]*?(?:敵の|敵に|射程内の(?:全)?敵|攻撃した敵|全ての敵|全敵)[^。]*/g) || [];
+      let hasAtk = false, hasDef = false, hasDmgTaken = false, hasDmgDealt = false;
+      enemyClauses.forEach(cl => {
+        if (/攻撃(?:力)?(?:と防御)?(?:が|を)?(?:\d+%|\d+)?(?:と\d+)?低下/.test(cl)) hasAtk = true;
+        if (/防御(?:力)?(?:と攻撃)?(?:が|を)?(?:\d+%|\d+)?(?:と\d+)?低下|防御(?:が|を)0/.test(cl)) hasDef = true;
+        if (/被ダメージ(?:が)?(?:\d+%|(?:\d+(?:\.\d+)?倍))?上昇/.test(cl)) hasDmgTaken = true;
+        if (/与ダメージ(?:が|を)?(?:\d+%|(?:\d+(?:\.\d+)?倍))?低下/.test(cl)) hasDmgDealt = true;
+      });
+      if (hasAtk) rawScore += OHIGE_WEIGHTS.debuffAtk;
+      if (hasDef) rawScore += OHIGE_WEIGHTS.debuffDef;
+      if (hasDmgTaken) rawScore += OHIGE_WEIGHTS.debuffDmgTaken;
+      if (hasDmgDealt) rawScore += OHIGE_WEIGHTS.debuffDmgDealt;
+
       // 4. 手数: 連撃・複数対象・攻撃速度系の効果
-      const multiHitMatch = allText.match(/(\d+)連続(?:攻撃|で攻撃)/);
+      const multiHitMatch = allText.match(/(\d+)連続\s*(?:で)?(?:[^。]*?)?攻撃|(\d+)回\s*連続\s*(?:で)?(?:[^。]*?)?攻撃|(\d+)回\s*攻撃を行う|攻撃回数(?:が|を)?(?:約)?(\d+(?:\.\d+)?)倍/);
       if (multiHitMatch) {
-        const hits = parseInt(multiHitMatch[1], 10);
+        const hits = parseInt(multiHitMatch[1] || multiHitMatch[2] || multiHitMatch[3] || multiHitMatch[4], 10);
         rawScore += Math.min(OHIGE_WEIGHTS.multiHit, hits * 3.5);
-      } else if (/連続で攻撃/.test(allText)) {
+      } else if (/連続で攻撃|連撃/.test(allText)) {
         rawScore += OHIGE_WEIGHTS.multiHit * 0.6;
       }
 
@@ -6825,9 +6862,13 @@
         rawScore += OHIGE_WEIGHTS.targetInc;
       }
 
-      if (/攻撃速度(?:が)?(?:約)?(\d+)%上昇|攻撃速度(?:が)?([\d\.]+)倍/.test(allText)) {
+      const atkSpeedMultMatch = allText.match(/(?:攻撃と)?攻撃速度(?:が|を)?(?:約)?(\d+(?:\.\d+)?)倍/);
+      if (atkSpeedMultMatch) {
+        rawScore += OHIGE_WEIGHTS.atkSpeed;
+      } else if (/攻撃速度(?:が)?(?:約)?(\d+)%上昇|攻撃速度(?:が)?([\d\.]+)倍/.test(allText)) {
         rawScore += OHIGE_WEIGHTS.atkSpeed;
       }
+
       if (/攻撃後の隙(?:が)?(?:約)?(\d+)%短縮/.test(allText)) {
         rawScore += OHIGE_WEIGHTS.gapShort;
       }
@@ -6838,8 +6879,20 @@
         rawScore += OHIGE_WEIGHTS.hpPercentCut;
       }
 
+      // 〜程与えるダメージ上昇（最大N倍）
+      const scalingDmgMatch = allText.match(/[^。]*?程(?:与える)?ダメージ(?:が)?上昇(?:\(最大(?:約)?(\d+(?:\.\d+)?倍|\d+%)\))?[^。]*/);
+      if (scalingDmgMatch) {
+        const multMatch = scalingDmgMatch[0].match(/最大(?:約)?(\d+(?:\.\d+)?倍|\d+%)/);
+        let multVal = 1.5;
+        if (multMatch) {
+          if (multMatch[1].endsWith("倍")) multVal = parseFloat(multMatch[1]);
+          else if (multMatch[1].endsWith("%")) multVal = 1.0 + parseInt(multMatch[1], 10) / 100.0;
+        }
+        rawScore += Math.min(OHIGE_WEIGHTS.dmgDealtTarget, (multVal - 1.0) * 12.0);
+      }
+
       // 与ダメ・与えるダメージ倍率
-      const multMatches = allText.matchAll(/(?:(?:自身|自分|標的|対象|敵|特殊能力中)[^。]*?与えるダメージ|特殊攻撃(?:で|の|時|時の範囲攻撃で)?(?:与える)?ダメージ)(?:が|は)?(?:約)?([\d\.]+)倍/g);
+      const multMatches = allText.matchAll(/(?:(?:自身|自分|標的|対象|敵|特殊能力中|計略(?:中|使用時(?:に)?))[^。]*?与えるダメージ|特殊攻撃(?:で|の|時|時の範囲攻撃で)?(?:与える)?ダメージ|与ダメージ)(?:が|は)?(?:約)?([\d\.]+)倍/g);
       for (const mm of multMatches) {
         const m = parseFloat(mm[1]);
         if (m > 1.0) rawScore += Math.min(OHIGE_WEIGHTS.dmgDealtTarget, (m - 1.0) * 10.0);
@@ -6848,7 +6901,7 @@
       // 6. 配置自由度: 遠近両対応・複合属性・全マス移動/配置マス変更
       if (c.rangeKind === "遠近") rawScore += OHIGE_WEIGHTS.bothRange;
       if (c.attributes && c.attributes.length >= 2) rawScore += OHIGE_WEIGHTS.multiAttr;
-      if (/全マス移動可能|配置場所を.*?マス.*?に変更/.test(allText)) {
+      if (/全マス移動可能|配置(?:場所|マス)(?:を|の)?.*?に変更|全マス(?:に)?配置可能/.test(allText)) {
         rawScore += OHIGE_WEIGHTS.tileFlexibility;
       }
 
@@ -6860,14 +6913,15 @@
         }
       }
 
-      // 置くだけ味方支援 (特技で味方/全城娘の攻防上昇等)
-      if (/(?:射程内の城娘|全ての城娘|味方).*?(?:攻撃|防御|与ダメージ).*?上昇/.test(skText)) {
+      // 置くだけ味方支援 (特技で味方/全城娘の攻防上昇等。特殊能力中などの限定発動は除く)
+      const passiveTeamClause = skText.replace(/特殊能力中[^。]*?(?:。|$)/g, "");
+      if (/(?:射程内の?城娘|全ての?城娘|全味方|味方).*?(?:攻撃|防御|与ダメージ).*?上昇/.test(passiveTeamClause)) {
         rawScore += OHIGE_WEIGHTS.passiveTeamBuff;
       }
 
       // 減点・抑制要素: チャージ・一撃型の単発倍率上限
       const isCharge = /溜め|チャージ|一撃|単発/.test(allText);
-      const rawMultMatch = allText.match(/攻撃(?:の|が)?([\d\.]+)倍/);
+      const rawMultMatch = allText.match(/(?:攻撃(?:の|が)?|攻撃と攻撃速度が)([\d\.]+)倍/);
       if (rawMultMatch) {
         const m = parseFloat(rawMultMatch[1]);
         const pts = (m - 1.0) * 5.0;
@@ -6976,7 +7030,7 @@
       if (trimmed === "SS") normalized = "Tier0";
       else if (trimmed === "S") normalized = "Tier1";
       else if (trimmed === "A") normalized = "Tier2";
-      else if (trimmed === "B") normalized = "Tier3";
+      else if (trimmed === "B" || trimmed === "C" || trimmed === "D") normalized = "Tier3";
       tierOverrides[item.id] = normalized;
       saveTierOverrides();
       renderTierOhige();
@@ -7127,12 +7181,13 @@
 
         const groups = { Tier0: [], Tier1: [], Tier2: [], Tier3: [], 選外: [] };
         weaponCastles.forEach(item => {
-          const override = tierOverrides[item.id] || tierOverrides[item.name];
-          const effTier = override || item.ohigeWeaponTier || "選外";
+          const rawOverride = tierOverrides[item.id] || tierOverrides[item.name];
+          const mappedOverride = mapToOhigeTier(rawOverride);
+          const effTier = mappedOverride || item.ohigeWeaponTier || "選外";
           if (groups[effTier]) {
-            groups[effTier].push({ ...item, isOverridden: Boolean(override), effectiveTier: effTier });
+            groups[effTier].push({ ...item, isOverridden: Boolean(mappedOverride), effectiveTier: effTier });
           } else {
-            groups["選外"].push({ ...item, isOverridden: Boolean(override), effectiveTier: "選外" });
+            groups["選外"].push({ ...item, isOverridden: Boolean(mappedOverride), effectiveTier: "選外" });
           }
         });
 
@@ -7224,8 +7279,9 @@
         const content = document.createElement("div");
         content.className = "tier-row-content tier-ohige-content";
         topCastles.forEach((item, idx) => {
-          const override = tierOverrides[item.id] || tierOverrides[item.name];
-          const itemWithOverride = { ...item, isOverridden: Boolean(override), effectiveTier: override || item.ohigeWeaponTier };
+          const rawOverride = tierOverrides[item.id] || tierOverrides[item.name];
+          const mappedOverride = mapToOhigeTier(rawOverride);
+          const itemWithOverride = { ...item, isOverridden: Boolean(mappedOverride), effectiveTier: mappedOverride || item.ohigeWeaponTier };
           const rankLabel = `${idx + 1}位`;
           const chip = createOhigeChip(itemWithOverride, rankLabel);
           content.appendChild(chip);
@@ -10336,6 +10392,7 @@ function showQuizResult() {
   window.computeOhigeScores = computeOhigeScores;
   window.renderTierOhige = renderTierOhige;
   window.promptOhigeTierOverride = promptOhigeTierOverride;
+  window.mapToOhigeTier = mapToOhigeTier;
   window.OHIGE_WEIGHTS = OHIGE_WEIGHTS;
   window.setOhigeTierScope = setOhigeTierScope;
   window.getParty = () => party;

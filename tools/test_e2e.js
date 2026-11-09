@@ -4092,6 +4092,33 @@ async function runTests() {
     });
     await new Promise(r => setTimeout(r, 200));
 
+    // Verify C / D override is treated as valid tier (Prompt 30)
+    const cdOverrideCheck = await page.evaluate(() => {
+      const c = SCRE_DATA.find(x => x.name === '［無疆］江戸城');
+      const key = 'scre-helper:tier-overrides:v1';
+      const saved = JSON.parse(localStorage.getItem(key) || '{}');
+      saved[c.id] = 'C';
+      localStorage.setItem(key, JSON.stringify(saved));
+      window.renderTierOhige();
+
+      // Check if rendered inside Tier3 row
+      const chip = document.querySelector('.tier-ohige-chip[data-castle-name="［無疆］江戸城"]');
+      const row = chip ? chip.closest('.tier-ohige-row') : null;
+      const tier = row ? row.getAttribute('data-tier') : null;
+      const isOverridden = chip ? chip.classList.contains('is-overridden') : false;
+
+      // Clean up
+      delete saved[c.id];
+      localStorage.setItem(key, JSON.stringify(saved));
+      window.renderTierOhige();
+
+      return { foundInTier3: tier === 'Tier3', isOverridden };
+    });
+    console.log('C/D override valid tier check:', cdOverrideCheck);
+    if (!cdOverrideCheck.foundInTier3 || !cdOverrideCheck.isOverridden) {
+      throw new Error(`TEST 65 FAILED: 'C' override was not treated as valid tier in Tier3: ${JSON.stringify(cdOverrideCheck)}`);
+    }
+
     console.log('=> TEST 65 PASSED');
   }
 
