@@ -4119,6 +4119,26 @@ async function runTests() {
       throw new Error(`TEST 65 FAILED: 'C' override was not treated as valid tier in Tier3: ${JSON.stringify(cdOverrideCheck)}`);
     }
 
+    // Verify Prompt 31: Manual override alert text includes SS/S/A/B/C/D and Tier0〜Tier3
+    const promptAlertCheck = await page.evaluate(() => {
+      let capturedAlert = '';
+      let capturedPrompt = '';
+      const origAlert = window.alert;
+      const origPrompt = window.prompt;
+      window.alert = (msg) => { capturedAlert = msg; };
+      window.prompt = (msg, def) => { capturedPrompt = msg; return "INVALID_TIER"; };
+
+      window.promptOhigeTierOverride({ id: "test_c", name: "テスト城", effectiveTier: "Tier1", ohigeWeaponTier: "Tier1" });
+
+      window.alert = origAlert;
+      window.prompt = origPrompt;
+      return { capturedAlert, capturedPrompt };
+    });
+    console.log('Prompt 31 alert text check:', promptAlertCheck.capturedAlert);
+    if (!promptAlertCheck.capturedAlert.includes('SS/S/A/B/C/D') || !promptAlertCheck.capturedAlert.includes('Tier0〜Tier3')) {
+      throw new Error(`TEST 65 FAILED: Alert message did not contain expected range: ${promptAlertCheck.capturedAlert}`);
+    }
+
     console.log('=> TEST 65 PASSED');
   }
 

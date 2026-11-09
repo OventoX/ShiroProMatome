@@ -6803,7 +6803,7 @@
       }
 
       // 2. 計略短縮・気ブーストを他者に与える（マッチ箇所のみの判定に統一）
-      const cdMatch = allText.match(/([^。]*?(?:計略再使用(?:時間)?|使用までの時間)(?:が)?(?:約)?(\d+)%短縮[^。]*)/);
+      const cdMatch = allText.match(/([^。]*?(?:計略再使用\s*(?:時間)?|使用までの時間)[^。]*?(?:が|を|は)?(?:約)?(\d+)%[^。]*?短縮[^。]*)/);
       if (cdMatch) {
         const val = parseInt(cdMatch[2], 10);
         const isTeam = /(?:全て|全城娘|射程内の?城娘|味方)/.test(cdMatch[1]) && !/自身のみ|自身(?:の(?:計略)?|は)/.test(cdMatch[1]);
@@ -6811,8 +6811,8 @@
         rawScore += (isTeam ? (isPassive ? OHIGE_WEIGHTS.stratCooldownAlly : (OHIGE_WEIGHTS.stratCooldownAlly * 0.8)) : OHIGE_WEIGHTS.stratCooldownSelf) * Math.min(1.2, val / 35.0);
       }
 
-      if (/気の自然増加量(?:が)?(?:徐々に)?増加|撃破時に気が(?:約)?(\d+)増加|気を(?:約)?(\d+)回復|気(?:が|を)(?:約)?(\d+)増加/.test(allText)) {
-        const isPassive = /気の自然増加量|撃破時/.test(skText);
+      if (/(?:気の自然増加量|時間経過で気|気)(?:が)?(?:徐々に)?増加|撃破時に気が(?:約)?(\d+)増加|気を(?:約)?(\d+)回復|気(?:が|を)(?:約)?(\d+)増加/.test(allText)) {
+        const isPassive = /気の自然増加量|時間経過で気|撃破時/.test(skText);
         rawScore += isPassive ? OHIGE_WEIGHTS.kiBoostPassive : OHIGE_WEIGHTS.kiBoost;
       }
 
@@ -6835,8 +6835,8 @@
       const enemyClauses = allText.match(/[^。]*?(?:敵の|敵に|射程内の(?:全)?敵|攻撃した敵|全ての敵|全敵)[^。]*/g) || [];
       let hasAtk = false, hasDef = false, hasDmgTaken = false, hasDmgDealt = false;
       enemyClauses.forEach(cl => {
-        if (/攻撃(?:力)?(?:と防御)?(?:が|を)?(?:\d+%|\d+)?(?:と\d+)?低下/.test(cl)) hasAtk = true;
-        if (/防御(?:力)?(?:と攻撃)?(?:が|を)?(?:\d+%|\d+)?(?:と\d+)?低下|防御(?:が|を)0/.test(cl)) hasDef = true;
+        if (/攻撃(?:力)?(?:[と、][^低下]*?)?(?:が|を)?(?:\d+%|\d+)?(?:と\d+)?低下/.test(cl)) hasAtk = true;
+        if (/防御(?:力)?(?:[と、][^低下]*?)?(?:が|を)?(?:\d+%|\d+)?(?:と\d+)?低下|防御(?:が|を)0/.test(cl)) hasDef = true;
         if (/被ダメージ(?:が)?(?:\d+%|(?:\d+(?:\.\d+)?倍))?上昇/.test(cl)) hasDmgTaken = true;
         if (/与ダメージ(?:が|を)?(?:\d+%|(?:\d+(?:\.\d+)?倍))?低下/.test(cl)) hasDmgDealt = true;
       });
@@ -6848,7 +6848,7 @@
       // 4. 手数: 連撃・複数対象・攻撃速度系の効果
       const multiHitMatch = allText.match(/(\d+)連続\s*(?:で)?(?:[^。]*?)?攻撃|(\d+)回\s*連続\s*(?:で)?(?:[^。]*?)?攻撃|(\d+)回\s*攻撃を行う|攻撃回数(?:が|を)?(?:約)?(\d+(?:\.\d+)?)倍/);
       if (multiHitMatch) {
-        const hits = parseInt(multiHitMatch[1] || multiHitMatch[2] || multiHitMatch[3] || multiHitMatch[4], 10);
+        const hits = parseFloat(multiHitMatch[1] || multiHitMatch[2] || multiHitMatch[3] || multiHitMatch[4]);
         rawScore += Math.min(OHIGE_WEIGHTS.multiHit, hits * 3.5);
       } else if (/連続で攻撃|連撃/.test(allText)) {
         rawScore += OHIGE_WEIGHTS.multiHit * 0.6;
@@ -6858,14 +6858,14 @@
       if (targetIncMatch) {
         rawScore += Math.min(OHIGE_WEIGHTS.targetInc, parseInt(targetIncMatch[1], 10) * 5.0);
       }
-      if (/射程内の(?:全て|全)の敵|全敵に攻撃/.test(allText)) {
+      if (/射程内の(?:全敵|全ての敵|すべての敵)(?:に|へ)?(?:対して)?(?:[^。]*?)?(?:攻撃|ダメージ)|全敵に(?:攻撃|ダメージ)|全敵を攻撃/.test(allText)) {
         rawScore += OHIGE_WEIGHTS.targetInc;
       }
 
       const atkSpeedMultMatch = allText.match(/(?:攻撃と)?攻撃速度(?:が|を)?(?:約)?(\d+(?:\.\d+)?)倍/);
       if (atkSpeedMultMatch) {
         rawScore += OHIGE_WEIGHTS.atkSpeed;
-      } else if (/攻撃速度(?:が)?(?:約)?(\d+)%上昇|攻撃速度(?:が)?([\d\.]+)倍/.test(allText)) {
+      } else if (/(?:攻撃と)?攻撃速度(?:が|を)?(?:約)?[^。低下]*?(?:\d+%)?(?:ずつ)?上昇|攻撃速度(?:が)?([\d\.]+)倍/.test(allText)) {
         rawScore += OHIGE_WEIGHTS.atkSpeed;
       }
 
@@ -6875,7 +6875,8 @@
 
       // 5. 防御無視・耐久割合削りなど高難度で効く特性
       if (/防御を?無視/.test(allText)) rawScore += OHIGE_WEIGHTS.defIgnore;
-      if (/現在耐久の(?:\d+)%|耐久が低い程.*?与えるダメージ|最大耐久の(?:\d+)%|割合(?:ダメージ|削り)/.test(allText)) {
+      if (!/(?:自身|対象)が(?:最大|現在)?耐久の(?:\d+)%の値のダメージを受ける/.test(allText) &&
+          /現在耐久の(?:\d+)%|耐久が低い程.*?与えるダメージ|最大耐久の(?:\d+)%|割合(?:ダメージ|削り)/.test(allText)) {
         rawScore += OHIGE_WEIGHTS.hpPercentCut;
       }
 
@@ -6921,7 +6922,7 @@
 
       // 減点・抑制要素: チャージ・一撃型の単発倍率上限
       const isCharge = /溜め|チャージ|一撃|単発/.test(allText);
-      const rawMultMatch = allText.match(/(?:攻撃(?:の|が)?|攻撃と攻撃速度が)([\d\.]+)倍/);
+      const rawMultMatch = allText.match(/(?:攻撃(?:の|が)?|攻撃と(?:攻撃速度|与ダメージ)が)([\d\.]+)倍/);
       if (rawMultMatch) {
         const m = parseFloat(rawMultMatch[1]);
         const pts = (m - 1.0) * 5.0;
@@ -7016,7 +7017,7 @@
   function promptOhigeTierOverride(item) {
     loadTierOverrides();
     const current = tierOverrides[item.id] || tierOverrides[item.name] || item.effectiveTier || item.ohigeWeaponTier;
-    const val = prompt(`【${item.name}】のおひげ式ティア手動上書き\n(Tier0, Tier1, Tier2, Tier3 を入力。解除は空欄または「解除」)`, current || "Tier1");
+    const val = prompt(`【${item.name}】のおひげ式ティア手動上書き\n(Tier0〜Tier3 または SS/S/A/B/C/D を入力。解除は空欄または「解除」)`, current || "Tier1");
     if (val === null) return;
     const trimmed = val.trim();
     if (trimmed === "" || trimmed === "解除") {
@@ -7036,7 +7037,7 @@
       renderTierOhige();
       showToast(`「${item.name}」のティアを ${normalized} に手動設定しました`);
     } else {
-      alert("ティアは Tier0, Tier1, Tier2, Tier3 のいずれかで入力してください。");
+      alert("ティアは Tier0〜Tier3 または SS/S/A/B/C/D のいずれかで入力してください。");
     }
   }
 
