@@ -11494,6 +11494,64 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 正倉院宝物",
+    "text": "所持しているだけで獲得金が30%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦",
+      "targetKind": "non-combat",
+      "value": 30,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 正倉院天平宝物",
+    "text": "所持しているだけで獲得金が35%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦",
+      "targetKind": "non-combat",
+      "value": 35,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 正倉院・天平至宝",
+    "text": "所持しているだけで獲得金が45%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦",
+      "targetKind": "non-combat",
+      "value": 45,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改弐",
+   "name": "[改弐] / 正倉院・天平至宝",
+   "text": "所持しているだけで獲得金が45%上昇 (像の効果は上乗せ)",
+   "effects": [
+    {
+     "category": "gold",
+     "target": "合戦",
+     "targetKind": "non-combat",
+     "value": 45,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "平城宮",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/%E5%BE%A9%E5%85%83%E3%81%95%E3%82%8C%E3%81%9F%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E6%A5%B5%E6%AE%BF.jpg/960px-%E5%BE%A9%E5%85%83%E3%81%95%E3%82%8C%E3%81%9F%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E6%A5%B5%E6%AE%BF.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -18646,6 +18704,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 浪速の夢",
+    "text": "所持しているだけで近畿城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "近畿",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 浪速の夢",
+    "text": "所持しているだけで近畿城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "近畿",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 浪速の夢",
+   "text": "所持しているだけで近畿城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "近畿",
+     "targetKind": "region",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "大坂城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/960px-Osaka_Castle_03bs3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -18836,6 +18938,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 博多松囃子",
+    "text": "所持しているだけで石弓城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "石弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 博多松囃子",
+    "text": "所持しているだけで石弓城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "石弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 博多松囃子",
+   "text": "所持しているだけで石弓城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "石弓",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "福岡城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Fukuoka_castle_2006_01.jpg/960px-Fukuoka_castle_2006_01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -19054,6 +19200,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 首据石",
+    "text": "所持しているだけで槍城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "槍",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 首据石",
+    "text": "所持しているだけで槍城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "槍",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 首据石",
+   "text": "所持しているだけで槍城娘の最大耐久が4%上昇",
+   "effects": [
+    {
+     "category": "hp",
+     "target": "槍",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "小谷城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Odanij10.jpg/960px-Odanij10.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -20262,6 +20452,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 黄金十両",
+    "text": "所持しているだけで獲得金と 蔵から入手金が25%上昇(像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦＋蔵",
+      "targetKind": "non-combat",
+      "value": 25,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 笠の緒文",
+    "text": "所持しているだけで獲得金と 蔵から入手金が30%上昇(像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦＋蔵",
+      "targetKind": "non-combat",
+      "value": 30,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 笠の緒文",
+   "text": "所持しているだけで獲得金と 蔵から入手金が30%上昇(像の効果は上乗せ)",
+   "effects": [
+    {
+     "category": "gold",
+     "target": "合戦＋蔵",
+     "targetKind": "non-combat",
+     "value": 30,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "高知城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Kochi_Castle%2C_Outemon-3.jpg/960px-Kochi_Castle%2C_Outemon-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -21762,6 +21996,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 朱地金井桁紋纏",
+    "text": "所持しているだけで槍城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "槍",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 朱地金井桁紋纏",
+    "text": "所持しているだけで槍城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "槍",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 朱地金井桁紋纏",
+   "text": "所持しているだけで槍城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "槍",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "彦根城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Hikone_Castle_November_2016_-02.jpg/960px-Hikone_Castle_November_2016_-02.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -21933,6 +22211,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 百箇条の掟書",
+    "text": "所持しているだけで四国城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "四国",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 百箇条の掟書",
+    "text": "所持しているだけで四国城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "四国",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 百箇条の掟書",
+   "text": "所持しているだけで四国城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "四国",
+     "targetKind": "region",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "岡豊城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Oko_castle_zenkei.JPG/960px-Oko_castle_zenkei.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -22112,6 +22434,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 鉄盾一双",
+    "text": "所持しているだけで槌城娘の防御が4%上昇",
+    "effects": [
+     {
+      "category": "def",
+      "target": "槌",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] /  鉄盾一双",
+    "text": "所持しているだけで槌城娘の防御が4%上昇",
+    "effects": [
+     {
+      "category": "def",
+      "target": "槌",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] /  鉄盾一双",
+   "text": "所持しているだけで槌城娘の防御が4%上昇",
+   "effects": [
+    {
+     "category": "def",
+     "target": "槌",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "津山城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/%E6%B4%A5%E5%B1%B1%E5%9F%8E%E5%82%99%E4%B8%AD%E6%AB%93.jpg/960px-%E6%B4%A5%E5%B1%B1%E5%9F%8E%E5%82%99%E4%B8%AD%E6%AB%93.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -23299,7 +23665,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / サウルウァ",
+    "text": "所持しているだけで全ての敵の攻撃が2%低下",
+    "effects": [
+     {
+      "category": "enemyAtk",
+      "target": "all",
+      "targetKind": "all",
+      "value": 2,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / アカ・マナフ",
+    "text": "所持しているだけで全ての敵の攻撃が3%低下",
+    "effects": [
+     {
+      "category": "enemyAtk",
+      "target": "all",
+      "targetKind": "all",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / アカ・マナフ",
+   "text": "所持しているだけで全ての敵の攻撃が3%低下",
+   "effects": [
+    {
+     "category": "enemyAtk",
+     "target": "all",
+     "targetKind": "all",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［裏］大宰府",
@@ -23500,6 +23910,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 筑紫歌壇",
+    "text": "所持しているだけで全ての敵の防御が3%低下",
+    "effects": [
+     {
+      "category": "enemyDef",
+      "target": "all",
+      "targetKind": "all",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 筑紫歌壇",
+    "text": "所持しているだけで全ての敵の防御が3%低下",
+    "effects": [
+     {
+      "category": "enemyDef",
+      "target": "all",
+      "targetKind": "all",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 筑紫歌壇",
+   "text": "所持しているだけで全ての敵の防御が3%低下",
+   "effects": [
+    {
+     "category": "enemyDef",
+     "target": "all",
+     "targetKind": "all",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "大宰府",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Tofuroh_dazaifu.jpg/960px-Tofuroh_dazaifu.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -25337,7 +25791,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / スディージュの沼",
+    "text": "所持しているだけで全ての敵の攻撃後の隙が2%延長",
+    "effects": [
+     {
+      "category": "enemyGap",
+      "target": "all",
+      "targetKind": "all",
+      "value": 2,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / マーレボルジェ",
+    "text": "所持しているだけで全ての敵の攻撃後の隙が3%延長",
+    "effects": [
+     {
+      "category": "enemyGap",
+      "target": "all",
+      "targetKind": "all",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / マーレボルジェ",
+   "text": "所持しているだけで全ての敵の攻撃後の隙が3%延長",
+   "effects": [
+    {
+     "category": "enemyGap",
+     "target": "all",
+     "targetKind": "all",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［裏］坂本城",
@@ -25492,6 +25990,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 水色桔梗",
+    "text": "所持しているだけで全ての敵の攻撃速度が2%低下",
+    "effects": [
+     {
+      "category": "enemyAtkSpeed",
+      "target": "all",
+      "targetKind": "all",
+      "value": 2,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 裏陰桔梗",
+    "text": "所持しているだけで全ての敵の攻撃速度が3%低下",
+    "effects": [
+     {
+      "category": "enemyAtkSpeed",
+      "target": "all",
+      "targetKind": "all",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 裏陰桔梗",
+   "text": "所持しているだけで全ての敵の攻撃速度が3%低下",
+   "effects": [
+    {
+     "category": "enemyAtkSpeed",
+     "target": "all",
+     "targetKind": "all",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "坂本城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Japan_Kinai_Sankan_topographic_map.webp/960px-Japan_Kinai_Sankan_topographic_map.webp?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -25654,6 +26196,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 飛車山",
+    "text": "所持しているだけで全ての敵の防御が1%低下",
+    "effects": [
+     {
+      "category": "enemyDef",
+      "target": "all",
+      "targetKind": "all",
+      "value": 1,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 間々観音",
+    "text": "所持しているだけで全ての敵の防御が2%低下",
+    "effects": [
+     {
+      "category": "enemyDef",
+      "target": "all",
+      "targetKind": "all",
+      "value": 2,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 間々観音",
+   "text": "所持しているだけで全ての敵の防御が2%低下",
+   "effects": [
+    {
+     "category": "enemyDef",
+     "target": "all",
+     "targetKind": "all",
+     "value": 2,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "小牧山",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Komakiyama_04.JPG/960px-Komakiyama_04.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -27153,6 +27739,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 清須越",
+    "text": "所持しているだけで槌城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "槌",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 清須越",
+    "text": "所持しているだけで槌城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "槌",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 清須越",
+   "text": "所持しているだけで槌城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "槌",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "名古屋城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/960px-Nagoya_Castle_7.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -27362,6 +27992,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 石部桜",
+    "text": "所持しているだけで東北城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "東北",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 石部桜",
+    "text": "所持しているだけで東北城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "東北",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 石部桜",
+   "text": "所持しているだけで東北城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "東北",
+     "targetKind": "region",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "若松城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/%E8%8B%A5%E6%9D%BE%E5%9F%8E%EF%BC%88%E9%B6%B4%E3%83%B6%E5%9F%8E%EF%BC%8920220917-P1003471.jpg/960px-%E8%8B%A5%E6%9D%BE%E5%9F%8E%EF%BC%88%E9%B6%B4%E3%83%B6%E5%9F%8E%EF%BC%8920220917-P1003471.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -27542,6 +28216,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 引田の港",
+    "text": "所持しているだけで法術城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "法術",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 引田の港",
+    "text": "所持しているだけで法術城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "法術",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 引田の港",
+   "text": "所持しているだけで法術城娘の最大耐久が4%上昇",
+   "effects": [
+    {
+     "category": "hp",
+     "target": "法術",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "引田城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Hiketa_jyou.jpg/960px-Hiketa_jyou.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -27674,6 +28392,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 百間の橋",
+    "text": "所持しているだけで全ての敵の攻撃が1%低下",
+    "effects": [
+     {
+      "category": "enemyAtk",
+      "target": "all",
+      "targetKind": "all",
+      "value": 1,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 佐和山の黒雲",
+    "text": "所持しているだけで全ての敵の攻撃が2%低下",
+    "effects": [
+     {
+      "category": "enemyAtk",
+      "target": "all",
+      "targetKind": "all",
+      "value": 2,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 佐和山の黒雲",
+   "text": "所持しているだけで全ての敵の攻撃が2%低下",
+   "effects": [
+    {
+     "category": "enemyAtk",
+     "target": "all",
+     "targetKind": "all",
+     "value": 2,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "佐和山城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Sawayama_Castle_taken_from_the_car_window_of_JR_Biwako_Line_bounded_for_Maibara.jpg/960px-Sawayama_Castle_taken_from_the_car_window_of_JR_Biwako_Line_bounded_for_Maibara.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -30375,6 +31137,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 賦何船連歌",
+    "text": "所持しているだけで城娘の合戦勝利時と 城娘合成時の獲得経験値が15%上昇",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "城娘合戦時＋城娘合成時",
+      "targetKind": "non-combat",
+      "value": 15,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 賦何人連歌",
+    "text": "所持しているだけで城娘の合戦勝利時と 城娘合成時の獲得経験値が20%上昇",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "城娘合戦時＋城娘合成時",
+      "targetKind": "non-combat",
+      "value": 20,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 賦何人連歌",
+   "text": "所持しているだけで城娘の合戦勝利時と 城娘合成時の獲得経験値が20%上昇",
+   "effects": [
+    {
+     "category": "exp",
+     "target": "城娘合戦時＋城娘合成時",
+     "targetKind": "non-combat",
+     "value": 20,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "七尾城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Nanaojo-tyoudomaru.JPG/960px-Nanaojo-tyoudomaru.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -30571,7 +31377,51 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 引魂幡",
+    "text": "所持しているだけで地獄城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 引魂幡",
+    "text": "所持しているだけで地獄城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 引魂幡",
+   "text": "所持しているだけで地獄城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［裏］淀城",
@@ -30765,6 +31615,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 与渡津",
+    "text": "所持しているだけで地獄城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 与渡津",
+    "text": "所持しているだけで地獄城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 与渡津",
+   "text": "所持しているだけで地獄城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "淀城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/%E6%B7%80%E5%9F%8E%E5%A4%A9%E5%AE%88%E8%B7%A1.jpg/960px-%E6%B7%80%E5%9F%8E%E5%A4%A9%E5%AE%88%E8%B7%A1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -30941,7 +31835,51 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 死者の書",
+    "text": "所持しているだけで全ての敵の攻撃後の隙が1%延長",
+    "effects": [
+     {
+      "category": "enemyGap",
+      "target": "all",
+      "targetKind": "all",
+      "value": 1,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ペレト・エム・ヘル",
+    "text": "所持しているだけで全ての敵の攻撃後の隙が2%延長",
+    "effects": [
+     {
+      "category": "enemyGap",
+      "target": "all",
+      "targetKind": "all",
+      "value": 2,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / ペレト・エム・ヘル",
+   "text": "所持しているだけで全ての敵の攻撃後の隙が2%延長",
+   "effects": [
+    {
+     "category": "enemyGap",
+     "target": "all",
+     "targetKind": "all",
+     "value": 2,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［花嫁衣装］春日山城",
@@ -32274,6 +33212,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 五箇条の訓戒状",
+    "text": "所持しているだけで関東城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "関東",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 五箇条の訓戒状",
+    "text": "所持しているだけで関東城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "関東",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 五箇条の訓戒状",
+   "text": "所持しているだけで関東城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "関東",
+     "targetKind": "region",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "玉縄城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/%E5%A4%AA%E9%BC%93%E9%83%AD%E4%B8%8B_%E5%A0%80%E5%88%87.jpg/960px-%E5%A4%AA%E9%BC%93%E9%83%AD%E4%B8%8B_%E5%A0%80%E5%88%87.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -32445,6 +33427,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 夕顔観音",
+    "text": "所持しているだけで法術城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "法術",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 夕顔観音",
+    "text": "所持しているだけで法術城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "法術",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 夕顔観音",
+   "text": "所持しているだけで法術城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "法術",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "佐倉城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Sakura_Castle_2.JPG/960px-Sakura_Castle_2.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -32663,6 +33689,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 松倉金山",
+    "text": "所持しているだけで刀城娘の防御が4%上昇",
+    "effects": [
+     {
+      "category": "def",
+      "target": "刀",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 松倉金山",
+    "text": "所持しているだけで刀城娘の防御が4%上昇",
+    "effects": [
+     {
+      "category": "def",
+      "target": "刀",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 松倉金山",
+   "text": "所持しているだけで刀城娘の防御が4%上昇",
+   "effects": [
+    {
+     "category": "def",
+     "target": "刀",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "松倉城 (飛騨国)",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Matsukura_castle%2C_Takayama%2C_2021.jpg/960px-Matsukura_castle%2C_Takayama%2C_2021.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -32861,6 +33931,50 @@ window.SCRE_DATA = [
    }
   ],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / フンゴ・ディ・ラッコ",
+    "text": "所持しているだけで海外城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "海外",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / フンゴ・ディ・ラッコ",
+    "text": "所持しているだけで海外城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "海外",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / フンゴ・ディ・ラッコ",
+   "text": "所持しているだけで海外城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "海外",
+     "targetKind": "region",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "アラゴネーゼ城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Italy_provincial_location_map_2016.svg/960px-Italy_provincial_location_map_2016.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -33802,7 +34916,37 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 冥境・千引岩",
+    "text": "所持しているだけで地獄城娘の防御が4%上昇",
+    "effects": [
+     {
+      "category": "def",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "無印",
+   "name": "[無印] / 冥境・千引岩",
+   "text": "所持しているだけで地獄城娘の防御が4%上昇",
+   "effects": [
+    {
+     "category": "def",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "タルタロス",
@@ -34013,6 +35157,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / カローンの舟",
+    "text": "所持しているだけで[架空城]の再配置時間が4%短縮",
+    "effects": [
+     {
+      "category": "redeploy",
+      "target": "架空城",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / カローンの舟",
+    "text": "所持しているだけで[架空城]の再配置時間が4%短縮",
+    "effects": [
+     {
+      "category": "redeploy",
+      "target": "架空城",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / カローンの舟",
+   "text": "所持しているだけで[架空城]の再配置時間が4%短縮",
+   "effects": [
+    {
+     "category": "redeploy",
+     "target": "架空城",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "タルタロス",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Nekyia_Staatliche_Antikensammlungen_1494_n2.jpg/960px-Nekyia_Staatliche_Antikensammlungen_1494_n2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -34234,6 +35422,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 虎の印判",
+    "text": "所持しているだけで全ての敵の攻撃速度が1%低下",
+    "effects": [
+     {
+      "category": "enemyAtkSpeed",
+      "target": "all",
+      "targetKind": "all",
+      "value": 1,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 虎の印判",
+    "text": "所持しているだけで全ての敵の攻撃速度が1%低下",
+    "effects": [
+     {
+      "category": "enemyAtkSpeed",
+      "target": "all",
+      "targetKind": "all",
+      "value": 1,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 虎の印判",
+   "text": "所持しているだけで全ての敵の攻撃速度が1%低下",
+   "effects": [
+    {
+     "category": "enemyAtkSpeed",
+     "target": "all",
+     "targetKind": "all",
+     "value": 1,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "小田原城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/161223_Odawara_Castle_Odawara_Japan01s3.jpg/960px-161223_Odawara_Castle_Odawara_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -35765,6 +36997,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 地黄八幡",
+    "text": "所持しているだけで投剣城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "投剣",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 地黄八幡",
+    "text": "所持しているだけで投剣城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "投剣",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 地黄八幡",
+   "text": "所持しているだけで投剣城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "投剣",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "川越城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Kawagoe-Castle_Honmaru-Goten.jpg/960px-Kawagoe-Castle_Honmaru-Goten.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -35957,6 +37233,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 祝呪信仰",
+    "text": "所持しているだけで地獄城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 祝呪信仰",
+    "text": "所持しているだけで地獄城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 祝呪信仰",
+   "text": "所持しているだけで地獄城娘の最大耐久が4%上昇",
+   "effects": [
+    {
+     "category": "hp",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "桜尾城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Katsura_Park_1_Sakurao_Castle.jpg/960px-Katsura_Park_1_Sakurao_Castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -36194,6 +37514,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 南無阿弥コール",
+    "text": "所持しているだけで祓串城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "祓串",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 南無阿弥コール",
+    "text": "所持しているだけで祓串城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "祓串",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 南無阿弥コール",
+   "text": "所持しているだけで祓串城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "祓串",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "長島城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Nagashima_castle_ootemon.JPG/960px-Nagashima_castle_ootemon.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -37105,6 +38469,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 水郷柳川",
+    "text": "所持しているだけで九州城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "九州",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 水郷柳川",
+    "text": "所持しているだけで九州城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "九州",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 水郷柳川",
+   "text": "所持しているだけで九州城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "九州",
+     "targetKind": "region",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "柳川城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Yanagawa_Castle01s5s3200.jpg/960px-Yanagawa_Castle01s5s3200.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -37323,6 +38731,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 立花三日月",
+    "text": "所持しているだけで歌舞城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "歌舞",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 立花三日月",
+    "text": "所持しているだけで歌舞城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "歌舞",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 立花三日月",
+   "text": "所持しているだけで歌舞城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "歌舞",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "立花山城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg/960px-Tachibana_Castle_Ruins%28Summit_of_Mt.Tachibana%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -37514,6 +38966,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 駿府加番",
+    "text": "所持しているだけで東海城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "東海",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 駿府加番",
+    "text": "所持しているだけで東海城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "東海",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 駿府加番",
+   "text": "所持しているだけで東海城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "東海",
+     "targetKind": "region",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "駿府城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%9D%B1%E5%BE%A1%E9%96%80%E3%81%A8%E5%B7%BD%E6%AB%93.jpg/960px-%E9%A7%BF%E5%BA%9C%E5%9F%8E%E6%9D%B1%E5%BE%A1%E9%96%80%E3%81%A8%E5%B7%BD%E6%AB%93.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -37675,6 +39171,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 人魚伝説",
+    "text": "所持しているだけで石弓城娘の耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "石弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 人魚伝説",
+    "text": "所持しているだけで石弓城娘の耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "石弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 人魚伝説",
+   "text": "所持しているだけで石弓城娘の耐久が4%上昇",
+   "effects": [
+    {
+     "category": "hp",
+     "target": "石弓",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "観音寺城",
    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Kan-nonjijou001.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
@@ -38696,6 +40236,50 @@ window.SCRE_DATA = [
    }
   ],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / グラナの赤木",
+    "text": "所持しているだけで地獄城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / グラナの赤木",
+    "text": "所持しているだけで地獄城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / グラナの赤木",
+   "text": "所持しているだけで地獄城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "シバルバー",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Vessel_depicting_gods_in_the_court_of_Xibalba%2C_the_underworld%2C_Maya%2C_Late_Classic_Period%2C_600-900_AD%2C_ceramic_-_Royal_Ontario_Museum_-_DSC04491.JPG/960px-Vessel_depicting_gods_in_the_court_of_Xibalba%2C_the_underworld%2C_Maya%2C_Late_Classic_Period%2C_600-900_AD%2C_ceramic_-_Royal_Ontario_Museum_-_DSC04491.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -38980,6 +40564,50 @@ window.SCRE_DATA = [
    }
   ],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 治天の御所",
+    "text": "所持しているだけで鞭城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "鞭",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 治天の御所",
+    "text": "所持しているだけで鞭城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "鞭",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 治天の御所",
+   "text": "所持しているだけで鞭城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "鞭",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "花の御所",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Hana-no-Gosho-Flower-Palace-Kyoto.png/960px-Hana-no-Gosho-Flower-Palace-Kyoto.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -39112,6 +40740,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 真田の抜け穴",
+    "text": "所持しているだけで地獄城娘の最大耐久が3%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 真田の抜け穴",
+    "text": "所持しているだけで地獄城娘の最大耐久が3%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 真田の抜け穴",
+   "text": "所持しているだけで地獄城娘の最大耐久が3%上昇",
+   "effects": [
+    {
+     "category": "hp",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "真田丸",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Sanada_Yukimura_Demaruj%C5%8D_Site.jpg/960px-Sanada_Yukimura_Demaruj%C5%8D_Site.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -39889,7 +41561,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 十王の夏休み",
+    "text": "所持しているだけで［夏］城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "夏",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 十王の夏休み",
+    "text": "所持しているだけで［夏］城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "夏",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 十王の夏休み",
+   "text": "所持しているだけで［夏］城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "夏",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［夏］エーリューズニル",
@@ -40012,7 +41728,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ヨトゥン・アイス",
+    "text": "所持しているだけで投剣城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "投剣",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ヨトゥン・アイス",
+    "text": "所持しているだけで投剣城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "投剣",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / ヨトゥン・アイス",
+   "text": "所持しているだけで投剣城娘の最大耐久が4%上昇",
+   "effects": [
+    {
+     "category": "hp",
+     "target": "投剣",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［夏］ドゥアト",
@@ -40201,7 +41961,51 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ラーの炎陽",
+    "text": "所持しているだけで戦棍城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "戦棍",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ラーの炎陽",
+    "text": "所持しているだけで戦棍城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "戦棍",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / ラーの炎陽",
+   "text": "所持しているだけで戦棍城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "戦棍",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［夏］吉野ヶ里",
@@ -41658,6 +43462,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 勘兵衛石",
+    "text": "所持しているだけで鉄砲城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "鉄砲",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 勘兵衛石",
+    "text": "所持しているだけで鉄砲城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "鉄砲",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 勘兵衛石",
+   "text": "所持しているだけで鉄砲城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "鉄砲",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "今治城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Imabari_castle.JPG/960px-Imabari_castle.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -41858,6 +43706,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 甲斐姫の武勇",
+    "text": "所持しているだけで刀城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "刀",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 甲斐姫の武勇",
+    "text": "所持しているだけで刀城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "刀",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 甲斐姫の武勇",
+   "text": "所持しているだけで刀城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "刀",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "忍城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Oshi-jo.JPG/960px-Oshi-jo.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -42102,6 +43994,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 堅固城郭多気山",
+    "text": "所持しているだけで石弓城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "石弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 堅固城郭多気山",
+    "text": "所持しているだけで石弓城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "石弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 堅固城郭多気山",
+   "text": "所持しているだけで石弓城娘の最大耐久が4%上昇",
+   "effects": [
+    {
+     "category": "hp",
+     "target": "石弓",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "prefecture": "茨城県"
  },
  {
@@ -42765,7 +44701,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 人喰いの河",
+    "text": "所持しているだけで[宮殿]城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "宮殿",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 人喰いの河",
+    "text": "所持しているだけで[宮殿]城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "宮殿",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 人喰いの河",
+   "text": "所持しているだけで[宮殿]城娘の攻撃が3%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "宮殿",
+     "targetKind": "tag",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［裏］岡山城",
@@ -42938,6 +44918,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 御菩薩の種",
+    "text": "所持しているだけで石弓城娘の防御無視効果が3%上昇",
+    "effects": [
+     {
+      "category": "defIgnore",
+      "target": "石弓",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 御菩薩の種",
+    "text": "所持しているだけで石弓城娘の防御無視効果が3%上昇",
+    "effects": [
+     {
+      "category": "defIgnore",
+      "target": "石弓",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 御菩薩の種",
+   "text": "所持しているだけで石弓城娘の防御無視効果が3%上昇",
+   "effects": [
+    {
+     "category": "defIgnore",
+     "target": "石弓",
+     "targetKind": "weapon",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "岡山城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Okayama_Castle_main_keep_2023-10-18.jpg/960px-Okayama_Castle_main_keep_2023-10-18.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -43168,6 +45192,50 @@ window.SCRE_DATA = [
    }
   ],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 紅き徒花",
+    "text": "所持しているだけで地獄城娘の攻撃速度が3%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 紅き徒花",
+    "text": "所持しているだけで地獄城娘の攻撃速度が3%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 紅き徒花",
+   "text": "所持しているだけで地獄城娘の攻撃速度が3%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "吉田郡山城",
    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Ruins_of_koriyamajo.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
@@ -44544,7 +46612,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ノウルーズ",
+    "text": "所持しているだけで[正月]城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "正月",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ノウルーズ",
+    "text": "所持しているだけで[正月]城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "正月",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / ノウルーズ",
+   "text": "所持しているだけで[正月]城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "正月",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［正月］黄泉国",
@@ -44697,7 +46809,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 新春の神桃",
+    "text": "所持しているだけで[正月]城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "正月",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 新春の神桃",
+    "text": "所持しているだけで[正月]城娘の最大耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "正月",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 新春の神桃",
+   "text": "所持しているだけで[正月]城娘の最大耐久が4%上昇",
+   "effects": [
+    {
+     "category": "hp",
+     "target": "正月",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［正月］タルタロス",
@@ -44881,6 +47037,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 新年の青銅門",
+    "text": "所持しているだけで[正月]城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "正月",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 新年の青銅門",
+    "text": "所持しているだけで[正月]城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "正月",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 新年の青銅門",
+   "text": "所持しているだけで[正月]城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "正月",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "タルタロス",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Nekyia_Staatliche_Antikensammlungen_1494_n2.jpg/960px-Nekyia_Staatliche_Antikensammlungen_1494_n2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -45310,6 +47510,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ヤマ・ドゥータ",
+    "text": "所持しているだけで弓城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ヤマ・ドゥータ",
+    "text": "所持しているだけで弓城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / ヤマ・ドゥータ",
+   "text": "所持しているだけで弓城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "弓",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "ナラカ",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Hindu_hell.jpg/960px-Hindu_hell.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -45441,6 +47685,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 北の関ヶ原",
+    "text": "所持しているだけで鎌城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "鎌",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 北の関ヶ原",
+    "text": "所持しているだけで鎌城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "鎌",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 北の関ヶ原",
+   "text": "所持しているだけで鎌城娘の攻撃が3%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "鎌",
+     "targetKind": "weapon",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "長谷堂城",
    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Hasedoujou001.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
@@ -46547,6 +48835,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 筑紫の御楯",
+    "text": "所持しているだけで全ての[大宰府と古代山城]城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "大宰府と古代山城",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 筑紫の御楯",
+    "text": "所持しているだけで全ての[大宰府と古代山城]城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "大宰府と古代山城",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 筑紫の御楯",
+   "text": "所持しているだけで全ての[大宰府と古代山城]城娘の攻撃が3%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "大宰府と古代山城",
+     "targetKind": "tag",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "大宰府",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Tofuroh_dazaifu.jpg/960px-Tofuroh_dazaifu.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -46724,6 +49056,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 佐土原灘",
+    "text": "所持しているだけで九州城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "九州",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 佐土原灘",
+    "text": "所持しているだけで九州城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "九州",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 佐土原灘",
+   "text": "所持しているだけで九州城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "九州",
+     "targetKind": "region",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "佐土原城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Sadowara_Castle_2010.JPG/960px-Sadowara_Castle_2010.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -46942,6 +49318,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 一升坂",
+    "text": "所持しているだけで法術城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "法術",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 一升坂",
+    "text": "所持しているだけで法術城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "法術",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 一升坂",
+   "text": "所持しているだけで法術城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "法術",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "高取城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Takatori_shiro_jpn.JPG/960px-Takatori_shiro_jpn.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -47179,6 +49599,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 中津のタニシ祭り",
+    "text": "所持しているだけで鉄砲城娘の耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "鉄砲",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 中津のタニシ祭り",
+    "text": "所持しているだけで鉄砲城娘の耐久が4%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "鉄砲",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 中津のタニシ祭り",
+   "text": "所持しているだけで鉄砲城娘の耐久が4%上昇",
+   "effects": [
+    {
+     "category": "hp",
+     "target": "鉄砲",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "中津城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/%E4%B8%AD%E6%B4%A5%E5%9F%8E%E5%A4%A9%E5%AE%88.jpg/960px-%E4%B8%AD%E6%B4%A5%E5%9F%8E%E5%A4%A9%E5%AE%88.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -48783,6 +51247,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 咲かぬ徒桜",
+    "text": "所持しているだけで鉄砲城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "鉄砲",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 咲かぬ徒桜",
+    "text": "所持しているだけで鉄砲城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "鉄砲",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 咲かぬ徒桜",
+   "text": "所持しているだけで鉄砲城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "鉄砲",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "小牧山",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Komakiyama_04.JPG/960px-Komakiyama_04.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -49556,7 +52064,51 @@ window.SCRE_DATA = [
     "effects": []
    }
   ],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 夏魂幡",
+    "text": "所持しているだけで[夏]城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "夏",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 夏魂幡",
+    "text": "所持しているだけで[夏]城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "夏",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 夏魂幡",
+   "text": "所持しているだけで[夏]城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "夏",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［夏］ガンジル宮殿",
@@ -49758,7 +52310,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 女王の休日",
+    "text": "所持しているだけで［夏］城娘の攻撃が4%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "夏",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] /女王の休日",
+    "text": "所持しているだけで［夏］城娘の攻撃が4%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "夏",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] /女王の休日",
+   "text": "所持しているだけで［夏］城娘の攻撃が4%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "夏",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［夏］シバルバー",
@@ -49963,6 +52559,50 @@ window.SCRE_DATA = [
    }
   ],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 公正なるバカンス",
+    "text": "所持しているだけで［夏］城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "夏",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 公正なるバカンス",
+    "text": "所持しているだけで［夏］城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "夏",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 公正なるバカンス",
+   "text": "所持しているだけで［夏］城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "夏",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "シバルバー",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Vessel_depicting_gods_in_the_court_of_Xibalba%2C_the_underworld%2C_Maya%2C_Late_Classic_Period%2C_600-900_AD%2C_ceramic_-_Royal_Ontario_Museum_-_DSC04491.JPG/960px-Vessel_depicting_gods_in_the_court_of_Xibalba%2C_the_underworld%2C_Maya%2C_Late_Classic_Period%2C_600-900_AD%2C_ceramic_-_Royal_Ontario_Museum_-_DSC04491.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -50357,6 +52997,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 御掟五ヶ条",
+    "text": "所持しているだけで法術城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "法術",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 御掟五ヶ条",
+    "text": "所持しているだけで法術城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "法術",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 御掟五ヶ条",
+   "text": "所持しているだけで法術城娘の攻撃が3%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "法術",
+     "targetKind": "weapon",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "聚楽第",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Jurakudai-Palace-Kyoto-Folding-Screen.jpg/960px-Jurakudai-Palace-Kyoto-Folding-Screen.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -52357,6 +55041,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 津軽の誇り",
+    "text": "所持しているだけで弓城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "弓",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 津軽の誇り",
+    "text": "所持しているだけで弓城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "弓",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 津軽の誇り",
+   "text": "所持しているだけで弓城娘の攻撃が3%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "弓",
+     "targetKind": "weapon",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "弘前城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg/960px-Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -52606,6 +55334,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 甲府の要",
+    "text": "所持しているだけで本城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "本",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 甲府の要",
+    "text": "所持しているだけで本城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "本",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 甲府の要",
+   "text": "所持しているだけで本城娘の攻撃が3%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "本",
+     "targetKind": "weapon",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "甲府城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Koufu_Castle_%284936837377%29.jpg/960px-Koufu_Castle_%284936837377%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -52738,6 +55510,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / タケノコ狩り",
+    "text": "所持しているだけで近畿城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "近畿",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / タケノコ狩り",
+    "text": "所持しているだけで近畿城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "近畿",
+      "targetKind": "region",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / タケノコ狩り",
+   "text": "所持しているだけで近畿城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "近畿",
+     "targetKind": "region",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "勝竜寺城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Shoryuji_Castle%2C_koguchi-1.jpg/960px-Shoryuji_Castle%2C_koguchi-1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -55532,7 +58348,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 辺獄の春",
+    "text": "所持しているだけで盾城娘の最大耐久が5%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "盾",
+      "targetKind": "weapon",
+      "value": 5,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 辺獄の春",
+    "text": "所持しているだけで盾城娘の最大耐久が5%上昇",
+    "effects": [
+     {
+      "category": "hp",
+      "target": "盾",
+      "targetKind": "weapon",
+      "value": 5,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 辺獄の春",
+   "text": "所持しているだけで盾城娘の最大耐久が5%上昇",
+   "effects": [
+    {
+     "category": "hp",
+     "target": "盾",
+     "targetKind": "weapon",
+     "value": 5,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［正月］ナラカ",
@@ -55722,6 +58582,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 新年のマントラ",
+    "text": "所持しているだけで［正月］城娘の攻撃が4%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "正月",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 新年のマントラ",
+    "text": "所持しているだけで［正月］城娘の攻撃が4%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "正月",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 新年のマントラ",
+   "text": "所持しているだけで［正月］城娘の攻撃が4%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "正月",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "ナラカ",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Hindu_hell.jpg/960px-Hindu_hell.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -55931,6 +58835,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / フィンブルヴェト",
+    "text": "所持しているだけで軍船城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "軍船",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / フィンブルヴェト",
+    "text": "所持しているだけで軍船城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "軍船",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / フィンブルヴェト",
+   "text": "所持しているだけで軍船城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "軍船",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "ナグルファル",
    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Faroe_stamp_435_Intro_to_Ragnarok.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
@@ -56135,7 +59083,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ヘレル・ベン・シャハル",
+    "text": "所持しているだけで地獄城娘の 初回計略使用までの時間が10%短縮",
+    "effects": [
+     {
+      "category": "cooldown",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 10,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ヘレル・ベン・シャハル",
+    "text": "所持しているだけで地獄城娘の 初回計略使用までの時間が10%短縮",
+    "effects": [
+     {
+      "category": "cooldown",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 10,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / ヘレル・ベン・シャハル",
+   "text": "所持しているだけで地獄城娘の 初回計略使用までの時間が10%短縮",
+   "effects": [
+    {
+     "category": "cooldown",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 10,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "エレボス",
@@ -56288,7 +59280,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 混沌の御子",
+    "text": "所持しているだけで地獄城娘の攻撃後の隙が3%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 混沌の御子",
+    "text": "所持しているだけで地獄城娘の攻撃後の隙が3%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 混沌の御子",
+   "text": "所持しているだけで地獄城娘の攻撃後の隙が3%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［バレンタイン］ヘレンキームゼー城",
@@ -59423,6 +62459,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 海律全書",
+    "text": "所持しているだけで大砲城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "大砲",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 海律全書",
+    "text": "所持しているだけで大砲城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "大砲",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 海律全書",
+   "text": "所持しているだけで大砲城娘の攻撃が3%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "大砲",
+     "targetKind": "weapon",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "五稜郭",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Hakodate_Goryokaku_Panorama_1.JPG/960px-Hakodate_Goryokaku_Panorama_1.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -59668,6 +62748,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 三大上忍・千賀地",
+    "text": "所持しているだけで投剣城娘の 初回計略使用までの時間が10%短縮",
+    "effects": [
+     {
+      "category": "cooldown",
+      "target": "投剣",
+      "targetKind": "weapon",
+      "value": 10,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 三大上忍・千賀地",
+    "text": "所持しているだけで投剣城娘の 初回計略使用までの時間が10%短縮",
+    "effects": [
+     {
+      "category": "cooldown",
+      "target": "投剣",
+      "targetKind": "weapon",
+      "value": 10,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 三大上忍・千賀地",
+   "text": "所持しているだけで投剣城娘の 初回計略使用までの時間が10%短縮",
+   "effects": [
+    {
+     "category": "cooldown",
+     "target": "投剣",
+     "targetKind": "weapon",
+     "value": 10,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "千賀地氏城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Chigachishijo01.jpg/960px-Chigachishijo01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -59856,6 +62980,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / お諏訪様の加護",
+    "text": "所持しているだけで鈴城娘の攻撃速度が3%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "鈴",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / お諏訪様の加護",
+    "text": "所持しているだけで鈴城娘の攻撃速度が3%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "鈴",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / お諏訪様の加護",
+   "text": "所持しているだけで鈴城娘の攻撃速度が3%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "鈴",
+     "targetKind": "weapon",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "高島城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/160603_Takashima_Castle_Suwa_Nagano_pref_Japan02n.jpg/960px-160603_Takashima_Castle_Suwa_Nagano_pref_Japan02n.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -62047,6 +65215,50 @@ window.SCRE_DATA = [
    }
   ],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 清正公の本懐",
+    "text": "所持しているだけで双剣城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "双剣",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 清正公の本懐",
+    "text": "所持しているだけで双剣城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "双剣",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 清正公の本懐",
+   "text": "所持しているだけで双剣城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "双剣",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "熊本城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/960px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -62254,6 +65466,50 @@ window.SCRE_DATA = [
    }
   ],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 悪逆非道の梟雄",
+    "text": "所持してるだけで戦棍城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "戦棍",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] /  悪逆非道の梟雄",
+    "text": "所持してるだけで戦棍城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "戦棍",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] /  悪逆非道の梟雄",
+   "text": "所持してるだけで戦棍城娘の攻撃が3%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "戦棍",
+     "targetKind": "weapon",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "多聞山城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Tamonj3.jpg/960px-Tamonj3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -65766,6 +69022,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 王家の守護石",
+    "text": "所持しているだけで弓城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 王家の守護石",
+    "text": "所持しているだけで弓城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 王家の守護石",
+   "text": "所持しているだけで弓城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "弓",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "Dunnottar Castle",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Dunnottar_Castle_-_geograph.org.uk_-_8057610.jpg/960px-Dunnottar_Castle_-_geograph.org.uk_-_8057610.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -66010,6 +69310,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 紅花の化粧",
+    "text": "所持しているだけで鈴城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "鈴",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 紅花の化粧",
+    "text": "所持しているだけで鈴城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "鈴",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 紅花の化粧",
+   "text": "所持しているだけで鈴城娘の攻撃が3%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "鈴",
+     "targetKind": "weapon",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "天童城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Maiduruyama_Tendou%2C_Yamagata.JPG/960px-Maiduruyama_Tendou%2C_Yamagata.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -66169,7 +69513,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 芙蓉の天府",
+    "text": "所持しているだけで拳城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "拳",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 芙蓉の天府",
+    "text": "所持しているだけで拳城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "拳",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 芙蓉の天府",
+   "text": "所持しているだけで拳城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "拳",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［絢爛］吉田城",
@@ -66293,6 +69681,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 三河の大喧嘩",
+    "text": "所持しているだけで陣貝城娘の防御が4%上昇",
+    "effects": [
+     {
+      "category": "def",
+      "target": "陣貝",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 三河の大喧嘩",
+    "text": "所持しているだけで陣貝城娘の防御が4%上昇",
+    "effects": [
+     {
+      "category": "def",
+      "target": "陣貝",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 三河の大喧嘩",
+   "text": "所持しているだけで陣貝城娘の防御が4%上昇",
+   "effects": [
+    {
+     "category": "def",
+     "target": "陣貝",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "吉田城 (三河国)",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Yoshida_Castle_%28Aichi%29_3.jpg/960px-Yoshida_Castle_%28Aichi%29_3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -72646,7 +76078,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 邪悪滅殺の門番",
+    "text": "所持しているだけで地獄城娘の与回復量が10%上昇",
+    "effects": [
+     {
+      "category": "heal",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 10,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 邪悪滅殺の門番",
+    "text": "所持しているだけで地獄城娘の与回復量が10%上昇",
+    "effects": [
+     {
+      "category": "heal",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 10,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 邪悪滅殺の門番",
+   "text": "所持しているだけで地獄城娘の与回復量が10%上昇",
+   "effects": [
+    {
+     "category": "heal",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 10,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［絢爛］臼杵城",
@@ -72819,6 +76295,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 臼杵石仏",
+    "text": "所持しているだけで大砲城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "大砲",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 臼杵石仏",
+    "text": "所持しているだけで大砲城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "大砲",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 臼杵石仏",
+   "text": "所持しているだけで大砲城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "大砲",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "臼杵城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Usuki_Castle_ac.jpg/960px-Usuki_Castle_ac.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -72999,6 +76519,50 @@ window.SCRE_DATA = [
    }
   ],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 完璧な二重環状城壁",
+    "text": "所持しているだけで海外城娘の回復が10%上昇",
+    "effects": [
+     {
+      "category": "heal",
+      "target": "海外",
+      "targetKind": "region",
+      "value": 10,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 完璧な二重環状城壁",
+    "text": "所持しているだけで海外城娘の回復が10%上昇",
+    "effects": [
+     {
+      "category": "heal",
+      "target": "海外",
+      "targetKind": "region",
+      "value": 10,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 完璧な二重環状城壁",
+   "text": "所持しているだけで海外城娘の回復が10%上昇",
+   "effects": [
+    {
+     "category": "heal",
+     "target": "海外",
+     "targetKind": "region",
+     "value": 10,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "ビューマリス城",
    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Beaumaris_aerial.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
@@ -73229,6 +76793,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 東照大権現",
+    "text": "所持しているだけで祓串城娘の攻撃速度が5%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "祓串",
+      "targetKind": "weapon",
+      "value": 5,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 東照大権現",
+    "text": "所持しているだけで祓串城娘の攻撃速度が5%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "祓串",
+      "targetKind": "weapon",
+      "value": 5,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 東照大権現",
+   "text": "所持しているだけで祓串城娘の攻撃速度が5%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "祓串",
+     "targetKind": "weapon",
+     "value": 5,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "久能城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/%E4%B9%85%E8%83%BD%E5%B1%B1%E6%9D%B1%E7%85%A7%E5%AE%AE1_-_panoramio.jpg/960px-%E4%B9%85%E8%83%BD%E5%B1%B1%E6%9D%B1%E7%85%A7%E5%AE%AE1_-_panoramio.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -73417,6 +77025,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 金の弩標",
+    "text": "所持しているだけで槌城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "槌",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 金の弩標",
+    "text": "所持しているだけで槌城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "槌",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 金の弩標",
+   "text": "所持しているだけで槌城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "槌",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "郡上八幡城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/2017%E5%B9%B4%E7%A7%8B%E5%AD%A3%E3%81%AE%E9%83%A1%E4%B8%8A%E5%85%AB%E5%B9%A1%E5%9F%8E.jpg/960px-2017%E5%B9%B4%E7%A7%8B%E5%AD%A3%E3%81%AE%E9%83%A1%E4%B8%8A%E5%85%AB%E5%B9%A1%E5%9F%8E.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -75358,6 +79010,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ムスペル・サマー",
+    "text": "所持しているだけで[夏]城娘の 初回計略使用までの時間が10%短縮",
+    "effects": [
+     {
+      "category": "cooldown",
+      "target": "夏",
+      "targetKind": "tag",
+      "value": 10,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ムスペル・サマー",
+    "text": "所持しているだけで[夏]城娘の 初回計略使用までの時間が10%短縮",
+    "effects": [
+     {
+      "category": "cooldown",
+      "target": "夏",
+      "targetKind": "tag",
+      "value": 10,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / ムスペル・サマー",
+   "text": "所持しているだけで[夏]城娘の 初回計略使用までの時間が10%短縮",
+   "effects": [
+    {
+     "category": "cooldown",
+     "target": "夏",
+     "targetKind": "tag",
+     "value": 10,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "ナグルファル",
    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Faroe_stamp_435_Intro_to_Ragnarok.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
@@ -76468,7 +80164,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ヘレル・ベン・ソル",
+    "text": "所持しているだけで地獄城娘の攻撃が4%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ヘレル・ベン・ソル",
+    "text": "所持しているだけで地獄城娘の攻撃が4%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / ヘレル・ベン・ソル",
+   "text": "所持しているだけで地獄城娘の攻撃が4%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［夏］ルーヴル宮殿",
@@ -78855,6 +82595,50 @@ window.SCRE_DATA = [
    }
   ],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 十六夜の茶会",
+    "text": "所持しているだけで地獄城娘の攻撃が4%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 十六夜の茶会",
+    "text": "所持しているだけで地獄城娘の攻撃が4%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "地獄",
+      "targetKind": "tag",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 十六夜の茶会",
+   "text": "所持しているだけで地獄城娘の攻撃が4%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "地獄",
+     "targetKind": "tag",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "松代城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Matsushiro_Castle_20100919-01.jpg/960px-Matsushiro_Castle_20100919-01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -79043,6 +82827,50 @@ window.SCRE_DATA = [
    }
   ],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / ニーベルングの指環",
+    "text": "所持しているだけでランス城娘の防御が4%上昇",
+    "effects": [
+     {
+      "category": "def",
+      "target": "ランス",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ニーベルングの指環",
+    "text": "所持しているだけでランス城娘の防御が4%上昇",
+    "effects": [
+     {
+      "category": "def",
+      "target": "ランス",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / ニーベルングの指環",
+   "text": "所持しているだけでランス城娘の防御が4%上昇",
+   "effects": [
+    {
+     "category": "def",
+     "target": "ランス",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "ファルケンシュタイン城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Burg_Falkenstein_Pfronten_10.jpg/960px-Burg_Falkenstein_Pfronten_10.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -79230,6 +83058,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 火の硫黄の池",
+    "text": "所持しているだけで杖城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "杖",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 火の硫黄の池",
+    "text": "所持しているだけで杖城娘の攻撃後の隙が4%短縮",
+    "effects": [
+     {
+      "category": "gap",
+      "target": "杖",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 火の硫黄の池",
+   "text": "所持しているだけで杖城娘の攻撃後の隙が4%短縮",
+   "effects": [
+    {
+     "category": "gap",
+     "target": "杖",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "ゲヘナ",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Valley_of_Hinom_PA180090.JPG/960px-Valley_of_Hinom_PA180090.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -79890,6 +83762,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 赤蓮の髪飾り",
+    "text": "所持しているだけで弓城娘の攻撃が4%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 赤蓮の髪飾り",
+    "text": "所持しているだけで弓城娘の攻撃が4%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "弓",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 赤蓮の髪飾り",
+   "text": "所持しているだけで弓城娘の攻撃が4%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "弓",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "鎌倉城",
    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Nagoe-ookirigishi01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
@@ -80050,6 +83966,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 神楽鈴の音",
+    "text": "所持しているだけで鈴城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "鈴",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 神楽鈴の音",
+    "text": "所持しているだけで鈴城娘の攻撃速度が4%上昇",
+    "effects": [
+     {
+      "category": "atkSpeed",
+      "target": "鈴",
+      "targetKind": "weapon",
+      "value": 4,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 神楽鈴の音",
+   "text": "所持しているだけで鈴城娘の攻撃速度が4%上昇",
+   "effects": [
+    {
+     "category": "atkSpeed",
+     "target": "鈴",
+     "targetKind": "weapon",
+     "value": 4,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "浜田城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Hamada_castle_sannomaru_ishigaki2.JPG/960px-Hamada_castle_sannomaru_ishigaki2.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -80208,6 +84168,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 天草四郎の信念",
+    "text": "所持しているだけで鉄砲城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "鉄砲",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天草四郎の信念",
+    "text": "所持しているだけで鉄砲城娘の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "鉄砲",
+      "targetKind": "weapon",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 天草四郎の信念",
+   "text": "所持しているだけで鉄砲城娘の攻撃が3%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "鉄砲",
+     "targetKind": "weapon",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "原城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Remains_of_Hara_castle.jpg/960px-Remains_of_Hara_castle.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -80761,7 +84765,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 未来への投資",
+    "text": "所持しているだけで城娘合成時の獲得経験値が5%上昇",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "城娘合成時",
+      "targetKind": "non-combat",
+      "value": 5,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 未来への挑戦",
+    "text": "所持しているだけで城娘合成時の獲得経験値が8%上昇",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "城娘合成時",
+      "targetKind": "non-combat",
+      "value": 8,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 未来への挑戦",
+   "text": "所持しているだけで城娘合成時の獲得経験値が8%上昇",
+   "effects": [
+    {
+     "category": "exp",
+     "target": "城娘合成時",
+     "targetKind": "non-combat",
+     "value": 8,
+     "type": "non-combat"
+    }
+   ]
+  }
  },
  {
   "id": "［絢爛］DMM城",
@@ -80932,7 +84980,51 @@ window.SCRE_DATA = [
    }
   ],
   "allSpecials": [],
-  "parseWarnings": []
+  "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / Dream Mill",
+    "text": "所持しているだけで全ての「無」属性の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "無",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / Dream Mill",
+    "text": "所持しているだけで全ての「無」属性の攻撃が3%上昇",
+    "effects": [
+     {
+      "category": "atk",
+      "target": "無",
+      "targetKind": "tag",
+      "value": 3,
+      "type": "combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / Dream Mill",
+   "text": "所持しているだけで全ての「無」属性の攻撃が3%上昇",
+   "effects": [
+    {
+     "category": "atk",
+     "target": "無",
+     "targetKind": "tag",
+     "value": 3,
+     "type": "combat"
+    }
+   ]
+  }
  },
  {
   "id": "［大華の神衣］善見城",
@@ -112778,6 +116870,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 結城埋蔵金",
+    "text": "所持しているだけで獲得金と 蔵からの入手金が5%上昇(像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦＋蔵",
+      "targetKind": "non-combat",
+      "value": 5,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 黄金三歌",
+    "text": "所持しているだけで獲得金と 蔵からの入手金が7%上昇(像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦＋蔵",
+      "targetKind": "non-combat",
+      "value": 7,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 黄金三歌",
+   "text": "所持しているだけで獲得金と 蔵からの入手金が7%上昇(像の効果は上乗せ)",
+   "effects": [
+    {
+     "category": "gold",
+     "target": "合戦＋蔵",
+     "targetKind": "non-combat",
+     "value": 7,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "結城城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Yuki_castle_mijo_karabori.jpg/960px-Yuki_castle_mijo_karabori.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -120336,6 +124472,64 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 獲得金増加【所持】・壱",
+    "text": "所持しているだけで獲得金が10%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦",
+      "targetKind": "non-combat",
+      "value": 10,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 獲得金増加【所持】・弐",
+    "text": "所持しているだけで獲得金が15%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦",
+      "targetKind": "non-combat",
+      "value": 15,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 御霊紅葉の参道",
+    "text": "所持しているだけで獲得金が30%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦",
+      "targetKind": "non-combat",
+      "value": 30,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改弐",
+   "name": "[改弐] / 御霊紅葉の参道",
+   "text": "所持しているだけで獲得金が30%上昇 (像の効果は上乗せ)",
+   "effects": [
+    {
+     "category": "gold",
+     "target": "合戦",
+     "targetKind": "non-combat",
+     "value": 30,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "中津城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/%E4%B8%AD%E6%B4%A5%E5%9F%8E%E5%A4%A9%E5%AE%88.jpg/960px-%E4%B8%AD%E6%B4%A5%E5%9F%8E%E5%A4%A9%E5%AE%88.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -122978,6 +127172,64 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 殿経験値増加【所持】・壱",
+    "text": "所持しているだけで獲得殿EXPが5%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "殿",
+      "targetKind": "non-combat",
+      "value": 5,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 殿経験値増加【所持】・弐",
+    "text": "所持しているだけで獲得殿EXPが10%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "殿",
+      "targetKind": "non-combat",
+      "value": 10,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 剣術の師範",
+    "text": "所持しているだけで獲得殿EXPが20%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "殿",
+      "targetKind": "non-combat",
+      "value": 20,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改弐",
+   "name": "[改弐] / 剣術の師範",
+   "text": "所持しているだけで獲得殿EXPが20%上昇 (像の効果は上乗せ)",
+   "effects": [
+    {
+     "category": "exp",
+     "target": "殿",
+     "targetKind": "non-combat",
+     "value": 20,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "柳生城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Map_of_Nara_Prefecture_Ja.svg/960px-Map_of_Nara_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -124840,6 +129092,36 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 獲得金増加【所持】・壱",
+    "text": "所持しているだけで獲得金が10%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦",
+      "targetKind": "non-combat",
+      "value": 10,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 獲得金増加【所持】・壱",
+   "text": "所持しているだけで獲得金が10%上昇 (像の効果は上乗せ)",
+   "effects": [
+    {
+     "category": "gold",
+     "target": "合戦",
+     "targetKind": "non-combat",
+     "value": 10,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "八幡山城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Yahatahachimanjo03.jpg/960px-Yahatahachimanjo03.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -135965,6 +140247,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 御金蔵稲荷",
+    "text": "所持しているだけで獲得金と 蔵からの入手金が8%上昇(像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦＋蔵",
+      "targetKind": "non-combat",
+      "value": 8,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 御金蔵稲荷大明神",
+    "text": "所持しているだけで獲得金と 蔵からの入手金が10%上昇(像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦＋蔵",
+      "targetKind": "non-combat",
+      "value": 10,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 御金蔵稲荷大明神",
+   "text": "所持しているだけで獲得金と 蔵からの入手金が10%上昇(像の効果は上乗せ)",
+   "effects": [
+    {
+     "category": "gold",
+     "target": "合戦＋蔵",
+     "targetKind": "non-combat",
+     "value": 10,
+     "type": "non-combat"
+    }
+   ]
+  },
   "prefecture": "山梨県"
  },
  {
@@ -147829,6 +152155,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "改壱",
+    "name": "[改壱] / HOU・ON・KOU",
+    "text": "所持しているだけで城娘の獲得経験値が8%上昇",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "城娘合戦時",
+      "targetKind": "non-combat",
+      "value": 8,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / HON・GAN・RIKI",
+    "text": "所持しているだけで城娘の獲得経験値が20%上昇",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "城娘合戦時",
+      "targetKind": "non-combat",
+      "value": 20,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改弐",
+   "name": "[改弐] / HON・GAN・RIKI",
+   "text": "所持しているだけで城娘の獲得経験値が20%上昇",
+   "effects": [
+    {
+     "category": "exp",
+     "target": "城娘合戦時",
+     "targetKind": "non-combat",
+     "value": 20,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "石山本願寺",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Ishiyamah6.jpg/960px-Ishiyamah6.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -149413,6 +153783,50 @@ window.SCRE_DATA = [
   "allStrategies": [],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 城娘経験値上昇【所持】・壱",
+    "text": "所持しているだけで城娘の獲得経験値が10%上昇",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "城娘合戦時",
+      "targetKind": "non-combat",
+      "value": 10,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 城娘経験値上昇【所持】・弐",
+    "text": "所持しているだけで城娘の獲得経験値が15%上昇",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "城娘合戦時",
+      "targetKind": "non-combat",
+      "value": 15,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 城娘経験値上昇【所持】・弐",
+   "text": "所持しているだけで城娘の獲得経験値が15%上昇",
+   "effects": [
+    {
+     "category": "exp",
+     "target": "城娘合戦時",
+     "targetKind": "non-combat",
+     "value": 15,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "犬山城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Inuyama_Castle_%281%29%2C_Kitakoken_Inuyama_Inuyama_City_2023.jpg/960px-Inuyama_Castle_%281%29%2C_Kitakoken_Inuyama_Inuyama_City_2023.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -163248,6 +167662,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 獲得・入手金増加【所持】・壱",
+    "text": "所持しているだけで獲得金と 蔵からの入手金が15%上昇(像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦＋蔵",
+      "targetKind": "non-combat",
+      "value": 15,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 獲得・入手金増加【所持】・弐",
+    "text": "所持しているだけで獲得金と 蔵からの入手金が20%上昇(像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "gold",
+      "target": "合戦＋蔵",
+      "targetKind": "non-combat",
+      "value": 20,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 獲得・入手金増加【所持】・弐",
+   "text": "所持しているだけで獲得金と 蔵からの入手金が20%上昇(像の効果は上乗せ)",
+   "effects": [
+    {
+     "category": "gold",
+     "target": "合戦＋蔵",
+     "targetKind": "non-combat",
+     "value": 20,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "山崎城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Map_of_Tottori_Prefecture_Ja.svg/960px-Map_of_Tottori_Prefecture_Ja.svg.png?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -166968,6 +171426,36 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 朱の北条鱗",
+    "text": "所持しているだけで獲得殿EXPが7%上昇 （像の効果は上乗せ）",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "殿",
+      "targetKind": "non-combat",
+      "value": 7,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 朱の北条鱗",
+   "text": "所持しているだけで獲得殿EXPが7%上昇 （像の効果は上乗せ）",
+   "effects": [
+    {
+     "category": "exp",
+     "target": "殿",
+     "targetKind": "non-combat",
+     "value": 7,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "玉縄城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/%E5%A4%AA%E9%BC%93%E9%83%AD%E4%B8%8B_%E5%A0%80%E5%88%87.jpg/960px-%E5%A4%AA%E9%BC%93%E9%83%AD%E4%B8%8B_%E5%A0%80%E5%88%87.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -170012,6 +174500,64 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 石取祭",
+    "text": "所持しているだけで要石の入手数が10%増加",
+    "effects": [
+     {
+      "category": "keystone",
+      "target": "蔵",
+      "targetKind": "non-combat",
+      "value": 10,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 本楽・石取祭",
+    "text": "所持しているだけで要石の入手数が15%増加",
+    "effects": [
+     {
+      "category": "keystone",
+      "target": "蔵",
+      "targetKind": "non-combat",
+      "value": 15,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改弐",
+    "name": "[改弐] / 本楽・石取祭",
+    "text": "所持しているだけで要石の入手数が15%増加",
+    "effects": [
+     {
+      "category": "keystone",
+      "target": "蔵",
+      "targetKind": "non-combat",
+      "value": 15,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改弐",
+   "name": "[改弐] / 本楽・石取祭",
+   "text": "所持しているだけで要石の入手数が15%増加",
+   "effects": [
+    {
+     "category": "keystone",
+     "target": "蔵",
+     "targetKind": "non-combat",
+     "value": 15,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "桑名城",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Kuwana_castle_tower_foundation_%28ruin_of_Donjon%29.JPG/960px-Kuwana_castle_tower_foundation_%28ruin_of_Donjon%29.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -171525,6 +176071,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 久留米教会堂",
+    "text": "所持しているだけで城娘合成時の獲得経験値が8%上昇",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "城娘合成時",
+      "targetKind": "non-combat",
+      "value": 8,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 久留米天主堂",
+    "text": "所持しているだけで城娘合成時の獲得経験値が10%上昇",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "城娘合成時",
+      "targetKind": "non-combat",
+      "value": 10,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 久留米天主堂",
+   "text": "所持しているだけで城娘合成時の獲得経験値が10%上昇",
+   "effects": [
+    {
+     "category": "exp",
+     "target": "城娘合成時",
+     "targetKind": "non-combat",
+     "value": 10,
+     "type": "non-combat"
+    }
+   ]
+  },
   "realCastle": {
    "name": "雨城区",
    "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Gao_Yi_Que2.jpg/960px-Gao_Yi_Que2.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -173192,6 +177782,50 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": [],
+  "allOwnedSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / おあむの松",
+    "text": "所持しているだけで獲得殿EXPが15%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "殿",
+      "targetKind": "non-combat",
+      "value": 15,
+      "type": "non-combat"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 御庵の大松",
+    "text": "所持しているだけで獲得殿EXPが20%上昇 (像の効果は上乗せ)",
+    "effects": [
+     {
+      "category": "exp",
+      "target": "殿",
+      "targetKind": "non-combat",
+      "value": 20,
+      "type": "non-combat"
+     }
+    ]
+   }
+  ],
+  "ownedSkill": {
+   "stage": "改壱",
+   "name": "[改壱] / 御庵の大松",
+   "text": "所持しているだけで獲得殿EXPが20%上昇 (像の効果は上乗せ)",
+   "effects": [
+    {
+     "category": "exp",
+     "target": "殿",
+     "targetKind": "non-combat",
+     "value": 20,
+     "type": "non-combat"
+    }
+   ]
+  },
   "prefecture": "岐阜県"
  },
  {

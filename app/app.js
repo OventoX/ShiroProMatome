@@ -846,7 +846,171 @@
   // ==========================================
   // Calculation Engine
   // ==========================================
-  function calculateBuffs(targetParty = party, targetTerrain = currentTerrain) {
+
+  // --- Prompt 50: 所持特技（所持バフ）管理 & 地域マッピング ---
+  const USE_OWNED_SKILLS_STORAGE_KEY = "scre-helper:use-owned-skills:v1";
+  let useOwnedSkills = true;
+  let simulateAllOwned = false;
+
+  try {
+    const savedUseOwned = localStorage.getItem(USE_OWNED_SKILLS_STORAGE_KEY);
+    if (savedUseOwned !== null) {
+      useOwnedSkills = savedUseOwned === "true";
+    }
+  } catch (e) {
+    console.warn("useOwnedSkills load error:", e);
+  }
+
+  function setUseOwnedSkills(enabled) {
+    useOwnedSkills = Boolean(enabled);
+    try {
+      localStorage.setItem(USE_OWNED_SKILLS_STORAGE_KEY, String(useOwnedSkills));
+    } catch (e) {}
+    renderDashboard();
+    if (document.getElementById("tab-firing-range")?.classList.contains("active") && typeof renderFiringRangeTab === "function") {
+      renderFiringRangeTab();
+    }
+  }
+
+  function setSimulateAllOwned(enabled) {
+    simulateAllOwned = Boolean(enabled);
+    renderDashboard();
+    if (document.getElementById("tab-firing-range")?.classList.contains("active") && typeof renderFiringRangeTab === "function") {
+      renderFiringRangeTab();
+    }
+  }
+
+  const COUNTRY_TO_PREFECTURE_MAP = {
+    "蝦夷": "北海道", "渡島": "北海道", "北海道": "北海道", "陸奥": "宮城県", "陸前": "宮城県", "陸中": "岩手県",
+    "岩代": "福島県", "磐城": "福島県", "出羽": "山形県", "羽前": "山形県", "羽後": "秋田県", "津軽": "青森県",
+    "常陸": "茨城県", "下野": "栃木県", "上野": "群馬県", "武蔵": "東京都", "下総": "千葉県", "上総": "千葉県",
+    "安房": "千葉県", "相模": "神奈川県", "越後": "新潟県", "佐渡": "新潟県", "越中": "富山県", "能登": "石川県",
+    "加賀": "石川県", "越前": "福井県", "若狭": "福井県", "甲斐": "山梨県", "信濃": "長野県", "飛騨": "岐阜県",
+    "美濃": "岐阜県", "伊豆": "静岡県", "駿河": "静岡県", "遠江": "静岡県", "三河": "愛知県", "尾張": "愛知県",
+    "伊勢": "三重県", "志摩": "三重県", "伊賀": "三重県", "近江": "滋賀県", "山城": "京都府", "丹波": "京都府",
+    "丹後": "京都府", "摂津": "大阪府", "河内": "大阪府", "和泉": "大阪府", "大和": "奈良県", "紀伊": "和歌山県",
+    "播磨": "兵庫県", "但馬": "兵庫県", "淡路": "兵庫県", "因幡": "鳥取県", "伯耆": "鳥取県", "出雲": "島根県",
+    "石見": "島根県", "隠岐": "島根県", "備前": "岡山県", "備中": "岡山県", "美作": "岡山県", "安芸": "広島県",
+    "備後": "広島県", "周防": "山口県", "長門": "山口県", "阿波": "徳島県", "讃岐": "香川県", "伊予": "愛媛県",
+    "土佐": "高知県", "筑前": "福岡県", "筑後": "福岡県", "豊前": "福岡県", "肥前": "佐賀県", "肥後": "熊本県",
+    "豊後": "大分県", "日向": "宮崎県", "大隅": "鹿児島県", "薩摩": "鹿児島県", "壱岐": "長崎県", "対馬": "長崎県",
+    "琉球": "沖縄県"
+  };
+
+  const REGION_PREFECTURE_MAP = {
+    "東北": ["青森県", "岩手県", "秋田県", "宮城県", "山形県", "福島県"],
+    "関東": ["茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県"],
+    "東海": ["静岡県", "愛知県", "岐阜県", "三重県"],
+    "近畿": ["滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"],
+    "四国": ["徳島県", "香川県", "愛媛県", "高知県"],
+    "九州": ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"]
+  };
+
+  function getCastleRegion(c) {
+    if (!c) return "";
+    let pref = c.prefecture || "";
+    if (!pref && c.country) {
+      const cleanCou = c.country.replace(/[（）()]/g, "").trim();
+      pref = COUNTRY_TO_PREFECTURE_MAP[cleanCou] || "";
+    }
+    if (pref) {
+      for (const [region, prefList] of Object.entries(REGION_PREFECTURE_MAP)) {
+        if (prefList.includes(pref)) return region;
+      }
+    }
+    const cou = c.country || "";
+    if (cou && !COUNTRY_TO_PREFECTURE_MAP[cou.replace(/[（）()]/g, "").trim()] && !cou.includes("日本") && !cou.includes("架空") && !cou.includes("その他")) {
+      return "海外";
+    }
+    return "";
+  }
+
+  function isCastleMatchTarget(c, target, targetKind) {
+    if (!c || !target) return false;
+    if (target === "all" || targetKind === "all" || target === "全" || target === "全ての城娘") return true;
+
+    if (targetKind === "weapon" || (!targetKind && SCRE_WEAPON_FRAMES[target])) {
+      return c.weapon === target;
+    }
+
+    if (targetKind === "tag" || !targetKind) {
+      if (target === "地獄" && ((c.subType && c.subType.includes("地獄")) || (c.attributes && c.attributes.includes("地獄")))) return true;
+      if (target === "夏" && (c.name.includes("［夏］") || c.name.includes("[夏]"))) return true;
+      if (target === "正月" && (c.name.includes("［正月］") || c.name.includes("[正月]"))) return true;
+      if (target === "絢爛" && (c.name.includes("［絢爛］") || c.name.includes("[絢爛]"))) return true;
+      if (target === "裏" && (c.name.includes("［裏］") || c.name.includes("[裏]"))) return true;
+      if (target === "宮殿" && (c.name.includes("宮殿") || (c.subType && c.subType.includes("宮殿")))) return true;
+      if (target === "架空城" && Boolean(c.country && c.country.includes("架空"))) return true;
+      if (target === "無" && (c.subType === "無" || c.castleType === "無")) return true;
+      if (target === "大宰府と古代山城") {
+        const kodaiList = ["大宰府", "基肄城", "大野城", "水城", "金田城", "鞠智城", "鬼ノ城", "屋島城"];
+        if (kodaiList.some(name => c.name.includes(name))) return true;
+      }
+    }
+
+    if (targetKind === "region" || (!targetKind && REGION_PREFECTURE_MAP[target])) {
+      return getCastleRegion(c) === target;
+    }
+
+    return false;
+  }
+
+  function getActiveOwnedSkills(customOwnedIds = null, customSimulateAll = null, customUseOwned = null) {
+    const isEnabled = (typeof customUseOwned === "boolean") ? customUseOwned : (typeof useOwnedSkills !== "undefined" ? useOwnedSkills : true);
+    if (!isEnabled) {
+      return [];
+    }
+    const simAll = (typeof customSimulateAll === "boolean") ? customSimulateAll : (typeof simulateAllOwned !== "undefined" ? simulateAllOwned : false);
+    let ownedSet = null;
+    if (customOwnedIds) {
+      ownedSet = customOwnedIds instanceof Set ? customOwnedIds : new Set(Array.from(customOwnedIds));
+    } else if (typeof ownership !== "undefined" && ownership && ownership.owned) {
+      ownedSet = ownership.owned instanceof Set ? ownership.owned : new Set(Array.from(ownership.owned));
+    } else {
+      ownedSet = new Set();
+    }
+
+    const dataPool = (typeof window !== "undefined" && window.SCRE_DATA) ? window.SCRE_DATA : (typeof SCRE_DATA !== "undefined" ? SCRE_DATA : []);
+    if (!dataPool || dataPool.length === 0) return [];
+
+    const rawList = [];
+    dataPool.forEach(c => {
+      if (!c.allOwnedSkills || c.allOwnedSkills.length === 0) return;
+      if (!simAll && !ownedSet.has(c.id)) return;
+
+      // Use maximum remodel stage
+      const skill = c.ownedSkill || c.allOwnedSkills[c.allOwnedSkills.length - 1];
+      if (!skill || !skill.effects) return;
+
+      skill.effects.forEach(eff => {
+        rawList.push({
+          category: eff.category,
+          target: eff.target,
+          targetKind: eff.targetKind,
+          value: eff.value,
+          type: eff.type,
+          stage: skill.stage,
+          name: skill.name,
+          text: skill.text,
+          from: c.name,
+          castleId: c.id
+        });
+      });
+    });
+
+    // Group by (category × target), taking MAX value only (重複ルール: 同種効果は最大値のみ)
+    const grouped = new Map();
+    rawList.forEach(eff => {
+      const key = `${eff.category}::${eff.target}`;
+      if (!grouped.has(key) || eff.value > grouped.get(key).value) {
+        grouped.set(key, eff);
+      }
+    });
+
+    return Array.from(grouped.values());
+  }
+
+  function calculateBuffs(targetParty = party, targetTerrain = currentTerrain, options = {}) {
     const rawParty = Array.isArray(targetParty) ? targetParty : [];
     const seenIds = new Set();
     const activePartyMembers = [];
@@ -864,7 +1028,9 @@
       enemyDefDown: { max: 0, sources: [] },
       enemyAtkDown: { max: 0, sources: [] },
       enemySlow: { max: 0, sources: [] },
-      enemyDmgTakenUp: { max: 0, sources: [] }
+      enemyDmgTakenUp: { max: 0, sources: [] },
+      enemyAtkSpeedDown: { max: 0, sources: [] },
+      enemyGapExtend: { max: 0, sources: [] }
     };
 
     activePartyMembers.forEach(({ slot, castle }) => {
@@ -959,7 +1125,73 @@
       });
     });
 
-    
+    // Prompt 50: 所持特技（所持バフ）の適用
+    const activeOwnedSkills = getActiveOwnedSkills(options.ownedIds, options.simulateAllOwned, options.useOwnedSkills);
+
+    // 1) 敵弱化（所持特技: 全ての敵対象、編成外でも発動、同種は最大値のみ）
+    activeOwnedSkills.forEach(eff => {
+      let debKey = null;
+      if (eff.category === "enemyDef") debKey = "enemyDefDown";
+      else if (eff.category === "enemyAtk") debKey = "enemyAtkDown";
+      else if (eff.category === "enemyAtkSpeed") debKey = "enemyAtkSpeedDown";
+      else if (eff.category === "enemyGap") debKey = "enemyGapExtend";
+
+      if (debKey && enemyDebuffs[debKey]) {
+        enemyDebuffs[debKey].sources.push({
+          from: eff.from,
+          type: "所持特技",
+          val: eff.value,
+          raw: eff.text,
+          name: eff.name,
+          category: eff.category,
+          target: eff.target
+        });
+        if (eff.value > enemyDebuffs[debKey].max) {
+          enemyDebuffs[debKey].max = eff.value;
+        }
+      }
+    });
+
+    // 2) 城娘能力アップ（所持特技: 対象一致の城娘に適用、stackSum 加算）
+    activePartyMembers.forEach(({ castle: receiver }) => {
+      const b = perCastle[receiver.id]?.buffs;
+      if (!b) return;
+
+      activeOwnedSkills.forEach(eff => {
+        if (!isCastleMatchTarget(receiver, eff.target, eff.targetKind)) return;
+
+        let bucket = null;
+        if (eff.category === "atk") bucket = b.atkPercent;
+        else if (eff.category === "def") bucket = b.defPercent;
+        else if (eff.category === "hp") bucket = b.hpPercent;
+        else if (eff.category === "atkSpeed") bucket = b.atkSpeed;
+        else if (eff.category === "gap") bucket = b.gapShorten;
+
+        if (bucket) {
+          bucket.stackSum += eff.value;
+          bucket.sources.push({
+            from: eff.from,
+            type: "所持特技",
+            val: eff.value,
+            stackable: true,
+            applied: true,
+            raw: eff.text,
+            name: eff.name,
+            target: eff.target
+          });
+        } else if (eff.category === "defIgnore") {
+          b.defIgnore.push({
+            from: eff.from,
+            type: "所持特技",
+            val: eff.value,
+            raw: eff.text,
+            name: eff.name,
+            target: eff.target
+          });
+        }
+      });
+    });
+
     // Evaluate buff conflict / applied status (プロンプト4: 憶測で仕様を変えず、既存の最大値/加算ルールに従ってフラグ付け)
     const percentKeys = ["atkPercent", "defPercent", "rangePercent", "hpPercent", "dmgDealt", "dmgDealtTarget", "dmgTakenDown", "atkSpeed", "gapShorten"];
     for (const cid in perCastle) {
@@ -1085,7 +1317,7 @@
       }
     }
 
-    return { perCastle, enemyDebuffs, activePartyMembers, totalDeployCost, totalGiantCost, matchCount, terrainMatchCount: matchCount, currentTerrain: targetTerrain };
+    return { perCastle, enemyDebuffs, activePartyMembers, totalDeployCost, totalGiantCost, matchCount, terrainMatchCount: matchCount, currentTerrain: targetTerrain, activeOwnedSkills };
   }
 
   // ==========================================
@@ -1122,6 +1354,7 @@
     if (typeof renderBuffEquivalence === "function") renderBuffEquivalence(calcResult);
     renderMissingSidebar(calcResult);
     renderCoveragePanel(calcResult);
+    renderOwnedSkillsDashboard(calcResult);
     const simBody = document.getElementById("giantizeSimBody");
     if (simBody && simBody.style.display !== "none") {
       calculateGiantizeSimulation();
@@ -1135,6 +1368,93 @@
     if (document.getElementById("tab-firing-range")?.classList.contains("active") && typeof renderFiringRangeTab === "function") {
       renderFiringRangeTab();
     }
+  }
+
+  const CATEGORY_JA_MAP = {
+    atk: "攻撃上昇",
+    def: "防御上昇",
+    hp: "耐久上昇",
+    atkSpeed: "攻撃速度上昇",
+    gap: "隙短縮",
+    heal: "回復上昇",
+    redeploy: "再配置短縮",
+    cooldown: "計略CT短縮",
+    defIgnore: "防御無視",
+    enemyAtk: "敵攻撃低下",
+    enemyDef: "敵防御低下",
+    enemyAtkSpeed: "敵攻撃速度低下",
+    enemyGap: "敵隙延長",
+    exp: "獲得EXP増加",
+    gold: "獲得金増加",
+    keystone: "獲得要石増加"
+  };
+
+  function renderOwnedSkillsDashboard(calcResult) {
+    const listEl = document.getElementById("ownedSkillsActiveList");
+    const countBadge = document.getElementById("ownedSkillsActiveCountBadge");
+    const toggleEnable = document.getElementById("toggleOwnedSkillsEnable");
+    const toggleSim = document.getElementById("toggleSimulateAllOwned");
+
+    if (toggleEnable) toggleEnable.checked = useOwnedSkills;
+    if (toggleSim) toggleSim.checked = simulateAllOwned;
+
+    if (!listEl) return;
+
+    if (!useOwnedSkills) {
+      if (countBadge) countBadge.textContent = "OFF";
+      listEl.innerHTML = `<div style="color:var(--text-sub); padding:4px 0;">所持特技の反映はOFFになっています。「所持特技を反映」をチェックすると有効になります。</div>`;
+      return;
+    }
+
+    const activeSkills = (calcResult && calcResult.activeOwnedSkills) ? calcResult.activeOwnedSkills : getActiveOwnedSkills();
+    if (countBadge) {
+      countBadge.textContent = `${activeSkills.length}件`;
+    }
+
+    if (activeSkills.length === 0) {
+      listEl.innerHTML = `<div style="color:var(--text-sub); padding:4px 0;">発動中の所持特技はありません（所持チェッカーで城娘を所持登録するか、「全城娘を所持扱いで計算」にチェックを入れてください）。</div>`;
+      return;
+    }
+
+    const sorted = activeSkills.slice().sort((a, b) => {
+      if (a.category !== b.category) return a.category.localeCompare(b.category);
+      return a.from.localeCompare(b.from);
+    });
+
+    let html = `<table style="width:100%; border-collapse:collapse; font-size:12px;">
+      <thead>
+        <tr style="border-bottom:1px solid #e2e8f0; color:var(--text-sub); text-align:left;">
+          <th style="padding:4px 6px;">カテゴリ</th>
+          <th style="padding:4px 6px;">対象</th>
+          <th style="padding:4px 6px;">効果値</th>
+          <th style="padding:4px 6px;">発動城娘</th>
+          <th style="padding:4px 6px;">特技名／効果文</th>
+        </tr>
+      </thead>
+      <tbody>`;
+
+    sorted.forEach(s => {
+      const catLabel = CATEGORY_JA_MAP[s.category] || s.category;
+      const targetLabel = s.target === "all" ? "全敵" : s.target;
+      let valText = "";
+      if (s.category.startsWith("enemy") || s.category === "gap" || s.category === "cooldown" || s.category === "redeploy") {
+        valText = s.type === "seconds" ? `-${s.value}秒` : `-${s.value}%`;
+      } else {
+        valText = s.type === "seconds" ? `+${s.value}秒` : `+${s.value}%`;
+      }
+      const stageBadge = s.stage ? `<span style="font-size:11px; color:#666; margin-left:4px;">[${escapeHtml(s.stage)}]</span>` : "";
+
+      html += `<tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:4px 6px; font-weight:bold; white-space:nowrap; color:#1b4965;">${escapeHtml(catLabel)}</td>
+        <td style="padding:4px 6px; white-space:nowrap;"><span class="badge" style="background:#eef2f6; color:#333; font-size:11px;">${escapeHtml(targetLabel)}</span></td>
+        <td style="padding:4px 6px; font-weight:bold; color:#d9534f; white-space:nowrap;">${escapeHtml(valText)}</td>
+        <td style="padding:4px 6px; white-space:nowrap; font-weight:500;">${escapeHtml(s.from)}${stageBadge}</td>
+        <td style="padding:4px 6px; color:var(--text-sub); font-size:11px;" title="${escapeHtml(s.text)}"><strong>${escapeHtml(s.name)}</strong>: ${escapeHtml(s.text)}</td>
+      </tr>`;
+    });
+
+    html += `</tbody></table>`;
+    listEl.innerHTML = html;
   }
 
   // 1. Render Party Slots (Showing dynamic live stats & Terrain Matching)
@@ -1824,14 +2144,52 @@
     }
   });
 
-  // Terrain select change
-  document.getElementById("mapTerrainSelect").addEventListener("change", e => {
-    pushUndoSnapshot();
-    currentTerrain = e.target.value;
-    savePresets();
-    renderDashboard();
-    renderAllCastles();
-  });
+  // Terrain select change (Dashboard & Firing Range bidirectional sync)
+  const mapTerSelect = document.getElementById("mapTerrainSelect");
+  if (mapTerSelect) {
+    mapTerSelect.addEventListener("change", e => {
+      pushUndoSnapshot();
+      currentTerrain = e.target.value;
+      const firingTerSelect = document.getElementById("firingRangeTerrainSelect");
+      if (firingTerSelect) firingTerSelect.value = currentTerrain;
+      savePresets();
+      renderDashboard();
+      renderAllCastles();
+      if (document.getElementById("tab-firing-range")?.classList.contains("active") && typeof renderFiringRangeTab === "function") {
+        renderFiringRangeTab();
+      }
+    });
+  }
+
+  const firingTerSelect = document.getElementById("firingRangeTerrainSelect");
+  if (firingTerSelect) {
+    firingTerSelect.addEventListener("change", e => {
+      pushUndoSnapshot();
+      currentTerrain = e.target.value;
+      if (mapTerSelect) mapTerSelect.value = currentTerrain;
+      savePresets();
+      renderDashboard();
+      renderAllCastles();
+      if (typeof renderFiringRangeTab === "function") {
+        renderFiringRangeTab();
+      }
+    });
+  }
+
+  // Owned skills toggles
+  const toggleOwnedEnable = document.getElementById("toggleOwnedSkillsEnable");
+  if (toggleOwnedEnable) {
+    toggleOwnedEnable.addEventListener("change", e => {
+      setUseOwnedSkills(e.target.checked);
+    });
+  }
+
+  const toggleSimOwned = document.getElementById("toggleSimulateAllOwned");
+  if (toggleSimOwned) {
+    toggleSimOwned.addEventListener("change", e => {
+      setSimulateAllOwned(e.target.checked);
+    });
+  }
 
   // Populate Dashboard Stage Select from guides (BUG-11: exclude /E and natural numeric sort)
   function populateDashboardStageSelect() {
@@ -13808,13 +14166,13 @@ function showQuizResult() {
         const partySlot = party.find(p => p && p.id === c.id);
         if (partySlot && (partySlot.strategyOn !== slot.strategyOn || partySlot.specialOn !== slot.specialOn || partySlot.giantStep !== slot.giantStep)) {
           const tempParty = party.map(p => (p && p.id === c.id) ? { ...p, ...slot } : p);
-          calcResult = calculateBuffs(tempParty);
+          calcResult = calculateBuffs(tempParty, currentTerrain);
         } else if (!partySlot && (party.length === 0 || !party.some(p => p && p.id === c.id))) {
-          calcResult = calculateBuffs([{ id: c.id, ...slot }]);
+          calcResult = calculateBuffs([{ id: c.id, ...slot }], currentTerrain);
         }
       }
       if (!calcResult) {
-        calcResult = calculateBuffs();
+        calcResult = calculateBuffs(party, currentTerrain);
       }
     }
     const calcData = calcResult.perCastle[c.id];
@@ -14186,6 +14544,11 @@ function showQuizResult() {
       }
     }
 
+    const ownedDefDownSrc = calcResult.enemyDebuffs?.enemyDefDown?.sources?.find(s => s.type === "所持特技" && s.applied !== false);
+    if (ownedDefDownSrc && !(disabledBuffs && disabledBuffs.has("enemy_def_down"))) {
+      breakdownText += ` ｜ [所持特技: 敵防御-${ownedDefDownSrc.val}%(${ownedDefDownSrc.from})]`;
+    }
+
     return {
       castle: c,
       slot: slot,
@@ -14226,7 +14589,8 @@ function showQuizResult() {
       isBuffWeapon: isBuffWeapon,
       weaponType: wf.type,
       isEstimateFrame: !!wf.isEstimate,
-      breakdownText: breakdownText
+      breakdownText: breakdownText,
+      ownedDefDown: ownedDefDownSrc
     };
   }
 
@@ -14244,6 +14608,20 @@ function showQuizResult() {
       statusBadge.textContent = `部隊: ${partyCastles.length}/8 体`;
     }
 
+    const terrainBadge = document.getElementById("firingRangeTerrainStatus");
+    if (terrainBadge) {
+      if (currentTerrain) {
+        const matchCount = partyCastles.filter(p => p.castle.attributes && p.castle.attributes.includes(currentTerrain)).length;
+        terrainBadge.textContent = `地形: ${currentTerrain}（一致 ${matchCount}/${partyCastles.length}体）`;
+      } else {
+        terrainBadge.textContent = "地形: 指定なし";
+      }
+    }
+    const firingTerSelect = document.getElementById("firingRangeTerrainSelect");
+    if (firingTerSelect && firingTerSelect.value !== currentTerrain) {
+      firingTerSelect.value = currentTerrain;
+    }
+
     const tbody = document.getElementById("firingCastleResultsTbody");
     if (!tbody) return;
 
@@ -14257,9 +14635,12 @@ function showQuizResult() {
       return;
     }
 
-    const currentIds = partyCastles.map(p => `${p.castle.id}_${p.slot.giantStep ?? 5}_${p.slot.strategyOn !== false}_${p.slot.specialOn !== false}`).join(",");
-    const stateIds = firingRangeState.castleSlots.map(s => `${s.castle ? s.castle.id : ''}_${s.slot?.giantStep ?? 5}_${s.slot?.strategyOn !== false}_${s.slot?.specialOn !== false}`).join(",");
+    const currentIds = `${partyCastles.map(p => `${p.castle.id}_${p.slot.giantStep ?? 5}_${p.slot.strategyOn !== false}_${p.slot.specialOn !== false}`).join(",")}_terrain:${currentTerrain}_owned:${useOwnedSkills}_sim:${simulateAllOwned}`;
+    const stateIds = `${firingRangeState.castleSlots.map(s => `${s.castle ? s.castle.id : ''}_${s.slot?.giantStep ?? 5}_${s.slot?.strategyOn !== false}_${s.slot?.specialOn !== false}`).join(",")}_terrain:${firingRangeState.lastTerrain}_owned:${firingRangeState.lastUseOwned}_sim:${firingRangeState.lastSimAll}`;
     if (currentIds !== stateIds || firingRangeState.castleSlots.length !== partyCastles.length) {
+      firingRangeState.lastTerrain = currentTerrain;
+      firingRangeState.lastUseOwned = useOwnedSkills;
+      firingRangeState.lastSimAll = simulateAllOwned;
       firingRangeState.castleSlots = partyCastles.map(({ slot, castle, idx }) => {
         const stat = calculateFiringCastleStats(castle, slot, firingRangeState.targetDef, firingRangeState.targetRed, firingRangeState.targetCount, firingRangeState.disabledBuffs);
         return {
@@ -15965,4 +16346,24 @@ function showQuizResult() {
     }
     renderDashboard();
   };
+
+  window.getActiveOwnedSkills = getActiveOwnedSkills;
+  window.isCastleMatchTarget = isCastleMatchTarget;
+  window.getCastleRegion = getCastleRegion;
+  window.setUseOwnedSkills = setUseOwnedSkills;
+  window.getUseOwnedSkills = () => useOwnedSkills;
+  window.setSimulateAllOwned = setSimulateAllOwned;
+  window.getSimulateAllOwned = () => simulateAllOwned;
+  window.setCurrentTerrain = (t) => {
+    currentTerrain = t || "";
+    const mapTer = document.getElementById("mapTerrainSelect");
+    if (mapTer) mapTer.value = currentTerrain;
+    const firingTer = document.getElementById("firingRangeTerrainSelect");
+    if (firingTer) firingTer.value = currentTerrain;
+    if (typeof renderFiringRangeTab === "function") renderFiringRangeTab();
+    renderDashboard();
+  };
+  window.getCurrentTerrain = () => currentTerrain;
+  window.calculateBuffs = calculateBuffs;
+  window.renderOwnedSkillsDashboard = renderOwnedSkillsDashboard;
 })();

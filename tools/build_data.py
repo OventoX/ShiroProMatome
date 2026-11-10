@@ -79,6 +79,137 @@ def extract_all_section_abilities(src: str, section_name: str, page_name: str):
                 })
     return results
 
+def parse_owned_ability_effects(text: str) -> list:
+    t = text.replace("［", "[").replace("］", "]").replace("（", "(").replace("）", ")")
+    t = re.sub(r"\s+", " ", t).strip()
+
+    # 1. Non-combat
+    m = re.search(r"獲得殿EXPが(\d+)%上昇", t)
+    if m:
+        return [{"category": "exp", "target": "殿", "targetKind": "non-combat", "value": int(m.group(1)), "type": "non-combat"}]
+    m = re.search(r"合戦勝利時と.*?城娘合成時の獲得経験値が(\d+)%上昇", t)
+    if m:
+        return [{"category": "exp", "target": "城娘合戦時＋城娘合成時", "targetKind": "non-combat", "value": int(m.group(1)), "type": "non-combat"}]
+    m = re.search(r"城娘合成時の獲得経験値が(\d+)%上昇", t)
+    if m:
+        return [{"category": "exp", "target": "城娘合成時", "targetKind": "non-combat", "value": int(m.group(1)), "type": "non-combat"}]
+    m = re.search(r"城娘の獲得経験値が(\d+)%上昇", t)
+    if m:
+        return [{"category": "exp", "target": "城娘合戦時", "targetKind": "non-combat", "value": int(m.group(1)), "type": "non-combat"}]
+
+    m = re.search(r"獲得金と.*?蔵からの?入手金が(\d+)%上昇", t)
+    if m:
+        return [{"category": "gold", "target": "合戦＋蔵", "targetKind": "non-combat", "value": int(m.group(1)), "type": "non-combat"}]
+    m = re.search(r"獲得金が(\d+)%上昇", t)
+    if m:
+        return [{"category": "gold", "target": "合戦", "targetKind": "non-combat", "value": int(m.group(1)), "type": "non-combat"}]
+
+    m = re.search(r"要石の入手数が(\d+)%増加", t)
+    if m:
+        return [{"category": "keystone", "target": "蔵", "targetKind": "non-combat", "value": int(m.group(1)), "type": "non-combat"}]
+
+    # 2. Combat: Enemy debuffs
+    m = re.search(r"全ての敵の攻撃が(\d+)%低下", t)
+    if m:
+        return [{"category": "enemyAtk", "target": "all", "targetKind": "all", "value": int(m.group(1)), "type": "combat"}]
+    m = re.search(r"全ての敵の防御が(\d+)%低下", t)
+    if m:
+        return [{"category": "enemyDef", "target": "all", "targetKind": "all", "value": int(m.group(1)), "type": "combat"}]
+    m = re.search(r"全ての敵の攻撃速度が(\d+)%低下", t)
+    if m:
+        return [{"category": "enemyAtkSpeed", "target": "all", "targetKind": "all", "value": int(m.group(1)), "type": "combat"}]
+    m = re.search(r"全ての敵の攻撃後の隙が(\d+)%延長", t)
+    if m:
+        return [{"category": "enemyGap", "target": "all", "targetKind": "all", "value": int(m.group(1)), "type": "combat"}]
+
+    # 3. Combat: Castle ability buffs
+    stat_patterns = [
+        (r"攻撃が(\d+)%上昇", "atk"),
+        (r"(?:最大)?耐久が(\d+)%上昇", "hp"),
+        (r"防御が(\d+)%上昇", "def"),
+        (r"攻撃速度が(\d+)%上昇", "atkSpeed"),
+        (r"攻撃後の隙が(\d+)%短縮", "gap"),
+        (r"初回計略使用までの時間が(\d+)%短縮", "cooldown"),
+        (r"(?:与)?回復(?:量)?が(\d+)%上昇", "heal"),
+        (r"再配置時間が(\d+)%短縮", "redeploy"),
+        (r"防御無視効果が(\d+)%上昇", "defIgnore"),
+    ]
+
+    for pat, cat in stat_patterns:
+        m = re.search(pat, t)
+        if m:
+            val = int(m.group(1))
+            prefix = t[:m.start()].strip()
+            prefix = re.sub(r"^所持してい?るだけで\s*", "", prefix).strip()
+            prefix = re.sub(r"の$", "", prefix).strip()
+            target_str = prefix
+
+            bracket_m = re.match(r"^(?:全ての)?(?:\[([^\]]+)\]|「([^」]+)」属性)(?:城娘)?", target_str)
+            if bracket_m:
+                tag = bracket_m.group(1) or bracket_m.group(2)
+                return [{"category": cat, "target": tag, "targetKind": "tag", "value": val, "type": "combat"}]
+            
+            regions = ["東北", "関東", "東海", "近畿", "四国", "九州", "海外"]
+            for reg in regions:
+                if target_str.startswith(reg):
+                    return [{"category": cat, "target": reg, "targetKind": "region", "value": val, "type": "combat"}]
+
+            if target_str.startswith("地獄"):
+                return [{"category": cat, "target": "地獄", "targetKind": "tag", "value": val, "type": "combat"}]
+
+            weapons = ["刀", "槍", "槌", "盾", "拳", "鎌", "戦棍", "双剣", "ランス", "弓", "石弓", "鉄砲", "大砲", "歌舞", "法術", "鈴", "杖", "祓串", "本", "投剣", "鞭", "陣貝", "軍船", "茶器"]
+            for w in weapons:
+                if target_str.startswith(w):
+                    return [{"category": cat, "target": w, "targetKind": "weapon", "value": val, "type": "combat"}]
+
+            return [{"category": cat, "target": target_str, "targetKind": "unknown", "value": val, "type": "combat"}]
+
+    return []
+
+def extract_owned_skills(src: str, page_name: str) -> list:
+    start_pat = r"(?m)^[ \t]*\|(?:>\|)+\s*(?:BGCOLOR\(#[A-Fa-f0-9]+\):)?CENTER:\'\'(?:\[\[)?所持特技(?:\]\])?\'\'\|"
+    m_start = re.search(start_pat, src)
+    if not m_start:
+        return []
+    rest = src[m_start.end():]
+    m_end = re.search(r"\n(?:[ \t]*(?://)?\|(?:>\|)+\s*(?:BGCOLOR\(#[A-Fa-f0-9]+\):)?CENTER:\'\'(?:\[\[)?(特技|所持特技|編成特技|特殊能力|特殊攻撃|移動攻撃|大破特技|計略|図鑑文章)(?:\]\])?\'\'\||\*{1,3}\s+|#table_edit2|\Z)", rest)
+    chunk = rest[:m_end.start()] if m_end else rest
+
+    lines = chunk.splitlines()
+    results = []
+    last_desc = ""
+    for line in lines:
+        line_clean = line.strip()
+        if line_clean.startswith("//") or "|>|>|>|" not in line_clean or line_clean.startswith("|>"):
+            continue
+        parts = line_clean.split("|>|>|>|")
+        if len(parts) >= 2:
+            raw_name = re.sub(r"^\|(?:BGCOLOR\([^)]+\):)?", "", parts[0])
+            raw_desc = parts[1]
+            cleaned_name = clean_wiki(raw_name)
+            cleaned_desc = clean_wiki(raw_desc)
+            if not cleaned_name:
+                continue
+            if cleaned_desc == "~":
+                cleaned_desc = last_desc
+            else:
+                last_desc = cleaned_desc
+
+            if cleaned_desc and cleaned_desc not in ("||", "|~|", "なし") and cleaned_desc.strip() != "なし" and not cleaned_name.endswith("/ なし"):
+                stage = "無印"
+                if "改弐" in cleaned_name:
+                    stage = "改弐"
+                elif "改壱" in cleaned_name:
+                    stage = "改壱"
+                effects = parse_owned_ability_effects(cleaned_desc)
+                results.append({
+                    "stage": stage,
+                    "name": cleaned_name,
+                    "text": cleaned_desc,
+                    "effects": effects
+                })
+    return results
+
 def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str = "平") -> dict:
     castle = {
         "id": page_name,
@@ -456,6 +587,12 @@ def parse_castle_page(src: str, page_name: str, rarity: int, fallback_type: str 
     if all_specs:
         castle["allSpecials"] = all_specs
         castle["special"] = all_specs[-1]
+
+    # 4b. Owned Skills Extraction (Prompt 50)
+    all_owned = extract_owned_skills(src, page_name)
+    if all_owned:
+        castle["allOwnedSkills"] = all_owned
+        castle["ownedSkill"] = all_owned[-1]
 
     # 5. Remodel Stages and Forms Determination
     all_abilities = (castle.get("allSkills") or []) + (castle.get("allStrategies") or []) + (castle.get("allSpecials") or [])

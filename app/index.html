@@ -129,6 +129,34 @@
           <div id="enemyDebuffContainer">
             <!-- Enemy debuffs -->
           </div>
+
+          <!-- 所持特技コントロール & 発動一覧 (プロンプト50) -->
+          <section class="section-box" style="margin-top: 10px;" id="ownedSkillsDashboardSection">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; margin-bottom:6px;">
+              <div class="section-title" style="margin-bottom:0; font-size:13px; display:flex; align-items:center; gap:6px;">
+                <span>📜</span> <span>発動中の所持特技</span>
+                <span id="ownedSkillsActiveCountBadge" class="badge" style="font-size:12px; background:#e8f4fd; color:#1b4965; border:1px solid #b8daff;">0件</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                <label style="display:inline-flex; align-items:center; gap:4px; font-size:12px; font-weight:bold; cursor:pointer;">
+                  <input type="checkbox" id="toggleOwnedSkillsEnable" checked>
+                  <span>所持特技を反映</span>
+                </label>
+                <label style="display:inline-flex; align-items:center; gap:4px; font-size:12px; color:var(--text-sub); cursor:pointer;">
+                  <input type="checkbox" id="toggleSimulateAllOwned">
+                  <span>全城娘を所持扱いで計算</span>
+                </label>
+              </div>
+            </div>
+            <details id="ownedSkillsDetails" style="background:#fcfcfc; border:1px solid #e2e8f0; border-radius:4px; padding:6px 10px;">
+              <summary style="cursor:pointer; font-weight:bold; font-size:12px; color:#1b4965; user-select:none;">
+                ▶ 発動中の所持特技一覧（クリックで展開）
+              </summary>
+              <div id="ownedSkillsActiveList" style="margin-top:8px; font-size:12px; max-height:220px; overflow-y:auto;">
+                <!-- list of active owned skills -->
+              </div>
+            </details>
+          </section>
         </div>
 
         <!-- Column 2: バフ/デバフ計算結果 (中央メイン) -->
@@ -1237,10 +1265,24 @@
             </div>
           </div>
           <!-- Quick Status Badges -->
-          <div style="display: flex; gap: 8px; align-items: center;">
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
             <span id="firingRangePartyStatus" class="badge" style="font-size: 12px; padding: 4px 10px; background: #e8f4fd; color: #1b4965; border: 1px solid #b8daff;">
               部隊: 8/8 体
             </span>
+            <span id="firingRangeTerrainStatus" class="badge" style="font-size: 12px; padding: 4px 10px; background: #e6fffa; color: #234e52; border: 1px solid #b2f5ea;">
+              地形: 指定なし
+            </span>
+            <div style="display: inline-flex; align-items: center; gap: 4px;">
+              <label for="firingRangeTerrainSelect" style="font-size: 12px; font-weight: bold; margin: 0; color: var(--text-main);">出撃地形:</label>
+              <select id="firingRangeTerrainSelect" class="form-control" style="font-size: 12px; padding: 3px 6px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-main);">
+                <option value="">指定なし</option>
+                <option value="平">平</option>
+                <option value="平山">平山</option>
+                <option value="山">山</option>
+                <option value="水">水</option>
+                <option value="地獄">地獄</option>
+              </select>
+            </div>
             <span id="firingRangeDpsHeadline" class="badge" style="font-size: 13px; font-weight: bold; padding: 4px 12px; background: #fff3e0; color: #e65100; border: 1px solid #ffe0b2;">
               部隊総DPS: 0 /秒
             </span>
@@ -1250,6 +1292,7 @@
         <!-- Official Premise & Disclaimer Alert Box -->
         <div class="firing-range-notice-box" style="margin-top: 10px; padding: 10px 14px; background: var(--nav-bg); border-left: 4px solid var(--primary-color); border-radius: 4px; font-size: 12px; color: var(--text-sub); line-height: 1.6;">
           <div><strong>【検証前提・計算式仕様】</strong></div>
+          <div>• <strong>出撃地形ボーナス</strong>: 出撃地形と一致する城娘は基礎ステータス×1.25（地獄地形一致は×1.30）。巨大化消費気の軽減はダッシュボード側の扱いに準じます。</div>
           <div>• <strong>基礎ステータス基準</strong>: <strong>Lv最大想定（改壱Lv125/無印Lv120、装備なし素ステータス）</strong>。wiki原表のLv最大値を基礎とし、巨大化段階（未巨大化〜最大）と連動します。</div>
           <div>• <strong>1撃ダメージ計算式</strong>: <code>max(攻撃値 × 0.1, 攻撃値 × 与えるダメ倍率 - 敵実効防御) × 与ダメ倍率 × 敵被ダメ倍率 × (1 - 敵軽減率)</code>（ダメージチェッカー準拠、術・特定武器は防御無視。※歌舞・陣貝・茶器などの支援専用武器種[type: buff]は通常攻撃を行いません）</div>
           <div>• <strong>攻撃間隔</strong>: Wiki / PileBunker 30fps 標準フレーム（刀:20+23f、槌:31+37f、拳:11+13f等）。未検証・特殊武器種は「推定値」と明記し手動編集可能。</div>
