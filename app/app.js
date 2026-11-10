@@ -11622,6 +11622,10 @@ function showQuizResult() {
 
     let totalDps = 0;
     partyCastles.forEach(c => {
+      const wf = (typeof SCRE_WEAPON_FRAMES !== "undefined" && SCRE_WEAPON_FRAMES[c.weapon]);
+      if (wf && wf.type === "buff") {
+        return; // 歌舞・陣貝・茶器等の支援専用武器種(type: "buff")は通常攻撃DPSに寄与しない
+      }
       const calc = calcResult.perCastle[c.id] ? calcResult.perCastle[c.id].calculatedStats : { atk: (c.stats ? c.stats.atk : 500), singleHit: 500 };
       const rawHit = Math.max(1, (calc.singleHit || calc.atk) - boss.def);
       const dps = rawHit / 1.5;
@@ -12851,6 +12855,7 @@ function showQuizResult() {
   function computeFramePreciseDps(c, enemyDef) {
     const targetDef = (typeof enemyDef === "number" && !isNaN(enemyDef)) ? enemyDef : (currentDetailDpsEnemyDef || 500);
     const wf = SCRE_WEAPON_FRAMES[c.weapon] || { atk: 25, gap: 25, hits: 1, type: "physical", isEstimate: true };
+    const isBuff = Boolean(wf.type === "buff");
     const baseAtk = parseStatNumber((c.statsDetail && c.statsDetail.giant5 && c.statsDetail.giant5.atk) || (c.stats && c.stats.giant5 && c.stats.giant5.atk) || (c.stats && c.stats.atk) || 1200);
 
     let selfAtkSpeed = 0;
@@ -12886,17 +12891,18 @@ function showQuizResult() {
 
     const baseHits = wf.hits || 1;
     const maxHits = wf.hitsMax || baseHits;
-    const effDps = Math.round(finalHitDmg * baseHits * attacksPerSec);
-    const maxEffDps = Math.round(finalHitDmg * maxHits * attacksPerSec);
-    const ttk100k = effDps > 0 ? (100000 / effDps).toFixed(1) : "∞";
+    const effDps = isBuff ? 0 : Math.round(finalHitDmg * baseHits * attacksPerSec);
+    const maxEffDps = isBuff ? 0 : Math.round(finalHitDmg * maxHits * attacksPerSec);
+    const ttk100k = isBuff ? "対象外 (∞)" : (effDps > 0 ? (100000 / effDps).toFixed(1) : "∞");
 
     return {
+      isBuff,
       baseAtk,
       buffedAtk,
       enemyDef: targetDef,
       effDef,
       isMagic,
-      finalHitDmg,
+      finalHitDmg: isBuff ? 0 : finalHitDmg,
       hits: baseHits,
       hitsMax: maxHits,
       effDps,
@@ -12926,27 +12932,41 @@ function showQuizResult() {
 
     const res = computeFramePreciseDps(c, currentDetailDpsEnemyDef);
 
-    metricsEl.innerHTML = `
-      <div class="dps-metric-card">
-        <span class="dps-metric-label">単発ダメージ</span>
-        <span class="dps-metric-val">${res.finalHitDmg.toLocaleString()}${res.hits > 1 ? ` × ${res.hits}連撃` : ''}${res.hitsMax > res.hits ? ` (スキル最大: ${res.hitsMax}連撃)` : ''}</span>
-        <span style="font-size:12px; color:#888;">${res.isMagic ? '防御無視(術)' : `実効防御 ${res.effDef}`}</span>
-      </div>
-      <div class="dps-metric-card">
-        <span class="dps-metric-label">実効DPS</span>
-        <span class="dps-metric-val" style="color:#d35400;">${res.effDps.toLocaleString()} /秒${res.hitsMax > res.hits ? ` (最大: ${res.maxEffDps.toLocaleString()}/秒)` : ''}</span>
-        <span style="font-size:12px; color:#888;">${res.attacksPerSec.toFixed(2)} 攻撃/秒</span>
-      </div>
-      <div class="dps-metric-card">
-        <span class="dps-metric-label">10万HP撃破時間</span>
-        <span class="dps-metric-val" style="color:#27ae60;">${res.ttk100k} 秒</span>
-        <span style="font-size:12px; color:#888;">標準ボス想定TTK</span>
-      </div>
-    `;
+    if (res.isBuff) {
+      metricsEl.innerHTML = `
+        <div class="dps-metric-card" style="grid-column: 1 / -1; text-align: center; padding: 12px; background: var(--nav-bg); border: 1px solid var(--border-color); border-radius: 6px;">
+          <div style="font-size: 13px; font-weight: bold; color: var(--primary-color);">この武器種は攻撃しません（支援専用）</div>
+          <div style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">攻撃ステータス（基礎: ${res.baseAtk.toLocaleString()} / 自己バフ後: ${res.buffedAtk.toLocaleString()}）は範囲内味方へのバフ量や回復量の基礎値として機能します。</div>
+          <div style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">単発ダメージ: なし ｜ 実効DPS: なし ｜ 10万HP撃破時間 (想定TTK): <strong>対象外 (∞)</strong></div>
+        </div>
+      `;
 
-    framesEl.innerHTML = `
-      <div><strong>フレーム詳細 (30fps換算):</strong> 攻撃 ${res.baseAtkFrames}f ➔ <strong style="color:#1b4965;">${res.effAtkFrames}f</strong> ${res.selfAtkSpeed ? `(+約${res.selfAtkSpeed}%速度)` : ''} / 隙 ${res.baseGapFrames}f ➔ <strong style="color:#1b4965;">${res.effGapFrames}f</strong> ${res.selfGapShorten ? `(-約${res.selfGapShorten}%隙)` : ''} / 周期計 <strong style="color:#2c3e50;">${res.cycleFrames}f</strong> (${res.attacksPerSec.toFixed(2)}回/秒)${res.isEstimate ? ' <span class="badge" style="background:#fff3cd; color:#856404; font-size:12px; margin-left:6px;">⚠️ フレーム値は推定値</span>' : ''}</div>
-    `;
+      framesEl.innerHTML = `
+        <div><strong>フレーム詳細 (30fps換算・支援行動):</strong> 攻撃動作 ${res.baseAtkFrames}f ➔ <strong style="color:#1b4965;">${res.effAtkFrames}f</strong> ${res.selfAtkSpeed ? `(+約${res.selfAtkSpeed}%速度)` : ''} / 隙 ${res.baseGapFrames}f ➔ <strong style="color:#1b4965;">${res.effGapFrames}f</strong> ${res.selfGapShorten ? `(-約${res.selfGapShorten}%隙)` : ''} / 支援周期計 <strong style="color:#2c3e50;">${res.cycleFrames}f</strong> (${res.attacksPerSec.toFixed(2)}回/秒)${res.isEstimate ? ' <span class="badge" style="background:#fff3cd; color:#856404; font-size:12px; margin-left:6px;">⚠️ フレーム値は推定値</span>' : ''}</div>
+      `;
+    } else {
+      metricsEl.innerHTML = `
+        <div class="dps-metric-card">
+          <span class="dps-metric-label">単発ダメージ</span>
+          <span class="dps-metric-val">${res.finalHitDmg.toLocaleString()}${res.hits > 1 ? ` × ${res.hits}連撃` : ''}${res.hitsMax > res.hits ? ` (スキル最大: ${res.hitsMax}連撃)` : ''}</span>
+          <span style="font-size:12px; color:#888;">${res.isMagic ? '防御無視(術)' : `実効防御 ${res.effDef}`}</span>
+        </div>
+        <div class="dps-metric-card">
+          <span class="dps-metric-label">実効DPS</span>
+          <span class="dps-metric-val" style="color:#d35400;">${res.effDps.toLocaleString()} /秒${res.hitsMax > res.hits ? ` (最大: ${res.maxEffDps.toLocaleString()}/秒)` : ''}</span>
+          <span style="font-size:12px; color:#888;">${res.attacksPerSec.toFixed(2)} 攻撃/秒</span>
+        </div>
+        <div class="dps-metric-card">
+          <span class="dps-metric-label">10万HP撃破時間</span>
+          <span class="dps-metric-val" style="color:#27ae60;">${res.ttk100k} 秒</span>
+          <span style="font-size:12px; color:#888;">標準ボス想定TTK</span>
+        </div>
+      `;
+
+      framesEl.innerHTML = `
+        <div><strong>フレーム詳細 (30fps換算):</strong> 攻撃 ${res.baseAtkFrames}f ➔ <strong style="color:#1b4965;">${res.effAtkFrames}f</strong> ${res.selfAtkSpeed ? `(+約${res.selfAtkSpeed}%速度)` : ''} / 隙 ${res.baseGapFrames}f ➔ <strong style="color:#1b4965;">${res.effGapFrames}f</strong> ${res.selfGapShorten ? `(-約${res.selfGapShorten}%隙)` : ''} / 周期計 <strong style="color:#2c3e50;">${res.cycleFrames}f</strong> (${res.attacksPerSec.toFixed(2)}回/秒)${res.isEstimate ? ' <span class="badge" style="background:#fff3cd; color:#856404; font-size:12px; margin-left:6px;">⚠️ フレーム値は推定値</span>' : ''}</div>
+      `;
+    }
   }
 
   function initDetailDpsListeners() {
@@ -13434,6 +13454,7 @@ function showQuizResult() {
     const finalAtk = Math.floor((baseAtk * terrainMult) * (1 + atkPerc) + atkFlat + shareAtk);
 
     const wf = SCRE_WEAPON_FRAMES[c.weapon] || { atk: 25, gap: 25, hits: 1, type: "physical", isEstimate: true };
+    const isBuffWeapon = Boolean(wf.type === "buff");
     const defIgnoreInfo = checkDefenseIgnore(c, b, {
       immuneDefIgnore: Boolean(immuneDefIgnore),
       disabledDefIgnore: Boolean(disabledBuffs && disabledBuffs.has("def_ignore"))
@@ -13461,7 +13482,7 @@ function showQuizResult() {
     }
     const postDmgMult = (1 + dmgDealtPerc) * (1 + enemyDmgTakenPerc);
 
-    const finalHitDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - (targetRed / 100))));
+    const finalHitDamage = isBuffWeapon ? 0 : Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - (targetRed / 100))));
 
     let atkSpeed = 0;
     if (!(disabledBuffs && disabledBuffs.has("atk_speed")) && b.atkSpeed) {
@@ -13488,8 +13509,8 @@ function showQuizResult() {
       }
     }
 
-    const cycleDamage = finalHitDamage * hits * effectiveTargets;
-    const normalDps = Math.round(cycleDamage * attacksPerSec);
+    const cycleDamage = isBuffWeapon ? 0 : (finalHitDamage * hits * effectiveTargets);
+    const normalDps = isBuffWeapon ? 0 : Math.round(cycleDamage * attacksPerSec);
 
     // --- Prompt 41: 計略ダメージ計算 ---
     let strategyDamage = null;
@@ -13539,9 +13560,17 @@ function showQuizResult() {
     const rangeFlat = (b.rangeFlat?.sum || 0);
     const effectiveRange = Math.floor(baseStats.range * (1 + rangePerc) + rangeFlat);
 
-    let breakdownText = `[通常] 攻${finalAtk} → 引後${baseDamage} → 1撃${finalHitDamage} (${normalDps.toLocaleString()}/s)`;
-    if (strategyDamage) {
-      breakdownText += ` ｜ [計略] 攻${finalAtk}×${strategyDamage.parsed.mult}倍 → 1撃${strategyDamage.totalDamagePerCast.toLocaleString()} (CT${strategyDamage.cooldown}s, ${strategyDamage.dps.toLocaleString()}/s)`;
+    let breakdownText = "";
+    if (isBuffWeapon) {
+      breakdownText = `[通常] 攻撃なし（支援専用：攻撃値${finalAtk}はバフ・回復の基礎値で敵ダメージではありません）`;
+      if (strategyDamage) {
+        breakdownText += ` ｜ [計略] 攻${finalAtk}×${strategyDamage.parsed.mult}倍 → 1撃${strategyDamage.totalDamagePerCast.toLocaleString()} (CT${strategyDamage.cooldown}s, ${strategyDamage.dps.toLocaleString()}/s)`;
+      }
+    } else {
+      breakdownText = `[通常] 攻${finalAtk} → 引後${baseDamage} → 1撃${finalHitDamage} (${normalDps.toLocaleString()}/s)`;
+      if (strategyDamage) {
+        breakdownText += ` ｜ [計略] 攻${finalAtk}×${strategyDamage.parsed.mult}倍 → 1撃${strategyDamage.totalDamagePerCast.toLocaleString()} (CT${strategyDamage.cooldown}s, ${strategyDamage.dps.toLocaleString()}/s)`;
+      }
     }
 
     return {
@@ -13573,6 +13602,8 @@ function showQuizResult() {
       strategyDamage: strategyDamage,
       stratDps: stratDps,
       theoreticalDps: theoreticalDps,
+      isBuffWeapon: isBuffWeapon,
+      weaponType: wf.type,
       isEstimateFrame: !!wf.isEstimate,
       breakdownText: breakdownText
     };
@@ -13680,22 +13711,22 @@ function showQuizResult() {
             ${stat.isIntermediateGiant ? '<div style="font-size:12px; color:#856404; font-weight:normal;">(推定)</div>' : ''}
           </td>
           <td style="text-align:right; font-size:12px;">
-            <div>通常: <strong style="color:#e67e22;">${stat.finalHitDamage.toLocaleString()}</strong>${stat.hits > 1 ? ` × ${stat.hits}連` : ''}</div>
+            <div>通常: ${stat.isBuffWeapon ? '<span style="color:var(--text-sub); font-size:12px;">攻撃なし（支援）</span>' : `<strong style="color:#e67e22;">${stat.finalHitDamage.toLocaleString()}</strong>${stat.hits > 1 ? ` × ${stat.hits}連` : ''}`}</div>
             <div>計略: ${stat.strategyDamage ? `<strong style="color:#9f7aea;">${stat.strategyDamage.totalDamagePerCast.toLocaleString()}</strong>` : '<span style="color:var(--text-sub); font-size:12px;">-</span>'}</div>
-            <div style="font-size:12px; color:var(--text-sub);">${stat.effectiveIgnore ? '<span style="color:#27ae60;">[防御無視]</span>' : `実効防 ${stat.effDef}`}</div>
+            <div style="font-size:12px; color:var(--text-sub);">${stat.isBuffWeapon ? '<span style="color:var(--text-sub); font-size:12px;">支援専用</span>' : (stat.effectiveIgnore ? '<span style="color:#27ae60;">[防御無視]</span>' : `実効防 ${stat.effDef}`)}</div>
           </td>
           <td style="text-align:center; font-size:12px;">
-            <div>通常: <strong>${stat.cycleFrames}f</strong> (${stat.attacksPerSec.toFixed(2)}/s)</div>
+            <div>${stat.isBuffWeapon ? '支援周期' : '通常'}: <strong>${stat.cycleFrames}f</strong> (${stat.attacksPerSec.toFixed(2)}/s)</div>
             <div>計略: ${stat.strategyDamage ? `<strong style="color:#9f7aea;">CT ${stat.strategyDamage.cooldown}s</strong>` : '<span style="color:var(--text-sub); font-size:12px;">-</span>'}</div>
           </td>
           <td style="text-align:right; font-size:12px;">
-            <div>通常: ${stat.normalDps.toLocaleString()} /s</div>
+            <div>通常: ${stat.isBuffWeapon ? '<span style="color:var(--text-sub); font-size:12px;">攻撃なし (0/s)</span>' : `${stat.normalDps.toLocaleString()} /s`}</div>
             <div>計略: ${stat.strategyDamage ? `${stat.strategyDamage.dps.toLocaleString()} /s` : '<span class="badge" style="background:#f1f5f9; color:#64748b; font-size:12px;">未対応(バフのみ)</span>'}</div>
             <div style="font-weight:bold; color:#d35400; font-size:13px; margin-top:2px;">計: ${stat.theoreticalDps.toLocaleString()} /s</div>
           </td>
           <td style="text-align:right; font-family:monospace; font-size:12px;" id="firingRowDmg_${i}">
             <strong>${s.totalDmg.toLocaleString()}</strong>
-            <div style="font-size:12px; color:var(--text-sub);">通常:${(s.normalDmg || 0).toLocaleString()} (${s.hits || 0}h)${stat.strategyDamage ? ` / 計略:${(s.stratDmg || 0).toLocaleString()} (${s.stratCount || 0}回)` : ''}</div>
+            <div style="font-size:12px; color:var(--text-sub);">${stat.isBuffWeapon ? '通常:なし(支援)' : `通常:${(s.normalDmg || 0).toLocaleString()} (${s.hits || 0}h)`}${stat.strategyDamage ? ` / 計略:${(s.stratDmg || 0).toLocaleString()} (${s.stratCount || 0}回)` : ''}</div>
           </td>
           <td style="text-align:center;">
             <div style="display:flex; align-items:center; gap:4px; justify-content:center;">
@@ -13928,24 +13959,33 @@ function showQuizResult() {
 
     firingRangeState.castleSlots.forEach((s, idx) => {
       // 1. 通常攻撃サイクル
-      s.timer += dt * speed;
-      const cycleTime = s.stat.cycleTime || 1.0;
-      while (s.timer >= cycleTime) {
-        s.timer -= cycleTime;
-        s.hits += s.stat.hits;
-        const dmg = s.stat.finalHitDamage * s.stat.hits * s.stat.effectiveTargets;
-        s.normalDmg = (s.normalDmg || 0) + dmg;
-        s.totalDmg += dmg;
-        firingRangeState.totalDamage += dmg;
+      if (!s.stat.isBuffWeapon) {
+        s.timer += dt * speed;
+        const cycleTime = s.stat.cycleTime || 1.0;
+        while (s.timer >= cycleTime) {
+          s.timer -= cycleTime;
+          s.hits += s.stat.hits;
+          const dmg = s.stat.finalHitDamage * s.stat.hits * s.stat.effectiveTargets;
+          s.normalDmg = (s.normalDmg || 0) + dmg;
+          s.totalDmg += dmg;
+          firingRangeState.totalDamage += dmg;
 
-        firingRangeState.projectiles.push({
-          slotIdx: idx,
-          progress: 0,
-          speed: 4.0,
-          isMagic: s.stat.effectiveIgnore
-        });
+          firingRangeState.projectiles.push({
+            slotIdx: idx,
+            progress: 0,
+            speed: 4.0,
+            isMagic: s.stat.effectiveIgnore
+          });
 
-        spawnDamagePopup(dmg, s.stat.effectiveIgnore, false);
+          spawnDamagePopup(dmg, s.stat.effectiveIgnore, false);
+        }
+      } else {
+        // buff種（歌舞・陣貝・茶器）は通常攻撃を行わない（ダメージ加算・弾道・ポップアップなし）
+        s.timer += dt * speed;
+        const cycleTime = s.stat.cycleTime || 1.0;
+        while (s.timer >= cycleTime) {
+          s.timer -= cycleTime;
+        }
       }
 
       // 2. 計略ダメージ発動サイクル (Prompt 41)

@@ -1250,7 +1250,7 @@
         <!-- Official Premise & Disclaimer Alert Box -->
         <div class="firing-range-notice-box" style="margin-top: 10px; padding: 10px 14px; background: var(--nav-bg); border-left: 4px solid var(--primary-color); border-radius: 4px; font-size: 12px; color: var(--text-sub); line-height: 1.6;">
           <div><strong>【検証前提・計算式仕様】</strong></div>
-          <div>• <strong>1撃ダメージ計算式</strong>: <code>max(攻撃値 × 0.1, 攻撃値 × 与えるダメ倍率 - 敵実効防御) × 与ダメ倍率 × 敵被ダメ倍率 × (1 - 敵軽減率)</code>（ダメージチェッカー準拠、術・特定武器は防御無視）</div>
+          <div>• <strong>1撃ダメージ計算式</strong>: <code>max(攻撃値 × 0.1, 攻撃値 × 与えるダメ倍率 - 敵実効防御) × 与ダメ倍率 × 敵被ダメ倍率 × (1 - 敵軽減率)</code>（ダメージチェッカー準拠、術・特定武器は防御無視。※歌舞・陣貝・茶器などの支援専用武器種[type: buff]は通常攻撃を行いません）</div>
           <div>• <strong>攻撃間隔</strong>: Wiki / PileBunker 30fps 標準フレーム（刀:20+23f、槌:31+37f、拳:11+13f等）。未検証・特殊武器種は「推定値」と明記し手動編集可能。</div>
           <div>• <strong>間隔短縮式</strong>: <code>攻撃モーション = 基礎f ÷ (1 + 攻撃速度% / 100)</code>、<code>攻撃隙 = 基礎隙f × (1 - 隙短縮% / 100)</code>、<code>秒間回数 = 30fps ÷ (モーション + 隙)</code></div>
           <div>• <strong>巨大化段階</strong>: 未巨大化(0)と最大(5)は実データ。中間段階(1〜4)は <code>base + (giant5 - base) × (段階 / 5)</code> の線形補間による推定値（UIに「推定値」明記）。</div>
