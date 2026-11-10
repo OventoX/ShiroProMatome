@@ -39,10 +39,12 @@
       const id = typeof item.id === "string" ? item.id.trim() : "";
       if (!id || seenIds.has(id)) continue;
       seenIds.add(id);
+      const giantStep = (typeof item.giantStep === "number" && item.giantStep >= 0 && item.giantStep <= 5) ? item.giantStep : 5;
       valid.push({
         id,
         strategyOn: item.strategyOn !== undefined ? Boolean(item.strategyOn) : true,
-        specialOn: item.specialOn !== undefined ? Boolean(item.specialOn) : false
+        specialOn: item.specialOn !== undefined ? Boolean(item.specialOn) : false,
+        giantStep
       });
       if (valid.length >= 8) break;
     }
@@ -2425,7 +2427,7 @@
   function selectCastleForSlot(c, targetSlotIndex = null) {
     pushUndoSnapshot();
     const existingIdx = party.findIndex(p => p && p.id === c.id);
-    const newMember = { id: c.id, strategyOn: true, specialOn: !!c.special };
+    const newMember = { id: c.id, strategyOn: true, specialOn: !!c.special, giantStep: 5 };
 
     if (existingIdx !== -1) {
       // Already in party: move/reorder to target slot without losing any other member
@@ -12949,13 +12951,323 @@ function showQuizResult() {
     { id: "def3000", name: "超高防御ゴーレム (防御 3,000 / HP 100万)", def: 3000, hp: 1000000, isInfinite: false, red: 0 }
   ];
 
+  // --- Prompt 41: 巨大化段階別ステータス (0:未巨大化, 5:最大, 1〜4:線形補間推定値) ---
+  // 出典・仕様注記: data.js には base (未巨大化) と giant5 (最大) のみ存在。
+  // 中間段階 (1〜4) はゲーム実測値が存在しないため、base から giant5 への線形補間 (step / 5) による推定値（UIに「推定値」明記）。
+  function getCastleBaseStatsForGiant(castle, giantStep = 5) {
+    if (!castle || !castle.stats) {
+      return { atk: 100, def: 100, hp: 1000, range: 100, isIntermediate: false, giantStep: 5 };
+    }
+    const base = castle.stats.base || { atk: 100, def: 100, hp: 1000, range: 100 };
+    const g5 = castle.stats.giant5 || { atk: 100, def: 100, hp: 1000, range: 100 };
+    const step = (typeof giantStep === "number" && giantStep >= 0 && giantStep <= 5) ? giantStep : 5;
+
+    if (step === 0) {
+      return { atk: base.atk, def: base.def, hp: base.hp, range: base.range, isIntermediate: false, giantStep: 0 };
+    }
+    if (step === 5) {
+      return { atk: g5.atk, def: g5.def, hp: g5.hp, range: g5.range, isIntermediate: false, giantStep: 5 };
+    }
+    const ratio = step / 5;
+    return {
+      atk: Math.round(base.atk + (g5.atk - base.atk) * ratio),
+      def: Math.round(base.def + (g5.def - base.def) * ratio),
+      hp: Math.round(base.hp + (g5.hp - base.hp) * ratio),
+      range: Math.round(base.range + (g5.range - base.range) * ratio),
+      isIntermediate: true,
+      giantStep: step
+    };
+  }
+  window.getCastleBaseStatsForGiant = getCastleBaseStatsForGiant;
+
+  // --- Prompt 41: 計略ダメージ機械パース (即時直接ダメージ計略) ---
+  // 「攻撃の○倍のダメージを与える」等の直接ダメージ計略（実測69体）を機械パース
+  // バフ持続型（X秒間...）やトークン（伏兵）は対象外とし null を返却
+  function parseCastleDamageStrategy(strategy) {
+    if (!strategy || !strategy.text || !strategy.cooldown) return null;
+    const text = strategy.text;
+    if (/^[0-9]+秒間/.test(text.trim())) return null; // 持続バフ型は常時反映のまま対象外
+    if (text.includes("伏兵") || text.includes("トークン")) return null; // 伏兵計略は対象外
+
+    // 連撃判定: 攻撃のX倍のダメージをY回
+    const mHit = text.match(/攻撃の([0-9]+(?:\.[0-9]+)?)倍の\s*ダメージを([0-9]+)回/);
+    // 単発/通常判定: 攻撃のX倍の[属性]*ダメージ or 攻撃のX倍ダメージ
+    const mSingle = text.match(/攻撃の([0-9]+(?:\.[0-9]+)?)倍(?:の)?\s*(?:術|火属性|水属性|風属性|雷属性)?\s*ダメージ/);
+
+    if (!mHit && !mSingle) return null;
+
+    const mult = parseFloat(mHit ? mHit[1] : mSingle[1]);
+    const hits = mHit ? parseInt(mHit[2], 10) : 1;
+    const isAoe = /範囲内の敵|標的とその周囲|画面上の全ての敵|全ての敵/.test(text);
+    const isDefIgnore = /防御(?:力)?を?無視|防御(?:力)?を?0として計算|防御減算な/.test(text);
+    const isMagic = /術ダメージ/.test(text);
+
+    return {
+      name: strategy.name || "",
+      text: text,
+      cooldown: strategy.cooldown,
+      cost: strategy.cost || 0,
+      mult: mult,
+      hits: hits,
+      isAoe: isAoe,
+      isDefIgnore: isDefIgnore,
+      isMagic: isMagic
+    };
+  }
+  window.parseCastleDamageStrategy = parseCastleDamageStrategy;
+
+  // --- Prompt 41: 射撃訓練場 D&D / タップ編成 操作 ---
+  let firingSelectedPaletteCastle = null;
+
+  function movePartySlot(fromIdx, toIdx) {
+    if (fromIdx === toIdx || fromIdx < 0 || fromIdx >= party.length) return;
+    pushUndoSnapshot();
+    const [moved] = party.splice(fromIdx, 1);
+    if (toIdx >= party.length) {
+      party.push(moved);
+    } else {
+      party.splice(toIdx, 0, moved);
+    }
+    saveParty();
+    renderDashboard();
+    renderFiringRangeTab();
+  }
+
+  function removePartySlot(idx) {
+    if (idx < 0 || idx >= party.length) return;
+    pushUndoSnapshot();
+    party.splice(idx, 1);
+    saveParty();
+    renderDashboard();
+    renderFiringRangeTab();
+  }
+
+  function setPartySlot(castle, targetIdx) {
+    if (!castle) return;
+    pushUndoSnapshot();
+    selectCastleForSlot(castle, targetIdx);
+    renderFiringRangeTab();
+  }
+
+  function updateTapNotice() {
+    const notice = document.getElementById("firingTapSelectNotice");
+    if (!notice) return;
+    if (firingSelectedPaletteCastle) {
+      notice.style.display = "block";
+      notice.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span>🎯 選択中: <strong>「${escapeHtml(firingSelectedPaletteCastle.name)}」</strong>（★${firingSelectedPaletteCastle.rarity} ${escapeHtml(firingSelectedPaletteCastle.weapon)}）―― 配置先スロット枠 (1〜8) をタップしてください。</span>
+          <button type="button" class="btn btn-xs" id="btnCancelTapSelect" style="font-size:12px;">キャンセル</button>
+        </div>
+      `;
+      const cancelBtn = document.getElementById("btnCancelTapSelect");
+      if (cancelBtn) {
+        cancelBtn.addEventListener("click", () => {
+          firingSelectedPaletteCastle = null;
+          updateTapNotice();
+          renderFiringPaletteTray();
+        });
+      }
+    } else {
+      notice.style.display = "none";
+    }
+  }
+
+  function renderFiringPartyDock() {
+    const container = document.getElementById("firingPartySlotsGrid");
+    if (!container) return;
+    container.innerHTML = "";
+
+    for (let i = 0; i < 8; i++) {
+      const slot = party[i];
+      const castle = slot ? getCastleById(slot.id) : null;
+      const slotEl = document.createElement("div");
+      slotEl.className = "firing-slot-card" + (castle ? " filled" : " empty");
+      slotEl.dataset.slotIdx = String(i);
+
+      if (castle) {
+        const gStep = (slot && typeof slot.giantStep === "number") ? slot.giantStep : 5;
+        slotEl.draggable = true;
+        slotEl.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <span style="font-size:12px; font-weight:bold; color:var(--text-sub);">枠 ${i + 1}</span>
+            <button type="button" class="btn btn-xs firing-slot-remove-btn" data-slot-idx="${i}" title="部隊から外す" style="padding:0 5px; line-height:16px;">&times;</button>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px; margin-bottom:6px;">
+            ${getIconHtml(castle, 32)}
+            <div style="overflow:hidden; flex:1;">
+              <div style="font-size:12px; font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" title="${escapeHtml(castle.name)}">${escapeHtml(castle.name)}</div>
+              <div style="font-size:12px; color:var(--text-sub);">★${castle.rarity} [${escapeHtml(castle.weapon)}]</div>
+            </div>
+          </div>
+          <div style="margin-top:4px;">
+            <label style="font-size:12px; color:var(--text-sub); display:block; margin-bottom:2px;">巨大化段階:</label>
+            <select class="firing-giant-select form-control" data-slot-idx="${i}" style="width:100%; font-size:12px; padding:2px 4px; border:1px solid var(--border-color); border-radius:3px; background:var(--card-bg); color:var(--text-main);">
+              <option value="0" ${gStep === 0 ? "selected" : ""}>未巨大化 (base)</option>
+              <option value="1" ${gStep === 1 ? "selected" : ""}>1段階 (推定値)</option>
+              <option value="2" ${gStep === 2 ? "selected" : ""}>2段階 (推定値)</option>
+              <option value="3" ${gStep === 3 ? "selected" : ""}>3段階 (推定値)</option>
+              <option value="4" ${gStep === 4 ? "selected" : ""}>4段階 (推定値)</option>
+              <option value="5" ${gStep === 5 ? "selected" : ""}>最大 (giant5)</option>
+            </select>
+          </div>
+        `;
+
+        slotEl.addEventListener("dragstart", (e) => {
+          slotEl.classList.add("dragging");
+          e.dataTransfer.setData("text/plain", JSON.stringify({ type: "move-slot", fromIdx: i, castleId: castle.id }));
+          const trash = document.getElementById("firingSlotTrashDropZone");
+          if (trash) trash.style.display = "block";
+        });
+
+        slotEl.addEventListener("dragend", () => {
+          slotEl.classList.remove("dragging");
+          const trash = document.getElementById("firingSlotTrashDropZone");
+          if (trash) trash.style.display = "none";
+          document.querySelectorAll(".firing-slot-card").forEach(el => el.classList.remove("drag-over"));
+        });
+      } else {
+        slotEl.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <span style="font-size:12px; font-weight:bold; color:var(--text-sub);">枠 ${i + 1}</span>
+          </div>
+          <div style="text-align:center; padding:18px 4px; color:var(--text-sub);">
+            <div style="font-size:18px; margin-bottom:2px;">＋</div>
+            <div style="font-size:12px;">空き枠</div>
+            <div style="font-size:12px; color:#a0aec0; margin-top:2px;">(D&Dまたはタップ)</div>
+          </div>
+        `;
+      }
+
+      slotEl.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        slotEl.classList.add("drag-over");
+      });
+      slotEl.addEventListener("dragleave", () => {
+        slotEl.classList.remove("drag-over");
+      });
+      slotEl.addEventListener("drop", (e) => {
+        e.preventDefault();
+        slotEl.classList.remove("drag-over");
+        const rawData = e.dataTransfer.getData("text/plain");
+        if (!rawData) return;
+        try {
+          const payload = JSON.parse(rawData);
+          if (payload.type === "new-castle") {
+            const c = getCastleById(payload.castleId);
+            if (c) setPartySlot(c, i);
+          } else if (payload.type === "move-slot") {
+            movePartySlot(payload.fromIdx, i);
+          }
+        } catch (err) {
+          console.warn("Drop parse error:", err);
+        }
+      });
+
+      slotEl.addEventListener("click", (e) => {
+        if (e.target.closest(".firing-slot-remove-btn")) {
+          removePartySlot(i);
+          return;
+        }
+        if (e.target.closest(".firing-giant-select")) {
+          return;
+        }
+        if (firingSelectedPaletteCastle) {
+          const c = firingSelectedPaletteCastle;
+          firingSelectedPaletteCastle = null;
+          updateTapNotice();
+          setPartySlot(c, i);
+          return;
+        }
+        if (!party[i]) {
+          openCastleSelector(i);
+        }
+      });
+
+      container.appendChild(slotEl);
+    }
+
+    container.querySelectorAll(".firing-giant-select").forEach(sel => {
+      sel.addEventListener("change", (e) => {
+        const idx = parseInt(e.target.dataset.slotIdx, 10);
+        const val = parseInt(e.target.value, 10);
+        if (party[idx]) {
+          party[idx].giantStep = val;
+          saveParty();
+          renderFiringRangeTab();
+        }
+      });
+    });
+  }
+
+  function renderFiringPaletteTray() {
+    const tray = document.getElementById("firingPickerChipsTray");
+    if (!tray) return;
+
+    const searchInput = document.getElementById("firingPickerSearchInput");
+    const weaponFilter = document.getElementById("firingPickerWeaponFilter");
+    const rarityFilter = document.getElementById("firingPickerRarityFilter");
+    const countBadge = document.getElementById("firingPickerCountBadge");
+
+    const q = (searchInput?.value || "").trim().toLowerCase();
+    const w = weaponFilter?.value || "";
+    const r = rarityFilter?.value || "";
+
+    const filtered = window.SCRE_DATA.filter(c => {
+      if (q && !matchCastleNameOrRuby(c, q)) return false;
+      if (w && c.weapon !== w) return false;
+      if (r && String(c.rarity) !== r) return false;
+      return true;
+    });
+
+    if (countBadge) {
+      countBadge.textContent = `${filtered.length.toLocaleString()} 件`;
+    }
+
+    const displayCastles = filtered.slice(0, 80);
+    tray.innerHTML = displayCastles.map(c => {
+      const isSelected = firingSelectedPaletteCastle && firingSelectedPaletteCastle.id === c.id;
+      return `
+        <div class="firing-palette-chip ${isSelected ? 'selected' : ''}" draggable="true" data-castle-id="${escapeHtml(c.id)}" style="display:inline-flex; align-items:center; gap:4px; padding:3px 6px; border:1px solid ${isSelected ? 'var(--primary-color)' : 'var(--border-color)'}; border-radius:4px; background:${isSelected ? '#ebf8ff' : 'var(--card-bg)'}; cursor:grab; font-size:12px; user-select:none;">
+          ${getIconHtml(c, 22)}
+          <span style="font-weight:bold; font-size:12px;">${escapeHtml(c.name)}</span>
+          <span style="font-size:12px; color:var(--text-sub);">★${c.rarity} ${escapeHtml(c.weapon)}</span>
+        </div>
+      `;
+    }).join("");
+
+    tray.querySelectorAll(".firing-palette-chip").forEach(chip => {
+      const cId = chip.dataset.castleId;
+      const c = getCastleById(cId);
+      if (!c) return;
+
+      chip.addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("text/plain", JSON.stringify({ type: "new-castle", castleId: c.id }));
+      });
+
+      chip.addEventListener("click", () => {
+        if (firingSelectedPaletteCastle && firingSelectedPaletteCastle.id === c.id) {
+          firingSelectedPaletteCastle = null;
+        } else {
+          firingSelectedPaletteCastle = c;
+        }
+        updateTapNotice();
+        renderFiringPaletteTray();
+      });
+    });
+  }
+
   function calculateFiringCastleStats(c, slot, targetDef, targetRed, targetCount, disabledBuffs, immuneDefIgnore, customCalcResult) {
     if (!c) return null;
     const calcResult = customCalcResult || calculateBuffs();
     const calcData = calcResult.perCastle[c.id];
     const b = calcData?.buffs || {};
 
-    const baseAtk = parseStatNumber((c.stats && c.stats.giant5 && c.stats.giant5.atk) || (c.stats && c.stats.atk) || 500);
+    const giantStep = (slot && typeof slot.giantStep === "number") ? slot.giantStep : 5;
+    const baseStats = getCastleBaseStatsForGiant(c, giantStep);
+    const baseAtk = baseStats.atk;
+    const isIntermediateGiant = baseStats.isIntermediate;
+
     const isTerrainMatch = calcData?.calculatedStats?.isTerrainMatch || false;
     const terrain = calcResult?.currentTerrain || (typeof currentTerrain !== "undefined" ? currentTerrain : "");
     const terrainMult = isTerrainMatch ? (terrain === "地獄" ? 1.3 : 1.25) : 1.0;
@@ -13025,20 +13337,64 @@ function showQuizResult() {
     let effectiveTargets = 1;
     if (targetCount > 1) {
       if (wf.aoe === true) {
-        // AoE武器（大砲、鈴、歌舞、槌、陣貝など）は範囲内の全対象を同時攻撃
         effectiveTargets = targetCount;
       } else if (["投剣", "祓串"].includes(c.weapon)) {
-        // 同時マルチロック攻撃武器（投剣・祓串は基本2体同時攻撃）
         effectiveTargets = Math.min(targetCount, 2);
       }
     }
 
     const cycleDamage = finalHitDamage * hits * effectiveTargets;
-    const theoreticalDps = Math.round(cycleDamage * attacksPerSec);
+    const normalDps = Math.round(cycleDamage * attacksPerSec);
+
+    // --- Prompt 41: 計略ダメージ計算 ---
+    let strategyDamage = null;
+    const stratParsed = (c.strategy && slot?.strategyOn !== false) ? parseCastleDamageStrategy(c.strategy) : null;
+    if (stratParsed) {
+      const stratBaseAtk = Math.floor(finalAtk * stratParsed.mult);
+      const stratAtkWithTarget = Math.floor(stratBaseAtk * dmgTargetMult);
+
+      const stratDefIgnore = Boolean(effectiveIgnore || stratParsed.isDefIgnore || stratParsed.isMagic || defIgnoreInfo.isMagic);
+      const stratEffDef = stratDefIgnore ? 0 : effDef;
+      const stratBaseDmg = Math.max(Math.floor(stratAtkWithTarget * 0.1), stratAtkWithTarget - stratEffDef);
+
+      const stratHitDamage = Math.max(1, Math.floor(stratBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
+      const stratTargets = stratParsed.isAoe ? targetCount : 1;
+      const stratTotalDamagePerCast = stratHitDamage * stratParsed.hits * stratTargets;
+
+      const stratCooldown = Math.max(1, stratParsed.cooldown);
+      const stratDps = Math.round(stratTotalDamagePerCast / stratCooldown);
+
+      strategyDamage = {
+        parsed: stratParsed,
+        baseAtk: stratBaseAtk,
+        effDef: stratEffDef,
+        isDefIgnore: stratDefIgnore,
+        hitDamage: stratHitDamage,
+        hits: stratParsed.hits,
+        targets: stratTargets,
+        totalDamagePerCast: stratTotalDamagePerCast,
+        cooldown: stratCooldown,
+        dps: stratDps
+      };
+    }
+
+    const stratDps = strategyDamage ? strategyDamage.dps : 0;
+    const theoreticalDps = normalDps + stratDps;
+
+    const rangePerc = ((b.rangePercent?.max || 0) + (b.rangePercent?.stackSum || 0)) / 100;
+    const rangeFlat = (b.rangeFlat?.sum || 0);
+    const effectiveRange = Math.floor(baseStats.range * (1 + rangePerc) + rangeFlat);
+
+    let breakdownText = `[通常] 攻${finalAtk} → 引後${baseDamage} → 1撃${finalHitDamage} (${normalDps.toLocaleString()}/s)`;
+    if (strategyDamage) {
+      breakdownText += ` ｜ [計略] 攻${finalAtk}×${strategyDamage.parsed.mult}倍 → 1撃${strategyDamage.totalDamagePerCast.toLocaleString()} (CT${strategyDamage.cooldown}s, ${strategyDamage.dps.toLocaleString()}/s)`;
+    }
 
     return {
       castle: c,
       slot: slot,
+      giantStep: giantStep,
+      isIntermediateGiant: isIntermediateGiant,
       finalAtk: finalAtk,
       effDef: effDef,
       effectiveIgnore: effectiveIgnore,
@@ -13051,7 +13407,7 @@ function showQuizResult() {
       finalHitDamage: finalHitDamage,
       hits: hits,
       effectiveTargets: effectiveTargets,
-      effectiveRange: calcData?.calculatedStats?.range || (c.stats && c.stats.giant5 && c.stats.giant5.range) || 300,
+      effectiveRange: effectiveRange,
       baseAtkFrames: wf.atk,
       baseGapFrames: wf.gap,
       effAtkFrames: effAtkFrames,
@@ -13059,13 +13415,18 @@ function showQuizResult() {
       cycleFrames: cycleFrames,
       cycleTime: cycleTime,
       attacksPerSec: attacksPerSec,
+      normalDps: normalDps,
+      strategyDamage: strategyDamage,
+      stratDps: stratDps,
       theoreticalDps: theoreticalDps,
       isEstimateFrame: !!wf.isEstimate,
-      breakdownText: `攻${finalAtk} → ${dmgTargetMult > 1 ? `与倍×${dmgTargetMult.toFixed(2)} → ` : ''}引後${baseDamage} → 与×${(1+dmgDealtPerc).toFixed(2)}${enemyDmgTakenPerc > 0 ? `×被×${(1+enemyDmgTakenPerc).toFixed(2)}` : ''} → 1撃${finalHitDamage}`
+      breakdownText: breakdownText
     };
   }
 
   function renderFiringRangeTab() {
+    renderFiringPartyDock();
+
     const partyCastles = party.map((slot, idx) => ({
       slot,
       castle: slot ? getCastleById(slot.id) : null,
@@ -13081,7 +13442,7 @@ function showQuizResult() {
     if (!tbody) return;
 
     if (partyCastles.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:16px; color:var(--text-sub);">部隊に城娘が編成されていません。ダッシュボードで城娘を編成してください。</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:16px; color:var(--text-sub);">部隊に城娘が編成されていません。上部の部隊編成スロットから城娘を編成してください。</td></tr>`;
       const dpsHeadline = document.getElementById("firingRangeDpsHeadline");
       if (dpsHeadline) dpsHeadline.textContent = "部隊総DPS: 0 /秒";
       drawFiringStageCanvas();
@@ -13090,8 +13451,8 @@ function showQuizResult() {
       return;
     }
 
-    const currentIds = partyCastles.map(p => p.castle.id).join(",");
-    const stateIds = firingRangeState.castleSlots.map(s => s.castle ? s.castle.id : "").join(",");
+    const currentIds = partyCastles.map(p => `${p.castle.id}_${p.slot.giantStep ?? 5}_${p.slot.strategyOn !== false}`).join(",");
+    const stateIds = firingRangeState.castleSlots.map(s => `${s.castle ? s.castle.id : ''}_${s.slot?.giantStep ?? 5}_${s.slot?.strategyOn !== false}`).join(",");
     if (currentIds !== stateIds || firingRangeState.castleSlots.length !== partyCastles.length) {
       firingRangeState.castleSlots = partyCastles.map(({ slot, castle, idx }) => {
         const stat = calculateFiringCastleStats(castle, slot, firingRangeState.targetDef, firingRangeState.targetRed, firingRangeState.targetCount, firingRangeState.disabledBuffs);
@@ -13102,23 +13463,32 @@ function showQuizResult() {
           timer: 0,
           hits: 0,
           totalDmg: 0,
+          normalDmg: 0,
+          stratDmg: 0,
+          stratCount: 0,
+          stratTimer: 0,
           stat
         };
       });
     } else {
-      firingRangeState.castleSlots.forEach(s => {
+      firingRangeState.castleSlots.forEach((s, i) => {
+        s.slot = partyCastles[i].slot;
         s.stat = calculateFiringCastleStats(s.castle, s.slot, firingRangeState.targetDef, firingRangeState.targetRed, firingRangeState.targetCount, firingRangeState.disabledBuffs);
       });
     }
 
+    let totalNormalDps = 0;
+    let totalStratDps = 0;
     let totalPartyDps = 0;
     firingRangeState.castleSlots.forEach(s => {
+      totalNormalDps += (s.stat.normalDps || 0);
+      totalStratDps += (s.stat.stratDps || 0);
       totalPartyDps += s.stat.theoreticalDps;
     });
 
     const dpsHeadline = document.getElementById("firingRangeDpsHeadline");
     if (dpsHeadline) {
-      dpsHeadline.textContent = `部隊総DPS: ${totalPartyDps.toLocaleString()} /秒`;
+      dpsHeadline.textContent = `部隊総DPS: ${totalPartyDps.toLocaleString()} /秒 (通常: ${totalNormalDps.toLocaleString()} + 計略: ${totalStratDps.toLocaleString()})`;
     }
 
     tbody.innerHTML = firingRangeState.castleSlots.map((s, i) => {
@@ -13126,6 +13496,7 @@ function showQuizResult() {
       const stat = s.stat;
       const sharePerc = totalPartyDps > 0 ? (stat.theoreticalDps / totalPartyDps * 100).toFixed(1) : "0.0";
       const estimateBadge = stat.isEstimateFrame ? `<span class="badge" style="background:#fff3cd; color:#856404; font-size:12px; margin-left:4px;" title="実測値未検証のため標準デフォルト値を適用中">推定値</span>` : "";
+      const gStep = (stat.giantStep !== undefined) ? stat.giantStep : 5;
 
       return `
         <tr style="border-bottom:1px solid var(--border-color);">
@@ -13139,17 +13510,39 @@ function showQuizResult() {
               </div>
             </div>
           </td>
-          <td style="text-align:right; font-weight:bold; color:var(--buff-color); font-size:12px;">${stat.finalAtk.toLocaleString()}</td>
-          <td style="text-align:right; font-weight:bold; color:#e67e22; font-size:12px;">
-            ${stat.finalHitDamage.toLocaleString()}${stat.hits > 1 ? ` × ${stat.hits}連撃` : ''}
+          <td style="text-align:center;">
+            <select class="firing-giant-select form-control" data-slot-idx="${s.idx}" style="font-size:12px; padding:2px 4px; border:1px solid var(--border-color); border-radius:3px; background:var(--card-bg); color:var(--text-main);">
+              <option value="0" ${gStep === 0 ? "selected" : ""}>未巨大化 (base)</option>
+              <option value="1" ${gStep === 1 ? "selected" : ""}>1段階 (推定値)</option>
+              <option value="2" ${gStep === 2 ? "selected" : ""}>2段階 (推定値)</option>
+              <option value="3" ${gStep === 3 ? "selected" : ""}>3段階 (推定値)</option>
+              <option value="4" ${gStep === 4 ? "selected" : ""}>4段階 (推定値)</option>
+              <option value="5" ${gStep === 5 ? "selected" : ""}>最大 (giant5)</option>
+            </select>
+            ${stat.isIntermediateGiant ? '<div style="margin-top:2px;"><span class="badge" style="background:#fff3cd; color:#856404; font-size:12px;" title="base→giant5の線形補間推定値">推定値</span></div>' : ''}
+          </td>
+          <td style="text-align:right; font-weight:bold; color:var(--buff-color); font-size:12px;">
+            ${stat.finalAtk.toLocaleString()}
+            ${stat.isIntermediateGiant ? '<div style="font-size:12px; color:#856404; font-weight:normal;">(推定)</div>' : ''}
+          </td>
+          <td style="text-align:right; font-size:12px;">
+            <div>通常: <strong style="color:#e67e22;">${stat.finalHitDamage.toLocaleString()}</strong>${stat.hits > 1 ? ` × ${stat.hits}連` : ''}</div>
+            <div>計略: ${stat.strategyDamage ? `<strong style="color:#9f7aea;">${stat.strategyDamage.totalDamagePerCast.toLocaleString()}</strong>` : '<span style="color:var(--text-sub); font-size:12px;">-</span>'}</div>
             <div style="font-size:12px; color:var(--text-sub);">${stat.effectiveIgnore ? '<span style="color:#27ae60;">[防御無視]</span>' : `実効防 ${stat.effDef}`}</div>
           </td>
           <td style="text-align:center; font-size:12px;">
-            <strong>${stat.cycleFrames}f</strong> (${stat.attacksPerSec.toFixed(2)}回/秒)
-            <div style="font-size:12px; color:var(--text-sub);">${stat.effAtkFrames}f+${stat.effGapFrames}f</div>
+            <div>通常: <strong>${stat.cycleFrames}f</strong> (${stat.attacksPerSec.toFixed(2)}/s)</div>
+            <div>計略: ${stat.strategyDamage ? `<strong style="color:#9f7aea;">CT ${stat.strategyDamage.cooldown}s</strong>` : '<span style="color:var(--text-sub); font-size:12px;">-</span>'}</div>
           </td>
-          <td style="text-align:right; font-weight:bold; color:#d35400; font-size:13px;">${stat.theoreticalDps.toLocaleString()} /秒</td>
-          <td style="text-align:right; font-family:monospace; font-weight:bold; font-size:12px;" id="firingRowDmg_${i}">${s.totalDmg.toLocaleString()} (${s.hits}hit)</td>
+          <td style="text-align:right; font-size:12px;">
+            <div>通常: ${stat.normalDps.toLocaleString()} /s</div>
+            <div>計略: ${stat.strategyDamage ? `${stat.strategyDamage.dps.toLocaleString()} /s` : '<span class="badge" style="background:#f1f5f9; color:#64748b; font-size:12px;">未対応(バフのみ)</span>'}</div>
+            <div style="font-weight:bold; color:#d35400; font-size:13px; margin-top:2px;">計: ${stat.theoreticalDps.toLocaleString()} /s</div>
+          </td>
+          <td style="text-align:right; font-family:monospace; font-size:12px;" id="firingRowDmg_${i}">
+            <strong>${s.totalDmg.toLocaleString()}</strong>
+            <div style="font-size:12px; color:var(--text-sub);">通常:${(s.normalDmg || 0).toLocaleString()} (${s.hits || 0}h)${stat.strategyDamage ? ` / 計略:${(s.stratDmg || 0).toLocaleString()} (${s.stratCount || 0}回)` : ''}</div>
+          </td>
           <td style="text-align:center;">
             <div style="display:flex; align-items:center; gap:4px; justify-content:center;">
               <div style="width:50px; height:6px; background:#e2e8f0; border-radius:3px; overflow:hidden;">
@@ -13164,6 +13557,18 @@ function showQuizResult() {
         </tr>
       `;
     }).join("");
+
+    tbody.querySelectorAll(".firing-giant-select").forEach(sel => {
+      sel.addEventListener("change", (e) => {
+        const slotIdx = parseInt(e.target.dataset.slotIdx, 10);
+        const val = parseInt(e.target.value, 10);
+        if (party[slotIdx]) {
+          party[slotIdx].giantStep = val;
+          saveParty();
+          renderFiringRangeTab();
+        }
+      });
+    });
 
     renderFiringBuffContributions();
     renderFiringSnapshotList();
@@ -13320,6 +13725,10 @@ function showQuizResult() {
       s.timer = 0;
       s.hits = 0;
       s.totalDmg = 0;
+      s.normalDmg = 0;
+      s.stratDmg = 0;
+      s.stratCount = 0;
+      s.stratTimer = 0;
     });
 
     const btn = document.getElementById("btnFiringPlayPause");
@@ -13339,7 +13748,9 @@ function showQuizResult() {
 
     firingRangeState.castleSlots.forEach((s, i) => {
       const row = document.getElementById(`firingRowDmg_${i}`);
-      if (row) row.textContent = `0 (0hit)`;
+      if (row) {
+        row.innerHTML = `<strong>0</strong><div style="font-size:12px; color:var(--text-sub);">通常:0 (0h)</div>`;
+      }
     });
 
     drawFiringStageCanvas();
@@ -13362,12 +13773,14 @@ function showQuizResult() {
     firingRangeState.elapsedTime += dt * speed;
 
     firingRangeState.castleSlots.forEach((s, idx) => {
+      // 1. 通常攻撃サイクル
       s.timer += dt * speed;
       const cycleTime = s.stat.cycleTime || 1.0;
       while (s.timer >= cycleTime) {
         s.timer -= cycleTime;
         s.hits += s.stat.hits;
         const dmg = s.stat.finalHitDamage * s.stat.hits * s.stat.effectiveTargets;
+        s.normalDmg = (s.normalDmg || 0) + dmg;
         s.totalDmg += dmg;
         firingRangeState.totalDamage += dmg;
 
@@ -13378,7 +13791,50 @@ function showQuizResult() {
           isMagic: s.stat.effectiveIgnore
         });
 
-        spawnDamagePopup(dmg, s.stat.effectiveIgnore);
+        spawnDamagePopup(dmg, s.stat.effectiveIgnore, false);
+      }
+
+      // 2. 計略ダメージ発動サイクル (Prompt 41)
+      if (s.stat.strategyDamage && (s.slot?.strategyOn !== false)) {
+        if (s.stratCount === 0) {
+          // 試射開始直後に1回発動
+          s.stratCount = 1;
+          s.stratTimer = 0;
+          const sDmg = s.stat.strategyDamage.totalDamagePerCast;
+          s.stratDmg = (s.stratDmg || 0) + sDmg;
+          s.totalDmg += sDmg;
+          firingRangeState.totalDamage += sDmg;
+
+          firingRangeState.projectiles.push({
+            slotIdx: idx,
+            progress: 0,
+            speed: 5.0,
+            isMagic: true,
+            isStrategy: true
+          });
+
+          spawnDamagePopup(sDmg, true, true);
+        } else {
+          s.stratTimer = (s.stratTimer || 0) + dt * speed;
+          while (s.stratTimer >= s.stat.strategyDamage.cooldown) {
+            s.stratTimer -= s.stat.strategyDamage.cooldown;
+            s.stratCount++;
+            const sDmg = s.stat.strategyDamage.totalDamagePerCast;
+            s.stratDmg = (s.stratDmg || 0) + sDmg;
+            s.totalDmg += sDmg;
+            firingRangeState.totalDamage += sDmg;
+
+            firingRangeState.projectiles.push({
+              slotIdx: idx,
+              progress: 0,
+              speed: 5.0,
+              isMagic: true,
+              isStrategy: true
+            });
+
+            spawnDamagePopup(sDmg, true, true);
+          }
+        }
       }
     });
 
@@ -13555,14 +14011,22 @@ function showQuizResult() {
     ctx.fillText(`防: ${firingRangeState.targetDef} ${firingRangeState.targetRed > 0 ? `(-${firingRangeState.targetRed}%)` : ''}`, targetX, targetY + 54);
 
     firingRangeState.damagePopups.forEach(pop => {
-      ctx.fillStyle = `rgba(${pop.isMagic ? '159, 122, 234' : '237, 137, 54'}, ${pop.alpha})`;
-      ctx.font = "bold 14px sans-serif";
+      let color;
+      if (pop.isStrategy) {
+        color = `rgba(246, 224, 94, ${pop.alpha})`;
+      } else if (pop.isMagic) {
+        color = `rgba(159, 122, 234, ${pop.alpha})`;
+      } else {
+        color = `rgba(237, 137, 54, ${pop.alpha})`;
+      }
+      ctx.fillStyle = color;
+      ctx.font = pop.isStrategy ? "bold 15px sans-serif" : "bold 14px sans-serif";
       ctx.textAlign = "center";
       ctx.fillText(pop.text, pop.x, pop.y);
     });
   }
 
-  function spawnDamagePopup(amount, isMagic) {
+  function spawnDamagePopup(amount, isMagic, isStrategy) {
     const canvas = document.getElementById("firingStageCanvas");
     const targetX = canvas ? (canvas.width - 120) : 680;
     const targetY = canvas ? (canvas.height / 2) : 130;
@@ -13570,12 +14034,15 @@ function showQuizResult() {
     const jitterX = targetX + (Math.random() * 40 - 20);
     const jitterY = targetY + (Math.random() * 30 - 15);
 
+    const text = isStrategy ? `計略 +${amount.toLocaleString()}` : `+${amount.toLocaleString()}`;
+
     firingRangeState.damagePopups.push({
-      text: `+${amount.toLocaleString()}`,
+      text: text,
       x: jitterX,
       y: jitterY,
       alpha: 1.0,
-      isMagic: isMagic
+      isMagic: isMagic,
+      isStrategy: Boolean(isStrategy)
     });
 
     if (firingRangeState.damagePopups.length > 25) {
@@ -13605,7 +14072,17 @@ function showQuizResult() {
 
     firingRangeState.castleSlots.forEach((s, i) => {
       const row = document.getElementById(`firingRowDmg_${i}`);
-      if (row) row.textContent = `${s.totalDmg.toLocaleString()} (${s.hits}hit)`;
+      if (row) {
+        const normDmg = s.normalDmg || 0;
+        const sDmg = s.stratDmg || 0;
+        const sCount = s.stratCount || 0;
+        row.innerHTML = `
+          <strong>${s.totalDmg.toLocaleString()}</strong>
+          <div style="font-size:12px; color:var(--text-sub);">
+            通常:${normDmg.toLocaleString()} (${s.hits}h)${s.stat?.strategyDamage ? ` / 計略:${sDmg.toLocaleString()} (${sCount}回)` : ''}
+          </div>
+        `;
+      }
     });
   }
 
@@ -13671,19 +14148,22 @@ function showQuizResult() {
     const input = document.getElementById("firingSnapshotNameInput");
     const name = (input?.value || "").trim() || `試射スナップ (${new Date().toLocaleTimeString()})`;
 
-    const partyCastles = party.map(s => s ? getCastleById(s.id) : null).filter(Boolean);
+    const partyCastles = party.map(s => s ? { castle: getCastleById(s.id), slot: s } : null).filter(Boolean);
     let totalDps = 0;
-    const castleStats = partyCastles.map(c => {
-      const st = calculateFiringCastleStats(c, { id: c.id, strategyOn: true }, firingRangeState.targetDef, firingRangeState.targetRed, firingRangeState.targetCount, firingRangeState.disabledBuffs);
+    const castleStats = partyCastles.map(({ castle: c, slot: s }) => {
+      const st = calculateFiringCastleStats(c, s, firingRangeState.targetDef, firingRangeState.targetRed, firingRangeState.targetCount, firingRangeState.disabledBuffs);
       totalDps += st.theoreticalDps;
       return {
         id: c.id,
         name: c.name,
         weapon: c.weapon,
+        giantStep: (s && typeof s.giantStep === "number") ? s.giantStep : 5,
         finalAtk: st.finalAtk,
         finalHitDamage: st.finalHitDamage,
         cycleFrames: st.cycleFrames,
         attacksPerSec: st.attacksPerSec,
+        normalDps: st.normalDps,
+        stratDps: st.stratDps,
         dps: st.theoreticalDps
       };
     });
@@ -13827,7 +14307,13 @@ function showQuizResult() {
             const cDiffPerc = ca.dps > 0 ? (cDiff / ca.dps * 100).toFixed(1) : "0.0";
             return `
               <tr style="border-bottom:1px solid var(--border-color);">
-                <td><strong>${escapeHtml(ca.name)}</strong> <span style="color:var(--text-sub); font-size:12px;">${ca.weapon}</span></td>
+                <td>
+                  <strong>${escapeHtml(ca.name)}</strong>
+                  <span style="color:var(--text-sub); font-size:12px;">${ca.weapon}</span>
+                  <span style="font-size:12px; color:#2b6cb0; margin-left:4px;">
+                    ${ca.giantStep !== undefined ? (ca.giantStep === 0 ? '[未巨大化]' : (ca.giantStep === 5 ? '[最大]' : `[${ca.giantStep}段(推)]`)) : ''}
+                  </span>
+                </td>
                 <td style="text-align:right;">${ca.dps.toLocaleString()}</td>
                 <td style="text-align:right;">${cb.dps.toLocaleString()}</td>
                 <td style="text-align:right; font-weight:bold; color:${cDiff >= 0 ? '#27ae60' : '#e74c3c'};">
@@ -14037,6 +14523,56 @@ function showQuizResult() {
       btnCloseSnapComp.addEventListener("click", () => {
         const box = document.getElementById("firingSnapshotComparisonBox");
         if (box) box.style.display = "none";
+      });
+    }
+
+    // Prompt 41: Palette Toggle & Search/Filters
+    const btnTogglePicker = document.getElementById("btnToggleFiringCastlePicker");
+    const pickerBox = document.getElementById("firingCastlePickerContainer");
+    if (btnTogglePicker && pickerBox) {
+      btnTogglePicker.addEventListener("click", () => {
+        const isHidden = pickerBox.style.display === "none";
+        pickerBox.style.display = isHidden ? "block" : "none";
+        btnTogglePicker.textContent = isHidden ? "✕ パレットを閉じる" : "🔍 城娘パレットを表示";
+        if (isHidden) renderFiringPaletteTray();
+      });
+    }
+
+    const pickerSearch = document.getElementById("firingPickerSearchInput");
+    if (pickerSearch) {
+      pickerSearch.addEventListener("input", renderFiringPaletteTray);
+    }
+    const pickerWeapon = document.getElementById("firingPickerWeaponFilter");
+    if (pickerWeapon) {
+      pickerWeapon.addEventListener("change", renderFiringPaletteTray);
+    }
+    const pickerRarity = document.getElementById("firingPickerRarityFilter");
+    if (pickerRarity) {
+      pickerRarity.addEventListener("change", renderFiringPaletteTray);
+    }
+
+    // Prompt 41: Trash Drop Zone for Drag-out Remove
+    const trashZone = document.getElementById("firingSlotTrashDropZone");
+    if (trashZone) {
+      trashZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        trashZone.classList.add("drag-over");
+      });
+      trashZone.addEventListener("dragleave", () => {
+        trashZone.classList.remove("drag-over");
+      });
+      trashZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        trashZone.classList.remove("drag-over");
+        trashZone.style.display = "none";
+        const rawData = e.dataTransfer.getData("text/plain");
+        if (!rawData) return;
+        try {
+          const payload = JSON.parse(rawData);
+          if (payload.type === "move-slot") {
+            removePartySlot(payload.fromIdx);
+          }
+        } catch (err) {}
       });
     }
   }

@@ -4774,6 +4774,76 @@ html[data-font-size="small"] #tierViewOhige * {
   font-size: 12px;
 }
 
+/* Firing Range Party Dock & Drag-and-Drop (Prompt 41) */
+.firing-party-dock {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+.firing-slot-card {
+  background: var(--nav-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 8px;
+  position: relative;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.firing-slot-card.empty {
+  border: 1.5px dashed var(--border-color);
+  background: transparent;
+  cursor: pointer;
+}
+.firing-slot-card.empty:hover {
+  border-color: var(--primary-color);
+  background: rgba(66, 153, 225, 0.05);
+}
+.firing-slot-card.filled {
+  cursor: grab;
+}
+.firing-slot-card.dragging {
+  opacity: 0.4;
+  border-color: var(--primary-color);
+}
+.firing-slot-card.drag-over {
+  border: 2px dashed #3182ce;
+  background: rgba(49, 130, 206, 0.15);
+  transform: scale(1.02);
+}
+.firing-slot-card.tap-highlight {
+  outline: 2px solid #3182ce;
+  box-shadow: 0 0 8px rgba(49, 130, 206, 0.4);
+}
+.firing-slot-remove-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-sub);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.firing-slot-remove-btn:hover {
+  color: #e53e3e;
+  border-color: #e53e3e;
+  background: #fff5f5;
+}
+.firing-palette-chip {
+  transition: all 0.12s ease;
+}
+.firing-palette-chip:hover {
+  border-color: var(--primary-color);
+  background: var(--nav-bg);
+}
+.firing-palette-chip.selected {
+  outline: 2px solid #3182ce;
+  background: #ebf8ff;
+}
+.firing-trash-drop-zone.drag-over {
+  background: #fed7d7 !important;
+  border-color: #c53030 !important;
+  transform: scale(1.02);
+}
+
 #tab-firing-range,
 #tab-firing-range * {
   font-size: 12px;
