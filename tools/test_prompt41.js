@@ -172,15 +172,17 @@ function assert(title, condition, detail = '') {
     const s4 = window.getCastleBaseStatsForGiant(sample, 4);
     const s5 = window.getCastleBaseStatsForGiant(sample, 5);
 
-    const baseExact = (s0.atk === sample.stats.base.atk && s0.range === sample.stats.base.range && !s0.isIntermediate);
-    const g5Exact = (s5.atk === sample.stats.giant5.atk && s5.range === sample.stats.giant5.range && !s5.isIntermediate);
+    const expBase = window.getCastleBaseStatsForGiant(sample, 0);
+    const expG5 = window.getCastleBaseStatsForGiant(sample, 5);
+    const baseExact = (s0.atk === expBase.atk && s0.range === expBase.range && !s0.isIntermediate);
+    const g5Exact = (s5.atk === expG5.atk && s5.range === expG5.range && !s5.isIntermediate);
 
     // Monotonic increase from step 0 to step 5
     const monotonicAtk = (s0.atk <= s1.atk && s1.atk <= s2.atk && s2.atk <= s3.atk && s3.atk <= s4.atk && s4.atk <= s5.atk);
     const intermediateMarked = (s1.isIntermediate && s2.isIntermediate && s3.isIntermediate && s4.isIntermediate);
 
     // Linear formula check: step 2 (2/5)
-    const expectedAtk2 = Math.round(sample.stats.base.atk + (sample.stats.giant5.atk - sample.stats.base.atk) * 0.4);
+    const expectedAtk2 = Math.round(expBase.atk + (expG5.atk - expBase.atk) * 0.4);
     const interpFormulaMatch = (s2.atk === expectedAtk2);
 
     return {

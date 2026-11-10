@@ -575,6 +575,275 @@
   }
 
   // ==========================================
+  // Prompt 46: 基礎ステータス統一・能力効果機械パース・特殊能力攻撃
+  // ==========================================
+  function parseStatNumber(v) {
+    if (v == null) return 0;
+    let s = String(v).trim();
+    if (!s) return 0;
+    s = s.replace(/[０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0));
+    s = s.replace(/[，]/g, ',');
+    const parts = s.split('/');
+    if (parts.length > 1) {
+      const cleanLast = parts[parts.length - 1].replace(/[,\s%]/g, '').trim();
+      const m = cleanLast.match(/^-?\d+/);
+      if (m) return parseInt(m[0], 10);
+    }
+    const clean0 = parts[0].replace(/[,\s%]/g, '').trim();
+    const m0 = clean0.match(/^-?\d+/);
+    return m0 ? parseInt(m0[0], 10) : 0;
+  }
+  window.parseStatNumber = parseStatNumber;
+
+  function getCastleBaseStatsForGiant(castle, giantStep = 5) {
+    if (!castle) {
+      return { atk: 100, def: 100, hp: 1000, range: 100, isIntermediate: false, giantStep: 5 };
+    }
+    const step = (typeof giantStep === "number" && giantStep >= 0 && giantStep <= 5) ? giantStep : 5;
+    
+    const getStat = (detailObj, statsObj, key, fallback) => {
+      const v = parseStatNumber(detailObj?.[key]);
+      if (typeof v === "number" && v > 0) return v;
+      if (typeof statsObj?.[key] === "number" && statsObj[key] > 0) return statsObj[key];
+      return fallback;
+    };
+
+    const g5Atk = getStat(castle.statsDetail?.giant5, castle.stats?.giant5, "atk", 100);
+    const g5Def = getStat(castle.statsDetail?.giant5, castle.stats?.giant5, "def", 100);
+    const g5Hp = getStat(castle.statsDetail?.giant5, castle.stats?.giant5, "hp", 1000);
+    const g5Range = getStat(castle.statsDetail?.giant5, castle.stats?.giant5, "range", 100);
+
+    const baseAtk = getStat(castle.statsDetail?.initial, castle.stats?.base, "atk", Math.round(g5Atk * 0.5));
+    const baseDef = getStat(castle.statsDetail?.initial, castle.stats?.base, "def", Math.round(g5Def * 0.5));
+    const baseHp = getStat(castle.statsDetail?.initial, castle.stats?.base, "hp", Math.round(g5Hp * 0.5));
+    const baseRange = getStat(castle.statsDetail?.initial, castle.stats?.base, "range", Math.round(g5Range * 0.6));
+
+    if (step === 0) {
+      return { atk: baseAtk, def: baseDef, hp: baseHp, range: baseRange, isIntermediate: false, giantStep: 0 };
+    }
+    if (step === 5) {
+      return { atk: g5Atk, def: g5Def, hp: g5Hp, range: g5Range, isIntermediate: false, giantStep: 5 };
+    }
+    const ratio = step / 5;
+    return {
+      atk: Math.round(baseAtk + (g5Atk - baseAtk) * ratio),
+      def: Math.round(baseDef + (g5Def - baseDef) * ratio),
+      hp: Math.round(baseHp + (g5Hp - baseHp) * ratio),
+      range: Math.round(baseRange + (g5Range - baseRange) * ratio),
+      isIntermediate: true,
+      giantStep: step
+    };
+  }
+  window.getCastleBaseStatsForGiant = getCastleBaseStatsForGiant;
+  window.getCastleEffectiveBaseStat = getCastleBaseStatsForGiant;
+
+  function parseEnhancedEffects(text, source, castleName, existingEffects = []) {
+    const effs = [];
+    if (!text) return effs;
+
+    const hasStat = (st) => existingEffects.some(e => e.stat === st);
+
+    // 1. 時間経過で攻撃上昇 (最大/上限)
+    const mTimeAtk = text.match(/時間経過で(?:自身の)?攻撃(?:が)?(?:徐々に)?上昇\(?(?:最大|上限)\s*(\d+)\)?/);
+    if (mTimeAtk) {
+      const val = parseInt(mTimeAtk[1], 10);
+      if (!existingEffects.some(e => e.stat === "atkFlat" && e.value >= val)) {
+        effs.push({
+          source, stat: "atkFlat", mode: "flat", value: val, target: "self", stackable: false,
+          raw: `+${val} (時間経過最大) ${castleName}・${source}`
+        });
+      }
+    }
+
+    // 2. 攻撃と与ダメージ○%上昇
+    const mAtkDmg = text.match(/(?:(?:対象の|射程内(?:の)?(?:城娘|味方)|全城娘|自身).*?の?)?攻撃と与ダメージ(?:が)?\s*(\d+)%上昇/);
+    if (mAtkDmg) {
+      const baseVal = parseInt(mAtkDmg[1], 10);
+      const hasDouble = /対象は効果2倍|効果が2倍/.test(text);
+      const selfVal = hasDouble ? baseVal * 2 : baseVal;
+      
+      const isSelfOnly = /自分のみ|自身のみ/.test(text);
+      const target = isSelfOnly ? "self" : (/全城娘|全ての城娘/.test(text) ? "all" : "inRange");
+      
+      if (!hasStat("atkPercent")) {
+        effs.push({
+          source, stat: "atkPercent", mode: "percent", value: selfVal, target: "self", stackable: false,
+          raw: `+${selfVal}%${hasDouble ? "(対象2倍)" : ""} ${castleName}・${source}`
+        });
+        if (!isSelfOnly && target !== "self") {
+          effs.push({
+            source, stat: "atkPercent", mode: "percent", value: baseVal, target: target, stackable: false,
+            raw: `+${baseVal}% ${castleName}・${source}`
+          });
+        }
+      }
+      if (!hasStat("dmgDealt")) {
+        effs.push({
+          source, stat: "dmgDealt", mode: "percent", value: selfVal, target: "self", stackable: false,
+          raw: `+${selfVal}%${hasDouble ? "(対象2倍)" : ""} ${castleName}・${source}`
+        });
+        if (!isSelfOnly && target !== "self") {
+          effs.push({
+            source, stat: "dmgDealt", mode: "percent", value: baseVal, target: target, stackable: false,
+            raw: `+${baseVal}% ${castleName}・${source}`
+          });
+        }
+      }
+    }
+
+    // 3. 攻撃と防御が○%上昇
+    const mAtkDefPerc = text.match(/(?:(?:対象の|射程内(?:の)?(?:城娘|味方)|全城娘|自身).*?の?)?攻撃と防御が(?:さらに)?(\d+)%上昇/);
+    if (mAtkDefPerc) {
+      const val = parseInt(mAtkDefPerc[1], 10);
+      const target = /自分のみ|自身のみ/.test(text) ? "self" : (/全城娘|全ての城娘/.test(text) ? "all" : "inRange");
+      if (!hasStat("atkPercent")) {
+        effs.push({
+          source, stat: "atkPercent", mode: "percent", value: val, target, stackable: false,
+          raw: `+${val}% ${castleName}・${source}`
+        });
+      }
+      if (!hasStat("defPercent")) {
+        effs.push({
+          source, stat: "defPercent", mode: "percent", value: val, target, stackable: false,
+          raw: `+${val}% ${castleName}・${source}`
+        });
+      }
+    }
+
+    // 4. 射程が○上昇
+    const mRangeFlat = text.match(/(?:自身の|射程内城娘の|全城娘の)?射程が(\d+)上昇/);
+    if (mRangeFlat && !hasStat("rangeFlat")) {
+      const val = parseInt(mRangeFlat[1], 10);
+      const target = /自身|自分/.test(text) ? "self" : (/全城娘/.test(text) ? "all" : "inRange");
+      effs.push({
+        source, stat: "rangeFlat", mode: "flat", value: val, target, stackable: false,
+        raw: `+${val} ${castleName}・${source}`
+      });
+    }
+
+    // 5. 攻撃速度○倍 (2倍 -> +100%)
+    const mSpdMult = text.match(/攻撃速度(?:を|が)?(\d+(?:\.\d+)?)倍/);
+    if (mSpdMult && !hasStat("atkSpeed")) {
+      const mult = parseFloat(mSpdMult[1]);
+      const val = Math.round((mult - 1.0) * 100);
+      const target = /自身|自分/.test(text) ? "self" : (/全城娘/.test(text) ? "all" : "inRange");
+      effs.push({
+        source, stat: "atkSpeed", mode: "percent", value: val, target, stackable: false,
+        raw: `+${val}%(${mult}倍) ${castleName}・${source}`
+      });
+    }
+
+    // 6. 防御が0になり / 防御を0にする
+    if (/防御(?:が0になり|を0に)/.test(text) && !hasStat("enemyDefDown")) {
+      effs.push({
+        source, stat: "enemyDefDown", mode: "percent", value: 100, target: "inRange", stackable: false,
+        raw: `敵防御0(100%低下) ${castleName}・${source}`
+      });
+    }
+
+    return effs;
+  }
+
+  function getCastleAbilityEffects(ability, type, castleName) {
+    if (!ability) return [];
+    const baseEffects = Array.isArray(ability.effects) ? ability.effects : [];
+    const extraEffects = parseEnhancedEffects(ability.text, type, castleName, baseEffects);
+    return [...baseEffects, ...extraEffects];
+  }
+
+  function parseCastleSpecialAttack(castle) {
+    if (!castle || !castle.special || !castle.special.text) return null;
+    const text = castle.special.text;
+    const name = castle.special.name || "";
+
+    const isAttack = /攻撃.*?ダメージ|連続で?攻撃|防御を?無視|標的に.*?攻撃/.test(text);
+    if (!isAttack) return null;
+
+    let cd = null;
+    const mCd = (text + " " + name).match(/再使用(?::|)(\d+)秒/);
+    if (mCd) cd = parseInt(mCd[1], 10);
+
+    const isGauge = /ゲージ/.test(text) || /ゲージ/.test(name);
+    const isDefIgnore = /敵の防御を?無視|防御無視/.test(text);
+
+    // 1. Combo + finisher pattern (e.g. ［無疆］江戸城)
+    const mComboFinisher = text.match(/標的に?(\d+)連続.*?攻撃を行った後、?攻撃の([\d\.]+)倍で(?:標的とその)?周囲に(?:ダメージ|.*?攻撃)/);
+    if (mComboFinisher) {
+      const comboHits = parseInt(mComboFinisher[1], 10);
+      const finMult = parseFloat(mComboFinisher[2]);
+      return {
+        type: "combo_finisher",
+        comboHits: comboHits,
+        comboMult: 1.0,
+        finMult: finMult,
+        finHits: 1,
+        isDefIgnore: isDefIgnore,
+        cooldown: cd,
+        isGauge: isGauge,
+        text: text,
+        name: name
+      };
+    }
+
+    // 2. Standard combo / multiplier attack
+    const mCombo = text.match(/(\d+)連続で?攻撃/);
+    const mMult = text.match(/攻撃の([\d\.]+)倍/);
+    const mult = mMult ? parseFloat(mMult[1]) : 1.0;
+    const hits = mCombo ? parseInt(mCombo[1], 10) : 1;
+    const isAoe = /全敵|全ての敵|周囲の敵|範囲内の敵/.test(text);
+
+    return {
+      type: "standard",
+      mult: mult,
+      hits: hits,
+      isDefIgnore: isDefIgnore,
+      isAoe: isAoe,
+      cooldown: cd,
+      isGauge: isGauge,
+      text: text,
+      name: name
+    };
+  }
+  window.parseCastleSpecialAttack = parseCastleSpecialAttack;
+
+  function checkCastleUnreflectedEffects(castle, isStrategyOn = true, isSpecialOn = true) {
+    if (!castle) return { hasUnreflected: false, reasons: [] };
+    const reasons = [];
+
+    if (castle.skill && castle.skill.text) {
+      const t = castle.skill.text;
+      if (/撃破時/.test(t)) reasons.push("特技: 撃破時効果");
+      if (/反撃/.test(t)) reasons.push("特技: 反撃");
+      if (/後退|ノックバック/.test(t)) reasons.push("特技: 後退効果");
+      if (/足止め/.test(t)) reasons.push("特技: 足止め");
+      if (/被攻撃時/.test(t)) reasons.push("特技: 被攻撃時効果");
+      if (/現在耐久の\d+%/.test(t)) reasons.push("特技: 割合耐久減少");
+      if (/時間経過/.test(t)) reasons.push("特技: 時間経過蓄積(最大値で計算)");
+    }
+
+    if (isStrategyOn && castle.strategy && castle.strategy.text) {
+      const t = castle.strategy.text;
+      if (/伏兵|トークン/.test(t)) reasons.push("計略: 伏兵・トークン性能");
+      if (/後退|足止め/.test(t)) reasons.push("計略: 足止め/後退効果");
+      if (/天候/.test(t)) reasons.push("計略: 天候変化");
+      if (/特殊攻撃ゲージ|ゲージ蓄積/.test(t)) reasons.push("計略: ゲージ蓄積量変動");
+      if (/巨大化気|消費気|気軽減|気増加/.test(t)) reasons.push("計略: 気関連効果");
+    }
+
+    if (isSpecialOn && castle.special && castle.special.text) {
+      const t = castle.special.text;
+      if (/移動攻撃/.test(t) || /移動可能/.test(t)) reasons.push("特殊能力: 移動攻撃");
+      if (/耐久\d+%以下|耐久\d+%以上/.test(t)) reasons.push("特殊能力: 条件付き効果");
+    }
+
+    return {
+      hasUnreflected: reasons.length > 0,
+      reasons: reasons
+    };
+  }
+  window.checkCastleUnreflectedEffects = checkCastleUnreflectedEffects;
+
+  // ==========================================
   // Calculation Engine
   // ==========================================
   function calculateBuffs(targetParty = party, targetTerrain = currentTerrain) {
@@ -628,13 +897,16 @@
     activePartyMembers.forEach(({ slot, castle: provider }) => {
       const effectSources = [];
       if (provider.skill) {
-        effectSources.push(...provider.skill.effects.map(e => ({ ...e, from: provider.name, type: "特技" })));
+        const effs = getCastleAbilityEffects(provider.skill, "特技", provider.name);
+        effectSources.push(...effs.map(e => ({ ...e, from: provider.name, type: "特技" })));
       }
       if (slot.strategyOn && provider.strategy) {
-        effectSources.push(...provider.strategy.effects.map(e => ({ ...e, from: provider.name, type: "計略" })));
+        const effs = getCastleAbilityEffects(provider.strategy, "計略", provider.name);
+        effectSources.push(...effs.map(e => ({ ...e, from: provider.name, type: "計略" })));
       }
       if (slot.specialOn && provider.special) {
-        effectSources.push(...provider.special.effects.map(e => ({ ...e, from: provider.name, type: "特殊能力" })));
+        const effs = getCastleAbilityEffects(provider.special, "特殊能力", provider.name);
+        effectSources.push(...effs.map(e => ({ ...e, from: provider.name, type: "特殊能力" })));
       }
 
       effectSources.forEach(effect => {
@@ -735,10 +1007,10 @@
     }
 
     // 2nd Pass: Calculate dynamic effective values (Real Stat = Base * (1 + Perc/100) + Flat + Shares)
-    activePartyMembers.forEach(({ castle }) => {
+    activePartyMembers.forEach(({ slot, castle }) => {
       const data = perCastle[castle.id];
       const b = data.buffs;
-      const base = (castle.stats && castle.stats.giant5) || { atk: 100, def: 100, hp: 1000, range: 100, recovery: 10 };
+      const base = getCastleBaseStatsForGiant(castle, slot?.giantStep ?? 5);
 
       const atkPerc = (b.atkPercent.max + b.atkPercent.stackSum) / 100;
       const defPerc = (b.defPercent.max + b.defPercent.stackSum) / 100;
@@ -751,8 +1023,8 @@
       let shareRange = 0;
       b.shares.forEach(sh => {
         const prov = getCastleById(sh.shareSource);
-        if (prov && prov.stats && prov.stats.giant5) {
-          const provBase = prov.stats.giant5;
+        if (prov) {
+          const provBase = getCastleBaseStatsForGiant(prov, 5);
           if (sh.stat === "shareAtk") shareAtk += Math.floor(provBase.atk * (sh.value / 100));
           if (sh.stat === "shareDef") shareDef += Math.floor(provBase.def * (sh.value / 100));
           if (sh.stat === "shareRange") shareRange += Math.floor(provBase.range * (sh.value / 100));
@@ -909,9 +1181,10 @@
           const attrStr = castle.subType || castle.castleType;
           const matchBadge = (calc && calc.isTerrainMatch) ? `<span class="badge" style="background:#2c6f4f;color:#fff;font-size:9.5px;padding:1px 4px;margin-left:3px;" title="出撃地形一致: 巨大化消費気35%減＆合戦ステータス1.25倍">✓一致</span>` : '';
           if (calc) {
-            subInfo = `★${castle.rarity} [${attrStr}]${matchBadge}・攻<strong style="color:var(--buff-color);">${calc.atk}</strong>・1撃<strong style="color:var(--buff-color);">${calc.singleHit}</strong>`;
+            subInfo = `★${castle.rarity} [${attrStr}]${matchBadge}・攻<strong style="color:var(--buff-color);">${calc.atk}</strong>・単撃目安(防0)<strong style="color:var(--buff-color);">${calc.singleHit}</strong>`;
           } else {
-            subInfo = `★${castle.rarity} [${attrStr}]・攻${castle.stats.giant5.atk}・1撃${castle.stats.giant5.singleHit || '-'}`;
+            const baseG5 = getCastleBaseStatsForGiant(castle, 5);
+            subInfo = `★${castle.rarity} [${attrStr}]・攻${baseG5.atk}・単撃目安(防0)${Math.floor(baseG5.atk * 2.5)}`;
           }
           if (isViolated) {
             subInfo += ` <span class="challenge-violation-tag" style="background:#dc3545;color:#fff;font-size:9.5px;padding:1px 5px;border-radius:3px;margin-left:4px;" title="縛り条件不適合">⚠️ 縛り不適合</span>`;
@@ -1240,10 +1513,10 @@
       `;
     }
 
-    activePartyMembers.forEach(({ castle }) => {
+    activePartyMembers.forEach(({ slot, castle }) => {
       const data = perCastle[castle.id];
       const b = data.buffs;
-      const base = (castle.stats && castle.stats.giant5) || { atk: 100, def: 100, hp: 1000, range: 100, recovery: 10 };
+      const base = getCastleBaseStatsForGiant(castle, slot?.giantStep ?? 5);
       const calc = data.calculatedStats;
 
       const card = document.createElement("div");
@@ -1294,7 +1567,7 @@
           <span>防 <strong>${calc.def}</strong> <small style="color:var(--text-muted);font-weight:normal;">(${base.def})</small></span>
           <span>耐 <strong>${calc.hp}</strong> <small style="color:var(--text-muted);font-weight:normal;">(${base.hp})</small></span>
           <span>射 <strong>${calc.range}</strong> <small style="color:var(--text-muted);font-weight:normal;">(${base.range})</small></span>
-          <span>1撃 <strong style="color:var(--buff-color);">${calc.singleHit}</strong></span>
+          <span>単撃(防0) <strong style="color:var(--buff-color);" title="防御0想定の単撃推定値">${calc.singleHit}</strong></span>
         </div>
         <div class="buff-details">
           ${rowsHtml || '<div style="color:var(--text-muted);font-size:11px;">受けているバフはありません</div>'}
@@ -5623,7 +5896,7 @@
                 <span>攻: <strong style="color:#27ae60;">${calc ? calc.atk : '-'}</strong></span>
                 <span>射: <strong style="color:#2980b9;">${calc ? calc.range : '-'}</strong></span>
                 <span>防: <strong>${calc ? calc.def : '-'}</strong></span>
-                <span>単撃: <strong style="color:#e67e22;">${calc ? calc.singleHit : '-'}</strong></span>
+                <span>単撃(防0): <strong style="color:#e67e22;" title="防御0想定の単撃推定値">${calc ? calc.singleHit : '-'}</strong></span>
               </div>
             </div>
           </div>
@@ -8857,12 +9130,12 @@ function renderRomanSimulator() {
   if (!mainCastle) return;
 
   const calcData = calcResult.perCastle[mainCastle.id];
-  const calcStats = calcData ? calcData.calculatedStats : (mainCastle.stats ? mainCastle.stats.giant5 : { atk: 100 });
+  const calcStats = calcData ? calcData.calculatedStats : (mainCastle ? getCastleBaseStatsForGiant(mainCastle, 5) : { atk: 100 });
   const finalAtk = Math.round(calcStats.atk || 100);
 
   const isTerrainMatch = Boolean(currentTerrain && mainCastle.attributes && mainCastle.attributes.includes(currentTerrain));
   const terrainMult = isTerrainMatch ? (currentTerrain === "地獄" ? 1.3 : 1.25) : 1.0;
-  const baseAtk = Math.floor((mainCastle.stats?.giant5?.atk || 100) * terrainMult);
+  const baseAtk = Math.floor(getCastleBaseStatsForGiant(mainCastle, 5).atk * terrainMult);
 
   // Read enemy parameters
   const enemyDef = Math.max(0, parseInt(document.getElementById("romanEnemyDef")?.value, 10) || 0);
@@ -8997,7 +9270,7 @@ function renderRomanSimulator() {
       b.shares.forEach(sh => {
         if (sh.stat === "shareAtk") {
           const prov = getCastleById(sh.shareSource);
-          const provBase = prov && prov.stats && prov.stats.giant5 ? prov.stats.giant5.atk : 0;
+          const provBase = prov ? getCastleBaseStatsForGiant(prov, 5).atk : 0;
           const shareVal = Math.floor(provBase * (sh.value / 100));
           steps.push(`
             <div class="roman-waterfall-step">
@@ -9289,7 +9562,7 @@ function renderDamageChecker(providedCalcResult) {
     if (!c) return;
 
     const calcData = calcResult.perCastle[c.id];
-    const calcStats = calcData ? calcData.calculatedStats : (c.stats ? c.stats.giant5 : { atk: 100 });
+    const calcStats = calcData ? calcData.calculatedStats : (c ? getCastleBaseStatsForGiant(c, 5) : { atk: 100 });
     const finalAtk = Math.round(calcStats.atk || 100);
 
     // Check defense ignore (Prompt 38: checkDefenseIgnore 共通判定)
@@ -12582,8 +12855,9 @@ function showQuizResult() {
     const weaknesses = [];
     const fullText = getCastleFullText(c);
 
-    // 巨大化最大時 (c.stats.giant5) のステータスを基準に判定
-    const giantRange = (c.stats && c.stats.giant5 && c.stats.giant5.range) || 0;
+    // 巨大化最大時 (getCastleBaseStatsForGiant) のステータスを基準に判定
+    const baseG5 = getCastleBaseStatsForGiant(c, 5);
+    const giantRange = baseG5.range || 0;
     const isMelee = ["刀", "槍", "槌", "拳", "鎌"].includes(c.weapon);
     if ((giantRange > 0 && giantRange <= 220) || (isMelee && !/射程.*(?:上昇|\+\d+|%)/.test(fullText))) {
       weaknesses.push({
@@ -12618,8 +12892,8 @@ function showQuizResult() {
       });
     }
 
-    const giantDef = (c.stats && c.stats.giant5 && c.stats.giant5.def) || 0;
-    const giantHp = (c.stats && c.stats.giant5 && c.stats.giant5.hp) || 0;
+    const giantDef = baseG5.def || 0;
+    const giantHp = baseG5.hp || 0;
     if ((giantDef > 0 && giantDef <= 100) || (giantHp > 0 && giantHp <= 2600)) {
       weaknesses.push({
         key: "durability",
@@ -12856,7 +13130,7 @@ function showQuizResult() {
     const targetDef = (typeof enemyDef === "number" && !isNaN(enemyDef)) ? enemyDef : (currentDetailDpsEnemyDef || 500);
     const wf = SCRE_WEAPON_FRAMES[c.weapon] || { atk: 25, gap: 25, hits: 1, type: "physical", isEstimate: true };
     const isBuff = Boolean(wf.type === "buff");
-    const baseAtk = parseStatNumber((c.statsDetail && c.statsDetail.giant5 && c.statsDetail.giant5.atk) || (c.stats && c.stats.giant5 && c.stats.giant5.atk) || (c.stats && c.stats.atk) || 1200);
+    const baseAtk = getCastleBaseStatsForGiant(c, 5).atk || 1200;
 
     let selfAtkSpeed = 0;
     let selfGapShorten = 0;
@@ -13027,34 +13301,8 @@ function showQuizResult() {
     { id: "def3000", name: "超高防御ゴーレム (防御 3,000 / HP 無限)", def: 3000, hp: 1000000, isInfinite: true, red: 0 }
   ];
 
-  // --- Prompt 41: 巨大化段階別ステータス (0:未巨大化, 5:最大, 1〜4:線形補間推定値) ---
-  // 出典・仕様注記: data.js には base (未巨大化) と giant5 (最大) のみ存在。
-  // 中間段階 (1〜4) はゲーム実測値が存在しないため、base から giant5 への線形補間 (step / 5) による推定値（UIに「推定値」明記）。
-  function getCastleBaseStatsForGiant(castle, giantStep = 5) {
-    if (!castle || !castle.stats) {
-      return { atk: 100, def: 100, hp: 1000, range: 100, isIntermediate: false, giantStep: 5 };
-    }
-    const base = castle.stats.base || { atk: 100, def: 100, hp: 1000, range: 100 };
-    const g5 = castle.stats.giant5 || { atk: 100, def: 100, hp: 1000, range: 100 };
-    const step = (typeof giantStep === "number" && giantStep >= 0 && giantStep <= 5) ? giantStep : 5;
-
-    if (step === 0) {
-      return { atk: base.atk, def: base.def, hp: base.hp, range: base.range, isIntermediate: false, giantStep: 0 };
-    }
-    if (step === 5) {
-      return { atk: g5.atk, def: g5.def, hp: g5.hp, range: g5.range, isIntermediate: false, giantStep: 5 };
-    }
-    const ratio = step / 5;
-    return {
-      atk: Math.round(base.atk + (g5.atk - base.atk) * ratio),
-      def: Math.round(base.def + (g5.def - base.def) * ratio),
-      hp: Math.round(base.hp + (g5.hp - base.hp) * ratio),
-      range: Math.round(base.range + (g5.range - base.range) * ratio),
-      isIntermediate: true,
-      giantStep: step
-    };
-  }
-  window.getCastleBaseStatsForGiant = getCastleBaseStatsForGiant;
+  // --- Prompt 41 & 46: 巨大化段階別ステータス (0:未巨大化, 5:最大, 1〜4:線形補間推定値) ---
+  // ツール共通関数 getCastleBaseStatsForGiant (Lv最大想定) を使用（上部に定義済み）
 
   // --- Prompt 41, 42 & 45: 計略ダメージ機械パース (即時直接ダメージ計略 ＋ 攻撃転化型 attackMode) ---
   // 1. 即時直接ダメージ計略（実測76体）
@@ -13554,7 +13802,21 @@ function showQuizResult() {
 
   function calculateFiringCastleStats(c, slot, targetDef, targetRed, targetCount, disabledBuffs, immuneDefIgnore, customCalcResult) {
     if (!c) return null;
-    const calcResult = customCalcResult || calculateBuffs();
+    let calcResult = customCalcResult;
+    if (!calcResult) {
+      if (slot && Array.isArray(party)) {
+        const partySlot = party.find(p => p && p.id === c.id);
+        if (partySlot && (partySlot.strategyOn !== slot.strategyOn || partySlot.specialOn !== slot.specialOn || partySlot.giantStep !== slot.giantStep)) {
+          const tempParty = party.map(p => (p && p.id === c.id) ? { ...p, ...slot } : p);
+          calcResult = calculateBuffs(tempParty);
+        } else if (!partySlot && (party.length === 0 || !party.some(p => p && p.id === c.id))) {
+          calcResult = calculateBuffs([{ id: c.id, ...slot }]);
+        }
+      }
+      if (!calcResult) {
+        calcResult = calculateBuffs();
+      }
+    }
     const calcData = calcResult.perCastle[c.id];
     const b = calcData?.buffs || {};
 
@@ -13574,8 +13836,9 @@ function showQuizResult() {
       b.shares.forEach(sh => {
         if (sh.stat === "shareAtk") {
           const prov = getCastleById(sh.shareSource);
-          if (prov && prov.stats && prov.stats.giant5) {
-            shareAtk += Math.floor(prov.stats.giant5.atk * (sh.value / 100));
+          if (prov) {
+            const provBase = getCastleBaseStatsForGiant(prov, 5);
+            shareAtk += Math.floor(provBase.atk * (sh.value / 100));
           }
         }
       });
@@ -13644,7 +13907,8 @@ function showQuizResult() {
 
     // --- Prompt 41 & 45: 計略ダメージ計算 ---
     let strategyDamage = null;
-    const stratParsed = (c.strategy && slot?.strategyOn !== false) ? parseCastleDamageStrategy(c.strategy) : null;
+    const isStratOn = Boolean(slot?.strategyOn !== false);
+    const stratParsed = (c.strategy && isStratOn) ? parseCastleDamageStrategy(c.strategy) : null;
     if (stratParsed) {
       if (stratParsed.isAttackMode) {
         // Prompt 45: 攻撃転化型 (attackMode)
@@ -13792,6 +14056,74 @@ function showQuizResult() {
       }
     }
 
+    // --- Prompt 46: 特殊能力攻撃計算 ---
+    let specialDamage = null;
+    let hasSpecialAttackUnmodeled = false;
+    const isSpecialOn = (slot?.specialOn !== false);
+    if (isSpecialOn && c.special) {
+      const spParsed = parseCastleSpecialAttack(c);
+      if (spParsed) {
+        const spDefIgnore = Boolean(effectiveIgnore || spParsed.isDefIgnore);
+        const spEffDef = spDefIgnore ? 0 : effDef;
+        if (spParsed.type === 'combo_finisher') {
+          const comboBaseAtk = Math.floor(finalAtk * spParsed.comboMult);
+          const comboAtkTarget = Math.floor(comboBaseAtk * dmgTargetMult);
+          const comboBaseDmg = Math.max(Math.floor(comboAtkTarget * 0.1), comboAtkTarget - spEffDef);
+          const comboHitDmg = Math.max(1, Math.floor(comboBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
+
+          const finBaseAtk = Math.floor(finalAtk * spParsed.finMult);
+          const finAtkTarget = Math.floor(finBaseAtk * dmgTargetMult);
+          const finBaseDmg = Math.max(Math.floor(finAtkTarget * 0.1), finAtkTarget - spEffDef);
+          const finHitDmg = Math.max(1, Math.floor(finBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
+
+          const totalDamage = (comboHitDmg * spParsed.comboHits) + (finHitDmg * spParsed.finHits);
+          const cd = spParsed.cooldown || 60;
+          const spDps = spParsed.cooldown ? Math.round(totalDamage / cd) : 0;
+
+          specialDamage = {
+            parsed: spParsed,
+            isComboFinisher: true,
+            isDefIgnore: spDefIgnore,
+            hitDamage: comboHitDmg,
+            finDamage: finHitDmg,
+            comboHits: spParsed.comboHits,
+            finHits: spParsed.finHits,
+            totalDamage: totalDamage,
+            cooldown: spParsed.cooldown,
+            isGauge: spParsed.isGauge,
+            dps: spDps
+          };
+        } else {
+          const spBaseAtk = Math.floor(finalAtk * spParsed.mult);
+          const spAtkTarget = Math.floor(spBaseAtk * dmgTargetMult);
+          const spBaseDmg = Math.max(Math.floor(spAtkTarget * 0.1), spAtkTarget - spEffDef);
+          const spHitDmg = Math.max(1, Math.floor(spBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
+          const spTargets = spParsed.isAoe ? targetCount : 1;
+          const totalDamage = spHitDmg * spParsed.hits * spTargets;
+          const cd = spParsed.cooldown;
+          const spDps = cd ? Math.round(totalDamage / cd) : 0;
+
+          specialDamage = {
+            parsed: spParsed,
+            isComboFinisher: false,
+            isDefIgnore: spDefIgnore,
+            hitDamage: spHitDmg,
+            hits: spParsed.hits,
+            targets: spTargets,
+            totalDamage: totalDamage,
+            cooldown: cd,
+            isGauge: spParsed.isGauge,
+            dps: spDps
+          };
+        }
+      } else if (/攻撃.*?ダメージ|連続で?攻撃|標的に.*?攻撃/.test(c.special.text)) {
+        hasSpecialAttackUnmodeled = true;
+      }
+    }
+
+    // --- Prompt 46: 未反映効果チェック ---
+    const unreflectedCheck = checkCastleUnreflectedEffects(c, isStratOn, isSpecialOn);
+
     const stratDps = strategyDamage ? strategyDamage.dps : 0;
     const tokDps = tokugiDamage ? tokugiDamage.dps : 0;
     const theoreticalDps = normalDps + stratDps;
@@ -13832,6 +14164,13 @@ function showQuizResult() {
         }
       }
     }
+    if (specialDamage) {
+      if (specialDamage.isComboFinisher) {
+        breakdownText += ` ｜ [特殊] 4連撃(1発${specialDamage.hitDamage.toLocaleString()})+追撃2倍(${specialDamage.finDamage.toLocaleString()}) → 1回計${specialDamage.totalDamage.toLocaleString()}${specialDamage.isDefIgnore ? ' [防御無視]' : ''}${specialDamage.dps > 0 ? ` (CT${specialDamage.cooldown}s, ${specialDamage.dps.toLocaleString()}/s)` : ''}`;
+      } else {
+        breakdownText += ` ｜ [特殊] 攻${finalAtk}×${specialDamage.parsed.mult}倍 → 1撃${specialDamage.hitDamage.toLocaleString()}${specialDamage.hits > 1 ? ` (×${specialDamage.hits}連)` : ''} (1回計${specialDamage.totalDamage.toLocaleString()}${specialDamage.isDefIgnore ? ' [防御無視]' : ''}${specialDamage.dps > 0 ? `, CT${specialDamage.cooldown}s, ${specialDamage.dps.toLocaleString()}/s` : ''})`;
+      }
+    }
 
     return {
       castle: c,
@@ -13844,9 +14183,11 @@ function showQuizResult() {
       isMagic: defIgnoreInfo.isMagic,
       hasDefIgnoreSkill: defIgnoreInfo.hasDefIgnoreSkill,
       dmgTargetMult: dmgTargetMult,
+      atkWithTarget: atkWithTarget,
       baseDamage: baseDamage,
       dmgDealtPerc: dmgDealtPerc,
       enemyDmgTakenPerc: enemyDmgTakenPerc,
+      postDmgMult: postDmgMult,
       finalHitDamage: finalHitDamage,
       hits: hits,
       effectiveTargets: effectiveTargets,
@@ -13863,6 +14204,9 @@ function showQuizResult() {
       stratDps: stratDps,
       tokugiDamage: tokugiDamage,
       tokDps: tokDps,
+      specialDamage: specialDamage,
+      hasSpecialAttackUnmodeled: hasSpecialAttackUnmodeled,
+      unreflectedCheck: unreflectedCheck,
       theoreticalDps: theoreticalDps,
       isBuffWeapon: isBuffWeapon,
       weaponType: wf.type,
@@ -13954,6 +14298,11 @@ function showQuizResult() {
               <div>
                 <strong style="cursor:pointer;" onclick="openCastleDetail('${escapeHtml(c.id)}')">${escapeHtml(c.name)}</strong>
                 <div style="color:var(--text-sub); font-size:12px;">★${c.rarity} [${escapeHtml(c.weapon)}]${estimateBadge}</div>
+                ${stat.unreflectedCheck?.hasUnreflected ? `
+                  <div style="margin-top:2px;">
+                    <span class="badge" style="background:#fef3c7; color:#92400e; font-size:12px; display:inline-block; padding:1px 4px; border-radius:3px;" title="${escapeHtml(stat.unreflectedCheck.reasons.join(' / '))}">未反映の効果あり</span>
+                  </div>
+                ` : ''}
               </div>
             </div>
           </td>
@@ -14027,6 +14376,18 @@ function showQuizResult() {
                 </div>
                 <div style="font-size:12px; color:var(--text-sub); text-align:right;">1回合計: <strong>${stat.strategyDamage.totalDamagePerCast.toLocaleString()}</strong></div>
               ` : '<div style="font-size:12px; color:var(--text-sub); text-align:right;">計略: -</div>'}
+              ${stat.specialDamage ? `
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:2px;">
+                  <span style="color:#059669; font-size:12px; font-weight:bold;">特殊:</span>
+                  <strong style="color:#059669; font-size:13px;">1撃 ${stat.specialDamage.hitDamage.toLocaleString()}</strong>
+                </div>
+                <div style="font-size:12px; color:var(--text-sub); text-align:right;">
+                  ${stat.specialDamage.isComboFinisher ? `4連+追撃2倍: <strong>${stat.specialDamage.totalDamage.toLocaleString()}</strong>` : `1回計: <strong>${stat.specialDamage.totalDamage.toLocaleString()}</strong>`}
+                  ${stat.specialDamage.isDefIgnore ? '<span style="color:#16a34a; font-weight:bold;"> [防無]</span>' : ''}
+                </div>
+              ` : (stat.hasSpecialAttackUnmodeled ? `
+                <div style="margin-top:2px; text-align:right;"><span class="badge" style="background:#fee2e2; color:#991b1b; font-size:12px;">特殊攻撃は未計算</span></div>
+              ` : '')}
               <div style="font-size:12px; color:var(--text-sub); text-align:right; margin-top:1px;">
                 ${stat.effectiveIgnore ? '<span style="color:#16a34a; font-weight:bold;">[防御無視]</span>' : `実効防 ${stat.effDef}`}
               </div>
@@ -14035,10 +14396,12 @@ function showQuizResult() {
           <td style="text-align:center; font-size:12px;">
             <div>${stat.isBuffWeapon ? '支援周期' : '通常'}: <strong>${stat.cycleFrames}f</strong> (${stat.attacksPerSec.toFixed(2)}/s)</div>
             <div>計略: ${stat.strategyDamage ? `<strong style="color:#9f7aea;">CT ${stat.strategyDamage.cooldown}s</strong>` : '<span style="color:var(--text-sub); font-size:12px;">-</span>'}</div>
+            ${stat.specialDamage && stat.specialDamage.cooldown ? `<div>特殊: <strong style="color:#059669;">CT ${stat.specialDamage.cooldown}s</strong></div>` : ''}
           </td>
           <td style="text-align:right; font-size:12px;">
             <div>通常: ${stat.isBuffWeapon ? '<span style="color:var(--text-sub); font-size:12px;">攻撃なし (0/s)</span>' : `${stat.normalDps.toLocaleString()} /s`}</div>
             <div>計略: ${stat.strategyDamage ? (stat.strategyDamage.isAttackMode ? (stat.strategyDamage.isUnquantifiable ? '<span class="badge" style="background:#e0e7ff; color:#3730a3; font-size:12px;">数値化不可</span>' : `<strong style="color:#b45309;">${stat.strategyDamage.dps.toLocaleString()} /s</strong> <span style="font-size:12px; color:var(--text-sub);">(稼働${stat.strategyDamage.duration}s/${stat.strategyDamage.cooldown}s)</span>`) : `${stat.strategyDamage.dps.toLocaleString()} /s`) : '<span class="badge" style="background:#f1f5f9; color:#64748b; font-size:12px;">未対応(バフのみ)</span>'}</div>
+            ${stat.specialDamage && stat.specialDamage.dps > 0 ? `<div>特殊: <strong style="color:#059669;">${stat.specialDamage.dps.toLocaleString()} /s</strong></div>` : (stat.specialDamage?.isGauge ? '<div style="font-size:12px; color:var(--text-sub);">特殊: ゲージ蓄積(DPS未計算)</div>' : '')}
             ${stat.tokugiDamage && !stat.tokugiDamage.isUnquantifiable ? `<div>特技: <strong style="color:#2563eb;">${stat.tokugiDamage.dps.toLocaleString()} /s</strong></div>` : ''}
             <div style="font-weight:bold; color:#d35400; font-size:13px; margin-top:2px;">計: ${stat.theoreticalDps.toLocaleString()} /s${stat.strategyDamage?.isAttackMode ? ' <span class="badge" style="background:#fef3c7; color:#92400e; font-size:12px;">推定モデル</span>' : ''}</div>
           </td>
