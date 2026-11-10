@@ -824,6 +824,8 @@
       if (targetId === "tab-quiz") renderQuizTab();
       if (targetId === "tab-special") renderSpecialTab();
       if (targetId === "tab-list") renderAllCastles();
+      if (targetId === "tab-firing-range" && typeof renderFiringRangeTab === "function") renderFiringRangeTab();
+      if (targetId !== "tab-firing-range" && typeof pauseFiringSimulation === "function") pauseFiringSimulation();
     });
   });
 
@@ -844,6 +846,9 @@
     if (typeof renderKiLedger === "function") renderKiLedger();
     if (typeof renderCycleSyncSection === "function") renderCycleSyncSection();
     if (typeof renderTokenReportCardSection === "function") renderTokenReportCardSection();
+    if (document.getElementById("tab-firing-range")?.classList.contains("active") && typeof renderFiringRangeTab === "function") {
+      renderFiringRangeTab();
+    }
   }
 
   // 1. Render Party Slots (Showing dynamic live stats & Terrain Matching)
@@ -12824,6 +12829,1141 @@ function showQuizResult() {
     presetBtns.forEach(b => b.addEventListener("click", () => update(parseInt(b.dataset.def, 10) || 0)));
   }
 
+
+  // =========================================================================
+  // 第36弾: 射撃訓練場（ダメージバフ検証レンジ）
+  // =========================================================================
+
+  var firingRangeState = {
+    isRunning: false,
+    speed: 1.0,
+    elapsedTime: 0,
+    totalDamage: 0,
+    targetDef: 500,
+    targetHp: 200000,
+    isInfiniteHp: false,
+    targetRed: 0,
+    targetCount: 1,
+    durationLimit: 0,
+    dummyName: "標準的な兜",
+    disabledBuffs: new Set(),
+    castleSlots: [],
+    timelinePoints: [],
+    projectiles: [],
+    damagePopups: [],
+    lastTimestamp: 0,
+    animFrameId: null
+  };
+
+  const FIRING_PRESETS = [
+    { id: "custom", name: "カスタム設定", def: 500, hp: 200000, isInfinite: false, red: 0 },
+    { id: "def0", name: "藁人形 (防御 0 / HP 無限)", def: 0, hp: 0, isInfinite: true, red: 0 },
+    { id: "def500", name: "標準的な兜 (防御 500 / HP 20万)", def: 500, hp: 200000, isInfinite: false, red: 0 },
+    { id: "def1500", name: "重装兜 (防御 1,500 / HP 50万)", def: 1500, hp: 500000, isInfinite: false, red: 0 },
+    { id: "def3000", name: "超高防御ゴーレム (防御 3,000 / HP 100万)", def: 3000, hp: 1000000, isInfinite: false, red: 0 }
+  ];
+
+  function calculateFiringCastleStats(c, slot, targetDef, targetRed, targetCount, disabledBuffs) {
+    if (!c) return null;
+    const calcResult = calculateBuffs();
+    const calcData = calcResult.perCastle[c.id];
+    const b = calcData?.buffs || {};
+
+    const baseAtk = parseStatNumber((c.stats && c.stats.giant5 && c.stats.giant5.atk) || (c.stats && c.stats.atk) || 500);
+    const isTerrainMatch = calcData?.calculatedStats?.isTerrainMatch || false;
+    const terrainMult = isTerrainMatch ? 1.25 : 1.0;
+
+    const atkPerc = (disabledBuffs && disabledBuffs.has("atk_percent")) ? 0 : (((b.atk?.max || 0) + (b.atk?.stackSum || 0)) / 100);
+    const atkFlat = (disabledBuffs && disabledBuffs.has("atk_flat")) ? 0 : (b.atkFlat?.sum || 0);
+    let shareAtk = 0;
+    if (b.shares) {
+      b.shares.forEach(sh => {
+        if (sh.stat === "shareAtk") shareAtk += (sh.shareVal || 0);
+      });
+    }
+
+    const finalAtk = Math.floor((baseAtk * terrainMult) * (1 + atkPerc) + atkFlat + shareAtk);
+
+    const wf = SCRE_WEAPON_FRAMES[c.weapon] || { atk: 25, gap: 25, hits: 1, type: "physical", isEstimate: true };
+    const isMagicOrIgnore = (wf.type === "magic" || ["杖", "鈴", "投剣", "法術"].includes(c.weapon));
+    const hasDefIgnoreSkill = !!(b.defIgnore && b.defIgnore.length > 0 && !(disabledBuffs && disabledBuffs.has("def_ignore")));
+    const effectiveIgnore = isMagicOrIgnore || hasDefIgnoreSkill;
+
+    const defDownPerc = (disabledBuffs && disabledBuffs.has("enemy_def_down")) ? 0 : (calcResult.enemyDebuffs?.enemyDefDown?.max || 0);
+    const effDef = effectiveIgnore ? 0 : Math.max(0, Math.floor(targetDef * (1.0 - defDownPerc / 100)));
+
+    let dmgTargetMult = 1.0;
+    if (!(disabledBuffs && disabledBuffs.has("dmg_dealt_target")) && b.dmgDealtTarget) {
+      const activeSources = b.dmgDealtTarget.sources ? b.dmgDealtTarget.sources.filter(s => s.applied !== false) : [];
+      dmgTargetMult = activeSources.reduce((acc, s) => acc * (1 + s.val / 100), 1.0);
+    }
+    const atkWithTarget = Math.floor(finalAtk * dmgTargetMult);
+    const baseDamage = Math.max(Math.floor(atkWithTarget * 0.1), atkWithTarget - effDef);
+
+    let dmgDealtPerc = 0;
+    if (!(disabledBuffs && disabledBuffs.has("dmg_dealt")) && b.dmgDealt) {
+      dmgDealtPerc = ((b.dmgDealt.max || 0) + (b.dmgDealt.stackSum || 0)) / 100;
+    }
+    let enemyDmgTakenPerc = 0;
+    if (!(disabledBuffs && disabledBuffs.has("enemy_dmg_taken"))) {
+      enemyDmgTakenPerc = (calcResult.enemyDebuffs?.enemyDmgTakenUp?.max || 0) / 100;
+    }
+    const postDmgMult = (1 + dmgDealtPerc) * (1 + enemyDmgTakenPerc);
+
+    const finalHitDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - (targetRed / 100))));
+
+    let atkSpeed = 0;
+    if (!(disabledBuffs && disabledBuffs.has("atk_speed")) && b.atkSpeed) {
+      atkSpeed = (b.atkSpeed.max || 0) + (b.atkSpeed.stackSum || 0);
+    }
+    let gapShorten = 0;
+    if (!(disabledBuffs && disabledBuffs.has("gap_shorten")) && b.gapShorten) {
+      gapShorten = (b.gapShorten.max || 0) + (b.gapShorten.stackSum || 0);
+    }
+
+    const effAtkFrames = Math.max(1, Math.round(wf.atk / (1 + atkSpeed / 100)));
+    const effGapFrames = Math.max(0, Math.round(wf.gap * (1 - gapShorten / 100)));
+    const cycleFrames = effAtkFrames + effGapFrames;
+    const cycleTime = cycleFrames > 0 ? (cycleFrames / 30) : 1;
+    const attacksPerSec = cycleFrames > 0 ? (30 / cycleFrames) : 1;
+
+    const hits = wf.hits || 1;
+    let effectiveTargets = 1;
+    if (targetCount > 1) {
+      if (["大砲", "鈴", "歌舞"].includes(c.weapon)) effectiveTargets = targetCount;
+      else if (["投剣", "法術"].includes(c.weapon)) effectiveTargets = Math.min(targetCount, 2);
+    }
+
+    const cycleDamage = finalHitDamage * hits * effectiveTargets;
+    const theoreticalDps = Math.round(cycleDamage * attacksPerSec);
+
+    return {
+      castle: c,
+      slot: slot,
+      finalAtk: finalAtk,
+      effDef: effDef,
+      effectiveIgnore: effectiveIgnore,
+      dmgTargetMult: dmgTargetMult,
+      baseDamage: baseDamage,
+      dmgDealtPerc: dmgDealtPerc,
+      enemyDmgTakenPerc: enemyDmgTakenPerc,
+      finalHitDamage: finalHitDamage,
+      hits: hits,
+      effectiveTargets: effectiveTargets,
+      baseAtkFrames: wf.atk,
+      baseGapFrames: wf.gap,
+      effAtkFrames: effAtkFrames,
+      effGapFrames: effGapFrames,
+      cycleFrames: cycleFrames,
+      cycleTime: cycleTime,
+      attacksPerSec: attacksPerSec,
+      theoreticalDps: theoreticalDps,
+      isEstimateFrame: !!wf.isEstimate,
+      breakdownText: `攻${finalAtk} → ${dmgTargetMult > 1 ? `与倍×${dmgTargetMult.toFixed(2)} → ` : ''}引後${baseDamage} → 与×${(1+dmgDealtPerc).toFixed(2)}${enemyDmgTakenPerc > 0 ? `×被×${(1+enemyDmgTakenPerc).toFixed(2)}` : ''} → 1撃${finalHitDamage}`
+    };
+  }
+
+  function renderFiringRangeTab() {
+    const partyCastles = party.map((slot, idx) => ({
+      slot,
+      castle: slot ? getCastleById(slot.id) : null,
+      idx
+    })).filter(item => item.castle);
+
+    const statusBadge = document.getElementById("firingRangePartyStatus");
+    if (statusBadge) {
+      statusBadge.textContent = `部隊: ${partyCastles.length}/8 体`;
+    }
+
+    const tbody = document.getElementById("firingCastleResultsTbody");
+    if (!tbody) return;
+
+    if (partyCastles.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:16px; color:var(--text-sub);">部隊に城娘が編成されていません。ダッシュボードで城娘を編成してください。</td></tr>`;
+      const dpsHeadline = document.getElementById("firingRangeDpsHeadline");
+      if (dpsHeadline) dpsHeadline.textContent = "部隊総DPS: 0 /秒";
+      drawFiringStageCanvas();
+      renderFiringBuffContributions();
+      renderFiringSnapshotList();
+      return;
+    }
+
+    const currentIds = partyCastles.map(p => p.castle.id).join(",");
+    const stateIds = firingRangeState.castleSlots.map(s => s.castle ? s.castle.id : "").join(",");
+    if (currentIds !== stateIds || firingRangeState.castleSlots.length !== partyCastles.length) {
+      firingRangeState.castleSlots = partyCastles.map(({ slot, castle, idx }) => {
+        const stat = calculateFiringCastleStats(castle, slot, firingRangeState.targetDef, firingRangeState.targetRed, firingRangeState.targetCount, firingRangeState.disabledBuffs);
+        return {
+          castle,
+          slot,
+          idx,
+          timer: 0,
+          hits: 0,
+          totalDmg: 0,
+          stat
+        };
+      });
+    } else {
+      firingRangeState.castleSlots.forEach(s => {
+        s.stat = calculateFiringCastleStats(s.castle, s.slot, firingRangeState.targetDef, firingRangeState.targetRed, firingRangeState.targetCount, firingRangeState.disabledBuffs);
+      });
+    }
+
+    let totalPartyDps = 0;
+    firingRangeState.castleSlots.forEach(s => {
+      totalPartyDps += s.stat.theoreticalDps;
+    });
+
+    const dpsHeadline = document.getElementById("firingRangeDpsHeadline");
+    if (dpsHeadline) {
+      dpsHeadline.textContent = `部隊総DPS: ${totalPartyDps.toLocaleString()} /秒`;
+    }
+
+    tbody.innerHTML = firingRangeState.castleSlots.map((s, i) => {
+      const c = s.castle;
+      const stat = s.stat;
+      const sharePerc = totalPartyDps > 0 ? (stat.theoreticalDps / totalPartyDps * 100).toFixed(1) : "0.0";
+      const estimateBadge = stat.isEstimateFrame ? `<span class="badge" style="background:#fff3cd; color:#856404; font-size:12px; margin-left:4px;" title="実測値未検証のため標準デフォルト値を適用中">推定値</span>` : "";
+
+      return `
+        <tr style="border-bottom:1px solid var(--border-color);">
+          <td style="text-align:center; font-weight:bold; color:var(--text-sub);">${i + 1}</td>
+          <td>
+            <div style="display:flex; align-items:center; gap:6px;">
+              ${getIconHtml(c, 28)}
+              <div>
+                <strong style="cursor:pointer;" onclick="openCastleDetail('${escapeHtml(c.id)}')">${escapeHtml(c.name)}</strong>
+                <div style="color:var(--text-sub); font-size:12px;">★${c.rarity} [${escapeHtml(c.weapon)}]${estimateBadge}</div>
+              </div>
+            </div>
+          </td>
+          <td style="text-align:right; font-weight:bold; color:var(--buff-color); font-size:12px;">${stat.finalAtk.toLocaleString()}</td>
+          <td style="text-align:right; font-weight:bold; color:#e67e22; font-size:12px;">
+            ${stat.finalHitDamage.toLocaleString()}${stat.hits > 1 ? ` × ${stat.hits}連撃` : ''}
+            <div style="font-size:12px; color:var(--text-sub);">${stat.effectiveIgnore ? '<span style="color:#27ae60;">[防御無視]</span>' : `実効防 ${stat.effDef}`}</div>
+          </td>
+          <td style="text-align:center; font-size:12px;">
+            <strong>${stat.cycleFrames}f</strong> (${stat.attacksPerSec.toFixed(2)}回/秒)
+            <div style="font-size:12px; color:var(--text-sub);">${stat.effAtkFrames}f+${stat.effGapFrames}f</div>
+          </td>
+          <td style="text-align:right; font-weight:bold; color:#d35400; font-size:13px;">${stat.theoreticalDps.toLocaleString()} /秒</td>
+          <td style="text-align:right; font-family:monospace; font-weight:bold; font-size:12px;" id="firingRowDmg_${i}">${s.totalDmg.toLocaleString()} (${s.hits}hit)</td>
+          <td style="text-align:center;">
+            <div style="display:flex; align-items:center; gap:4px; justify-content:center;">
+              <div style="width:50px; height:6px; background:#e2e8f0; border-radius:3px; overflow:hidden;">
+                <div style="width:${sharePerc}%; height:100%; background:var(--primary-color);"></div>
+              </div>
+              <span style="font-size:12px; font-weight:bold;">${sharePerc}%</span>
+            </div>
+          </td>
+          <td style="font-size:12px; color:var(--text-sub); max-width:240px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${escapeHtml(stat.breakdownText)}">
+            ${escapeHtml(stat.breakdownText)}
+          </td>
+        </tr>
+      `;
+    }).join("");
+
+    renderFiringBuffContributions();
+    renderFiringSnapshotList();
+    drawFiringStageCanvas();
+    updateTimelineSvg();
+  }
+
+  function renderFiringBuffContributions() {
+    const listEl = document.getElementById("firingBuffContributionList");
+    if (!listEl) return;
+
+    const calcResult = calculateBuffs();
+    if (!calcResult || calcResult.activePartyMembers.length === 0) {
+      listEl.innerHTML = `<div style="font-size:12px; color:var(--text-sub); padding:8px;">編成に城娘がいません。</div>`;
+      return;
+    }
+
+    let hasAtkPerc = false;
+    let hasAtkFlat = false;
+    let hasDmgDealt = false;
+    let hasDmgTarget = false;
+    let hasAtkSpeed = false;
+    let hasGapShorten = false;
+    let hasDefIgnore = false;
+    let hasEnemyDefDown = (calcResult.enemyDebuffs?.enemyDefDown?.max || 0) > 0;
+    let hasEnemyDmgTaken = (calcResult.enemyDebuffs?.enemyDmgTakenUp?.max || 0) > 0;
+
+    for (const cid in calcResult.perCastle) {
+      const b = calcResult.perCastle[cid].buffs;
+      if (b) {
+        if ((b.atk?.max || 0) + (b.atk?.stackSum || 0) > 0) hasAtkPerc = true;
+        if ((b.atkFlat?.sum || 0) > 0) hasAtkFlat = true;
+        if ((b.dmgDealt?.max || 0) + (b.dmgDealt?.stackSum || 0) > 0) hasDmgDealt = true;
+        if (b.dmgDealtTarget?.sources?.length > 0) hasDmgTarget = true;
+        if ((b.atkSpeed?.max || 0) + (b.atkSpeed?.stackSum || 0) > 0) hasAtkSpeed = true;
+        if ((b.gapShorten?.max || 0) + (b.gapShorten?.stackSum || 0) > 0) hasGapShorten = true;
+        if (b.defIgnore?.length > 0) hasDefIgnore = true;
+      }
+    }
+
+    const availableBuffs = [
+      { key: "atk_percent", label: "攻撃割合上昇 (atk%)", active: hasAtkPerc },
+      { key: "atk_flat", label: "攻撃固定値上昇 (atkFlat)", active: hasAtkFlat },
+      { key: "dmg_dealt", label: "与ダメージ上昇 (dmgDealt%)", active: hasDmgDealt },
+      { key: "dmg_dealt_target", label: "与えるダメージ倍率 (dmgTarget)", active: hasDmgTarget },
+      { key: "atk_speed", label: "攻撃速度上昇 (atkSpeed%)", active: hasAtkSpeed },
+      { key: "gap_shorten", label: "攻撃後の隙短縮 (gapShorten%)", active: hasGapShorten },
+      { key: "def_ignore", label: "防御無視スキル (defIgnore)", active: hasDefIgnore },
+      { key: "enemy_def_down", label: "敵防御低下 (enemyDefDown%)", active: hasEnemyDefDown },
+      { key: "enemy_dmg_taken", label: "敵被ダメージ上昇 (enemyDmgTaken%)", active: hasEnemyDmgTaken }
+    ].filter(b => b.active);
+
+    if (availableBuffs.length === 0) {
+      listEl.innerHTML = `<div style="font-size:12px; color:var(--text-sub); padding:8px;">現在編成に検証対象となるバフ効果がありません。</div>`;
+      return;
+    }
+
+    let baselineDps = 0;
+    party.forEach(slot => {
+      if (!slot) return;
+      const c = getCastleById(slot.id);
+      if (!c) return;
+      const st = calculateFiringCastleStats(c, slot, firingRangeState.targetDef, firingRangeState.targetRed, firingRangeState.targetCount, new Set());
+      baselineDps += st.theoreticalDps;
+    });
+
+    listEl.innerHTML = availableBuffs.map(buff => {
+      const isCurrentlyDisabled = firingRangeState.disabledBuffs.has(buff.key);
+      let disabledDps = 0;
+      party.forEach(slot => {
+        if (!slot) return;
+        const c = getCastleById(slot.id);
+        if (!c) return;
+        const st = calculateFiringCastleStats(c, slot, firingRangeState.targetDef, firingRangeState.targetRed, firingRangeState.targetCount, new Set([buff.key]));
+        disabledDps += st.theoreticalDps;
+      });
+
+      const delta = baselineDps - disabledDps;
+      const contribPerc = baselineDps > 0 ? (delta / baselineDps * 100).toFixed(1) : "0.0";
+      const isPos = delta >= 0;
+
+      return `
+        <div class="firing-buff-card ${isCurrentlyDisabled ? 'disabled' : ''}">
+          <div style="flex:1;">
+            <div style="font-weight:bold; font-size:12px; color:var(--text-main);">${escapeHtml(buff.label)}</div>
+            <div style="font-size:12px; color:${isPos ? '#27ae60' : '#e74c3c'}; font-weight:bold; margin-top:2px;">
+              寄与度: +${contribPerc}% (${isPos ? `DPS: ${baselineDps.toLocaleString()} ➔ ${disabledDps.toLocaleString()} /秒` : '影響なし'})
+            </div>
+          </div>
+          <button type="button" class="btn btn-xs ${isCurrentlyDisabled ? 'btn-outline' : 'btn-primary'}" onclick="toggleFiringBuffDisabled('${escapeHtml(buff.key)}')" style="font-size:12px; padding:3px 10px; white-space:nowrap;">
+            ${isCurrentlyDisabled ? 'OFF中 (無効)' : 'ON (有効)'}
+          </button>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function toggleFiringBuffDisabled(buffKey) {
+    if (firingRangeState.disabledBuffs.has(buffKey)) {
+      firingRangeState.disabledBuffs.delete(buffKey);
+    } else {
+      firingRangeState.disabledBuffs.add(buffKey);
+    }
+    renderFiringRangeTab();
+  }
+
+  function startFiringSimulation() {
+    if (firingRangeState.isRunning) return;
+    firingRangeState.isRunning = true;
+    firingRangeState.lastTimestamp = (typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now();
+
+    const btn = document.getElementById("btnFiringPlayPause");
+    if (btn) {
+      btn.textContent = "⏸ 一時停止";
+      btn.classList.remove("btn-primary");
+      btn.classList.add("btn-warning");
+    }
+
+    if (firingRangeState.animFrameId && typeof cancelAnimationFrame !== "undefined") {
+      cancelAnimationFrame(firingRangeState.animFrameId);
+    }
+    if (typeof requestAnimationFrame !== "undefined") {
+      firingRangeState.animFrameId = requestAnimationFrame(firingAnimLoop);
+    }
+  }
+
+  function pauseFiringSimulation() {
+    firingRangeState.isRunning = false;
+    if (firingRangeState.animFrameId && typeof cancelAnimationFrame !== "undefined") {
+      cancelAnimationFrame(firingRangeState.animFrameId);
+    }
+    firingRangeState.animFrameId = null;
+
+    const btn = document.getElementById("btnFiringPlayPause");
+    if (btn) {
+      btn.textContent = "▶ 試射再開";
+      btn.classList.add("btn-primary");
+      btn.classList.remove("btn-warning");
+    }
+  }
+
+  function resetFiringSimulation() {
+    pauseFiringSimulation();
+    firingRangeState.elapsedTime = 0;
+    firingRangeState.totalDamage = 0;
+    firingRangeState.timelinePoints = [{ time: 0, totalDmg: 0, dps: 0 }];
+    firingRangeState.projectiles = [];
+    firingRangeState.damagePopups = [];
+
+    firingRangeState.castleSlots.forEach(s => {
+      s.timer = 0;
+      s.hits = 0;
+      s.totalDmg = 0;
+    });
+
+    const btn = document.getElementById("btnFiringPlayPause");
+    if (btn) btn.textContent = "▶ 試射開始";
+
+    const timerDisp = document.getElementById("firingTimerDisplay");
+    if (timerDisp) timerDisp.textContent = "00:00.0";
+    const totalDmgDisp = document.getElementById("firingTotalDmgDisplay");
+    if (totalDmgDisp) totalDmgDisp.textContent = "0";
+    const currentDpsDisp = document.getElementById("firingCurrentDpsDisplay");
+    if (currentDpsDisp) currentDpsDisp.textContent = "0";
+
+    const hpBar = document.getElementById("firingDummyHpBarFill");
+    if (hpBar) hpBar.style.width = "100%";
+    const hpText = document.getElementById("firingDummyHpText");
+    if (hpText) hpText.textContent = `${firingRangeState.targetHp.toLocaleString()} / ${firingRangeState.targetHp.toLocaleString()} (100%)`;
+
+    firingRangeState.castleSlots.forEach((s, i) => {
+      const row = document.getElementById(`firingRowDmg_${i}`);
+      if (row) row.textContent = `0 (0hit)`;
+    });
+
+    drawFiringStageCanvas();
+    updateTimelineSvg();
+  }
+
+  function firingAnimLoop(currentTimestamp) {
+    if (!firingRangeState.isRunning) return;
+    const tabEl = document.getElementById("tab-firing-range");
+    if (!tabEl || !tabEl.classList.contains("active")) {
+      pauseFiringSimulation();
+      return;
+    }
+
+    const now = (typeof performance !== "undefined" && performance.now) ? currentTimestamp : Date.now();
+    const dt = Math.min(0.1, (now - firingRangeState.lastTimestamp) / 1000);
+    firingRangeState.lastTimestamp = now;
+    const speed = firingRangeState.speed || 1.0;
+
+    firingRangeState.elapsedTime += dt * speed;
+
+    firingRangeState.castleSlots.forEach((s, idx) => {
+      s.timer += dt * speed;
+      const cycleTime = s.stat.cycleTime || 1.0;
+      while (s.timer >= cycleTime) {
+        s.timer -= cycleTime;
+        s.hits += s.stat.hits;
+        const dmg = s.stat.finalHitDamage * s.stat.hits * s.stat.effectiveTargets;
+        s.totalDmg += dmg;
+        firingRangeState.totalDamage += dmg;
+
+        firingRangeState.projectiles.push({
+          slotIdx: idx,
+          progress: 0,
+          speed: 4.0,
+          isMagic: s.stat.effectiveIgnore
+        });
+
+        spawnDamagePopup(dmg, s.stat.effectiveIgnore);
+      }
+    });
+
+    for (let i = firingRangeState.projectiles.length - 1; i >= 0; i--) {
+      firingRangeState.projectiles[i].progress += dt * speed * firingRangeState.projectiles[i].speed;
+      if (firingRangeState.projectiles[i].progress >= 1.0) {
+        firingRangeState.projectiles.splice(i, 1);
+      }
+    }
+
+    for (let i = firingRangeState.damagePopups.length - 1; i >= 0; i--) {
+      firingRangeState.damagePopups[i].y -= dt * speed * 30;
+      firingRangeState.damagePopups[i].alpha -= dt * speed * 1.2;
+      if (firingRangeState.damagePopups[i].alpha <= 0) {
+        firingRangeState.damagePopups.splice(i, 1);
+      }
+    }
+
+    let shouldStop = false;
+    if (!firingRangeState.isInfiniteHp && firingRangeState.totalDamage >= firingRangeState.targetHp) {
+      firingRangeState.totalDamage = firingRangeState.targetHp;
+      shouldStop = true;
+    }
+    if (firingRangeState.isInfiniteHp && firingRangeState.durationLimit > 0 && firingRangeState.elapsedTime >= firingRangeState.durationLimit) {
+      firingRangeState.elapsedTime = firingRangeState.durationLimit;
+      shouldStop = true;
+    }
+
+    const sec = Math.floor(firingRangeState.elapsedTime);
+    if (!firingRangeState.timelinePoints.some(p => p.time === sec)) {
+      const currentDps = Math.round(firingRangeState.totalDamage / Math.max(0.1, firingRangeState.elapsedTime));
+      firingRangeState.timelinePoints.push({ time: sec, totalDmg: firingRangeState.totalDamage, dps: currentDps });
+      if (firingRangeState.timelinePoints.length > 120) firingRangeState.timelinePoints.shift();
+      updateTimelineSvg();
+    }
+
+    updateFiringUiCounters();
+    drawFiringStageCanvas();
+
+    if (shouldStop) {
+      pauseFiringSimulation();
+      showToast(`🎯 試射完了！ タイム: ${formatTime(firingRangeState.elapsedTime)} / 総ダメージ: ${firingRangeState.totalDamage.toLocaleString()}`);
+      return;
+    }
+
+    if (typeof requestAnimationFrame !== "undefined") {
+      firingRangeState.animFrameId = requestAnimationFrame(firingAnimLoop);
+    }
+  }
+
+  function drawFiringStageCanvas() {
+    const canvas = document.getElementById("firingStageCanvas");
+    if (!canvas || !canvas.getContext) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const w = canvas.width || 800;
+    const h = canvas.height || 260;
+
+    ctx.clearRect(0, 0, w, h);
+
+    const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+    bgGrad.addColorStop(0, "#1a202c");
+    bgGrad.addColorStop(1, "#2d3748");
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.04)";
+    ctx.lineWidth = 1;
+    for (let x = 40; x < w; x += 40) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+    }
+    for (let y = 30; y < h; y += 30) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+    }
+
+    const targetX = w - 120;
+    const targetY = h / 2;
+
+    const col1X = 70;
+    const col2X = 180;
+    const rowY = [40, 100, 160, 220];
+
+    const slotCoords = [];
+    for (let i = 0; i < 8; i++) {
+      const cx = (i < 4) ? col1X : col2X;
+      const cy = rowY[i % 4];
+      slotCoords.push({ x: cx, y: cy });
+
+      const s = firingRangeState.castleSlots[i];
+      if (!s || !s.castle) {
+        ctx.fillStyle = "rgba(255,255,255,0.05)";
+        ctx.beginPath(); ctx.arc(cx, cy, 20, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = "rgba(255,255,255,0.2)";
+        ctx.stroke();
+        continue;
+      }
+
+      const c = s.castle;
+      ctx.fillStyle = "#2b6cb0";
+      ctx.beginPath(); ctx.arc(cx, cy, 22, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = "#4299e1";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      const cycleTime = s.stat.cycleTime || 1;
+      const chargeRatio = Math.min(1.0, s.timer / cycleTime);
+      ctx.strokeStyle = "#ecc94b";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.arc(cx, cy, 24, -Math.PI / 2, -Math.PI / 2 + chargeRatio * Math.PI * 2);
+      ctx.stroke();
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 12px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(c.name.slice(0, 4), cx, cy + 4);
+
+      ctx.fillStyle = "#cbd5e0";
+      ctx.font = "12px sans-serif";
+      ctx.fillText(c.weapon, cx, cy - 28);
+    }
+
+    firingRangeState.projectiles.forEach(p => {
+      const from = slotCoords[p.slotIdx] || { x: col1X, y: 130 };
+      const curX = from.x + (targetX - from.x) * p.progress;
+      const curY = from.y + (targetY - from.y) * p.progress;
+
+      ctx.fillStyle = p.isMagic ? "#9f7aea" : "#ed8936";
+      ctx.beginPath();
+      ctx.arc(curX, curY, 4, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = p.isMagic ? "rgba(159, 122, 234, 0.4)" : "rgba(237, 137, 54, 0.4)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(from.x, from.y);
+      ctx.lineTo(curX, curY);
+      ctx.stroke();
+    });
+
+    ctx.fillStyle = "#9b2c2c";
+    ctx.beginPath(); ctx.arc(targetX, targetY, 36, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = "#f56565";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 20px sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText("🎯", targetX, targetY + 7);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 12px sans-serif";
+    ctx.fillText(firingRangeState.dummyName || "的", targetX, targetY - 44);
+
+    ctx.fillStyle = "#fbd38d";
+    ctx.font = "12px sans-serif";
+    ctx.fillText(`防: ${firingRangeState.targetDef} ${firingRangeState.targetRed > 0 ? `(-${firingRangeState.targetRed}%)` : ''}`, targetX, targetY + 54);
+
+    firingRangeState.damagePopups.forEach(pop => {
+      ctx.fillStyle = `rgba(${pop.isMagic ? '159, 122, 234' : '237, 137, 54'}, ${pop.alpha})`;
+      ctx.font = "bold 14px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(pop.text, pop.x, pop.y);
+    });
+  }
+
+  function spawnDamagePopup(amount, isMagic) {
+    const canvas = document.getElementById("firingStageCanvas");
+    const targetX = canvas ? (canvas.width - 120) : 680;
+    const targetY = canvas ? (canvas.height / 2) : 130;
+
+    const jitterX = targetX + (Math.random() * 40 - 20);
+    const jitterY = targetY + (Math.random() * 30 - 15);
+
+    firingRangeState.damagePopups.push({
+      text: `+${amount.toLocaleString()}`,
+      x: jitterX,
+      y: jitterY,
+      alpha: 1.0,
+      isMagic: isMagic
+    });
+
+    if (firingRangeState.damagePopups.length > 25) {
+      firingRangeState.damagePopups.shift();
+    }
+  }
+
+  function updateFiringUiCounters() {
+    const timerDisp = document.getElementById("firingTimerDisplay");
+    if (timerDisp) timerDisp.textContent = formatTime(firingRangeState.elapsedTime);
+
+    const totalDmgDisp = document.getElementById("firingTotalDmgDisplay");
+    if (totalDmgDisp) totalDmgDisp.textContent = firingRangeState.totalDamage.toLocaleString();
+
+    const dps = Math.round(firingRangeState.totalDamage / Math.max(0.1, firingRangeState.elapsedTime));
+    const currentDpsDisp = document.getElementById("firingCurrentDpsDisplay");
+    if (currentDpsDisp) currentDpsDisp.textContent = `${dps.toLocaleString()} /秒`;
+
+    if (!firingRangeState.isInfiniteHp) {
+      const rem = Math.max(0, firingRangeState.targetHp - firingRangeState.totalDamage);
+      const perc = Math.min(100, Math.max(0, (rem / firingRangeState.targetHp * 100)));
+      const hpBar = document.getElementById("firingDummyHpBarFill");
+      if (hpBar) hpBar.style.width = `${perc}%`;
+      const hpText = document.getElementById("firingDummyHpText");
+      if (hpText) hpText.textContent = `${rem.toLocaleString()} / ${firingRangeState.targetHp.toLocaleString()} (${perc.toFixed(1)}%)`;
+    }
+
+    firingRangeState.castleSlots.forEach((s, i) => {
+      const row = document.getElementById(`firingRowDmg_${i}`);
+      if (row) row.textContent = `${s.totalDmg.toLocaleString()} (${s.hits}hit)`;
+    });
+  }
+
+  function formatTime(sec) {
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    const ms = Math.floor((sec % 1) * 10);
+    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}.${ms}`;
+  }
+
+  function updateTimelineSvg() {
+    const svg = document.getElementById("firingTimelineSvg");
+    if (!svg) return;
+    const pts = firingRangeState.timelinePoints;
+    if (!pts || pts.length < 2) {
+      svg.innerHTML = `<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="#718096" font-size="12px">試射を開始すると時間軸ダメージ推移グラフが描画されます</text>`;
+      return;
+    }
+
+    const maxTime = Math.max(10, pts[pts.length - 1].time);
+    const maxDmg = Math.max(1000, pts[pts.length - 1].totalDmg);
+
+    const w = 700;
+    const h = 160;
+    const padL = 60;
+    const padR = 20;
+    const padT = 16;
+    const padB = 26;
+
+    const plotW = w - padL - padR;
+    const plotH = h - padT - padB;
+
+    const polyPoints = pts.map(p => {
+      const x = padL + (p.time / maxTime) * plotW;
+      const y = h - padB - (p.totalDmg / maxDmg) * plotH;
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    }).join(" ");
+
+    svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    svg.innerHTML = `
+      <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${h - padB}" stroke="#4a5568" stroke-width="1" />
+      <line x1="${padL}" y1="${h - padB}" x2="${w - padR}" y2="${h - padB}" stroke="#4a5568" stroke-width="1" />
+      <text x="${padL - 6}" y="${padT + 8}" text-anchor="end" fill="#a0aec0" font-size="12px">${Math.round(maxDmg / 1000)}k</text>
+      <text x="${padL - 6}" y="${h - padB}" text-anchor="end" fill="#a0aec0" font-size="12px">0</text>
+      <text x="${padL}" y="${h - 6}" text-anchor="middle" fill="#a0aec0" font-size="12px">0s</text>
+      <text x="${w - padR}" y="${h - 6}" text-anchor="end" fill="#a0aec0" font-size="12px">${maxTime}s</text>
+      <polyline fill="none" stroke="#e67e22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="${polyPoints}" />
+    `;
+  }
+
+  const FIRING_SNAPSHOT_STORAGE_KEY = "scre-helper:firing-snapshots:v1";
+
+  function getFiringSnapshots() {
+    try {
+      const raw = localStorage.getItem(FIRING_SNAPSHOT_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveFiringSnapshot() {
+    const input = document.getElementById("firingSnapshotNameInput");
+    const name = (input?.value || "").trim() || `試射スナップ (${new Date().toLocaleTimeString()})`;
+
+    const partyCastles = party.map(s => s ? getCastleById(s.id) : null).filter(Boolean);
+    let totalDps = 0;
+    const castleStats = partyCastles.map(c => {
+      const st = calculateFiringCastleStats(c, { id: c.id, strategyOn: true }, firingRangeState.targetDef, firingRangeState.targetRed, firingRangeState.targetCount, firingRangeState.disabledBuffs);
+      totalDps += st.theoreticalDps;
+      return {
+        id: c.id,
+        name: c.name,
+        weapon: c.weapon,
+        finalAtk: st.finalAtk,
+        finalHitDamage: st.finalHitDamage,
+        cycleFrames: st.cycleFrames,
+        attacksPerSec: st.attacksPerSec,
+        dps: st.theoreticalDps
+      };
+    });
+
+    const snap = {
+      id: "snap_" + Date.now(),
+      name: name,
+      timestamp: Date.now(),
+      targetDef: firingRangeState.targetDef,
+      targetHp: firingRangeState.targetHp,
+      isInfiniteHp: firingRangeState.isInfiniteHp,
+      targetRed: firingRangeState.targetRed,
+      targetCount: firingRangeState.targetCount,
+      dummyName: firingRangeState.dummyName,
+      totalDps: totalDps,
+      elapsedTime: firingRangeState.elapsedTime,
+      totalDamage: firingRangeState.totalDamage,
+      castleStats: castleStats
+    };
+
+    const list = getFiringSnapshots();
+    list.unshift(snap);
+    if (list.length > 20) list.pop();
+    try {
+      localStorage.setItem(FIRING_SNAPSHOT_STORAGE_KEY, JSON.stringify(list));
+    } catch (e) {}
+
+    if (input) input.value = "";
+    showToast(`📸 スナップショット「${escapeHtml(name)}」を保存しました`);
+    renderFiringSnapshotList();
+  }
+
+  function deleteFiringSnapshot(id) {
+    let list = getFiringSnapshots();
+    list = list.filter(s => s.id !== id);
+    try {
+      localStorage.setItem(FIRING_SNAPSHOT_STORAGE_KEY, JSON.stringify(list));
+    } catch (e) {}
+    renderFiringSnapshotList();
+  }
+
+  function renderFiringSnapshotList() {
+    const container = document.getElementById("firingSnapshotListContainer");
+    if (!container) return;
+
+    const list = getFiringSnapshots();
+    if (list.length === 0) {
+      container.innerHTML = `<div style="font-size:12px; color:var(--text-sub); padding:4px;">保存済みスナップショットはありません。</div>`;
+      return;
+    }
+
+    container.innerHTML = `
+      <div style="font-size:12px; font-weight:bold; margin-bottom:6px;">保存済みスナップ (${list.length}件):</div>
+      <div style="max-height:160px; overflow-y:auto; margin-bottom:10px;">
+        ${list.map(s => `
+          <div class="firing-snapshot-item">
+            <div>
+              <strong style="font-size:12px;">${escapeHtml(s.name)}</strong>
+              <div style="color:var(--text-sub); font-size:12px;">
+                総DPS: <strong style="color:#d35400;">${s.totalDps.toLocaleString()}</strong> /秒 (防${s.targetDef})
+              </div>
+            </div>
+            <div style="display:flex; gap:4px;">
+              <button type="button" class="btn btn-xs" onclick="deleteFiringSnapshot('${s.id}')" title="削除">✕</button>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+      ${list.length >= 2 ? `
+        <div style="display:flex; gap:6px; align-items:center;">
+          <select id="firingSnapSelectA" class="form-control" style="flex:1; font-size:12px; padding:4px;">
+            ${list.map(s => `<option value="${s.id}">${escapeHtml(s.name)} (${s.totalDps.toLocaleString()}/s)</option>`).join("")}
+          </select>
+          <span style="font-size:12px; font-weight:bold;">vs</span>
+          <select id="firingSnapSelectB" class="form-control" style="flex:1; font-size:12px; padding:4px;">
+            ${list.map((s, idx) => `<option value="${s.id}" ${idx === 1 ? 'selected' : ''}>${escapeHtml(s.name)} (${s.totalDps.toLocaleString()}/s)</option>`).join("")}
+          </select>
+          <button type="button" id="btnCompareSnapshots" class="btn btn-xs btn-primary" onclick="triggerSnapshotComparison()" style="font-size:12px; white-space:nowrap;">比較</button>
+        </div>
+      ` : ''}
+    `;
+  }
+
+  function triggerSnapshotComparison() {
+    const selA = document.getElementById("firingSnapSelectA");
+    const selB = document.getElementById("firingSnapSelectB");
+    if (!selA || !selB) return;
+    compareFiringSnapshots(selA.value, selB.value);
+  }
+
+  function compareFiringSnapshots(idA, idB) {
+    const list = getFiringSnapshots();
+    const snapA = list.find(s => s.id === idA);
+    const snapB = list.find(s => s.id === idB);
+    if (!snapA || !snapB) return;
+
+    const box = document.getElementById("firingSnapshotComparisonBox");
+    const content = document.getElementById("firingSnapshotComparisonContent");
+    if (!box || !content) return;
+
+    const diffDps = snapB.totalDps - snapA.totalDps;
+    const diffPerc = snapA.totalDps > 0 ? (diffDps / snapA.totalDps * 100).toFixed(1) : "0.0";
+    const isUp = diffDps >= 0;
+
+    content.innerHTML = `
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+        <div style="background:var(--nav-bg); padding:10px; border-radius:6px; border:1px solid var(--border-color);">
+          <div style="font-size:12px; color:var(--text-sub);">基準 (Snapshot A)</div>
+          <strong style="font-size:14px;">${escapeHtml(snapA.name)}</strong>
+          <div style="font-size:13px; font-weight:bold; color:#1a365d; margin-top:4px;">総DPS: ${snapA.totalDps.toLocaleString()} /秒</div>
+          <div style="font-size:12px; color:var(--text-sub);">的: 防${snapA.targetDef} / 軽減${snapA.targetRed}%</div>
+        </div>
+        <div style="background:var(--nav-bg); padding:10px; border-radius:6px; border:1px solid var(--border-color);">
+          <div style="font-size:12px; color:var(--text-sub);">比較対象 (Snapshot B)</div>
+          <strong style="font-size:14px;">${escapeHtml(snapB.name)}</strong>
+          <div style="font-size:13px; font-weight:bold; color:#1a365d; margin-top:4px;">総DPS: ${snapB.totalDps.toLocaleString()} /秒</div>
+          <div style="font-size:12px; color:var(--text-sub);">的: 防${snapB.targetDef} / 軽減${snapB.targetRed}%</div>
+        </div>
+      </div>
+
+      <div style="background:${isUp ? '#e6fffa' : '#fff5f5'}; border:1px solid ${isUp ? '#38b2ac' : '#e53e3e'}; border-radius:6px; padding:10px; text-align:center; margin-bottom:12px;">
+        <span style="font-size:12px; color:var(--text-sub);">火力変化:</span>
+        <strong style="font-size:16px; color:${isUp ? '#234e52' : '#742a2a'}; margin-left:8px;">
+          ${isUp ? '▲' : '▼'} ${diffDps >= 0 ? '+' : ''}${diffDps.toLocaleString()} /秒 (${diffDps >= 0 ? '+' : ''}${diffPerc}%)
+        </strong>
+      </div>
+
+      <table class="table firing-comparison-table" style="width:100%; border-collapse:collapse; font-size:12px;">
+        <thead>
+          <tr style="background:var(--nav-bg); border-bottom:1px solid var(--border-color); text-align:left;">
+            <th>城娘</th>
+            <th style="text-align:right;">Snapshot A DPS</th>
+            <th style="text-align:right;">Snapshot B DPS</th>
+            <th style="text-align:right;">差分 (Δ)</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${snapA.castleStats.map(ca => {
+            const cb = snapB.castleStats.find(x => x.id === ca.id) || { dps: 0 };
+            const cDiff = cb.dps - ca.dps;
+            const cDiffPerc = ca.dps > 0 ? (cDiff / ca.dps * 100).toFixed(1) : "0.0";
+            return `
+              <tr style="border-bottom:1px solid var(--border-color);">
+                <td><strong>${escapeHtml(ca.name)}</strong> <span style="color:var(--text-sub); font-size:12px;">${ca.weapon}</span></td>
+                <td style="text-align:right;">${ca.dps.toLocaleString()}</td>
+                <td style="text-align:right;">${cb.dps.toLocaleString()}</td>
+                <td style="text-align:right; font-weight:bold; color:${cDiff >= 0 ? '#27ae60' : '#e74c3c'};">
+                  ${cDiff >= 0 ? '+' : ''}${cDiff.toLocaleString()} (${cDiff >= 0 ? '+' : ''}${cDiffPerc}%)
+                </td>
+              </tr>
+            `;
+          }).join("")}
+        </tbody>
+      </table>
+    `;
+
+    box.style.display = "block";
+  }
+
+  function initFiringRange() {
+    const presetSelect = document.getElementById("firingRangePresetSelect");
+    if (presetSelect && SCRE_BOSS_CATALOG) {
+      let bossOptionsHtml = `<optgroup label="地獄・高難易度ボス (ボスカタログ)">`;
+      SCRE_BOSS_CATALOG.forEach((b, idx) => {
+        bossOptionsHtml += `<option value="boss_${idx}">${escapeHtml(b.name)} (HP ${b.hp.toLocaleString()} / 防 ${b.def})</option>`;
+      });
+      bossOptionsHtml += `</optgroup>`;
+      presetSelect.innerHTML += bossOptionsHtml;
+
+      presetSelect.addEventListener("change", () => {
+        const val = presetSelect.value;
+        if (val.startsWith("boss_")) {
+          const idx = parseInt(val.split("_")[1], 10);
+          const b = SCRE_BOSS_CATALOG[idx];
+          if (b) {
+            firingRangeState.dummyName = b.name;
+            firingRangeState.targetDef = b.def;
+            firingRangeState.targetHp = b.hp;
+            firingRangeState.isInfiniteHp = false;
+            firingRangeState.targetRed = 0;
+            syncFiringSettingsUI();
+            renderFiringRangeTab();
+          }
+        } else {
+          const p = FIRING_PRESETS.find(x => x.id === val);
+          if (p) {
+            firingRangeState.dummyName = p.name.split(" ")[0];
+            firingRangeState.targetDef = p.def;
+            firingRangeState.targetHp = p.hp;
+            firingRangeState.isInfiniteHp = p.isInfinite;
+            firingRangeState.targetRed = p.red;
+            syncFiringSettingsUI();
+            renderFiringRangeTab();
+          }
+        }
+      });
+    }
+
+    const defSlider = document.getElementById("firingRangeDefSlider");
+    const defInput = document.getElementById("firingRangeDefInput");
+    if (defSlider && defInput) {
+      defSlider.addEventListener("input", () => {
+        const val = parseInt(defSlider.value, 10) || 0;
+        defInput.value = val;
+        firingRangeState.targetDef = val;
+        syncDefText(val);
+        renderFiringRangeTab();
+      });
+      defInput.addEventListener("change", () => {
+        const val = Math.max(0, parseInt(defInput.value, 10) || 0);
+        defSlider.value = Math.min(5000, val);
+        firingRangeState.targetDef = val;
+        syncDefText(val);
+        renderFiringRangeTab();
+      });
+    }
+
+    const defQuickBtns = document.querySelectorAll(".firing-def-quick-btn");
+    defQuickBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const val = parseInt(btn.dataset.def, 10) || 0;
+        firingRangeState.targetDef = val;
+        if (defSlider) defSlider.value = Math.min(5000, val);
+        if (defInput) defInput.value = val;
+        syncDefText(val);
+        defQuickBtns.forEach(b => b.classList.toggle("active", b === btn));
+        renderFiringRangeTab();
+      });
+    });
+
+    const btnInfinite = document.getElementById("btnHpModeInfinite");
+    const btnFinite = document.getElementById("btnHpModeFinite");
+    const hpRow = document.getElementById("firingRangeHpInputRow");
+    const durBox = document.getElementById("firingRangeDurationModeBox");
+    const dummyHpBox = document.getElementById("firingDummyHpBarBox");
+
+    if (btnInfinite && btnFinite) {
+      btnInfinite.addEventListener("click", () => {
+        firingRangeState.isInfiniteHp = true;
+        btnInfinite.classList.add("active");
+        btnFinite.classList.remove("active");
+        if (hpRow) hpRow.style.display = "none";
+        if (durBox) durBox.style.display = "block";
+        if (dummyHpBox) dummyHpBox.style.display = "none";
+        renderFiringRangeTab();
+      });
+      btnFinite.addEventListener("click", () => {
+        firingRangeState.isInfiniteHp = false;
+        btnFinite.classList.add("active");
+        btnInfinite.classList.remove("active");
+        if (hpRow) hpRow.style.display = "flex";
+        if (durBox) durBox.style.display = "none";
+        if (dummyHpBox) dummyHpBox.style.display = "block";
+        renderFiringRangeTab();
+      });
+    }
+
+    const hpInput = document.getElementById("firingRangeHpInput");
+    if (hpInput) {
+      hpInput.addEventListener("change", () => {
+        firingRangeState.targetHp = Math.max(1000, parseInt(hpInput.value, 10) || 200000);
+        renderFiringRangeTab();
+      });
+    }
+
+    const redSlider = document.getElementById("firingRangeRedSlider");
+    const redInput = document.getElementById("firingRangeRedInput");
+    const redText = document.getElementById("firingRangeRedValText");
+    if (redSlider && redInput) {
+      redSlider.addEventListener("input", () => {
+        const val = parseInt(redSlider.value, 10) || 0;
+        redInput.value = val;
+        firingRangeState.targetRed = val;
+        if (redText) redText.textContent = `${val}%`;
+        renderFiringRangeTab();
+      });
+      redInput.addEventListener("change", () => {
+        const val = Math.max(0, Math.min(90, parseInt(redInput.value, 10) || 0));
+        redSlider.value = val;
+        firingRangeState.targetRed = val;
+        if (redText) redText.textContent = `${val}%`;
+        renderFiringRangeTab();
+      });
+    }
+
+    const targetCountBtns = document.querySelectorAll(".firing-target-count-btn");
+    targetCountBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        targetCountBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        firingRangeState.targetCount = parseInt(btn.dataset.count, 10) || 1;
+        renderFiringRangeTab();
+      });
+    });
+
+    const durationBtns = document.querySelectorAll(".firing-duration-btn");
+    durationBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        durationBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        firingRangeState.durationLimit = parseInt(btn.dataset.duration, 10) || 0;
+      });
+    });
+
+    const speedBtns = document.querySelectorAll(".firing-speed-btn");
+    speedBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        speedBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        firingRangeState.speed = parseFloat(btn.dataset.speed) || 1.0;
+      });
+    });
+
+    const btnPlayPause = document.getElementById("btnFiringPlayPause");
+    if (btnPlayPause) {
+      btnPlayPause.addEventListener("click", () => {
+        if (firingRangeState.isRunning) pauseFiringSimulation();
+        else startFiringSimulation();
+      });
+    }
+
+    const btnReset = document.getElementById("btnFiringReset");
+    if (btnReset) {
+      btnReset.addEventListener("click", () => {
+        resetFiringSimulation();
+      });
+    }
+
+    const btnResetDummy = document.getElementById("btnResetDummySettings");
+    if (btnResetDummy) {
+      btnResetDummy.addEventListener("click", () => {
+        firingRangeState.targetDef = 500;
+        firingRangeState.targetHp = 200000;
+        firingRangeState.isInfiniteHp = false;
+        firingRangeState.targetRed = 0;
+        firingRangeState.targetCount = 1;
+        firingRangeState.dummyName = "標準的な兜";
+        firingRangeState.disabledBuffs.clear();
+        syncFiringSettingsUI();
+        renderFiringRangeTab();
+      });
+    }
+
+    const btnSaveSnap = document.getElementById("btnSaveFiringSnapshot");
+    if (btnSaveSnap) {
+      btnSaveSnap.addEventListener("click", saveFiringSnapshot);
+    }
+
+    const btnCloseSnapComp = document.getElementById("btnCloseSnapshotComparison");
+    if (btnCloseSnapComp) {
+      btnCloseSnapComp.addEventListener("click", () => {
+        const box = document.getElementById("firingSnapshotComparisonBox");
+        if (box) box.style.display = "none";
+      });
+    }
+  }
+
+  function syncDefText(val) {
+    const txt = document.getElementById("firingRangeDefValText");
+    if (txt) txt.textContent = val.toLocaleString();
+  }
+
+  function syncFiringSettingsUI() {
+    const defSlider = document.getElementById("firingRangeDefSlider");
+    const defInput = document.getElementById("firingRangeDefInput");
+    if (defSlider) defSlider.value = Math.min(5000, firingRangeState.targetDef);
+    if (defInput) defInput.value = firingRangeState.targetDef;
+    syncDefText(firingRangeState.targetDef);
+
+    const redSlider = document.getElementById("firingRangeRedSlider");
+    const redInput = document.getElementById("firingRangeRedInput");
+    const redText = document.getElementById("firingRangeRedValText");
+    if (redSlider) redSlider.value = firingRangeState.targetRed;
+    if (redInput) redInput.value = firingRangeState.targetRed;
+    if (redText) redText.textContent = `${firingRangeState.targetRed}%`;
+
+    const hpInput = document.getElementById("firingRangeHpInput");
+    if (hpInput) hpInput.value = firingRangeState.targetHp;
+
+    const btnInfinite = document.getElementById("btnHpModeInfinite");
+    const btnFinite = document.getElementById("btnHpModeFinite");
+    const hpRow = document.getElementById("firingRangeHpInputRow");
+    const durBox = document.getElementById("firingRangeDurationModeBox");
+    const dummyHpBox = document.getElementById("firingDummyHpBarBox");
+
+    if (firingRangeState.isInfiniteHp) {
+      if (btnInfinite) btnInfinite.classList.add("active");
+      if (btnFinite) btnFinite.classList.remove("active");
+      if (hpRow) hpRow.style.display = "none";
+      if (durBox) durBox.style.display = "block";
+      if (dummyHpBox) dummyHpBox.style.display = "none";
+    } else {
+      if (btnInfinite) btnInfinite.classList.remove("active");
+      if (btnFinite) btnFinite.classList.add("active");
+      if (hpRow) hpRow.style.display = "flex";
+      if (durBox) durBox.style.display = "none";
+      if (dummyHpBox) dummyHpBox.style.display = "block";
+    }
+  }
+
   // Initialize Prompt 34 listeners
   function initPrompt34Features() {
     initBuffEquivalenceListeners();
@@ -12832,6 +13972,7 @@ function showQuizResult() {
     initTierSplitListeners();
     initDelibPlannerListeners();
     initDetailDpsListeners();
+    initFiringRange();
   }
 
   // Call on load
@@ -12942,6 +14083,98 @@ function showQuizResult() {
   window.computeFramePreciseDps = computeFramePreciseDps;
   window.renderDetailDpsPrecisionUI = renderDetailDpsPrecisionUI;
   window.initPrompt34Features = initPrompt34Features;
+
+  function getWeaponFrameData(w) {
+    const f = SCRE_WEAPON_FRAMES[w];
+    if (f) return { ...f, total: f.atk + f.gap };
+    return { atk: 25, gap: 25, hits: 1, type: "physical", isEstimate: true, total: 50 };
+  }
+
+  function computeWeaponEffectiveFrames(weapon, atkSpeed = 0, gapShorten = 0) {
+    const wf = getWeaponFrameData(weapon);
+    const effAtk = Math.max(1, Math.round(wf.atk / (1 + atkSpeed / 100)));
+    const effGap = Math.max(0, Math.round(wf.gap * (1 - gapShorten / 100)));
+    const cycleFrames = effAtk + effGap;
+    const cycleTime = cycleFrames > 0 ? (cycleFrames / 30) : 1;
+    const attacksPerSec = cycleFrames > 0 ? (30 / cycleFrames) : 1;
+    return {
+      baseAtk: wf.atk,
+      baseGap: wf.gap,
+      effAtk,
+      effGap,
+      cycleFrames,
+      cycleTime,
+      attacksPerSec,
+      isEstimate: !!wf.isEstimate
+    };
+  }
+
+  function calculateSingleHitDamage({ atk = 1000, targetMult = 1.0, postDmgMult = 1.0, defIgnore = false, targetDef = 0, damageReduction = 0, immuneDefIgnore = false }) {
+    const effDef = (defIgnore && !immuneDefIgnore) ? 0 : targetDef;
+    const atkWithTarget = Math.floor(atk * targetMult);
+    const baseDamage = Math.max(Math.floor(atkWithTarget * 0.1), atkWithTarget - effDef);
+    const finalDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - (damageReduction / 100))));
+    return {
+      baseDamage,
+      damage: finalDamage,
+      breakdown: `攻${atk} × 倍率${targetMult} - 防${effDef} = ${baseDamage} × 補正${postDmgMult} × 軽減${(1 - damageReduction/100)} = ${finalDamage.toLocaleString()}`
+    };
+  }
+
+  function computePartyFiringDps(options = {}) {
+    const targetDef = typeof options.targetDef === "number" ? options.targetDef : (firingRangeState.targetDef || 500);
+    const targetRed = typeof options.damageReduction === "number" ? options.damageReduction : (firingRangeState.targetRed || 0);
+    const targetCount = options.targetCount || firingRangeState.targetCount || 1;
+    const disabledBuffs = options.disabledBuffs || firingRangeState.disabledBuffs || new Set();
+    const immuneDefIgnore = !!options.immuneDefIgnore;
+
+    const partyCastles = party.map((slot, idx) => ({
+      slot,
+      castle: slot ? getCastleById(slot.id) : null,
+      idx
+    })).filter(item => item.castle);
+
+    let totalDps = 0;
+    const slotStats = partyCastles.map(item => {
+      const st = calculateFiringCastleStats(item.castle, item.slot, targetDef, targetRed, targetCount, disabledBuffs);
+      if (immuneDefIgnore && st.effectiveIgnore && !["杖", "鈴", "法術"].includes(item.castle.weapon)) {
+        const rawAtkWithTarget = Math.floor(st.finalAtk * st.dmgTargetMult);
+        const rawBaseDamage = Math.max(Math.floor(rawAtkWithTarget * 0.1), rawAtkWithTarget - targetDef);
+        const rawFinalHit = Math.max(1, Math.floor(rawBaseDamage * ((1 + st.dmgDealtPerc) * (1 + st.enemyDmgTakenPerc)) * (1.0 - (targetRed / 100))));
+        const cycleDmg = rawFinalHit * st.hits * st.effectiveTargets;
+        st.finalHitDamage = rawFinalHit;
+        st.theoreticalDps = Math.round(cycleDmg * st.attacksPerSec);
+      }
+      totalDps += st.theoreticalDps;
+      return {
+        castle: item.castle,
+        dps: st.theoreticalDps,
+        stat: st
+      };
+    });
+
+    return {
+      totalDps,
+      slotStats
+    };
+  }
+
+  window.renderFiringRangeTab = renderFiringRangeTab;
+  window.startFiringSimulation = startFiringSimulation;
+  window.pauseFiringSimulation = pauseFiringSimulation;
+  window.resetFiringSimulation = resetFiringSimulation;
+  window.calculateFiringCastleStats = calculateFiringCastleStats;
+  window.toggleFiringBuffDisabled = toggleFiringBuffDisabled;
+  window.saveFiringSnapshot = saveFiringSnapshot;
+  window.deleteFiringSnapshot = deleteFiringSnapshot;
+  window.triggerSnapshotComparison = triggerSnapshotComparison;
+  window.compareFiringSnapshots = compareFiringSnapshots;
+  window.getFiringRangeState = () => firingRangeState;
+  window.getWeaponFrameData = getWeaponFrameData;
+  window.computeWeaponEffectiveFrames = computeWeaponEffectiveFrames;
+  window.calculateSingleHitDamage = calculateSingleHitDamage;
+  window.computePartyFiringDps = computePartyFiringDps;
+
   window.getParty = () => party;
   window.setParty = (p) => {
     party = p;

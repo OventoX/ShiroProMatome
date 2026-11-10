@@ -27,6 +27,7 @@
       <button class="tab-btn" data-tab="tab-special">特殊効果テキスト</button>
       <button class="tab-btn" data-tab="tab-map">🗾 城巡りマップ</button>
       <button class="tab-btn" data-tab="tab-quiz">🏯 城娘クイズ</button>
+      <button class="tab-btn" data-tab="tab-firing-range">🎯 射撃訓練場</button>
       <button class="tab-btn" data-tab="tab-settings">設定・保存</button>
     </nav>
 
@@ -1219,6 +1220,260 @@
           <div id="quizResultScore" style="font-size:26px; font-weight:bold; color:var(--primary-color); margin-bottom:8px;"></div>
           <div id="quizResultComment" style="font-size:13px; color:var(--text-sub); margin-bottom:18px;"></div>
           <button type="button" class="btn btn-primary" id="btnRestartQuiz" style="padding:6px 16px;">もう一度挑戦する ↺</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Tab 8: 射撃訓練場 (ダメージバフ検証レンジ) -->
+    <main id="tab-firing-range" class="tab-content">
+      <!-- 1. Header Banner & Premise Notice -->
+      <div class="firing-range-header">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h2 style="font-size: 18px; margin: 0 0 4px 0; display: flex; align-items: center; gap: 8px;">
+              <span>🎯</span> 射撃訓練場 <span style="font-size: 12px; font-weight: normal; color: var(--text-sub);">(ダメージバフ検証レンジ)</span>
+            </h2>
+            <div style="font-size: 12px; color: var(--text-sub);">
+              編成中の城娘がダミー敵を連続攻撃し、ダメージ数字・DPS・バフ寄与度をリアルタイム検証します。
+            </div>
+          </div>
+          <!-- Quick Status Badges -->
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span id="firingRangePartyStatus" class="badge" style="font-size: 12px; padding: 4px 10px; background: #e8f4fd; color: #1b4965; border: 1px solid #b8daff;">
+              部隊: 8/8 体
+            </span>
+            <span id="firingRangeDpsHeadline" class="badge" style="font-size: 13px; font-weight: bold; padding: 4px 12px; background: #fff3e0; color: #e65100; border: 1px solid #ffe0b2;">
+              部隊総DPS: 0 /秒
+            </span>
+          </div>
+        </div>
+
+        <!-- Official Premise & Disclaimer Alert Box -->
+        <div class="firing-range-notice-box" style="margin-top: 10px; padding: 10px 14px; background: var(--nav-bg); border-left: 4px solid var(--primary-color); border-radius: 4px; font-size: 12px; color: var(--text-sub); line-height: 1.6;">
+          <div><strong>【検証前提・計算式仕様】</strong></div>
+          <div>• <strong>1撃ダメージ計算式</strong>: <code>max(攻撃値 × 0.1, 攻撃値 × 与えるダメ倍率 - 敵実効防御) × 与ダメ倍率 × 敵被ダメ倍率 × (1 - 敵軽減率)</code>（ダメージチェッカー準拠、術・特定武器は防御無視）</div>
+          <div>• <strong>攻撃間隔</strong>: Wiki / PileBunker 30fps 標準フレーム（刀:20+23f、槌:31+37f、拳:11+13f等）。未検証・特殊武器種は「推定値」と明記し手動編集可能。</div>
+          <div>• <strong>間隔短縮式</strong>: <code>攻撃モーション = 基礎f ÷ (1 + 攻撃速度% / 100)</code>、<code>攻撃隙 = 基礎隙f × (1 - 隙短縮% / 100)</code>、<code>秒間回数 = 30fps ÷ (モーション + 隙)</code></div>
+        </div>
+      </div>
+
+      <!-- 2. Controls & Target Settings Panel Grid -->
+      <div class="firing-range-grid" style="display: grid; grid-template-columns: 360px 1fr; gap: 16px; margin-top: 16px;">
+        <!-- LEFT COLUMN: Target Dummy Settings & Presets -->
+        <div class="firing-range-settings-col">
+          <div class="section-box" style="margin-top: 0;">
+            <div class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+              <span>🎯 的（ダミー敵）の設定</span>
+              <button type="button" id="btnResetDummySettings" class="btn btn-xs" style="font-size: 12px;">初期化</button>
+            </div>
+
+            <!-- Preset Selector -->
+            <div style="margin-bottom: 12px;">
+              <label style="font-size: 12px; font-weight: bold; display: block; margin-bottom: 4px;">的プリセット</label>
+              <select id="firingRangePresetSelect" class="form-control" style="width: 100%; font-size: 12px; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-main);">
+                <option value="custom">カスタム設定</option>
+                <option value="def0">藁人形 (防御 0 / HP 無限)</option>
+                <option value="def500" selected>標準的な兜 (防御 500 / HP 20万)</option>
+                <option value="def1500">重装兜 (防御 1,500 / HP 50万)</option>
+                <option value="def3000">超高防御ゴーレム (防御 3,000 / HP 100万)</option>
+              </select>
+            </div>
+
+            <!-- DEF Slider & Input -->
+            <div style="margin-bottom: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <label style="font-size: 12px; font-weight: bold;">敵防御力</label>
+                <span style="font-size: 12px; font-weight: bold; color: var(--buff-color);" id="firingRangeDefValText">500</span>
+              </div>
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <input type="range" id="firingRangeDefSlider" min="0" max="5000" step="50" value="500" style="flex: 1;">
+                <input type="number" id="firingRangeDefInput" min="0" max="10000" step="10" value="500" style="width: 80px; font-size: 12px; padding: 4px 6px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--card-bg); color: var(--text-main); text-align: right;">
+              </div>
+              <!-- Preset buttons -->
+              <div style="display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap;">
+                <button type="button" class="btn btn-xs firing-def-quick-btn" data-def="0">防 0</button>
+                <button type="button" class="btn btn-xs firing-def-quick-btn active" data-def="500">防 500</button>
+                <button type="button" class="btn btn-xs firing-def-quick-btn" data-def="1500">防 1500</button>
+                <button type="button" class="btn btn-xs firing-def-quick-btn" data-def="3000">防 3000</button>
+              </div>
+            </div>
+
+            <!-- HP Mode & Input -->
+            <div style="margin-bottom: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <label style="font-size: 12px; font-weight: bold;">敵耐久 (HP)</label>
+                <div style="display: flex; gap: 4px;">
+                  <button type="button" id="btnHpModeInfinite" class="btn btn-xs" style="font-size: 12px;">無限 (DPS計測)</button>
+                  <button type="button" id="btnHpModeFinite" class="btn btn-xs active" style="font-size: 12px;">有限 (撃破レース)</button>
+                </div>
+              </div>
+              <div id="firingRangeHpInputRow" style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+                <input type="number" id="firingRangeHpInput" min="1000" max="50000000" step="10000" value="200000" style="flex: 1; font-size: 12px; padding: 4px 6px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--card-bg); color: var(--text-main); text-align: right;">
+                <span style="font-size: 12px; color: var(--text-sub);">HP</span>
+              </div>
+            </div>
+
+            <!-- Damage Reduction Rate % -->
+            <div style="margin-bottom: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <label style="font-size: 12px; font-weight: bold;">敵被ダメージ軽減率 (%)</label>
+                <span id="firingRangeRedValText" style="font-size: 12px; font-weight: bold; color: #e74c3c;">0%</span>
+              </div>
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <input type="range" id="firingRangeRedSlider" min="0" max="90" step="5" value="0" style="flex: 1;">
+                <input type="number" id="firingRangeRedInput" min="0" max="90" step="1" value="0" style="width: 60px; font-size: 12px; padding: 4px 6px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--card-bg); color: var(--text-main); text-align: right;">
+              </div>
+            </div>
+
+            <!-- Target Count (対象数 1 / 3 / 5) -->
+            <div style="margin-bottom: 12px;">
+              <label style="font-size: 12px; font-weight: bold; display: block; margin-bottom: 4px;">射程内対象数（範囲・マルチロック検証）</label>
+              <div style="display: flex; gap: 6px;">
+                <button type="button" class="btn btn-xs firing-target-count-btn active" data-count="1" style="flex: 1; font-size: 12px;">1 体 (単体)</button>
+                <button type="button" class="btn btn-xs firing-target-count-btn" data-count="3" style="flex: 1; font-size: 12px;">3 体 (群れ)</button>
+                <button type="button" class="btn btn-xs firing-target-count-btn" data-count="5" style="flex: 1; font-size: 12px;">5 体 (高密度)</button>
+              </div>
+            </div>
+
+            <!-- Measurement Duration Mode (for infinite HP) -->
+            <div id="firingRangeDurationModeBox" style="margin-bottom: 12px; display: none;">
+              <label style="font-size: 12px; font-weight: bold; display: block; margin-bottom: 4px;">計測モード（停止条件）</label>
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                <button type="button" class="btn btn-xs firing-duration-btn active" data-duration="0" style="font-size: 12px;">連続 (手動停止)</button>
+                <button type="button" class="btn btn-xs firing-duration-btn" data-duration="10" style="font-size: 12px;">10秒計測</button>
+                <button type="button" class="btn btn-xs firing-duration-btn" data-duration="30" style="font-size: 12px;">30秒計測</button>
+                <button type="button" class="btn btn-xs firing-duration-btn" data-duration="60" style="font-size: 12px;">60秒計測</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Snapshot Management Card -->
+          <div class="section-box">
+            <div class="section-title">📸 スナップショット比較</div>
+            <div style="font-size: 12px; color: var(--text-sub); margin-bottom: 8px;">
+              現在の試射結果を保存し、編成やバフを変えた後の結果と横並び比較できます。
+            </div>
+            <div style="display: flex; gap: 6px; margin-bottom: 10px;">
+              <input type="text" id="firingSnapshotNameInput" placeholder="スナップショット名 (例: 平パ対500)" style="flex: 1; font-size: 12px; padding: 4px 8px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--card-bg); color: var(--text-main);">
+              <button type="button" id="btnSaveFiringSnapshot" class="btn btn-xs btn-primary" style="font-size: 12px; white-space: nowrap;">保存</button>
+            </div>
+            <!-- Snapshot Compare Selector -->
+            <div id="firingSnapshotListContainer"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Firing Range Stage & Realtime Visuals -->
+        <div class="firing-range-stage-col">
+          <!-- Stage Visual Canvas / Board -->
+          <div class="section-box" style="margin-top: 0; padding: 14px;">
+            <!-- Stage Top Bar: Controls & Timer -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+              <!-- Play / Pause / Reset & Speed -->
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <button type="button" id="btnFiringPlayPause" class="btn btn-sm btn-primary" style="font-size: 13px; font-weight: bold; padding: 5px 14px;">
+                  ▶ 試射開始
+                </button>
+                <button type="button" id="btnFiringReset" class="btn btn-sm" style="font-size: 13px; padding: 5px 12px;">
+                  🔄 リセット
+                </button>
+                <div style="display: flex; gap: 2px; margin-left: 8px;">
+                  <button type="button" class="btn btn-xs firing-speed-btn" data-speed="0.5" style="font-size: 12px;">0.5x</button>
+                  <button type="button" class="btn btn-xs firing-speed-btn active" data-speed="1.0" style="font-size: 12px;">1.0x</button>
+                  <button type="button" class="btn btn-xs firing-speed-btn" data-speed="2.0" style="font-size: 12px;">2.0x</button>
+                  <button type="button" class="btn btn-xs firing-speed-btn" data-speed="4.0" style="font-size: 12px;">4.0x</button>
+                </div>
+              </div>
+
+              <!-- Timer & Overall Counters -->
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <div style="font-size: 12px; color: var(--text-sub);">
+                  経過時間: <strong id="firingTimerDisplay" style="font-size: 15px; color: var(--text-main); font-family: monospace;">00:00.0</strong>
+                </div>
+                <div style="font-size: 12px; color: var(--text-sub);">
+                  総ダメージ: <strong id="firingTotalDmgDisplay" style="font-size: 15px; color: #e67e22; font-family: monospace;">0</strong>
+                </div>
+                <div style="font-size: 12px; color: var(--text-sub);">
+                  秒間DPS: <strong id="firingCurrentDpsDisplay" style="font-size: 15px; color: #d35400; font-family: monospace;">0</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Simulation Stage Canvas Area -->
+            <div id="firingStageCanvasContainer" style="position: relative; width: 100%; height: 260px; background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); border-radius: 6px; overflow: hidden; border: 1px solid var(--border-color);">
+              <canvas id="firingStageCanvas" width="800" height="260" style="width: 100%; height: 100%; display: block;"></canvas>
+              <!-- Damage Popup Floating Layer -->
+              <div id="firingDamagePopupLayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden;"></div>
+            </div>
+
+            <!-- Target Dummy HP Bar (when finite) -->
+            <div id="firingDummyHpBarBox" style="margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 2px;">
+                <span id="firingDummyNameDisplay">🎯 標準的な兜</span>
+                <span id="firingDummyHpText">200,000 / 200,000 (100%)</span>
+              </div>
+              <div style="width: 100%; height: 10px; background: #4a5568; border-radius: 5px; overflow: hidden;">
+                <div id="firingDummyHpBarFill" style="width: 100%; height: 100%; background: linear-gradient(90deg, #e74c3c, #f39c12); transition: width 0.1s linear;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Realtime Results: Castle Breakdown Table -->
+          <div class="section-box">
+            <div class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+              <span>⚔️ 城娘別リアルタイム試射成績</span>
+              <div style="font-size: 12px; font-weight: normal; color: var(--text-sub);">
+                ※ 1ヒット計算内訳・攻撃フレーム・DPS一覧
+              </div>
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="table" style="width: 100%; font-size: 12px; border-collapse: collapse;">
+                <thead>
+                  <tr style="background: var(--nav-bg); border-bottom: 2px solid var(--border-color); text-align: left;">
+                    <th style="padding: 6px 8px; width: 36px; text-align: center;">#</th>
+                    <th style="padding: 6px 8px;">城娘</th>
+                    <th style="padding: 6px 8px; text-align: right;">最終攻撃</th>
+                    <th style="padding: 6px 8px; text-align: right;">1撃実ダメ</th>
+                    <th style="padding: 6px 8px; text-align: center;">攻撃間隔 (f)</th>
+                    <th style="padding: 6px 8px; text-align: right;">実効DPS</th>
+                    <th style="padding: 6px 8px; text-align: right;">累計ダメージ</th>
+                    <th style="padding: 6px 8px; text-align: center;">火力占有率</th>
+                    <th style="padding: 6px 8px;">計算内訳</th>
+                  </tr>
+                </thead>
+                <tbody id="firingCastleResultsTbody">
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Buff Contribution Verification (バフ寄与度トグル) -->
+          <div class="section-box">
+            <div class="section-title">
+              <span>🧪 バフ寄与度の個別検証 (「このバフを切って試射」)</span>
+            </div>
+            <div style="font-size: 12px; color: var(--text-sub); margin-bottom: 10px;">
+              編成部隊にかかっている各種バフのON/OFFを切り替え、部隊総DPSが何%低下（寄与）しているかをリアルタイム計測します。
+            </div>
+            <div id="firingBuffContributionList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 8px;">
+            </div>
+          </div>
+
+          <!-- Cumulative Damage Timeline Chart -->
+          <div class="section-box">
+            <div class="section-title">📈 累積ダメージ推移チャート (時間軸)</div>
+            <div style="width: 100%; height: 160px; background: var(--nav-bg); border: 1px solid var(--border-color); border-radius: 4px; position: relative;">
+              <svg id="firingTimelineSvg" width="100%" height="160" style="display: block;"></svg>
+            </div>
+          </div>
+
+          <!-- Side-by-Side Snapshot Comparison Box -->
+          <div id="firingSnapshotComparisonBox" class="section-box" style="display: none;">
+            <div class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+              <span>⚖️ 試射スナップショット対比結果</span>
+              <button type="button" id="btnCloseSnapshotComparison" class="btn btn-xs">閉じる</button>
+            </div>
+            <div id="firingSnapshotComparisonContent"></div>
+          </div>
         </div>
       </div>
     </main>
