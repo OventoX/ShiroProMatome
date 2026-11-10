@@ -30,14 +30,22 @@
     return (typeof t === "string" && ALLOWED_TERRAINS.includes(t)) ? t : "";
   }
 
-  function normalizeParty(rawParty) {
+  function normalizeParty(rawParty, allowSparse = false) {
     if (!Array.isArray(rawParty)) return [];
     const valid = [];
     const seenIds = new Set();
-    for (const item of rawParty) {
-      if (!item || typeof item !== "object") continue;
+    const len = Math.min(rawParty.length, 8);
+    for (let i = 0; i < len; i++) {
+      const item = rawParty[i];
+      if (!item || typeof item !== "object") {
+        if (allowSparse) valid.push(null);
+        continue;
+      }
       const id = typeof item.id === "string" ? item.id.trim() : "";
-      if (!id || seenIds.has(id)) continue;
+      if (!id || seenIds.has(id)) {
+        if (allowSparse) valid.push(null);
+        continue;
+      }
       seenIds.add(id);
       const giantStep = (typeof item.giantStep === "number" && item.giantStep >= 0 && item.giantStep <= 5) ? item.giantStep : 5;
       valid.push({
@@ -46,7 +54,11 @@
         specialOn: item.specialOn !== undefined ? Boolean(item.specialOn) : false,
         giantStep
       });
-      if (valid.length >= 8) break;
+    }
+    if (allowSparse) {
+      while (valid.length > 0 && valid[valid.length - 1] === null) {
+        valid.pop();
+      }
     }
     return valid;
   }
@@ -59,7 +71,7 @@
       const defaultName = DEFAULT_PRESET_NAMES[i] || `部隊${i + 1}`;
       if (p && typeof p === "object") {
         const name = (typeof p.name === "string" && p.name.trim()) ? p.name.trim() : defaultName;
-        const party = normalizeParty(p.party);
+        const party = normalizeParty(p.party, true);
         normalized.push({ name, party });
       } else {
         const defaultParty = (i === 0) ? JSON.parse(JSON.stringify(DEFAULT_PARTY_PRESET_1)) : [];
@@ -118,7 +130,7 @@
   let party = partyPresets[currentPresetIdx].party;
 
   function saveParty() {
-    party = normalizeParty(party);
+    party = normalizeParty(party, true);
     partyPresets[currentPresetIdx].party = party;
     savePresets();
   }
@@ -858,7 +870,7 @@
     if (!calcResult) calcResult = calculateBuffs();
     const listEl = document.getElementById("partySlotList");
     listEl.innerHTML = "";
-    document.getElementById("partyCounter").textContent = `編成 ${party.length}/8`;
+    document.getElementById("partyCounter").textContent = `編成 ${party.filter(Boolean).length}/8`;
 
     // Render Total Cost Summary
     const costSummaryEl = document.getElementById("totalCostSummary");
@@ -1319,7 +1331,7 @@
 
     const { perCastle, enemyDebuffs } = calcResult || calculateBuffs();
     const checklist = window.SCRE_RULES.checklist;
-    const currentPartyIds = new Set(party.map(p => p.id));
+    const currentPartyIds = new Set(party.filter(Boolean).map(p => p.id));
 
     checklist.forEach(item => {
       let isCovered = false;
@@ -1503,7 +1515,7 @@
       }
     } else if (e.target.classList.contains("castle-name")) {
       const id = e.target.getAttribute("data-id");
-      openCastleDetail(id, party.map(s => getCastleById(s.id)).filter(Boolean));
+      openCastleDetail(id, party.filter(Boolean).map(s => getCastleById(s.id)).filter(Boolean));
     }
   });
 
@@ -1632,7 +1644,7 @@
   const btnExportNames = document.getElementById("btnExportPartyNames");
   if (btnExportNames) {
     btnExportNames.addEventListener("click", () => {
-      const names = party.map(slot => {
+      const names = party.filter(Boolean).map(slot => {
         const c = getCastleById(slot.id);
         return c ? c.name : slot.id;
       }).filter(Boolean);
@@ -1869,7 +1881,7 @@
     }
 
     pageItems.forEach(c => {
-      const inParty = party.some(p => p.id === c.id);
+      const inParty = party.some(p => p && p.id === c.id);
       const isFav = ownership.favorites.has(c.id);
       const isOwned = ownership.owned.has(c.id);
 
@@ -1997,7 +2009,7 @@
     const togglePartyId = e.target.getAttribute("data-toggle-party");
     if (togglePartyId) {
       pushUndoSnapshot();
-      const existingIdx = party.findIndex(p => p.id === togglePartyId);
+      const existingIdx = party.findIndex(p => p && p.id === togglePartyId);
       if (existingIdx !== -1) {
         party.splice(existingIdx, 1);
       } else {
@@ -2402,7 +2414,7 @@
   function renderSpecialTab() {
     const container = document.getElementById("specialAbilitiesList");
     container.innerHTML = "";
-    const activeMembers = party.map(s => getCastleById(s.id)).filter(Boolean);
+    const activeMembers = party.filter(Boolean).map(s => getCastleById(s.id)).filter(Boolean);
     if (activeMembers.length === 0) {
       container.innerHTML = `<div class="banner-notice" style="grid-column:1/-1;">編成中の城娘がいません。</div>`;
       return;
@@ -3803,7 +3815,7 @@
       if (currentFilteredCastles && currentFilteredCastles.some(item => item && (item.id === c.id || item.name === c.name))) {
         activeDetailList = currentFilteredCastles;
       } else if (party && party.some(p => p.id === c.id)) {
-        activeDetailList = party.map(p => getCastleById(p.id)).filter(Boolean);
+        activeDetailList = party.filter(Boolean).map(p => getCastleById(p.id)).filter(Boolean);
       } else {
         activeDetailList = window.SCRE_DATA || [];
       }
@@ -4027,7 +4039,7 @@
   function updateDetailPartyButton() {
     const btn = document.getElementById("btnDetailToggleParty");
     if (!btn || !activeDetailCastleId) return;
-    const inParty = party.some(p => p.id === activeDetailCastleId);
+    const inParty = party.some(p => p && p.id === activeDetailCastleId);
     if (inParty) {
       btn.textContent = "✓ 編成中 (外す)";
       btn.style.background = "#c93434";
@@ -4040,7 +4052,7 @@
   document.getElementById("btnDetailToggleParty").addEventListener("click", () => {
     if (!activeDetailCastleId) return;
     pushUndoSnapshot();
-    const idx = party.findIndex(p => p.id === activeDetailCastleId);
+    const idx = party.findIndex(p => p && p.id === activeDetailCastleId);
     if (idx !== -1) {
       party.splice(idx, 1);
     } else {
@@ -4393,6 +4405,7 @@
     if (isHades) {
       const statusCounters = [];
       party.forEach(slot => {
+        if (!slot) return;
         const c = getCastleById(slot.id);
         if (!c) return;
         const descParts = [
@@ -4408,7 +4421,7 @@
         }
       });
 
-      const hellCastles = party.map(s => getCastleById(s.id)).filter(c => c && c.attributes && c.attributes.includes("地獄"));
+      const hellCastles = party.filter(Boolean).map(s => getCastleById(s.id)).filter(c => c && c.attributes && c.attributes.includes("地獄"));
       const hellCount = hellCastles.length;
 
       hadesAnalysisHtml = `
@@ -4442,6 +4455,7 @@
       // Pre-calculate attribute counts in party for placement limits
       const attrCounts = { "平": 0, "水": 0, "山": 0, "平山": 0, "地獄": 0, "無": 0 };
       party.forEach(slot => {
+        if (!slot) return;
         const c = getCastleById(slot.id);
         if (!c) return;
         (c.attributes || []).forEach(a => {
@@ -4450,6 +4464,7 @@
       });
 
       party.forEach((slot, idx) => {
+        if (!slot) return;
         const c = getCastleById(slot.id);
         if (!c) return;
 
@@ -5088,7 +5103,7 @@
     const data = {
       v: 2,
       t: normalizeTerrain(currentTerrain),
-      p: party.map(s => ({
+      p: party.filter(Boolean).map(s => ({
         id: s.id,
         s: s.strategyOn ? 1 : 0,
         sp: s.specialOn ? 1 : 0
@@ -5395,6 +5410,7 @@
     }
 
     const partyCastles = party.map((s, idx) => {
+      if (!s) return null;
       const c = getCastleById(s.id);
       if (!c) return null;
       const isTerrainMatch = Boolean(currentTerrain && c.attributes && c.attributes.includes(currentTerrain));
@@ -7408,7 +7424,7 @@
         const c = getCastleByName(item.name);
         if (!c) return;
 
-        const inParty = party.some(p => p.id === c.id);
+        const inParty = party.some(p => p && p.id === c.id);
         const cardEl = document.createElement("div");
         cardEl.className = "tier-castle-card";
 
@@ -9409,7 +9425,7 @@ function renderGalleryTile(c) {
   const fallbackSrc = `icons/${encodeURIComponent(c.name)}.png`;
   const imgSrc = c.illustUrl || fallbackSrc;
   const isOwned = ownership.owned.has(c.id);
-  const inParty = party.some(p => p.id === c.id);
+  const inParty = party.some(p => p && p.id === c.id);
 
   const stages = getCastleRemodelStages(c);
   const stagesHtml = stages.map(st => `
@@ -10652,7 +10668,7 @@ function showQuizResult() {
       return;
     }
 
-    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+    const partyCastles = party.filter(Boolean).map(s => getCastleById(s.id)).filter(Boolean);
     const attrCounts = { "平": 0, "水": 0, "山": 0, "平山": 0, "地獄": 0, "無": 0 };
     const weaponCounts = {};
     partyCastles.forEach(c => {
@@ -10815,7 +10831,7 @@ function showQuizResult() {
     if (!container) return;
     container.innerHTML = "";
 
-    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+    const partyCastles = party.filter(Boolean).map(s => getCastleById(s.id)).filter(Boolean);
 
     const debuffCategories = [
       { key: "atkDown", name: "敵攻撃力低下", unit: "%", regex: /敵の攻撃(?:力)?(?:が|を)?(\d+)%?(?:低下|半減)/g, isStat: true },
@@ -10964,7 +10980,7 @@ function showQuizResult() {
     const waveSec = waveSecSelect ? (parseInt(waveSecSelect.value, 10) || 60) : 60;
 
     const calcResult = calculateBuffs();
-    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+    const partyCastles = party.filter(Boolean).map(s => getCastleById(s.id)).filter(Boolean);
 
     if (partyCastles.length === 0) {
       if (verdictEl) verdictEl.innerHTML = `<div style="color:#777; font-size:12px;">城娘が編成されていません。部隊に城娘を追加してください。</div>`;
@@ -11121,7 +11137,7 @@ function showQuizResult() {
 
     const boss = getBossForStage(stageObj);
     const calcResult = calculateBuffs();
-    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+    const partyCastles = party.filter(Boolean).map(s => getCastleById(s.id)).filter(Boolean);
 
     if (partyCastles.length === 0) {
       if (riskBadge) riskBadge.textContent = "部隊未編成";
@@ -11156,6 +11172,7 @@ function showQuizResult() {
     tbody.innerHTML = "";
 
     party.forEach((slot, idx) => {
+      if (!slot) return;
       const c = getCastleById(slot.id);
       if (!c) return;
 
@@ -11204,7 +11221,7 @@ function showQuizResult() {
     const container = document.getElementById("cycleSyncPairsContainer");
     if (!container) return;
 
-    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+    const partyCastles = party.filter(Boolean).map(s => getCastleById(s.id)).filter(Boolean);
 
     const cyclicalAbilities = [];
     partyCastles.forEach(c => {
@@ -11388,7 +11405,7 @@ function showQuizResult() {
     const content = document.getElementById("diagTileCongestionContent");
     if (!content) return;
 
-    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+    const partyCastles = party.filter(Boolean).map(s => getCastleById(s.id)).filter(Boolean);
     if (partyCastles.length === 0) {
       if (badge) badge.textContent = "未編成";
       content.textContent = "部隊に城娘を編成してください。";
@@ -11441,7 +11458,7 @@ function showQuizResult() {
     if (!container) return;
     container.innerHTML = "";
 
-    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+    const partyCastles = party.filter(Boolean).map(s => getCastleById(s.id)).filter(Boolean);
 
     const tokensFound = [];
     partyCastles.forEach(c => {
@@ -11555,7 +11572,7 @@ function showQuizResult() {
 
     const boss = getBossForStage(stageObj);
     const calcResult = calculateBuffs();
-    const partyCastles = party.map(s => getCastleById(s.id)).filter(Boolean);
+    const partyCastles = party.filter(Boolean).map(s => getCastleById(s.id)).filter(Boolean);
 
     if (partyCastles.length === 0) {
       if (statusBadge) statusBadge.textContent = "未編成";
@@ -12118,7 +12135,7 @@ function showQuizResult() {
 
     container.innerHTML = matches.slice(0, 30).map(m => {
       const c = m.castle;
-      const inParty = party.some(p => p.id === c.id);
+      const inParty = party.some(p => p && p.id === c.id);
       const reasonPills = m.matchedReasons.map(r => `
         <span class="badge" style="background:#edf2f7; color:#2d3748; border:1px solid #cbd5e0; font-size:12px; margin-right:4px;">
           <strong>[${escapeHtml(r.trait)}]</strong> ${escapeHtml(r.reason)}
@@ -12980,8 +12997,8 @@ function showQuizResult() {
   }
   window.getCastleBaseStatsForGiant = getCastleBaseStatsForGiant;
 
-  // --- Prompt 41: 計略ダメージ機械パース (即時直接ダメージ計略) ---
-  // 「攻撃の○倍のダメージを与える」等の直接ダメージ計略（実測69体）を機械パース
+  // --- Prompt 41 & 42: 計略ダメージ機械パース (即時直接ダメージ計略) ---
+  // 「攻撃の○倍のダメージを与える」等の直接ダメージ計略（実測76体）を機械パース
   // バフ持続型（X秒間...）やトークン（伏兵）は対象外とし null を返却
   function parseCastleDamageStrategy(strategy) {
     if (!strategy || !strategy.text || !strategy.cooldown) return null;
@@ -12989,18 +13006,63 @@ function showQuizResult() {
     if (/^[0-9]+秒間/.test(text.trim())) return null; // 持続バフ型は常時反映のまま対象外
     if (text.includes("伏兵") || text.includes("トークン")) return null; // 伏兵計略は対象外
 
-    // 連撃判定: 攻撃のX倍のダメージをY回
-    const mHit = text.match(/攻撃の([0-9]+(?:\.[0-9]+)?)倍の\s*ダメージを([0-9]+)回/);
-    // 単発/通常判定: 攻撃のX倍の[属性]*ダメージ or 攻撃のX倍ダメージ
-    const mSingle = text.match(/攻撃の([0-9]+(?:\.[0-9]+)?)倍(?:の)?\s*(?:術|火属性|水属性|風属性|雷属性)?\s*ダメージ/);
+    // 1. 連撃判定:
+    //  - 攻撃のX倍のダメージをY回
+    //  - 攻撃のX倍の術ダメをY回 (月の都)
+    //  - 攻撃のX倍のY連続攻撃 (［絢爛］ダノター城)
+    let mHit = text.match(/攻撃の([0-9]+(?:\.[0-9]+)?)倍の\s*(?:術|火属性|水属性|風属性|雷属性)?(?:ダメージ|ダメ)を([0-9]+)回/);
+    if (!mHit) {
+      mHit = text.match(/攻撃の([0-9]+(?:\.[0-9]+)?)倍の\s*([0-9]+)連続\s*攻撃/);
+    }
 
-    if (!mHit && !mSingle) return null;
+    // 2. 特殊パターン1: 攻撃のX倍 飛行にはY倍のダメージ (ストラホフ修道院)
+    const mFly = text.match(/攻撃の([0-9]+(?:\.[0-9]+)?)倍\s*飛行には([0-9]+(?:\.[0-9]+)?)倍の\s*ダメージ/);
 
-    const mult = parseFloat(mHit ? mHit[1] : mSingle[1]);
-    const hits = mHit ? parseInt(mHit[2], 10) : 1;
-    const isAoe = /範囲内の敵|標的とその周囲|画面上の全ての敵|全ての敵/.test(text);
+    // 3. 特殊パターン2: 標的に攻撃のX倍 その周囲にY倍のダメージ (［夏］七飯台場)
+    const mSplash = text.match(/(?:標的に)?攻撃の([0-9]+(?:\.[0-9]+)?)倍\s*その周囲に([0-9]+(?:\.[0-9]+)?)倍の\s*ダメージ/);
+
+    // 4. 単発/通常判定: 攻撃のX倍の[属性/防御無視]*ダメージ or 攻撃のX倍ダメージ (［ハロウィン］ブラン城)
+    const mSingle = text.match(/攻撃の([0-9]+(?:\.[0-9]+)?)倍(?:の)?\s*(?:術|火属性|水属性|風属性|雷属性|防御無視)?\s*ダメージ/);
+
+    // 5. 「攻撃の」省略パターン: 範囲内の敵にX倍のダメージ (［バレンタイン］岩櫃城, ［ハロウィン］ペレシュ城)
+    const mOmitAtk = text.match(/(?:範囲内の敵に|敵に)\s*([0-9]+(?:\.[0-9]+)?)倍の\s*ダメージ/);
+
+    if (!mHit && !mFly && !mSplash && !mSingle && !mOmitAtk) return null;
+
+    let mult = 1;
+    let hits = 1;
+    let flyMult = null;
+    let splashMult = null;
+
+    if (mHit) {
+      mult = parseFloat(mHit[1]);
+      hits = parseInt(mHit[2], 10);
+    } else if (mFly) {
+      mult = parseFloat(mFly[1]);
+      flyMult = parseFloat(mFly[2]);
+      hits = 1;
+    } else if (mSplash) {
+      mult = parseFloat(mSplash[1]);
+      splashMult = parseFloat(mSplash[2]);
+      hits = 1;
+    } else if (mSingle) {
+      mult = parseFloat(mSingle[1]);
+      hits = 1;
+    } else if (mOmitAtk) {
+      mult = parseFloat(mOmitAtk[1]);
+      hits = 1;
+    }
+
+    // 飛行特効チェック (月の都)
+    const mFlySecond = text.match(/飛行敵に対しては\s*([0-9]+(?:\.[0-9]+)?)倍/);
+    if (mFlySecond && !flyMult) {
+      flyMult = parseFloat(mFlySecond[1]);
+    }
+
+    const isAoe = /範囲内の敵|標的とその周囲|その周囲に|射程内全敵|画面上の全ての敵|全ての敵|横方向の敵/.test(text);
     const isDefIgnore = /防御(?:力)?を?無視|防御(?:力)?を?0として計算|防御減算な/.test(text);
-    const isMagic = /術ダメージ/.test(text);
+    // ゲーム内仕様: 「術ダメージ」「術ダメ」と明記されたもののみ術攻撃（防御無視）扱い
+    const isMagic = /術ダメージ|術ダメ/.test(text);
 
     return {
       name: strategy.name || "",
@@ -13009,6 +13071,8 @@ function showQuizResult() {
       cost: strategy.cost || 0,
       mult: mult,
       hits: hits,
+      flyMult: flyMult,
+      splashMult: splashMult,
       isAoe: isAoe,
       isDefIgnore: isDefIgnore,
       isMagic: isMagic
@@ -13016,38 +13080,82 @@ function showQuizResult() {
   }
   window.parseCastleDamageStrategy = parseCastleDamageStrategy;
 
-  // --- Prompt 41: 射撃訓練場 D&D / タップ編成 操作 ---
+  // --- Prompt 41 & 42: 射撃訓練場 D&D / タップ編成 操作 ---
   let firingSelectedPaletteCastle = null;
 
   function movePartySlot(fromIdx, toIdx) {
-    if (fromIdx === toIdx || fromIdx < 0 || fromIdx >= party.length) return;
+    if (fromIdx === toIdx || fromIdx < 0 || fromIdx >= 8 || toIdx < 0 || toIdx >= 8) return;
+    if (!party[fromIdx]) return;
     pushUndoSnapshot();
-    const [moved] = party.splice(fromIdx, 1);
-    if (toIdx >= party.length) {
-      party.push(moved);
-    } else {
-      party.splice(toIdx, 0, moved);
+
+    while (party.length <= Math.max(fromIdx, toIdx)) {
+      party.push(null);
     }
+
+    const moved = party[fromIdx];
+    const target = party[toIdx] || null;
+
+    if (target) {
+      // スロット同士の入れ替え
+      party[fromIdx] = target;
+      party[toIdx] = moved;
+    } else {
+      // 空き枠への移動: 指定枠に配置し、元の枠を空にする
+      party[toIdx] = moved;
+      party[fromIdx] = null;
+    }
+
+    while (party.length > 0 && party[party.length - 1] === null) {
+      party.pop();
+    }
+
     saveParty();
     renderDashboard();
     renderFiringRangeTab();
   }
 
   function removePartySlot(idx) {
-    if (idx < 0 || idx >= party.length) return;
+    if (idx < 0 || idx >= 8) return;
     pushUndoSnapshot();
-    party.splice(idx, 1);
+    if (party[idx]) {
+      party[idx] = null;
+    }
+    while (party.length > 0 && party[party.length - 1] === null) {
+      party.pop();
+    }
     saveParty();
     renderDashboard();
     renderFiringRangeTab();
   }
 
   function setPartySlot(castle, targetIdx) {
-    if (!castle) return;
+    if (!castle || targetIdx < 0 || targetIdx >= 8) return;
     pushUndoSnapshot();
-    selectCastleForSlot(castle, targetIdx);
+    while (party.length <= targetIdx) {
+      party.push(null);
+    }
+    // 同一城娘が他スロットにある場合はそこを空にする
+    for (let j = 0; j < party.length; j++) {
+      if (party[j] && party[j].id === castle.id && j !== targetIdx) {
+        party[j] = null;
+      }
+    }
+    party[targetIdx] = {
+      id: castle.id,
+      strategyOn: true,
+      specialOn: !!castle.special,
+      giantStep: 5
+    };
+    while (party.length > 0 && party[party.length - 1] === null) {
+      party.pop();
+    }
+    saveParty();
+    renderDashboard();
     renderFiringRangeTab();
   }
+  window.movePartySlot = movePartySlot;
+  window.setPartySlot = setPartySlot;
+  window.removePartySlot = removePartySlot;
 
   function updateTapNotice() {
     const notice = document.getElementById("firingTapSelectNotice");
@@ -13359,7 +13467,16 @@ function showQuizResult() {
 
       const stratHitDamage = Math.max(1, Math.floor(stratBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
       const stratTargets = stratParsed.isAoe ? targetCount : 1;
-      const stratTotalDamagePerCast = stratHitDamage * stratParsed.hits * stratTargets;
+      let stratTotalDamagePerCast = 0;
+      if (stratParsed.splashMult && targetCount > 1) {
+        const splashBaseAtk = Math.floor(finalAtk * stratParsed.splashMult);
+        const splashAtkWithTarget = Math.floor(splashBaseAtk * dmgTargetMult);
+        const splashBaseDmg = Math.max(Math.floor(splashAtkWithTarget * 0.1), splashAtkWithTarget - stratEffDef);
+        const splashHitDmg = Math.max(1, Math.floor(splashBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
+        stratTotalDamagePerCast = (stratHitDamage * stratParsed.hits * 1) + (splashHitDmg * stratParsed.hits * (targetCount - 1));
+      } else {
+        stratTotalDamagePerCast = stratHitDamage * stratParsed.hits * stratTargets;
+      }
 
       const stratCooldown = Math.max(1, stratParsed.cooldown);
       const stratDps = Math.round(stratTotalDamagePerCast / stratCooldown);

@@ -270,7 +270,7 @@ function assert(title, condition, detail = '') {
   });
 
   assert('P41-07: Damage strategy parser extracts 69 direct damage strategies and separates multi-hits',
-    stratParseCheck.parsedCount === 69 && stratParseCheck.nagoyaMult === 8 && stratParseCheck.kofuHits === 3,
+    (stratParseCheck.parsedCount === 69 || stratParseCheck.parsedCount === 76) && stratParseCheck.nagoyaMult === 8 && stratParseCheck.kofuHits === 3,
     `direct damage strategies: ${stratParseCheck.parsedCount}体, 名古屋城: ×${stratParseCheck.nagoyaMult} (CT${stratParseCheck.nagoyaCd}s), 甲府城: ×${stratParseCheck.kofuMult} (${stratParseCheck.kofuHits}連撃)`);
 
   // -------------------------------------------------------------
@@ -405,6 +405,98 @@ function assert(title, condition, detail = '') {
   assert('P41-11: Strict font-size floor (>= 12px) across all Prompt 41 UI sections',
     fontCheck.violationCount === 0,
     `violations: ${fontCheck.violationCount} (${JSON.stringify(fontCheck.violations)})`);
+
+  // -------------------------------------------------------------
+  // Prompt 42 Tests: Extended Strategy Patterns & Move to Empty Slot
+  // -------------------------------------------------------------
+  console.log('\n[PROMPT 42 VERIFICATION: Extended Damage Strategies (69->76) & movePartySlot Slot Placement]...');
+
+  const p42Check = await page.evaluate(() => {
+    // 1. Total parsed strategies count across all castles
+    let totalDirectDamageCount = 0;
+    window.SCRE_DATA.forEach(c => {
+      if (!c.strategy) return;
+      const res = window.parseCastleDamageStrategy(c.strategy);
+      if (res) totalDirectDamageCount++;
+    });
+
+    // 2. 7 target castles parse details
+    const getParse = (name) => {
+      const c = window.SCRE_DATA.find(x => x.name === name);
+      return c ? window.parseCastleDamageStrategy(c.strategy) : null;
+    };
+
+    const strahov = getParse('ストラホフ修道院');
+    const tsukinomi = getParse('月の都');
+    const hwBran = getParse('［ハロウィン］ブラン城');
+    const kenranDunnottar = getParse('［絢爛］ダノター城');
+    const summerNanae = getParse('［夏］七飯台場');
+    const valIwabitsu = getParse('［バレンタイン］岩櫃城');
+    const hwPeles = getParse('［ハロウィン］ペレシュ城');
+
+    // 3. movePartySlot drop into empty slot when party < 8
+    // Set a known 2-member party
+    const p = [
+      { id: '名古屋城', strategyOn: true, specialOn: false, giantStep: 5 },
+      { id: '小早川城', strategyOn: true, specialOn: false, giantStep: 5 }
+    ];
+    window.setParty(p);
+
+    // Move slot 0 (名古屋城) into empty slot 4 (枠5)
+    window.movePartySlot(0, 4);
+    const movedParty = window.getParty();
+    const slot4Castle = movedParty[4];
+    const slot0Castle = movedParty[0];
+
+    return {
+      totalDirectDamageCount,
+      strahov,
+      tsukinomi,
+      hwBran,
+      kenranDunnottar,
+      summerNanae,
+      valIwabitsu,
+      hwPeles,
+      slot4CastleId: slot4Castle?.id || null,
+      slot0Empty: !slot0Castle
+    };
+  });
+
+  assert('P41-12: Total direct damage strategy count extended from 69 to exactly 76',
+    p42Check.totalDirectDamageCount === 76,
+    `total parsed direct damage strategies: ${p42Check.totalDirectDamageCount}体 (expected 76)`);
+
+  assert('P41-13: ストラホフ修道院 parses multiplier 3.4 and flight multiplier 5.1 with 1 hit',
+    p42Check.strahov && p42Check.strahov.mult === 3.4 && p42Check.strahov.flyMult === 5.1 && p42Check.strahov.hits === 1 && !p42Check.strahov.isDefIgnore,
+    `mult: ${p42Check.strahov?.mult}, flyMult: ${p42Check.strahov?.flyMult}, hits: ${p42Check.strahov?.hits}, isDefIgnore: ${p42Check.strahov?.isDefIgnore}`);
+
+  assert('P41-14: 月の都 parses 1.5x magic damage with 6 hits and isMagic flag',
+    p42Check.tsukinomi && p42Check.tsukinomi.mult === 1.5 && p42Check.tsukinomi.hits === 6 && p42Check.tsukinomi.isMagic,
+    `mult: ${p42Check.tsukinomi?.mult}, hits: ${p42Check.tsukinomi?.hits}, isMagic: ${p42Check.tsukinomi?.isMagic}`);
+
+  assert('P41-15: ［ハロウィン］ブラン城 parses 6x defense ignore damage with isDefIgnore flag',
+    p42Check.hwBran && p42Check.hwBran.mult === 6 && p42Check.hwBran.hits === 1 && p42Check.hwBran.isDefIgnore,
+    `mult: ${p42Check.hwBran?.mult}, hits: ${p42Check.hwBran?.hits}, isDefIgnore: ${p42Check.hwBran?.isDefIgnore}`);
+
+  assert('P41-16: ［絢爛］ダノター城 parses 2x damage 5-hit sequence (2倍の5連続攻撃)',
+    p42Check.kenranDunnottar && p42Check.kenranDunnottar.mult === 2 && p42Check.kenranDunnottar.hits === 5 && !p42Check.kenranDunnottar.isDefIgnore,
+    `mult: ${p42Check.kenranDunnottar?.mult}, hits: ${p42Check.kenranDunnottar?.hits}, isDefIgnore: ${p42Check.kenranDunnottar?.isDefIgnore}`);
+
+  assert('P41-17: ［夏］七飯台場 parses target 7x multiplier and surrounding 4x multiplier with 1 hit',
+    p42Check.summerNanae && p42Check.summerNanae.mult === 7 && p42Check.summerNanae.splashMult === 4 && p42Check.summerNanae.hits === 1 && !p42Check.summerNanae.isDefIgnore,
+    `mult: ${p42Check.summerNanae?.mult}, splashMult: ${p42Check.summerNanae?.splashMult}, hits: ${p42Check.summerNanae?.hits}, isDefIgnore: ${p42Check.summerNanae?.isDefIgnore}`);
+
+  assert('P41-18: ［バレンタイン］岩櫃城 parses 3x damage omitting 攻撃の with 1 hit',
+    p42Check.valIwabitsu && p42Check.valIwabitsu.mult === 3 && p42Check.valIwabitsu.hits === 1 && !p42Check.valIwabitsu.isDefIgnore,
+    `mult: ${p42Check.valIwabitsu?.mult}, hits: ${p42Check.valIwabitsu?.hits}, isDefIgnore: ${p42Check.valIwabitsu?.isDefIgnore}`);
+
+  assert('P41-19: ［ハロウィン］ペレシュ城 parses 5x damage omitting 攻撃の with 1 hit',
+    p42Check.hwPeles && p42Check.hwPeles.mult === 5 && p42Check.hwPeles.hits === 1 && !p42Check.hwPeles.isDefIgnore,
+    `mult: ${p42Check.hwPeles?.mult}, hits: ${p42Check.hwPeles?.hits}, isDefIgnore: ${p42Check.hwPeles?.isDefIgnore}`);
+
+  assert('P41-20: movePartySlot correctly places castle into specified empty slot when party < 8',
+    p42Check.slot4CastleId === '名古屋城' && p42Check.slot0Empty,
+    `slot 4 castle: ${p42Check.slot4CastleId}, slot 0 is empty: ${p42Check.slot0Empty}`);
 
   console.log(`\n==============================================`);
   console.log(`PROMPT 41 AUTOMATED TESTS SUMMARY: ${passed} / ${total} PASSED`);
