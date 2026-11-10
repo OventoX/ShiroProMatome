@@ -14124,9 +14124,18 @@ function showQuizResult() {
     // --- Prompt 46: 未反映効果チェック ---
     const unreflectedCheck = checkCastleUnreflectedEffects(c, isStratOn, isSpecialOn);
 
-    const stratDps = strategyDamage ? strategyDamage.dps : 0;
+    let stratDps = strategyDamage ? strategyDamage.dps : 0;
     const tokDps = tokugiDamage ? tokugiDamage.dps : 0;
-    const theoreticalDps = normalDps + stratDps;
+
+    // --- Prompt 47 修正1 & 修正2: 特技周期ダメージ反映 & ロシュ城二重計上防止 ---
+    let theoreticalDps = normalDps + stratDps + tokDps;
+    if (strategyDamage && strategyDamage.isAttackMode && !strategyDamage.isUnquantifiable && normalDps > 0) {
+      const uptime = strategyDamage.uptimeRatio || 0;
+      const combinedAttackDps = Math.round(normalDps * (1 - uptime) + strategyDamage.activeDps * uptime);
+      stratDps = combinedAttackDps - normalDps;
+      strategyDamage.dps = stratDps;
+      theoreticalDps = combinedAttackDps + tokDps;
+    }
 
     const rangePerc = ((b.rangePercent?.max || 0) + (b.rangePercent?.stackSum || 0)) / 100;
     const rangeFlat = (b.rangeFlat?.sum || 0);
@@ -14147,21 +14156,21 @@ function showQuizResult() {
           breakdownText += ` ｜ [計略] 攻${finalAtk}×${strategyDamage.parsed.mult}倍 → 1撃${strategyDamage.hitDamage.toLocaleString()} (1回計${strategyDamage.totalDamagePerCast.toLocaleString()}, CT${strategyDamage.cooldown}s, ${strategyDamage.dps.toLocaleString()}/s)`;
         }
       }
-      if (tokugiDamage) {
-        if (tokugiDamage.isUnquantifiable) {
-          breakdownText += ` ｜ [特技] 継続的に術ダメージ（数値化不可のため未計算）`;
-        } else {
-          breakdownText += ` ｜ [特技] 攻${finalAtk}×${tokugiDamage.parsed.mult}倍 → 1撃${tokugiDamage.hitDamage.toLocaleString()} (${tokugiDamage.interval}秒毎, ${tokugiDamage.dps.toLocaleString()}/s)`;
-        }
-      }
     } else {
       breakdownText = `[通常] 攻${finalAtk} → 引後${baseDamage} → 1撃${finalHitDamage}${hits > 1 ? ` (×${hits}連)` : ''} (${normalDps.toLocaleString()}/s)`;
       if (strategyDamage) {
         if (strategyDamage.isAttackMode) {
-          breakdownText += ` ｜ [計略中(推定)] 攻${finalAtk}×${strategyDamage.mult}倍 → 1撃${strategyDamage.hitDamage.toLocaleString()} (発動中${strategyDamage.activeDps.toLocaleString()}/s, 平均${strategyDamage.dps.toLocaleString()}/s)`;
+          breakdownText += ` ｜ [計略中(推定)] 攻${finalAtk}×${strategyDamage.mult}倍 → 1撃${strategyDamage.hitDamage.toLocaleString()} (発動中${strategyDamage.activeDps.toLocaleString()}/s, 差分平均${strategyDamage.dps.toLocaleString()}/s, 稼働${strategyDamage.duration}s/${strategyDamage.cooldown}s)`;
         } else {
           breakdownText += ` ｜ [計略] 攻${finalAtk}×${strategyDamage.parsed.mult}倍 → 1撃${strategyDamage.hitDamage.toLocaleString()} (1回計${strategyDamage.totalDamagePerCast.toLocaleString()}, CT${strategyDamage.cooldown}s, ${strategyDamage.dps.toLocaleString()}/s)`;
         }
+      }
+    }
+    if (tokugiDamage) {
+      if (tokugiDamage.isUnquantifiable) {
+        breakdownText += ` ｜ [特技] 継続的に術ダメージ（数値化不可のため未計算）`;
+      } else {
+        breakdownText += ` ｜ [特技] 攻${finalAtk}×${tokugiDamage.parsed.mult}倍 → 1撃${tokugiDamage.hitDamage.toLocaleString()} (${tokugiDamage.interval}秒毎, ${tokugiDamage.dps.toLocaleString()}/s)`;
       }
     }
     if (specialDamage) {
@@ -14258,6 +14267,9 @@ function showQuizResult() {
           stratDmg: 0,
           stratCount: 0,
           stratTimer: 0,
+          tokDmg: 0,
+          tokCount: 0,
+          tokTimer: 0,
           stat
         };
       });
@@ -14270,16 +14282,21 @@ function showQuizResult() {
 
     let totalNormalDps = 0;
     let totalStratDps = 0;
+    let totalTokDps = 0;
     let totalPartyDps = 0;
     firingRangeState.castleSlots.forEach(s => {
       totalNormalDps += (s.stat.normalDps || 0);
       totalStratDps += (s.stat.stratDps || 0);
+      totalTokDps += (s.stat.tokDps || 0);
       totalPartyDps += s.stat.theoreticalDps;
     });
 
     const dpsHeadline = document.getElementById("firingRangeDpsHeadline");
     if (dpsHeadline) {
-      dpsHeadline.textContent = `部隊総DPS: ${totalPartyDps.toLocaleString()} /秒 (通常: ${totalNormalDps.toLocaleString()} + 計略: ${totalStratDps.toLocaleString()})`;
+      const breakdownSub = totalTokDps > 0
+        ? `(通常: ${totalNormalDps.toLocaleString()} + 計略: ${totalStratDps.toLocaleString()} + 特技: ${totalTokDps.toLocaleString()})`
+        : `(通常: ${totalNormalDps.toLocaleString()} + 計略: ${totalStratDps.toLocaleString()})`;
+      dpsHeadline.textContent = `部隊総DPS: ${totalPartyDps.toLocaleString()} /秒 ${breakdownSub}`;
     }
 
     tbody.innerHTML = firingRangeState.castleSlots.map((s, i) => {
@@ -14595,6 +14612,9 @@ function showQuizResult() {
       s.stratDmg = 0;
       s.stratCount = 0;
       s.stratTimer = 0;
+      s.tokDmg = 0;
+      s.tokCount = 0;
+      s.tokTimer = 0;
     });
 
     const btn = document.getElementById("btnFiringPlayPause");
@@ -14701,6 +14721,30 @@ function showQuizResult() {
         }
       }
 
+      // 特技周期ダメージ管理 (Prompt 47)
+      const tok = s.stat.tokugiDamage;
+      if (tok && !tok.isUnquantifiable && tok.interval > 0) {
+        s.tokTimer = (s.tokTimer || 0) + dt * speed;
+        while (s.tokTimer >= tok.interval) {
+          s.tokTimer -= tok.interval;
+          s.tokCount = (s.tokCount || 0) + 1;
+          const tDmg = tok.totalDamagePerTrigger;
+          s.tokDmg = (s.tokDmg || 0) + tDmg;
+          s.totalDmg += tDmg;
+          firingRangeState.totalDamage += tDmg;
+
+          firingRangeState.projectiles.push({
+            slotIdx: idx,
+            progress: 0,
+            speed: 5.0,
+            isMagic: true,
+            isTokugi: true
+          });
+
+          spawnDamagePopup(tok.hitDamage, true, false, true);
+        }
+      }
+
       // 1. 通常攻撃 / 攻撃転化型サイクル
       if (!s.stat.isBuffWeapon) {
         s.timer += dt * speed;
@@ -14708,20 +14752,43 @@ function showQuizResult() {
         while (s.timer >= cycleTime) {
           s.timer -= cycleTime;
           s.hits += s.stat.hits;
-          const dmg = s.stat.finalHitDamage * s.stat.hits * s.stat.effectiveTargets;
-          s.normalDmg = (s.normalDmg || 0) + dmg;
-          s.totalDmg += dmg;
-          firingRangeState.totalDamage += dmg;
 
-          firingRangeState.projectiles.push({
-            slotIdx: idx,
-            progress: 0,
-            speed: 4.0,
-            isMagic: s.stat.effectiveIgnore
-          });
+          const inWindow = isAttackMode && isStratOn && (s.stratTimer < (strat.duration || 0));
+          if (inWindow) {
+            // attackMode発動中（ロシュ城等）：計略の倍率・対象数で攻撃
+            const cycleDmg = strat.totalDamagePerCast;
+            s.stratDmg = (s.stratDmg || 0) + cycleDmg;
+            s.totalDmg += cycleDmg;
+            firingRangeState.totalDamage += cycleDmg;
 
-          for (let h = 0; h < s.stat.hits; h++) {
-            spawnDamagePopup(s.stat.finalHitDamage, s.stat.effectiveIgnore, false);
+            firingRangeState.projectiles.push({
+              slotIdx: idx,
+              progress: 0,
+              speed: 4.0,
+              isMagic: strat.isDefIgnore,
+              isStrategy: true
+            });
+
+            for (let h = 0; h < s.stat.hits; h++) {
+              spawnDamagePopup(strat.hitDamage, strat.isDefIgnore, true);
+            }
+          } else {
+            // 通常攻撃（非計略中、または通常の攻撃武器種）
+            const dmg = s.stat.finalHitDamage * s.stat.hits * s.stat.effectiveTargets;
+            s.normalDmg = (s.normalDmg || 0) + dmg;
+            s.totalDmg += dmg;
+            firingRangeState.totalDamage += dmg;
+
+            firingRangeState.projectiles.push({
+              slotIdx: idx,
+              progress: 0,
+              speed: 4.0,
+              isMagic: s.stat.effectiveIgnore
+            });
+
+            for (let h = 0; h < s.stat.hits; h++) {
+              spawnDamagePopup(s.stat.finalHitDamage, s.stat.effectiveIgnore, false);
+            }
           }
         }
       } else if (isAttackMode && isStratOn) {
@@ -14902,12 +14969,12 @@ function showQuizResult() {
       const curX = from.x + (targetX - from.x) * p.progress;
       const curY = from.y + (targetY - from.y) * p.progress;
 
-      ctx.fillStyle = p.isMagic ? "#9f7aea" : "#ed8936";
+      ctx.fillStyle = p.isTokugi ? "#2563eb" : (p.isMagic ? "#9f7aea" : "#ed8936");
       ctx.beginPath();
       ctx.arc(curX, curY, 4, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.strokeStyle = p.isMagic ? "rgba(159, 122, 234, 0.4)" : "rgba(237, 137, 54, 0.4)";
+      ctx.strokeStyle = p.isTokugi ? "rgba(37, 99, 235, 0.4)" : (p.isMagic ? "rgba(159, 122, 234, 0.4)" : "rgba(237, 137, 54, 0.4)");
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(from.x, from.y);
@@ -14936,7 +15003,9 @@ function showQuizResult() {
 
     firingRangeState.damagePopups.forEach(pop => {
       let color;
-      if (pop.isStrategy) {
+      if (pop.isTokugi) {
+        color = `rgba(37, 99, 235, ${pop.alpha})`;
+      } else if (pop.isStrategy) {
         color = `rgba(246, 224, 94, ${pop.alpha})`;
       } else if (pop.isMagic) {
         color = `rgba(159, 122, 234, ${pop.alpha})`;
@@ -14944,13 +15013,13 @@ function showQuizResult() {
         color = `rgba(237, 137, 54, ${pop.alpha})`;
       }
       ctx.fillStyle = color;
-      ctx.font = pop.isStrategy ? "bold 15px sans-serif" : "bold 14px sans-serif";
+      ctx.font = (pop.isStrategy || pop.isTokugi) ? "bold 15px sans-serif" : "bold 14px sans-serif";
       ctx.textAlign = "center";
       ctx.fillText(pop.text, pop.x, pop.y);
     });
   }
 
-  function spawnDamagePopup(amount, isMagic, isStrategy) {
+  function spawnDamagePopup(amount, isMagic, isStrategy, isTokugi) {
     const canvas = document.getElementById("firingStageCanvas");
     const targetX = canvas ? (canvas.width - 120) : 680;
     const targetY = canvas ? (canvas.height / 2) : 130;
@@ -14958,7 +15027,12 @@ function showQuizResult() {
     const jitterX = targetX + (Math.random() * 40 - 20);
     const jitterY = targetY + (Math.random() * 30 - 15);
 
-    const text = isStrategy ? `計略 +${amount.toLocaleString()}` : `+${amount.toLocaleString()}`;
+    let text = `+${amount.toLocaleString()}`;
+    if (isTokugi) {
+      text = `特技 +${amount.toLocaleString()}`;
+    } else if (isStrategy) {
+      text = `計略 +${amount.toLocaleString()}`;
+    }
 
     firingRangeState.damagePopups.push({
       text: text,
@@ -14966,7 +15040,8 @@ function showQuizResult() {
       y: jitterY,
       alpha: 1.0,
       isMagic: isMagic,
-      isStrategy: Boolean(isStrategy)
+      isStrategy: Boolean(isStrategy),
+      isTokugi: Boolean(isTokugi)
     });
 
     if (firingRangeState.damagePopups.length > 25) {
@@ -15003,10 +15078,13 @@ function showQuizResult() {
         const normDmg = s.normalDmg || 0;
         const sDmg = s.stratDmg || 0;
         const sCount = s.stratCount || 0;
+        const tDmg = s.tokDmg || 0;
+        const tCount = s.tokCount || 0;
+        const isSupportOnly = s.stat?.isBuffWeapon && (!s.stat?.strategyDamage || !s.stat?.strategyDamage.isAttackMode);
         row.innerHTML = `
           <strong>${s.totalDmg.toLocaleString()}</strong>
           <div style="font-size:12px; color:var(--text-sub);">
-            通常:${normDmg.toLocaleString()} (${s.hits}h)${s.stat?.strategyDamage ? ` / 計略:${sDmg.toLocaleString()} (${sCount}回)` : ''}
+            ${isSupportOnly ? '支援専用' : `通常:${normDmg.toLocaleString()} (${s.hits}h)`}${s.stat?.strategyDamage ? ` / 計略:${sDmg.toLocaleString()} (${sCount}回)` : ''}${s.stat?.tokugiDamage && !s.stat.tokugiDamage.isUnquantifiable ? ` / 特技:${tDmg.toLocaleString()} (${tCount}回)` : ''}
           </div>
         `;
       }

@@ -493,6 +493,95 @@ function assert(title, condition, detail = '') {
     fontCheck.violationCount === 0,
     `violations: ${fontCheck.violationCount} (${JSON.stringify(fontCheck.violations)})`);
 
+  // =========================================================================
+  // SECTION 8: Prompt 47 Residual Fixes - Roche De-duplication & Tokugi Periodic DPS
+  // =========================================================================
+  console.log('\n[SECTION 8: Prompt 47 Residual Fixes - Roche De-duplication & Tokugi Periodic DPS]...');
+
+  const prompt47Check = await page.evaluate(() => {
+    const roche = window.SCRE_DATA.find(c => c.name === 'ロシュ城');
+    const yaraza = window.SCRE_DATA.find(c => c.name === '屋良座森城');
+    const miyazu = window.SCRE_DATA.find(c => c.name === '宮津城');
+    const koyo = window.SCRE_DATA.find(c => c.name === '高陽城');
+
+    window.setParty([{ id: roche.id, giantStep: 5, strategyOn: true }]);
+    const stRoche = window.calculateFiringCastleStats(roche, { giantStep: 5, strategyOn: true }, 500, 0, 1, new Set());
+
+    window.setParty([{ id: yaraza.id, giantStep: 5, strategyOn: true }]);
+    const stYaraza = window.calculateFiringCastleStats(yaraza, { giantStep: 5, strategyOn: true }, 500, 0, 1, new Set());
+
+    window.setParty([{ id: miyazu.id, giantStep: 5, strategyOn: true }]);
+    const stMiyazu = window.calculateFiringCastleStats(miyazu, { giantStep: 5, strategyOn: true }, 500, 0, 1, new Set());
+
+    window.setParty([{ id: koyo.id, giantStep: 5, strategyOn: true }]);
+    const stKoyo = window.calculateFiringCastleStats(koyo, { giantStep: 5, strategyOn: true }, 500, 0, 1, new Set());
+
+    // Check all other 6 attackMode castles
+    const otherAttackModes = [
+      '［学園］都於郡城',
+      '［絢爛］立花山城',
+      '［夏］立花山城',
+      '［正月］立花山城',
+      '立花山城',
+      '澪田唯吹'
+    ].map(name => {
+      const c = window.SCRE_DATA.find(x => x.name === name);
+      window.setParty([{ id: c.id, giantStep: 5, strategyOn: true }]);
+      const s = window.calculateFiringCastleStats(c, { giantStep: 5, strategyOn: true }, 500, 0, 1, new Set());
+      return {
+        name,
+        normalDps: s.normalDps,
+        stratDps: s.stratDps,
+        theoreticalDps: s.theoreticalDps
+      };
+    });
+
+    return {
+      roche: {
+        normalDps: stRoche.normalDps,
+        activeDps: stRoche.strategyDamage?.activeDps || 0,
+        uptimeRatio: stRoche.strategyDamage?.uptimeRatio || 0,
+        stratDps: stRoche.stratDps,
+        theoreticalDps: stRoche.theoreticalDps,
+        oldFormulaDps: stRoche.normalDps + Math.round((stRoche.strategyDamage?.activeDps || 0) * (30 / 40)),
+        correctFormulaDps: Math.round(stRoche.normalDps * (1 - 30 / 40) + (stRoche.strategyDamage?.activeDps || 0) * (30 / 40))
+      },
+      yaraza: {
+        normalDps: stYaraza.normalDps,
+        stratDps: stYaraza.stratDps,
+        tokDps: stYaraza.tokDps,
+        theoreticalDps: stYaraza.theoreticalDps
+      },
+      miyazu: {
+        normalDps: stMiyazu.normalDps,
+        stratDps: stMiyazu.stratDps,
+        tokDps: stMiyazu.tokDps,
+        theoreticalDps: stMiyazu.theoreticalDps
+      },
+      koyo: {
+        normalDps: stKoyo.normalDps,
+        stratDps: stKoyo.stratDps,
+        tokDps: stKoyo.tokDps,
+        theoreticalDps: stKoyo.theoreticalDps
+      },
+      otherAttackModes
+    };
+  });
+
+  assert('P45-06：ロシュ城の theoreticalDps が normalDps × (1 - 30/40) + activeDps × (30/40) と一致すること（従来の normalDps + activeDps × (30/40) ではないこと）',
+    prompt47Check.roche.theoreticalDps === prompt47Check.roche.correctFormulaDps &&
+    prompt47Check.roche.theoreticalDps !== prompt47Check.roche.oldFormulaDps,
+    `theoreticalDps: ${prompt47Check.roche.theoreticalDps}, correctFormula: ${prompt47Check.roche.correctFormulaDps}, oldFormula: ${prompt47Check.roche.oldFormulaDps}`);
+
+  assert('P45-07：屋良座森城・宮津城の theoreticalDps に特技周期ダメージが含まれていること（theoreticalDps = normalDps + stratDps + tokDps）',
+    prompt47Check.yaraza.tokDps > 0 &&
+    prompt47Check.yaraza.theoreticalDps === (prompt47Check.yaraza.normalDps + prompt47Check.yaraza.stratDps + prompt47Check.yaraza.tokDps) &&
+    prompt47Check.miyazu.tokDps > 0 &&
+    prompt47Check.miyazu.theoreticalDps === (prompt47Check.miyazu.normalDps + prompt47Check.miyazu.stratDps + prompt47Check.miyazu.tokDps) &&
+    prompt47Check.koyo.tokDps === 0 &&
+    prompt47Check.otherAttackModes.every(m => m.theoreticalDps === (m.normalDps + m.stratDps)),
+    `Yarazamori total: ${prompt47Check.yaraza.theoreticalDps} (tokDps: ${prompt47Check.yaraza.tokDps}), Miyazu total: ${prompt47Check.miyazu.theoreticalDps} (tokDps: ${prompt47Check.miyazu.tokDps}), Koyo: ${prompt47Check.koyo.theoreticalDps}, other6Unaffected: true`);
+
   await browser.close();
 
   console.log('\n==============================================');

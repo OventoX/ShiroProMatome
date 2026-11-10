@@ -125,6 +125,7 @@ function assert(title, condition, detail = '') {
         isBuffWeapon: stYaraza.isBuffWeapon,
         normalDps: stYaraza.normalDps,
         stratDps: stYaraza.stratDps,
+        tokDps: stYaraza.tokDps,
         theoreticalDps: stYaraza.theoreticalDps
       },
       ishiyama: {
@@ -151,9 +152,9 @@ function assert(title, condition, detail = '') {
     `四代目江戸城 normalDps: ${buffStatsCheck.yondaime.normalDps}, 京都新城 normalDps: ${buffStatsCheck.chaki.normalDps}`);
 
   assert('P44-04: Buff castles with damage strategies (屋良座森城, 石山御坊) retain strategy DPS with normalDps === 0',
-    buffStatsCheck.yaraza.normalDps === 0 && buffStatsCheck.yaraza.stratDps > 0 && buffStatsCheck.yaraza.theoreticalDps === buffStatsCheck.yaraza.stratDps &&
+    buffStatsCheck.yaraza.normalDps === 0 && buffStatsCheck.yaraza.stratDps > 0 && buffStatsCheck.yaraza.theoreticalDps === (buffStatsCheck.yaraza.stratDps + (buffStatsCheck.yaraza.tokDps || 0)) &&
     buffStatsCheck.ishiyama.normalDps === 0 && buffStatsCheck.ishiyama.stratDps > 0 && buffStatsCheck.ishiyama.theoreticalDps === buffStatsCheck.ishiyama.stratDps,
-    `屋良座森城 normalDps: ${buffStatsCheck.yaraza.normalDps}, stratDps: ${buffStatsCheck.yaraza.stratDps} ｜ 石山御坊 normalDps: ${buffStatsCheck.ishiyama.normalDps}, stratDps: ${buffStatsCheck.ishiyama.stratDps}`);
+    `屋良座森城 normalDps: ${buffStatsCheck.yaraza.normalDps}, stratDps: ${buffStatsCheck.yaraza.stratDps} (tokDps: ${buffStatsCheck.yaraza.tokDps}) ｜ 石山御坊 normalDps: ${buffStatsCheck.ishiyama.normalDps}, stratDps: ${buffStatsCheck.ishiyama.stratDps}`);
 
   assert('P44-05: Attacking weapon (名古屋城 槌) retains normal attack damage and DPS (regression)',
     !buffStatsCheck.nagoya.isBuffWeapon && buffStatsCheck.nagoya.normalDps > 0 && buffStatsCheck.nagoya.finalHitDamage > 0,
