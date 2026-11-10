@@ -424,9 +424,86 @@ async function runTests() {
     `violations: ${fontCheck.length} (${JSON.stringify(fontCheck)})`
   );
 
+  // =========================================================================
+  // SECTION 8: PROMPT 48 残存不具合修正検証
+  // =========================================================================
+  console.log('\n[SECTION 8: Prompt 48 Residual Fixes - Special DPS Addition & Dynamic Combo Finisher]...');
+
+  const p48Data = await page.evaluate(() => {
+    const cEdo = window.SCRE_DATA.find(c => c.name.includes('［無疆］江戸城'));
+    window.setParty([{ id: cEdo.id, giantStep: 5, strategyOn: true, specialOn: true }]);
+    window.renderFiringRangeTab();
+
+    const stat = window.calculateFiringCastleStats(cEdo, { giantStep: 5, strategyOn: true, specialOn: true }, 500, 0, 1, new Set());
+
+    // 1. Special DPS reflects in theoreticalDps
+    const normalDps = stat.normalDps || 0;
+    const stratDps = stat.stratDps || 0;
+    const tokDps = stat.tokDps || 0;
+    const specialDps = stat.specialDamage ? stat.specialDamage.dps : 0;
+    const sumComponents = normalDps + stratDps + tokDps + specialDps;
+    const theoreticalMatches = (stat.theoreticalDps === sumComponents) && specialDps > 0;
+
+    // Headline check
+    const headlineText = document.getElementById('firingRangeDpsHeadline')?.textContent || '';
+    const headlineHasSpecial = headlineText.includes('特殊:') && headlineText.includes(specialDps.toLocaleString());
+    const headlineHasTotal = headlineText.includes(stat.theoreticalDps.toLocaleString());
+
+    // Table row cell check
+    const tbody = document.getElementById('firingCastleResultsTbody');
+    const firstRowText = tbody?.firstElementChild?.textContent || '';
+    const tableHasSpecial = firstRowText.includes(`特殊: ${specialDps.toLocaleString()} /s`);
+    const tableHasTotal = firstRowText.includes(`計: ${stat.theoreticalDps.toLocaleString()} /s`);
+
+    // 2. Combo finisher dynamically rendered via parsed properties
+    const comboHits = stat.specialDamage?.comboHits;
+    const finMult = stat.specialDamage?.finMult ?? stat.specialDamage?.parsed?.finMult;
+    const hasDynamicCombo = (comboHits === 4) && (finMult === 2);
+    const cellHasComboText = firstRowText.includes(`${comboHits}連+追撃${finMult}倍:`);
+    const breakdownHasComboText = stat.breakdownText.includes(`[特殊] ${comboHits}連撃`) && stat.breakdownText.includes(`+追撃${finMult}倍(`);
+
+    // 3. Premise notice box restored text check
+    const noticeBoxText = document.querySelector('.firing-range-notice-box')?.textContent || '';
+    const hasRestoredNotice = noticeBoxText.includes('※火・水・風・雷属性ダメージはゲーム内仕様に準拠し') &&
+                              noticeBoxText.includes('飛行・対空特効倍率は未反映（地上敵基準を採用）');
+
+    return {
+      normalDps,
+      stratDps,
+      tokDps,
+      specialDps,
+      theoreticalDps: stat.theoreticalDps,
+      sumComponents,
+      theoreticalMatches,
+      headlineText,
+      headlineHasSpecial,
+      headlineHasTotal,
+      tableHasSpecial,
+      tableHasTotal,
+      comboHits,
+      finMult,
+      hasDynamicCombo,
+      cellHasComboText,
+      breakdownHasComboText,
+      hasRestoredNotice
+    };
+  });
+
+  assert(
+    'P46追加-01: 特殊能力攻撃を持つ城娘（［無疆］江戸城）の theoreticalDps に specialDamage.dps が含まれていること（通常+計略+特技+特殊の内訳合計と一致）',
+    p48Data.theoreticalMatches === true && p48Data.headlineHasSpecial === true && p48Data.tableHasSpecial === true,
+    `theoreticalDps: ${p48Data.theoreticalDps} = 通常:${p48Data.normalDps} + 計略:${p48Data.stratDps} + 特技:${p48Data.tokDps} + 特殊:${p48Data.specialDps} (matches: ${p48Data.theoreticalMatches})`
+  );
+
+  assert(
+    'P46追加-02: ［無疆］江戸城の combo_finisher 表示が実値（4連撃・追撃2倍）のままで、ハードコード文字列ではなく変数経由で描画されていること',
+    p48Data.hasDynamicCombo === true && p48Data.cellHasComboText === true && p48Data.breakdownHasComboText === true && p48Data.hasRestoredNotice === true,
+    `comboHits: ${p48Data.comboHits}, finMult: ${p48Data.finMult}, cellText: ${p48Data.cellHasComboText}, breakdownText: ${p48Data.breakdownHasComboText}, restoredNotice: ${p48Data.hasRestoredNotice}`
+  );
+
   await browser.close();
   console.log('\n==============================================');
-  console.log('PROMPT 46 AUTOMATED TESTS SUMMARY: 19 / 19 PASSED');
+  console.log('PROMPT 46 & 48 AUTOMATED TESTS SUMMARY: 21 / 21 PASSED');
   console.log('==============================================');
 }
 

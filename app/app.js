@@ -14088,6 +14088,7 @@ function showQuizResult() {
             finDamage: finHitDmg,
             comboHits: spParsed.comboHits,
             finHits: spParsed.finHits,
+            finMult: spParsed.finMult,
             totalDamage: totalDamage,
             cooldown: spParsed.cooldown,
             isGauge: spParsed.isGauge,
@@ -14126,15 +14127,17 @@ function showQuizResult() {
 
     let stratDps = strategyDamage ? strategyDamage.dps : 0;
     const tokDps = tokugiDamage ? tokugiDamage.dps : 0;
+    const specialDps = specialDamage ? specialDamage.dps : 0;
 
     // --- Prompt 47 修正1 & 修正2: 特技周期ダメージ反映 & ロシュ城二重計上防止 ---
-    let theoreticalDps = normalDps + stratDps + tokDps;
+    // --- Prompt 48 修正1: 特殊能力DPSを theoreticalDps に加算 ---
+    let theoreticalDps = normalDps + stratDps + tokDps + specialDps;
     if (strategyDamage && strategyDamage.isAttackMode && !strategyDamage.isUnquantifiable && normalDps > 0) {
       const uptime = strategyDamage.uptimeRatio || 0;
       const combinedAttackDps = Math.round(normalDps * (1 - uptime) + strategyDamage.activeDps * uptime);
       stratDps = combinedAttackDps - normalDps;
       strategyDamage.dps = stratDps;
-      theoreticalDps = combinedAttackDps + tokDps;
+      theoreticalDps = combinedAttackDps + tokDps + specialDps;
     }
 
     const rangePerc = ((b.rangePercent?.max || 0) + (b.rangePercent?.stackSum || 0)) / 100;
@@ -14175,7 +14178,9 @@ function showQuizResult() {
     }
     if (specialDamage) {
       if (specialDamage.isComboFinisher) {
-        breakdownText += ` ｜ [特殊] 4連撃(1発${specialDamage.hitDamage.toLocaleString()})+追撃2倍(${specialDamage.finDamage.toLocaleString()}) → 1回計${specialDamage.totalDamage.toLocaleString()}${specialDamage.isDefIgnore ? ' [防御無視]' : ''}${specialDamage.dps > 0 ? ` (CT${specialDamage.cooldown}s, ${specialDamage.dps.toLocaleString()}/s)` : ''}`;
+        const comboHits = specialDamage.comboHits || specialDamage.parsed?.comboHits || 4;
+        const finMult = specialDamage.finMult ?? specialDamage.parsed?.finMult ?? 2;
+        breakdownText += ` ｜ [特殊] ${comboHits}連撃(1発${specialDamage.hitDamage.toLocaleString()})+追撃${finMult}倍(${specialDamage.finDamage.toLocaleString()}) → 1回計${specialDamage.totalDamage.toLocaleString()}${specialDamage.isDefIgnore ? ' [防御無視]' : ''}${specialDamage.dps > 0 ? ` (CT${specialDamage.cooldown}s, ${specialDamage.dps.toLocaleString()}/s)` : ''}`;
       } else {
         breakdownText += ` ｜ [特殊] 攻${finalAtk}×${specialDamage.parsed.mult}倍 → 1撃${specialDamage.hitDamage.toLocaleString()}${specialDamage.hits > 1 ? ` (×${specialDamage.hits}連)` : ''} (1回計${specialDamage.totalDamage.toLocaleString()}${specialDamage.isDefIgnore ? ' [防御無視]' : ''}${specialDamage.dps > 0 ? `, CT${specialDamage.cooldown}s, ${specialDamage.dps.toLocaleString()}/s` : ''})`;
       }
@@ -14214,6 +14219,7 @@ function showQuizResult() {
       tokugiDamage: tokugiDamage,
       tokDps: tokDps,
       specialDamage: specialDamage,
+      specialDps: specialDps,
       hasSpecialAttackUnmodeled: hasSpecialAttackUnmodeled,
       unreflectedCheck: unreflectedCheck,
       theoreticalDps: theoreticalDps,
@@ -14283,19 +14289,25 @@ function showQuizResult() {
     let totalNormalDps = 0;
     let totalStratDps = 0;
     let totalTokDps = 0;
+    let totalSpecialDps = 0;
     let totalPartyDps = 0;
     firingRangeState.castleSlots.forEach(s => {
       totalNormalDps += (s.stat.normalDps || 0);
       totalStratDps += (s.stat.stratDps || 0);
       totalTokDps += (s.stat.tokDps || 0);
+      totalSpecialDps += (s.stat.specialDps || 0);
       totalPartyDps += s.stat.theoreticalDps;
     });
 
     const dpsHeadline = document.getElementById("firingRangeDpsHeadline");
     if (dpsHeadline) {
-      const breakdownSub = totalTokDps > 0
-        ? `(通常: ${totalNormalDps.toLocaleString()} + 計略: ${totalStratDps.toLocaleString()} + 特技: ${totalTokDps.toLocaleString()})`
-        : `(通常: ${totalNormalDps.toLocaleString()} + 計略: ${totalStratDps.toLocaleString()})`;
+      const parts = [
+        `通常: ${totalNormalDps.toLocaleString()}`,
+        `計略: ${totalStratDps.toLocaleString()}`
+      ];
+      if (totalTokDps > 0) parts.push(`特技: ${totalTokDps.toLocaleString()}`);
+      if (totalSpecialDps > 0) parts.push(`特殊: ${totalSpecialDps.toLocaleString()}`);
+      const breakdownSub = `(${parts.join(" + ")})`;
       dpsHeadline.textContent = `部隊総DPS: ${totalPartyDps.toLocaleString()} /秒 ${breakdownSub}`;
     }
 
@@ -14399,7 +14411,7 @@ function showQuizResult() {
                   <strong style="color:#059669; font-size:13px;">1撃 ${stat.specialDamage.hitDamage.toLocaleString()}</strong>
                 </div>
                 <div style="font-size:12px; color:var(--text-sub); text-align:right;">
-                  ${stat.specialDamage.isComboFinisher ? `4連+追撃2倍: <strong>${stat.specialDamage.totalDamage.toLocaleString()}</strong>` : `1回計: <strong>${stat.specialDamage.totalDamage.toLocaleString()}</strong>`}
+                  ${stat.specialDamage.isComboFinisher ? `${stat.specialDamage.comboHits || stat.specialDamage.parsed?.comboHits || 4}連+追撃${stat.specialDamage.finMult ?? stat.specialDamage.parsed?.finMult ?? 2}倍: <strong>${stat.specialDamage.totalDamage.toLocaleString()}</strong>` : `1回計: <strong>${stat.specialDamage.totalDamage.toLocaleString()}</strong>`}
                   ${stat.specialDamage.isDefIgnore ? '<span style="color:#16a34a; font-weight:bold;"> [防無]</span>' : ''}
                 </div>
               ` : (stat.hasSpecialAttackUnmodeled ? `
