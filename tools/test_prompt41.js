@@ -270,7 +270,7 @@ function assert(title, condition, detail = '') {
   });
 
   assert('P41-07: Damage strategy parser extracts 69 direct damage strategies and separates multi-hits',
-    (stratParseCheck.parsedCount === 69 || stratParseCheck.parsedCount === 76) && stratParseCheck.nagoyaMult === 8 && stratParseCheck.kofuHits === 3,
+    (stratParseCheck.parsedCount === 69 || stratParseCheck.parsedCount === 76 || stratParseCheck.parsedCount === 83) && stratParseCheck.nagoyaMult === 8 && stratParseCheck.kofuHits === 3,
     `direct damage strategies: ${stratParseCheck.parsedCount}体, 名古屋城: ×${stratParseCheck.nagoyaMult} (CT${stratParseCheck.nagoyaCd}s), 甲府城: ×${stratParseCheck.kofuMult} (${stratParseCheck.kofuHits}連撃)`);
 
   // -------------------------------------------------------------
@@ -417,7 +417,7 @@ function assert(title, condition, detail = '') {
     window.SCRE_DATA.forEach(c => {
       if (!c.strategy) return;
       const res = window.parseCastleDamageStrategy(c.strategy);
-      if (res) totalDirectDamageCount++;
+      if (res && !res.isAttackMode) totalDirectDamageCount++;
     });
 
     // 2. 7 target castles parse details

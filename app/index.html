@@ -1377,11 +1377,11 @@
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
                 <label style="font-size: 12px; font-weight: bold;">敵耐久 (HP)</label>
                 <div style="display: flex; gap: 4px;">
-                  <button type="button" id="btnHpModeInfinite" class="btn btn-xs" style="font-size: 12px;">無限 (DPS計測)</button>
-                  <button type="button" id="btnHpModeFinite" class="btn btn-xs active" style="font-size: 12px;">有限 (撃破レース)</button>
+                  <button type="button" id="btnHpModeInfinite" class="btn btn-xs active" style="font-size: 12px;">無限 (DPS計測)</button>
+                  <button type="button" id="btnHpModeFinite" class="btn btn-xs" style="font-size: 12px;">有限 (撃破レース)</button>
                 </div>
               </div>
-              <div id="firingRangeHpInputRow" style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+              <div id="firingRangeHpInputRow" style="display: none; align-items: center; gap: 8px; margin-top: 6px;">
                 <input type="number" id="firingRangeHpInput" min="1000" max="50000000" step="10000" value="200000" style="flex: 1; font-size: 12px; padding: 4px 6px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--card-bg); color: var(--text-main); text-align: right;">
                 <span style="font-size: 12px; color: var(--text-sub);">HP</span>
               </div>
@@ -1410,7 +1410,7 @@
             </div>
 
             <!-- Measurement Duration Mode (for infinite HP) -->
-            <div id="firingRangeDurationModeBox" style="margin-bottom: 12px; display: none;">
+            <div id="firingRangeDurationModeBox" style="margin-bottom: 12px; display: block;">
               <label style="font-size: 12px; font-weight: bold; display: block; margin-bottom: 4px;">計測モード（停止条件）</label>
               <div style="display: flex; gap: 4px; flex-wrap: wrap;">
                 <button type="button" class="btn btn-xs firing-duration-btn active" data-duration="0" style="font-size: 12px;">連続 (手動停止)</button>
@@ -1479,11 +1479,11 @@
               <div id="firingDamagePopupLayer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden;"></div>
             </div>
 
-            <!-- Target Dummy HP Bar (when finite) -->
+            <!-- Target Dummy HP Bar -->
             <div id="firingDummyHpBarBox" style="margin-top: 10px;">
               <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 2px;">
                 <span id="firingDummyNameDisplay">🎯 標準的な兜</span>
-                <span id="firingDummyHpText">200,000 / 200,000 (100%)</span>
+                <span id="firingDummyHpText">∞（累積ダメージ: 0）</span>
               </div>
               <div style="width: 100%; height: 10px; background: #4a5568; border-radius: 5px; overflow: hidden;">
                 <div id="firingDummyHpBarFill" style="width: 100%; height: 100%; background: linear-gradient(90deg, #e74c3c, #f39c12); transition: width 0.1s linear;"></div>
@@ -1507,12 +1507,12 @@
                     <th style="padding: 6px 8px;">城娘</th>
                     <th style="padding: 6px 8px; text-align: center;">巨大化</th>
                     <th style="padding: 6px 8px; text-align: right;">最終攻撃</th>
-                    <th style="padding: 6px 8px; text-align: right;">1撃実ダメ (通常/計略)</th>
+                    <th style="padding: 6px 8px; text-align: right; min-width: 170px;">1撃実ダメージ (通常/計略)</th>
                     <th style="padding: 6px 8px; text-align: center;">間隔 / CT</th>
                     <th style="padding: 6px 8px; text-align: right;">実効DPS (通常/計略/計)</th>
                     <th style="padding: 6px 8px; text-align: right;">累計ダメージ</th>
                     <th style="padding: 6px 8px; text-align: center;">火力占有率</th>
-                    <th style="padding: 6px 8px;">計算内訳</th>
+                    <th style="padding: 6px 8px; min-width: 260px;">計算内訳</th>
                   </tr>
                 </thead>
                 <tbody id="firingCastleResultsTbody">

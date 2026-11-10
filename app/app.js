@@ -13005,7 +13005,7 @@ function showQuizResult() {
     totalDamage: 0,
     targetDef: 500,
     targetHp: 200000,
-    isInfiniteHp: false,
+    isInfiniteHp: true,
     targetRed: 0,
     targetCount: 1,
     durationLimit: 0,
@@ -13020,11 +13020,11 @@ function showQuizResult() {
   };
 
   const FIRING_PRESETS = [
-    { id: "custom", name: "カスタム設定", def: 500, hp: 200000, isInfinite: false, red: 0 },
+    { id: "custom", name: "カスタム設定", def: 500, hp: 200000, isInfinite: true, red: 0 },
     { id: "def0", name: "藁人形 (防御 0 / HP 無限)", def: 0, hp: 0, isInfinite: true, red: 0 },
-    { id: "def500", name: "標準的な兜 (防御 500 / HP 20万)", def: 500, hp: 200000, isInfinite: false, red: 0 },
-    { id: "def1500", name: "重装兜 (防御 1,500 / HP 50万)", def: 1500, hp: 500000, isInfinite: false, red: 0 },
-    { id: "def3000", name: "超高防御ゴーレム (防御 3,000 / HP 100万)", def: 3000, hp: 1000000, isInfinite: false, red: 0 }
+    { id: "def500", name: "標準的な兜 (防御 500 / HP 無限)", def: 500, hp: 200000, isInfinite: true, red: 0 },
+    { id: "def1500", name: "重装兜 (防御 1,500 / HP 無限)", def: 1500, hp: 500000, isInfinite: true, red: 0 },
+    { id: "def3000", name: "超高防御ゴーレム (防御 3,000 / HP 無限)", def: 3000, hp: 1000000, isInfinite: true, red: 0 }
   ];
 
   // --- Prompt 41: 巨大化段階別ステータス (0:未巨大化, 5:最大, 1〜4:線形補間推定値) ---
@@ -13056,12 +13056,88 @@ function showQuizResult() {
   }
   window.getCastleBaseStatsForGiant = getCastleBaseStatsForGiant;
 
-  // --- Prompt 41 & 42: 計略ダメージ機械パース (即時直接ダメージ計略) ---
-  // 「攻撃の○倍のダメージを与える」等の直接ダメージ計略（実測76体）を機械パース
-  // バフ持続型（X秒間...）やトークン（伏兵）は対象外とし null を返却
+  // --- Prompt 41, 42 & 45: 計略ダメージ機械パース (即時直接ダメージ計略 ＋ 攻撃転化型 attackMode) ---
+  // 1. 即時直接ダメージ計略（実測76体）
+  // 2. 攻撃転化型（attackMode）：計略発動中のみ支援から攻撃に転じる型（例：［学園］都於郡城、［絢爛］立花山城 等）
+  // 伏兵・トークンおよび純粋バフ持続型は対象外
   function parseCastleDamageStrategy(strategy) {
     if (!strategy || !strategy.text || !strategy.cooldown) return null;
     const text = strategy.text;
+    if (text.includes("伏兵") || text.includes("トークン")) return null; // 伏兵計略は対象外
+
+    // --- Prompt 45: 攻撃転化型（attackMode）判定 ---
+    const isAttackModePattern = (
+      /回復を行わず/.test(text) ||
+      /回復を行い\s*敵/.test(text) ||
+      /回復し[、,\s]*敵を継続的/.test(text) ||
+      /継続的に(?:ダメージを与える(?:術)?攻撃|術ダメ|ダメージ).*行[いう]/.test(text)
+    ) && (/攻撃を行う|敵(?:[0-9]+体|へ|に)?.*攻撃|継続的に/.test(text));
+
+    if (isAttackModePattern) {
+      const mDur = text.match(/([0-9]+)秒間/);
+      const duration = mDur ? parseInt(mDur[1], 10) : null;
+
+      let mult = null;
+      let isEstimatedMult = false;
+      let isUnquantifiable = false;
+
+      const mMult1 = text.match(/攻撃の\s*([0-9]+(?:\.[0-9]+)?)倍/);
+      const mMult2 = text.match(/([0-9]+(?:\.[0-9]+)?)倍の(?:術|火属性|水属性|風属性|雷属性|防御無視)?\s*ダメージ/);
+
+      if (mMult1) {
+        mult = parseFloat(mMult1[1]);
+      } else if (mMult2) {
+        mult = parseFloat(mMult2[1]);
+      } else if (/敵[0-9]+体に\s*攻撃|敵1体とその周囲に攻撃/.test(text)) {
+        // ［絢爛］立花山城・［夏］立花山城：通常攻撃相当（1倍）としてモデル化（推定）
+        mult = 1.0;
+        isEstimatedMult = true;
+      } else {
+        // 倍率記載なし（［正月］立花山城、立花山城、澪田唯吹）：勝手な倍率を置かず未計算
+        isUnquantifiable = true;
+      }
+
+      if (!duration) {
+        // 持続時間なし（特技変化型など）：発動ウィンドウをモデル化できないため未計算
+        isUnquantifiable = true;
+      }
+
+      let targets = 1;
+      let isSplash = false;
+      let isAoe = false;
+
+      const mTarget = text.match(/敵([0-9]+)体に/);
+      if (mTarget) {
+        targets = parseInt(mTarget[1], 10);
+      } else if (/敵1体とその周囲/.test(text)) {
+        targets = 1;
+        isSplash = true;
+      } else if (/射程内の?全敵|全敵/.test(text)) {
+        isAoe = true;
+      }
+
+      const isMagic = /術攻撃|術ダメ|術ダメージ/.test(text);
+      const isDefIgnore = /防御(?:力)?を?無視|防御(?:力)?を?0として計算|防御減算な/.test(text);
+
+      return {
+        name: strategy.name || "",
+        text: text,
+        cooldown: strategy.cooldown,
+        cost: strategy.cost || 0,
+        isAttackMode: true,
+        duration: duration,
+        mult: mult,
+        isEstimatedMult: isEstimatedMult,
+        isUnquantifiable: isUnquantifiable,
+        hits: 1,
+        targets: targets,
+        isSplash: isSplash,
+        isAoe: isAoe,
+        isDefIgnore: isDefIgnore,
+        isMagic: isMagic
+      };
+    }
+
     if (/^[0-9]+秒間/.test(text.trim())) return null; // 持続バフ型は常時反映のまま対象外
     if (text.includes("伏兵") || text.includes("トークン")) return null; // 伏兵計略は対象外
 
@@ -13127,6 +13203,10 @@ function showQuizResult() {
       text: text,
       cooldown: strategy.cooldown,
       cost: strategy.cost || 0,
+      isAttackMode: false,
+      isUnquantifiable: false,
+      isEstimatedMult: false,
+      duration: null,
       mult: mult,
       hits: hits,
       splashMult: splashMult,
@@ -13136,6 +13216,56 @@ function showQuizResult() {
     };
   }
   window.parseCastleDamageStrategy = parseCastleDamageStrategy;
+
+  // --- Prompt 45: 特技周期ダメージ判定（調査・機械パース対応） ---
+  // 屋良座森城（陣貝：40秒毎に4倍）、宮津城（茶器：最大化時8秒毎に5倍）、高陽城（陣貝：継続的に術ダメージ・数値化不可）
+  function parseCastleTokugiDamage(castle, giantStep = 5) {
+    if (!castle || !castle.skill || !castle.skill.text) return null;
+    const text = castle.skill.text;
+    if (text.includes("伏兵") || text.includes("トークン")) return null;
+
+    // 1. 宮津城型: 最大化時 X秒毎に... Y倍のダメージ
+    const mMax = text.match(/最大化時.*?([0-9]+)秒毎に.*?攻撃の\s*([0-9]+(?:\.[0-9]+)?)倍のダメージ/);
+    if (mMax) {
+      if (giantStep < 5) return null; // 最大化時のみ発動
+      return {
+        interval: parseInt(mMax[1], 10),
+        mult: parseFloat(mMax[2]),
+        isAoe: /全敵/.test(text),
+        isMaxOnly: true,
+        isUnquantifiable: false,
+        text: text
+      };
+    }
+
+    // 2. 屋良座森城型: X秒毎に... Y倍のダメージ
+    const mPeriodic = text.match(/([0-9]+)秒毎に.*?攻撃の\s*([0-9]+(?:\.[0-9]+)?)倍のダメージ/);
+    if (mPeriodic) {
+      return {
+        interval: parseInt(mPeriodic[1], 10),
+        mult: parseFloat(mPeriodic[2]),
+        isAoe: /全敵|敵全て/.test(text),
+        isMaxOnly: false,
+        isUnquantifiable: false,
+        text: text
+      };
+    }
+
+    // 3. 高陽城型: 継続的に術ダメージを与える（倍率記載なし）
+    if (/継続的に(?:術)?ダメージを与える/.test(text)) {
+      return {
+        interval: null,
+        mult: null,
+        isAoe: true,
+        isMaxOnly: false,
+        isUnquantifiable: true,
+        text: text
+      };
+    }
+
+    return null;
+  }
+  window.parseCastleTokugiDamage = parseCastleTokugiDamage;
 
   // --- Prompt 41 & 42: 射撃訓練場 D&D / タップ編成 操作 ---
   let firingSelectedPaletteCastle = null;
@@ -13512,48 +13642,158 @@ function showQuizResult() {
     const cycleDamage = isBuffWeapon ? 0 : (finalHitDamage * hits * effectiveTargets);
     const normalDps = isBuffWeapon ? 0 : Math.round(cycleDamage * attacksPerSec);
 
-    // --- Prompt 41: 計略ダメージ計算 ---
+    // --- Prompt 41 & 45: 計略ダメージ計算 ---
     let strategyDamage = null;
     const stratParsed = (c.strategy && slot?.strategyOn !== false) ? parseCastleDamageStrategy(c.strategy) : null;
     if (stratParsed) {
-      const stratBaseAtk = Math.floor(finalAtk * stratParsed.mult);
-      const stratAtkWithTarget = Math.floor(stratBaseAtk * dmgTargetMult);
+      if (stratParsed.isAttackMode) {
+        // Prompt 45: 攻撃転化型 (attackMode)
+        if (stratParsed.isUnquantifiable) {
+          strategyDamage = {
+            parsed: stratParsed,
+            isAttackMode: true,
+            isUnquantifiable: true,
+            isEstimatedMult: false,
+            duration: stratParsed.duration,
+            cooldown: Math.max(1, stratParsed.cooldown),
+            uptimeRatio: 0,
+            mult: null,
+            baseAtk: finalAtk,
+            effDef: effDef,
+            isDefIgnore: false,
+            hitDamage: 0,
+            hits: 1,
+            targets: 1,
+            totalDamagePerCast: 0,
+            activeDps: 0,
+            timeAvgDps: 0,
+            dps: 0
+          };
+        } else {
+          const stratBaseAtk = Math.floor(finalAtk * (stratParsed.mult || 1.0));
+          const stratAtkWithTarget = Math.floor(stratBaseAtk * dmgTargetMult);
 
-      const stratDefIgnore = Boolean(effectiveIgnore || stratParsed.isDefIgnore || stratParsed.isMagic || defIgnoreInfo.isMagic);
-      const stratEffDef = stratDefIgnore ? 0 : effDef;
-      const stratBaseDmg = Math.max(Math.floor(stratAtkWithTarget * 0.1), stratAtkWithTarget - stratEffDef);
+          const stratDefIgnore = Boolean(effectiveIgnore || stratParsed.isDefIgnore || stratParsed.isMagic || defIgnoreInfo.isMagic);
+          const stratEffDef = stratDefIgnore ? 0 : effDef;
+          const stratBaseDmg = Math.max(Math.floor(stratAtkWithTarget * 0.1), stratAtkWithTarget - stratEffDef);
+          const activeHitDamage = Math.max(1, Math.floor(stratBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
 
-      const stratHitDamage = Math.max(1, Math.floor(stratBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
-      const stratTargets = stratParsed.isAoe ? targetCount : 1;
-      let stratTotalDamagePerCast = 0;
-      if (stratParsed.splashMult && targetCount > 1) {
-        const splashBaseAtk = Math.floor(finalAtk * stratParsed.splashMult);
-        const splashAtkWithTarget = Math.floor(splashBaseAtk * dmgTargetMult);
-        const splashBaseDmg = Math.max(Math.floor(splashAtkWithTarget * 0.1), splashAtkWithTarget - stratEffDef);
-        const splashHitDmg = Math.max(1, Math.floor(splashBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
-        stratTotalDamagePerCast = (stratHitDamage * stratParsed.hits * 1) + (splashHitDmg * stratParsed.hits * (targetCount - 1));
+          let stratTargets = 1;
+          if (stratParsed.isAoe || stratParsed.isSplash) {
+            stratTargets = targetCount;
+          } else if (stratParsed.targets > 1) {
+            stratTargets = Math.min(targetCount, stratParsed.targets);
+          }
+
+          const hits = wf.hits || 1;
+          const cycleDamage = activeHitDamage * hits * stratTargets;
+          const activeDps = Math.round(cycleDamage * attacksPerSec);
+
+          const cooldown = Math.max(1, stratParsed.cooldown);
+          const uptimeRatio = Math.min(1.0, (stratParsed.duration || 0) / cooldown);
+          const timeAvgDps = Math.round(activeDps * uptimeRatio);
+
+          strategyDamage = {
+            parsed: stratParsed,
+            isAttackMode: true,
+            isUnquantifiable: false,
+            isEstimatedMult: stratParsed.isEstimatedMult,
+            duration: stratParsed.duration,
+            cooldown: cooldown,
+            uptimeRatio: uptimeRatio,
+            mult: stratParsed.mult,
+            baseAtk: stratBaseAtk,
+            effDef: stratEffDef,
+            isDefIgnore: stratDefIgnore,
+            hitDamage: activeHitDamage,
+            hits: hits,
+            targets: stratTargets,
+            totalDamagePerCast: cycleDamage,
+            activeDps: activeDps,
+            timeAvgDps: timeAvgDps,
+            dps: timeAvgDps
+          };
+        }
       } else {
-        stratTotalDamagePerCast = stratHitDamage * stratParsed.hits * stratTargets;
+        // 既存の即時直接ダメージ計略
+        const stratBaseAtk = Math.floor(finalAtk * stratParsed.mult);
+        const stratAtkWithTarget = Math.floor(stratBaseAtk * dmgTargetMult);
+
+        const stratDefIgnore = Boolean(effectiveIgnore || stratParsed.isDefIgnore || stratParsed.isMagic || defIgnoreInfo.isMagic);
+        const stratEffDef = stratDefIgnore ? 0 : effDef;
+        const stratBaseDmg = Math.max(Math.floor(stratAtkWithTarget * 0.1), stratAtkWithTarget - stratEffDef);
+
+        const stratHitDamage = Math.max(1, Math.floor(stratBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
+        const stratTargets = stratParsed.isAoe ? targetCount : 1;
+        let stratTotalDamagePerCast = 0;
+        if (stratParsed.splashMult && targetCount > 1) {
+          const splashBaseAtk = Math.floor(finalAtk * stratParsed.splashMult);
+          const splashAtkWithTarget = Math.floor(splashBaseAtk * dmgTargetMult);
+          const splashBaseDmg = Math.max(Math.floor(splashAtkWithTarget * 0.1), splashAtkWithTarget - stratEffDef);
+          const splashHitDmg = Math.max(1, Math.floor(splashBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
+          stratTotalDamagePerCast = (stratHitDamage * stratParsed.hits * 1) + (splashHitDmg * stratParsed.hits * (targetCount - 1));
+        } else {
+          stratTotalDamagePerCast = stratHitDamage * stratParsed.hits * stratTargets;
+        }
+
+        const stratCooldown = Math.max(1, stratParsed.cooldown);
+        const stratDps = Math.round(stratTotalDamagePerCast / stratCooldown);
+
+        strategyDamage = {
+          parsed: stratParsed,
+          isAttackMode: false,
+          isUnquantifiable: false,
+          isEstimatedMult: false,
+          baseAtk: stratBaseAtk,
+          effDef: stratEffDef,
+          isDefIgnore: stratDefIgnore,
+          hitDamage: stratHitDamage,
+          hits: stratParsed.hits,
+          targets: stratTargets,
+          totalDamagePerCast: stratTotalDamagePerCast,
+          cooldown: stratCooldown,
+          dps: stratDps
+        };
       }
+    }
 
-      const stratCooldown = Math.max(1, stratParsed.cooldown);
-      const stratDps = Math.round(stratTotalDamagePerCast / stratCooldown);
+    // --- Prompt 45: 特技周期ダメージ計算 (屋良座森城, 宮津城, 高陽城) ---
+    let tokugiDamage = null;
+    const tokugiParsed = parseCastleTokugiDamage(c, giantStep);
+    if (tokugiParsed) {
+      if (tokugiParsed.isUnquantifiable) {
+        tokugiDamage = {
+          parsed: tokugiParsed,
+          isUnquantifiable: true,
+          hitDamage: 0,
+          dps: 0
+        };
+      } else {
+        const tokBaseAtk = Math.floor(finalAtk * tokugiParsed.mult);
+        const tokAtkWithTarget = Math.floor(tokBaseAtk * dmgTargetMult);
+        const tokEffDef = effectiveIgnore ? 0 : effDef;
+        const tokBaseDmg = Math.max(Math.floor(tokAtkWithTarget * 0.1), tokAtkWithTarget - tokEffDef);
+        const tokHitDamage = Math.max(1, Math.floor(tokBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
+        const tokTargets = tokugiParsed.isAoe ? targetCount : 1;
+        const tokTotalDmgPerTrigger = tokHitDamage * tokTargets;
+        const tokInterval = Math.max(1, tokugiParsed.interval);
+        const tokDps = Math.round(tokTotalDmgPerTrigger / tokInterval);
 
-      strategyDamage = {
-        parsed: stratParsed,
-        baseAtk: stratBaseAtk,
-        effDef: stratEffDef,
-        isDefIgnore: stratDefIgnore,
-        hitDamage: stratHitDamage,
-        hits: stratParsed.hits,
-        targets: stratTargets,
-        totalDamagePerCast: stratTotalDamagePerCast,
-        cooldown: stratCooldown,
-        dps: stratDps
-      };
+        tokugiDamage = {
+          parsed: tokugiParsed,
+          isUnquantifiable: false,
+          baseAtk: tokBaseAtk,
+          hitDamage: tokHitDamage,
+          targets: tokTargets,
+          interval: tokInterval,
+          totalDamagePerTrigger: tokTotalDmgPerTrigger,
+          dps: tokDps
+        };
+      }
     }
 
     const stratDps = strategyDamage ? strategyDamage.dps : 0;
+    const tokDps = tokugiDamage ? tokugiDamage.dps : 0;
     const theoreticalDps = normalDps + stratDps;
 
     const rangePerc = ((b.rangePercent?.max || 0) + (b.rangePercent?.stackSum || 0)) / 100;
@@ -13562,14 +13802,34 @@ function showQuizResult() {
 
     let breakdownText = "";
     if (isBuffWeapon) {
-      breakdownText = `[通常] 攻撃なし（支援専用：攻撃値${finalAtk}はバフ・回復の基礎値で敵ダメージではありません）`;
-      if (strategyDamage) {
-        breakdownText += ` ｜ [計略] 攻${finalAtk}×${strategyDamage.parsed.mult}倍 → 1撃${strategyDamage.totalDamagePerCast.toLocaleString()} (CT${strategyDamage.cooldown}s, ${strategyDamage.dps.toLocaleString()}/s)`;
+      if (strategyDamage && strategyDamage.isAttackMode) {
+        if (strategyDamage.isUnquantifiable) {
+          breakdownText = `[通常] 攻撃なし（支援） ｜ [計略中] 攻撃に転じる（数値化不可のため未計算）`;
+        } else {
+          const multDesc = strategyDamage.isEstimatedMult ? `攻${finalAtk} (通常相当1倍・推定)` : `攻${finalAtk}×${strategyDamage.mult}倍=${strategyDamage.baseAtk}`;
+          breakdownText = `[通常] 攻撃なし（支援） ｜ [計略中(推定)] ${multDesc} → 引後${strategyDamage.baseAtk - strategyDamage.effDef} → 1撃${strategyDamage.hitDamage.toLocaleString()}${strategyDamage.targets > 1 ? ` (×${strategyDamage.targets}体)` : ''} (発動中${strategyDamage.activeDps.toLocaleString()}/s, 稼働${strategyDamage.duration}s/${strategyDamage.cooldown}s → 時間平均${strategyDamage.dps.toLocaleString()}/s)`;
+        }
+      } else {
+        breakdownText = `[通常] 攻撃なし（支援専用：攻撃値${finalAtk}はバフ・回復の基礎値で敵ダメージではありません）`;
+        if (strategyDamage) {
+          breakdownText += ` ｜ [計略] 攻${finalAtk}×${strategyDamage.parsed.mult}倍 → 1撃${strategyDamage.hitDamage.toLocaleString()} (1回計${strategyDamage.totalDamagePerCast.toLocaleString()}, CT${strategyDamage.cooldown}s, ${strategyDamage.dps.toLocaleString()}/s)`;
+        }
+      }
+      if (tokugiDamage) {
+        if (tokugiDamage.isUnquantifiable) {
+          breakdownText += ` ｜ [特技] 継続的に術ダメージ（数値化不可のため未計算）`;
+        } else {
+          breakdownText += ` ｜ [特技] 攻${finalAtk}×${tokugiDamage.parsed.mult}倍 → 1撃${tokugiDamage.hitDamage.toLocaleString()} (${tokugiDamage.interval}秒毎, ${tokugiDamage.dps.toLocaleString()}/s)`;
+        }
       }
     } else {
-      breakdownText = `[通常] 攻${finalAtk} → 引後${baseDamage} → 1撃${finalHitDamage} (${normalDps.toLocaleString()}/s)`;
+      breakdownText = `[通常] 攻${finalAtk} → 引後${baseDamage} → 1撃${finalHitDamage}${hits > 1 ? ` (×${hits}連)` : ''} (${normalDps.toLocaleString()}/s)`;
       if (strategyDamage) {
-        breakdownText += ` ｜ [計略] 攻${finalAtk}×${strategyDamage.parsed.mult}倍 → 1撃${strategyDamage.totalDamagePerCast.toLocaleString()} (CT${strategyDamage.cooldown}s, ${strategyDamage.dps.toLocaleString()}/s)`;
+        if (strategyDamage.isAttackMode) {
+          breakdownText += ` ｜ [計略中(推定)] 攻${finalAtk}×${strategyDamage.mult}倍 → 1撃${strategyDamage.hitDamage.toLocaleString()} (発動中${strategyDamage.activeDps.toLocaleString()}/s, 平均${strategyDamage.dps.toLocaleString()}/s)`;
+        } else {
+          breakdownText += ` ｜ [計略] 攻${finalAtk}×${strategyDamage.parsed.mult}倍 → 1撃${strategyDamage.hitDamage.toLocaleString()} (1回計${strategyDamage.totalDamagePerCast.toLocaleString()}, CT${strategyDamage.cooldown}s, ${strategyDamage.dps.toLocaleString()}/s)`;
+        }
       }
     }
 
@@ -13601,6 +13861,8 @@ function showQuizResult() {
       normalDps: normalDps,
       strategyDamage: strategyDamage,
       stratDps: stratDps,
+      tokugiDamage: tokugiDamage,
+      tokDps: tokDps,
       theoreticalDps: theoreticalDps,
       isBuffWeapon: isBuffWeapon,
       weaponType: wf.type,
@@ -13710,10 +13972,65 @@ function showQuizResult() {
             ${stat.finalAtk.toLocaleString()}
             ${stat.isIntermediateGiant ? '<div style="font-size:12px; color:#856404; font-weight:normal;">(推定)</div>' : ''}
           </td>
-          <td style="text-align:right; font-size:12px;">
-            <div>通常: ${stat.isBuffWeapon ? '<span style="color:var(--text-sub); font-size:12px;">攻撃なし（支援）</span>' : `<strong style="color:#e67e22;">${stat.finalHitDamage.toLocaleString()}</strong>${stat.hits > 1 ? ` × ${stat.hits}連` : ''}`}</div>
-            <div>計略: ${stat.strategyDamage ? `<strong style="color:#9f7aea;">${stat.strategyDamage.totalDamagePerCast.toLocaleString()}</strong>` : '<span style="color:var(--text-sub); font-size:12px;">-</span>'}</div>
-            <div style="font-size:12px; color:var(--text-sub);">${stat.isBuffWeapon ? '<span style="color:var(--text-sub); font-size:12px;">支援専用</span>' : (stat.effectiveIgnore ? '<span style="color:#27ae60;">[防御無視]</span>' : `実効防 ${stat.effDef}`)}</div>
+          <td style="text-align:right; font-size:12px; min-width:170px;">
+            ${stat.isBuffWeapon ? (
+              stat.strategyDamage?.isAttackMode ? (
+                stat.strategyDamage.isUnquantifiable ? `
+                  <div style="color:var(--text-sub); font-size:12px;">通常: 攻撃なし</div>
+                  <div style="margin-top:2px;"><span class="badge" style="background:#e0e7ff; color:#3730a3; font-size:12px; display:inline-block; padding:2px 4px; border-radius:3px; word-break:break-all;">計略中は攻撃に転じる（数値化不可のため未計算）</span></div>
+                ` : `
+                  <div style="color:var(--text-sub); font-size:12px;">通常: 攻撃なし</div>
+                  <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:2px;">
+                    <span style="color:#b45309; font-size:12px; font-weight:bold;">計略中のみ:</span>
+                    <strong style="color:#e67e22; font-size:14px;">1撃 ${stat.strategyDamage.hitDamage.toLocaleString()}</strong>
+                  </div>
+                  <div style="font-size:12px; color:var(--text-sub); text-align:right;">
+                    ${stat.strategyDamage.targets > 1 ? `× ${stat.strategyDamage.targets}体 ` : ''}${stat.strategyDamage.isEstimatedMult ? '<span class="badge" style="background:#fef3c7; color:#92400e; font-size:12px;">推定1倍</span> ' : ''}(1回合計: ${stat.strategyDamage.totalDamagePerCast.toLocaleString()})
+                  </div>
+                  <div style="font-size:12px; color:var(--text-sub); text-align:right;">
+                    ${stat.strategyDamage.isDefIgnore ? '<span style="color:#16a34a; font-weight:bold;">[防御無視]</span>' : `実効防 ${stat.effDef}`}
+                  </div>
+                `
+              ) : `
+                <div style="font-size:13px; font-weight:bold; color:var(--text-sub);">攻撃なし</div>
+                <div style="font-size:12px; color:var(--text-sub);">支援専用</div>
+                ${stat.strategyDamage ? `
+                  <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:2px;">
+                    <span style="color:var(--text-sub); font-size:12px;">計略:</span>
+                    <strong style="color:#805ad5; font-size:13px;">1撃 ${stat.strategyDamage.hitDamage.toLocaleString()}</strong>
+                  </div>
+                  <div style="font-size:12px; color:var(--text-sub); text-align:right;">1回合計: <strong>${stat.strategyDamage.totalDamagePerCast.toLocaleString()}</strong></div>
+                ` : ''}
+                ${stat.tokugiDamage ? (
+                  stat.tokugiDamage.isUnquantifiable ? `
+                    <div style="margin-top:2px;"><span class="badge" style="background:#f1f5f9; color:#475569; font-size:12px;">特技: 継続術ダメ(未計算)</span></div>
+                  ` : `
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:2px;">
+                      <span style="color:#2563eb; font-size:12px;">特技:</span>
+                      <strong style="color:#2563eb; font-size:13px;">1撃 ${stat.tokugiDamage.hitDamage.toLocaleString()}</strong>
+                    </div>
+                    <div style="font-size:12px; color:var(--text-sub); text-align:right;">${stat.tokugiDamage.interval}s毎 (1回合計: ${stat.tokugiDamage.totalDamagePerTrigger.toLocaleString()})</div>
+                  `
+                ) : ''}
+              `
+            ) : `
+              <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                <span style="color:var(--text-sub); font-size:12px;">通常:</span>
+                <strong style="color:#e67e22; font-size:14px;">1撃 ${stat.finalHitDamage.toLocaleString()}</strong>
+              </div>
+              ${stat.hits > 1 ? `<div style="font-size:12px; color:var(--text-sub); text-align:right;">連撃: × ${stat.hits}連</div>` : ''}
+              ${stat.effectiveTargets > 1 ? `<div style="font-size:12px; color:var(--text-sub); text-align:right;">対象: × ${stat.effectiveTargets}体</div>` : ''}
+              ${stat.strategyDamage ? `
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:2px;">
+                  <span style="color:var(--text-sub); font-size:12px;">計略:</span>
+                  <strong style="color:#805ad5; font-size:13px;">1撃 ${stat.strategyDamage.hitDamage.toLocaleString()}</strong>
+                </div>
+                <div style="font-size:12px; color:var(--text-sub); text-align:right;">1回合計: <strong>${stat.strategyDamage.totalDamagePerCast.toLocaleString()}</strong></div>
+              ` : '<div style="font-size:12px; color:var(--text-sub); text-align:right;">計略: -</div>'}
+              <div style="font-size:12px; color:var(--text-sub); text-align:right; margin-top:1px;">
+                ${stat.effectiveIgnore ? '<span style="color:#16a34a; font-weight:bold;">[防御無視]</span>' : `実効防 ${stat.effDef}`}
+              </div>
+            `}
           </td>
           <td style="text-align:center; font-size:12px;">
             <div>${stat.isBuffWeapon ? '支援周期' : '通常'}: <strong>${stat.cycleFrames}f</strong> (${stat.attacksPerSec.toFixed(2)}/s)</div>
@@ -13721,8 +14038,9 @@ function showQuizResult() {
           </td>
           <td style="text-align:right; font-size:12px;">
             <div>通常: ${stat.isBuffWeapon ? '<span style="color:var(--text-sub); font-size:12px;">攻撃なし (0/s)</span>' : `${stat.normalDps.toLocaleString()} /s`}</div>
-            <div>計略: ${stat.strategyDamage ? `${stat.strategyDamage.dps.toLocaleString()} /s` : '<span class="badge" style="background:#f1f5f9; color:#64748b; font-size:12px;">未対応(バフのみ)</span>'}</div>
-            <div style="font-weight:bold; color:#d35400; font-size:13px; margin-top:2px;">計: ${stat.theoreticalDps.toLocaleString()} /s</div>
+            <div>計略: ${stat.strategyDamage ? (stat.strategyDamage.isAttackMode ? (stat.strategyDamage.isUnquantifiable ? '<span class="badge" style="background:#e0e7ff; color:#3730a3; font-size:12px;">数値化不可</span>' : `<strong style="color:#b45309;">${stat.strategyDamage.dps.toLocaleString()} /s</strong> <span style="font-size:12px; color:var(--text-sub);">(稼働${stat.strategyDamage.duration}s/${stat.strategyDamage.cooldown}s)</span>`) : `${stat.strategyDamage.dps.toLocaleString()} /s`) : '<span class="badge" style="background:#f1f5f9; color:#64748b; font-size:12px;">未対応(バフのみ)</span>'}</div>
+            ${stat.tokugiDamage && !stat.tokugiDamage.isUnquantifiable ? `<div>特技: <strong style="color:#2563eb;">${stat.tokugiDamage.dps.toLocaleString()} /s</strong></div>` : ''}
+            <div style="font-weight:bold; color:#d35400; font-size:13px; margin-top:2px;">計: ${stat.theoreticalDps.toLocaleString()} /s${stat.strategyDamage?.isAttackMode ? ' <span class="badge" style="background:#fef3c7; color:#92400e; font-size:12px;">推定モデル</span>' : ''}</div>
           </td>
           <td style="text-align:right; font-family:monospace; font-size:12px;" id="firingRowDmg_${i}">
             <strong>${s.totalDmg.toLocaleString()}</strong>
@@ -13736,7 +14054,7 @@ function showQuizResult() {
               <span style="font-size:12px; font-weight:bold;">${sharePerc}%</span>
             </div>
           </td>
-          <td style="font-size:12px; color:var(--text-sub); max-width:240px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${escapeHtml(stat.breakdownText)}">
+          <td style="font-size:12px; color:var(--text-sub); min-width:260px; line-height:1.45; word-break:break-word;">
             ${escapeHtml(stat.breakdownText)}
           </td>
         </tr>
@@ -13929,7 +14247,13 @@ function showQuizResult() {
     const hpBar = document.getElementById("firingDummyHpBarFill");
     if (hpBar) hpBar.style.width = "100%";
     const hpText = document.getElementById("firingDummyHpText");
-    if (hpText) hpText.textContent = `${firingRangeState.targetHp.toLocaleString()} / ${firingRangeState.targetHp.toLocaleString()} (100%)`;
+    if (hpText) {
+      if (firingRangeState.isInfiniteHp) {
+        hpText.textContent = `∞（累積ダメージ: 0）`;
+      } else {
+        hpText.textContent = `${firingRangeState.targetHp.toLocaleString()} / ${firingRangeState.targetHp.toLocaleString()} (100%)`;
+      }
+    }
 
     firingRangeState.castleSlots.forEach((s, i) => {
       const row = document.getElementById(`firingRowDmg_${i}`);
@@ -13958,7 +14282,63 @@ function showQuizResult() {
     firingRangeState.elapsedTime += dt * speed;
 
     firingRangeState.castleSlots.forEach((s, idx) => {
-      // 1. 通常攻撃サイクル
+      const isStratOn = (s.slot?.strategyOn !== false);
+      const strat = s.stat.strategyDamage;
+      const isAttackMode = Boolean(strat && strat.isAttackMode && !strat.isUnquantifiable);
+
+      // 計略タイマー・周期管理
+      if (strat && isStratOn) {
+        if (s.stratCount === 0) {
+          s.stratCount = 1;
+          s.stratTimer = 0;
+          if (!strat.isAttackMode) {
+            // 即時直接ダメージ計略の初回即時発動
+            const sDmg = strat.totalDamagePerCast;
+            s.stratDmg = (s.stratDmg || 0) + sDmg;
+            s.totalDmg += sDmg;
+            firingRangeState.totalDamage += sDmg;
+
+            firingRangeState.projectiles.push({
+              slotIdx: idx,
+              progress: 0,
+              speed: 5.0,
+              isMagic: strat.isDefIgnore,
+              isStrategy: true
+            });
+
+            for (let h = 0; h < (strat.hits || 1); h++) {
+              spawnDamagePopup(strat.hitDamage, strat.isDefIgnore, true);
+            }
+          }
+        } else {
+          s.stratTimer = (s.stratTimer || 0) + dt * speed;
+          while (s.stratTimer >= strat.cooldown) {
+            s.stratTimer -= strat.cooldown;
+            s.stratCount++;
+            if (!strat.isAttackMode) {
+              // 即時直接ダメージ計略の周期発動
+              const sDmg = strat.totalDamagePerCast;
+              s.stratDmg = (s.stratDmg || 0) + sDmg;
+              s.totalDmg += sDmg;
+              firingRangeState.totalDamage += sDmg;
+
+              firingRangeState.projectiles.push({
+                slotIdx: idx,
+                progress: 0,
+                speed: 5.0,
+                isMagic: strat.isDefIgnore,
+                isStrategy: true
+              });
+
+              for (let h = 0; h < (strat.hits || 1); h++) {
+                spawnDamagePopup(strat.hitDamage, strat.isDefIgnore, true);
+              }
+            }
+          }
+        }
+      }
+
+      // 1. 通常攻撃 / 攻撃転化型サイクル
       if (!s.stat.isBuffWeapon) {
         s.timer += dt * speed;
         const cycleTime = s.stat.cycleTime || 1.0;
@@ -13977,57 +14357,44 @@ function showQuizResult() {
             isMagic: s.stat.effectiveIgnore
           });
 
-          spawnDamagePopup(dmg, s.stat.effectiveIgnore, false);
+          for (let h = 0; h < s.stat.hits; h++) {
+            spawnDamagePopup(s.stat.finalHitDamage, s.stat.effectiveIgnore, false);
+          }
         }
-      } else {
-        // buff種（歌舞・陣貝・茶器）は通常攻撃を行わない（ダメージ加算・弾道・ポップアップなし）
+      } else if (isAttackMode && isStratOn) {
+        // buff種（歌舞・陣貝・茶器）の攻撃転化型 (Prompt 45)
+        // 計略発動ウィンドウ [0, duration) のみ通常攻撃サイクルで攻撃
+        const inWindow = (s.stratTimer < (strat.duration || 0));
         s.timer += dt * speed;
         const cycleTime = s.stat.cycleTime || 1.0;
         while (s.timer >= cycleTime) {
           s.timer -= cycleTime;
-        }
-      }
-
-      // 2. 計略ダメージ発動サイクル (Prompt 41)
-      if (s.stat.strategyDamage && (s.slot?.strategyOn !== false)) {
-        if (s.stratCount === 0) {
-          // 試射開始直後に1回発動
-          s.stratCount = 1;
-          s.stratTimer = 0;
-          const sDmg = s.stat.strategyDamage.totalDamagePerCast;
-          s.stratDmg = (s.stratDmg || 0) + sDmg;
-          s.totalDmg += sDmg;
-          firingRangeState.totalDamage += sDmg;
-
-          firingRangeState.projectiles.push({
-            slotIdx: idx,
-            progress: 0,
-            speed: 5.0,
-            isMagic: true,
-            isStrategy: true
-          });
-
-          spawnDamagePopup(sDmg, true, true);
-        } else {
-          s.stratTimer = (s.stratTimer || 0) + dt * speed;
-          while (s.stratTimer >= s.stat.strategyDamage.cooldown) {
-            s.stratTimer -= s.stat.strategyDamage.cooldown;
-            s.stratCount++;
-            const sDmg = s.stat.strategyDamage.totalDamagePerCast;
-            s.stratDmg = (s.stratDmg || 0) + sDmg;
-            s.totalDmg += sDmg;
-            firingRangeState.totalDamage += sDmg;
+          if (inWindow) {
+            s.hits += s.stat.hits;
+            const cycleDmg = strat.totalDamagePerCast;
+            s.stratDmg = (s.stratDmg || 0) + cycleDmg;
+            s.totalDmg += cycleDmg;
+            firingRangeState.totalDamage += cycleDmg;
 
             firingRangeState.projectiles.push({
               slotIdx: idx,
               progress: 0,
-              speed: 5.0,
-              isMagic: true,
+              speed: 4.0,
+              isMagic: strat.isDefIgnore,
               isStrategy: true
             });
 
-            spawnDamagePopup(sDmg, true, true);
+            for (let h = 0; h < s.stat.hits; h++) {
+              spawnDamagePopup(strat.hitDamage, strat.isDefIgnore, true);
+            }
           }
+        }
+      } else {
+        // 通常のbuff種（支援専用・攻撃なし）
+        s.timer += dt * speed;
+        const cycleTime = s.stat.cycleTime || 1.0;
+        while (s.timer >= cycleTime) {
+          s.timer -= cycleTime;
         }
       }
     });
@@ -14255,12 +14622,15 @@ function showQuizResult() {
     const currentDpsDisp = document.getElementById("firingCurrentDpsDisplay");
     if (currentDpsDisp) currentDpsDisp.textContent = `${dps.toLocaleString()} /秒`;
 
-    if (!firingRangeState.isInfiniteHp) {
+    const hpBar = document.getElementById("firingDummyHpBarFill");
+    const hpText = document.getElementById("firingDummyHpText");
+    if (firingRangeState.isInfiniteHp) {
+      if (hpBar) hpBar.style.width = "100%";
+      if (hpText) hpText.textContent = `∞（累積ダメージ: ${firingRangeState.totalDamage.toLocaleString()}）`;
+    } else {
       const rem = Math.max(0, firingRangeState.targetHp - firingRangeState.totalDamage);
       const perc = Math.min(100, Math.max(0, (rem / firingRangeState.targetHp * 100)));
-      const hpBar = document.getElementById("firingDummyHpBarFill");
       if (hpBar) hpBar.style.width = `${perc}%`;
-      const hpText = document.getElementById("firingDummyHpText");
       if (hpText) hpText.textContent = `${rem.toLocaleString()} / ${firingRangeState.targetHp.toLocaleString()} (${perc.toFixed(1)}%)`;
     }
 
@@ -14354,6 +14724,8 @@ function showQuizResult() {
         giantStep: (s && typeof s.giantStep === "number") ? s.giantStep : 5,
         finalAtk: st.finalAtk,
         finalHitDamage: st.finalHitDamage,
+        stratHitDamage: st.strategyDamage ? st.strategyDamage.hitDamage : 0,
+        isBuffWeapon: st.isBuffWeapon,
         cycleFrames: st.cycleFrames,
         attacksPerSec: st.attacksPerSec,
         normalDps: st.normalDps,
@@ -14489,16 +14861,17 @@ function showQuizResult() {
         <thead>
           <tr style="background:var(--nav-bg); border-bottom:1px solid var(--border-color); text-align:left;">
             <th>城娘</th>
-            <th style="text-align:right;">Snapshot A DPS</th>
-            <th style="text-align:right;">Snapshot B DPS</th>
+            <th style="text-align:right;">Snapshot A (1撃 / DPS)</th>
+            <th style="text-align:right;">Snapshot B (1撃 / DPS)</th>
             <th style="text-align:right;">差分 (Δ)</th>
           </tr>
         </thead>
         <tbody>
           ${snapA.castleStats.map(ca => {
-            const cb = snapB.castleStats.find(x => x.id === ca.id) || { dps: 0 };
+            const cb = snapB.castleStats.find(x => x.id === ca.id) || { dps: 0, finalHitDamage: 0, stratHitDamage: 0, isBuffWeapon: ca.isBuffWeapon };
             const cDiff = cb.dps - ca.dps;
             const cDiffPerc = ca.dps > 0 ? (cDiff / ca.dps * 100).toFixed(1) : "0.0";
+            const hitDiff = (cb.finalHitDamage || 0) - (ca.finalHitDamage || 0);
             return `
               <tr style="border-bottom:1px solid var(--border-color);">
                 <td>
@@ -14508,10 +14881,19 @@ function showQuizResult() {
                     ${ca.giantStep !== undefined ? (ca.giantStep === 0 ? '[未巨大化]' : (ca.giantStep === 5 ? '[最大]' : `[${ca.giantStep}段(推)]`)) : ''}
                   </span>
                 </td>
-                <td style="text-align:right;">${ca.dps.toLocaleString()}</td>
-                <td style="text-align:right;">${cb.dps.toLocaleString()}</td>
+                <td style="text-align:right;">
+                  <div>通常1撃: <strong>${ca.finalHitDamage ? ca.finalHitDamage.toLocaleString() : (ca.isBuffWeapon ? '攻撃なし' : '0')}</strong>${ca.stratHitDamage ? ` / 計略: <strong>${ca.stratHitDamage.toLocaleString()}</strong>` : ''}</div>
+                  <div style="color:var(--text-sub); font-size:12px;">DPS: ${ca.dps.toLocaleString()} /秒</div>
+                </td>
+                <td style="text-align:right;">
+                  <div>通常1撃: <strong>${cb.finalHitDamage ? cb.finalHitDamage.toLocaleString() : (cb.isBuffWeapon ? '攻撃なし' : '0')}</strong>${cb.stratHitDamage ? ` / 計略: <strong>${cb.stratHitDamage.toLocaleString()}</strong>` : ''}</div>
+                  <div style="color:var(--text-sub); font-size:12px;">DPS: ${cb.dps.toLocaleString()} /秒</div>
+                </td>
                 <td style="text-align:right; font-weight:bold; color:${cDiff >= 0 ? '#27ae60' : '#e74c3c'};">
-                  ${cDiff >= 0 ? '+' : ''}${cDiff.toLocaleString()} (${cDiff >= 0 ? '+' : ''}${cDiffPerc}%)
+                  <div>DPS: ${cDiff >= 0 ? '+' : ''}${cDiff.toLocaleString()} /秒 (${cDiff >= 0 ? '+' : ''}${cDiffPerc}%)</div>
+                  <div style="font-size:12px; font-weight:normal; color:${hitDiff >= 0 ? '#27ae60' : '#e74c3c'};">
+                    1撃Δ: ${hitDiff >= 0 ? '+' : ''}${hitDiff.toLocaleString()}
+                  </div>
                 </td>
               </tr>
             `;
@@ -14542,9 +14924,10 @@ function showQuizResult() {
             firingRangeState.dummyName = b.name;
             firingRangeState.targetDef = b.def;
             firingRangeState.targetHp = b.hp;
-            firingRangeState.isInfiniteHp = false;
+            // Prompt 45: プリセット（ボスカタログ等）を選んだときも、HPは無限を維持する
             firingRangeState.targetRed = 0;
             syncFiringSettingsUI();
+            updateFiringUiCounters();
             renderFiringRangeTab();
           }
         } else {
@@ -14553,9 +14936,10 @@ function showQuizResult() {
             firingRangeState.dummyName = p.name.split(" ")[0];
             firingRangeState.targetDef = p.def;
             firingRangeState.targetHp = p.hp;
-            firingRangeState.isInfiniteHp = p.isInfinite;
+            // Prompt 45: プリセット選択時もHP無限を維持
             firingRangeState.targetRed = p.red;
             syncFiringSettingsUI();
+            updateFiringUiCounters();
             renderFiringRangeTab();
           }
         }
@@ -14607,7 +14991,8 @@ function showQuizResult() {
         btnFinite.classList.remove("active");
         if (hpRow) hpRow.style.display = "none";
         if (durBox) durBox.style.display = "block";
-        if (dummyHpBox) dummyHpBox.style.display = "none";
+        if (dummyHpBox) dummyHpBox.style.display = "block";
+        updateFiringUiCounters();
         renderFiringRangeTab();
       });
       btnFinite.addEventListener("click", () => {
@@ -14617,6 +15002,7 @@ function showQuizResult() {
         if (hpRow) hpRow.style.display = "flex";
         if (durBox) durBox.style.display = "none";
         if (dummyHpBox) dummyHpBox.style.display = "block";
+        updateFiringUiCounters();
         renderFiringRangeTab();
       });
     }
@@ -14625,7 +15011,19 @@ function showQuizResult() {
     if (hpInput) {
       hpInput.addEventListener("change", () => {
         firingRangeState.targetHp = Math.max(1000, parseInt(hpInput.value, 10) || 200000);
+        firingRangeState.isInfiniteHp = false; // 明示入力時のみ有限HP有効
+        syncFiringSettingsUI();
+        updateFiringUiCounters();
         renderFiringRangeTab();
+      });
+      hpInput.addEventListener("input", () => {
+        const val = parseInt(hpInput.value, 10);
+        if (!isNaN(val) && val > 0) {
+          firingRangeState.targetHp = val;
+          firingRangeState.isInfiniteHp = false; // 明示入力時のみ有限HP有効
+          syncFiringSettingsUI();
+          updateFiringUiCounters();
+        }
       });
     }
 
@@ -14697,12 +15095,13 @@ function showQuizResult() {
       btnResetDummy.addEventListener("click", () => {
         firingRangeState.targetDef = 500;
         firingRangeState.targetHp = 200000;
-        firingRangeState.isInfiniteHp = false;
+        firingRangeState.isInfiniteHp = true; // Prompt 45: リセット操作でも無限に戻ること
         firingRangeState.targetRed = 0;
         firingRangeState.targetCount = 1;
         firingRangeState.dummyName = "標準的な兜";
         firingRangeState.disabledBuffs.clear();
         syncFiringSettingsUI();
+        updateFiringUiCounters();
         renderFiringRangeTab();
       });
     }
@@ -14804,7 +15203,7 @@ function showQuizResult() {
       if (btnFinite) btnFinite.classList.remove("active");
       if (hpRow) hpRow.style.display = "none";
       if (durBox) durBox.style.display = "block";
-      if (dummyHpBox) dummyHpBox.style.display = "none";
+      if (dummyHpBox) dummyHpBox.style.display = "block";
     } else {
       if (btnInfinite) btnInfinite.classList.remove("active");
       if (btnFinite) btnFinite.classList.add("active");
@@ -14812,6 +15211,7 @@ function showQuizResult() {
       if (durBox) durBox.style.display = "none";
       if (dummyHpBox) dummyHpBox.style.display = "block";
     }
+    updateFiringUiCounters();
   }
 
   // Initialize Prompt 34 listeners
