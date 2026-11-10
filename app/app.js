@@ -5826,16 +5826,12 @@
       const activeStrats = (c.allStrategies && c.allStrategies.length > 0)
         ? c.allStrategies.filter(s => s.stage === activeStage)
         : (st ? [st] : []);
-      // 鎌武器種は大破特技（全段階で特技テーブル内に存在）が特技と並行して実働するため、activeStageの全スキルを連結
-      const activeSkills = (c.weapon === "鎌" && c.allSkills && c.allSkills.length > 0)
-        ? c.allSkills.filter(s => s.stage === activeStage)
-        : (sk ? [sk] : []);
-      const sk_text = activeSkills.map(s => (s.name || "") + " " + (s.text || "")).join(" ");
+      const sk_text = sk ? ((sk.name || "") + " " + (sk.text || "")) : "";
       const st_text = activeStrats.map(s => (s.name || "") + " " + (s.text || "")).join(" ");
       const sp_text = sp ? ((sp.name || "") + " " + (sp.text || "")) : "";
       const all_text = [sk_text, st_text, sp_text].filter(Boolean).join(" ");
 
-      activeSkills.forEach(s => addEffects(s.effects, (s.name || "") + " " + (s.text || "")));
+      if (sk) addEffects(sk.effects, sk_text);
       activeStrats.forEach(s => addEffects(s.effects, (s.name || "") + " " + (s.text || "")));
       if (sp) addEffects(sp.effects, sp_text);
 
@@ -5951,9 +5947,6 @@
       const multMatch = all_text.match(/攻撃(?:の|が)?([\d\.]+)倍/);
       if (multMatch) {
         atkMultScore += parseFloat(multMatch[1]) * 8.0;
-        if (c.weapon === "陣貝") {
-          atkMultScore += parseFloat(multMatch[1]) * 6.0; // 陣貝の自己攻撃倍率は鼓舞加算値を直結倍化する最重要要素
-        }
       }
       if (/防御を?無視/.test(all_text)) atkMultScore += 25.0;
       if (/連続で?攻撃/.test(all_text)) atkMultScore += 15.0;
@@ -6100,17 +6093,12 @@
         cd = cd != null ? cd : 50;
         cost = cost != null ? cost : 7;
         stratRaw += Math.max(0, 1.0 - (cd / 80.0)) * 5.0 + Math.max(0, 1.0 - (cost / 15.0)) * 3.0;
-        if (/効果時間無限|永続/.test(all_text)) stratRaw += 3.0; // 永続・効果時間無限計略の常時稼働加点
-        if (/複数の計略を切り替え/.test(all_text) || (c.allStrategies && c.allStrategies.length >= 3)) stratRaw += 2.0; // 複数計略切替の高い戦術汎用性
         if (hasSpecial) stratRaw += 3.0;
         if (hasToken) stratRaw += 3.0;
-      }
-      if (c.weapon === "陣貝") {
-        // 陣貝は常時鼓舞オーラを持つため、計略所持時でも陣貝ベースライン効力（8.0*kobuRatio）を下回らない
+      } else if (c.weapon === "陣貝") {
         const kobuRatio = Math.min(1.0, Math.max(0.5, (kobuPct || 50) / 60.0));
-        stratRaw = Math.max(stratRaw, 8.0 * kobuRatio);
-      }
-      if (!activeAbility && !hasSpecial && c.weapon !== "陣貝") {
+        stratRaw = 8.0 * kobuRatio;
+      } else {
         stratRaw = 0.0;
       }
       const normStrat = Math.min(1.0, stratRaw / 8.0);
