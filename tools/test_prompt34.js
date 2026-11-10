@@ -79,8 +79,8 @@ function assert(title, condition, detail = '') {
     };
   });
 
-  assert('P34-01: calculateBuffEquivalence calculates damage formula accurately at multiple defense tiers',
-    f1Check.hasFunction && f1Check.res500.totalMultiplier >= 1.0 && f1Check.res0.baseDmg === 1200,
+  assert('P34-01: calculateBuffEquivalence calculates damage formula accurately at multiple defense tiers (totalMultiplier >= 1.10)',
+    f1Check.hasFunction && f1Check.res500.totalMultiplier >= 1.10 && f1Check.res0.baseDmg === 1200,
     `def0 baseDmg: ${f1Check.res0.baseDmg}, def500 mult: ×${f1Check.res500.totalMultiplier.toFixed(2)}`);
 
   assert('P34-02: Buff Equivalence UI renders headline and factor breakdown accordion',
@@ -206,30 +206,36 @@ function assert(title, condition, detail = '') {
   console.log('\n[FEATURE 5] シナジー・レコメンド（弱点補強）...');
 
   const f5Check = await page.evaluate(() => {
-    // Test on melee castle with short range / heavy cost / long CD
-    const sampleCastle = window.SCRE_DATA.find(c => c.name === '［夏］ガンジル宮殿' || c.weapon === '槌' || c.weapon === '刀') || window.SCRE_DATA[0];
-    const weaknessRes = window.detectCastleWeaknesses(sampleCastle);
-    const synergyRes = window.calculateCastleWeaknessSynergy(sampleCastle);
+    // Melee castle with short range / heavy cost / long CD (e.g. 名古屋城)
+    const meleeCastle = window.SCRE_DATA.find(c => c.name === '名古屋城') || window.SCRE_DATA[0];
+    const weaknessMelee = window.detectCastleWeaknesses(meleeCastle);
+    const synergyMelee = window.calculateCastleWeaknessSynergy(meleeCastle);
+
+    // Long-range castle (e.g. 安平城 鉄砲) should NOT have 短射程
+    const rangedCastle = window.SCRE_DATA.find(c => c.name === '安平城' || (c.weapon === '鉄砲' && c.stats?.giant5?.range > 400));
+    const weaknessRanged = rangedCastle ? window.detectCastleWeaknesses(rangedCastle) : [];
 
     const weaknessEl = document.getElementById('detailWeaknessList');
     const synergyEl = document.getElementById('detailSynergyList');
 
     return {
-      sampleCastle: sampleCastle.name,
-      weapon: sampleCastle.weapon,
-      weaknesses: weaknessRes.map(w => w.label),
-      partnerCount: synergyRes.partners.length,
-      partnerSample: synergyRes.partners[0] ? {
-        name: synergyRes.partners[0].castle.name,
-        reasons: synergyRes.partners[0].reasons
+      meleeCastle: meleeCastle.name,
+      weapon: meleeCastle.weapon,
+      weaknesses: weaknessMelee.map(w => w.label),
+      rangedCastle: rangedCastle ? rangedCastle.name : '',
+      rangedHasShortRange: weaknessRanged.some(w => w.label === '短射程'),
+      partnerCount: synergyMelee.partners.length,
+      partnerSample: synergyMelee.partners[0] ? {
+        name: synergyMelee.partners[0].castle.name,
+        reasons: synergyMelee.partners[0].reasons
       } : null,
       domExists: !!(weaknessEl && synergyEl)
     };
   });
 
-  assert('P34-09: detectCastleWeaknesses identifies data-driven weaknesses (range, cooldown, cost, etc.)',
-    f5Check.weaknesses.length > 0,
-    `castle: ${f5Check.sampleCastle} (${f5Check.weapon}) weaknesses: ${f5Check.weaknesses.join(', ')}`);
+  assert('P34-09: detectCastleWeaknesses identifies data-driven weaknesses and distinguishes long-range castles (no 短射程 on 鉄砲)',
+    f5Check.weaknesses.includes('短射程') && !f5Check.rangedHasShortRange,
+    `melee [${f5Check.meleeCastle}] weaknesses: [${f5Check.weaknesses.join(', ')}], ranged [${f5Check.rangedCastle}] has 短射程: ${f5Check.rangedHasShortRange}`);
 
   assert('P34-10: calculateCastleWeaknessSynergy recommends top helper castles with actionable compensation reasons',
     f5Check.partnerCount > 0 && f5Check.partnerCount <= 5,
@@ -248,16 +254,19 @@ function assert(title, condition, detail = '') {
 
     window.renderDelibPlanner();
 
+    const candidateCards = roadmapEl ? roadmapEl.children.length : 0;
+
     return {
       domExists: !!(plannerEl && bannerEl && roadmapEl && noteEl),
       bannerText: bannerEl ? bannerEl.textContent.trim() : '',
-      noteText: noteEl ? noteEl.textContent.trim() : ''
+      noteText: noteEl ? noteEl.textContent.trim() : '',
+      stageCandidateCount: candidateCards
     };
   });
 
-  assert('P34-11: Deliberation planner displays current vs target deliberations and roadmap',
-    f6Check.domExists && f6Check.bannerText.includes('目標'),
-    `banner: "${f6Check.bannerText.slice(0, 50)}..."`);
+  assert('P34-11: Deliberation planner displays Hell stage progress and roadmap candidates (>= 1 stage)',
+    f6Check.domExists && f6Check.bannerText.includes('地獄') && f6Check.stageCandidateCount >= 1,
+    `candidates: ${f6Check.stageCandidateCount}, banner: "${f6Check.bannerText.slice(0, 50)}..."`);
 
   assert('P34-12: Deliberation planner includes verified omission notice for daily soul income formula',
     f6Check.noteText.includes('霊魂の日次自動支給計算について') && f6Check.noteText.includes('見送りといたします'),
@@ -269,21 +278,34 @@ function assert(title, condition, detail = '') {
   console.log('\n[FEATURE 7] フレーム精密DPS＋敵防御スライダー...');
 
   const f7Check = await page.evaluate(() => {
-    const sampleCastle = window.SCRE_DATA.find(c => c.name === '四代目江戸城' || c.rarity === 7) || window.SCRE_DATA[0];
+    // Pick a castle with self-buff dmgDealt (与ダメ上昇) per Prompt 37 specification
+    const sampleCastle = window.SCRE_DATA.find(c => {
+      const allEff = [...(c.skill?.effects || []), ...(c.strategy?.effects || [])];
+      return allEff.some(e => e.stat === 'dmgDealt');
+    }) || window.SCRE_DATA[0];
+
     const frames = window.SCRE_WEAPON_FRAMES;
     const dps500 = window.computeFramePreciseDps(sampleCastle, 500);
     const dps1500 = window.computeFramePreciseDps(sampleCastle, 1500);
+
+    // Compute unbuffed baseline for comparison (without self atk% and dmgDealt%)
+    const unbuffedHit = Math.max(1, dps500.baseAtk - dps500.effDef);
+    const unbuffedCycle = dps500.baseAtkFrames + dps500.baseGapFrames;
+    const unbuffedDps = Math.round(unbuffedHit * dps500.hits * (30 / unbuffedCycle));
+    const buffedDpsHigherThanUnbuffed = dps500.effDps > unbuffedDps;
 
     const boxEl = document.getElementById('detailDpsPrecisionBox');
     const sliderEl = document.getElementById('dpsEnemyDefSlider');
     const metricsEl = document.getElementById('detailDpsPrecisionMetrics');
 
     return {
-      hasFrames: Object.keys(frames || {}).length >= 18,
+      hasFrames: Object.keys(frames || {}).length >= 20,
       sampleCastle: sampleCastle.name,
       weapon: sampleCastle.weapon,
       dps500,
       dps1500,
+      unbuffedDps,
+      buffedDpsHigherThanUnbuffed,
       domExists: !!(boxEl && sliderEl && metricsEl)
     };
   });
@@ -292,9 +314,9 @@ function assert(title, condition, detail = '') {
     f7Check.hasFrames,
     `weapon frame table covers all standard weapon categories`);
 
-  assert('P34-14: computeFramePreciseDps calculates effective attack/gap frames and DPS reducing against defense',
-    f7Check.dps500.effDps > 0 && f7Check.dps500.cycleFrames > 0 && f7Check.dps500.effDps >= f7Check.dps1500.effDps,
-    `[${f7Check.sampleCastle}] cycle: ${f7Check.dps500.cycleFrames}f (${f7Check.dps500.attacksPerSec.toFixed(2)}/s), DPS@500: ${f7Check.dps500.effDps.toLocaleString()} vs DPS@1500: ${f7Check.dps1500.effDps.toLocaleString()}`);
+  assert('P34-14: computeFramePreciseDps incorporates self-buffs yielding higher DPS than unbuffed baseline',
+    f7Check.buffedDpsHigherThanUnbuffed && f7Check.dps500.effDps >= f7Check.dps1500.effDps,
+    `[${f7Check.sampleCastle}] unbuffed: ${f7Check.unbuffedDps.toLocaleString()} /秒 ➔ buffed DPS@500: ${f7Check.dps500.effDps.toLocaleString()} /秒 (vs DPS@1500: ${f7Check.dps1500.effDps.toLocaleString()} /秒)`);
 
   assert('P34-15: DPS precision section in Castle Detail modal contains interactive defense slider',
     f7Check.domExists,

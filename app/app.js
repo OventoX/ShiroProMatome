@@ -11754,16 +11754,40 @@ function showQuizResult() {
     const targetDef = (typeof enemyDef === "number" && !isNaN(enemyDef)) ? enemyDef : (currentBuffEquivDef || 500);
     const targetBaseAtk = (typeof baseAtk === "number" && !isNaN(baseAtk)) ? baseAtk : (BUFF_EQUIV_BASE_ATK || 1200);
     const baseDmg = Math.max(1, targetBaseAtk - targetDef);
-    const hBuffs = (calcResult && calcResult.highestBuffs) || {};
-    const hDebuffs = (calcResult && calcResult.highestDebuffs) || {};
 
-    const atkRatio = hBuffs.atk || 0;
-    const atkFlat = hBuffs.atkFlat || 0;
-    const defDownRatio = hDebuffs.def || 0;
-    const defDownFlat = hDebuffs.defFlat || 0;
-    const dmgDealtRatio = hBuffs.damageDealt || 0;
-    const targetMultiplier = (hBuffs.targetMultiplier && hBuffs.targetMultiplier > 0) ? hBuffs.targetMultiplier : 1.0;
-    const enemyDmgTakenRatio = hDebuffs.damageTaken || 0;
+    let maxAtkPercent = 0;
+    let sumAtkFlat = 0;
+    let maxDmgDealt = 0;
+    let maxDmgTargetMult = 1.0;
+
+    if (calcResult && calcResult.perCastle) {
+      for (const cid in calcResult.perCastle) {
+        const b = calcResult.perCastle[cid].buffs;
+        if (!b) continue;
+        const atkP = (b.atkPercent?.max || 0) + (b.atkPercent?.stackSum || 0);
+        if (atkP > maxAtkPercent) maxAtkPercent = atkP;
+        const atkF = b.atkFlat?.sum || 0;
+        if (atkF > sumAtkFlat) sumAtkFlat = atkF;
+        const dmgD = (b.dmgDealt?.max || 0) + (b.dmgDealt?.stackSum || 0);
+        if (dmgD > maxDmgDealt) maxDmgDealt = dmgD;
+
+        let multProd = b.dmgDealtTarget?.multProduct;
+        if (typeof multProd !== "number" || multProd <= 0) {
+          const activeTargetSources = b.dmgDealtTarget?.sources ? b.dmgDealtTarget.sources.filter(s => s.applied !== false) : [];
+          multProd = activeTargetSources.reduce((acc, s) => acc * (1 + s.val / 100), 1.0);
+        }
+        if (multProd > maxDmgTargetMult) maxDmgTargetMult = multProd;
+      }
+    }
+
+    const defDownRatio = (calcResult?.enemyDebuffs?.enemyDefDown?.max) || 0;
+    const enemyDmgTakenRatio = (calcResult?.enemyDebuffs?.enemyDmgTakenUp?.max) || 0;
+
+    const atkRatio = maxAtkPercent;
+    const atkFlat = sumAtkFlat;
+    const defDownFlat = 0;
+    const dmgDealtRatio = maxDmgDealt;
+    const targetMultiplier = maxDmgTargetMult;
 
     const buffedAtk = Math.round(targetBaseAtk * (1 + atkRatio / 100) + atkFlat);
     const effectiveDef = Math.max(0, Math.round(targetDef * (1 - defDownRatio / 100) - defDownFlat));
@@ -11794,6 +11818,9 @@ function showQuizResult() {
       factors: {
         atk: { ratio: atkRatio, flat: atkFlat, mult: multAtk },
         def: { ratio: defDownRatio, flat: defDownFlat, mult: multDef },
+        dmgDealt: { ratio: dmgDealtRatio, mult: multDealt },
+        dmgDealtTarget: { value: targetMultiplier, mult: multTarget },
+        enemyDmgTakenUp: { ratio: enemyDmgTakenRatio, mult: multTaken },
         damageDealt: { ratio: dmgDealtRatio, mult: multDealt },
         targetMultiplier: { value: targetMultiplier, mult: multTarget },
         damageTaken: { ratio: enemyDmgTakenRatio, mult: multTaken }
@@ -11837,20 +11864,20 @@ function showQuizResult() {
           </tr>
           <tr style="border-bottom:1px solid #e2e8f0;">
             <td style="padding:6px 8px; font-weight:bold; color:#2c3e50;">💥 与ダメージ上昇</td>
-            <td style="padding:6px 8px;">${res.factors.damageDealt.ratio ? '+' + res.factors.damageDealt.ratio + '%' : '0%'}</td>
-            <td style="padding:6px 8px; font-weight:bold; color:#1b4965;">×${res.factors.damageDealt.mult.toFixed(2)}</td>
+            <td style="padding:6px 8px;">${res.factors.dmgDealt.ratio ? '+' + res.factors.dmgDealt.ratio + '%' : '0%'}</td>
+            <td style="padding:6px 8px; font-weight:bold; color:#1b4965;">×${res.factors.dmgDealt.mult.toFixed(2)}</td>
             <td style="padding:6px 8px; color:#555;">減算後のダメージ全体を独立枠で直接乗算</td>
           </tr>
           <tr style="border-bottom:1px solid #e2e8f0;">
             <td style="padding:6px 8px; font-weight:bold; color:#2c3e50;">⚡ 与ダメ倍率（特殊）</td>
-            <td style="padding:6px 8px;">×${res.factors.targetMultiplier.value.toFixed(2)}</td>
-            <td style="padding:6px 8px; font-weight:bold; color:#1b4965;">×${res.factors.targetMultiplier.mult.toFixed(2)}</td>
+            <td style="padding:6px 8px;">×${res.factors.dmgDealtTarget.value.toFixed(2)}</td>
+            <td style="padding:6px 8px; font-weight:bold; color:#1b4965;">×${res.factors.dmgDealtTarget.mult.toFixed(2)}</td>
             <td style="padding:6px 8px; color:#555;">「攻撃が○倍」などの特殊乗算枠</td>
           </tr>
           <tr style="border-bottom:1px solid #cbd5e1;">
             <td style="padding:6px 8px; font-weight:bold; color:#2c3e50;">🎯 敵被ダメージ上昇</td>
-            <td style="padding:6px 8px;">${res.factors.damageTaken.ratio ? '+' + res.factors.damageTaken.ratio + '%' : '0%'}</td>
-            <td style="padding:6px 8px; font-weight:bold; color:#1b4965;">×${res.factors.damageTaken.mult.toFixed(2)}</td>
+            <td style="padding:6px 8px;">${res.factors.enemyDmgTakenUp.ratio ? '+' + res.factors.enemyDmgTakenUp.ratio + '%' : '0%'}</td>
+            <td style="padding:6px 8px; font-weight:bold; color:#1b4965;">×${res.factors.enemyDmgTakenUp.mult.toFixed(2)}</td>
             <td style="padding:6px 8px; color:#555;">敵デバフ枠として与ダメ上昇とさらに別枠で乗算</td>
           </tr>
           <tr style="background:#f8fafc; font-weight:bold;">
@@ -11905,14 +11932,15 @@ function showQuizResult() {
       matcher: (c, fullText) => {
         const m = fullText.match(/移動速度.*(?:低下|半減|%低下|減)|後退|ノックバック|敵の移動速度/);
         if (m) return "［鈍足/後退］" + m[0];
-        if (getCastleCombinedEffects(c).some(e => e.stat === "enemyMoveSpeedDown")) return "［敵移動低下］鈍足デバフで進軍を遅延";
+        if (getCastleCombinedEffects(c).some(e => e.stat === "enemySlow")) return "［敵移動低下］鈍足デバフで進軍を遅延・速攻";
         return null;
       }
     },
     "術反射": {
       name: "術反射",
       matcher: (c, fullText) => {
-        if (["刀", "槍", "槌", "拳", "弓", "石弓", "鉄砲", "大砲", "投剣", "鞭", "鎌"].includes(c.weapon)) {
+        // 物理直接攻撃武器: 歌舞・陣貝・茶器（支援回復）、本（特殊計略）、法術・杖・祓串・鈴（術属性）を除外した物理攻撃武器種
+        if (["刀", "槍", "槌", "拳", "弓", "石弓", "鉄砲", "大砲", "投剣", "鞭", "鎌", "軍配者", "盾", "双剣", "ランス", "軍船", "その他"].includes(c.weapon)) {
           return "［物理アタッカー］術反射に影響されない物理直接火力";
         }
         const m = fullText.match(/物理ダメージ|術ダメージを物理|術無効/);
@@ -11924,7 +11952,7 @@ function showQuizResult() {
       name: "物理軽減",
       matcher: (c, fullText) => {
         if (["法術", "杖", "祓串", "鈴"].includes(c.weapon)) return "［術攻撃］物理軽減・高防御を無視する術ダメージ";
-        const m = fullText.match(/防御.*(?:無視|0|減算なし)|術ダメージ/);
+        const m = fullText.match(/(?:敵の)?防御(?:力)?を?(?:無視|0として計算|減算な)|術ダメージ/);
         if (m) return "［防御無視/術］" + m[0];
         if (getCastleCombinedEffects(c).some(e => e.stat === "enemyDefDown" && e.value >= 30)) return "［敵防御大幅低下］物理軽減敵の有効防御を削減";
         return null;
@@ -11933,7 +11961,7 @@ function showQuizResult() {
     "状態異常無効": {
       name: "状態異常無効",
       matcher: (c, fullText) => {
-        if (getCastleCombinedEffects(c).some(e => (e.stat === "damageDealt" || e.stat === "targetMultiplier" || e.stat === "damageTaken") && e.value >= 20)) {
+        if (getCastleCombinedEffects(c).some(e => (e.stat === "dmgDealt" || e.stat === "dmgDealtTarget" || e.stat === "enemyDmgTakenUp") && e.value >= 20)) {
           return "［直接火力増幅］状態異常に頼らず純粋な与ダメ・被ダメ増幅で突破";
         }
         return null;
@@ -11944,7 +11972,7 @@ function showQuizResult() {
       matcher: (c, fullText) => {
         const m = fullText.match(/不死|不屈|大破.*(?:防ぐ|しない)|攻撃対象にならない|隠密|バリア|被ダメージ.*(?:軽減|半減)/);
         if (m) return "［不死/隠密/軽減］" + m[0];
-        if (getCastleCombinedEffects(c).some(e => e.stat === "barrier" || e.stat === "damageTakenDown")) return "［バリア/被ダメ軽減］大ダメージ・割合削りを防護";
+        if (getCastleCombinedEffects(c).some(e => e.stat === "dmgTakenDown")) return "［被ダメ軽減］大ダメージ・割合削りを防護";
         return null;
       }
     },
@@ -11952,7 +11980,7 @@ function showQuizResult() {
       name: "高防御",
       matcher: (c, fullText) => {
         if (["法術", "杖", "祓串", "鈴"].includes(c.weapon)) return "［防御無視］敵防御に関わらずダメージを通す";
-        const m = fullText.match(/防御.*(?:無視|0|減算なし)|術ダメージ/);
+        const m = fullText.match(/(?:敵の)?防御(?:力)?を?(?:無視|0として計算|減算な)|術ダメージ/);
         if (m) return "［防御無視］" + m[0];
         if (getCastleCombinedEffects(c).some(e => e.stat === "enemyDefDown" && e.value >= 40)) return "［敵防御40%以上低下］高防御を解体";
         return null;
@@ -12123,21 +12151,21 @@ function showQuizResult() {
 
   // --- 機能3: 効果タグ逆引き辞典 ---
   const SCRE_EFFECT_TAG_RULES = [
-    { tag: "気増加", label: "気増加", pattern: /気の自然増加|撃破時に.*気|気を.*増|気.*軽減|気.*消費/, effectStat: ["kiGain", "kiCost"], desc: "気の自然増加・撃破時気獲得・気軽減など気全般" },
-    { tag: "計略短縮", label: "計略短縮", pattern: /計略.*(?:短縮|再使用)/, effectStat: ["stratCooldown"], desc: "計略の再使用時間（CT）短縮" },
+    { tag: "気増加", label: "気増加", pattern: /気の自然増加|撃破時に.*気|気を.*増|気.*軽減|気.*消費/, effectStat: [], desc: "気の自然増加・撃破時気獲得・気軽減など気全般" },
+    { tag: "計略短縮", label: "計略短縮", pattern: /計略.*(?:短縮|再使用)/, effectStat: [], desc: "計略の再使用時間（CT）短縮" },
     { tag: "攻撃速度上昇", label: "攻撃速度上昇", pattern: /攻撃速度.*(?:上昇|%|倍)/, effectStat: ["atkSpeed"], desc: "攻撃モーション速度の上昇" },
     { tag: "隙短縮", label: "隙短縮", pattern: /攻撃後の隙.*(?:短縮|%)/, effectStat: ["gapShorten"], desc: "攻撃後の待機時間（隙）短縮" },
-    { tag: "射程上昇", label: "射程上昇", pattern: /射程.*(?:上昇|伸びる|\+\d+|%)/, effectStat: ["rangeUp", "rangeFlat"], desc: "自身・味方の射程拡大" },
-    { tag: "攻撃力上昇", label: "攻撃力上昇", pattern: /攻撃が?\d+%?上昇|攻撃が?\+\d+/, effectStat: ["atk", "atkFlat"], desc: "攻撃力の割合・固定値強化" },
-    { tag: "与ダメ上昇", label: "与ダメ上昇", pattern: /与えるダメージ.*(?:上昇|%)/, effectStat: ["damageDealt"], desc: "与えるダメージの割合上昇" },
-    { tag: "被ダメ軽減", label: "被ダメ軽減", pattern: /被ダメージ.*(?:軽減|%|半減)/, effectStat: ["damageTakenDown"], desc: "受けるダメージの割合軽減" },
-    { tag: "バリア", label: "バリア", pattern: /バリア|耐久の\d+%の耐久/, effectStat: ["barrier"], desc: "耐久を肩代わりするバリア付与" },
+    { tag: "射程上昇", label: "射程上昇", pattern: /射程.*(?:上昇|伸びる|\+\d+|%)/, effectStat: ["rangePercent", "rangeFlat"], desc: "自身・味方の射程拡大" },
+    { tag: "攻撃力上昇", label: "攻撃力上昇", pattern: /攻撃が?\d+%?上昇|攻撃が?\+\d+/, effectStat: ["atkPercent", "atkFlat"], desc: "攻撃力の割合・固定値強化" },
+    { tag: "与ダメ上昇", label: "与ダメ上昇", pattern: /与えるダメージ.*(?:上昇|%)/, effectStat: ["dmgDealt"], desc: "与えるダメージの割合上昇" },
+    { tag: "被ダメ軽減", label: "被ダメ軽減", pattern: /被ダメージ.*(?:軽減|%|半減)/, effectStat: ["dmgTakenDown"], desc: "受けるダメージの割合軽減" },
+    { tag: "バリア", label: "バリア", pattern: /バリア|耐久の\d+%の耐久/, effectStat: [], desc: "耐久を肩代わりするバリア付与" },
     { tag: "ノックバック", label: "ノックバック", pattern: /敵を後退|後退させる|ノックバック/, effectStat: [], desc: "敵を押し戻すノックバック" },
     { tag: "足止め", label: "足止め", pattern: /足止め|足を止める/, effectStat: [], desc: "敵の移動を停止する足止め能力" },
-    { tag: "防御無視", label: "防御無視", pattern: /防御.*(?:無視|0|減算なし)|術ダメージ/, effectStat: [], weapon: ["法術", "杖", "祓串", "鈴"], desc: "防御力を無視する術攻撃・直撃貫通" },
+    { tag: "防御無視", label: "防御無視", pattern: /(?:敵の)?防御(?:力)?を?(?:無視|0として計算|減算な)|術ダメージ/, effectStat: [], weapon: ["法術", "杖", "祓串", "鈴"], desc: "防御力を無視する術攻撃・直撃貫通" },
     { tag: "敵攻撃低下", label: "敵攻撃低下", pattern: /敵の攻撃.*(?:低下|%|半減)/, effectStat: ["enemyAtkDown"], desc: "敵の攻撃力を割合・固定値で弱体化" },
     { tag: "敵防御低下", label: "敵防御低下", pattern: /敵の防御.*(?:低下|%|半減)/, effectStat: ["enemyDefDown"], desc: "敵の防御力を割合・固定値で弱体化" },
-    { tag: "敵移動低下", label: "敵移動低下", pattern: /移動速度.*(?:低下|%|半減)/, effectStat: ["enemyMoveSpeedDown"], desc: "敵の移動速度を低下（鈍足）" },
+    { tag: "敵移動低下", label: "敵移動低下", pattern: /移動速度.*(?:低下|%|半減)/, effectStat: ["enemySlow"], desc: "敵の移動速度を低下（鈍足）" },
     { tag: "状態異常付与", label: "状態異常付与", pattern: /(?:火傷|氷結|猛毒|混乱|暗闇|絶望|移動不能|行動不能).*(?:付与|にする|状態)/, effectStat: [], desc: "火傷/氷結/猛毒/暗闇等の状態異常を付与" },
     { tag: "状態異常回復・無効", label: "状態異常回復・無効", pattern: /状態異常.*(?:回復|防ぐ|無効)/, effectStat: [], desc: "状態異常の解除または無効化" },
     { tag: "不死・不屈", label: "不死・不屈", pattern: /不死|不屈|大破.*(?:防ぐ|しない|耐える)/, effectStat: [], desc: "耐久0になっても大破しない不死・不屈" },
@@ -12280,16 +12308,18 @@ function showQuizResult() {
       cachedComputedScores = computeCastleScores(roleTierWeights);
     }
     const autoItem = cachedComputedScores ? cachedComputedScores.find(s => s.id === c.id || s.name === c.name) : null;
-    const autoLetter = autoItem ? (autoItem.overallTier || autoItem.roleTier || "D") : "D";
-    const autoScoreNum = autoItem ? (autoItem.overallScore !== undefined ? autoItem.overallScore : autoItem.total || 0) : 0;
-    const autoScore = autoLetter === "SS" ? 5 : autoLetter === "S" ? 4 : autoLetter === "A" ? 3 : autoLetter === "B" ? 2 : autoLetter === "C" ? 1 : 0;
+    const autoLetter = autoItem ? (autoItem.overallTier || autoItem.roleTier || "未算出") : "未算出";
+    const autoScoreNum = autoItem ? (autoItem.overallScore !== undefined ? autoItem.overallScore : autoItem.total || 0) : null;
+    const autoScore = autoItem ? (autoLetter === "SS" ? 5 : autoLetter === "S" ? 4 : autoLetter === "A" ? 3 : autoLetter === "B" ? 2 : autoLetter === "C" ? 1 : 0) : null;
 
     let ohigeLetter = "圏外";
     let ohigeScore = 0;
+    let hasOhigeEntry = false;
     if (typeof computeOhigeScores === "function") {
       const ohigeList = computeOhigeScores();
       const entry = ohigeList.find(e => e.id === c.id || e.name === c.name);
       if (entry) {
+        hasOhigeEntry = true;
         ohigeLetter = entry.ohigeWeaponTier || entry.ohigeTier || "圏外";
         if (ohigeLetter === "Tier0" || ohigeLetter === "Tier 0") ohigeScore = 5;
         else if (ohigeLetter === "Tier1" || ohigeLetter === "Tier 1") ohigeScore = 4;
@@ -12299,14 +12329,13 @@ function showQuizResult() {
       }
     }
 
-    const validScores = [autoScore];
+    const validScores = [];
+    if (autoScore !== null) validScores.push(autoScore);
     if (curatedScore !== null) validScores.push(curatedScore);
-    if (ohigeScore > 0 || ohigeLetter !== "圏外") validScores.push(ohigeScore);
+    if (hasOhigeEntry && ohigeLetter !== "圏外" && ohigeLetter !== "未選出") validScores.push(ohigeScore);
 
-    const minScore = Math.min(...validScores);
-    const maxScore = Math.max(...validScores);
-    const divergence = maxScore - minScore;
-    const isSplit = divergence >= 2;
+    const divergence = validScores.length >= 2 ? (Math.max(...validScores) - Math.min(...validScores)) : 0;
+    const isSplit = validScores.length >= 2 && divergence >= 2;
 
     return {
       castle: c,
@@ -12390,7 +12419,7 @@ function showQuizResult() {
             </div>
             <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:6px 10px;">
               <div style="font-weight:bold; font-size:12px; color:#1e40af; margin-bottom:2px;">🤖 役割別自動スコア</div>
-              <div style="font-size:16px; font-weight:bold; color:#1e40af;">${escapeHtml(item.auto.letter)} <span style="font-size:12px; font-weight:normal;">(${item.auto.scoreVal ? item.auto.scoreVal.toFixed(1) + '点' : '-'})</span></div>
+              <div style="font-size:16px; font-weight:bold; color:#1e40af;">${escapeHtml(item.auto.letter)} <span style="font-size:12px; font-weight:normal;">(${item.auto.scoreVal !== null ? item.auto.scoreVal.toFixed(1) + '点' : '-'})</span></div>
               <div style="font-size:12px; color:#64748b;">役割: ${escapeHtml(item.auto.role || '汎用')}</div>
             </div>
             <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:6px 10px;">
@@ -12428,21 +12457,21 @@ function showQuizResult() {
     const weaknesses = [];
     const fullText = getCastleFullText(c);
 
-    const baseRange = (c.stats && c.stats.range) || 0;
+    // 巨大化最大時 (c.stats.giant5) のステータスを基準に判定
+    const giantRange = (c.stats && c.stats.giant5 && c.stats.giant5.range) || 0;
     const isMelee = ["刀", "槍", "槌", "拳", "鎌"].includes(c.weapon);
-    if (baseRange <= 220 || (isMelee && !/射程.*(?:上昇|\+\d+|%)/.test(fullText))) {
+    if ((giantRange > 0 && giantRange <= 220) || (isMelee && !/射程.*(?:上昇|\+\d+|%)/.test(fullText))) {
       weaknesses.push({
         key: "range",
         label: "短射程",
-        desc: `基本射程(${baseRange || '近接'})が短く、迎撃・巻き込み範囲が限定的`,
+        desc: `最大射程(${giantRange || '近接'})が短く、迎撃・巻き込み範囲が限定的`,
         partnerFilter: (p, pText) => /射程.*(?:上昇|\+\d+|%)/.test(pText),
         reasonTmpl: "［射程上昇］短射程をカバーし巻き込み範囲を拡大"
       });
     }
 
     const cd = (c.strategy && c.strategy.cooldown) || 0;
-    const dur = (c.strategy && c.strategy.duration) || 0;
-    if (cd >= 50 || (dur > 0 && cd / dur >= 1.6)) {
+    if (cd >= 50) {
       weaknesses.push({
         key: "cooldown",
         label: "計略CT長",
@@ -12464,13 +12493,13 @@ function showQuizResult() {
       });
     }
 
-    const baseDef = (c.stats && c.stats.def) || 0;
-    const baseHp = (c.stats && c.stats.hp) || 0;
-    if ((baseDef > 0 && baseDef <= 180) || (baseHp > 0 && baseHp <= 3200)) {
+    const giantDef = (c.stats && c.stats.giant5 && c.stats.giant5.def) || 0;
+    const giantHp = (c.stats && c.stats.giant5 && c.stats.giant5.hp) || 0;
+    if ((giantDef > 0 && giantDef <= 100) || (giantHp > 0 && giantHp <= 2600)) {
       weaknesses.push({
         key: "durability",
         label: "耐久・防御不安",
-        desc: `基礎耐久(${baseHp})/防御(${baseDef})が低く被弾に脆弱`,
+        desc: `巨大化後耐久(${giantHp})/防御(${giantDef})が低く被弾に脆弱`,
         partnerFilter: (p, pText) => /被ダメージ.*(?:軽減|%|半減)|バリア/.test(pText) || ["歌舞", "祓串"].includes(p.weapon),
         reasonTmpl: "［被ダメ軽減・バリア］脆弱な耐久面を肩代わり防護"
       });
@@ -12599,58 +12628,57 @@ function showQuizResult() {
     if (!bannerEl || !roadmapEl) return;
 
     const progressData = getStageProgressData();
-    const stages = (window.HELL_GUIDES && Array.isArray(window.HELL_GUIDES)) ? window.HELL_GUIDES : [];
+    let stages = [];
+    if (window.SCRE_GUIDES && Array.isArray(window.SCRE_GUIDES)) {
+      const hellCat = window.SCRE_GUIDES.find(g => g.category === "地獄");
+      if (hellCat && Array.isArray(hellCat.stages)) {
+        stages = hellCat.stages;
+      }
+    }
 
-    let currentTotalDelib = 0;
-    const stageStats = [];
+    const totalStages = stages.length;
+    let clearedCount = 0;
+    const unclearedStages = [];
 
     stages.forEach(st => {
-      const stId = st.id || st.title;
-      const p = progressData[stId] || {};
-      const maxCleared = p.maxDelib || 0;
-      currentTotalDelib += maxCleared;
-      const maxAvailable = (st.deliberations && st.deliberations.length) || 17;
-      const remaining = Math.max(0, maxAvailable - maxCleared);
-      stageStats.push({
-        stage: st,
-        cleared: maxCleared,
-        maxAvailable,
-        remaining
-      });
+      const canonical = typeof canonicalStageTitle === "function" ? canonicalStageTitle(st.title) : st.title;
+      const isCleared = !!(progressData[canonical] && progressData[canonical].cleared);
+      if (isCleared) {
+        clearedCount++;
+      } else {
+        unclearedStages.push(st);
+      }
     });
 
     if (targetInput) targetInput.value = currentDelibTarget;
-    const neededDelib = Math.max(0, currentDelibTarget - currentTotalDelib);
-    const progressPct = Math.min(100, (currentTotalDelib / currentDelibTarget) * 100).toFixed(1);
+    const progressPct = totalStages > 0 ? ((clearedCount / totalStages) * 100).toFixed(1) : "0.0";
 
     bannerEl.innerHTML = `
       <div>
-        <div style="font-size:12px; opacity:0.85;">現在の地獄総達成審議状況</div>
+        <div style="font-size:12px; opacity:0.85;">地獄ステージ進捗状況（全${totalStages}ステージ）</div>
         <div style="font-size:18px; font-weight:bold; margin-top:2px;">
-          現在合計: <span style="color:#f1c40f;">${currentTotalDelib}</span> 審議 / 目標: <span>${currentDelibTarget}</span> 審議
-          ${neededDelib > 0 ? `<span style="font-size:14px; font-weight:normal; margin-left:8px; color:#e2e8f0;">（あと <strong style="color:#e74c3c; font-size:16px;">${neededDelib}</strong> 審議で達成）</span>` : `<span style="font-size:14px; color:#2ecc71; margin-left:8px;">🎉 目標達成済み！</span>`}
+          クリア済み: <span style="color:#f1c40f;">${clearedCount}</span> / <span>${totalStages}</span> ステージ
+          <span style="font-size:12px; font-weight:normal; margin-left:8px; color:#e2e8f0;">（未クリア: <strong style="color:#e74c3c;">${totalStages - clearedCount}</strong>）</span>
         </div>
+        <div style="font-size:12px; color:#cbd5e1; margin-top:3px;">※ 各ステージの審議達成数・攻略詳細は攻略タブのステージ詳細を参照してください。</div>
       </div>
       <div style="text-align:right;">
-        <div style="font-size:12px; opacity:0.85;">達成率</div>
+        <div style="font-size:12px; opacity:0.85;">ステージ達成率</div>
         <div style="font-size:20px; font-weight:bold; color:#68d391;">${progressPct}%</div>
       </div>
     `;
 
-    stageStats.sort((a, b) => b.remaining - a.remaining);
-    const candidates = stageStats.filter(s => s.remaining > 0).slice(0, 5);
-
-    if (candidates.length === 0) {
-      roadmapEl.innerHTML = `<div style="color:#e2e8f0; font-size:12px;">全地獄マップで最大審議を達成済みです！</div>`;
+    if (unclearedStages.length === 0) {
+      roadmapEl.innerHTML = `<div style="color:#e2e8f0; font-size:12px;">全地獄マップ（全${totalStages}ステージ）クリア達成済みです！</div>`;
     } else {
-      roadmapEl.innerHTML = candidates.map(s => `
+      roadmapEl.innerHTML = unclearedStages.slice(0, 5).map(st => `
         <div style="background:rgba(255,255,255,0.08); border-radius:4px; padding:6px 10px; display:flex; justify-content:space-between; align-items:center;">
           <div>
-            <strong style="color:#fff; font-size:12px;">${escapeHtml(s.stage.title)}</strong>
-            <span style="font-size:12px; color:#cfd9df; margin-left:4px;">現在: ${s.cleared} / ${s.maxAvailable} 審議</span>
+            <strong style="color:#fff; font-size:12px;">${escapeHtml(st.title)}</strong>
+            <span style="font-size:12px; color:#cfd9df; margin-left:6px;">[${escapeHtml(st.subCategory || '地獄')}] 地形: ${escapeHtml(st.terrain || '地獄')}</span>
           </div>
           <div>
-            <span class="badge" style="background:#d97706; color:#fff; font-size:12px; font-weight:bold;">+${s.remaining} 審議 獲得可能</span>
+            <span class="badge" style="background:#d97706; color:#fff; font-size:12px; font-weight:bold;">未クリア 挑戦推奨</span>
           </div>
         </div>
       `).join("");
@@ -12684,6 +12712,8 @@ function showQuizResult() {
   }
 
   // --- 機能7: フレーム精密DPS＋敵防御スライダー ---
+  // 刀〜軍配者の20種: Wiki / PileBunker 30fps 標準フレーム準拠
+  // 盾・双剣・軍船・ランス・茶器・その他: 標準フレーム未検証のため推定値（攻撃25f/隙25f）として設定（捏造防止ルール）
   const SCRE_WEAPON_FRAMES = {
     "刀": { atk: 20, gap: 23, hits: 1, type: "physical", aoe: false },
     "槍": { atk: 17, gap: 19, hits: 1, type: "physical", aoe: false },
@@ -12704,15 +12734,22 @@ function showQuizResult() {
     "戦棍": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false },
     "鎌": { atk: 19, gap: 21, hits: 1, type: "physical", aoe: false },
     "陣貝": { atk: 40, gap: 30, hits: 1, type: "buff", aoe: true },
-    "軍配者": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false }
+    "軍配者": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false },
+    // 推定値（未検証武器種・フォールバック準拠）
+    "盾": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true },
+    "双剣": { atk: 25, gap: 25, hits: 2, type: "physical", aoe: false, isEstimate: true },
+    "軍船": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: true, isEstimate: true },
+    "ランス": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true },
+    "茶器": { atk: 25, gap: 25, hits: 1, type: "buff", aoe: true, isEstimate: true },
+    "その他": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true }
   };
 
   var currentDetailDpsEnemyDef = 500;
 
   function computeFramePreciseDps(c, enemyDef) {
     const targetDef = (typeof enemyDef === "number" && !isNaN(enemyDef)) ? enemyDef : (currentDetailDpsEnemyDef || 500);
-    const wf = SCRE_WEAPON_FRAMES[c.weapon] || { atk: 25, gap: 25, hits: 1, type: "physical" };
-    const baseAtk = parseStatNumber((c.statsDetail && c.statsDetail.giant5 && c.statsDetail.giant5.atk) || (c.stats && c.stats.atk) || 1200);
+    const wf = SCRE_WEAPON_FRAMES[c.weapon] || { atk: 25, gap: 25, hits: 1, type: "physical", isEstimate: true };
+    const baseAtk = parseStatNumber((c.statsDetail && c.statsDetail.giant5 && c.statsDetail.giant5.atk) || (c.stats && c.stats.giant5 && c.stats.giant5.atk) || (c.stats && c.stats.atk) || 1200);
 
     let selfAtkSpeed = 0;
     let selfGapShorten = 0;
@@ -12727,10 +12764,10 @@ function showQuizResult() {
     cEffects.forEach(ef => {
       if (ef.stat === "atkSpeed") selfAtkSpeed = Math.max(selfAtkSpeed, ef.value);
       else if (ef.stat === "gapShorten") selfGapShorten = Math.max(selfGapShorten, ef.value);
-      else if (ef.stat === "atk") selfAtkRatio = Math.max(selfAtkRatio, ef.value);
+      else if (ef.stat === "atkPercent") selfAtkRatio = Math.max(selfAtkRatio, ef.value);
       else if (ef.stat === "atkFlat") selfAtkFlat = Math.max(selfAtkFlat, ef.value);
-      else if (ef.stat === "damageDealt") selfDmgDealt = Math.max(selfDmgDealt, ef.value);
-      else if (ef.stat === "targetMultiplier" && ef.value > 0) selfTargetMult = Math.max(selfTargetMult, ef.value);
+      else if (ef.stat === "dmgDealt") selfDmgDealt = Math.max(selfDmgDealt, ef.value);
+      else if (ef.stat === "dmgDealtTarget" && ef.value > 0) selfTargetMult *= (1 + ef.value / 100);
       else if (ef.stat === "enemyDefDown") enemyDefDown = Math.max(enemyDefDown, ef.value);
     });
 
@@ -12741,32 +12778,37 @@ function showQuizResult() {
 
     const isMagic = wf.type === "magic" || ["法術", "杖", "祓串", "鈴"].includes(c.weapon);
     const buffedAtk = Math.round(baseAtk * (1 + selfAtkRatio / 100) + selfAtkFlat);
-    const effDef = isMagic ? 0 : Math.max(0, Math.round(enemyDef * (1 - enemyDefDown / 100)));
+    const effDef = isMagic ? 0 : Math.max(0, Math.round(targetDef * (1 - enemyDefDown / 100)));
     const rawHitDmg = Math.max(1, buffedAtk - effDef);
     const finalHitDmg = Math.round(rawHitDmg * (1 + selfDmgDealt / 100) * selfTargetMult);
 
-    const hits = (c.weapon === "拳") ? (wf.hitsMax || 5) : wf.hits;
-    const effDps = Math.round(finalHitDmg * hits * attacksPerSec);
+    const baseHits = wf.hits || 1;
+    const maxHits = wf.hitsMax || baseHits;
+    const effDps = Math.round(finalHitDmg * baseHits * attacksPerSec);
+    const maxEffDps = Math.round(finalHitDmg * maxHits * attacksPerSec);
     const ttk100k = effDps > 0 ? (100000 / effDps).toFixed(1) : "∞";
 
     return {
       baseAtk,
       buffedAtk,
-      enemyDef,
+      enemyDef: targetDef,
       effDef,
       isMagic,
       finalHitDmg,
-      hits,
+      hits: baseHits,
+      hitsMax: maxHits,
+      effDps,
+      maxEffDps,
       baseAtkFrames: wf.atk,
       baseGapFrames: wf.gap,
       effAtkFrames,
       effGapFrames,
       cycleFrames,
       attacksPerSec,
-      effDps,
       ttk100k,
       selfAtkSpeed,
-      selfGapShorten
+      selfGapShorten,
+      isEstimate: !!wf.isEstimate
     };
   }
 
@@ -12785,12 +12827,12 @@ function showQuizResult() {
     metricsEl.innerHTML = `
       <div class="dps-metric-card">
         <span class="dps-metric-label">単発ダメージ</span>
-        <span class="dps-metric-val">${res.finalHitDmg.toLocaleString()}${res.hits > 1 ? ` × ${res.hits}連撃` : ''}</span>
+        <span class="dps-metric-val">${res.finalHitDmg.toLocaleString()}${res.hits > 1 ? ` × ${res.hits}連撃` : ''}${res.hitsMax > res.hits ? ` (スキル最大: ${res.hitsMax}連撃)` : ''}</span>
         <span style="font-size:12px; color:#888;">${res.isMagic ? '防御無視(術)' : `実効防御 ${res.effDef}`}</span>
       </div>
       <div class="dps-metric-card">
         <span class="dps-metric-label">実効DPS</span>
-        <span class="dps-metric-val" style="color:#d35400;">${res.effDps.toLocaleString()} /秒</span>
+        <span class="dps-metric-val" style="color:#d35400;">${res.effDps.toLocaleString()} /秒${res.hitsMax > res.hits ? ` (最大: ${res.maxEffDps.toLocaleString()}/秒)` : ''}</span>
         <span style="font-size:12px; color:#888;">${res.attacksPerSec.toFixed(2)} 攻撃/秒</span>
       </div>
       <div class="dps-metric-card">
@@ -12801,7 +12843,7 @@ function showQuizResult() {
     `;
 
     framesEl.innerHTML = `
-      <div><strong>フレーム詳細 (30fps換算):</strong> 攻撃 ${res.baseAtkFrames}f ➔ <strong style="color:#1b4965;">${res.effAtkFrames}f</strong> ${res.selfAtkSpeed ? `(+約${res.selfAtkSpeed}%速度)` : ''} / 隙 ${res.baseGapFrames}f ➔ <strong style="color:#1b4965;">${res.effGapFrames}f</strong> ${res.selfGapShorten ? `(-約${res.selfGapShorten}%隙)` : ''} / 周期計 <strong style="color:#2c3e50;">${res.cycleFrames}f</strong> (${res.attacksPerSec.toFixed(2)}回/秒)</div>
+      <div><strong>フレーム詳細 (30fps換算):</strong> 攻撃 ${res.baseAtkFrames}f ➔ <strong style="color:#1b4965;">${res.effAtkFrames}f</strong> ${res.selfAtkSpeed ? `(+約${res.selfAtkSpeed}%速度)` : ''} / 隙 ${res.baseGapFrames}f ➔ <strong style="color:#1b4965;">${res.effGapFrames}f</strong> ${res.selfGapShorten ? `(-約${res.selfGapShorten}%隙)` : ''} / 周期計 <strong style="color:#2c3e50;">${res.cycleFrames}f</strong> (${res.attacksPerSec.toFixed(2)}回/秒)${res.isEstimate ? ' <span class="badge" style="background:#fff3cd; color:#856404; font-size:12px; margin-left:6px;">⚠️ フレーム値は推定値</span>' : ''}</div>
     `;
   }
 
