@@ -831,6 +831,7 @@
     const calcResult = calculateBuffs();
     renderPartyTab(calcResult);
     renderBuffGrid(calcResult);
+    if (typeof renderBuffEquivalence === "function") renderBuffEquivalence(calcResult);
     renderMissingSidebar(calcResult);
     renderCoveragePanel(calcResult);
     const simBody = document.getElementById("giantizeSimBody");
@@ -1681,6 +1682,10 @@
     listEl.innerHTML = "";
 
     const filtered = window.SCRE_DATA.filter(c => {
+      if (typeof activeTagFilter !== "undefined" && activeTagFilter) {
+        const cTags = (typeof extractCastleEffectTags === "function") ? extractCastleEffectTags(c) : [];
+        if (!cTags.includes(activeTagFilter)) return false;
+      }
       if (searchVal && !matchCastleNameOrRuby(c, searchVal)) return false;
       if (filterRarity && String(c.rarity) !== filterRarity) return false;
       if (filterType) {
@@ -2021,6 +2026,7 @@
 
   // Guides Tab
   function renderGuidesTab() {
+    if (typeof renderDelibPlanner === "function") renderDelibPlanner();
     const container = document.getElementById("guidesListContainer");
     if (!container) return;
     const cat = document.getElementById("guideCategorySelect").value;
@@ -4000,6 +4006,9 @@
 
     if (typeof renderCastleSynergy === "function") renderCastleSynergy(c);
     if (typeof renderCastleRecommendedWeapons === "function") renderCastleRecommendedWeapons(c);
+    if (typeof renderDetailEffectTags === "function") renderDetailEffectTags(c);
+    if (typeof renderCastleWeaknessSynergyUI === "function") renderCastleWeaknessSynergyUI(c);
+    if (typeof renderDetailDpsPrecisionUI === "function") renderDetailDpsPrecisionUI(c);
     modal.classList.add("open");
   }
 
@@ -4576,6 +4585,7 @@
     if (typeof renderDebuffStackChecker === "function") renderDebuffStackChecker(foundStage);
     if (typeof renderWaveCheatCards === "function") renderWaveCheatCards(foundStage);
     if (typeof renderTileCongestionSection === "function") renderTileCongestionSection(foundStage);
+    if (typeof renderCounterConciergeForStage === "function") renderCounterConciergeForStage(foundStage);
 
     document.getElementById("modalStageDiagnostic").classList.add("open");
   }
@@ -7307,17 +7317,23 @@
     const btnOhige = document.getElementById("btnTierModeOhige");
     const btnCurated = document.getElementById("btnTierModeCurated");
     const btnCustom = document.getElementById("btnTierModeCustom");
+    const btnSplit = document.getElementById("btnTierModeSplit");
     const viewAuto = document.getElementById("tierViewAuto");
     const viewOhige = document.getElementById("tierViewOhige");
     const viewCurated = document.getElementById("tierViewCurated");
     const viewCustom = document.getElementById("tierViewCustom");
+    const viewSplit = document.getElementById("tierViewSplit");
 
     if (btnAuto) btnAuto.classList.toggle("active", currentTierMode === "auto");
     if (btnOhige) btnOhige.classList.toggle("active", currentTierMode === "ohige");
     if (btnCurated) btnCurated.classList.toggle("active", currentTierMode === "curated");
     if (btnCustom) btnCustom.classList.toggle("active", currentTierMode === "custom");
+    if (btnSplit) btnSplit.classList.toggle("active", currentTierMode === "split");
 
-    if (currentTierMode === "auto") {
+    if (currentTierMode === "split") {
+      if (viewSplit) viewSplit.style.display = "block";
+      if (typeof renderTierViewSplit === "function") renderTierViewSplit();
+    } else if (currentTierMode === "auto") {
       if (viewAuto) viewAuto.style.display = "block";
       if (viewOhige) viewOhige.style.display = "none";
       if (viewCurated) viewCurated.style.display = "none";
@@ -7933,6 +7949,14 @@
   const btnTierOhige = document.getElementById("btnTierModeOhige");
   const btnTierCurated = document.getElementById("btnTierModeCurated");
   const btnTierCustom = document.getElementById("btnTierModeCustom");
+  const btnTierSplit = document.getElementById("btnTierModeSplit");
+
+  if (btnTierSplit) {
+    btnTierSplit.addEventListener("click", () => {
+      currentTierMode = "split";
+      renderTierTab();
+    });
+  }
 
   if (btnTierAuto) {
     btnTierAuto.addEventListener("click", () => {
@@ -11685,6 +11709,1136 @@ function showQuizResult() {
   renderPresetBar();
   renderDashboard();
 
+
+  // =========================================================================
+  // PROMPT 34: 計算の精密化と逆引き（機能1〜7 実装コア）
+  // =========================================================================
+
+  function getCastleCombinedEffects(cTarget) {
+    if (!cTarget) return [];
+    const efList = [];
+    if (cTarget.skill && cTarget.skill.effects) efList.push(...cTarget.skill.effects);
+    if (cTarget.strategy && cTarget.strategy.effects) efList.push(...cTarget.strategy.effects);
+    if (cTarget.special && cTarget.special.effects) efList.push(...cTarget.special.effects);
+    return efList;
+  }
+
+  function getCastleCuratedTier(cTarget) {
+    if (!window.SCRE_TIERS || !window.SCRE_TIERS.overall) return { letter: "未評価", score: null, tag: "" };
+    for (const row of window.SCRE_TIERS.overall.rows) {
+      const found = row.castles.find(item => item.name === cTarget.name);
+      if (found) {
+        const letter = row.tier;
+        let score = 0;
+        if (letter === "EX" || letter === "SS") score = 5;
+        else if (letter === "S") score = 4;
+        else if (letter === "A") score = 3;
+        else if (letter === "B") score = 2;
+        else if (letter === "C") score = 1;
+        return { letter, score, tag: found.tag || "" };
+      }
+    }
+    return { letter: "未選出", score: null, tag: "" };
+  }
+
+  // --- 機能1: バフ等価換算（実質火力倍率） ---
+  var currentBuffEquivDef = 500;
+  var BUFF_EQUIV_BASE_ATK = 1200;
+
+  function calculateBuffEquivalence(calcResult, enemyDef, baseAtk) {
+    const targetDef = (typeof enemyDef === "number" && !isNaN(enemyDef)) ? enemyDef : (currentBuffEquivDef || 500);
+    const targetBaseAtk = (typeof baseAtk === "number" && !isNaN(baseAtk)) ? baseAtk : (BUFF_EQUIV_BASE_ATK || 1200);
+    const baseDmg = Math.max(1, targetBaseAtk - targetDef);
+    const hBuffs = (calcResult && calcResult.highestBuffs) || {};
+    const hDebuffs = (calcResult && calcResult.highestDebuffs) || {};
+
+    const atkRatio = hBuffs.atk || 0;
+    const atkFlat = hBuffs.atkFlat || 0;
+    const defDownRatio = hDebuffs.def || 0;
+    const defDownFlat = hDebuffs.defFlat || 0;
+    const dmgDealtRatio = hBuffs.damageDealt || 0;
+    const targetMultiplier = (hBuffs.targetMultiplier && hBuffs.targetMultiplier > 0) ? hBuffs.targetMultiplier : 1.0;
+    const enemyDmgTakenRatio = hDebuffs.damageTaken || 0;
+
+    const buffedAtk = Math.round(targetBaseAtk * (1 + atkRatio / 100) + atkFlat);
+    const effectiveDef = Math.max(0, Math.round(targetDef * (1 - defDownRatio / 100) - defDownFlat));
+    const rawBuffedDmg = Math.max(1, buffedAtk - effectiveDef);
+
+    const multDealt = 1 + dmgDealtRatio / 100;
+    const multTarget = targetMultiplier;
+    const multTaken = 1 + enemyDmgTakenRatio / 100;
+    const multSpecial = multDealt * multTarget * multTaken;
+
+    const buffedDmg = Math.round(rawBuffedDmg * multSpecial);
+    const totalMultiplier = buffedDmg / baseDmg;
+
+    const dmgAtkOnly = Math.max(1, buffedAtk - targetDef);
+    const multAtk = dmgAtkOnly / baseDmg;
+
+    const dmgDefOnly = Math.max(1, targetBaseAtk - effectiveDef);
+    const multDef = dmgDefOnly / baseDmg;
+
+    return {
+      enemyDef: targetDef,
+      baseAtk: targetBaseAtk,
+      baseDmg,
+      buffedAtk,
+      effectiveDef,
+      buffedDmg,
+      totalMultiplier,
+      factors: {
+        atk: { ratio: atkRatio, flat: atkFlat, mult: multAtk },
+        def: { ratio: defDownRatio, flat: defDownFlat, mult: multDef },
+        damageDealt: { ratio: dmgDealtRatio, mult: multDealt },
+        targetMultiplier: { value: targetMultiplier, mult: multTarget },
+        damageTaken: { ratio: enemyDmgTakenRatio, mult: multTaken }
+      }
+    };
+  }
+
+  function renderBuffEquivalence(calcResult) {
+    const headlineEl = document.getElementById("buffEquivHeadline");
+    const totalBadgeEl = document.getElementById("buffEquivTotalBadge");
+    const tableEl = document.getElementById("buffEquivBreakdownTable");
+    if (!headlineEl || !totalBadgeEl || !tableEl) return;
+
+    const res = calculateBuffEquivalence(calcResult, currentBuffEquivDef, BUFF_EQUIV_BASE_ATK);
+
+    headlineEl.textContent = `この編成は対防御 ${res.enemyDef.toLocaleString()} で実質 ×${res.totalMultiplier.toFixed(2)} 倍 編成`;
+    totalBadgeEl.textContent = `×${res.totalMultiplier.toFixed(2)}`;
+
+    tableEl.innerHTML = `
+      <table style="width:100%; font-size:12px; border-collapse:collapse; text-align:left;">
+        <thead>
+          <tr style="background:#f1f5f9; border-bottom:2px solid #cbd5e1;">
+            <th style="padding:6px 8px;">バフ/デバフ系統</th>
+            <th style="padding:6px 8px;">編成最大値</th>
+            <th style="padding:6px 8px;">単体寄与倍率</th>
+            <th style="padding:6px 8px;">効果概要</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #e2e8f0;">
+            <td style="padding:6px 8px; font-weight:bold; color:#2c3e50;">⚔️ 攻撃力バフ</td>
+            <td style="padding:6px 8px;">${res.factors.atk.ratio ? '+' + res.factors.atk.ratio + '%' : ''} ${res.factors.atk.flat ? '+' + res.factors.atk.flat : '' || '0%'}</td>
+            <td style="padding:6px 8px; font-weight:bold; color:#1b4965;">×${res.factors.atk.mult.toFixed(2)}</td>
+            <td style="padding:6px 8px; color:#555;">基礎攻撃力を引き上げ防御減算後の数値を底上げ</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0;">
+            <td style="padding:6px 8px; font-weight:bold; color:#2c3e50;">🛡️ 敵防御デバフ</td>
+            <td style="padding:6px 8px;">${res.factors.def.ratio ? '-' + res.factors.def.ratio + '%' : ''} ${res.factors.def.flat ? '-' + res.factors.def.flat : '' || '0%'}</td>
+            <td style="padding:6px 8px; font-weight:bold; color:#1b4965;">×${res.factors.def.mult.toFixed(2)}</td>
+            <td style="padding:6px 8px; color:#555;">有効防御を減少させ攻撃力の通る割合を改善</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0;">
+            <td style="padding:6px 8px; font-weight:bold; color:#2c3e50;">💥 与ダメージ上昇</td>
+            <td style="padding:6px 8px;">${res.factors.damageDealt.ratio ? '+' + res.factors.damageDealt.ratio + '%' : '0%'}</td>
+            <td style="padding:6px 8px; font-weight:bold; color:#1b4965;">×${res.factors.damageDealt.mult.toFixed(2)}</td>
+            <td style="padding:6px 8px; color:#555;">減算後のダメージ全体を独立枠で直接乗算</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0;">
+            <td style="padding:6px 8px; font-weight:bold; color:#2c3e50;">⚡ 与ダメ倍率（特殊）</td>
+            <td style="padding:6px 8px;">×${res.factors.targetMultiplier.value.toFixed(2)}</td>
+            <td style="padding:6px 8px; font-weight:bold; color:#1b4965;">×${res.factors.targetMultiplier.mult.toFixed(2)}</td>
+            <td style="padding:6px 8px; color:#555;">「攻撃が○倍」などの特殊乗算枠</td>
+          </tr>
+          <tr style="border-bottom:1px solid #cbd5e1;">
+            <td style="padding:6px 8px; font-weight:bold; color:#2c3e50;">🎯 敵被ダメージ上昇</td>
+            <td style="padding:6px 8px;">${res.factors.damageTaken.ratio ? '+' + res.factors.damageTaken.ratio + '%' : '0%'}</td>
+            <td style="padding:6px 8px; font-weight:bold; color:#1b4965;">×${res.factors.damageTaken.mult.toFixed(2)}</td>
+            <td style="padding:6px 8px; color:#555;">敵デバフ枠として与ダメ上昇とさらに別枠で乗算</td>
+          </tr>
+          <tr style="background:#f8fafc; font-weight:bold;">
+            <td style="padding:8px 8px; color:#1f4068;" colspan="2">🌟 相乗実効総合倍率（対防御 ${res.enemyDef.toLocaleString()}）</td>
+            <td style="padding:8px 8px; font-size:14px; color:#d35400;">×${res.totalMultiplier.toFixed(2)}</td>
+            <td style="padding:8px 8px; color:#333;">未バフ時一撃 ${res.baseDmg.toLocaleString()} ➔ バフ後一撃 ${res.buffedDmg.toLocaleString()}</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+  }
+
+  function initBuffEquivalenceListeners() {
+    const defBtns = document.querySelectorAll(".buff-equiv-def-btn");
+    const customDefInput = document.getElementById("buffEquivCustomDef");
+
+    defBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        defBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentBuffEquivDef = parseInt(btn.dataset.def, 10) || 0;
+        if (customDefInput) customDefInput.value = currentBuffEquivDef;
+        renderBuffEquivalence(calculateBuffs());
+      });
+    });
+
+    if (customDefInput) {
+      customDefInput.addEventListener("input", () => {
+        const val = parseInt(customDefInput.value, 10);
+        if (!isNaN(val) && val >= 0) {
+          currentBuffEquivDef = val;
+          defBtns.forEach(b => b.classList.remove("active"));
+          renderBuffEquivalence(calculateBuffs());
+        }
+      });
+    }
+  }
+
+  // --- 機能2: 対策コンシェルジュ（敵特性からの逆引き） ---
+  const SCRE_COUNTER_TRAIT_DEFS = {
+    "飛行": {
+      name: "飛行",
+      matcher: (c, fullText) => {
+        if (c.weapon === "弓") return "［弓］対空飛行敵へ攻撃1.5倍特攻";
+        const m = fullText.match(/飛行.*(?:特効|上昇|倍|解除|対象|無効化|撃破)|飛行敵/);
+        if (m) return "［特技・計略］" + m[0];
+        return null;
+      }
+    },
+    "足止め無効": {
+      name: "足止め無効",
+      matcher: (c, fullText) => {
+        const m = fullText.match(/移動速度.*(?:低下|半減|%低下|減)|後退|ノックバック|敵の移動速度/);
+        if (m) return "［鈍足/後退］" + m[0];
+        if (getCastleCombinedEffects(c).some(e => e.stat === "enemyMoveSpeedDown")) return "［敵移動低下］鈍足デバフで進軍を遅延";
+        return null;
+      }
+    },
+    "術反射": {
+      name: "術反射",
+      matcher: (c, fullText) => {
+        if (["刀", "槍", "槌", "拳", "弓", "石弓", "鉄砲", "大砲", "投剣", "鞭", "鎌"].includes(c.weapon)) {
+          return "［物理アタッカー］術反射に影響されない物理直接火力";
+        }
+        const m = fullText.match(/物理ダメージ|術ダメージを物理|術無効/);
+        if (m) return "［物理変換/術無効］" + m[0];
+        return null;
+      }
+    },
+    "物理軽減": {
+      name: "物理軽減",
+      matcher: (c, fullText) => {
+        if (["法術", "杖", "祓串", "鈴"].includes(c.weapon)) return "［術攻撃］物理軽減・高防御を無視する術ダメージ";
+        const m = fullText.match(/防御.*(?:無視|0|減算なし)|術ダメージ/);
+        if (m) return "［防御無視/術］" + m[0];
+        if (getCastleCombinedEffects(c).some(e => e.stat === "enemyDefDown" && e.value >= 30)) return "［敵防御大幅低下］物理軽減敵の有効防御を削減";
+        return null;
+      }
+    },
+    "状態異常無効": {
+      name: "状態異常無効",
+      matcher: (c, fullText) => {
+        if (getCastleCombinedEffects(c).some(e => (e.stat === "damageDealt" || e.stat === "targetMultiplier" || e.stat === "damageTaken") && e.value >= 20)) {
+          return "［直接火力増幅］状態異常に頼らず純粋な与ダメ・被ダメ増幅で突破";
+        }
+        return null;
+      }
+    },
+    "割合ダメージ": {
+      name: "割合ダメージ",
+      matcher: (c, fullText) => {
+        const m = fullText.match(/不死|不屈|大破.*(?:防ぐ|しない)|攻撃対象にならない|隠密|バリア|被ダメージ.*(?:軽減|半減)/);
+        if (m) return "［不死/隠密/軽減］" + m[0];
+        if (getCastleCombinedEffects(c).some(e => e.stat === "barrier" || e.stat === "damageTakenDown")) return "［バリア/被ダメ軽減］大ダメージ・割合削りを防護";
+        return null;
+      }
+    },
+    "高防御": {
+      name: "高防御",
+      matcher: (c, fullText) => {
+        if (["法術", "杖", "祓串", "鈴"].includes(c.weapon)) return "［防御無視］敵防御に関わらずダメージを通す";
+        const m = fullText.match(/防御.*(?:無視|0|減算なし)|術ダメージ/);
+        if (m) return "［防御無視］" + m[0];
+        if (getCastleCombinedEffects(c).some(e => e.stat === "enemyDefDown" && e.value >= 40)) return "［敵防御40%以上低下］高防御を解体";
+        return null;
+      }
+    }
+  };
+
+  var currentCounterSelectedTraits = new Set(["飛行", "足止め無効"]);
+
+  function findCounterCastles(traits) {
+    const traitList = Array.from(traits);
+    if (traitList.length === 0) return [];
+
+    const results = [];
+    SCRE_DATA.forEach(c => {
+      const fullText = getCastleFullText(c);
+      const matchedReasons = [];
+
+      traitList.forEach(tr => {
+        const def = SCRE_COUNTER_TRAIT_DEFS[tr];
+        if (def) {
+          const reason = def.matcher(c, fullText);
+          if (reason) {
+            matchedReasons.push({ trait: tr, reason });
+          }
+        }
+      });
+
+      if (matchedReasons.length > 0) {
+        results.push({
+          castle: c,
+          matchCount: matchedReasons.length,
+          matchedReasons
+        });
+      }
+    });
+
+    results.sort((a, b) => {
+      if (b.matchCount !== a.matchCount) return b.matchCount - a.matchCount;
+      return (b.castle.rarity || 0) - (a.castle.rarity || 0);
+    });
+
+    return results;
+  }
+
+  function renderCounterConcierge() {
+    const container = document.getElementById("counterConciergeResults");
+    const countEl = document.getElementById("counterConciergeCount");
+    const activeLabel = document.getElementById("counterActiveTraitsLabel");
+    const activeBox = document.getElementById("counterActiveTraits");
+    if (!container || !countEl) return;
+
+    const traits = Array.from(currentCounterSelectedTraits);
+    if (activeLabel && activeBox) {
+      if (traits.length > 0) {
+        activeBox.style.display = "block";
+        activeLabel.textContent = traits.join("、");
+      } else {
+        activeBox.style.display = "none";
+      }
+    }
+
+    const matches = findCounterCastles(currentCounterSelectedTraits);
+    countEl.textContent = `${matches.length} 件`;
+
+    if (matches.length === 0) {
+      container.innerHTML = `<div style="padding:10px; text-align:center; color:#888; font-size:12px;">選択した特性に有効な城娘が見つかりませんでした。特性の組み合わせを変更してください。</div>`;
+      return;
+    }
+
+    container.innerHTML = matches.slice(0, 30).map(m => {
+      const c = m.castle;
+      const inParty = party.some(p => p.id === c.id);
+      const reasonPills = m.matchedReasons.map(r => `
+        <span class="badge" style="background:#edf2f7; color:#2d3748; border:1px solid #cbd5e0; font-size:12px; margin-right:4px;">
+          <strong>[${escapeHtml(r.trait)}]</strong> ${escapeHtml(r.reason)}
+        </span>
+      `).join("");
+
+      return `
+        <div class="counter-concierge-card">
+          <div style="display:flex; align-items:center; gap:8px; min-width:0; flex:1;">
+            <div onclick="openCastleDetail('${escapeHtml(c.id)}')" style="cursor:pointer; flex-shrink:0;">
+              ${getIconHtml(c, 36)}
+            </div>
+            <div style="min-width:0; flex:1;">
+              <div style="font-size:12px; font-weight:bold; color:#2c3e50; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                <span onclick="openCastleDetail('${escapeHtml(c.id)}')" style="cursor:pointer;">${escapeHtml(c.name)}</span>
+                <span style="font-size:12px; color:#666; font-weight:normal; margin-left:4px;">★${c.rarity} ${c.weapon}</span>
+              </div>
+              <div style="margin-top:2px; display:flex; flex-wrap:wrap; gap:3px;">
+                ${reasonPills}
+              </div>
+            </div>
+          </div>
+          <div style="flex-shrink:0;">
+            <button type="button" class="btn btn-xs ${inParty ? 'btn-remove' : 'btn-primary'}" onclick="quickToggleParty('${escapeHtml(c.id)}')">
+              ${inParty ? '✓ 編成中' : '+ 編成'}
+            </button>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function renderCounterConciergeForStage(stageObj) {
+    if (!stageObj) return;
+    const b = (typeof getBossForStage === "function") ? getBossForStage(stageObj) : null;
+    if (b) {
+      currentCounterSelectedTraits.clear();
+      if (b.traits && Array.isArray(b.traits)) {
+        b.traits.forEach(t => currentCounterSelectedTraits.add(t));
+      } else {
+        if (b.isFlying) currentCounterSelectedTraits.add("飛行");
+        currentCounterSelectedTraits.add("足止め無効");
+        if (b.hasTransform) currentCounterSelectedTraits.add("割合ダメージ");
+      }
+      const traitBtns = document.querySelectorAll(".counter-trait-btn");
+      traitBtns.forEach(btn => {
+        if (currentCounterSelectedTraits.has(btn.dataset.trait)) btn.classList.add("active");
+        else btn.classList.remove("active");
+      });
+      renderCounterConcierge();
+    }
+  }
+
+  function initCounterConciergeListeners() {
+    const traitBtns = document.querySelectorAll(".counter-trait-btn");
+    traitBtns.forEach(btn => {
+      const tr = btn.dataset.trait;
+      if (currentCounterSelectedTraits.has(tr)) btn.classList.add("active");
+      btn.addEventListener("click", () => {
+        if (currentCounterSelectedTraits.has(tr)) {
+          currentCounterSelectedTraits.delete(tr);
+          btn.classList.remove("active");
+        } else {
+          currentCounterSelectedTraits.add(tr);
+          btn.classList.add("active");
+        }
+        renderCounterConcierge();
+      });
+    });
+
+    const bossSelect = document.getElementById("counterConciergeBossSelect");
+    if (bossSelect && SCRE_BOSS_CATALOG) {
+      bossSelect.innerHTML = `<option value="">ボスカタログから選択</option>` +
+        SCRE_BOSS_CATALOG.map((b, idx) => `<option value="${idx}">${escapeHtml(b.name)}</option>`).join("");
+
+      bossSelect.addEventListener("change", () => {
+        const idx = parseInt(bossSelect.value, 10);
+        if (isNaN(idx) || !SCRE_BOSS_CATALOG[idx]) return;
+        const b = SCRE_BOSS_CATALOG[idx];
+        currentCounterSelectedTraits.clear();
+        if (b.traits && Array.isArray(b.traits)) {
+          b.traits.forEach(t => currentCounterSelectedTraits.add(t));
+        } else {
+          if (b.isFlying) currentCounterSelectedTraits.add("飛行");
+          currentCounterSelectedTraits.add("足止め無効");
+        }
+        traitBtns.forEach(btn => {
+          if (currentCounterSelectedTraits.has(btn.dataset.trait)) btn.classList.add("active");
+          else btn.classList.remove("active");
+        });
+        renderCounterConcierge();
+      });
+    }
+  }
+
+  // --- 機能3: 効果タグ逆引き辞典 ---
+  const SCRE_EFFECT_TAG_RULES = [
+    { tag: "気増加", label: "気増加", pattern: /気の自然増加|撃破時に.*気|気を.*増|気.*軽減|気.*消費/, effectStat: ["kiGain", "kiCost"], desc: "気の自然増加・撃破時気獲得・気軽減など気全般" },
+    { tag: "計略短縮", label: "計略短縮", pattern: /計略.*(?:短縮|再使用)/, effectStat: ["stratCooldown"], desc: "計略の再使用時間（CT）短縮" },
+    { tag: "攻撃速度上昇", label: "攻撃速度上昇", pattern: /攻撃速度.*(?:上昇|%|倍)/, effectStat: ["atkSpeed"], desc: "攻撃モーション速度の上昇" },
+    { tag: "隙短縮", label: "隙短縮", pattern: /攻撃後の隙.*(?:短縮|%)/, effectStat: ["gapShorten"], desc: "攻撃後の待機時間（隙）短縮" },
+    { tag: "射程上昇", label: "射程上昇", pattern: /射程.*(?:上昇|伸びる|\+\d+|%)/, effectStat: ["rangeUp", "rangeFlat"], desc: "自身・味方の射程拡大" },
+    { tag: "攻撃力上昇", label: "攻撃力上昇", pattern: /攻撃が?\d+%?上昇|攻撃が?\+\d+/, effectStat: ["atk", "atkFlat"], desc: "攻撃力の割合・固定値強化" },
+    { tag: "与ダメ上昇", label: "与ダメ上昇", pattern: /与えるダメージ.*(?:上昇|%)/, effectStat: ["damageDealt"], desc: "与えるダメージの割合上昇" },
+    { tag: "被ダメ軽減", label: "被ダメ軽減", pattern: /被ダメージ.*(?:軽減|%|半減)/, effectStat: ["damageTakenDown"], desc: "受けるダメージの割合軽減" },
+    { tag: "バリア", label: "バリア", pattern: /バリア|耐久の\d+%の耐久/, effectStat: ["barrier"], desc: "耐久を肩代わりするバリア付与" },
+    { tag: "ノックバック", label: "ノックバック", pattern: /敵を後退|後退させる|ノックバック/, effectStat: [], desc: "敵を押し戻すノックバック" },
+    { tag: "足止め", label: "足止め", pattern: /足止め|足を止める/, effectStat: [], desc: "敵の移動を停止する足止め能力" },
+    { tag: "防御無視", label: "防御無視", pattern: /防御.*(?:無視|0|減算なし)|術ダメージ/, effectStat: [], weapon: ["法術", "杖", "祓串", "鈴"], desc: "防御力を無視する術攻撃・直撃貫通" },
+    { tag: "敵攻撃低下", label: "敵攻撃低下", pattern: /敵の攻撃.*(?:低下|%|半減)/, effectStat: ["enemyAtkDown"], desc: "敵の攻撃力を割合・固定値で弱体化" },
+    { tag: "敵防御低下", label: "敵防御低下", pattern: /敵の防御.*(?:低下|%|半減)/, effectStat: ["enemyDefDown"], desc: "敵の防御力を割合・固定値で弱体化" },
+    { tag: "敵移動低下", label: "敵移動低下", pattern: /移動速度.*(?:低下|%|半減)/, effectStat: ["enemyMoveSpeedDown"], desc: "敵の移動速度を低下（鈍足）" },
+    { tag: "状態異常付与", label: "状態異常付与", pattern: /(?:火傷|氷結|猛毒|混乱|暗闇|絶望|移動不能|行動不能).*(?:付与|にする|状態)/, effectStat: [], desc: "火傷/氷結/猛毒/暗闇等の状態異常を付与" },
+    { tag: "状態異常回復・無効", label: "状態異常回復・無効", pattern: /状態異常.*(?:回復|防ぐ|無効)/, effectStat: [], desc: "状態異常の解除または無効化" },
+    { tag: "不死・不屈", label: "不死・不屈", pattern: /不死|不屈|大破.*(?:防ぐ|しない|耐える)/, effectStat: [], desc: "耐久0になっても大破しない不死・不屈" },
+    { tag: "隠密", label: "隠密", pattern: /攻撃対象にならない|隠密/, effectStat: [], desc: "敵の攻撃対象から外れる隠密状態" },
+    { tag: "反射", label: "反射", pattern: /ダメージ.*反射|反射する/, effectStat: [], desc: "受けたダメージを敵に跳ね返す反射" },
+    { tag: "伏兵・トークン", label: "伏兵・トークン", pattern: /伏兵|トークン/, effectStat: [], desc: "伏兵・トークンを配置して支援やデコイに活用" }
+  ];
+
+  var activeTagFilter = null;
+
+  function extractCastleEffectTags(c) {
+    const fullText = getCastleFullText(c);
+    const matchedTags = [];
+    const cEffects = getCastleCombinedEffects(c);
+
+    SCRE_EFFECT_TAG_RULES.forEach(rule => {
+      let matched = false;
+      if (rule.weapon && rule.weapon.includes(c.weapon)) {
+        matched = true;
+      }
+      if (!matched && rule.effectStat && rule.effectStat.length > 0) {
+        if (cEffects.some(ef => rule.effectStat.includes(ef.stat))) {
+          matched = true;
+        }
+      }
+      if (!matched && rule.pattern && rule.pattern.test(fullText)) {
+        matched = true;
+      }
+      if (matched) {
+        matchedTags.push(rule.tag);
+      }
+    });
+
+    return matchedTags;
+  }
+
+  function initTagDictionary() {
+    const cloudContainer = document.getElementById("tagDictCloudContainer");
+    const clearBtn = document.getElementById("btnTagDictClear");
+    const toggleBtn = document.getElementById("btnTagDictToggle");
+    const badgeEl = document.getElementById("tagDictActiveFilterBadge");
+    const ruleInfoEl = document.getElementById("tagDictRuleInfo");
+    if (!cloudContainer) return;
+
+    const tagCounts = {};
+    SCRE_EFFECT_TAG_RULES.forEach(r => tagCounts[r.tag] = 0);
+
+    SCRE_DATA.forEach(c => {
+      const tags = extractCastleEffectTags(c);
+      tags.forEach(t => {
+        if (tagCounts[t] !== undefined) tagCounts[t]++;
+      });
+    });
+
+    cloudContainer.innerHTML = SCRE_EFFECT_TAG_RULES.map(rule => `
+      <span class="tag-dict-chip ${activeTagFilter === rule.tag ? 'active' : ''}" data-tag="${escapeHtml(rule.tag)}" title="${escapeHtml(rule.desc)}">
+        ${escapeHtml(rule.label)} <span class="tag-dict-count">(${tagCounts[rule.tag] || 0})</span>
+      </span>
+    `).join("");
+
+    cloudContainer.querySelectorAll(".tag-dict-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const t = chip.dataset.tag;
+        if (activeTagFilter === t) {
+          activeTagFilter = null;
+        } else {
+          activeTagFilter = t;
+        }
+        updateTagDictUI();
+        if (typeof resetPageAndRenderAll === "function") resetPageAndRenderAll();
+      });
+    });
+
+    if (clearBtn) {
+      clearBtn.addEventListener("click", () => {
+        activeTagFilter = null;
+        updateTagDictUI();
+        if (typeof resetPageAndRenderAll === "function") resetPageAndRenderAll();
+      });
+    }
+
+    if (toggleBtn) {
+      let expanded = false;
+      toggleBtn.addEventListener("click", () => {
+        expanded = !expanded;
+        cloudContainer.style.maxHeight = expanded ? "none" : "140px";
+        toggleBtn.textContent = expanded ? "折りたたむ ▲" : "タグ一覧を展開 ▼";
+      });
+    }
+
+    function updateTagDictUI() {
+      cloudContainer.querySelectorAll(".tag-dict-chip").forEach(chip => {
+        if (chip.dataset.tag === activeTagFilter) chip.classList.add("active");
+        else chip.classList.remove("active");
+      });
+      if (activeTagFilter) {
+        if (clearBtn) clearBtn.style.display = "inline-block";
+        if (badgeEl) {
+          badgeEl.style.display = "inline-block";
+          badgeEl.textContent = `選択中: ${activeTagFilter}`;
+        }
+        if (ruleInfoEl) {
+          const r = SCRE_EFFECT_TAG_RULES.find(x => x.tag === activeTagFilter);
+          ruleInfoEl.style.display = "block";
+          ruleInfoEl.innerHTML = `<strong>抽出ルール:</strong> ${escapeHtml(r ? r.desc : '')} (正規表現: <code>${r && r.pattern ? r.pattern.toString() : '効果stat/武器種'}</code>)`;
+        }
+      } else {
+        if (clearBtn) clearBtn.style.display = "none";
+        if (badgeEl) badgeEl.style.display = "none";
+        if (ruleInfoEl) ruleInfoEl.style.display = "none";
+      }
+    }
+  }
+
+  function renderDetailEffectTags(c) {
+    const container = document.getElementById("detailEffectTagsList");
+    if (!container) return;
+    const tags = extractCastleEffectTags(c);
+    if (tags.length === 0) {
+      container.innerHTML = `<span style="font-size:12px; color:var(--text-muted);">該当する効果タグなし</span>`;
+      return;
+    }
+    container.innerHTML = tags.map(t => `
+      <span class="badge" style="background:#e8f4fd; color:#1b4965; border:1px solid #b8daff; font-size:12px; padding:3px 7px;">
+        🏷️ ${escapeHtml(t)}
+      </span>
+    `).join("");
+  }
+
+  // --- 機能4: 評価分裂ビュー ---
+  var tierSplitFilterOnlySplit = false;
+  var tierSplitFilterWeapon = "";
+
+  function computeCastleEvaluationSplit(c) {
+    const curatedData = getCastleCuratedTier(c);
+    const curatedLetter = curatedData.letter;
+    const curatedScore = curatedData.score;
+
+    if (!cachedComputedScores && typeof computeCastleScores === "function") {
+      cachedComputedScores = computeCastleScores(roleTierWeights);
+    }
+    const autoItem = cachedComputedScores ? cachedComputedScores.find(s => s.id === c.id || s.name === c.name) : null;
+    const autoLetter = autoItem ? (autoItem.overallTier || autoItem.roleTier || "D") : "D";
+    const autoScoreNum = autoItem ? (autoItem.overallScore !== undefined ? autoItem.overallScore : autoItem.total || 0) : 0;
+    const autoScore = autoLetter === "SS" ? 5 : autoLetter === "S" ? 4 : autoLetter === "A" ? 3 : autoLetter === "B" ? 2 : autoLetter === "C" ? 1 : 0;
+
+    let ohigeLetter = "圏外";
+    let ohigeScore = 0;
+    if (typeof computeOhigeScores === "function") {
+      const ohigeList = computeOhigeScores();
+      const entry = ohigeList.find(e => e.id === c.id || e.name === c.name);
+      if (entry) {
+        ohigeLetter = entry.ohigeWeaponTier || entry.ohigeTier || "圏外";
+        if (ohigeLetter === "Tier0" || ohigeLetter === "Tier 0") ohigeScore = 5;
+        else if (ohigeLetter === "Tier1" || ohigeLetter === "Tier 1") ohigeScore = 4;
+        else if (ohigeLetter === "Tier2" || ohigeLetter === "Tier 2") ohigeScore = 3;
+        else if (ohigeLetter === "Tier3" || ohigeLetter === "Tier 3") ohigeScore = 2;
+        else ohigeScore = 0;
+      }
+    }
+
+    const validScores = [autoScore];
+    if (curatedScore !== null) validScores.push(curatedScore);
+    if (ohigeScore > 0 || ohigeLetter !== "圏外") validScores.push(ohigeScore);
+
+    const minScore = Math.min(...validScores);
+    const maxScore = Math.max(...validScores);
+    const divergence = maxScore - minScore;
+    const isSplit = divergence >= 2;
+
+    return {
+      castle: c,
+      curated: { letter: curatedLetter, score: curatedScore },
+      auto: { letter: autoLetter, score: autoScore, scoreVal: autoScoreNum, role: autoItem ? autoItem.role : "汎用" },
+      ohige: { letter: ohigeLetter, score: ohigeScore },
+      divergence,
+      isSplit
+    };
+  }
+
+  function renderTierViewSplit() {
+    const grid = document.getElementById("tierSplitGrid");
+    const statsBadge = document.getElementById("tierSplitStatsBadge");
+    const weaponSelect = document.getElementById("selectTierSplitWeapon");
+    if (!grid || !statsBadge) return;
+
+    if (weaponSelect && weaponSelect.options.length <= 1) {
+      const weapons = Array.from(new Set(SCRE_DATA.map(c => c.weapon).filter(Boolean))).sort();
+      weapons.forEach(w => {
+        const opt = document.createElement("option");
+        opt.value = w;
+        opt.textContent = w;
+        weaponSelect.appendChild(opt);
+      });
+      weaponSelect.addEventListener("change", () => {
+        tierSplitFilterWeapon = weaponSelect.value;
+        renderTierViewSplit();
+      });
+    }
+
+    const evaluations = SCRE_DATA.map(c => computeCastleEvaluationSplit(c));
+    const splitCount = evaluations.filter(e => e.isSplit).length;
+    const totalCount = evaluations.length;
+    const splitPct = ((splitCount / totalCount) * 100).toFixed(1);
+
+    statsBadge.textContent = `比較対象: ${totalCount}体 / ⚡ 評価分裂: ${splitCount}体 (${splitPct}%)`;
+
+    let filtered = evaluations;
+    if (tierSplitFilterOnlySplit) {
+      filtered = filtered.filter(e => e.isSplit);
+    }
+    if (tierSplitFilterWeapon) {
+      filtered = filtered.filter(e => e.castle.weapon === tierSplitFilterWeapon);
+    }
+
+    filtered.sort((a, b) => {
+      if (b.divergence !== a.divergence) return b.divergence - a.divergence;
+      return (b.castle.rarity || 0) - (a.castle.rarity || 0);
+    });
+
+    grid.innerHTML = filtered.slice(0, 50).map(item => {
+      const c = item.castle;
+      const splitBadgeHtml = item.isSplit
+        ? `<span class="badge" style="background:#d97706; color:#fff; font-size:12px; font-weight:bold; padding:3px 8px;">⚡ 評価分裂: 差分 ${item.divergence}段階</span>`
+        : `<span class="badge" style="background:#e2e8f0; color:#475569; font-size:12px; padding:3px 8px;">評価近似 (差分${item.divergence})</span>`;
+
+      return `
+        <div class="tier-split-card ${item.isSplit ? 'is-split' : ''}">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div onclick="openCastleDetail('${escapeHtml(c.id)}')" style="cursor:pointer;">
+                ${getIconHtml(c, 40)}
+              </div>
+              <div>
+                <div style="font-size:14px; font-weight:bold; color:#1e293b; cursor:pointer;" onclick="openCastleDetail('${escapeHtml(c.id)}')">
+                  ${escapeHtml(c.name)}
+                  <span style="font-size:12px; color:#64748b; font-weight:normal; margin-left:4px;">★${c.rarity} ${c.weapon}</span>
+                </div>
+                <div style="font-size:12px; color:#64748b;">${c.country || ''} [${c.subType || c.castleType || ''}]</div>
+              </div>
+            </div>
+            <div>${splitBadgeHtml}</div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px; margin-top:4px;">
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:6px 10px;">
+              <div style="font-weight:bold; font-size:12px; color:#0f766e; margin-bottom:2px;">🌟 キュレーションTier</div>
+              <div style="font-size:16px; font-weight:bold; color:#0f766e;">${escapeHtml(item.curated.letter)}</div>
+              <div style="font-size:12px; color:#64748b;">定性評価・環境推薦枠</div>
+            </div>
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:6px 10px;">
+              <div style="font-weight:bold; font-size:12px; color:#1e40af; margin-bottom:2px;">🤖 役割別自動スコア</div>
+              <div style="font-size:16px; font-weight:bold; color:#1e40af;">${escapeHtml(item.auto.letter)} <span style="font-size:12px; font-weight:normal;">(${item.auto.scoreVal ? item.auto.scoreVal.toFixed(1) + '点' : '-'})</span></div>
+              <div style="font-size:12px; color:#64748b;">役割: ${escapeHtml(item.auto.role || '汎用')}</div>
+            </div>
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:6px 10px;">
+              <div style="font-weight:bold; font-size:12px; color:#9a3412; margin-bottom:2px;">🧔 おひげ式Tier</div>
+              <div style="font-size:16px; font-weight:bold; color:#9a3412;">${escapeHtml(item.ohige.letter)}</div>
+              <div style="font-size:12px; color:#64748b;">高難度・武器種相対評価</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function initTierSplitListeners() {
+    const btnAll = document.getElementById("btnTierSplitFilterAll");
+    const btnOnlySplit = document.getElementById("btnTierSplitFilterOnlySplit");
+    if (btnAll && btnOnlySplit) {
+      btnAll.addEventListener("click", () => {
+        tierSplitFilterOnlySplit = false;
+        btnAll.classList.add("active");
+        btnOnlySplit.classList.remove("active");
+        renderTierViewSplit();
+      });
+      btnOnlySplit.addEventListener("click", () => {
+        tierSplitFilterOnlySplit = true;
+        btnOnlySplit.classList.add("active");
+        btnAll.classList.remove("active");
+        renderTierViewSplit();
+      });
+    }
+  }
+
+  // --- 機能5: シナジー・レコメンド（弱点補強） ---
+  function detectCastleWeaknesses(c) {
+    const weaknesses = [];
+    const fullText = getCastleFullText(c);
+
+    const baseRange = (c.stats && c.stats.range) || 0;
+    const isMelee = ["刀", "槍", "槌", "拳", "鎌"].includes(c.weapon);
+    if (baseRange <= 220 || (isMelee && !/射程.*(?:上昇|\+\d+|%)/.test(fullText))) {
+      weaknesses.push({
+        key: "range",
+        label: "短射程",
+        desc: `基本射程(${baseRange || '近接'})が短く、迎撃・巻き込み範囲が限定的`,
+        partnerFilter: (p, pText) => /射程.*(?:上昇|\+\d+|%)/.test(pText),
+        reasonTmpl: "［射程上昇］短射程をカバーし巻き込み範囲を拡大"
+      });
+    }
+
+    const cd = (c.strategy && c.strategy.cooldown) || 0;
+    const dur = (c.strategy && c.strategy.duration) || 0;
+    if (cd >= 50 || (dur > 0 && cd / dur >= 1.6)) {
+      weaknesses.push({
+        key: "cooldown",
+        label: "計略CT長",
+        desc: `計略CT(${cd}秒)が重く、回転率・常時維持に課題`,
+        partnerFilter: (p, pText) => /計略.*(?:短縮|再使用)/.test(pText),
+        reasonTmpl: "［計略短縮］CTの重さを緩和し計略回転を安定化"
+      });
+    }
+
+    const cost = c.cost || 0;
+    const isHeavyWeapon = ["大砲", "槌", "法術", "陣貝"].includes(c.weapon);
+    if (cost >= 12 || (isHeavyWeapon && !/気の自然増加|撃破時に.*気|気.*軽減/.test(fullText))) {
+      weaknesses.push({
+        key: "ki",
+        label: "気消費大",
+        desc: `配置気(${cost})および巨大化総コストが重く初動が遅れがち`,
+        partnerFilter: (p, pText) => /気の自然増加|撃破時に.*気|気.*軽減/.test(pText),
+        reasonTmpl: "［気増加・軽減］巨大化コストを補助し立ち上がりを加速"
+      });
+    }
+
+    const baseDef = (c.stats && c.stats.def) || 0;
+    const baseHp = (c.stats && c.stats.hp) || 0;
+    if ((baseDef > 0 && baseDef <= 180) || (baseHp > 0 && baseHp <= 3200)) {
+      weaknesses.push({
+        key: "durability",
+        label: "耐久・防御不安",
+        desc: `基礎耐久(${baseHp})/防御(${baseDef})が低く被弾に脆弱`,
+        partnerFilter: (p, pText) => /被ダメージ.*(?:軽減|%|半減)|バリア/.test(pText) || ["歌舞", "祓串"].includes(p.weapon),
+        reasonTmpl: "［被ダメ軽減・バリア］脆弱な耐久面を肩代わり防護"
+      });
+    }
+
+    if (["槌", "大砲", "鉄砲"].includes(c.weapon) && !/攻撃速度.*上昇|攻撃後の隙.*短縮/.test(fullText)) {
+      weaknesses.push({
+        key: "speed",
+        label: "攻撃隙大",
+        desc: `武器特性による攻撃モーション・隙が重くDPSが伸びにくい`,
+        partnerFilter: (p, pText) => /攻撃速度.*上昇|攻撃後の隙.*短縮/.test(pText),
+        reasonTmpl: "［速度・隙短縮］重い攻撃サイクルを高速化しDPSを改善"
+      });
+    }
+
+    if (isMelee && !["法術", "杖", "祓串", "鈴"].includes(c.weapon) && !/防御.*無視|術ダメージ/.test(fullText)) {
+      weaknesses.push({
+        key: "defPierce",
+        label: "対高防御減衰",
+        desc: `純物理攻撃のため高防御敵に対してダメージが大きく減衰`,
+        partnerFilter: (p, pText) => /敵の防御.*(?:低下|%|半減)/.test(pText) || ["法術", "杖"].includes(p.weapon),
+        reasonTmpl: "［防御低下/術］高防御敵の装甲を削り物理ダメージを通す"
+      });
+    }
+
+    return weaknesses;
+  }
+
+  function calculateCastleWeaknessSynergy(targetCastle) {
+    const weaknesses = detectCastleWeaknesses(targetCastle);
+    if (weaknesses.length === 0) return { weaknesses: [], partners: [] };
+
+    const partners = [];
+    SCRE_DATA.forEach(p => {
+      if (p.id === targetCastle.id) return;
+      const pText = getCastleFullText(p);
+      const solvedReasons = [];
+      let score = 0;
+
+      weaknesses.forEach(w => {
+        if (w.partnerFilter(p, pText)) {
+          score += 20;
+          solvedReasons.push(w.reasonTmpl);
+        }
+      });
+
+      if (score > 0) {
+        if (p.rarity >= 7) score += 5;
+        partners.push({
+          castle: p,
+          score,
+          reasons: Array.from(new Set(solvedReasons)).slice(0, 2)
+        });
+      }
+    });
+
+    partners.sort((a, b) => b.score - a.score);
+    return {
+      weaknesses,
+      partners: partners.slice(0, 5)
+    };
+  }
+
+  function renderCastleWeaknessSynergyUI(targetCastle) {
+    const weaknessListEl = document.getElementById("detailWeaknessList");
+    const synergyListEl = document.getElementById("detailSynergyList");
+    if (!weaknessListEl || !synergyListEl) return;
+
+    const res = calculateCastleWeaknessSynergy(targetCastle);
+
+    if (res.weaknesses.length > 0) {
+      weaknessListEl.innerHTML = res.weaknesses.map(w => `
+        <span class="synergy-weakness-badge" title="${escapeHtml(w.desc)}">
+          ⚠️ 弱点: ${escapeHtml(w.label)}
+        </span>
+      `).join("");
+    } else {
+      weaknessListEl.innerHTML = `<span class="badge" style="background:#e8f5e9; color:#2e7d32; font-size:12px;">✅ データ上の顕著な弱点なし（自己完結型）</span>`;
+    }
+
+    if (res.partners.length === 0) {
+      synergyListEl.innerHTML = `<div style="font-size:12px; color:var(--text-sub); padding:10px;">弱点を補う相方候補が見つかりませんでした。</div>`;
+      return;
+    }
+
+    synergyListEl.innerHTML = res.partners.map(entry => {
+      const p = entry.castle;
+      const inParty = party.some(slot => slot && slot.id === p.id);
+      const badgesHtml = entry.reasons.map(r => `
+        <span class="badge synergy-chip" style="background:#e8f4fd; color:#1b4965; border:1px solid #b8daff; font-size:12px; margin-right:4px;">
+          ${escapeHtml(r)}
+        </span>
+      `).join("");
+
+      return `
+        <div class="synergy-card">
+          <div class="synergy-card-left" onclick="openCastleDetail('${escapeHtml(p.id)}')" style="cursor:pointer;" title="詳細を見る">
+            ${getIconHtml(p, 36)}
+            <div class="synergy-card-info">
+              <div class="synergy-card-name">
+                <strong>${escapeHtml(p.name)}</strong>
+                <span style="font-size:12px; color:var(--text-sub); margin-left:3px;">★${p.rarity} ${p.weapon}</span>
+              </div>
+              <div class="synergy-badges-row">
+                ${badgesHtml}
+              </div>
+            </div>
+          </div>
+          <div class="synergy-card-right">
+            <button type="button" class="btn btn-xs ${inParty ? 'btn-remove' : 'btn-primary'}" onclick="quickToggleParty('${escapeHtml(p.id)}')">
+              ${inParty ? '✓ 編成中' : '+ 編成'}
+            </button>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  // --- 機能6: 審議プランナー（霊魂収入予測つき） ---
+  var currentDelibTarget = 180;
+
+  function renderDelibPlanner() {
+    const bannerEl = document.getElementById("delibPlannerProgressBanner");
+    const roadmapEl = document.getElementById("delibPlannerRoadmapList");
+    const targetInput = document.getElementById("delibPlannerTargetInput");
+    if (!bannerEl || !roadmapEl) return;
+
+    const progressData = getStageProgressData();
+    const stages = (window.HELL_GUIDES && Array.isArray(window.HELL_GUIDES)) ? window.HELL_GUIDES : [];
+
+    let currentTotalDelib = 0;
+    const stageStats = [];
+
+    stages.forEach(st => {
+      const stId = st.id || st.title;
+      const p = progressData[stId] || {};
+      const maxCleared = p.maxDelib || 0;
+      currentTotalDelib += maxCleared;
+      const maxAvailable = (st.deliberations && st.deliberations.length) || 17;
+      const remaining = Math.max(0, maxAvailable - maxCleared);
+      stageStats.push({
+        stage: st,
+        cleared: maxCleared,
+        maxAvailable,
+        remaining
+      });
+    });
+
+    if (targetInput) targetInput.value = currentDelibTarget;
+    const neededDelib = Math.max(0, currentDelibTarget - currentTotalDelib);
+    const progressPct = Math.min(100, (currentTotalDelib / currentDelibTarget) * 100).toFixed(1);
+
+    bannerEl.innerHTML = `
+      <div>
+        <div style="font-size:12px; opacity:0.85;">現在の地獄総達成審議状況</div>
+        <div style="font-size:18px; font-weight:bold; margin-top:2px;">
+          現在合計: <span style="color:#f1c40f;">${currentTotalDelib}</span> 審議 / 目標: <span>${currentDelibTarget}</span> 審議
+          ${neededDelib > 0 ? `<span style="font-size:14px; font-weight:normal; margin-left:8px; color:#e2e8f0;">（あと <strong style="color:#e74c3c; font-size:16px;">${neededDelib}</strong> 審議で達成）</span>` : `<span style="font-size:14px; color:#2ecc71; margin-left:8px;">🎉 目標達成済み！</span>`}
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:12px; opacity:0.85;">達成率</div>
+        <div style="font-size:20px; font-weight:bold; color:#68d391;">${progressPct}%</div>
+      </div>
+    `;
+
+    stageStats.sort((a, b) => b.remaining - a.remaining);
+    const candidates = stageStats.filter(s => s.remaining > 0).slice(0, 5);
+
+    if (candidates.length === 0) {
+      roadmapEl.innerHTML = `<div style="color:#e2e8f0; font-size:12px;">全地獄マップで最大審議を達成済みです！</div>`;
+    } else {
+      roadmapEl.innerHTML = candidates.map(s => `
+        <div style="background:rgba(255,255,255,0.08); border-radius:4px; padding:6px 10px; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <strong style="color:#fff; font-size:12px;">${escapeHtml(s.stage.title)}</strong>
+            <span style="font-size:12px; color:#cfd9df; margin-left:4px;">現在: ${s.cleared} / ${s.maxAvailable} 審議</span>
+          </div>
+          <div>
+            <span class="badge" style="background:#d97706; color:#fff; font-size:12px; font-weight:bold;">+${s.remaining} 審議 獲得可能</span>
+          </div>
+        </div>
+      `).join("");
+    }
+  }
+
+  function initDelibPlannerListeners() {
+    const targetBtns = document.querySelectorAll(".delib-target-btn");
+    const targetInput = document.getElementById("delibPlannerTargetInput");
+
+    targetBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        targetBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentDelibTarget = parseInt(btn.dataset.target, 10) || 180;
+        if (targetInput) targetInput.value = currentDelibTarget;
+        renderDelibPlanner();
+      });
+    });
+
+    if (targetInput) {
+      targetInput.addEventListener("input", () => {
+        const val = parseInt(targetInput.value, 10);
+        if (!isNaN(val) && val >= 1) {
+          currentDelibTarget = val;
+          targetBtns.forEach(b => b.classList.remove("active"));
+          renderDelibPlanner();
+        }
+      });
+    }
+  }
+
+  // --- 機能7: フレーム精密DPS＋敵防御スライダー ---
+  const SCRE_WEAPON_FRAMES = {
+    "刀": { atk: 20, gap: 23, hits: 1, type: "physical", aoe: false },
+    "槍": { atk: 17, gap: 19, hits: 1, type: "physical", aoe: false },
+    "槌": { atk: 31, gap: 37, hits: 1, type: "physical", aoe: true },
+    "拳": { atk: 11, gap: 13, hits: 2, hitsMax: 5, type: "physical", aoe: false },
+    "弓": { atk: 18, gap: 18, hits: 1, type: "physical", aoe: false },
+    "石弓": { atk: 22, gap: 23, hits: 1, type: "physical", aoe: false },
+    "鉄砲": { atk: 26, gap: 34, hits: 1, type: "physical", aoe: false },
+    "大砲": { atk: 41, gap: 49, hits: 1, type: "physical", aoe: true },
+    "歌舞": { atk: 43, gap: 27, hits: 1, type: "buff", aoe: true },
+    "法術": { atk: 25, gap: 35, hits: 1, type: "magic", aoe: false },
+    "鈴": { atk: 45, gap: 25, hits: 1, type: "magic", aoe: true },
+    "杖": { atk: 28, gap: 32, hits: 1, type: "magic", aoe: false },
+    "祓串": { atk: 22, gap: 24, hits: 2, type: "magic", aoe: false },
+    "本": { atk: 25, gap: 25, hits: 1, type: "special", aoe: false },
+    "投剣": { atk: 18, gap: 18, hits: 2, type: "physical", aoe: false },
+    "鞭": { atk: 20, gap: 22, hits: 1, type: "physical", aoe: false },
+    "戦棍": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false },
+    "鎌": { atk: 19, gap: 21, hits: 1, type: "physical", aoe: false },
+    "陣貝": { atk: 40, gap: 30, hits: 1, type: "buff", aoe: true },
+    "軍配者": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false }
+  };
+
+  var currentDetailDpsEnemyDef = 500;
+
+  function computeFramePreciseDps(c, enemyDef) {
+    const targetDef = (typeof enemyDef === "number" && !isNaN(enemyDef)) ? enemyDef : (currentDetailDpsEnemyDef || 500);
+    const wf = SCRE_WEAPON_FRAMES[c.weapon] || { atk: 25, gap: 25, hits: 1, type: "physical" };
+    const baseAtk = parseStatNumber((c.statsDetail && c.statsDetail.giant5 && c.statsDetail.giant5.atk) || (c.stats && c.stats.atk) || 1200);
+
+    let selfAtkSpeed = 0;
+    let selfGapShorten = 0;
+    let selfAtkRatio = 0;
+    let selfAtkFlat = 0;
+    let selfDmgDealt = 0;
+    let selfTargetMult = 1.0;
+    let enemyDefDown = 0;
+
+    const cEffects = getCastleCombinedEffects(c);
+
+    cEffects.forEach(ef => {
+      if (ef.stat === "atkSpeed") selfAtkSpeed = Math.max(selfAtkSpeed, ef.value);
+      else if (ef.stat === "gapShorten") selfGapShorten = Math.max(selfGapShorten, ef.value);
+      else if (ef.stat === "atk") selfAtkRatio = Math.max(selfAtkRatio, ef.value);
+      else if (ef.stat === "atkFlat") selfAtkFlat = Math.max(selfAtkFlat, ef.value);
+      else if (ef.stat === "damageDealt") selfDmgDealt = Math.max(selfDmgDealt, ef.value);
+      else if (ef.stat === "targetMultiplier" && ef.value > 0) selfTargetMult = Math.max(selfTargetMult, ef.value);
+      else if (ef.stat === "enemyDefDown") enemyDefDown = Math.max(enemyDefDown, ef.value);
+    });
+
+    const effAtkFrames = Math.max(1, Math.round(wf.atk / (1 + selfAtkSpeed / 100)));
+    const effGapFrames = Math.max(0, Math.round(wf.gap * (1 - selfGapShorten / 100)));
+    const cycleFrames = effAtkFrames + effGapFrames;
+    const attacksPerSec = cycleFrames > 0 ? (30 / cycleFrames) : 1;
+
+    const isMagic = wf.type === "magic" || ["法術", "杖", "祓串", "鈴"].includes(c.weapon);
+    const buffedAtk = Math.round(baseAtk * (1 + selfAtkRatio / 100) + selfAtkFlat);
+    const effDef = isMagic ? 0 : Math.max(0, Math.round(enemyDef * (1 - enemyDefDown / 100)));
+    const rawHitDmg = Math.max(1, buffedAtk - effDef);
+    const finalHitDmg = Math.round(rawHitDmg * (1 + selfDmgDealt / 100) * selfTargetMult);
+
+    const hits = (c.weapon === "拳") ? (wf.hitsMax || 5) : wf.hits;
+    const effDps = Math.round(finalHitDmg * hits * attacksPerSec);
+    const ttk100k = effDps > 0 ? (100000 / effDps).toFixed(1) : "∞";
+
+    return {
+      baseAtk,
+      buffedAtk,
+      enemyDef,
+      effDef,
+      isMagic,
+      finalHitDmg,
+      hits,
+      baseAtkFrames: wf.atk,
+      baseGapFrames: wf.gap,
+      effAtkFrames,
+      effGapFrames,
+      cycleFrames,
+      attacksPerSec,
+      effDps,
+      ttk100k,
+      selfAtkSpeed,
+      selfGapShorten
+    };
+  }
+
+  function renderDetailDpsPrecisionUI(c) {
+    const metricsEl = document.getElementById("detailDpsPrecisionMetrics");
+    const framesEl = document.getElementById("detailDpsFrameBreakdown");
+    const sliderEl = document.getElementById("dpsEnemyDefSlider");
+    const inputEl = document.getElementById("dpsEnemyDefInput");
+    if (!metricsEl || !framesEl) return;
+
+    if (sliderEl) sliderEl.value = currentDetailDpsEnemyDef;
+    if (inputEl) inputEl.value = currentDetailDpsEnemyDef;
+
+    const res = computeFramePreciseDps(c, currentDetailDpsEnemyDef);
+
+    metricsEl.innerHTML = `
+      <div class="dps-metric-card">
+        <span class="dps-metric-label">単発ダメージ</span>
+        <span class="dps-metric-val">${res.finalHitDmg.toLocaleString()}${res.hits > 1 ? ` × ${res.hits}連撃` : ''}</span>
+        <span style="font-size:12px; color:#888;">${res.isMagic ? '防御無視(術)' : `実効防御 ${res.effDef}`}</span>
+      </div>
+      <div class="dps-metric-card">
+        <span class="dps-metric-label">実効DPS</span>
+        <span class="dps-metric-val" style="color:#d35400;">${res.effDps.toLocaleString()} /秒</span>
+        <span style="font-size:12px; color:#888;">${res.attacksPerSec.toFixed(2)} 攻撃/秒</span>
+      </div>
+      <div class="dps-metric-card">
+        <span class="dps-metric-label">10万HP撃破時間</span>
+        <span class="dps-metric-val" style="color:#27ae60;">${res.ttk100k} 秒</span>
+        <span style="font-size:12px; color:#888;">標準ボス想定TTK</span>
+      </div>
+    `;
+
+    framesEl.innerHTML = `
+      <div><strong>フレーム詳細 (30fps換算):</strong> 攻撃 ${res.baseAtkFrames}f ➔ <strong style="color:#1b4965;">${res.effAtkFrames}f</strong> ${res.selfAtkSpeed ? `(+約${res.selfAtkSpeed}%速度)` : ''} / 隙 ${res.baseGapFrames}f ➔ <strong style="color:#1b4965;">${res.effGapFrames}f</strong> ${res.selfGapShorten ? `(-約${res.selfGapShorten}%隙)` : ''} / 周期計 <strong style="color:#2c3e50;">${res.cycleFrames}f</strong> (${res.attacksPerSec.toFixed(2)}回/秒)</div>
+    `;
+  }
+
+  function initDetailDpsListeners() {
+    const slider = document.getElementById("dpsEnemyDefSlider");
+    const input = document.getElementById("dpsEnemyDefInput");
+    const presetBtns = document.querySelectorAll(".dps-def-preset-btn");
+
+    const update = (val) => {
+      currentDetailDpsEnemyDef = Math.max(0, val);
+      if (slider) slider.value = currentDetailDpsEnemyDef;
+      if (input) input.value = currentDetailDpsEnemyDef;
+      presetBtns.forEach(b => {
+        if (parseInt(b.dataset.def, 10) === currentDetailDpsEnemyDef) b.classList.add("active");
+        else b.classList.remove("active");
+      });
+      if (activeDetailCastleId) {
+        const c = getCastleById(activeDetailCastleId);
+        if (c) renderDetailDpsPrecisionUI(c);
+      }
+    };
+
+    if (slider) slider.addEventListener("input", () => update(parseInt(slider.value, 10) || 0));
+    if (input) input.addEventListener("input", () => update(parseInt(input.value, 10) || 0));
+    presetBtns.forEach(b => b.addEventListener("click", () => update(parseInt(b.dataset.def, 10) || 0)));
+  }
+
+  // Initialize Prompt 34 listeners
+  function initPrompt34Features() {
+    initBuffEquivalenceListeners();
+    initCounterConciergeListeners();
+    initTagDictionary();
+    initTierSplitListeners();
+    initDelibPlannerListeners();
+    initDetailDpsListeners();
+  }
+
+  // Call on load
+  if (typeof window !== "undefined") {
+    setTimeout(initPrompt34Features, 50);
+  }
+
   // Window exports for testing and external triggers
   window.rollNewChallenge = rollNewChallenge;
   window.clearChallenge = clearChallenge;
@@ -11769,6 +12923,25 @@ function showQuizResult() {
   window.renderTokenReportCardSection = renderTokenReportCardSection;
   window.startCycleTimer40 = startCycleTimer40;
   window.resetCycleTimer = resetCycleTimer;
+  window.calculateBuffEquivalence = calculateBuffEquivalence;
+  window.renderBuffEquivalence = renderBuffEquivalence;
+  window.SCRE_COUNTER_TRAIT_DEFS = SCRE_COUNTER_TRAIT_DEFS;
+  window.findCounterCastles = findCounterCastles;
+  window.renderCounterConcierge = renderCounterConcierge;
+  window.renderCounterConciergeForStage = renderCounterConciergeForStage;
+  window.SCRE_EFFECT_TAG_RULES = SCRE_EFFECT_TAG_RULES;
+  window.extractCastleEffectTags = extractCastleEffectTags;
+  window.initTagDictionary = initTagDictionary;
+  window.computeCastleEvaluationSplit = computeCastleEvaluationSplit;
+  window.renderTierViewSplit = renderTierViewSplit;
+  window.detectCastleWeaknesses = detectCastleWeaknesses;
+  window.calculateCastleWeaknessSynergy = calculateCastleWeaknessSynergy;
+  window.renderCastleWeaknessSynergyUI = renderCastleWeaknessSynergyUI;
+  window.renderDelibPlanner = renderDelibPlanner;
+  window.SCRE_WEAPON_FRAMES = SCRE_WEAPON_FRAMES;
+  window.computeFramePreciseDps = computeFramePreciseDps;
+  window.renderDetailDpsPrecisionUI = renderDetailDpsPrecisionUI;
+  window.initPrompt34Features = initPrompt34Features;
   window.getParty = () => party;
   window.setParty = (p) => {
     party = p;

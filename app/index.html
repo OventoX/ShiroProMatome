@@ -139,6 +139,41 @@
           <div class="buff-card-grid" id="buffCalculatedList">
             <!-- Buff cards grid -->
           </div>
+
+          <!-- 機能1: バフ等価換算（実質火力倍率） -->
+          <div id="buffEquivalentSection" class="buff-equivalent-panel" style="margin-top: 14px; background: #ffffff; border: 1px solid #dcdde1; border-radius: 8px; padding: 12px 14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+              <div style="font-weight:bold; font-size:14px; color:#2c3e50; display:flex; align-items:center; gap:6px;">
+                <span>⚡ バフ等価換算（実質火力倍率）</span>
+                <span class="badge" style="background:#e8f4fd; color:#1b4965; border:1px solid #b8daff; font-size:12px;">統一指標</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                <span style="font-size:12px; color:var(--text-sub);">想定敵防御:</span>
+                <button type="button" class="btn btn-xs buff-equiv-def-btn" id="btnBuffEquivDef0" data-def="0">防御 0</button>
+                <button type="button" class="btn btn-xs buff-equiv-def-btn active" id="btnBuffEquivDef500" data-def="500">防御 500 (通常)</button>
+                <button type="button" class="btn btn-xs buff-equiv-def-btn" id="btnBuffEquivDef1500" data-def="1500">防御 1,500 (高難度)</button>
+                <button type="button" class="btn btn-xs buff-equiv-def-btn" id="btnBuffEquivDef3000" data-def="3000">防御 3,000 (超高難度)</button>
+                <input type="number" id="buffEquivCustomDef" min="0" max="10000" step="50" value="500" style="width:70px; padding:3px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" title="任意の敵防御値を入力" />
+              </div>
+            </div>
+            <div id="buffEquivSummaryBanner" style="background:linear-gradient(135deg, #1f4068 0%, #162447 100%); color:#fff; border-radius:6px; padding:12px 16px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+              <div>
+                <div style="font-size:12px; opacity:0.85;">現在の編成バフ合算による実効火力倍率</div>
+                <div id="buffEquivHeadline" style="font-size:18px; font-weight:bold; margin-top:2px;">この編成は対防御 500 で実質 ×1.00 倍 編成</div>
+              </div>
+              <div id="buffEquivTotalBadge" class="badge" style="background:#f39c12; color:#fff; font-size:16px; font-weight:bold; padding:6px 14px; border-radius:20px;">×1.00</div>
+            </div>
+            <details id="buffEquivDetails" style="background:#f9fbfd; border:1px solid #e2e8f0; border-radius:6px; padding:8px 12px;">
+              <summary style="cursor:pointer; font-weight:bold; font-size:12px; color:#1b4965; user-select:none;">
+                ▶ 換算内訳・系統別寄与の詳細（クリックで展開）
+              </summary>
+              <div id="buffEquivBreakdownTable" style="margin-top:10px; overflow-x:auto;"></div>
+              <div style="margin-top:8px; font-size:12px; color:var(--text-muted); line-height:1.5;">
+                ※ 換算式: ゲーム内ダメージ計算式 [基礎ダメージ = (攻撃力×(1+攻撃割合)+固定値) − max(0, 敵防御×(1−防御低下割合)−防御低下固定値)] × (1+与ダメ割合) × 与ダメ倍率 × (1+敵被ダメ割合) に従い、未バフ時に対する等価な倍率を算出しています。<br>
+                ※ 基準攻撃力: 1,200（一般的な☆7改壱Lv80前後相当）。防御減算により敵防御が高いほど、攻撃バフと防御デバフの相乗寄与が飛躍的に大きくなります。
+              </div>
+            </details>
+          </div>
         </div>
 
         <!-- Column 3: 不足と候補 & カバレッジ診断 (右列サイドバー) -->
@@ -417,6 +452,29 @@
 
     <!-- Tab 2: 一覧 -->
     <main id="tab-list" class="tab-content">
+      <!-- 機能3: 効果タグ逆引き辞典 -->
+      <div id="sectionTagDictionary" class="section-box" style="margin-top: 0; margin-bottom: 10px; background: #ffffff; border: 1px solid #dcdde1; border-radius: 8px; padding: 12px 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
+          <div style="font-weight: bold; font-size: 14px; color: #2c3e50; display: flex; align-items: center; gap: 6px;">
+            <span>📖 効果タグ逆引き辞典</span>
+            <span id="tagDictActiveFilterBadge" class="badge" style="display:none; background:#27ae60; color:#fff; font-size:12px;">選択中: なし</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <button type="button" id="btnTagDictClear" class="btn btn-xs" style="font-size:12px; display:none;">✕ タグ解除</button>
+            <button type="button" id="btnTagDictToggle" class="btn btn-xs" style="font-size:12px;">タグ一覧を展開 ▼</button>
+          </div>
+        </div>
+        <div id="tagDictDescription" style="font-size: 12px; color: var(--text-sub); margin-bottom: 8px;">
+          特技・計略・特殊能力の効果を約20系統のタグに分類。タグをクリックすると所持する城娘を一覧で即座に絞り込み表示します。
+        </div>
+        <div id="tagDictCloudContainer" style="display: flex; flex-wrap: wrap; gap: 6px; max-height: 140px; overflow-y: auto; padding: 4px 0;">
+          <!-- Dynamically populated tag chips with counts -->
+        </div>
+        <div id="tagDictRuleInfo" style="margin-top: 8px; font-size: 12px; color: var(--text-muted); display: none;">
+          <!-- Dynamically displayed extraction rule for selected tag -->
+        </div>
+      </div>
+
       <div class="section-box" style="margin-top: 0; margin-bottom: 10px;">
         <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
           <input type="text" id="searchCastleInput" class="input-text" placeholder="城娘名・特技・武器で検索（ふりがなでも検索できます）..." style="flex: 2; min-width: 200px;">
@@ -562,6 +620,7 @@
           <button type="button" class="tier-mode-btn" id="btnTierModeOhige" data-mode="ohige">🧔 おひげ式ティア</button>
           <button type="button" class="tier-mode-btn" id="btnTierModeCurated" data-mode="curated">🌟 環境おすすめティア</button>
           <button type="button" class="tier-mode-btn" id="btnTierModeCustom" data-mode="custom">🎨 カスタムティアメーカー</button>
+          <button type="button" class="tier-mode-btn" id="btnTierModeSplit" data-mode="split">⚡ 評価分裂ビュー</button>
         </div>
       </div>
 
@@ -946,10 +1005,81 @@
           <div id="tierPoolGrid" class="tier-pool-grid"></div>
         </div>
       </div>
+
+      <!-- VIEW 4: 評価分裂比較ビュー (Prompt 34 Feature 4) -->
+      <div id="tierViewSplit" class="tier-view-panel" style="display: none;">
+        <div class="tier-notice-banner" id="tierSplitNoticeBanner" style="background:#fffcf5; border-color:#f1c40f;">
+          <div class="tier-notice-icon">⚡</div>
+          <div class="tier-notice-body">
+            <div class="tier-notice-primary">3つの評価体系（キュレーション / 役割別自動 / おひげ式）の比較と評価分裂の検出</div>
+            <div class="tier-notice-secondary">
+              ランク換算で2段階以上の開きがある城娘に「⚡ 評価分裂」マークを付与し、各評価の根拠（自動スコア内訳・おひげ式スコア・キュレーションランク）を並列比較します。
+            </div>
+          </div>
+        </div>
+
+        <div class="tier-toolbar-bar" style="margin-bottom: 12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+          <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <button type="button" class="btn btn-sm active" id="btnTierSplitFilterAll" style="font-size:12px;">すべて表示</button>
+            <button type="button" class="btn btn-sm" id="btnTierSplitFilterOnlySplit" style="font-size:12px; background:#fff3cd; color:#856404; border-color:#ffeeba;">⚡ 分裂のみ (差分2段階以上)</button>
+            <select id="selectTierSplitWeapon" class="btn btn-sm" style="font-size:12px; min-width:110px;">
+              <option value="">全武器種</option>
+            </select>
+          </div>
+          <div id="tierSplitStatsBadge" style="font-size:12px; font-weight:bold; color:var(--text-color);">
+            比較対象: 0体 / 評価分裂: 0体 (0.0%)
+          </div>
+        </div>
+
+        <div id="tierSplitGrid" style="display:flex; flex-direction:column; gap:10px;">
+          <!-- Dynamically populated comparison cards -->
+        </div>
+      </div>
     </main>
 
     <!-- Tab 4: 高難易度マップ攻略 -->
     <main id="tab-guides" class="tab-content">
+      <!-- 機能6: 審議プランナー（霊魂収入予測つき） -->
+      <div id="sectionDelibPlanner" class="section-box" style="margin-top: 0; margin-bottom: 14px; background: linear-gradient(135deg, #1b2838 0%, #2a3b50 100%); color: #ffffff; border-radius: 8px; padding: 14px 16px; border: 1px solid #3d566e;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px;">
+          <div style="font-weight:bold; font-size:15px; display:flex; align-items:center; gap:8px;">
+            <span>📋 地獄審議プランナー</span>
+            <span class="badge" style="background:rgba(255,255,255,0.2); color:#fff; font-size:12px;">攻略ロードマップ</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span style="font-size:12px; color:#cfd9df;">目標総審議:</span>
+            <button type="button" class="btn btn-xs delib-target-btn" id="btnDelibTarget100" data-target="100">100</button>
+            <button type="button" class="btn btn-xs delib-target-btn" id="btnDelibTarget150" data-target="150">150</button>
+            <button type="button" class="btn btn-xs delib-target-btn active" id="btnDelibTarget180" data-target="180">180</button>
+            <button type="button" class="btn btn-xs delib-target-btn" id="btnDelibTarget200" data-target="200">200</button>
+            <button type="button" class="btn btn-xs delib-target-btn" id="btnDelibTarget240" data-target="240">240</button>
+            <input type="number" id="delibPlannerTargetInput" min="1" max="400" value="180" style="width:65px; padding:3px 6px; font-size:12px; border-radius:4px; border:1px solid #888; background:#fff; color:#222;" />
+          </div>
+        </div>
+        <div id="delibPlannerProgressBanner" style="background:rgba(0,0,0,0.3); border-radius:6px; padding:10px 14px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+          <!-- Current vs Target status -->
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:12px; margin-bottom:10px;">
+          <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 12px;">
+            <div style="font-weight:bold; font-size:13px; color:#f1c40f; margin-bottom:6px;">🎯 おすすめ上乗せマップ（伸ばしやすい順）</div>
+            <div id="delibPlannerRoadmapList" style="font-size:12px; display:flex; flex-direction:column; gap:6px;">
+              <!-- Roadmap items -->
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 12px;">
+            <div style="font-weight:bold; font-size:13px; color:#68d391; margin-bottom:6px;">💡 審議追加の定石（低リスク順）</div>
+            <ul style="margin:0; padding-left:18px; font-size:12px; line-height:1.6; color:#e2e8f0;">
+              <li><strong>低リスク（最優先）:</strong> 敵攻撃・耐久上昇（1〜2）、殿耐久低下（1）。火力と回復が足りていれば実質無害。</li>
+              <li><strong>中リスク:</strong> 巨大化コスト増（1〜2）、計略使用回数制限。気増加城娘で相殺可能。</li>
+              <li><strong>高リスク（後回し）:</strong> 状態異常無効、射程低下（50%）、出撃属性制限。攻略根幹が崩れるため最後に対応。</li>
+            </ul>
+          </div>
+        </div>
+        <div id="delibSoulIncomeNote" style="font-size:12px; color:#a0aec0; background:rgba(0,0,0,0.25); border-radius:4px; padding:8px 10px; line-height:1.5;">
+          ※ 霊魂の日次自動支給計算について: 城プロREのゲーム仕様およびWiki（「地獄」ページ）を精査した結果、総審議数に応じた日次の霊魂自動支給（定期インカム）の計算式は存在せず、審議報酬は各審議達成時の初回クリア報酬（霊珠・施設等）およびマップ委任時のドロップ（各マップ固定+審議補正）に依存するため、共通の日次/月次霊魂収入予測は見送りといたします（要件共通ルール2に基づく厳密準拠）。
+        </div>
+      </div>
+
       <!-- Category Clear Progress Banner (プロンプト2) -->
       <div id="guidesProgressBanner" style="margin-bottom: 10px;"></div>
 
@@ -1378,14 +1508,54 @@
             <div id="detailBuffAnalysis" class="detail-buff-tags"></div>
           </div>
 
-          <!-- A4: 相性の良い城娘 (シナジー検索) -->
+          <!-- 機能3: 効果タグ表示 -->
+          <div class="detail-box" id="detailEffectTagsBox">
+            <div class="detail-section-title">🏷️ 効果タグ（逆引き辞典）</div>
+            <div id="detailEffectTagsList" style="display:flex; flex-wrap:wrap; gap:5px; margin-top:4px;">
+              <!-- Tag badges -->
+            </div>
+          </div>
+
+          <!-- 機能7: フレーム精密DPS＋敵防御スライダー -->
+          <div class="detail-box" id="detailDpsPrecisionBox">
+            <div class="detail-section-title" style="display:flex; justify-content:space-between; align-items:center;">
+              <span>⚡ フレーム精密DPS（PileBunker方式）</span>
+              <span class="badge" style="background:#e8f4fd; color:#1b4965; font-size:12px;">30fps実測値</span>
+            </div>
+            <div style="margin-top:8px; margin-bottom:8px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <span style="font-size:12px; font-weight:bold;">想定敵防御:</span>
+              <input type="range" id="dpsEnemyDefSlider" min="0" max="5000" step="50" value="500" style="flex:1; min-width:150px; cursor:pointer;" />
+              <input type="number" id="dpsEnemyDefInput" min="0" max="10000" step="50" value="500" style="width:75px; padding:3px 6px; font-size:12px; border:1px solid #ccc; border-radius:4px;" />
+              <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                <button type="button" class="btn btn-xs dps-def-preset-btn" id="btnDpsDef0" data-def="0">0</button>
+                <button type="button" class="btn btn-xs dps-def-preset-btn active" id="btnDpsDef500" data-def="500">500</button>
+                <button type="button" class="btn btn-xs dps-def-preset-btn" id="btnDpsDef1500" data-def="1500">1,500</button>
+                <button type="button" class="btn btn-xs dps-def-preset-btn" id="btnDpsDef3000" data-def="3000">3,000</button>
+                <button type="button" class="btn btn-xs dps-def-preset-btn" id="btnDpsDef5000" data-def="5000">5,000</button>
+              </div>
+            </div>
+            <div id="detailDpsPrecisionMetrics" style="background:#f4f6fa; border:1px solid #dcdfe6; border-radius:6px; padding:10px 12px; display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:8px;">
+              <!-- DPS Metrics -->
+            </div>
+            <div id="detailDpsFrameBreakdown" style="margin-top:8px; font-size:12px; color:var(--text-sub); line-height:1.5;">
+              <!-- Frame Breakdown -->
+            </div>
+            <div style="margin-top:6px; font-size:12px; color:var(--text-muted); line-height:1.4;">
+              ※ 出典: 城プロRE攻略Wiki「検証/攻撃速度・隙」およびPileBunker標準フレーム基準（30fps換算）。自身の特技・計略による攻撃速度上昇・隙短縮バフを精密適用。
+            </div>
+          </div>
+
+          <!-- 機能5: シナジー・レコメンド（弱点補強） -->
           <div class="detail-box" id="detailSynergyBox">
-            <div class="detail-section-title">🤝 相性の良い城娘 (シナジー検索・相方探し)</div>
-            <div style="font-size:11px; color:var(--text-sub); margin-bottom:8px;">
-              この城娘と組み合わせた際にステータス上昇量（攻撃・防御・射程・与ダメ等）が特に大きい上位10体
+            <div class="detail-section-title">🤝 シナジー・レコメンド（弱点補強）</div>
+            <div id="detailWeaknessList" style="margin-bottom:8px; display:flex; flex-wrap:wrap; gap:5px;">
+              <!-- Detected weaknesses -->
+            </div>
+            <div style="font-size:12px; color:var(--text-sub); margin-bottom:8px;">
+              データから判定した本人の弱点（射程、計略CT、気、耐久、攻撃隙等）を補う相性抜群の城娘（上位最大5体）
             </div>
             <div id="detailSynergyList" class="detail-synergy-grid">
-              <!-- Dynamically rendered top 10 synergy partner chips -->
+              <!-- Dynamically rendered synergy partner chips -->
             </div>
           </div>
 
@@ -1447,6 +1617,39 @@
             <button type="button" class="btn btn-sm" id="btnFilterDelibWarnings" style="font-size:12px; padding:2px 8px; color:#c0392b; font-weight:bold;">⚠️ 詰み・要対策のみ</button>
           </div>
           <div id="diagDelibMatrixList" style="display:flex; flex-direction:column; gap:6px; max-height:280px; overflow-y:auto; padding-right:4px;"></div>
+        </section>
+
+        <!-- 機能2: 対策コンシェルジュ（敵特性からの逆引き） -->
+        <section class="section-box" id="diagCounterConciergeSection" style="margin-top:0; margin-bottom:14px; padding:10px 12px; background:#f7fafc; border-color:#cbd5e0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+            <div style="font-weight:bold; font-size:14px; color:#2b6cb0; display:flex; align-items:center; gap:6px;">
+              <span>🎯 対策コンシェルジュ（敵特性からの逆引き）</span>
+              <span id="counterConciergeCount" class="badge" style="background:#edf2f7; color:#2d3748; font-size:12px;">0 件</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <select id="counterConciergeBossSelect" class="btn btn-xs" style="font-size:12px; max-width:180px;">
+                <option value="">ボスカタログから選択</option>
+              </select>
+            </div>
+          </div>
+          <div style="font-size:12px; color:var(--text-sub); margin-bottom:6px;">
+            ボスの特性を選択すると、data.js の特技・計略・効果から有効な対策城娘を逆引き提示します。
+          </div>
+          <div id="counterTraitBtns" style="display:flex; flex-wrap:wrap; gap:5px; margin-bottom:8px;">
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitFlying" data-trait="飛行">飛行</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitUnstoppable" data-trait="足止め無効">足止め無効</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitMagicReflect" data-trait="術反射">術反射</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitPhysicalResist" data-trait="物理軽減">物理軽減</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitStatusImmune" data-trait="状態異常無効">状態異常無効</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitPercentDamage" data-trait="割合ダメージ">割合ダメージ</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitHighDef" data-trait="高防御">高防御</button>
+          </div>
+          <div id="counterActiveTraits" style="font-size:12px; color:#4a5568; margin-bottom:8px; display:none;">
+            選択特性: <span id="counterActiveTraitsLabel"></span>
+          </div>
+          <div id="counterConciergeResults" style="display:flex; flex-direction:column; gap:6px; max-height:260px; overflow-y:auto;">
+            <!-- Matching counter castle cards -->
+          </div>
         </section>
 
         <!-- 4 & 10. 殿スナイプ予報・大破カウントダウン & 倒し切りレース (TTK) -->
