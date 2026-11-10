@@ -898,10 +898,14 @@
   };
 
   const REGION_PREFECTURE_MAP = {
+    "北海道": ["北海道"],
     "東北": ["青森県", "岩手県", "秋田県", "宮城県", "山形県", "福島県"],
     "関東": ["茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県"],
+    "甲信越": ["山梨県", "長野県", "新潟県"],
+    "北陸": ["富山県", "石川県", "福井県"],
     "東海": ["静岡県", "愛知県", "岐阜県", "三重県"],
     "近畿": ["滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"],
+    "中国": ["鳥取県", "島根県", "岡山県", "広島県", "山口県"],
     "四国": ["徳島県", "香川県", "愛媛県", "高知県"],
     "九州": ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"]
   };
@@ -1152,41 +1156,54 @@
       }
     });
 
-    // 2) 城娘能力アップ（所持特技: 対象一致の城娘に適用、stackSum 加算）
+    // 2) 城娘能力アップ（所持特技: 対象一致の城娘に適用、同種効果はカテゴリ単位で最大値のみ加算：wiki検証済みルール）
     activePartyMembers.forEach(({ castle: receiver }) => {
       const b = perCastle[receiver.id]?.buffs;
       if (!b) return;
 
-      activeOwnedSkills.forEach(eff => {
-        if (!isCastleMatchTarget(receiver, eff.target, eff.targetKind)) return;
+      const matchingSkills = activeOwnedSkills.filter(eff => isCastleMatchTarget(receiver, eff.target, eff.targetKind));
+      const byCategory = new Map();
+      matchingSkills.forEach(eff => {
+        if (!byCategory.has(eff.category)) byCategory.set(eff.category, []);
+        byCategory.get(eff.category).push(eff);
+      });
 
+      byCategory.forEach((effList, cat) => {
         let bucket = null;
-        if (eff.category === "atk") bucket = b.atkPercent;
-        else if (eff.category === "def") bucket = b.defPercent;
-        else if (eff.category === "hp") bucket = b.hpPercent;
-        else if (eff.category === "atkSpeed") bucket = b.atkSpeed;
-        else if (eff.category === "gap") bucket = b.gapShorten;
+        if (cat === "atk") bucket = b.atkPercent;
+        else if (cat === "def") bucket = b.defPercent;
+        else if (cat === "hp") bucket = b.hpPercent;
+        else if (cat === "atkSpeed") bucket = b.atkSpeed;
+        else if (cat === "gap") bucket = b.gapShorten;
 
         if (bucket) {
-          bucket.stackSum += eff.value;
-          bucket.sources.push({
-            from: eff.from,
-            type: "所持特技",
-            val: eff.value,
-            stackable: true,
-            applied: true,
-            raw: eff.text,
-            name: eff.name,
-            target: eff.target
+          const sorted = effList.slice().sort((a, b) => b.value - a.value);
+          const maxEff = sorted[0];
+          bucket.stackSum += maxEff.value;
+          sorted.forEach((eff, idx) => {
+            const isApplied = (idx === 0);
+            bucket.sources.push({
+              from: eff.from,
+              type: "所持特技",
+              val: eff.value,
+              stackable: isApplied,
+              applied: isApplied,
+              conflictReason: isApplied ? null : "所持特技の同種効果競合 (最大値優先)",
+              raw: eff.text,
+              name: eff.name,
+              target: eff.target
+            });
           });
-        } else if (eff.category === "defIgnore") {
+        } else if (cat === "defIgnore") {
+          const sorted = effList.slice().sort((a, b) => b.value - a.value);
+          const maxEff = sorted[0];
           b.defIgnore.push({
-            from: eff.from,
+            from: maxEff.from,
             type: "所持特技",
-            val: eff.value,
-            raw: eff.text,
-            name: eff.name,
-            target: eff.target
+            val: maxEff.value,
+            raw: maxEff.text,
+            name: maxEff.name,
+            target: maxEff.target
           });
         }
       });
@@ -1201,6 +1218,7 @@
         if (!bucket || !bucket.sources) return;
         let maxApplied = false;
         bucket.sources.forEach(s => {
+          if (s.type === "所持特技") return; // 所持特技は上のパスで適用・競合判定済み
           if (s.stackable) {
             s.applied = true;
           } else if (bucket.max > 0 && s.val === bucket.max && !maxApplied) {
@@ -1435,6 +1453,12 @@
 
     sorted.forEach(s => {
       const catLabel = CATEGORY_JA_MAP[s.category] || s.category;
+      let statusBadge = "";
+      if (s.category === "heal" || s.category === "cooldown" || s.category === "redeploy") {
+        statusBadge = `<span class="badge" style="background:#fffbeb; color:#b45309; font-size:12px; margin-left:4px; font-weight:normal;">計算未反映（表示のみ）</span>`;
+      } else if (s.category === "exp" || s.category === "gold" || s.category === "keystone") {
+        statusBadge = `<span class="badge" style="background:#f1f5f9; color:#64748b; font-size:12px; margin-left:4px; font-weight:normal;">非戦闘系（計算対象外）</span>`;
+      }
       const targetLabel = s.target === "all" ? "全敵" : s.target;
       let valText = "";
       if (s.category.startsWith("enemy") || s.category === "gap" || s.category === "cooldown" || s.category === "redeploy") {
@@ -1442,18 +1466,21 @@
       } else {
         valText = s.type === "seconds" ? `+${s.value}秒` : `+${s.value}%`;
       }
-      const stageBadge = s.stage ? `<span style="font-size:11px; color:#666; margin-left:4px;">[${escapeHtml(s.stage)}]</span>` : "";
+      const stageBadge = s.stage ? `<span style="font-size:12px; color:#666; margin-left:4px;">[${escapeHtml(s.stage)}]</span>` : "";
 
       html += `<tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:4px 6px; font-weight:bold; white-space:nowrap; color:#1b4965;">${escapeHtml(catLabel)}</td>
-        <td style="padding:4px 6px; white-space:nowrap;"><span class="badge" style="background:#eef2f6; color:#333; font-size:11px;">${escapeHtml(targetLabel)}</span></td>
+        <td style="padding:4px 6px; font-weight:bold; white-space:nowrap; color:#1b4965;">${escapeHtml(catLabel)}${statusBadge}</td>
+        <td style="padding:4px 6px; white-space:nowrap;"><span class="badge" style="background:#eef2f6; color:#333; font-size:12px;">${escapeHtml(targetLabel)}</span></td>
         <td style="padding:4px 6px; font-weight:bold; color:#d9534f; white-space:nowrap;">${escapeHtml(valText)}</td>
         <td style="padding:4px 6px; white-space:nowrap; font-weight:500;">${escapeHtml(s.from)}${stageBadge}</td>
-        <td style="padding:4px 6px; color:var(--text-sub); font-size:11px;" title="${escapeHtml(s.text)}"><strong>${escapeHtml(s.name)}</strong>: ${escapeHtml(s.text)}</td>
+        <td style="padding:4px 6px; color:var(--text-sub); font-size:12px;" title="${escapeHtml(s.text)}"><strong>${escapeHtml(s.name)}</strong>: ${escapeHtml(s.text)}</td>
       </tr>`;
     });
 
     html += `</tbody></table>`;
+    html += `<div style="margin-top:8px; padding:8px 12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:4px; font-size:12px; color:var(--text-sub); line-height:1.5;">
+      ※所持特技の重複ルール：同種効果はカテゴリ単位で最大値のみ適用（wiki検証済み）。未反映カテゴリは今後のアップデートで順次対応予定。
+    </div>`;
     listEl.innerHTML = html;
   }
 
@@ -1781,7 +1808,8 @@
       if (!defIgnore || defIgnore.length === 0) return "";
       const bdId = `bd-${uid}-${++breakdownCounter}`;
       const itemsHtml = defIgnore.map(raw => {
-        return `<div style="margin-bottom:2px;"><span style="color:var(--buff-color); font-weight:bold;">[防御無視]</span> <span style="color:#666;">${raw}</span></div>`;
+        const text = typeof raw === "string" ? raw : (raw.raw || `${raw.from || ''}: ${raw.name || ''}`);
+        return `<div style="margin-bottom:2px;"><span style="color:var(--buff-color); font-weight:bold;">[防御無視]</span> <span style="color:#666;">${text}</span></div>`;
       }).join("");
 
       return `
@@ -1907,6 +1935,8 @@
     debRows += renderDebuffRow("敵攻撃", enemyDebuffs.enemyAtkDown, "deb-atk", "-");
     debRows += renderDebuffRow("敵移動", enemyDebuffs.enemySlow, "deb-slow", "-");
     debRows += renderDebuffRow("敵被ダメ", enemyDebuffs.enemyDmgTakenUp, "deb-dmg", "+");
+    debRows += renderDebuffRow("敵攻撃速度", enemyDebuffs.enemyAtkSpeedDown, "deb-atkspeed", "-");
+    debRows += renderDebuffRow("敵隙", enemyDebuffs.enemyGapExtend, "deb-gap", "+");
 
     debCard.innerHTML = `
       <div class="section-title" style="color: var(--debuff-color); margin-bottom: 6px;">敵へのデバフ一覧</div>
@@ -16366,4 +16396,6 @@ function showQuizResult() {
   window.getCurrentTerrain = () => currentTerrain;
   window.calculateBuffs = calculateBuffs;
   window.renderOwnedSkillsDashboard = renderOwnedSkillsDashboard;
+  window.renderBuffGrid = renderBuffGrid;
+  window.renderDashboard = renderDashboard;
 })();

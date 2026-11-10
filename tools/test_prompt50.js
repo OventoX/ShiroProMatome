@@ -7,6 +7,10 @@
  * - P50-04: 敵防御低下の所持特技が訓練場の実効防御に反映されること。
  * - P50-05: 「所持特技を反映」OFFで従来の計算結果と一致すること。「全城娘を所持扱い」でも例外が出ないこと。
  * - P50-06: 訓練場の地形セレクタで「平」に変えると currentTerrain が連動し、地形一致体数表示と訓練場の攻撃計算（×1.25）が変わること。地獄では×1.3になること。
+ * - P50追加-01: 敵攻撃速度低下・敵隙延長の所持特技が敵デバフパネルに表示されること。
+ * - P50追加-02: ［裏］坂本城（槍・地獄）が［絢爛］彦根城（槍隙4%）と枉死城（地獄隙4%）同時所持で最大値4%のみ適用（wiki検証済み重複ルール）。
+ * - P50追加-03: 一覧に「計算未反映（表示のみ）」および「非戦闘系（計算対象外）」注記が表示されること。
+ * - P50追加-04: 地域「中国」の城娘（広島城等）が中国地方、海外城娘（紫禁城）が海外として判定されること。
  * - Strict Font-size Floor (>= 12px) Verification.
  */
 
@@ -313,6 +317,128 @@ function assert(title, condition, detail = '') {
   assert('P50-06c: 平一致城娘の攻撃力が1.25倍になる（山城娘は1.0倍）', Math.abs(p50_06_result.heiRatio - 1.25) < 0.01 && Math.abs(p50_06_result.yamaRatio - 1.0) < 0.01, `hei=${p50_06_result.heiRatio.toFixed(3)}, yama=${p50_06_result.yamaRatio.toFixed(3)}`);
   assert('P50-06d: 地獄選択時、地獄一致城娘の攻撃力が1.30倍になる', Math.abs(p50_06_result.hellRatio - 1.30) < 0.01, `hell=${p50_06_result.hellRatio.toFixed(3)}`);
   assert('P50-06e: 指定なし選択時に「地形: 指定なし」と表示される', p50_06_result.badgeText3.includes('指定なし'));
+
+  // =========================================================================
+  // Section 8: Prompt 52 Residual Fixes (P50追加-01 ~ P50追加-04)
+  // =========================================================================
+  console.log('\n--- [Section 8] Prompt 52 Residual Fixes (P50追加-01 ~ P50追加-04) ---');
+
+  // P50追加-01: 敵攻撃速度低下・敵隙延長の所持特技が敵デバフパネルに表示されること
+  const p50_add01 = await page.evaluate(() => {
+    const sakamoto = window.SCRE_DATA.find(c => c.name.includes('［裏］坂本城'));
+    const diite = window.SCRE_DATA.find(c => c.name.includes('城塞都市ディーテ'));
+    const edo = window.SCRE_DATA.find(c => c.name === '江戸城');
+    if (!sakamoto || !diite || !edo) return { error: 'Castles not found' };
+
+    window.setUseOwnedSkills(true);
+    window.setSimulateAllOwned(false);
+
+    const res = window.calculateBuffs([{ id: edo.id, giantStep: 5 }], '', {
+      ownedIds: new Set([sakamoto.id, diite.id]),
+      useOwnedSkills: true,
+      simulateAllOwned: false
+    });
+    window.renderBuffGrid(res);
+
+    const debuffBox = document.getElementById('enemyDebuffContainer');
+    const text = debuffBox ? debuffBox.textContent : '';
+
+    return {
+      hasAtkSpeed: text.includes('敵攻撃速度'),
+      hasGap: text.includes('敵隙'),
+      hasSakamoto: text.includes('［裏］坂本城'),
+      hasDiite: text.includes('城塞都市ディーテ'),
+      atkSpeedMax: res.enemyDebuffs.enemyAtkSpeedDown.max,
+      gapExtendMax: res.enemyDebuffs.enemyGapExtend.max
+    };
+  });
+  assert('P50追加-01: 敵攻撃速度低下・敵隙延長の所持特技が敵デバフパネルに表示されること',
+    p50_add01.hasAtkSpeed && p50_add01.hasGap && p50_add01.hasSakamoto && p50_add01.hasDiite && p50_add01.atkSpeedMax > 0 && p50_add01.gapExtendMax > 0,
+    `spd=${p50_add01.atkSpeedMax}%, gap=${p50_add01.gapExtendMax}%`);
+
+  // P50追加-02: ［裏］坂本城（槍・地獄）が［絢爛］彦根城（槍隙4%）と枉死城（地獄隙4%）を同時所持しても最大値4%のみ適用
+  const p50_add02 = await page.evaluate(() => {
+    const sakamoto = window.SCRE_DATA.find(c => c.name.includes('［裏］坂本城'));
+    const hikone = window.SCRE_DATA.find(c => c.name.includes('［絢爛］彦根城'));
+    const oushi = window.SCRE_DATA.find(c => c.name.includes('枉死城'));
+    if (!sakamoto || !hikone || !oushi) return { error: 'Castles not found' };
+
+    const res = window.calculateBuffs([{ id: sakamoto.id, giantStep: 5 }], '', {
+      ownedIds: new Set([hikone.id, oushi.id]),
+      useOwnedSkills: true,
+      simulateAllOwned: false
+    });
+
+    const gapBuff = res.perCastle[sakamoto.id]?.buffs?.gapShorten;
+    const appliedCount = (gapBuff?.sources || []).filter(s => s.applied === true).length;
+    const unappliedCount = (gapBuff?.sources || []).filter(s => s.applied === false).length;
+
+    return {
+      stackSum: gapBuff?.stackSum,
+      appliedCount,
+      unappliedCount,
+      sources: gapBuff?.sources
+    };
+  });
+  assert('P50追加-02: ［裏］坂本城（槍・地獄）が［絢爛］彦根城（槍隙4%）と枉死城（地獄隙4%）同時所持で最大値4%のみ適用',
+    p50_add02.stackSum === 4 && p50_add02.appliedCount === 1 && p50_add02.unappliedCount === 1,
+    `stackSum=${p50_add02.stackSum}%, applied=${p50_add02.appliedCount}, unapplied=${p50_add02.unappliedCount}`);
+
+  // P50追加-03: 一覧に「計算未反映（表示のみ）」および「非戦闘系（計算対象外）」注記が表示されること
+  const p50_add03 = await page.evaluate(() => {
+    window.setUseOwnedSkills(true);
+    window.setSimulateAllOwned(true);
+    window.renderOwnedSkillsDashboard();
+
+    const listEl = document.getElementById('ownedSkillsActiveList');
+    const text = listEl ? listEl.textContent : '';
+
+    const hasUnreflectedBadge = text.includes('計算未反映（表示のみ）');
+    const hasNonCombatBadge = text.includes('非戦闘系（計算対象外）');
+    const hasWikiNote = text.includes('※所持特技の重複ルール：同種効果はカテゴリ単位で最大値のみ適用（wiki検証済み）。未反映カテゴリは今後のアップデートで順次対応予定。');
+
+    return {
+      hasUnreflectedBadge,
+      hasNonCombatBadge,
+      hasWikiNote
+    };
+  });
+  assert('P50追加-03: 一覧に「計算未反映（表示のみ）」および「非戦闘系（計算対象外）」注記が表示されること',
+    p50_add03.hasUnreflectedBadge && p50_add03.hasNonCombatBadge && p50_add03.hasWikiNote);
+
+  // P50追加-04: 地域「中国」の城娘（広島城等）が正しく中国地方として判定されること
+  const p50_add04 = await page.evaluate(() => {
+    const hiroshima = window.SCRE_DATA.find(c => c.name === '広島城');
+    const shikin = window.SCRE_DATA.find(c => c.name === '紫禁城');
+    const tottori = window.SCRE_DATA.find(c => c.name === '鳥取城');
+    const matue = window.SCRE_DATA.find(c => c.name === '松江城');
+    const okayama = window.SCRE_DATA.find(c => c.name === '岡山城');
+    const hagi = window.SCRE_DATA.find(c => c.name === '萩城');
+
+    const hiroshimaRegion = window.getCastleRegion(hiroshima);
+    const tottoriRegion = window.getCastleRegion(tottori);
+    const matueRegion = window.getCastleRegion(matue);
+    const okayamaRegion = window.getCastleRegion(okayama);
+    const hagiRegion = window.getCastleRegion(hagi);
+    const shikinRegion = window.getCastleRegion(shikin);
+
+    return {
+      hiroshimaRegion,
+      tottoriRegion,
+      matueRegion,
+      okayamaRegion,
+      hagiRegion,
+      shikinRegion
+    };
+  });
+  assert('P50追加-04: 地域「中国」の城娘（広島城等）が中国地方、海外城娘（紫禁城）が海外として判定されること',
+    p50_add04.hiroshimaRegion === '中国' &&
+    p50_add04.tottoriRegion === '中国' &&
+    p50_add04.matueRegion === '中国' &&
+    p50_add04.okayamaRegion === '中国' &&
+    p50_add04.hagiRegion === '中国' &&
+    p50_add04.shikinRegion === '海外',
+    `hiroshima=${p50_add04.hiroshimaRegion}, shikin=${p50_add04.shikinRegion}`);
 
   // =========================================================================
   // Section 7: フォントサイズ下限（>= 12px）検証
