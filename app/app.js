@@ -1002,7 +1002,12 @@
       });
     });
 
-    // Group by (category × target), taking MAX value only (重複ルール: 同種効果は最大値のみ)
+    // 【所持特技の重複ルール・出典と解釈】
+    // 出典URL: https://scre.swiki.jp/index.php?所持特技
+    // 該当文言: 「複数の城娘で同種の効果がある場合は一番効果の高いもののみ適用される。」
+    // （補足出典: https://scre.swiki.jp/index.php?検証 「所持バフは対象が特定武器種であったり特定地域であったりするが、効果が同じであればやはり一番効果が高いもののみが有効となる。(例：［絢爛］彦根城(槍城娘の隙短縮4%) と 枉死城(地獄城娘の隙短縮4%) 両方を所持していても、［裏］坂本城が受ける隙短縮は4%止まりとなる)」）
+    // 解釈の記録: 「同種」をカテゴリ単位（atk, def, hp, atkSpeed, gap等）と解釈し、同一カテゴリであれば対象（武器種・地域・地形等）が異なる場合でも受手城娘に対しては最大値のみを適用する判断。
+    // まずグローバル一覧・候補プール用として同一(category × target)内の最大値を取得し、後段の受手適用でカテゴリ単位の最大値を厳密適用する。
     const grouped = new Map();
     rawList.forEach(eff => {
       const key = `${eff.category}::${eff.target}`;
@@ -1157,6 +1162,11 @@
     });
 
     // 2) 城娘能力アップ（所持特技: 対象一致の城娘に適用、同種効果はカテゴリ単位で最大値のみ加算：wiki検証済みルール）
+    // 【所持特技の重複ルール・出典と解釈】
+    // 出典URL: https://scre.swiki.jp/index.php?所持特技
+    // 該当文言: 「複数の城娘で同種の効果がある場合は一番効果の高いもののみ適用される。」
+    // （補足出典: https://scre.swiki.jp/index.php?検証 例: ［絢爛］彦根城(槍隙4%) と 枉死城(地獄隙4%) 同時所持で［裏］坂本城は4%止まり）
+    // 解釈の記録: 「同種」をカテゴリ単位と解釈し、同一カテゴリで対象が異なる場合（槍隙短縮と地獄隙短縮など）も受手城娘には最大値のみを適用する。
     activePartyMembers.forEach(({ castle: receiver }) => {
       const b = perCastle[receiver.id]?.buffs;
       if (!b) return;
@@ -1478,6 +1488,10 @@
     });
 
     html += `</tbody></table>`;
+    // 【重複ルールの注記・出典】
+    // 出典URL: https://scre.swiki.jp/index.php?所持特技
+    // 該当文言: 「複数の城娘で同種の効果がある場合は一番効果の高いもののみ適用される。」
+    // 解釈の記録: 「同種」をカテゴリ単位と解釈し、同一カテゴリで対象が異なる場合も最大値のみを適用する判断。
     html += `<div style="margin-top:8px; padding:8px 12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:4px; font-size:12px; color:var(--text-sub); line-height:1.5;">
       ※所持特技の重複ルール：同種効果はカテゴリ単位で最大値のみ適用（wiki検証済み）。未反映カテゴリは今後のアップデートで順次対応予定。
     </div>`;
