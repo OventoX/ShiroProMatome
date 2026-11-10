@@ -8605,7 +8605,7 @@ function renderChallengeUI() {
 }
 
   // --- 武器フレーム表 (Wiki / PileBunker 30fps 標準フレーム準拠) ---
-  // 刀〜軍配者の20種: 標準フレーム準拠
+  // 刀〜陣貝の19種: 標準フレーム準拠
   // 盾・双剣・軍船・ランス・茶器・その他: 標準フレーム未検証のため推定値（攻撃25f/隙25f）として設定（捏造防止ルール）
   const SCRE_WEAPON_FRAMES = {
     "刀": { atk: 20, gap: 23, hits: 1, type: "physical", aoe: false },
@@ -8627,7 +8627,6 @@ function renderChallengeUI() {
     "戦棍": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false },
     "鎌": { atk: 19, gap: 21, hits: 1, type: "physical", aoe: false },
     "陣貝": { atk: 40, gap: 30, hits: 1, type: "buff", aoe: true },
-    "軍配者": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false },
     // 推定値（未検証武器種・フォールバック準拠）
     "盾": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true },
     "双剣": { atk: 25, gap: 25, hits: 2, type: "physical", aoe: false, isEstimate: true },

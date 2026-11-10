@@ -39,7 +39,7 @@ const CHROME_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
     `recovered: ${stratCooldownMatches} / 1049 (previous text regex: ${stratTextMatches})`);
 
   // 2. Deliberation weapon matching accuracy
-  const weaponNames = ['刀', '槍', '槌', '拳', '鎌', '戦棍', '短槍', '弓', '石弓', '鉄砲', '大砲', '歌舞', '法術', '鈴', '杖', '祓串', '本', '投剣', '鞭', '陣貝', '軍配者'];
+  const weaponNames = ['刀', '槍', '槌', '拳', '鎌', '戦棍', '短槍', '弓', '石弓', '鉄砲', '大砲', '歌舞', '法術', '鈴', '杖', '祓串', '本', '投剣', '鞭', '陣貝'];
   function isWeaponDeliberationMatch(text, wName) {
     const escapedW = wName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const pattern = new RegExp(`(?:^|[、，,・/／:：\\s「」【】()（）\\[\\]\\n\\r]|武器種|対象|限定|と)${escapedW}(?:[、，,・/／:：\\s「」【】()（）\\[\\]\\n\\r]|の城娘|城娘|限定|の与ダメ|の攻撃|の防御|の射程|の武器種特性|低下|無効|半減|軽減|制限|と|$)`);
