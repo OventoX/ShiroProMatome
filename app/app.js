@@ -14257,8 +14257,8 @@ function showQuizResult() {
       return;
     }
 
-    const currentIds = partyCastles.map(p => `${p.castle.id}_${p.slot.giantStep ?? 5}_${p.slot.strategyOn !== false}`).join(",");
-    const stateIds = firingRangeState.castleSlots.map(s => `${s.castle ? s.castle.id : ''}_${s.slot?.giantStep ?? 5}_${s.slot?.strategyOn !== false}`).join(",");
+    const currentIds = partyCastles.map(p => `${p.castle.id}_${p.slot.giantStep ?? 5}_${p.slot.strategyOn !== false}_${p.slot.specialOn !== false}`).join(",");
+    const stateIds = firingRangeState.castleSlots.map(s => `${s.castle ? s.castle.id : ''}_${s.slot?.giantStep ?? 5}_${s.slot?.strategyOn !== false}_${s.slot?.specialOn !== false}`).join(",");
     if (currentIds !== stateIds || firingRangeState.castleSlots.length !== partyCastles.length) {
       firingRangeState.castleSlots = partyCastles.map(({ slot, castle, idx }) => {
         const stat = calculateFiringCastleStats(castle, slot, firingRangeState.targetDef, firingRangeState.targetRed, firingRangeState.targetCount, firingRangeState.disabledBuffs);
@@ -14276,6 +14276,9 @@ function showQuizResult() {
           tokDmg: 0,
           tokCount: 0,
           tokTimer: 0,
+          specialDmg: 0,
+          specialCount: 0,
+          specialTimer: 0,
           stat
         };
       });
@@ -14627,6 +14630,9 @@ function showQuizResult() {
       s.tokDmg = 0;
       s.tokCount = 0;
       s.tokTimer = 0;
+      s.specialDmg = 0;
+      s.specialCount = 0;
+      s.specialTimer = 0;
     });
 
     const btn = document.getElementById("btnFiringPlayPause");
@@ -14661,19 +14667,7 @@ function showQuizResult() {
     updateTimelineSvg();
   }
 
-  function firingAnimLoop(currentTimestamp) {
-    if (!firingRangeState.isRunning) return;
-    const tabEl = document.getElementById("tab-firing-range");
-    if (!tabEl || !tabEl.classList.contains("active")) {
-      pauseFiringSimulation();
-      return;
-    }
-
-    const now = (typeof performance !== "undefined" && performance.now) ? currentTimestamp : Date.now();
-    const dt = Math.min(0.1, (now - firingRangeState.lastTimestamp) / 1000);
-    firingRangeState.lastTimestamp = now;
-    const speed = firingRangeState.speed || 1.0;
-
+  function tickFiringSimulation(dt, speed) {
     firingRangeState.elapsedTime += dt * speed;
 
     firingRangeState.castleSlots.forEach((s, idx) => {
@@ -14733,12 +14727,12 @@ function showQuizResult() {
         }
       }
 
-      // 特技周期ダメージ管理 (Prompt 47)
+      // 特技周期ダメージ管理 (Prompt 47 & 49: 範囲対象数に応じたポップアップ整合)
       const tok = s.stat.tokugiDamage;
       if (tok && !tok.isUnquantifiable && tok.interval > 0) {
         s.tokTimer = (s.tokTimer || 0) + dt * speed;
-        while (s.tokTimer >= tok.interval) {
-          s.tokTimer -= tok.interval;
+        while (s.tokTimer >= tok.interval - 1e-5) {
+          s.tokTimer = Math.max(0, s.tokTimer - tok.interval);
           s.tokCount = (s.tokCount || 0) + 1;
           const tDmg = tok.totalDamagePerTrigger;
           s.tokDmg = (s.tokDmg || 0) + tDmg;
@@ -14753,7 +14747,50 @@ function showQuizResult() {
             isTokugi: true
           });
 
-          spawnDamagePopup(tok.hitDamage, true, false, true);
+          const tokTargets = tok.targets || 1;
+          for (let t = 0; t < tokTargets; t++) {
+            spawnDamagePopup(tok.hitDamage, true, false, true);
+          }
+        }
+      }
+
+      // 特殊能力周期ダメージ管理 (Prompt 49)
+      const sp = s.stat.specialDamage;
+      const isSpecialOn = (s.slot?.specialOn !== false);
+      if (sp && isSpecialOn && sp.cooldown && sp.cooldown > 0 && sp.dps > 0) {
+        s.specialTimer = (s.specialTimer || 0) + dt * speed;
+        while (s.specialTimer >= sp.cooldown - 1e-5) {
+          s.specialTimer = Math.max(0, s.specialTimer - sp.cooldown);
+          s.specialCount = (s.specialCount || 0) + 1;
+          const spDmg = sp.totalDamage;
+          s.specialDmg = (s.specialDmg || 0) + spDmg;
+          s.totalDmg += spDmg;
+          firingRangeState.totalDamage += spDmg;
+
+          firingRangeState.projectiles.push({
+            slotIdx: idx,
+            progress: 0,
+            speed: 5.0,
+            isMagic: Boolean(sp.isDefIgnore),
+            isSpecial: true
+          });
+
+          if (sp.isComboFinisher) {
+            for (let h = 0; h < (sp.comboHits || 4); h++) {
+              spawnDamagePopup(sp.hitDamage, sp.isDefIgnore, false, false, true);
+            }
+            for (let f = 0; f < (sp.finHits || 1); f++) {
+              spawnDamagePopup(sp.finDamage, sp.isDefIgnore, false, false, true);
+            }
+          } else {
+            const spTargets = sp.targets || 1;
+            const spHits = sp.hits || 1;
+            for (let t = 0; t < spTargets; t++) {
+              for (let h = 0; h < spHits; h++) {
+                spawnDamagePopup(sp.hitDamage, sp.isDefIgnore, false, false, true);
+              }
+            }
+          }
         }
       }
 
@@ -14877,6 +14914,24 @@ function showQuizResult() {
     updateFiringUiCounters();
     drawFiringStageCanvas();
 
+    return shouldStop;
+  }
+
+  function firingAnimLoop(currentTimestamp) {
+    if (!firingRangeState.isRunning) return;
+    const tabEl = document.getElementById("tab-firing-range");
+    if (!tabEl || !tabEl.classList.contains("active")) {
+      pauseFiringSimulation();
+      return;
+    }
+
+    const now = (typeof performance !== "undefined" && performance.now) ? currentTimestamp : Date.now();
+    const dt = Math.min(0.1, (now - firingRangeState.lastTimestamp) / 1000);
+    firingRangeState.lastTimestamp = now;
+    const speed = firingRangeState.speed || 1.0;
+
+    const shouldStop = tickFiringSimulation(dt, speed);
+
     if (shouldStop) {
       pauseFiringSimulation();
       showToast(`🎯 試射完了！ タイム: ${formatTime(firingRangeState.elapsedTime)} / 総ダメージ: ${firingRangeState.totalDamage.toLocaleString()}`);
@@ -14885,6 +14940,16 @@ function showQuizResult() {
 
     if (typeof requestAnimationFrame !== "undefined") {
       firingRangeState.animFrameId = requestAnimationFrame(firingAnimLoop);
+    }
+  }
+
+  function stepFiringSimulation(seconds = 1.0, dt = 0.05) {
+    const steps = Math.ceil(seconds / dt);
+    for (let i = 0; i < steps; i++) {
+      const actualDt = Math.min(dt, seconds - i * dt);
+      if (actualDt <= 0) break;
+      const stopped = tickFiringSimulation(actualDt, 1.0);
+      if (stopped) break;
     }
   }
 
@@ -14981,12 +15046,12 @@ function showQuizResult() {
       const curX = from.x + (targetX - from.x) * p.progress;
       const curY = from.y + (targetY - from.y) * p.progress;
 
-      ctx.fillStyle = p.isTokugi ? "#2563eb" : (p.isMagic ? "#9f7aea" : "#ed8936");
+      ctx.fillStyle = p.isSpecial ? "#10b981" : (p.isTokugi ? "#2563eb" : (p.isMagic ? "#9f7aea" : "#ed8936"));
       ctx.beginPath();
       ctx.arc(curX, curY, 4, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.strokeStyle = p.isTokugi ? "rgba(37, 99, 235, 0.4)" : (p.isMagic ? "rgba(159, 122, 234, 0.4)" : "rgba(237, 137, 54, 0.4)");
+      ctx.strokeStyle = p.isSpecial ? "rgba(16, 185, 129, 0.4)" : (p.isTokugi ? "rgba(37, 99, 235, 0.4)" : (p.isMagic ? "rgba(159, 122, 234, 0.4)" : "rgba(237, 137, 54, 0.4)"));
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(from.x, from.y);
@@ -15015,7 +15080,9 @@ function showQuizResult() {
 
     firingRangeState.damagePopups.forEach(pop => {
       let color;
-      if (pop.isTokugi) {
+      if (pop.isSpecial) {
+        color = `rgba(16, 185, 129, ${pop.alpha})`;
+      } else if (pop.isTokugi) {
         color = `rgba(37, 99, 235, ${pop.alpha})`;
       } else if (pop.isStrategy) {
         color = `rgba(246, 224, 94, ${pop.alpha})`;
@@ -15025,13 +15092,13 @@ function showQuizResult() {
         color = `rgba(237, 137, 54, ${pop.alpha})`;
       }
       ctx.fillStyle = color;
-      ctx.font = (pop.isStrategy || pop.isTokugi) ? "bold 15px sans-serif" : "bold 14px sans-serif";
+      ctx.font = (pop.isStrategy || pop.isTokugi || pop.isSpecial) ? "bold 15px sans-serif" : "bold 14px sans-serif";
       ctx.textAlign = "center";
       ctx.fillText(pop.text, pop.x, pop.y);
     });
   }
 
-  function spawnDamagePopup(amount, isMagic, isStrategy, isTokugi) {
+  function spawnDamagePopup(amount, isMagic, isStrategy, isTokugi, isSpecial) {
     const canvas = document.getElementById("firingStageCanvas");
     const targetX = canvas ? (canvas.width - 120) : 680;
     const targetY = canvas ? (canvas.height / 2) : 130;
@@ -15040,7 +15107,9 @@ function showQuizResult() {
     const jitterY = targetY + (Math.random() * 30 - 15);
 
     let text = `+${amount.toLocaleString()}`;
-    if (isTokugi) {
+    if (isSpecial) {
+      text = `特殊 +${amount.toLocaleString()}`;
+    } else if (isTokugi) {
       text = `特技 +${amount.toLocaleString()}`;
     } else if (isStrategy) {
       text = `計略 +${amount.toLocaleString()}`;
@@ -15053,7 +15122,8 @@ function showQuizResult() {
       alpha: 1.0,
       isMagic: isMagic,
       isStrategy: Boolean(isStrategy),
-      isTokugi: Boolean(isTokugi)
+      isTokugi: Boolean(isTokugi),
+      isSpecial: Boolean(isSpecial)
     });
 
     if (firingRangeState.damagePopups.length > 25) {
@@ -15092,11 +15162,13 @@ function showQuizResult() {
         const sCount = s.stratCount || 0;
         const tDmg = s.tokDmg || 0;
         const tCount = s.tokCount || 0;
+        const spDmg = s.specialDmg || 0;
+        const spCount = s.specialCount || 0;
         const isSupportOnly = s.stat?.isBuffWeapon && (!s.stat?.strategyDamage || !s.stat?.strategyDamage.isAttackMode);
         row.innerHTML = `
           <strong>${s.totalDmg.toLocaleString()}</strong>
           <div style="font-size:12px; color:var(--text-sub);">
-            ${isSupportOnly ? '支援専用' : `通常:${normDmg.toLocaleString()} (${s.hits}h)`}${s.stat?.strategyDamage ? ` / 計略:${sDmg.toLocaleString()} (${sCount}回)` : ''}${s.stat?.tokugiDamage && !s.stat.tokugiDamage.isUnquantifiable ? ` / 特技:${tDmg.toLocaleString()} (${tCount}回)` : ''}
+            ${isSupportOnly ? '支援専用' : `通常:${normDmg.toLocaleString()} (${s.hits}h)`}${s.stat?.strategyDamage ? ` / 計略:${sDmg.toLocaleString()} (${sCount}回)` : ''}${s.stat?.tokugiDamage && !s.stat.tokugiDamage.isUnquantifiable ? ` / 特技:${tDmg.toLocaleString()} (${tCount}回)` : ''}${s.stat?.specialDamage && s.stat.specialDamage.cooldown ? ` / 特殊:${spDmg.toLocaleString()} (${spCount}回)` : ''}
           </div>
         `;
       }
@@ -15873,6 +15945,7 @@ function showQuizResult() {
   window.pauseFiringSimulation = pauseFiringSimulation;
   window.resetFiringSimulation = resetFiringSimulation;
   window.calculateFiringCastleStats = calculateFiringCastleStats;
+  window.stepFiringSimulation = stepFiringSimulation;
   window.toggleFiringBuffDisabled = toggleFiringBuffDisabled;
   window.saveFiringSnapshot = saveFiringSnapshot;
   window.deleteFiringSnapshot = deleteFiringSnapshot;

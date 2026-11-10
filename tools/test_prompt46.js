@@ -501,9 +501,110 @@ async function runTests() {
     `comboHits: ${p48Data.comboHits}, finMult: ${p48Data.finMult}, cellText: ${p48Data.cellHasComboText}, breakdownText: ${p48Data.breakdownHasComboText}, restoredNotice: ${p48Data.hasRestoredNotice}`
   );
 
+  // =========================================================================
+  // SECTION 9: PROMPT 49 実況シミュレーション特殊能力ダメージ反映 & 特技範囲ポップアップ
+  // =========================================================================
+  console.log('\n[SECTION 9: Prompt 49 Live Simulation Special Damage & Tokugi Popup Alignment]...');
+
+  const p49Data = await page.evaluate(async () => {
+    const cEdo = window.SCRE_DATA.find(c => c.name.includes('［無疆］江戸城'));
+
+    // 1. Run 60s simulation with special ON
+    window.setParty([{ id: cEdo.id, giantStep: 5, strategyOn: true, specialOn: true }]);
+    window.renderFiringRangeTab();
+    window.resetFiringSimulation();
+
+    const stateOn = window.getFiringRangeState();
+    stateOn.isInfiniteHp = true;
+    stateOn.targetDef = 500;
+    stateOn.targetRed = 0;
+    stateOn.targetCount = 1;
+
+    // Simulate 60 seconds
+    window.stepFiringSimulation(60.0, 0.05);
+
+    const edoSlotOn = stateOn.castleSlots[0];
+    const totalDmgOn = stateOn.totalDamage;
+    const specialDmgOn = edoSlotOn?.specialDmg || 0;
+    const specialCountOn = edoSlotOn?.specialCount || 0;
+    const normalDmgOn = edoSlotOn?.normalDmg || 0;
+    const theoreticalDps = edoSlotOn?.stat.theoreticalDps || 0;
+    const expectedDps60 = theoreticalDps * 60;
+    const ratioOn = totalDmgOn / expectedDps60;
+
+    // 2. Run 60s simulation with special OFF
+    window.setParty([{ id: cEdo.id, giantStep: 5, strategyOn: true, specialOn: false }]);
+    window.renderFiringRangeTab();
+    window.resetFiringSimulation();
+
+    const stateOff = window.getFiringRangeState();
+    stateOff.isInfiniteHp = true;
+    stateOff.targetDef = 500;
+    stateOff.targetRed = 0;
+    stateOff.targetCount = 1;
+
+    window.stepFiringSimulation(60.0, 0.05);
+
+    const edoSlotOff = stateOff.castleSlots[0];
+    const totalDmgOff = stateOff.totalDamage;
+    const specialDmgOff = edoSlotOff?.specialDmg || 0;
+    const specialCountOff = edoSlotOff?.specialCount || 0;
+
+    // 3. Verify Tokugi AoE popup count matches targets (Fix 2 check)
+    const cYaraza = window.SCRE_DATA.find(c => c.name.includes('屋良座森城'));
+    window.setParty([{ id: cYaraza.id, giantStep: 5, strategyOn: true }]);
+    window.renderFiringRangeTab();
+    window.resetFiringSimulation();
+
+    const stateTok = window.getFiringRangeState();
+    stateTok.isInfiniteHp = true;
+    stateTok.targetDef = 500;
+    stateTok.targetRed = 0;
+    stateTok.targetCount = 3; // 3 targets for AoE
+    window.renderFiringRangeTab();
+
+    // Advance 40 seconds so Yarazamori's 40s tokugi triggers once
+    window.stepFiringSimulation(40.0, 0.05);
+
+    const tokPopups = stateTok.damagePopups.filter(p => p.isTokugi);
+    const tokSlot = stateTok.castleSlots[0];
+    const tokDmg = tokSlot?.tokDmg || 0;
+    const tokCount = tokSlot?.tokCount || 0;
+
+    return {
+      totalDmgOn,
+      specialDmgOn,
+      specialCountOn,
+      normalDmgOn,
+      theoreticalDps,
+      expectedDps60,
+      ratioOn,
+      diffOn: Math.abs(totalDmgOn - expectedDps60),
+      totalDmgOff,
+      specialDmgOff,
+      specialCountOff,
+      tokPopupsCount: tokPopups.length,
+      tokDmg,
+      tokCount,
+      tokHitDmg: tokSlot?.stat.tokugiDamage?.hitDamage
+    };
+  });
+
+  assert(
+    'P46追加-03: ［無疆］江戸城の60秒実況シミュレーション累計が、theoreticalDps × 60 とCT端数の範囲内で一致すること（特殊DPS分を含むこと）',
+    p49Data.specialCountOn >= 1 && p49Data.specialDmgOn > 150000 && (p49Data.ratioOn >= 0.95 && p49Data.ratioOn <= 1.05),
+    `totalDmg: ${p49Data.totalDmgOn.toLocaleString()} (expected ~${p49Data.expectedDps60.toLocaleString()}, ratio: ${(p49Data.ratioOn * 100).toFixed(1)}%, specialDmg: ${p49Data.specialDmgOn.toLocaleString()}, count: ${p49Data.specialCountOn})`
+  );
+
+  assert(
+    'P46追加-04: specialOn を無効にした場合、実況累計に特殊能力ダメージが入らないこと',
+    p49Data.specialCountOff === 0 && p49Data.specialDmgOff === 0 && (p49Data.totalDmgOn - p49Data.totalDmgOff >= 150000),
+    `specialDmgOff: ${p49Data.specialDmgOff}, specialCountOff: ${p49Data.specialCountOff}, deltaWithSpecialOn: ${(p49Data.totalDmgOn - p49Data.totalDmgOff).toLocaleString()}`
+  );
+
   await browser.close();
   console.log('\n==============================================');
-  console.log('PROMPT 46 & 48 AUTOMATED TESTS SUMMARY: 21 / 21 PASSED');
+  console.log('PROMPT 46, 48 & 49 AUTOMATED TESTS SUMMARY: 23 / 23 PASSED');
   console.log('==============================================');
 }
 
