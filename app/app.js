@@ -11820,7 +11820,7 @@ function showQuizResult() {
     const baseDmg = Math.max(1, targetBaseAtk - targetDef);
 
     let maxAtkPercent = 0;
-    let sumAtkFlat = 0;
+    let maxAtkFlat = 0;
     let maxDmgDealt = 0;
     let maxDmgTargetMult = 1.0;
 
@@ -11831,7 +11831,7 @@ function showQuizResult() {
         const atkP = (b.atkPercent?.max || 0) + (b.atkPercent?.stackSum || 0);
         if (atkP > maxAtkPercent) maxAtkPercent = atkP;
         const atkF = b.atkFlat?.sum || 0;
-        if (atkF > sumAtkFlat) sumAtkFlat = atkF;
+        if (atkF > maxAtkFlat) maxAtkFlat = atkF;
         const dmgD = (b.dmgDealt?.max || 0) + (b.dmgDealt?.stackSum || 0);
         if (dmgD > maxDmgDealt) maxDmgDealt = dmgD;
 
@@ -11848,7 +11848,7 @@ function showQuizResult() {
     const enemyDmgTakenRatio = (calcResult?.enemyDebuffs?.enemyDmgTakenUp?.max) || 0;
 
     const atkRatio = maxAtkPercent;
-    const atkFlat = sumAtkFlat;
+    const atkFlat = maxAtkFlat;
     const defDownFlat = 0;
     const dmgDealtRatio = maxDmgDealt;
     const targetMultiplier = maxDmgTargetMult;
@@ -12004,7 +12004,7 @@ function showQuizResult() {
       name: "術反射",
       matcher: (c, fullText) => {
         // 物理直接攻撃武器: 歌舞・陣貝・茶器（支援回復）、本（特殊計略）、法術・杖・祓串・鈴（術属性）を除外した物理攻撃武器種
-        if (["刀", "槍", "槌", "拳", "弓", "石弓", "鉄砲", "大砲", "投剣", "鞭", "鎌", "軍配者", "盾", "双剣", "ランス", "軍船", "その他"].includes(c.weapon)) {
+        if (["刀", "槍", "槌", "拳", "弓", "石弓", "鉄砲", "大砲", "投剣", "鞭", "鎌", "戦棍", "盾", "双剣", "ランス", "軍船", "その他"].includes(c.weapon)) {
           return "［物理アタッカー］術反射に影響されない物理直接火力";
         }
         const m = fullText.match(/物理ダメージ|術ダメージを物理|術無効/);
@@ -12717,9 +12717,19 @@ function showQuizResult() {
     if (targetInput) targetInput.value = currentDelibTarget;
     const progressPct = totalStages > 0 ? ((clearedCount / totalStages) * 100).toFixed(1) : "0.0";
 
+    const targetBtns = document.querySelectorAll(".delib-target-btn");
+    targetBtns.forEach(btn => {
+      const tVal = parseInt(btn.dataset.target, 10);
+      if (tVal === currentDelibTarget) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+
     bannerEl.innerHTML = `
       <div>
-        <div style="font-size:12px; opacity:0.85;">地獄ステージ進捗状況（全${totalStages}ステージ）</div>
+        <div style="font-size:12px; opacity:0.85;">地獄ステージ進捗状況（全${totalStages}ステージ ｜ 個人目標: <strong style="color:#f1c40f;">${currentDelibTarget} 審議</strong>）</div>
         <div style="font-size:18px; font-weight:bold; margin-top:2px;">
           クリア済み: <span style="color:#f1c40f;">${clearedCount}</span> / <span>${totalStages}</span> ステージ
           <span style="font-size:12px; font-weight:normal; margin-left:8px; color:#e2e8f0;">（未クリア: <strong style="color:#e74c3c;">${totalStages - clearedCount}</strong>）</span>
@@ -12727,7 +12737,8 @@ function showQuizResult() {
         <div style="font-size:12px; color:#cbd5e1; margin-top:3px;">※ 各ステージの審議達成数・攻略詳細は攻略タブのステージ詳細を参照してください。</div>
       </div>
       <div style="text-align:right;">
-        <div style="font-size:12px; opacity:0.85;">ステージ達成率</div>
+        <div style="font-size:12px; opacity:0.85;">目標審議数: <strong style="color:#f1c40f; font-size:14px;">${currentDelibTarget}</strong></div>
+        <div style="font-size:12px; opacity:0.85; margin-top:2px;">ステージ達成率</div>
         <div style="font-size:20px; font-weight:bold; color:#68d391;">${progressPct}%</div>
       </div>
     `;
