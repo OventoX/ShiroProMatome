@@ -335,6 +335,12 @@ function assert(title, condition, detail = '') {
       immuneDefIgnore: true
     });
 
+    // Prompt 38: Verify atk_percent disable on an atk% buffed party (e.g. 姫路城 [atkPercent 35%])
+    const atkParty = [{ id: "姫路城", strategyOn: true, specialOn: true }];
+    const baseAtkDps = window.computePartyFiringDps({ party: atkParty, targetDef: 0, disabledBuffs: new Set() }).totalDps;
+    const noAtkPercDps = window.computePartyFiringDps({ party: atkParty, targetDef: 0, disabledBuffs: new Set(["atk_percent"]) }).totalDps;
+    const atkPercDropped = noAtkPercDps < baseAtkDps;
+
     const buffListEl = document.getElementById("firingBuffContributionList");
     const buffCards = buffListEl ? buffListEl.querySelectorAll(".firing-buff-card") : [];
 
@@ -346,13 +352,16 @@ function assert(title, condition, detail = '') {
       dmgMultDropped: noDmgMult.totalDps < baseRes.totalDps,
       gapDropped: noGap.totalDps < baseRes.totalDps,
       spdDropped: noSpd.totalDps < baseRes.totalDps,
+      baseAtkDps,
+      noAtkPercDps,
+      atkPercDropped,
       cardCount: buffCards.length
     };
   });
 
-  assert('P36-07: Disabling active buffs individually decreases DPS monotonically with UI toggles present',
-    buffCheck.dmgMultDropped && buffCheck.gapDropped && buffCheck.spdDropped && buffCheck.cardCount > 0,
-    `base: ${buffCheck.baseDps.toFixed(0)}, noDmgMult: ${buffCheck.noDmgMultDps.toFixed(0)}, noGap: ${buffCheck.noGapDps.toFixed(0)}, noSpd: ${buffCheck.noSpdDps.toFixed(0)}, cards: ${buffCheck.cardCount}`);
+  assert('P36-07: Disabling active buffs individually decreases DPS monotonically with UI toggles present (including atk_percent)',
+    buffCheck.dmgMultDropped && buffCheck.gapDropped && buffCheck.spdDropped && buffCheck.atkPercDropped && buffCheck.cardCount > 0,
+    `base: ${buffCheck.baseDps.toFixed(0)}, noDmgMult: ${buffCheck.noDmgMultDps.toFixed(0)}, noGap: ${buffCheck.noGapDps.toFixed(0)}, noSpd: ${buffCheck.noSpdDps.toFixed(0)}, atkPercDrop: ${buffCheck.baseAtkDps}➔${buffCheck.noAtkPercDps}, cards: ${buffCheck.cardCount}`);
 
   // -------------------------------------------------------------
   // Test 8: Snapshot Save & Side-by-Side Comparison
@@ -446,6 +455,75 @@ function assert(title, condition, detail = '') {
   assert('P36-09: Strict font-size floor (>= 12px) across all Firing Range elements',
     fontCheck.violations && fontCheck.violations.length === 0,
     `min size: ${fontCheck.minSize}px, violations: ${JSON.stringify(fontCheck.violations)}`);
+
+  // -------------------------------------------------------------
+  // Test 10: 鼓舞（shareAtk）DPS 反映回帰テスト (Prompt 38)
+  // -------------------------------------------------------------
+  console.log('\n[TEST 10] 鼓舞（shareAtk）DPS 反映回帰テスト...');
+
+  const shareCheck = await page.evaluate(() => {
+    const duat = window.SCRE_DATA.find(x => x.name === 'ドゥアト');
+    const nagoya = window.SCRE_DATA.find(x => x.name === '名古屋城');
+    const shareParty = [
+      { id: 'ドゥアト', strategyOn: true, specialOn: true },
+      { id: '名古屋城', strategyOn: false, specialOn: false }
+    ];
+
+    const withShare = window.computePartyFiringDps({ party: shareParty, targetDef: 500, disabledBuffs: new Set() });
+    const noShare = window.computePartyFiringDps({ party: shareParty, targetDef: 500, disabledBuffs: new Set(['share_atk']) });
+
+    const calcData = window.calculateBuffs(shareParty);
+    const stWithShare = window.calculateFiringCastleStats(nagoya, shareParty[1], 500, 0, 1, new Set(), false, calcData);
+    const stNoShare = window.calculateFiringCastleStats(nagoya, shareParty[1], 500, 0, 1, new Set(['share_atk']), false, calcData);
+
+    return {
+      withShareDps: withShare.totalDps,
+      noShareDps: noShare.totalDps,
+      dpsIncreased: withShare.totalDps > noShare.totalDps,
+      nagoyaAtkWithShare: stWithShare.finalAtk,
+      nagoyaAtkNoShare: stNoShare.finalAtk,
+      atkIncreased: stWithShare.finalAtk > stNoShare.finalAtk
+    };
+  });
+
+  assert('P36-10: 鼓舞（shareAtk）が攻撃力および射撃訓練場DPSに正常に反映される',
+    shareCheck.dpsIncreased && shareCheck.atkIncreased,
+    `Nagoya Atk: ${shareCheck.nagoyaAtkNoShare} ➔ ${shareCheck.nagoyaAtkWithShare} (+${shareCheck.nagoyaAtkWithShare - shareCheck.nagoyaAtkNoShare}), Party DPS: ${shareCheck.noShareDps} ➔ ${shareCheck.withShareDps}`);
+
+  // -------------------------------------------------------------
+  // Test 11: 地獄地形ボーナス 1.3倍 回帰テスト (Prompt 38)
+  // -------------------------------------------------------------
+  console.log('\n[TEST 11] 地獄地形ボーナス 1.3倍 回帰テスト...');
+
+  const hellCheck = await page.evaluate(() => {
+    const enma = window.SCRE_DATA.find(x => x.name === '閻魔庁');
+    const customParty = [{ id: '閻魔庁', strategyOn: false, specialOn: false }];
+
+    const calcNoTerrain = window.calculateBuffs(customParty, '');
+    const stNoTerrain = window.calculateFiringCastleStats(enma, customParty[0], 0, 0, 1, new Set(), false, calcNoTerrain);
+
+    const calcHell = window.calculateBuffs(customParty, '地獄');
+    const stHell = window.calculateFiringCastleStats(enma, customParty[0], 0, 0, 1, new Set(), false, calcHell);
+
+    const expectedHellAtk = Math.floor(stNoTerrain.finalAtk * 1.3);
+    const expectedPlainAtk = Math.floor(stNoTerrain.finalAtk * 1.25);
+    const isExact130 = stHell.finalAtk === expectedHellAtk;
+    const isHigherThan125 = stHell.finalAtk > expectedPlainAtk;
+
+    return {
+      name: enma.name,
+      baseAtk: stNoTerrain.finalAtk,
+      hellAtk: stHell.finalAtk,
+      expectedHellAtk,
+      expectedPlainAtk,
+      isExact130,
+      isHigherThan125
+    };
+  });
+
+  assert('P36-11: 地獄地形で一致する城娘の攻撃力が通常地形(1.25倍)ではなく1.3倍で計算される',
+    hellCheck.isExact130 && hellCheck.isHigherThan125,
+    `[${hellCheck.name}] Base: ${hellCheck.baseAtk} ➔ Hell: ${hellCheck.hellAtk} (1.3x exact = ${hellCheck.expectedHellAtk}, 1.25x would be ${hellCheck.expectedPlainAtk})`);
 
   console.log('\n======================================================');
   console.log(`PROMPT 36 AUTOMATED TESTS SUMMARY: ${passed} / ${total} PASSED`);

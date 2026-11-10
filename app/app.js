@@ -8604,6 +8604,74 @@ function renderChallengeUI() {
   }
 }
 
+  // --- 武器フレーム表 (Wiki / PileBunker 30fps 標準フレーム準拠) ---
+  // 刀〜軍配者の20種: 標準フレーム準拠
+  // 盾・双剣・軍船・ランス・茶器・その他: 標準フレーム未検証のため推定値（攻撃25f/隙25f）として設定（捏造防止ルール）
+  const SCRE_WEAPON_FRAMES = {
+    "刀": { atk: 20, gap: 23, hits: 1, type: "physical", aoe: false },
+    "槍": { atk: 17, gap: 19, hits: 1, type: "physical", aoe: false },
+    "槌": { atk: 31, gap: 37, hits: 1, type: "physical", aoe: true },
+    "拳": { atk: 11, gap: 13, hits: 2, hitsMax: 5, type: "physical", aoe: false },
+    "弓": { atk: 18, gap: 18, hits: 1, type: "physical", aoe: false },
+    "石弓": { atk: 22, gap: 23, hits: 1, type: "physical", aoe: false },
+    "鉄砲": { atk: 26, gap: 34, hits: 1, type: "physical", aoe: false },
+    "大砲": { atk: 41, gap: 49, hits: 1, type: "physical", aoe: true },
+    "歌舞": { atk: 43, gap: 27, hits: 1, type: "buff", aoe: true },
+    "法術": { atk: 25, gap: 35, hits: 1, type: "magic", aoe: false },
+    "鈴": { atk: 45, gap: 25, hits: 1, type: "magic", aoe: true },
+    "杖": { atk: 28, gap: 32, hits: 1, type: "magic", aoe: false },
+    "祓串": { atk: 22, gap: 24, hits: 2, type: "magic", aoe: false },
+    "本": { atk: 25, gap: 25, hits: 1, type: "special", aoe: false },
+    "投剣": { atk: 18, gap: 18, hits: 2, type: "physical", aoe: false },
+    "鞭": { atk: 20, gap: 22, hits: 1, type: "physical", aoe: false },
+    "戦棍": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false },
+    "鎌": { atk: 19, gap: 21, hits: 1, type: "physical", aoe: false },
+    "陣貝": { atk: 40, gap: 30, hits: 1, type: "buff", aoe: true },
+    "軍配者": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false },
+    // 推定値（未検証武器種・フォールバック準拠）
+    "盾": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true },
+    "双剣": { atk: 25, gap: 25, hits: 2, type: "physical", aoe: false, isEstimate: true },
+    "軍船": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: true, isEstimate: true },
+    "ランス": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true },
+    "茶器": { atk: 25, gap: 25, hits: 1, type: "buff", aoe: true, isEstimate: true },
+    "その他": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true }
+  };
+  window.SCRE_WEAPON_FRAMES = SCRE_WEAPON_FRAMES;
+
+// --- Prompt 38: 防御無視・術属性判定共通関数 (統一チェッカー) ---
+function checkDefenseIgnore(castle, buffs = {}, options = {}) {
+  if (!castle) return { isMagic: false, hasDefIgnoreSkill: false, effectiveIgnore: false };
+  const weapon = castle.weapon || "";
+  const wf = (typeof SCRE_WEAPON_FRAMES !== "undefined" && SCRE_WEAPON_FRAMES[weapon]) || {};
+
+  // 1. 術属性武器（法術・杖・祓串・鈴）: 城プロREのゲーム仕様として常に敵防御力を無視して術ダメージを与える
+  const isMagic = Boolean(wf.type === "magic" || ["法術", "杖", "祓串", "鈴"].includes(weapon));
+
+  // 2. 防御無視スキル/特技/計略（defIgnore）: 特技・計略効果により敵の防御力を無視
+  const hasDefIgnoreSkill = Boolean(
+    buffs &&
+    buffs.defIgnore &&
+    buffs.defIgnore.length > 0 &&
+    !(options && options.disabledDefIgnore)
+  );
+
+  // 3. 防御無視耐性（immuneDefIgnore）時の処理:
+  //    - 術属性武器（法術・杖・祓串・鈴）は本来の術ダメージ属性のため、防御無視耐性下でも無視を維持
+  //    - スキル等による防御無視効果は無効化（通常の物理防御減算が適用される）
+  let effectiveIgnore = false;
+  if (options && options.immuneDefIgnore) {
+    effectiveIgnore = isMagic;
+  } else {
+    effectiveIgnore = isMagic || hasDefIgnoreSkill;
+  }
+
+  return {
+    isMagic,
+    hasDefIgnoreSkill,
+    effectiveIgnore
+  };
+}
+window.checkDefenseIgnore = checkDefenseIgnore;
 
 // --- Prompt 9: ロマン砲シミュレータ (Roman Cannon Simulator) ---
 let romanCannonSlotIdx = 0;
@@ -8751,15 +8819,12 @@ function renderRomanSimulator() {
   const enemyHp = Math.max(1, parseInt(document.getElementById("romanEnemyHp")?.value, 10) || 50000);
   const enemyRed = Math.max(0, Math.min(90, parseFloat(document.getElementById("romanEnemyRed")?.value) || 0));
 
-  // Enemy Effective DEF
-  const isMagicOrIgnore = (mainCastle.weapon === "杖" || mainCastle.weapon === "鈴" || mainCastle.weapon === "投剣");
-  const hasDefIgnoreSkill = calcData && calcData.buffs && calcData.buffs.defIgnore && calcData.buffs.defIgnore.length > 0;
+  // Enemy Effective DEF (Prompt 38: checkDefenseIgnore 共通判定)
+  const defIgnoreInfo = checkDefenseIgnore(mainCastle, calcData?.buffs);
+  const effectiveIgnore = defIgnoreInfo.effectiveIgnore;
+  const isMagicOrIgnore = defIgnoreInfo.isMagic;
   const defDownPerc = calcResult.enemyDebuffs?.enemyDefDown?.max || 0;
-  let effDef = Math.max(0, Math.floor(enemyDef * (1.0 - defDownPerc / 100)));
-  const effectiveIgnore = isMagicOrIgnore || hasDefIgnoreSkill;
-  if (effectiveIgnore) {
-    effDef = 0;
-  }
+  let effDef = effectiveIgnore ? 0 : Math.max(0, Math.floor(enemyDef * (1.0 - defDownPerc / 100)));
 
   // dmgDealtTarget (与えるダメージ) multiplies ATK BEFORE subtracting enemy defense! (Prompt 13)
   const activeTargetSources = calcData && calcData.buffs ? calcData.buffs.dmgDealtTarget.sources.filter(s => s.applied !== false) : [];
@@ -9177,10 +9242,9 @@ function renderDamageChecker(providedCalcResult) {
     const calcStats = calcData ? calcData.calculatedStats : (c.stats ? c.stats.giant5 : { atk: 100 });
     const finalAtk = Math.round(calcStats.atk || 100);
 
-    // Check defense ignore: 杖, 投剣, 鈴, or skills
-    const isMagicOrIgnore = (c.weapon === "杖" || c.weapon === "鈴" || c.weapon === "投剣");
-    const hasDefIgnoreSkill = !!(calcData && calcData.buffs && calcData.buffs.defIgnore && calcData.buffs.defIgnore.length > 0);
-    const effectiveIgnore = !immuneDefIgnore && (isMagicOrIgnore || hasDefIgnoreSkill);
+    // Check defense ignore (Prompt 38: checkDefenseIgnore 共通判定)
+    const defIgnoreInfo = checkDefenseIgnore(c, calcData?.buffs, { immuneDefIgnore });
+    const effectiveIgnore = defIgnoreInfo.effectiveIgnore;
 
     const defDownPerc = calcResult.enemyDebuffs?.enemyDefDown?.max || 0;
     const effDef = effectiveIgnore ? 0 : Math.max(0, Math.floor(enemyDef * (1.0 - defDownPerc / 100)));
@@ -12712,37 +12776,7 @@ function showQuizResult() {
   }
 
   // --- 機能7: フレーム精密DPS＋敵防御スライダー ---
-  // 刀〜軍配者の20種: Wiki / PileBunker 30fps 標準フレーム準拠
-  // 盾・双剣・軍船・ランス・茶器・その他: 標準フレーム未検証のため推定値（攻撃25f/隙25f）として設定（捏造防止ルール）
-  const SCRE_WEAPON_FRAMES = {
-    "刀": { atk: 20, gap: 23, hits: 1, type: "physical", aoe: false },
-    "槍": { atk: 17, gap: 19, hits: 1, type: "physical", aoe: false },
-    "槌": { atk: 31, gap: 37, hits: 1, type: "physical", aoe: true },
-    "拳": { atk: 11, gap: 13, hits: 2, hitsMax: 5, type: "physical", aoe: false },
-    "弓": { atk: 18, gap: 18, hits: 1, type: "physical", aoe: false },
-    "石弓": { atk: 22, gap: 23, hits: 1, type: "physical", aoe: false },
-    "鉄砲": { atk: 26, gap: 34, hits: 1, type: "physical", aoe: false },
-    "大砲": { atk: 41, gap: 49, hits: 1, type: "physical", aoe: true },
-    "歌舞": { atk: 43, gap: 27, hits: 1, type: "buff", aoe: true },
-    "法術": { atk: 25, gap: 35, hits: 1, type: "magic", aoe: false },
-    "鈴": { atk: 45, gap: 25, hits: 1, type: "magic", aoe: true },
-    "杖": { atk: 28, gap: 32, hits: 1, type: "magic", aoe: false },
-    "祓串": { atk: 22, gap: 24, hits: 2, type: "magic", aoe: false },
-    "本": { atk: 25, gap: 25, hits: 1, type: "special", aoe: false },
-    "投剣": { atk: 18, gap: 18, hits: 2, type: "physical", aoe: false },
-    "鞭": { atk: 20, gap: 22, hits: 1, type: "physical", aoe: false },
-    "戦棍": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false },
-    "鎌": { atk: 19, gap: 21, hits: 1, type: "physical", aoe: false },
-    "陣貝": { atk: 40, gap: 30, hits: 1, type: "buff", aoe: true },
-    "軍配者": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false },
-    // 推定値（未検証武器種・フォールバック準拠）
-    "盾": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true },
-    "双剣": { atk: 25, gap: 25, hits: 2, type: "physical", aoe: false, isEstimate: true },
-    "軍船": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: true, isEstimate: true },
-    "ランス": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true },
-    "茶器": { atk: 25, gap: 25, hits: 1, type: "buff", aoe: true, isEstimate: true },
-    "その他": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true }
-  };
+  // (SCRE_WEAPON_FRAMES は上部で定義済み)
 
   var currentDetailDpsEnemyDef = 500;
 
@@ -12905,31 +12939,39 @@ function showQuizResult() {
     { id: "def3000", name: "超高防御ゴーレム (防御 3,000 / HP 100万)", def: 3000, hp: 1000000, isInfinite: false, red: 0 }
   ];
 
-  function calculateFiringCastleStats(c, slot, targetDef, targetRed, targetCount, disabledBuffs) {
+  function calculateFiringCastleStats(c, slot, targetDef, targetRed, targetCount, disabledBuffs, immuneDefIgnore, customCalcResult) {
     if (!c) return null;
-    const calcResult = calculateBuffs();
+    const calcResult = customCalcResult || calculateBuffs();
     const calcData = calcResult.perCastle[c.id];
     const b = calcData?.buffs || {};
 
     const baseAtk = parseStatNumber((c.stats && c.stats.giant5 && c.stats.giant5.atk) || (c.stats && c.stats.atk) || 500);
     const isTerrainMatch = calcData?.calculatedStats?.isTerrainMatch || false;
-    const terrainMult = isTerrainMatch ? 1.25 : 1.0;
+    const terrain = calcResult?.currentTerrain || (typeof currentTerrain !== "undefined" ? currentTerrain : "");
+    const terrainMult = isTerrainMatch ? (terrain === "地獄" ? 1.3 : 1.25) : 1.0;
 
-    const atkPerc = (disabledBuffs && disabledBuffs.has("atk_percent")) ? 0 : (((b.atk?.max || 0) + (b.atk?.stackSum || 0)) / 100);
+    const atkPerc = (disabledBuffs && disabledBuffs.has("atk_percent")) ? 0 : (((b.atkPercent?.max || 0) + (b.atkPercent?.stackSum || 0)) / 100);
     const atkFlat = (disabledBuffs && disabledBuffs.has("atk_flat")) ? 0 : (b.atkFlat?.sum || 0);
     let shareAtk = 0;
-    if (b.shares) {
+    if (!(disabledBuffs && disabledBuffs.has("share_atk")) && b.shares) {
       b.shares.forEach(sh => {
-        if (sh.stat === "shareAtk") shareAtk += (sh.shareVal || 0);
+        if (sh.stat === "shareAtk") {
+          const prov = getCastleById(sh.shareSource);
+          if (prov && prov.stats && prov.stats.giant5) {
+            shareAtk += Math.floor(prov.stats.giant5.atk * (sh.value / 100));
+          }
+        }
       });
     }
 
     const finalAtk = Math.floor((baseAtk * terrainMult) * (1 + atkPerc) + atkFlat + shareAtk);
 
     const wf = SCRE_WEAPON_FRAMES[c.weapon] || { atk: 25, gap: 25, hits: 1, type: "physical", isEstimate: true };
-    const isMagicOrIgnore = (wf.type === "magic" || ["杖", "鈴", "投剣", "法術"].includes(c.weapon));
-    const hasDefIgnoreSkill = !!(b.defIgnore && b.defIgnore.length > 0 && !(disabledBuffs && disabledBuffs.has("def_ignore")));
-    const effectiveIgnore = isMagicOrIgnore || hasDefIgnoreSkill;
+    const defIgnoreInfo = checkDefenseIgnore(c, b, {
+      immuneDefIgnore: Boolean(immuneDefIgnore),
+      disabledDefIgnore: Boolean(disabledBuffs && disabledBuffs.has("def_ignore"))
+    });
+    const effectiveIgnore = defIgnoreInfo.effectiveIgnore;
 
     const defDownPerc = (disabledBuffs && disabledBuffs.has("enemy_def_down")) ? 0 : (calcResult.enemyDebuffs?.enemyDefDown?.max || 0);
     const effDef = effectiveIgnore ? 0 : Math.max(0, Math.floor(targetDef * (1.0 - defDownPerc / 100)));
@@ -12972,8 +13014,13 @@ function showQuizResult() {
     const hits = wf.hits || 1;
     let effectiveTargets = 1;
     if (targetCount > 1) {
-      if (["大砲", "鈴", "歌舞"].includes(c.weapon)) effectiveTargets = targetCount;
-      else if (["投剣", "法術"].includes(c.weapon)) effectiveTargets = Math.min(targetCount, 2);
+      if (wf.aoe === true) {
+        // AoE武器（大砲、鈴、歌舞、槌、陣貝など）は範囲内の全対象を同時攻撃
+        effectiveTargets = targetCount;
+      } else if (["投剣", "祓串"].includes(c.weapon)) {
+        // 同時マルチロック攻撃武器（投剣・祓串は基本2体同時攻撃）
+        effectiveTargets = Math.min(targetCount, 2);
+      }
     }
 
     const cycleDamage = finalHitDamage * hits * effectiveTargets;
@@ -12985,6 +13032,8 @@ function showQuizResult() {
       finalAtk: finalAtk,
       effDef: effDef,
       effectiveIgnore: effectiveIgnore,
+      isMagic: defIgnoreInfo.isMagic,
+      hasDefIgnoreSkill: defIgnoreInfo.hasDefIgnoreSkill,
       dmgTargetMult: dmgTargetMult,
       baseDamage: baseDamage,
       dmgDealtPerc: dmgDealtPerc,
@@ -12992,6 +13041,7 @@ function showQuizResult() {
       finalHitDamage: finalHitDamage,
       hits: hits,
       effectiveTargets: effectiveTargets,
+      effectiveRange: calcData?.calculatedStats?.range || (c.stats && c.stats.giant5 && c.stats.giant5.range) || 300,
       baseAtkFrames: wf.atk,
       baseGapFrames: wf.gap,
       effAtkFrames: effAtkFrames,
@@ -13123,6 +13173,7 @@ function showQuizResult() {
 
     let hasAtkPerc = false;
     let hasAtkFlat = false;
+    let hasShareAtk = false;
     let hasDmgDealt = false;
     let hasDmgTarget = false;
     let hasAtkSpeed = false;
@@ -13134,8 +13185,9 @@ function showQuizResult() {
     for (const cid in calcResult.perCastle) {
       const b = calcResult.perCastle[cid].buffs;
       if (b) {
-        if ((b.atk?.max || 0) + (b.atk?.stackSum || 0) > 0) hasAtkPerc = true;
+        if ((b.atkPercent?.max || 0) + (b.atkPercent?.stackSum || 0) > 0) hasAtkPerc = true;
         if ((b.atkFlat?.sum || 0) > 0) hasAtkFlat = true;
+        if (b.shares && b.shares.some(sh => sh.stat === "shareAtk")) hasShareAtk = true;
         if ((b.dmgDealt?.max || 0) + (b.dmgDealt?.stackSum || 0) > 0) hasDmgDealt = true;
         if (b.dmgDealtTarget?.sources?.length > 0) hasDmgTarget = true;
         if ((b.atkSpeed?.max || 0) + (b.atkSpeed?.stackSum || 0) > 0) hasAtkSpeed = true;
@@ -13147,6 +13199,7 @@ function showQuizResult() {
     const availableBuffs = [
       { key: "atk_percent", label: "攻撃割合上昇 (atk%)", active: hasAtkPerc },
       { key: "atk_flat", label: "攻撃固定値上昇 (atkFlat)", active: hasAtkFlat },
+      { key: "share_atk", label: "鼓舞・攻撃共有 (shareAtk)", active: hasShareAtk },
       { key: "dmg_dealt", label: "与ダメージ上昇 (dmgDealt%)", active: hasDmgDealt },
       { key: "dmg_dealt_target", label: "与えるダメージ倍率 (dmgTarget)", active: hasDmgTarget },
       { key: "atk_speed", label: "攻撃速度上昇 (atkSpeed%)", active: hasAtkSpeed },
@@ -13415,6 +13468,21 @@ function showQuizResult() {
       }
 
       const c = s.castle;
+
+      // 射程円 (Range Circle: calculatedStats.range に基づく相対円)
+      const rangeVal = s.stat?.effectiveRange || (c.stats && c.stats.giant5 && c.stats.giant5.range) || 300;
+      const rangeRadius = Math.max(30, Math.min(180, Math.round(rangeVal * 0.22)));
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, rangeRadius, 0, Math.PI * 2);
+      ctx.fillStyle = s.stat?.effectiveIgnore ? "rgba(159, 122, 234, 0.05)" : "rgba(66, 153, 225, 0.05)";
+      ctx.fill();
+      ctx.strokeStyle = s.stat?.effectiveIgnore ? "rgba(159, 122, 234, 0.35)" : "rgba(66, 153, 225, 0.35)";
+      ctx.lineWidth = 1;
+      ctx.setLineDash([3, 3]);
+      ctx.stroke();
+      ctx.restore();
+
       ctx.fillStyle = "#2b6cb0";
       ctx.beginPath(); ctx.arc(cx, cy, 22, 0, Math.PI * 2); ctx.fill();
       ctx.strokeStyle = "#4299e1";
@@ -14163,30 +14231,36 @@ function showQuizResult() {
     };
   }
 
-  function computePartyFiringDps(options = {}) {
-    const targetDef = typeof options.targetDef === "number" ? options.targetDef : (firingRangeState.targetDef || 500);
-    const targetRed = typeof options.damageReduction === "number" ? options.damageReduction : (firingRangeState.targetRed || 0);
-    const targetCount = options.targetCount || firingRangeState.targetCount || 1;
-    const disabledBuffs = options.disabledBuffs || firingRangeState.disabledBuffs || new Set();
-    const immuneDefIgnore = !!options.immuneDefIgnore;
+  function computePartyFiringDps(optionsOrParty = {}, argDef, argRed, argCount, argDisabled, argImmune) {
+    let targetDef, targetRed, targetCount, disabledBuffs, immuneDefIgnore, targetParty;
+    if (Array.isArray(optionsOrParty)) {
+      targetParty = optionsOrParty;
+      targetDef = typeof argDef === "number" ? argDef : (firingRangeState.targetDef || 500);
+      targetRed = typeof argRed === "number" ? argRed : (firingRangeState.targetRed || 0);
+      targetCount = typeof argCount === "number" ? argCount : (firingRangeState.targetCount || 1);
+      disabledBuffs = argDisabled instanceof Set ? argDisabled : (firingRangeState.disabledBuffs || new Set());
+      immuneDefIgnore = Boolean(argImmune);
+    } else {
+      const opts = optionsOrParty || {};
+      targetParty = opts.party || party;
+      targetDef = typeof opts.targetDef === "number" ? opts.targetDef : (firingRangeState.targetDef || 500);
+      targetRed = typeof opts.damageReduction === "number" ? opts.damageReduction : (firingRangeState.targetRed || 0);
+      targetCount = typeof opts.targetCount === "number" ? opts.targetCount : (firingRangeState.targetCount || 1);
+      disabledBuffs = opts.disabledBuffs instanceof Set ? opts.disabledBuffs : (firingRangeState.disabledBuffs || new Set());
+      immuneDefIgnore = Boolean(opts.immuneDefIgnore);
+    }
 
-    const partyCastles = party.map((slot, idx) => ({
+    const partyCastles = targetParty.map((slot, idx) => ({
       slot,
       castle: slot ? getCastleById(slot.id) : null,
       idx
     })).filter(item => item.castle);
 
+    const customCalcResult = calculateBuffs(targetParty, currentTerrain);
+
     let totalDps = 0;
     const slotStats = partyCastles.map(item => {
-      const st = calculateFiringCastleStats(item.castle, item.slot, targetDef, targetRed, targetCount, disabledBuffs);
-      if (immuneDefIgnore && st.effectiveIgnore && !["杖", "鈴", "法術"].includes(item.castle.weapon)) {
-        const rawAtkWithTarget = Math.floor(st.finalAtk * st.dmgTargetMult);
-        const rawBaseDamage = Math.max(Math.floor(rawAtkWithTarget * 0.1), rawAtkWithTarget - targetDef);
-        const rawFinalHit = Math.max(1, Math.floor(rawBaseDamage * ((1 + st.dmgDealtPerc) * (1 + st.enemyDmgTakenPerc)) * (1.0 - (targetRed / 100))));
-        const cycleDmg = rawFinalHit * st.hits * st.effectiveTargets;
-        st.finalHitDamage = rawFinalHit;
-        st.theoreticalDps = Math.round(cycleDmg * st.attacksPerSec);
-      }
+      const st = calculateFiringCastleStats(item.castle, item.slot, targetDef, targetRed, targetCount, disabledBuffs, immuneDefIgnore, customCalcResult);
       totalDps += st.theoreticalDps;
       return {
         castle: item.castle,
