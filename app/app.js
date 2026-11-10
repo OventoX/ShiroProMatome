@@ -412,7 +412,7 @@
     const newStatus = (forceStatus !== null) ? forceStatus : !existing.cleared;
     data[canonical] = {
       cleared: newStatus,
-      party: existing.party || (newStatus ? party.map(s => s.id).filter(Boolean) : []),
+      party: existing.party || (newStatus ? party.filter(Boolean).map(s => s.id) : []),
       savedAt: new Date().toISOString()
     };
     saveStageProgressData(data);
@@ -422,7 +422,7 @@
   function savePartyForStage(stageTitle) {
     const canonical = canonicalStageTitle(stageTitle);
     const data = getStageProgressData();
-    const partyIds = party.map(s => s.id).filter(Boolean);
+    const partyIds = party.filter(Boolean).map(s => s.id);
     data[canonical] = {
       cleared: true,
       party: partyIds,
@@ -1522,12 +1522,19 @@
   document.getElementById("missingChecklist").addEventListener("click", e => {
     if (e.target.classList.contains("candidate-chip")) {
       const id = e.target.getAttribute("data-id");
-      if (party.length >= 8) {
+      if (party.filter(Boolean).length >= 8) {
         alert("編成枠がいっぱいです(最大8体)。");
         return;
       }
       pushUndoSnapshot();
-      party.push({ id, strategyOn: true, specialOn: false });
+      const c = getCastleById(id);
+      const newMember = { id, strategyOn: true, specialOn: !!(c && c.special), giantStep: 5 };
+      const emptyIdx = party.findIndex(p => !p);
+      if (emptyIdx !== -1) {
+        party[emptyIdx] = newMember;
+      } else {
+        party.push(newMember);
+      }
       saveParty();
       renderDashboard();
     }
@@ -2013,12 +2020,18 @@
       if (existingIdx !== -1) {
         party.splice(existingIdx, 1);
       } else {
-        if (party.length >= 8) {
+        if (party.filter(Boolean).length >= 8) {
           alert("編成枠がいっぱいです(最大8体)。");
           return;
         }
         const c = getCastleById(togglePartyId);
-        party.push({ id: togglePartyId, strategyOn: true, specialOn: !!(c && c.special) });
+        const newMember = { id: togglePartyId, strategyOn: true, specialOn: !!(c && c.special), giantStep: 5 };
+        const emptyIdx = party.findIndex(p => !p);
+        if (emptyIdx !== -1) {
+          party[emptyIdx] = newMember;
+        } else {
+          party.push(newMember);
+        }
       }
       saveParty();
       renderDashboard();
@@ -2442,20 +2455,28 @@
     const newMember = { id: c.id, strategyOn: true, specialOn: !!c.special, giantStep: 5 };
 
     if (existingIdx !== -1) {
-      // Already in party: move/reorder to target slot without losing any other member
-      const [itemMember] = party.splice(existingIdx, 1);
-      const memberToPlace = itemMember || newMember;
-      const targetIdx = (targetSlotIndex !== null) ? Math.min(targetSlotIndex, party.length) : party.length;
-      party.splice(targetIdx, 0, memberToPlace);
+      if (targetSlotIndex !== null && targetSlotIndex >= 0 && targetSlotIndex < 8) {
+        while (party.length <= targetSlotIndex) party.push(null);
+        const temp = party[targetSlotIndex];
+        party[targetSlotIndex] = party[existingIdx];
+        party[existingIdx] = temp;
+      }
     } else {
-      // New castle
-      if (targetSlotIndex !== null && targetSlotIndex < party.length) {
+      if (targetSlotIndex !== null && targetSlotIndex >= 0 && targetSlotIndex < 8) {
+        while (party.length <= targetSlotIndex) party.push(null);
         party[targetSlotIndex] = newMember;
-      } else if (party.length < 8) {
-        party.push(newMember);
+      } else {
+        const emptyIdx = party.findIndex(p => !p);
+        if (emptyIdx !== -1) {
+          party[emptyIdx] = newMember;
+        } else if (party.filter(Boolean).length < 8) {
+          party.push(newMember);
+        }
       }
     }
-    party = normalizeParty(party);
+    while (party.length > 0 && party[party.length - 1] === null) {
+      party.pop();
+    }
     saveParty();
     renderDashboard();
     return party;
@@ -3814,7 +3835,7 @@
     } else {
       if (currentFilteredCastles && currentFilteredCastles.some(item => item && (item.id === c.id || item.name === c.name))) {
         activeDetailList = currentFilteredCastles;
-      } else if (party && party.some(p => p.id === c.id)) {
+      } else if (party && party.some(p => p && p.id === c.id)) {
         activeDetailList = party.filter(Boolean).map(p => getCastleById(p.id)).filter(Boolean);
       } else {
         activeDetailList = window.SCRE_DATA || [];
@@ -4056,12 +4077,18 @@
     if (idx !== -1) {
       party.splice(idx, 1);
     } else {
-      if (party.length >= 8) {
+      if (party.filter(Boolean).length >= 8) {
         alert("編成枠がいっぱいです(最大8体)。");
         return;
       }
       const c = getCastleById(activeDetailCastleId);
-      party.push({ id: activeDetailCastleId, strategyOn: true, specialOn: !!(c && c.special) });
+      const newMember = { id: activeDetailCastleId, strategyOn: true, specialOn: !!(c && c.special), giantStep: 5 };
+      const emptyIdx = party.findIndex(p => !p);
+      if (emptyIdx !== -1) {
+        party[emptyIdx] = newMember;
+      } else {
+        party.push(newMember);
+      }
     }
     saveParty();
     renderDashboard();
@@ -7446,8 +7473,8 @@
             ${item.tag ? `<div class="tier-card-tag">${item.tag}</div>` : ''}
             <div class="tier-card-actions">
               <button class="btn btn-sm tier-btn-xs" data-action="detail" data-id="${c.id}" style="font-size:10px; padding:2px 7px;">詳細 ↗</button>
-              <button class="btn btn-sm ${inParty ? 'btn-secondary' : 'btn-primary'} tier-btn-xs" data-action="add-party" data-id="${c.id}" ${inParty ? 'disabled' : (party.length >= 8 ? 'disabled' : '')} style="font-size:10px; padding:2px 7px;">
-                ${inParty ? '✓ 編成中' : (party.length >= 8 ? '満員' : '+ 編成')}
+              <button class="btn btn-sm ${inParty ? 'btn-secondary' : 'btn-primary'} tier-btn-xs" data-action="add-party" data-id="${c.id}" ${inParty ? 'disabled' : (party.filter(Boolean).length >= 8 ? 'disabled' : '')} style="font-size:10px; padding:2px 7px;">
+                ${inParty ? '✓ 編成中' : (party.filter(Boolean).length >= 8 ? '満員' : '+ 編成')}
               </button>
             </div>
           </div>
@@ -7461,12 +7488,18 @@
           }
           const addBtn = e.target.closest('[data-action="add-party"]');
           if (addBtn) {
-            if (party.length >= 8) {
+            if (party.filter(Boolean).length >= 8) {
               showToast("部隊が満員です（最大8体）");
               return;
             }
-            if (!party.some(p => p.id === c.id)) {
-              party.push({ id: c.id, strategyOn: true, specialOn: !!c.special });
+            if (!party.some(p => p && p.id === c.id)) {
+              const newMember = { id: c.id, strategyOn: true, specialOn: !!c.special, giantStep: 5 };
+              const emptyIdx = party.findIndex(p => !p);
+              if (emptyIdx !== -1) {
+                party[emptyIdx] = newMember;
+              } else {
+                party.push(newMember);
+              }
               saveParty();
               renderDashboard();
               renderTierCurated();
@@ -9624,11 +9657,17 @@ function quickToggleParty(castleId) {
   if (inPartyIdx >= 0) {
     party.splice(inPartyIdx, 1);
   } else {
-    if (party.length >= 8) {
+    if (party.filter(Boolean).length >= 8) {
       alert("編成枠がいっぱいです (最大8体)。空き枠を作ってください。");
       return;
     }
-    party.push({ id: castleId, strategyOn: true, specialOn: true });
+    const newMember = { id: castleId, strategyOn: true, specialOn: true, giantStep: 5 };
+    const emptyIdx = party.findIndex(p => !p);
+    if (emptyIdx !== -1) {
+      party[emptyIdx] = newMember;
+    } else {
+      party.push(newMember);
+    }
   }
   if (partyPresets && partyPresets[currentPresetIdx]) {
     partyPresets[currentPresetIdx].party = party;
@@ -13031,7 +13070,6 @@ function showQuizResult() {
 
     let mult = 1;
     let hits = 1;
-    let flyMult = null;
     let splashMult = null;
 
     if (mHit) {
@@ -13039,7 +13077,6 @@ function showQuizResult() {
       hits = parseInt(mHit[2], 10);
     } else if (mFly) {
       mult = parseFloat(mFly[1]);
-      flyMult = parseFloat(mFly[2]);
       hits = 1;
     } else if (mSplash) {
       mult = parseFloat(mSplash[1]);
@@ -13053,10 +13090,11 @@ function showQuizResult() {
       hits = 1;
     }
 
-    // 飛行特効チェック (月の都)
-    const mFlySecond = text.match(/飛行敵に対しては\s*([0-9]+(?:\.[0-9]+)?)倍/);
-    if (mFlySecond && !flyMult) {
-      flyMult = parseFloat(mFlySecond[1]);
+    if (hits === 1) {
+      const mFollowUpHit = text.match(/([0-9]+)連続\s*攻撃/);
+      if (mFollowUpHit) {
+        hits = parseInt(mFollowUpHit[1], 10);
+      }
     }
 
     const isAoe = /範囲内の敵|標的とその周囲|その周囲に|射程内全敵|画面上の全ての敵|全ての敵|横方向の敵/.test(text);
@@ -13071,7 +13109,6 @@ function showQuizResult() {
       cost: strategy.cost || 0,
       mult: mult,
       hits: hits,
-      flyMult: flyMult,
       splashMult: splashMult,
       isAoe: isAoe,
       isDefIgnore: isDefIgnore,

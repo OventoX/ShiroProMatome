@@ -466,8 +466,8 @@ function assert(title, condition, detail = '') {
     p42Check.totalDirectDamageCount === 76,
     `total parsed direct damage strategies: ${p42Check.totalDirectDamageCount}体 (expected 76)`);
 
-  assert('P41-13: ストラホフ修道院 parses multiplier 3.4 and flight multiplier 5.1 with 1 hit',
-    p42Check.strahov && p42Check.strahov.mult === 3.4 && p42Check.strahov.flyMult === 5.1 && p42Check.strahov.hits === 1 && !p42Check.strahov.isDefIgnore,
+  assert('P41-13: ストラホフ修道院 parses multiplier 3.4 with 1 hit (flyMult omitted per ground baseline)',
+    p42Check.strahov && p42Check.strahov.mult === 3.4 && p42Check.strahov.flyMult === undefined && p42Check.strahov.hits === 1 && !p42Check.strahov.isDefIgnore,
     `mult: ${p42Check.strahov?.mult}, flyMult: ${p42Check.strahov?.flyMult}, hits: ${p42Check.strahov?.hits}, isDefIgnore: ${p42Check.strahov?.isDefIgnore}`);
 
   assert('P41-14: 月の都 parses 1.5x magic damage with 6 hits and isMagic flag',
@@ -482,8 +482,8 @@ function assert(title, condition, detail = '') {
     p42Check.kenranDunnottar && p42Check.kenranDunnottar.mult === 2 && p42Check.kenranDunnottar.hits === 5 && !p42Check.kenranDunnottar.isDefIgnore,
     `mult: ${p42Check.kenranDunnottar?.mult}, hits: ${p42Check.kenranDunnottar?.hits}, isDefIgnore: ${p42Check.kenranDunnottar?.isDefIgnore}`);
 
-  assert('P41-17: ［夏］七飯台場 parses target 7x multiplier and surrounding 4x multiplier with 1 hit',
-    p42Check.summerNanae && p42Check.summerNanae.mult === 7 && p42Check.summerNanae.splashMult === 4 && p42Check.summerNanae.hits === 1 && !p42Check.summerNanae.isDefIgnore,
+  assert('P41-17: ［夏］七飯台場 parses target 7x multiplier and surrounding 4x multiplier with 4 hits (4連続攻撃)',
+    p42Check.summerNanae && p42Check.summerNanae.mult === 7 && p42Check.summerNanae.splashMult === 4 && p42Check.summerNanae.hits === 4 && !p42Check.summerNanae.isDefIgnore,
     `mult: ${p42Check.summerNanae?.mult}, splashMult: ${p42Check.summerNanae?.splashMult}, hits: ${p42Check.summerNanae?.hits}, isDefIgnore: ${p42Check.summerNanae?.isDefIgnore}`);
 
   assert('P41-18: ［バレンタイン］岩櫃城 parses 3x damage omitting 攻撃の with 1 hit',
@@ -497,6 +497,61 @@ function assert(title, condition, detail = '') {
   assert('P41-20: movePartySlot correctly places castle into specified empty slot when party < 8',
     p42Check.slot4CastleId === '名古屋城' && p42Check.slot0Empty,
     `slot 4 castle: ${p42Check.slot4CastleId}, slot 0 is empty: ${p42Check.slot0Empty}`);
+
+  // -------------------------------------------------------------
+  // Prompt 43 Tests: Nanae 4-hit Damage & Sparse Party Null Safety
+  // -------------------------------------------------------------
+  console.log('\n[PROMPT 43 VERIFICATION: Nanae 4-hit Damage Calculation & Sparse Party Safety]...');
+
+  const p43Check = await page.evaluate(() => {
+    const nanae = window.SCRE_DATA.find(x => x.name.includes('七飯台場'));
+    const slot = { id: nanae.id, strategyOn: true, specialOn: true, giantStep: 5 };
+    const calc = window.calculateFiringCastleStats ? window.calculateFiringCastleStats(nanae, slot, 0, 0, 2) : null;
+    const stratDamage = calc ? calc.strategyDamage : null;
+
+    const hitDamage = stratDamage?.hitDamage || 0;
+    const totalDmg = stratDamage?.totalDamagePerCast || 0;
+    const hits = stratDamage?.hits || 0;
+
+    // Sparse party safety:
+    // Set party with an empty middle slot: [nanae, null, kofu]
+    const kofu = window.SCRE_DATA.find(x => x.name.includes('甲府城'));
+    window.setParty([
+      { id: nanae.id, strategyOn: true, specialOn: true, giantStep: 5 },
+      null,
+      { id: kofu.id, strategyOn: true, specialOn: true, giantStep: 5 }
+    ]);
+
+    let detailOpenedNoError = false;
+    try {
+      if (window.openCastleDetail) {
+        window.openCastleDetail(kofu);
+        detailOpenedNoError = true;
+      }
+    } catch (e) {
+      detailOpenedNoError = false;
+    }
+
+    const sparseParty = window.getParty ? window.getParty() : (window.party || []);
+    const effectiveLen = sparseParty.filter(Boolean).length;
+
+    return {
+      nanaeHits: hits,
+      hitDamage,
+      totalDmg,
+      stratDamageValid: Boolean(stratDamage && hits === 4 && totalDmg > hitDamage * 4),
+      detailOpenedNoError,
+      effectiveLen
+    };
+  });
+
+  assert('P41-21: ［夏］七飯台場 calculates 4-hit damage on both target (7x*4) and splash (4x*4)',
+    p43Check.stratDamageValid && p43Check.nanaeHits === 4,
+    `hits: ${p43Check.nanaeHits}, single hit: ${p43Check.hitDamage}, total per cast: ${p43Check.totalDmg}`);
+
+  assert('P41-22: Sparse party with null slots does not throw in openCastleDetail or party operations',
+    p43Check.detailOpenedNoError && p43Check.effectiveLen === 2,
+    `detail opened safely: ${p43Check.detailOpenedNoError}, effective party length: ${p43Check.effectiveLen}`);
 
   console.log(`\n==============================================`);
   console.log(`PROMPT 41 AUTOMATED TESTS SUMMARY: ${passed} / ${total} PASSED`);
