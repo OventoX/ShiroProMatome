@@ -3165,14 +3165,22 @@ async function runTests() {
     };
 
     // 4. Verify the 7 target castles reach required roles and tiers
-    // A) ［正月］小早川城: バッファーまたは気役で SS
+    // 【2026-11-10 品質ゲート見直しの経緯】
+    // 旧基準では崑崙・［正月］小早川城に「SS必須」が課されていたが、第28弾（コミット 0ff7999）にて
+    // 第25弾で混入したアドホック加点5件（永続計略+3、複数切替+2、陣貝ベースライン/攻撃倍率、鎌スキル連結）を撤去。
+    // 撤去後の実測値：崑崙（buffer S 78.0・28位/354体）、［正月］小早川城（buffer S 75.9・33位/354体）。
+    // 旧SS基準は水増しスコア前提であったため、2026-11-10にユーザー決定により正直な実測（Sティア・上位約30位）に合わせて
+    // 「SS必須」から「S以上（S or SS）」のハード条件へ再定義した。
+    // ※今後この期待値をさらに緩める場合は、スクリプト実測の報告とユーザーの明示承認が必要。
+
+    // A) ［正月］小早川城: バッファーまたは気役で S 以上（2026-11-10 ゲート見直し：旧SS基準はアドホック加点前提のため、撤去後の実測75.9・Sに合わせて再定義）
     console.log('Checking ［正月］小早川城...');
     const kobayakawaBuffer = await getCastleRoleData('［正月］小早川城', 'buffer');
     const kobayakawaKi = !kobayakawaBuffer.found ? await getCastleRoleData('［正月］小早川城', 'ki') : null;
     console.log('［正月］小早川城 buffer result:', kobayakawaBuffer, 'ki result:', kobayakawaKi);
     const kobayakawaTier = kobayakawaBuffer.found ? kobayakawaBuffer.tier : (kobayakawaKi?.tier || 'NONE');
-    if (kobayakawaTier !== 'SS') {
-      console.warn(`[XFAIL] TEST 57: ［正月］小早川城 expected SS in buffer/ki, got ${kobayakawaTier} (アドホック加点撤去に伴う既知の未達)`);
+    if (!['SS', 'S'].includes(kobayakawaTier)) {
+      throw new Error(`TEST 57 FAILED: ［正月］小早川城 expected S or SS in buffer/ki, got ${kobayakawaTier}`);
     }
 
     // B) ［夏］ポエナリ城: バッファーで SS〜S
@@ -3183,12 +3191,12 @@ async function runTests() {
       throw new Error(`TEST 57 FAILED: ［夏］ポエナリ城 expected SS or S in buffer, got ${JSON.stringify(poenari)}`);
     }
 
-    // C) 崑崙: バッファーで SS (アタッカー兼任可)
+    // C) 崑崙: バッファーで S 以上（2026-11-10 ゲート見直し：撤去後の実測78.0・Sに合わせて再定義）
     console.log('Checking 崑崙...');
     const kunlun = await getCastleRoleData('崑崙', 'buffer');
     console.log('崑崙 result:', kunlun);
-    if (!kunlun.found || kunlun.tier !== 'SS') {
-      console.warn(`[XFAIL] TEST 57: 崑崙 expected SS in buffer, got ${JSON.stringify(kunlun)} (アドホック加点撤去に伴う既知の未達)`);
+    if (!kunlun.found || !['SS', 'S'].includes(kunlun.tier)) {
+      throw new Error(`TEST 57 FAILED: 崑崙 expected S or SS in buffer, got ${JSON.stringify(kunlun)}`);
     }
 
     // D) ［漆磊］広島城: アタッカーで S 以上 (S or SS)
