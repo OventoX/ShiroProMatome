@@ -7,6 +7,8 @@
  * 4. Synthetic SingleHit Metric Clarification & Firing Range Baseline Notes
  * 5. Benchmarks 1, 2, and 3 (Edo Castle 300k Verification)
  * 6. Strict Font-size Floor (>= 12px) Verification
+ * 7. Prompt 48 & 49: Special DPS Addition, Dynamic Combo Finisher, Live Simulation Special Damage, Tokugi Popup Alignment
+ * 8. Prompt 51: Tokugi AoE popup count & Special Ability combo popups assertions (P46追加-05, P46追加-06)
  */
 
 const puppeteer = require('puppeteer-core');
@@ -531,6 +533,8 @@ async function runTests() {
     const theoreticalDps = edoSlotOn?.stat.theoreticalDps || 0;
     const expectedDps60 = theoreticalDps * 60;
     const ratioOn = totalDmgOn / expectedDps60;
+    const specialPopupsOn = stateOn.damagePopups.filter(p => p.isSpecial);
+    const specialPopupsOnCount = specialPopupsOn.length;
 
     // 2. Run 60s simulation with special OFF
     window.setParty([{ id: cEdo.id, giantStep: 5, strategyOn: true, specialOn: false }]);
@@ -575,6 +579,7 @@ async function runTests() {
       totalDmgOn,
       specialDmgOn,
       specialCountOn,
+      specialPopupsOnCount,
       normalDmgOn,
       theoreticalDps,
       expectedDps60,
@@ -602,9 +607,21 @@ async function runTests() {
     `specialDmgOff: ${p49Data.specialDmgOff}, specialCountOff: ${p49Data.specialCountOff}, deltaWithSpecialOn: ${(p49Data.totalDmgOn - p49Data.totalDmgOff).toLocaleString()}`
   );
 
+  assert(
+    'P46追加-05: 屋良座森城（特技40秒毎）の40秒試射（対象数3体）で、isTokugi ポップアップが3個存在し、tokDmg が hitDamage × 対象数 と一致すること',
+    p49Data.tokPopupsCount === 3 && p49Data.tokCount === 1 && p49Data.tokDmg === (p49Data.tokHitDmg * 3),
+    `tokPopupsCount: ${p49Data.tokPopupsCount} (expected 3), tokCount: ${p49Data.tokCount}, tokDmg: ${p49Data.tokDmg} (expected ${p49Data.tokHitDmg * 3} = ${p49Data.tokHitDmg} × 3)`
+  );
+
+  assert(
+    'P46追加-06: ［無疆］江戸城の60秒試射で、特殊能力ポップアップが発動回数分（combo型: 1回発動につき連撃4+追撃1=5個）存在すること',
+    p49Data.specialCountOn >= 1 && p49Data.specialPopupsOnCount === (p49Data.specialCountOn * 5),
+    `specialCount: ${p49Data.specialCountOn}, specialPopupsCount: ${p49Data.specialPopupsOnCount} (expected ${p49Data.specialCountOn * 5} = ${p49Data.specialCountOn} × 5)`
+  );
+
   await browser.close();
   console.log('\n==============================================');
-  console.log('PROMPT 46, 48 & 49 AUTOMATED TESTS SUMMARY: 23 / 23 PASSED');
+  console.log('PROMPT 46, 48, 49 & 51 AUTOMATED TESTS SUMMARY: 25 / 25 PASSED');
   console.log('==============================================');
 }
 
