@@ -1138,12 +1138,14 @@ body {
   flex: 1;
 }
 
-/* Detail Modal Custom Styles */
+/* Detail Modal Custom Styles (第59弾: タブレット・広幅表示の最適化) */
+.modal-content--detail,
 .modal-detail-content {
-  max-width: 1120px;
+  width: min(94vw, 1080px);
+  max-width: min(94vw, 1080px);
   max-height: 92vh;
   border-radius: 10px;
-  transition: max-width 0.25s ease;
+  transition: max-width 0.25s ease, width 0.25s ease;
 }
 
 .modal-detail-header {
@@ -1315,20 +1317,43 @@ body {
   overflow-y: auto;
 }
 
-@media (max-width: 768px) {
-  .modal-detail-body {
-    flex-direction: column;
-  }
-}
-
-/* Left Column */
+/* Left Column (第59弾: 画面幅に応じた段階的調整) */
 .detail-col-left {
-  width: 360px;
+  width: 420px;
+  max-width: 100%;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
   transition: width 0.25s ease;
+}
+
+/* 中間幅 (769px〜1100px: タブレット縦持ち等で左右バランスを最適化) */
+@media (max-width: 1100px) and (min-width: 951px) {
+  .detail-col-left {
+    width: 380px;
+  }
+}
+
+@media (max-width: 950px) and (min-width: 769px) {
+  .detail-col-left {
+    width: 330px;
+  }
+  .modal-detail-body {
+    gap: 12px;
+    padding: 12px 14px;
+  }
+}
+
+/* スマホ表示 (768px以下: 1カラム化・全画面モーダル既存挙動維持) */
+@media (max-width: 768px) {
+  .modal-detail-body {
+    flex-direction: column;
+  }
+  .detail-col-left {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 /* Remodel Stage Switcher (無印 / 改壱 / 改弐) */
