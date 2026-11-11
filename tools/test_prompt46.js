@@ -259,15 +259,17 @@ async function runTests() {
     window.setParty([{ id: cEdo.id, giantStep: 5, strategyOn: true, specialOn: false }]);
     const statOn = window.calculateFiringCastleStats(cEdo, { giantStep: 5, strategyOn: true, specialOn: false }, 500, 0, 1, new Set());
 
-    // Hand calculation:
+    // Hand calculation (Prompt 54: 大砲直撃ボーナス 1.5×1.25=1.875倍 反映):
     // finalAtk = 6,424
     // effDef = 500
     // atkWithTarget = Math.floor(6424 * 1.5) = 9,636
-    // baseDmg = max(9636 * 0.1, 9636 - 500) = 9,136
+    // directAtk = Math.floor(9636 * 1.875) = 18,067
+    // baseDmg = 18067 - 500 = 17,567 (最低保障20以上)
     // dmgTargetMult = 1.5 (特技 1.5倍)
     // dmgDealtPerc = 1.20 (計略 120%) -> postDmgMult = 2.2
-    // expected = Math.floor(9136 * 2.2) = 20,099
-    const handDmgOn = Math.floor(Math.max(Math.floor(statOn.finalAtk * statOn.dmgTargetMult) * 0.1, Math.floor(statOn.finalAtk * statOn.dmgTargetMult) - statOn.effDef) * (1 + statOn.dmgDealtPerc));
+    // expected = Math.floor(17567 * 2.2) = 38,647 (旧20,099: 第54弾で大砲直撃ボーナス1.875倍実装)
+    const directAtkOn = Math.floor(Math.floor(statOn.finalAtk * statOn.dmgTargetMult) * 1.875);
+    const handDmgOn = Math.floor(Math.max(Math.min(20, directAtkOn), directAtkOn - statOn.effDef) * (1 + statOn.dmgDealtPerc));
 
     // Test with def 500, strat OFF, special OFF
     window.setParty([{ id: cEdo.id, giantStep: 5, strategyOn: false, specialOn: false }]);
@@ -275,11 +277,13 @@ async function runTests() {
     // finalAtk = 4,420
     // effDef = 500
     // atkWithTarget = Math.floor(4420 * 1.5) = 6,630
-    // baseDmg = max(6630 * 0.1, 6630 - 500) = 6,130
+    // directAtk = Math.floor(6630 * 1.875) = 12,431
+    // baseDmg = 12431 - 500 = 11,931
     // dmgTargetMult = 1.5
     // dmgDealtPerc = 0 -> postDmgMult = 1.0
-    // expected = Math.floor(6130 * 1.0) = 6,130
-    const handDmgOff = Math.floor(Math.max(Math.floor(statOff.finalAtk * statOff.dmgTargetMult) * 0.1, Math.floor(statOff.finalAtk * statOff.dmgTargetMult) - statOff.effDef) * (1 + statOff.dmgDealtPerc));
+    // expected = Math.floor(11931 * 1.0) = 11,931 (旧6,130: 第54弾で大砲直撃ボーナス1.875倍実装)
+    const directAtkOff = Math.floor(Math.floor(statOff.finalAtk * statOff.dmgTargetMult) * 1.875);
+    const handDmgOff = Math.floor(Math.max(Math.min(20, directAtkOff), directAtkOff - statOff.effDef) * (1 + statOff.dmgDealtPerc));
 
     // Also test special attack with special ON
     window.setParty([{ id: cEdo.id, giantStep: 5, strategyOn: true, specialOn: true }]);
@@ -298,14 +302,14 @@ async function runTests() {
   });
 
   assert(
-    'P46-11: Benchmark 2 (Strat ON): Firing range 1-hit damage against Def 500 exactly reproduces hand calculation (20,099)',
-    bench2Data.matchesOn === true && bench2Data.statOnDmg === 20099,
+    'P46-11: Benchmark 2 (Strat ON): Firing range 1-hit damage against Def 500 exactly reproduces hand calculation (38,647)',
+    bench2Data.matchesOn === true && bench2Data.statOnDmg === 38647,
     `Firing Range: ${bench2Data.statOnDmg}, Hand Calculated: ${bench2Data.handDmgOn}`
   );
 
   assert(
-    'P46-12: Benchmark 2 (Strat OFF): Firing range 1-hit damage against Def 500 exactly reproduces hand calculation (6,130)',
-    bench2Data.matchesOff === true && bench2Data.statOffDmg === 6130,
+    'P46-12: Benchmark 2 (Strat OFF): Firing range 1-hit damage against Def 500 exactly reproduces hand calculation (11,931)',
+    bench2Data.matchesOff === true && bench2Data.statOffDmg === 11931,
     `Firing Range: ${bench2Data.statOffDmg}, Hand Calculated: ${bench2Data.handDmgOff}`
   );
 

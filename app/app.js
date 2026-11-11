@@ -9332,32 +9332,33 @@ function renderChallengeUI() {
 
   // --- 武器フレーム表 (Wiki / PileBunker 30fps 標準フレーム準拠) ---
   // 刀〜陣貝の19種: 標準フレーム準拠
-  // 盾・双剣・軍船・ランス・茶器・その他: 標準フレーム未検証のため推定値（攻撃25f/隙25f）として設定（捏造防止ルール）
+  // 【武器種別攻撃フレーム・隙フレーム基本値】
+  // 出典URL: https://scre.swiki.jp/index.php?検証#r65a3537 （城娘の攻撃速度に関する調査）
+  // ※検証wiki実測値（無印武器・バフなし）に差し替え。実測値のない支援種（本・歌舞・茶器・その他等）は現行推定値を維持し isEstimate: true を明記。
   const SCRE_WEAPON_FRAMES = {
-    "刀": { atk: 20, gap: 23, hits: 1, type: "physical", aoe: false },
-    "槍": { atk: 17, gap: 19, hits: 1, type: "physical", aoe: false },
-    "槌": { atk: 31, gap: 37, hits: 1, type: "physical", aoe: true },
-    "拳": { atk: 11, gap: 13, hits: 2, hitsMax: 5, type: "physical", aoe: false },
-    "弓": { atk: 18, gap: 18, hits: 1, type: "physical", aoe: false },
-    "石弓": { atk: 22, gap: 23, hits: 1, type: "physical", aoe: false },
-    "鉄砲": { atk: 26, gap: 34, hits: 1, type: "physical", aoe: false },
-    "大砲": { atk: 41, gap: 49, hits: 1, type: "physical", aoe: true },
-    "歌舞": { atk: 43, gap: 27, hits: 1, type: "buff", aoe: true },
-    "法術": { atk: 25, gap: 35, hits: 1, type: "magic", aoe: false },
-    "鈴": { atk: 45, gap: 25, hits: 1, type: "magic", aoe: true },
-    "杖": { atk: 28, gap: 32, hits: 1, type: "magic", aoe: false },
-    "祓串": { atk: 22, gap: 24, hits: 2, type: "magic", aoe: false },
-    "本": { atk: 25, gap: 25, hits: 1, type: "special", aoe: false },
-    "投剣": { atk: 18, gap: 18, hits: 2, type: "physical", aoe: false },
-    "鞭": { atk: 20, gap: 22, hits: 1, type: "physical", aoe: false },
-    "戦棍": { atk: 22, gap: 24, hits: 1, type: "physical", aoe: false },
-    "鎌": { atk: 19, gap: 21, hits: 1, type: "physical", aoe: false },
-    "陣貝": { atk: 40, gap: 30, hits: 1, type: "buff", aoe: true },
-    // 推定値（未検証武器種・フォールバック準拠）
-    "盾": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true },
-    "双剣": { atk: 25, gap: 25, hits: 2, type: "physical", aoe: false, isEstimate: true },
-    "軍船": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: true, isEstimate: true },
-    "ランス": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true },
+    "刀": { atk: 19, gap: 22, hits: 1, type: "physical", aoe: false },
+    "槍": { atk: 23, gap: 27, hits: 1, type: "physical", aoe: false },
+    "槌": { atk: 27, gap: 27, hits: 1, type: "physical", aoe: true },
+    "拳": { atk: 37, gap: 18, hits: 2, hitsMax: 5, type: "physical", aoe: false },
+    "弓": { atk: 19, gap: 18, hits: 1, type: "physical", aoe: false },
+    "石弓": { atk: 24, gap: 24, hits: 1, type: "physical", aoe: false },
+    "鉄砲": { atk: 29, gap: 27, hits: 1, type: "physical", aoe: false },
+    "大砲": { atk: 42, gap: 33, hits: 1, type: "physical", aoe: true },
+    "歌舞": { atk: 43, gap: 27, hits: 1, type: "buff", aoe: true, isEstimate: true },
+    "法術": { atk: 42, gap: 30, hits: 1, type: "magic", aoe: false },
+    "鈴": { atk: 134, gap: 0, hits: 12, hitsSplit: 12, type: "magic", aoe: true },
+    "杖": { atk: 37, gap: 30, hits: 1, type: "magic", aoe: false },
+    "祓串": { atk: 32, gap: 27, hits: 2, type: "magic", aoe: false },
+    "本": { atk: 25, gap: 25, hits: 1, type: "special", aoe: false, isEstimate: true },
+    "投剣": { atk: 24, gap: 18, gapMax: 14, hits: 2, type: "physical", aoe: false },
+    "鞭": { atk: 24, gap: 21, hits: 1, type: "physical", aoe: false },
+    "戦棍": { atk: 27, gap: 24, hits: 1, type: "physical", aoe: false },
+    "鎌": { atk: 22, gap: 22, hits: 1, type: "physical", aoe: false },
+    "陣貝": { atk: 40, gap: 30, hits: 1, type: "buff", aoe: true, isEstimate: true },
+    "盾": { atk: 24, gap: 30, hits: 1, type: "physical", aoe: false },
+    "双剣": { atk: 29, gap: 21, hits: 2, type: "physical", aoe: false },
+    "軍船": { atk: 32, gap: 42, hits: 1, type: "physical", aoe: true },
+    "ランス": { atk: 27, gap: 27, hits: 1, type: "physical", aoe: false },
     "茶器": { atk: 25, gap: 25, hits: 1, type: "buff", aoe: true, isEstimate: true },
     "その他": { atk: 25, gap: 25, hits: 1, type: "physical", aoe: false, isEstimate: true }
   };
@@ -9556,9 +9557,10 @@ function renderRomanSimulator() {
   const dmgTargetMult = activeTargetSources.reduce((acc, s) => acc * (1 + s.val / 100), 1.0);
   const atkWithTarget = Math.floor(finalAtk * dmgTargetMult);
 
-  // Damage Calculation: max(atk * 0.1, atk - effDef)
-  const isFloorGuaranteed = (atkWithTarget - effDef) < Math.floor(atkWithTarget * 0.1);
-  const baseDamage = Math.max(Math.floor(atkWithTarget * 0.1), atkWithTarget - effDef);
+  // Damage Calculation: max(min(20, atk), atk - effDef) (Wiki verified: 最低ダメージ保障 20)
+  const minFloor = Math.min(20, Math.max(1, atkWithTarget));
+  const isFloorGuaranteed = (atkWithTarget - effDef) < minFloor;
+  const baseDamage = Math.max(minFloor, atkWithTarget - effDef);
 
   // Damage Multipliers (与ダメ%, 敵被ダメ上昇%) applied AFTER defense subtraction!
   const dmgDealtPerc = calcData && calcData.buffs ? (calcData.buffs.dmgDealt.max + calcData.buffs.dmgDealt.stackSum) / 100 : 0;
@@ -9867,14 +9869,16 @@ function renderRomanAssist(mainCastle, currentHitDamage, currentAtk) {
     const activeTargetSources = postData.buffs.dmgDealtTarget.sources.filter(s => s.applied !== false);
     const dmgTargetMult = activeTargetSources.reduce((acc, s) => acc * (1 + s.val / 100), 1.0);
     const postAtkWithTarget = Math.floor(postAtk * dmgTargetMult);
-    const baseDmg = Math.max(Math.floor(postAtkWithTarget * 0.1), postAtkWithTarget - simDef);
+    const minFloor = Math.min(20, Math.max(1, postAtkWithTarget));
+    const baseDmg = Math.max(minFloor, postAtkWithTarget - simDef);
 
     const dmgDealt = (postData.buffs.dmgDealt.max + postData.buffs.dmgDealt.stackSum) / 100;
     const dmgTaken = (res.enemyDebuffs?.enemyDmgTakenUp?.max || 0) / 100;
     const mult = (1 + dmgDealt) * (1 + dmgTaken);
     const postDmg = Math.floor(baseDmg * mult);
 
-    const soloDmg = Math.max(Math.floor(soloBaseAtk * 0.1), soloBaseAtk - (isMagic ? 0 : 500));
+    const soloMinFloor = Math.min(20, Math.max(1, soloBaseAtk));
+    const soloDmg = Math.max(soloMinFloor, soloBaseAtk - (isMagic ? 0 : 500));
     const diffDmg = postDmg - soloDmg;
 
     if (diffAtk > 0 || diffDmg > 0) {
@@ -9979,8 +9983,9 @@ function renderDamageChecker(providedCalcResult) {
     const dmgTargetMult = activeTargetSources.reduce((acc, s) => acc * (1 + s.val / 100), 1.0);
     const atkWithTarget = Math.floor(finalAtk * dmgTargetMult);
 
-    // Damage Formula: max(atk * 0.1, atk - effDef)
-    const baseDamage = Math.max(Math.floor(atkWithTarget * 0.1), atkWithTarget - effDef);
+    // Damage Formula: max(min(20, atk), atk - effDef) (Wiki verified: 最低ダメージ保障 20)
+    const minFloor = Math.min(20, Math.max(1, atkWithTarget));
+    const baseDamage = Math.max(minFloor, atkWithTarget - effDef);
 
     // Apply damage multiplier buffs (与ダメ%) and enemy damage taken up (被ダメ上昇%) AFTER defense
     const dmgDealtPerc = calcData && calcData.buffs ? (calcData.buffs.dmgDealt.max + calcData.buffs.dmgDealt.stackSum) / 100 : 0;
@@ -13532,6 +13537,8 @@ function showQuizResult() {
     const targetDef = (typeof enemyDef === "number" && !isNaN(enemyDef)) ? enemyDef : (currentDetailDpsEnemyDef || 500);
     const wf = SCRE_WEAPON_FRAMES[c.weapon] || { atk: 25, gap: 25, hits: 1, type: "physical", isEstimate: true };
     const isBuff = Boolean(wf.type === "buff");
+    const isCannon = (c.weapon === "大砲");
+    const isBell = (c.weapon === "鈴");
     const baseAtk = getCastleBaseStatsForGiant(c, 5).atk || 1200;
 
     let selfAtkSpeed = 0;
@@ -13554,19 +13561,39 @@ function showQuizResult() {
       else if (ef.stat === "enemyDefDown") enemyDefDown = Math.max(enemyDefDown, ef.value);
     });
 
+    const baseGapFrames = (c.weapon === "投剣" && wf.gapMax != null) ? wf.gapMax : wf.gap;
     const effAtkFrames = Math.max(1, Math.round(wf.atk / (1 + selfAtkSpeed / 100)));
-    const effGapFrames = Math.max(0, Math.round(wf.gap * (1 - selfGapShorten / 100)));
+    const effGapFrames = Math.max(0, Math.round(baseGapFrames * (1 - selfGapShorten / 100)));
     const cycleFrames = effAtkFrames + effGapFrames;
     const attacksPerSec = cycleFrames > 0 ? (30 / cycleFrames) : 1;
 
     const isMagic = wf.type === "magic" || ["法術", "杖", "祓串", "鈴"].includes(c.weapon);
     const buffedAtk = Math.round(baseAtk * (1 + selfAtkRatio / 100) + selfAtkFlat);
     const effDef = isMagic ? 0 : Math.max(0, Math.round(targetDef * (1 - enemyDefDown / 100)));
-    const rawHitDmg = Math.max(1, buffedAtk - effDef);
+
+    let rawHitDmg = 0;
+    let baseHits = wf.hits || 1;
+    let maxHits = wf.hitsMax || baseHits;
+
+    if (isBell) {
+      // 是正3: 鈴の12分割ヒットモデル (1撃=攻撃値/12、12連撃、最低保障なし)
+      baseHits = 12;
+      maxHits = 12;
+      const splitAtk = Math.floor(buffedAtk / 12);
+      rawHitDmg = Math.max(1, splitAtk);
+    } else if (isCannon) {
+      // 是正1: 大砲直撃ボーナス 1.5倍 × 最大化1.25倍 = 1.875倍 (防御引き前)
+      const cannonAtk = Math.floor(buffedAtk * 1.875);
+      const minFloor = Math.min(20, Math.max(1, cannonAtk));
+      rawHitDmg = Math.max(minFloor, cannonAtk - effDef);
+    } else {
+      // 是正4: 最低ダメージ保障 20 (atk < 20 なら atk が下限)
+      const minFloor = Math.min(20, Math.max(1, buffedAtk));
+      rawHitDmg = Math.max(minFloor, buffedAtk - effDef);
+    }
+
     const finalHitDmg = Math.round(rawHitDmg * (1 + selfDmgDealt / 100) * selfTargetMult);
 
-    const baseHits = wf.hits || 1;
-    const maxHits = wf.hitsMax || baseHits;
     const effDps = isBuff ? 0 : Math.round(finalHitDmg * baseHits * attacksPerSec);
     const maxEffDps = isBuff ? 0 : Math.round(finalHitDmg * maxHits * attacksPerSec);
     const ttk100k = isBuff ? "対象外 (∞)" : (effDps > 0 ? (100000 / effDps).toFixed(1) : "∞");
@@ -13584,7 +13611,7 @@ function showQuizResult() {
       effDps,
       maxEffDps,
       baseAtkFrames: wf.atk,
-      baseGapFrames: wf.gap,
+      baseGapFrames: baseGapFrames,
       effAtkFrames,
       effGapFrames,
       cycleFrames,
@@ -14250,6 +14277,8 @@ function showQuizResult() {
 
     const wf = SCRE_WEAPON_FRAMES[c.weapon] || { atk: 25, gap: 25, hits: 1, type: "physical", isEstimate: true };
     const isBuffWeapon = Boolean(wf.type === "buff");
+    const isCannon = (c.weapon === "大砲");
+    const isBell = (c.weapon === "鈴");
     const defIgnoreInfo = checkDefenseIgnore(c, b, {
       immuneDefIgnore: Boolean(immuneDefIgnore),
       disabledDefIgnore: Boolean(disabledBuffs && disabledBuffs.has("def_ignore"))
@@ -14265,7 +14294,6 @@ function showQuizResult() {
       dmgTargetMult = activeSources.reduce((acc, s) => acc * (1 + s.val / 100), 1.0);
     }
     const atkWithTarget = Math.floor(finalAtk * dmgTargetMult);
-    const baseDamage = Math.max(Math.floor(atkWithTarget * 0.1), atkWithTarget - effDef);
 
     let dmgDealtPerc = 0;
     if (!(disabledBuffs && disabledBuffs.has("dmg_dealt")) && b.dmgDealt) {
@@ -14277,7 +14305,44 @@ function showQuizResult() {
     }
     const postDmgMult = (1 + dmgDealtPerc) * (1 + enemyDmgTakenPerc);
 
-    const finalHitDamage = isBuffWeapon ? 0 : Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - (targetRed / 100))));
+    let directAtk = atkWithTarget;
+    let baseDamage = 0;
+    let finalHitDamage = 0;
+    let blastHitDamage = 0;
+    let hits = wf.hits || 1;
+
+    if (isBuffWeapon) {
+      baseDamage = 0;
+      finalHitDamage = 0;
+      blastHitDamage = 0;
+    } else if (isCannon) {
+      // 是正1: 大砲直撃ボーナス 1.5倍 (最大化時 1.875倍)
+      const directHitMult = (giantStep === 5 ? 1.875 : 1.5);
+      directAtk = Math.floor(atkWithTarget * directHitMult);
+      const minFloor = Math.min(20, Math.max(1, directAtk));
+      baseDamage = Math.max(minFloor, directAtk - effDef);
+      finalHitDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - (targetRed / 100))));
+
+      // 周囲爆風: 直撃ボーナスなし (最大化時 1.25倍)
+      const blastMult = (giantStep === 5 ? 1.25 : 1.0);
+      const blastAtk = Math.floor(atkWithTarget * blastMult);
+      const blastMinFloor = Math.min(20, Math.max(1, blastAtk));
+      const blastBaseDamage = Math.max(blastMinFloor, blastAtk - effDef);
+      blastHitDamage = Math.max(1, Math.floor(blastBaseDamage * postDmgMult * (1.0 - (targetRed / 100))));
+    } else if (isBell) {
+      // 是正3: 鈴の12分割ヒットモデル (1撃=攻撃値/12、12連撃、最低保障なし)
+      hits = 12;
+      const splitAtk = Math.floor(atkWithTarget / 12);
+      baseDamage = Math.max(1, splitAtk);
+      finalHitDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - (targetRed / 100))));
+      blastHitDamage = finalHitDamage;
+    } else {
+      // 是正4: 最低ダメージ保障 20 (atk < 20 なら atk が下限)
+      const minFloor = Math.min(20, Math.max(1, atkWithTarget));
+      baseDamage = Math.max(minFloor, atkWithTarget - effDef);
+      finalHitDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - (targetRed / 100))));
+      blastHitDamage = finalHitDamage;
+    }
 
     let atkSpeed = 0;
     if (!(disabledBuffs && disabledBuffs.has("atk_speed")) && b.atkSpeed) {
@@ -14288,13 +14353,13 @@ function showQuizResult() {
       gapShorten = (b.gapShorten.max || 0) + (b.gapShorten.stackSum || 0);
     }
 
+    const baseGapVal = (c.weapon === "投剣" && giantStep === 5 && wf.gapMax != null) ? wf.gapMax : wf.gap;
     const effAtkFrames = Math.max(1, Math.round(wf.atk / (1 + atkSpeed / 100)));
-    const effGapFrames = Math.max(0, Math.round(wf.gap * (1 - gapShorten / 100)));
+    const effGapFrames = Math.max(0, Math.round(baseGapVal * (1 - gapShorten / 100)));
     const cycleFrames = effAtkFrames + effGapFrames;
     const cycleTime = cycleFrames > 0 ? (cycleFrames / 30) : 1;
     const attacksPerSec = cycleFrames > 0 ? (30 / cycleFrames) : 1;
 
-    const hits = wf.hits || 1;
     let effectiveTargets = 1;
     if (targetCount > 1) {
       if (wf.aoe === true) {
@@ -14304,7 +14369,14 @@ function showQuizResult() {
       }
     }
 
-    const cycleDamage = isBuffWeapon ? 0 : (finalHitDamage * hits * effectiveTargets);
+    let cycleDamage = 0;
+    if (!isBuffWeapon) {
+      if (isCannon && effectiveTargets > 1) {
+        cycleDamage = (finalHitDamage + blastHitDamage * (effectiveTargets - 1)) * hits;
+      } else {
+        cycleDamage = finalHitDamage * hits * effectiveTargets;
+      }
+    }
     const normalDps = isBuffWeapon ? 0 : Math.round(cycleDamage * attacksPerSec);
 
     // --- Prompt 41 & 45: 計略ダメージ計算 ---
@@ -14341,7 +14413,7 @@ function showQuizResult() {
 
           const stratDefIgnore = Boolean(effectiveIgnore || stratParsed.isDefIgnore || stratParsed.isMagic || defIgnoreInfo.isMagic);
           const stratEffDef = stratDefIgnore ? 0 : effDef;
-          const stratBaseDmg = Math.max(Math.floor(stratAtkWithTarget * 0.1), stratAtkWithTarget - stratEffDef);
+          const stratBaseDmg = Math.max(Math.min(20, Math.max(1, stratAtkWithTarget)), stratAtkWithTarget - stratEffDef);
           const activeHitDamage = Math.max(1, Math.floor(stratBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
 
           let stratTargets = 1;
@@ -14387,7 +14459,7 @@ function showQuizResult() {
 
         const stratDefIgnore = Boolean(effectiveIgnore || stratParsed.isDefIgnore || stratParsed.isMagic || defIgnoreInfo.isMagic);
         const stratEffDef = stratDefIgnore ? 0 : effDef;
-        const stratBaseDmg = Math.max(Math.floor(stratAtkWithTarget * 0.1), stratAtkWithTarget - stratEffDef);
+        const stratBaseDmg = Math.max(Math.min(20, Math.max(1, stratAtkWithTarget)), stratAtkWithTarget - stratEffDef);
 
         const stratHitDamage = Math.max(1, Math.floor(stratBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
         const stratTargets = stratParsed.isAoe ? targetCount : 1;
@@ -14395,7 +14467,7 @@ function showQuizResult() {
         if (stratParsed.splashMult && targetCount > 1) {
           const splashBaseAtk = Math.floor(finalAtk * stratParsed.splashMult);
           const splashAtkWithTarget = Math.floor(splashBaseAtk * dmgTargetMult);
-          const splashBaseDmg = Math.max(Math.floor(splashAtkWithTarget * 0.1), splashAtkWithTarget - stratEffDef);
+          const splashBaseDmg = Math.max(Math.min(20, Math.max(1, splashAtkWithTarget)), splashAtkWithTarget - stratEffDef);
           const splashHitDmg = Math.max(1, Math.floor(splashBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
           stratTotalDamagePerCast = (stratHitDamage * stratParsed.hits * 1) + (splashHitDmg * stratParsed.hits * (targetCount - 1));
         } else {
@@ -14438,7 +14510,7 @@ function showQuizResult() {
         const tokBaseAtk = Math.floor(finalAtk * tokugiParsed.mult);
         const tokAtkWithTarget = Math.floor(tokBaseAtk * dmgTargetMult);
         const tokEffDef = effectiveIgnore ? 0 : effDef;
-        const tokBaseDmg = Math.max(Math.floor(tokAtkWithTarget * 0.1), tokAtkWithTarget - tokEffDef);
+        const tokBaseDmg = Math.max(Math.min(20, Math.max(1, tokAtkWithTarget)), tokAtkWithTarget - tokEffDef);
         const tokHitDamage = Math.max(1, Math.floor(tokBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
         const tokTargets = tokugiParsed.isAoe ? targetCount : 1;
         const tokTotalDmgPerTrigger = tokHitDamage * tokTargets;
@@ -14470,12 +14542,12 @@ function showQuizResult() {
         if (spParsed.type === 'combo_finisher') {
           const comboBaseAtk = Math.floor(finalAtk * spParsed.comboMult);
           const comboAtkTarget = Math.floor(comboBaseAtk * dmgTargetMult);
-          const comboBaseDmg = Math.max(Math.floor(comboAtkTarget * 0.1), comboAtkTarget - spEffDef);
+          const comboBaseDmg = Math.max(Math.min(20, Math.max(1, comboAtkTarget)), comboAtkTarget - spEffDef);
           const comboHitDmg = Math.max(1, Math.floor(comboBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
 
           const finBaseAtk = Math.floor(finalAtk * spParsed.finMult);
           const finAtkTarget = Math.floor(finBaseAtk * dmgTargetMult);
-          const finBaseDmg = Math.max(Math.floor(finAtkTarget * 0.1), finAtkTarget - spEffDef);
+          const finBaseDmg = Math.max(Math.min(20, Math.max(1, finAtkTarget)), finAtkTarget - spEffDef);
           const finHitDmg = Math.max(1, Math.floor(finBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
 
           const totalDamage = (comboHitDmg * spParsed.comboHits) + (finHitDmg * spParsed.finHits);
@@ -14499,7 +14571,7 @@ function showQuizResult() {
         } else {
           const spBaseAtk = Math.floor(finalAtk * spParsed.mult);
           const spAtkTarget = Math.floor(spBaseAtk * dmgTargetMult);
-          const spBaseDmg = Math.max(Math.floor(spAtkTarget * 0.1), spAtkTarget - spEffDef);
+          const spBaseDmg = Math.max(Math.min(20, Math.max(1, spAtkTarget)), spAtkTarget - spEffDef);
           const spHitDmg = Math.max(1, Math.floor(spBaseDmg * postDmgMult * (1.0 - (targetRed / 100))));
           const spTargets = spParsed.isAoe ? targetCount : 1;
           const totalDamage = spHitDmg * spParsed.hits * spTargets;
@@ -14562,7 +14634,17 @@ function showQuizResult() {
         }
       }
     } else {
-      breakdownText = `[通常] 攻${finalAtk} → 引後${baseDamage} → 1撃${finalHitDamage}${hits > 1 ? ` (×${hits}連)` : ''} (${normalDps.toLocaleString()}/s)`;
+      let hitDetail = `1撃${finalHitDamage.toLocaleString()}`;
+      if (isCannon) {
+        const cannonBonusStr = "直撃ボーナス ×1.5（最大化時 ×1.875）";
+        hitDetail += ` [${cannonBonusStr}]`;
+        if (effectiveTargets > 1) {
+          hitDetail += ` (爆風: 1撃${blastHitDamage.toLocaleString()} × ${effectiveTargets - 1}体)`;
+        }
+      } else if (isBell) {
+        hitDetail = `1発${finalHitDamage.toLocaleString()} (12分割・最低保障なし)`;
+      }
+      breakdownText = `[通常] 攻${finalAtk} → 引後${baseDamage} → ${hitDetail}${hits > 1 ? ` (×${hits}連)` : ''} (${normalDps.toLocaleString()}/s)`;
       if (strategyDamage) {
         if (strategyDamage.isAttackMode) {
           breakdownText += ` ｜ [計略中(推定)] 攻${finalAtk}×${strategyDamage.mult}倍 → 1撃${strategyDamage.hitDamage.toLocaleString()} (発動中${strategyDamage.activeDps.toLocaleString()}/s, 差分平均${strategyDamage.dps.toLocaleString()}/s, 稼働${strategyDamage.duration}s/${strategyDamage.cooldown}s)`;
@@ -14610,11 +14692,13 @@ function showQuizResult() {
       enemyDmgTakenPerc: enemyDmgTakenPerc,
       postDmgMult: postDmgMult,
       finalHitDamage: finalHitDamage,
+      blastHitDamage: blastHitDamage,
+      cycleDamage: cycleDamage,
       hits: hits,
       effectiveTargets: effectiveTargets,
       effectiveRange: effectiveRange,
       baseAtkFrames: wf.atk,
-      baseGapFrames: wf.gap,
+      baseGapFrames: baseGapVal,
       effAtkFrames: effAtkFrames,
       effGapFrames: effGapFrames,
       cycleFrames: cycleFrames,
@@ -15248,7 +15332,7 @@ function showQuizResult() {
             }
           } else {
             // 通常攻撃（非計略中、または通常の攻撃武器種）
-            const dmg = s.stat.finalHitDamage * s.stat.hits * s.stat.effectiveTargets;
+            const dmg = (s.stat.cycleDamage !== undefined) ? s.stat.cycleDamage : (s.stat.finalHitDamage * s.stat.hits * s.stat.effectiveTargets);
             s.normalDmg = (s.normalDmg || 0) + dmg;
             s.totalDmg += dmg;
             firingRangeState.totalDamage += dmg;
@@ -16290,16 +16374,17 @@ function showQuizResult() {
     return { atk: 25, gap: 25, hits: 1, type: "physical", isEstimate: true, total: 50 };
   }
 
-  function computeWeaponEffectiveFrames(weapon, atkSpeed = 0, gapShorten = 0) {
+  function computeWeaponEffectiveFrames(weapon, atkSpeed = 0, gapShorten = 0, giantStep = 5) {
     const wf = getWeaponFrameData(weapon);
+    const baseGap = (weapon === "投剣" && giantStep === 5 && wf.gapMax != null) ? wf.gapMax : wf.gap;
     const effAtk = Math.max(1, Math.round(wf.atk / (1 + atkSpeed / 100)));
-    const effGap = Math.max(0, Math.round(wf.gap * (1 - gapShorten / 100)));
+    const effGap = Math.max(0, Math.round(baseGap * (1 - gapShorten / 100)));
     const cycleFrames = effAtk + effGap;
     const cycleTime = cycleFrames > 0 ? (cycleFrames / 30) : 1;
     const attacksPerSec = cycleFrames > 0 ? (30 / cycleFrames) : 1;
     return {
       baseAtk: wf.atk,
-      baseGap: wf.gap,
+      baseGap: baseGap,
       effAtk,
       effGap,
       cycleFrames,
@@ -16312,7 +16397,8 @@ function showQuizResult() {
   function calculateSingleHitDamage({ atk = 1000, targetMult = 1.0, postDmgMult = 1.0, defIgnore = false, targetDef = 0, damageReduction = 0, immuneDefIgnore = false }) {
     const effDef = (defIgnore && !immuneDefIgnore) ? 0 : targetDef;
     const atkWithTarget = Math.floor(atk * targetMult);
-    const baseDamage = Math.max(Math.floor(atkWithTarget * 0.1), atkWithTarget - effDef);
+    const minFloor = Math.min(20, Math.max(1, atkWithTarget));
+    const baseDamage = Math.max(minFloor, atkWithTarget - effDef);
     const finalDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - (damageReduction / 100))));
     return {
       baseDamage,

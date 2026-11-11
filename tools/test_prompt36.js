@@ -151,11 +151,11 @@ function assert(title, condition, detail = '') {
     const sampleUnknown = window.getWeaponFrameData("未知武器");
 
     // Test formula calculation
-    // Base Katana: atk=20, gap=23, total=43
-    // AtkSpeed +50%: atk = Math.max(1, Math.round(20 / 1.5)) = 13
-    // GapShorten 30%: gap = Math.max(0, Math.round(23 * 0.7)) = 16
-    // Cycle = 13 + 16 = 29 frames
-    // Rate = 30 / 29 = 1.034/s
+    // Base Katana (Prompt 54: wiki実測値): atk=19, gap=22, total=41 (旧43)
+    // AtkSpeed +50%: atk = Math.max(1, Math.round(19 / 1.5)) = 13
+    // GapShorten 30%: gap = Math.max(0, Math.round(22 * 0.7)) = 15
+    // Cycle = 13 + 15 = 28 frames (旧29)
+    // Rate = 30 / 28 = 1.071/s
     const calcSample = window.computeWeaponEffectiveFrames("刀", 50, 30);
 
     return {
@@ -171,9 +171,9 @@ function assert(title, condition, detail = '') {
   assert('P36-03: Attack intervals and effective frame calculations per 30fps formula',
     frameCheck.ok &&
     frameCheck.weaponCount >= 20 &&
-    frameCheck.sampleKatana.total === 43 &&
+    frameCheck.sampleKatana.total === 41 && // Prompt 54: wiki実測値(19+22=41)
     frameCheck.sampleUnknown.isEstimate === true &&
-    frameCheck.calcSample.cycleFrames === 29,
+    frameCheck.calcSample.cycleFrames === 28, // Prompt 54: wiki実測値(13+15=28)
     `weapons: ${frameCheck.weaponCount}, katana cycle @ buff: ${frameCheck.calcSample ? frameCheck.calcSample.cycleFrames : 'err'}f`);
 
   // -------------------------------------------------------------
