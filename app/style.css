@@ -1427,12 +1427,13 @@ body {
   background: transparent;
   border: none;
   color: #aaa;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
   padding: 3px 8px;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.15s ease;
+  white-space: nowrap;
 }
 
 .zoom-remodel-btn:hover:not(:disabled) {
@@ -1683,8 +1684,9 @@ body {
 }
 
 .image-zoom-header {
-  height: 52px;
-  padding: 0 20px;
+  min-height: 52px;
+  height: auto;
+  padding: 8px 20px;
   background: rgba(18, 20, 26, 0.95);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
@@ -1692,18 +1694,23 @@ body {
   align-items: center;
   flex-shrink: 0;
   z-index: 10;
+  gap: 8px 12px;
+  flex-wrap: wrap;
 }
 
 .image-zoom-title-box {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .zoom-title-name {
   font-size: 18px;
   font-weight: bold;
   color: #ffffff;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 .zoom-form-badge {
@@ -1712,6 +1719,9 @@ body {
   padding: 3px 9px;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+  line-height: 1.2;
+  flex-shrink: 0;
 }
 
 .zoom-form-tabs {
@@ -1721,6 +1731,14 @@ body {
   padding: 3px;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.zoom-form-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .zoom-tab-btn {
@@ -1733,6 +1751,8 @@ body {
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .zoom-tab-btn:hover:not(:disabled) {
@@ -1770,6 +1790,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .btn-zoom-ctrl {
@@ -1823,10 +1844,55 @@ body {
   color: #fff;
 }
 
+/* 中間幅 (769px〜1100px: タブレット縦持ち等で2段構成にして見切れ解消) */
+@media (max-width: 1100px) and (min-width: 601px) {
+  .image-zoom-title-box {
+    order: 1;
+    flex: 1 1 auto;
+  }
+  .zoom-controls {
+    order: 2;
+    margin-left: auto;
+  }
+  .zoom-form-tabs {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* モバイル幅 (600px以下: 3段構成で要素重なり・はみ出し解消) */
+@media (max-width: 600px) {
+  .image-zoom-header {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+  .image-zoom-title-box {
+    order: 1;
+    width: 100%;
+  }
+  .zoom-form-tabs {
+    order: 2;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .zoom-controls {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+  .btn-zoom-close {
+    font-size: 24px;
+    padding: 0 2px;
+    margin-left: 4px;
+  }
+}
+
 .image-zoom-viewport {
   flex: 1;
   width: 100%;
-  height: calc(100% - 52px);
+  height: auto;
+  min-height: 0;
   position: relative;
   overflow: hidden;
   cursor: grab;
@@ -1834,6 +1900,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  touch-action: none;
 }
 
 .image-zoom-viewport:active {
@@ -1866,12 +1933,34 @@ body {
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
   color: #eee;
-  font-size: 11px;
+  font-size: 12px;
   padding: 4px 16px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   pointer-events: none;
   letter-spacing: 0.5px;
+  white-space: nowrap;
+  max-width: 90vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.zoom-hint-touch {
+  display: none;
+}
+
+.zoom-hint-mouse {
+  display: block;
+}
+
+@media (pointer: coarse) {
+  .zoom-hint-touch {
+    display: block !important;
+  }
+  .zoom-hint-mouse {
+    display: none !important;
+  }
 }
 
 .detail-meta-info {

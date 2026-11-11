@@ -5709,6 +5709,163 @@
         updateZoomTransform();
       }
     });
+
+    // --- Touch Gestures for Tablet / Mobile (第60弾: ピンチズーム・ダブルタップ・下スワイプ) ---
+    let pinchStartDist = 0;
+    let pinchStartScale = 1.0;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartPanX = 0;
+    let touchStartPanY = 0;
+    let lastTouchX = 0;
+    let lastTouchY = 0;
+    let touchStartTime = 0;
+    let isPinching = false;
+    let isTouchDragging = false;
+    let lastTapTimestamp = 0;
+    let lastTapX = 0;
+    let lastTapY = 0;
+
+    function getTouchDistance(t1, t2) {
+      const dx = t2.clientX - t1.clientX;
+      const dy = t2.clientY - t1.clientY;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    function switchHintToTouch() {
+      const mouseHint = document.getElementById("zoomHintMouse");
+      const touchHint = document.getElementById("zoomHintTouch");
+      if (mouseHint) mouseHint.style.display = "none";
+      if (touchHint) touchHint.style.display = "block";
+    }
+
+    function switchHintToMouse() {
+      const mouseHint = document.getElementById("zoomHintMouse");
+      const touchHint = document.getElementById("zoomHintTouch");
+      if (mouseHint) mouseHint.style.display = "block";
+      if (touchHint) touchHint.style.display = "none";
+    }
+
+    // Touch device detection
+    if (("ontouchstart" in window) || (navigator.maxTouchPoints > 0)) {
+      switchHintToTouch();
+    }
+
+    zoomViewport.addEventListener("touchstart", e => {
+      switchHintToTouch();
+      if (e.target.closest(".zoom-controls") || e.target.closest(".zoom-form-tabs")) return;
+
+      if (e.touches.length === 2) {
+        // Pinch start
+        isPinching = true;
+        isTouchDragging = false;
+        pinchStartDist = getTouchDistance(e.touches[0], e.touches[1]);
+        pinchStartScale = zoomScale;
+        e.preventDefault();
+      } else if (e.touches.length === 1) {
+        // Single touch start
+        isPinching = false;
+        isTouchDragging = true;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        lastTouchX = touchStartX;
+        lastTouchY = touchStartY;
+        touchStartPanX = zoomPanX;
+        touchStartPanY = zoomPanY;
+        touchStartTime = Date.now();
+      }
+    }, { passive: false });
+
+    zoomViewport.addEventListener("touchmove", e => {
+      if (isPinching && e.touches.length === 2) {
+        const currDist = getTouchDistance(e.touches[0], e.touches[1]);
+        if (pinchStartDist > 0) {
+          const ratio = currDist / pinchStartDist;
+          zoomScale = Math.min(4.0, Math.max(0.5, pinchStartScale * ratio));
+          updateZoomTransform();
+        }
+        e.preventDefault();
+      } else if (isTouchDragging && e.touches.length === 1) {
+        lastTouchX = e.touches[0].clientX;
+        lastTouchY = e.touches[0].clientY;
+        const dx = lastTouchX - touchStartX;
+        const dy = lastTouchY - touchStartY;
+
+        if (zoomScale > 1.05) {
+          // In zoomed mode: pan the image
+          zoomPanX = touchStartPanX + dx;
+          zoomPanY = touchStartPanY + dy;
+          updateZoomTransform();
+          e.preventDefault();
+        } else {
+          // In fit mode (scale <= 1.05): allow vertical drag feedback for swipe-to-close
+          if (dy > 0) {
+            const stage = document.getElementById("imageZoomStage");
+            if (stage) {
+              stage.style.transform = `translate(0px, ${dy * 0.45}px) scale(${zoomScale})`;
+            }
+            e.preventDefault();
+          }
+        }
+      }
+    }, { passive: false });
+
+    zoomViewport.addEventListener("touchend", e => {
+      if (isPinching) {
+        if (e.touches.length < 2) {
+          isPinching = false;
+        }
+        return;
+      }
+
+      if (isTouchDragging) {
+        isTouchDragging = false;
+        const dx = lastTouchX - touchStartX;
+        const dy = lastTouchY - touchStartY;
+        const dt = Date.now() - touchStartTime;
+        const totalDist = Math.sqrt(dx * dx + dy * dy);
+
+        // 1. Double tap check (if tap did not move much and was quick)
+        if (totalDist < 15 && dt < 280) {
+          const now = Date.now();
+          const tapDist = Math.sqrt(Math.pow(lastTouchX - lastTapX, 2) + Math.pow(lastTouchY - lastTapY, 2));
+          if (now - lastTapTimestamp < 320 && tapDist < 25) {
+            // Double tap triggered!
+            if (zoomScale > 1.2) {
+              resetZoomTransform(true);
+            } else {
+              zoomScale = 2.0;
+              zoomPanX = 0;
+              zoomPanY = 0;
+              updateZoomTransform();
+            }
+            lastTapTimestamp = 0;
+            return;
+          }
+          lastTapTimestamp = now;
+          lastTapX = lastTouchX;
+          lastTapY = lastTouchY;
+        }
+
+        // 2. Swipe down to close check (only when not zoomed: zoomScale <= 1.05)
+        if (zoomScale <= 1.05) {
+          const isDownSwipe = (dy >= 60 && dy > Math.abs(dx) * 1.2) || (dt < 250 && dy >= 40 && dy > Math.abs(dx) * 1.5);
+          if (isDownSwipe) {
+            closeImageZoom();
+            return;
+          } else {
+            // Revert stage position if swipe cancelled
+            updateZoomTransform();
+          }
+        }
+      }
+    });
+
+    zoomViewport.addEventListener("touchcancel", () => {
+      isPinching = false;
+      isTouchDragging = false;
+      updateZoomTransform();
+    });
   }
 
   // Keyboard navigation (Esc to close, ArrowLeft / ArrowRight to navigate, Ctrl+Z to Undo)
@@ -17129,6 +17286,7 @@ function showQuizResult() {
   window.openImageZoom = openImageZoom;
   window.closeImageZoom = closeImageZoom;
   window.resetZoomTransform = resetZoomTransform;
+  window.getZoomState = () => ({ zoomScale, zoomPanX, zoomPanY });
   window.exportPartyImage = exportPartyImage;
   window.exportTierToImage = exportTierToImage;
   window.renderCoveragePanel = renderCoveragePanel;
