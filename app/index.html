@@ -2011,13 +2011,19 @@
             ボスの特性を選択すると、data.js の特技・計略・効果から有効な対策城娘を逆引き提示します。
           </div>
           <div id="counterTraitBtns" style="display:flex; flex-wrap:wrap; gap:5px; margin-bottom:8px;">
-            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitFlying" data-trait="飛行">飛行</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitFlying" data-trait="飛行">飛行（対空）</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitHighDef" data-trait="高防御">高防御・物理無効</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitStealth" data-trait="潜伏・隠密">潜伏・隠密（看破）</button>
             <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitUnstoppable" data-trait="足止め無効">足止め無効</button>
-            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitMagicReflect" data-trait="術反射">術反射</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitStatusApply" data-trait="状態異常付与">状態異常（付与）</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitStatusCure" data-trait="状態異常対策">状態異常（回復・無効）</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitRangeDown" data-trait="射程減少審議">射程減少審議</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitStratCostUp" data-trait="計略消費気増加審議">計略消費気増加審議</button>
             <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitPhysicalResist" data-trait="物理軽減">物理軽減</button>
-            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitStatusImmune" data-trait="状態異常無効">状態異常無効</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitMagicReflect" data-trait="術反射">術反射</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitStatusImmune" data-trait="状態異常無効">状態異常無効（敵）</button>
             <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitPercentDamage" data-trait="割合ダメージ">割合ダメージ</button>
-            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitHighDef" data-trait="高防御">高防御</button>
+            <button type="button" class="btn btn-xs counter-trait-btn" id="btnTraitDebuffImmune" data-trait="能力低下無効審議">能力低下無効審議</button>
           </div>
           <div id="counterActiveTraits" style="font-size:12px; color:#4a5568; margin-bottom:8px; display:none;">
             選択特性: <span id="counterActiveTraitsLabel"></span>

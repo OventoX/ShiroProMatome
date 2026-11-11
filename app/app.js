@@ -13588,95 +13588,195 @@ function showQuizResult() {
     }
   }
 
-  // --- 機能2: 対策コンシェルジュ（敵特性からの逆引き） ---
-  const SCRE_COUNTER_TRAIT_DEFS = {
-    "飛行": {
-      name: "飛行",
-      matcher: (c, fullText) => {
-        if (c.weapon === "弓") return "［弓］対空飛行敵へ攻撃1.5倍特攻";
-        const m = fullText.match(/飛行.*(?:特効|上昇|倍|解除|対象|無効化|撃破)|飛行敵/);
-        if (m) return "［特技・計略］" + m[0];
-        return null;
+  // --- 機能2: 対策コンシェルジュ（敵特性・審議からの逆引き / 第62弾拡充） ---
+  function cleanCounterAbilityName(rawName) {
+    if (!rawName) return "";
+    return rawName
+      .replace(/^\[[^\]]+\]\s*\/\s*/, "")
+      .replace(/\s*[（(](?:使用まで|消費気|気:|初回:).*$/, "")
+      .trim();
+  }
+
+  function getCastleAbilitySources(c) {
+    if (!c) return [];
+    const list = [];
+    const seen = new Set();
+    function addEntry(obj, sourceType) {
+      if (!obj || !obj.name) return;
+      const key = sourceType + ":" + obj.name;
+      if (seen.has(key)) return;
+      seen.add(key);
+      const text = obj.text || "";
+      let timing = "発動時のみ";
+      if (sourceType === "特技") {
+        timing = /巨大化|最大化|配置時|攻撃毎|撃破時|耐久が\d+%以下/.test(text) ? "常時(条件/巨大化)" : "常時";
       }
-    },
-    "足止め無効": {
-      name: "足止め無効",
-      matcher: (c, fullText) => {
-        const m = fullText.match(/移動速度.*(?:低下|半減|%低下|減)|後退|ノックバック|敵の移動速度/);
-        if (m) return "［鈍足/後退］" + m[0];
-        if (getCastleCombinedEffects(c).some(e => e.stat === "enemySlow")) return "［敵移動低下］鈍足デバフで進軍を遅延・速攻";
-        return null;
-      }
-    },
-    "術反射": {
-      name: "術反射",
-      matcher: (c, fullText) => {
-        // 物理直接攻撃武器: 歌舞・陣貝・茶器（支援回復）、本（特殊計略）、法術・杖・祓串・鈴（術属性）を除外した物理攻撃武器種
-        if (["刀", "槍", "槌", "拳", "弓", "石弓", "鉄砲", "大砲", "投剣", "鞭", "鎌", "戦棍", "盾", "双剣", "ランス", "軍船", "その他"].includes(c.weapon)) {
-          return "［物理アタッカー］術反射に影響されない物理直接火力";
+      list.push({
+        sourceType,
+        timing,
+        rawName: obj.name,
+        abilityName: cleanCounterAbilityName(obj.name),
+        text,
+        effects: obj.effects || []
+      });
+    }
+    if (c.skill) addEntry(c.skill, "特技");
+    if (c.allSkills) c.allSkills.forEach(s => addEntry(s, "特技"));
+    if (c.strategy) addEntry(c.strategy, "計略");
+    if (c.allStrategies) c.allStrategies.forEach(s => addEntry(s, "計略"));
+    if (c.special) addEntry(c.special, "特殊能力");
+    if (c.allSpecials) c.allSpecials.forEach(s => addEntry(s, "特殊能力"));
+    return list;
+  }
+
+  function matchCastleCounterAbility(c, opts) {
+    const sources = getCastleAbilitySources(c);
+    for (const entry of sources) {
+      if (opts.regex) {
+        const m = entry.text.match(opts.regex);
+        if (m) {
+          const detail = opts.prefix ? (opts.prefix + m[0]) : m[0];
+          return {
+            sourceType: entry.sourceType,
+            timing: entry.timing,
+            abilityName: entry.abilityName,
+            rawAbilityName: entry.rawName,
+            detail,
+            reason: `［${entry.sourceType}（${entry.timing}）: ${entry.abilityName}］${detail}`
+          };
         }
-        const m = fullText.match(/物理ダメージ|術ダメージを物理|術無効/);
-        if (m) return "［物理変換/術無効］" + m[0];
-        return null;
       }
-    },
-    "物理軽減": {
-      name: "物理軽減",
-      matcher: (c, fullText) => {
-        if (["法術", "杖", "祓串", "鈴"].includes(c.weapon)) return "［術攻撃］物理軽減・高防御を無視する術ダメージ";
-        const m = fullText.match(/(?:敵の)?防御(?:力)?を?(?:無視|0として計算|減算な)|術ダメージ/);
-        if (m) return "［防御無視/術］" + m[0];
-        if (getCastleCombinedEffects(c).some(e => e.stat === "enemyDefDown" && e.value >= 30)) return "［敵防御大幅低下］物理軽減敵の有効防御を削減";
-        return null;
-      }
-    },
-    "状態異常無効": {
-      name: "状態異常無効",
-      matcher: (c, fullText) => {
-        if (getCastleCombinedEffects(c).some(e => (e.stat === "dmgDealt" || e.stat === "dmgDealtTarget" || e.stat === "enemyDmgTakenUp") && e.value >= 20)) {
-          return "［直接火力増幅］状態異常に頼らず純粋な与ダメ・被ダメ増幅で突破";
-        }
-        return null;
-      }
-    },
-    "割合ダメージ": {
-      name: "割合ダメージ",
-      matcher: (c, fullText) => {
-        const m = fullText.match(/不死|不屈|大破.*(?:防ぐ|しない)|攻撃対象にならない|隠密|バリア|被ダメージ.*(?:軽減|半減)/);
-        if (m) return "［不死/隠密/軽減］" + m[0];
-        if (getCastleCombinedEffects(c).some(e => e.stat === "dmgTakenDown")) return "［被ダメ軽減］大ダメージ・割合削りを防護";
-        return null;
-      }
-    },
-    "高防御": {
-      name: "高防御",
-      matcher: (c, fullText) => {
-        if (["法術", "杖", "祓串", "鈴"].includes(c.weapon)) return "［防御無視］敵防御に関わらずダメージを通す";
-        const m = fullText.match(/(?:敵の)?防御(?:力)?を?(?:無視|0として計算|減算な)|術ダメージ/);
-        if (m) return "［防御無視］" + m[0];
-        if (getCastleCombinedEffects(c).some(e => e.stat === "enemyDefDown" && e.value >= 40)) return "［敵防御40%以上低下］高防御を解体";
-        return null;
+      if (opts.effectPred && entry.effects.some(opts.effectPred)) {
+        const detail = opts.effectDesc || "効果一致";
+        return {
+          sourceType: entry.sourceType,
+          timing: entry.timing,
+          abilityName: entry.abilityName,
+          rawAbilityName: entry.rawName,
+          detail,
+          reason: `［${entry.sourceType}（${entry.timing}）: ${entry.abilityName}］${detail}`
+        };
       }
     }
+    if (opts.weapons && opts.weapons.includes(c.weapon)) {
+      const primarySkillName = c.skill ? cleanCounterAbilityName(c.skill.name) : c.weapon;
+      const primaryRawName = c.skill ? c.skill.name : c.weapon;
+      const detail = opts.weaponDesc || `${c.weapon}特性`;
+      return {
+        sourceType: "武器種特性",
+        timing: "常時",
+        abilityName: primarySkillName,
+        rawAbilityName: primaryRawName,
+        detail,
+        reason: `［武器種特性（常時）: ${c.weapon} ／ 特技: ${primarySkillName}］${detail}`
+      };
+    }
+    return null;
+  }
+
+  function createCounterTraitDef(name, opts) {
+    return {
+      name,
+      matchDetail: (c) => matchCastleCounterAbility(c, opts),
+      matcher: (c) => {
+        const d = matchCastleCounterAbility(c, opts);
+        return d ? d.reason : null;
+      }
+    };
+  }
+
+  const SCRE_COUNTER_TRAIT_DEFS = {
+    "飛行": createCounterTraitDef("飛行", {
+      regex: /飛行[^。、\n]*?(?:特効|上昇|倍|解除|対象|無効化|撃破|半減)|飛行敵/,
+      weapons: ["弓"],
+      weaponDesc: "対空飛行敵へ攻撃1.5倍特攻"
+    }),
+    "高防御": createCounterTraitDef("高防御", {
+      regex: /(?:敵の)?防御(?:力)?を?(?:\d+%?)?(?:無視|0として計算|減算な)|術ダメージ/,
+      effectPred: e => e.stat === "enemyDefDown" && e.value >= 40,
+      effectDesc: "敵防御40%以上低下で高防御を解体",
+      weapons: ["法術", "杖", "祓串", "鈴"],
+      weaponDesc: "防御無視の術攻撃でダメージを通す"
+    }),
+    "物理軽減": createCounterTraitDef("物理軽減", {
+      regex: /(?:敵の)?防御(?:力)?を?(?:\d+%?)?(?:無視|0として計算|減算な)|術ダメージ/,
+      effectPred: e => e.stat === "enemyDefDown" && e.value >= 30,
+      effectDesc: "敵防御大幅低下で物理軽減敵の有効防御を削減",
+      weapons: ["法術", "杖", "祓串", "鈴"],
+      weaponDesc: "物理軽減・高防御を無視する術ダメージ"
+    }),
+    "潜伏・隠密": createCounterTraitDef("潜伏・隠密", {
+      regex: /隠密(?:効果|状態)?を?無効化|隠密無効化/
+    }),
+    "足止め無効": createCounterTraitDef("足止め無効", {
+      regex: /移動速度[^。、\n]*?(?:低下|半減|\d+%|0)|後退|ノックバック|動きを封じ|移動不能|行動不能/,
+      effectPred: e => e.stat === "enemySlow",
+      effectDesc: "鈍足デバフで進軍を遅延・速攻"
+    }),
+    "状態異常付与": createCounterTraitDef("状態異常付与", {
+      regex: /(?:火傷|氷結|猛毒|毒|麻痺|混乱|暗闇|絶望|移動不能|行動不能)[^。、\n]*?(?:付与|にする|状態|させ)/
+    }),
+    "状態異常対策": createCounterTraitDef("状態異常対策", {
+      regex: /(?:状態異常|暗闇|火傷|麻痺|氷結|猛毒|毒|混乱)[^。、\n]*?(?:回復|防ぐ|無効|解除)/
+    }),
+    "状態異常無効": createCounterTraitDef("状態異常無効", {
+      effectPred: e => (e.stat === "dmgDealt" || e.stat === "dmgDealtTarget" || e.stat === "enemyDmgTakenUp") && e.value >= 20,
+      effectDesc: "状態異常に頼らず純粋な与ダメ・被ダメ増幅で突破"
+    }),
+    "射程減少審議": createCounterTraitDef("射程減少審議", {
+      regex: /射程が?\s*(?:\d+%?|\d+(?:\.\d+)?倍)(?:ずつ)?上昇|射程\+\d+/,
+      effectPred: e => e.stat === "rangePercent" || e.stat === "rangeFlat",
+      effectDesc: "射程バフで射程減少ペナルティを相殺"
+    }),
+    "計略消費気増加審議": createCounterTraitDef("計略消費気増加審議", {
+      regex: /計略消費気[^。、\n]*?(?:軽減|減少|減|-\d+)|気の自然増加[^。、\n]*|撃破[^。、\n]*?気[^。、\n]*?(?:増|獲得)|気を\d+増/
+    }),
+    "術反射": createCounterTraitDef("術反射", {
+      regex: /物理ダメージ|術ダメージを物理|術反射を?無効/,
+      weapons: ["刀", "槍", "槌", "拳", "弓", "石弓", "鉄砲", "大砲", "投剣", "鞭", "鎌", "戦棍", "盾", "双剣", "ランス", "軍船", "その他"],
+      weaponDesc: "術反射に影響されない物理直接火力"
+    }),
+    "割合ダメージ": createCounterTraitDef("割合ダメージ", {
+      regex: /不死|不屈|大破[^。、\n]*?(?:防ぐ|しない|耐える)|攻撃対象にならない|隠密|バリア|被ダメージ[^。、\n]*?(?:軽減|半減)/,
+      effectPred: e => e.stat === "dmgTakenDown",
+      effectDesc: "被ダメージ軽減で大ダメージ・割合削りを防護"
+    }),
+    "能力低下無効審議": createCounterTraitDef("能力低下無効審議", {
+      regex: /敵の[^。、\n]*?(?:被ダメージ|被ダメ|受けるダメージ)[^。、\n]*?上昇|敵の与ダメ(?:ージ)?[^。、\n]*?(?:低下|半減)/,
+      effectPred: e => e.stat === "enemyDmgTakenUp",
+      effectDesc: "能力低下無効を貫通する被ダメ上昇・与ダメ低下デバフ"
+    })
   };
 
   var currentCounterSelectedTraits = new Set(["飛行", "足止め無効"]);
 
-  function findCounterCastles(traits) {
+  function findCounterCastles(traits, opts = {}) {
     const traitList = Array.from(traits);
     if (traitList.length === 0) return [];
+    const ownedOnly = Boolean(opts.ownedOnly);
 
     const results = [];
     SCRE_DATA.forEach(c => {
+      if (ownedOnly && (!ownership || !ownership.owned || !ownership.owned.has(c.id))) return;
       const fullText = getCastleFullText(c);
       const matchedReasons = [];
 
       traitList.forEach(tr => {
         const def = SCRE_COUNTER_TRAIT_DEFS[tr];
         if (def) {
-          const reason = def.matcher(c, fullText);
-          if (reason) {
-            matchedReasons.push({ trait: tr, reason });
+          const detailObj = typeof def.matchDetail === "function"
+            ? def.matchDetail(c, fullText)
+            : (def.matcher ? (() => { const r = def.matcher(c, fullText); return r ? { reason: r, sourceType: "特技・計略", timing: "常時/発動時", abilityName: c.skill ? cleanCounterAbilityName(c.skill.name) : "", rawAbilityName: c.skill ? c.skill.name : "", detail: r } : null; })() : null);
+          if (detailObj) {
+            matchedReasons.push({
+              trait: tr,
+              reason: detailObj.reason,
+              sourceType: detailObj.sourceType,
+              timing: detailObj.timing,
+              abilityName: detailObj.abilityName,
+              rawAbilityName: detailObj.rawAbilityName,
+              detail: detailObj.detail
+            });
           }
         }
       });
@@ -13715,8 +13815,9 @@ function showQuizResult() {
       }
     }
 
-    const matches = findCounterCastles(currentCounterSelectedTraits);
-    countEl.textContent = `${matches.length} 件`;
+    const ownedOnly = Boolean(document.getElementById("chkAutoSuggestOwnedOnly")?.checked);
+    const matches = findCounterCastles(currentCounterSelectedTraits, { ownedOnly });
+    countEl.textContent = `${matches.length} 件${ownedOnly ? " (所持のみ)" : ""}`;
 
     if (matches.length === 0) {
       container.innerHTML = `<div style="padding:10px; text-align:center; color:#888; font-size:12px;">選択した特性に有効な城娘が見つかりませんでした。特性の組み合わせを変更してください。</div>`;
@@ -13726,11 +13827,17 @@ function showQuizResult() {
     container.innerHTML = matches.slice(0, 30).map(m => {
       const c = m.castle;
       const inParty = party.some(p => p && p.id === c.id);
-      const reasonPills = m.matchedReasons.map(r => `
-        <span class="badge" style="background:#edf2f7; color:#2d3748; border:1px solid #cbd5e0; font-size:12px; margin-right:4px;">
-          <strong>[${escapeHtml(r.trait)}]</strong> ${escapeHtml(r.reason)}
-        </span>
-      `).join("");
+      const reasonPills = m.matchedReasons.map(r => {
+        const isAlways = r.timing && r.timing.startsWith("常時");
+        const timingBg = isAlways ? "#e6fffa" : "#fffaf0";
+        const timingColor = isAlways ? "#234e52" : "#7b341e";
+        const timingBorder = isAlways ? "#81e6d9" : "#fbd38d";
+        return `
+          <span class="badge" style="background:${timingBg}; color:${timingColor}; border:1px solid ${timingBorder}; font-size:12px; margin-right:4px;">
+            <strong>[${escapeHtml(r.trait)}]</strong> ${escapeHtml(r.reason)}
+          </span>
+        `;
+      }).join("");
 
       return `
         <div class="counter-concierge-card">
@@ -13796,6 +13903,13 @@ function showQuizResult() {
       });
     });
 
+    const chkOwned = document.getElementById("chkAutoSuggestOwnedOnly");
+    if (chkOwned) {
+      chkOwned.addEventListener("change", () => {
+        renderCounterConcierge();
+      });
+    }
+
     const bossSelect = document.getElementById("counterConciergeBossSelect");
     if (bossSelect && SCRE_BOSS_CATALOG) {
       bossSelect.innerHTML = `<option value="">ボスカタログから選択</option>` +
@@ -13821,27 +13935,31 @@ function showQuizResult() {
     }
   }
 
-  // --- 機能3: 効果タグ逆引き辞典 ---
+  // --- 機能3: 効果タグ逆引き辞典（第62弾拡充） ---
   const SCRE_EFFECT_TAG_RULES = [
     { tag: "気増加", label: "気増加", pattern: /気の自然増加|撃破時に.*気|気を.*増|気.*軽減|気.*消費/, effectStat: [], desc: "気の自然増加・撃破時気獲得・気軽減など気全般" },
+    { tag: "計略消費気軽減", label: "計略消費気軽減", pattern: /計略消費気.*(?:軽減|減少|減|-\d+)/, effectStat: [], desc: "計略の使用に必要な消費気を軽減（消費気増加審議対策）" },
     { tag: "計略短縮", label: "計略短縮", pattern: /計略.*(?:短縮|再使用)/, effectStat: [], desc: "計略の再使用時間（CT）短縮" },
     { tag: "攻撃速度上昇", label: "攻撃速度上昇", pattern: /攻撃速度.*(?:上昇|%|倍)/, effectStat: ["atkSpeed"], desc: "攻撃モーション速度の上昇" },
     { tag: "隙短縮", label: "隙短縮", pattern: /攻撃後の隙.*(?:短縮|%)/, effectStat: ["gapShorten"], desc: "攻撃後の待機時間（隙）短縮" },
-    { tag: "射程上昇", label: "射程上昇", pattern: /射程.*(?:上昇|伸びる|\+\d+|%)/, effectStat: ["rangePercent", "rangeFlat"], desc: "自身・味方の射程拡大" },
+    { tag: "射程上昇", label: "射程上昇", pattern: /射程.*(?:上昇|伸びる|\+\d+|%)/, effectStat: ["rangePercent", "rangeFlat"], desc: "自身・味方の射程拡大（射程減少審議対策）" },
     { tag: "攻撃力上昇", label: "攻撃力上昇", pattern: /攻撃が?\d+%?上昇|攻撃が?\+\d+/, effectStat: ["atkPercent", "atkFlat"], desc: "攻撃力の割合・固定値強化" },
     { tag: "与ダメ上昇", label: "与ダメ上昇", pattern: /与えるダメージ.*(?:上昇|%)/, effectStat: ["dmgDealt"], desc: "与えるダメージの割合上昇" },
     { tag: "被ダメ軽減", label: "被ダメ軽減", pattern: /被ダメージ.*(?:軽減|%|半減)/, effectStat: ["dmgTakenDown"], desc: "受けるダメージの割合軽減" },
     { tag: "バリア", label: "バリア", pattern: /バリア|耐久の\d+%の耐久/, effectStat: [], desc: "耐久を肩代わりするバリア付与" },
     { tag: "ノックバック", label: "ノックバック", pattern: /敵を後退|後退させる|ノックバック/, effectStat: [], desc: "敵を押し戻すノックバック" },
     { tag: "足止め", label: "足止め", pattern: /足止め|足を止める/, effectStat: [], desc: "敵の移動を停止する足止め能力" },
+    { tag: "対空・飛行特効", label: "対空・飛行特効", pattern: /飛行.*(?:特効|上昇|倍|解除|対象|無効化|撃破|半減)|飛行敵/, effectStat: [], weapon: ["弓"], desc: "飛行敵に対する特効・対空攻撃（弓の武器種特性含む）" },
     { tag: "防御無視", label: "防御無視", pattern: /(?:敵の)?防御(?:力)?を?(?:無視|0として計算|減算な)|術ダメージ/, effectStat: [], weapon: ["法術", "杖", "祓串", "鈴"], desc: "防御力を無視する術攻撃・直撃貫通" },
     { tag: "敵攻撃低下", label: "敵攻撃低下", pattern: /敵の攻撃.*(?:低下|%|半減)/, effectStat: ["enemyAtkDown"], desc: "敵の攻撃力を割合・固定値で弱体化" },
     { tag: "敵防御低下", label: "敵防御低下", pattern: /敵の防御.*(?:低下|%|半減)/, effectStat: ["enemyDefDown"], desc: "敵の防御力を割合・固定値で弱体化" },
+    { tag: "敵被ダメ上昇", label: "敵被ダメ上昇", pattern: /敵の[^。、\n]*?(?:被ダメージ|被ダメ|受けるダメージ)[^。、\n]*?上昇/, effectStat: ["enemyDmgTakenUp"], desc: "敵が受けるダメージを割合増加（能力低下無効審議でも有効）" },
     { tag: "敵移動低下", label: "敵移動低下", pattern: /移動速度.*(?:低下|%|半減)/, effectStat: ["enemySlow"], desc: "敵の移動速度を低下（鈍足）" },
-    { tag: "状態異常付与", label: "状態異常付与", pattern: /(?:火傷|氷結|猛毒|混乱|暗闇|絶望|移動不能|行動不能).*(?:付与|にする|状態)/, effectStat: [], desc: "火傷/氷結/猛毒/暗闇等の状態異常を付与" },
-    { tag: "状態異常回復・無効", label: "状態異常回復・無効", pattern: /状態異常.*(?:回復|防ぐ|無効)/, effectStat: [], desc: "状態異常の解除または無効化" },
+    { tag: "状態異常付与", label: "状態異常付与", pattern: /(?:火傷|氷結|猛毒|毒|麻痺|混乱|暗闇|絶望|移動不能|行動不能).*(?:付与|にする|状態|させ)/, effectStat: [], desc: "火傷/氷結/猛毒/麻痺/暗闇等の状態異常を付与" },
+    { tag: "状態異常回復・無効", label: "状態異常回復・無効", pattern: /(?:状態異常|暗闇|火傷|麻痺|氷結|猛毒|毒|混乱).*(?:回復|防ぐ|無効|解除)/, effectStat: [], desc: "状態異常の解除または無効化" },
     { tag: "不死・不屈", label: "不死・不屈", pattern: /不死|不屈|大破.*(?:防ぐ|しない|耐える)/, effectStat: [], desc: "耐久0になっても大破しない不死・不屈" },
     { tag: "隠密", label: "隠密", pattern: /攻撃対象にならない|隠密/, effectStat: [], desc: "敵の攻撃対象から外れる隠密状態" },
+    { tag: "隠密解除・看破", label: "隠密解除・看破", pattern: /隠密(?:効果|状態)?を?無効化|隠密無効化/, effectStat: [], desc: "敵の隠密・潜伏状態を無効化（看破）" },
     { tag: "反射", label: "反射", pattern: /ダメージ.*反射|反射する/, effectStat: [], desc: "受けたダメージを敵に跳ね返す反射" },
     { tag: "伏兵・トークン", label: "伏兵・トークン", pattern: /伏兵|トークン/, effectStat: [], desc: "伏兵・トークンを配置して支援やデコイに活用" }
   ];
