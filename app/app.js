@@ -14135,6 +14135,8 @@ function showQuizResult() {
 
     const isMagic = wf.type === "magic" || ["法術", "杖", "祓串", "鈴"].includes(c.weapon);
     const buffedAtk = Math.round(baseAtk * (1 + selfAtkRatio / 100) + selfAtkFlat);
+    // 第56弾修正1: 「与えるダメージ」（dmgDealtTarget）は防御を引く前の攻撃値に乗算（訓練場 calculateFiringCastleStats と同型）
+    const atkWithTarget = Math.floor(buffedAtk * selfTargetMult);
     const effDef = isMagic ? 0 : Math.max(0, Math.round(targetDef * (1 - enemyDefDown / 100)));
 
     let rawHitDmg = 0;
@@ -14142,23 +14144,25 @@ function showQuizResult() {
     let maxHits = wf.hitsMax || baseHits;
 
     if (isBell) {
-      // 是正3: 鈴の12分割ヒットモデル (1撃=攻撃値/12、12連撃、最低保障なし)
-      baseHits = 12;
-      maxHits = 12;
-      const splitAtk = Math.floor(buffedAtk / 12);
+      // 是正3 & 第56弾修正2: 鈴の分割ヒットモデル (SCRE_WEAPON_FRAMES の hitsSplit を参照)
+      const bellSplits = wf.hitsSplit || 12;
+      baseHits = bellSplits;
+      maxHits = bellSplits;
+      const splitAtk = Math.floor(atkWithTarget / bellSplits);
       rawHitDmg = Math.max(1, splitAtk);
     } else if (isCannon) {
       // 是正1: 大砲直撃ボーナス 1.5倍 × 最大化1.25倍 = 1.875倍 (防御引き前)
-      const cannonAtk = Math.floor(buffedAtk * 1.875);
+      const cannonAtk = Math.floor(atkWithTarget * 1.875);
       const minFloor = Math.min(20, Math.max(1, cannonAtk));
       rawHitDmg = Math.max(minFloor, cannonAtk - effDef);
     } else {
       // 是正4: 最低ダメージ保障 20 (atk < 20 なら atk が下限)
-      const minFloor = Math.min(20, Math.max(1, buffedAtk));
-      rawHitDmg = Math.max(minFloor, buffedAtk - effDef);
+      const minFloor = Math.min(20, Math.max(1, atkWithTarget));
+      rawHitDmg = Math.max(minFloor, atkWithTarget - effDef);
     }
 
-    const finalHitDmg = Math.round(rawHitDmg * (1 + selfDmgDealt / 100) * selfTargetMult);
+    // 「与ダメージ」（dmgDealt）は防御引き後のダメージに乗算（第56弾修正1: selfTargetMult は防御引き前に適用済みのため除外）
+    const finalHitDmg = Math.round(rawHitDmg * (1 + selfDmgDealt / 100));
 
     const effDps = isBuff ? 0 : Math.round(finalHitDmg * baseHits * attacksPerSec);
     const maxEffDps = isBuff ? 0 : Math.round(finalHitDmg * maxHits * attacksPerSec);
@@ -14913,9 +14917,10 @@ function showQuizResult() {
       const blastBaseDamage = Math.max(blastMinFloor, blastAtk - effDef);
       blastHitDamage = Math.max(1, Math.floor(blastBaseDamage * postDmgMult * (1.0 - (targetRed / 100))));
     } else if (isBell) {
-      // 是正3: 鈴の12分割ヒットモデル (1撃=攻撃値/12、12連撃、最低保障なし)
-      hits = 12;
-      const splitAtk = Math.floor(atkWithTarget / 12);
+      // 是正3 & 第56弾修正2: 鈴の分割ヒットモデル (SCRE_WEAPON_FRAMES の hitsSplit を参照)
+      const bellSplits = wf.hitsSplit || 12;
+      hits = bellSplits;
+      const splitAtk = Math.floor(atkWithTarget / bellSplits);
       baseDamage = Math.max(1, splitAtk);
       finalHitDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - (targetRed / 100))));
       blastHitDamage = finalHitDamage;
@@ -15235,7 +15240,8 @@ function showQuizResult() {
           hitDetail += ` (爆風: 1撃${blastHitDamage.toLocaleString()} × ${effectiveTargets - 1}体)`;
         }
       } else if (isBell) {
-        hitDetail = `1発${finalHitDamage.toLocaleString()} (12分割・最低保障なし)`;
+        const bellSplits = wf.hitsSplit || 12;
+        hitDetail = `1発${finalHitDamage.toLocaleString()} (${bellSplits}分割・最低保障なし)`;
       }
       breakdownText = `[通常] 攻${finalAtk} → 引後${baseDamage} → ${hitDetail}${hits > 1 ? ` (×${hits}連)` : ''} (${normalDps.toLocaleString()}/s)`;
       if (strategyDamage) {
