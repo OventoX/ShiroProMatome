@@ -1287,7 +1287,11 @@
     if (isSpecialOn && castle.special && castle.special.text) {
       const t = castle.special.text;
       if (/移動攻撃/.test(t) || /移動可能/.test(t)) reasons.push("特殊能力: 移動攻撃");
-      if (/耐久\d+%以下|耐久\d+%以上/.test(t)) reasons.push("特殊能力: 条件付き効果");
+      if (/耐久80%以下/.test(t)) {
+        reasons.push("特殊能力: 耐久80%以下の敵に与えるダメージ1.2倍（通常時未反映・注記参照）");
+      } else if (/耐久\d+%以下|耐久\d+%以上/.test(t)) {
+        reasons.push("特殊能力: 条件付き効果");
+      }
     }
 
     return {
@@ -1527,7 +1531,15 @@
           } else if (effect.mode === "percent") {
             const bucket = b[effect.stat];
             if (bucket && typeof bucket.max === "number") {
-              bucket.sources.push({ from: effect.from, type: effect.type, val: effect.value, stackable: effect.stackable, isSelf, raw: effect.raw });
+              bucket.sources.push({
+                from: effect.from,
+                type: effect.type,
+                val: effect.value,
+                stackable: effect.stackable,
+                isSelf,
+                raw: effect.raw,
+                condition: effect.condition || null
+              });
               if (effect.stackable) {
                 bucket.stackSum += effect.value;
               } else if (effect.value > bucket.max) {
@@ -1636,6 +1648,18 @@
         let maxApplied = false;
         bucket.sources.forEach(s => {
           if (s.type === "所持特技") return; // 所持特技は上のパスで適用・競合判定済み
+
+          // 第58弾: 敵耐久○%以下など、満タン敵（戦闘開始時・訓練場デフォルト）に成立しない条件付きバフの判定
+          // 出典: https://scre.swiki.jp/index.php?［無疆］江戸城 / https://scre.swiki.jp/index.php?特殊能力
+          // 該当文言: 「耐久80%以下の敵に与えるダメージ1.2倍」
+          // 敵の耐久が満タン(>80%)想定では条件不成立として未適用にする
+          const isHpUnderCond = s.condition && /耐久\s*(?:が|)\s*\d+%\s*以下/.test(s.condition);
+          if (isHpUnderCond) {
+            s.applied = false;
+            s.conflictReason = `発動条件未成立 (${s.condition})`;
+            return;
+          }
+
           if (s.stackable) {
             s.applied = true;
           } else if (bucket.max > 0 && s.val === bucket.max && !maxApplied) {
@@ -1646,6 +1670,10 @@
             s.conflictReason = "同種バフと重なりのため未適用 (最大値優先)";
           }
         });
+        // 第58弾: 条件未適用分を除外して stackSum と max を同期
+        bucket.stackSum = bucket.sources.filter(s => s.applied && s.stackable).reduce((sum, s) => sum + s.val, 0);
+        const appliedNonStack = bucket.sources.filter(s => s.applied && !s.stackable);
+        bucket.max = appliedNonStack.length > 0 ? Math.max(...appliedNonStack.map(s => s.val)) : 0;
       });
       // Flat buffs and shares always stack
       ["atkFlat", "defFlat", "rangeFlat", "hpFlat", "recoveryFlat"].forEach(k => {
@@ -2016,7 +2044,8 @@
           }
           const calc = calcResult && calcResult.perCastle[castle.id] ? calcResult.perCastle[castle.id].calculatedStats : null;
           const attrStr = castle.subType || castle.castleType;
-          const matchBadge = (calc && calc.isTerrainMatch) ? `<span class="badge" style="background:#2c6f4f;color:#fff;font-size:9.5px;padding:1px 4px;margin-left:3px;" title="出撃地形一致: 巨大化消費気35%減＆合戦ステータス1.25倍">✓一致</span>` : '';
+          const terrainStatMultText = (typeof currentTerrain !== 'undefined' && currentTerrain === '地獄') ? '1.3倍' : '1.25倍';
+          const matchBadge = (calc && calc.isTerrainMatch) ? `<span class="badge" style="background:#2c6f4f;color:#fff;font-size:9.5px;padding:1px 4px;margin-left:3px;" title="出撃地形一致: 巨大化消費気35%減＆合戦ステータス${terrainStatMultText}">✓一致</span>` : '';
           if (calc) {
             subInfo = `★${castle.rarity} [${attrStr}]${matchBadge}・攻<strong style="color:var(--buff-color);">${calc.atk}</strong>・単撃目安(防0)<strong style="color:var(--buff-color);">${calc.singleHit}</strong>`;
           } else {
@@ -14227,7 +14256,13 @@ function showQuizResult() {
       else if (ef.stat === "atkPercent") selfAtkRatio = Math.max(selfAtkRatio, ef.value);
       else if (ef.stat === "atkFlat") selfAtkFlat = Math.max(selfAtkFlat, ef.value);
       else if (ef.stat === "dmgDealt") selfDmgDealt = Math.max(selfDmgDealt, ef.value);
-      else if (ef.stat === "dmgDealtTarget" && ef.value > 0) selfTargetMult *= (1 + ef.value / 100);
+      else if (ef.stat === "dmgDealtTarget" && ef.value > 0) {
+        // 第58弾: 満タン敵に成立しない敵耐久○%以下条件は除外
+        const isHpUnderCond = ef.condition && /耐久\s*(?:が|)\s*\d+%\s*以下/.test(ef.condition);
+        if (!isHpUnderCond) {
+          selfTargetMult *= (1 + ef.value / 100);
+        }
+      }
       else if (ef.stat === "enemyDefDown") enemyDefDown = Math.max(enemyDefDown, ef.value);
     });
 
@@ -15263,6 +15298,29 @@ function showQuizResult() {
           const cd = spParsed.cooldown || 60;
           const spDps = spParsed.cooldown ? Math.round(totalDamage / cd) : 0;
 
+          // 第58弾: ［無疆］江戸城 特殊能力「耐久80%以下の敵に与えるダメージ1.2倍」の計算
+          // 出典URL: https://scre.swiki.jp/index.php?［無疆］江戸城 / https://scre.swiki.jp/index.php?特殊能力
+          // 該当文言: 「60秒間自身の射程が1.3倍、敵の防御を無視し、標的に4連続攻撃を行った後、攻撃の2倍で標的とその周囲にダメージを与える。耐久80%以下の敵に与えるダメージ1.2倍」
+          // 敵の耐久が80%以下になった際の1コンボダメージ・DPSを併せて算出し、オブジェクトおよび内訳注記に保持
+          let totalDamageUnder80 = null;
+          let spDpsUnder80 = null;
+          let comboHitDmg80 = null;
+          let finHitDmg80 = null;
+          const hasUnder80Text = /耐久80%以下の敵/.test(c.special.text);
+          if (hasUnder80Text) {
+            const mult80 = dmgTargetMult * 1.2;
+            const comboAtkTarget80 = Math.floor(comboBaseAtk * mult80);
+            const comboBaseDmg80 = Math.max(Math.min(20, Math.max(1, comboAtkTarget80)), comboAtkTarget80 - spEffDef);
+            comboHitDmg80 = Math.max(1, Math.floor(comboBaseDmg80 * postDmgMult * (1.0 - (targetRed / 100))));
+
+            const finAtkTarget80 = Math.floor(finBaseAtk * mult80);
+            const finBaseDmg80 = Math.max(Math.min(20, Math.max(1, finAtkTarget80)), finAtkTarget80 - spEffDef);
+            finHitDmg80 = Math.max(1, Math.floor(finBaseDmg80 * postDmgMult * (1.0 - (targetRed / 100))));
+
+            totalDamageUnder80 = (comboHitDmg80 * spParsed.comboHits) + (finHitDmg80 * spParsed.finHits);
+            spDpsUnder80 = cd ? Math.round(totalDamageUnder80 / cd) : 0;
+          }
+
           specialDamage = {
             parsed: spParsed,
             isComboFinisher: true,
@@ -15275,7 +15333,12 @@ function showQuizResult() {
             totalDamage: totalDamage,
             cooldown: spParsed.cooldown,
             isGauge: spParsed.isGauge,
-            dps: spDps
+            dps: spDps,
+            hasUnder80Bonus: Boolean(hasUnder80Text),
+            totalDamageUnder80: totalDamageUnder80,
+            dpsUnder80: spDpsUnder80,
+            hitDamageUnder80: comboHitDmg80,
+            finDamageUnder80: finHitDmg80
           };
         } else {
           const spBaseAtk = Math.floor(finalAtk * spParsed.mult);
@@ -15384,7 +15447,11 @@ function showQuizResult() {
       if (specialDamage.isComboFinisher) {
         const comboHits = specialDamage.comboHits || specialDamage.parsed?.comboHits || 4;
         const finMult = specialDamage.finMult ?? specialDamage.parsed?.finMult ?? 2;
-        breakdownText += ` ｜ [特殊] ${comboHits}連撃(1発${specialDamage.hitDamage.toLocaleString()})+追撃${finMult}倍(${specialDamage.finDamage.toLocaleString()}) → 1回計${specialDamage.totalDamage.toLocaleString()}${specialDamage.isDefIgnore ? ' [防御無視]' : ''}${specialDamage.dps > 0 ? ` (CT${specialDamage.cooldown}s, ${specialDamage.dps.toLocaleString()}/s)` : ''}`;
+        let spText = ` ｜ [特殊] ${comboHits}連撃(1発${specialDamage.hitDamage.toLocaleString()})+追撃${finMult}倍(${specialDamage.finDamage.toLocaleString()}) → 1回計${specialDamage.totalDamage.toLocaleString()}${specialDamage.isDefIgnore ? ' [防御無視]' : ''}${specialDamage.dps > 0 ? ` (CT${specialDamage.cooldown}s, ${specialDamage.dps.toLocaleString()}/s)` : ''}`;
+        if (specialDamage.hasUnder80Bonus && specialDamage.totalDamageUnder80 != null) {
+          spText += ` [耐久80%以下の敵: 1コンボ約${specialDamage.totalDamageUnder80.toLocaleString()}, ${specialDamage.dpsUnder80.toLocaleString()}/s]`;
+        }
+        breakdownText += spText;
       } else {
         breakdownText += ` ｜ [特殊] 攻${finalAtk}×${specialDamage.parsed.mult}倍 → 1撃${specialDamage.hitDamage.toLocaleString()}${specialDamage.hits > 1 ? ` (×${specialDamage.hits}連)` : ''} (1回計${specialDamage.totalDamage.toLocaleString()}${specialDamage.isDefIgnore ? ' [防御無視]' : ''}${specialDamage.dps > 0 ? `, CT${specialDamage.cooldown}s, ${specialDamage.dps.toLocaleString()}/s` : ''})`;
       }
