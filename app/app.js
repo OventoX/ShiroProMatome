@@ -48,11 +48,25 @@
       }
       seenIds.add(id);
       const giantStep = (typeof item.giantStep === "number" && item.giantStep >= 0 && item.giantStep <= 5) ? item.giantStep : 5;
+      let weaponId = null;
+      if (typeof item.weaponId === "string") {
+        weaponId = item.weaponId;
+      } else if (item.weapon && typeof item.weapon.name === "string") {
+        weaponId = item.weapon.name;
+      } else if (item.weaponId === null) {
+        weaponId = null;
+      }
+      let facilityIds = [];
+      if (Array.isArray(item.facilityIds)) {
+        facilityIds = item.facilityIds.filter(f => typeof f === "string" && f).slice(0, 3);
+      }
       valid.push({
         id,
         strategyOn: item.strategyOn !== undefined ? Boolean(item.strategyOn) : true,
         specialOn: item.specialOn !== undefined ? Boolean(item.specialOn) : false,
-        giantStep
+        giantStep,
+        weaponId,
+        facilityIds
       });
     }
     if (allowSparse) {
@@ -61,6 +75,315 @@
       }
     }
     return valid;
+  }
+
+  // ==========================================
+  // 第55弾: 装備（武器・増築用施設）ヘルパー
+  // ==========================================
+
+  /**
+   * 武器効果テキストの機械パース
+   */
+  function parseWeaponEffect(w) {
+    const result = {
+      directHitBonus: 0,
+      blastDamage: 0,
+      blastRange: 0,
+      rangeFlat: 0,
+      rangePercent: 0,
+      atkSpeed: 0,
+      gapShorten: 0,
+      inRangeAtk: 0,
+      hits: 1,
+      targets: 1,
+      hasUnmodeled: false,
+      unmodeledText: ""
+    };
+    if (!w || !w.effectText) return result;
+
+    let working = String(w.effectText);
+
+    // 1. 直撃ボーナス+X%
+    const m1 = working.match(/直撃ボーナス\+?(\d+)%/);
+    if (m1) {
+      result.directHitBonus = parseInt(m1[1], 10) / 100;
+      working = working.replace(m1[0], "");
+    }
+
+    // 2. 爆風ダメージ+X%
+    const m2 = working.match(/爆風ダメージ\+?(\d+)%/);
+    if (m2) {
+      result.blastDamage = parseInt(m2[1], 10) / 100;
+      working = working.replace(m2[0], "");
+    }
+
+    // 3. 爆風範囲+X%
+    const m3 = working.match(/爆風範囲\+?(\d+)%/);
+    if (m3) {
+      result.blastRange = parseInt(m3[1], 10) / 100;
+      working = working.replace(m3[0], "");
+    }
+
+    // 4. 射程内の味方/城娘の攻撃+X
+    const m4 = working.match(/射程内の(?:城娘|味方)の攻撃\+?(\d+)/);
+    if (m4) {
+      result.inRangeAtk = parseInt(m4[1], 10);
+      working = working.replace(m4[0], "");
+    }
+
+    // 5. 射程+X% / 射程+X
+    const m5 = working.match(/射程\+?(\d+)%/);
+    if (m5) {
+      result.rangePercent = parseInt(m5[1], 10);
+      working = working.replace(m5[0], "");
+    } else {
+      const m5b = working.match(/射程\+?(\d+)(?!%|体)/);
+      if (m5b) {
+        result.rangeFlat = parseInt(m5b[1], 10);
+        working = working.replace(m5b[0], "");
+      }
+    }
+
+    // 6. 攻撃速度+X% / 攻撃速度がX%上昇 / 攻撃速度X%
+    const m6 = working.match(/攻撃速度(?:\+|が)?(\d+)%(?:上昇)?/);
+    if (m6) {
+      result.atkSpeed = parseInt(m6[1], 10);
+      working = working.replace(m6[0], "");
+    }
+
+    // 7. 攻撃後の隙がX%短縮 / 攻撃後の隙X%短縮 / 隙X%短縮
+    const m7 = working.match(/(?:攻撃後の)?隙(?:が|\+)?(\d+)%短縮/);
+    if (m7) {
+      result.gapShorten = parseInt(m7[1], 10);
+      working = working.replace(m7[0], "");
+    }
+
+    // 8. 連撃・複数対象
+    const m8 = working.match(/敵(\d+)体に(?:(\d+)連続(?:で)?)?攻撃(?:を行う)?/);
+    if (m8) {
+      result.targets = parseInt(m8[1], 10);
+      if (m8[2]) result.hits = parseInt(m8[2], 10);
+      working = working.replace(m8[0], "");
+    } else {
+      const m8b = working.match(/(\d+)連続(?:で)?攻撃(?:を行う)?/);
+      if (m8b) {
+        result.hits = parseInt(m8b[1], 10);
+        working = working.replace(m8b[0], "");
+      } else {
+        const m8c = working.match(/攻撃が(\d+)連続でダメージを与える/);
+        if (m8c) {
+          result.hits = parseInt(m8c[1], 10);
+          working = working.replace(m8c[0], "");
+        }
+      }
+      const m8d = working.match(/攻撃対象が(\d+)増加/);
+      if (m8d) {
+        result.targets += parseInt(m8d[1], 10);
+        working = working.replace(m8d[0], "");
+      }
+    }
+
+    // パースできなかった残り文字列（句読点や空白・記号除く）があれば未反映フラグを立てる
+    const rem = working.replace(/[、,;；\s\(\)（）\.\+\-]/g, "");
+    if (rem.length > 0) {
+      result.hasUnmodeled = true;
+      result.unmodeledText = rem;
+    }
+
+    return result;
+  }
+
+  /**
+   * 固定武器しか装備できない武器種・城娘か判定
+   */
+  function isFixedWeaponCastle(c) {
+    if (!c || !c.weapon) return false;
+    const fixedTypes = ['歌舞', '鈴', '拳', '杖', '祓串', '茶器', '本'];
+    if (fixedTypes.includes(c.weapon)) return true;
+    if (window.SCRE_WEAPONS) {
+      const candidates = window.SCRE_WEAPONS.filter(w => w.type === c.weapon);
+      if (candidates.length > 0 && candidates.every(w => w.name && w.name.includes('(固定)'))) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * 固定武器城娘のデフォルト固定武器を取得
+   */
+  function getDefaultFixedWeapon(c) {
+    if (!c || !window.SCRE_WEAPONS) return null;
+    const candidates = window.SCRE_WEAPONS.filter(w => w.type === c.weapon);
+    if (candidates.length === 0) return null;
+    const baseName = (c.name || "").replace(/^［.*?］/, "");
+    const match = candidates.find(w => w.name && (w.name.includes(c.name) || (baseName && w.name.includes(baseName))));
+    if (match) return match;
+    if (typeof getRecommendedWeapons === "function") {
+      const rec = getRecommendedWeapons(c, 1);
+      if (rec && rec.length > 0 && rec[0].weapon) return rec[0].weapon;
+    }
+    return candidates[0];
+  }
+
+  /**
+   * 城娘が使用可能な武器一覧を取得
+   */
+  function getAvailableWeaponsForCastle(c) {
+    if (!c || !c.weapon || !window.SCRE_WEAPONS) return [];
+    const isFixed = isFixedWeaponCastle(c);
+    const candidates = window.SCRE_WEAPONS.filter(w => w.type === c.weapon);
+    if (isFixed) {
+      const fixedCand = candidates.filter(w => w.name && w.name.includes('(固定)'));
+      return fixedCand.length > 0 ? fixedCand : candidates;
+    }
+    return candidates.filter(w => !w.name || !w.name.includes('(固定)'));
+  }
+
+  /**
+   * 施設が城娘に適合しているか判定
+   */
+  function isFacilityUsableByCastle(fac, castle) {
+    if (!fac || !castle) return false;
+    // 1. 配置距離制限
+    if (fac.ranges && fac.ranges.length > 0) {
+      if (castle.rangeKind && !fac.ranges.includes(castle.rangeKind)) {
+        if (castle.rangeKind !== "近遠") return false;
+      }
+    }
+    // 2. 地形制限
+    if (fac.terrains && fac.terrains.length > 0) {
+      if (castle.attributes && !fac.terrains.some(t => castle.attributes.includes(t))) {
+        return false;
+      }
+    }
+    // 3. 武器種制限
+    if (fac.weapons && fac.weapons.length > 0) {
+      if (castle.weapon && !fac.weapons.includes(castle.weapon)) {
+        return false;
+      }
+    }
+    // 4. 特殊制限
+    if (fac.special && fac.special.length > 0) {
+      if (fac.special.includes("絢爛") && !castle.name.includes("［絢爛］")) return false;
+      if (fac.special.includes("兜娘") && !castle.name.includes("兜")) return false;
+    }
+    return true;
+  }
+
+  /**
+   * 城娘が使用可能な施設一覧を取得
+   */
+  function getAvailableFacilitiesForCastle(c) {
+    if (!c || !window.SCRE_FACILITIES) return [];
+    return window.SCRE_FACILITIES.filter(f => isFacilityUsableByCastle(f, c));
+  }
+
+  /**
+   * スロット・城娘の装備状況と合算ステータス（装備補正）を計算
+   */
+  function calculateEquipmentStats(slot, castle) {
+    const res = {
+      weapon: null,
+      weaponParsed: null,
+      weaponAtk: 0,
+      facilities: [],
+      facilityAtk: 0,
+      facilityDef: 0,
+      facilityHp: 0,
+      facilityRange: 0,
+      facilityRec: 0,
+      facilityAtkSpeed: 0,
+      facilityGapShorten: 0,
+      facilityCost: 0,
+      facilityStratInit: 0,
+      atk: 0,
+      def: 0,
+      hp: 0,
+      range: 0,
+      rec: 0,
+      atkSpeed: 0,
+      gapShorten: 0,
+      inRangeAtk: 0
+    };
+    if (!castle) return res;
+
+    // 1. 武器
+    let equippedWeapon = null;
+    if (slot && slot.weaponId !== undefined) {
+      if (slot.weaponId && slot.weaponId !== "none") {
+        if (window.SCRE_WEAPONS) {
+          equippedWeapon = window.SCRE_WEAPONS.find(w => w.name === slot.weaponId && w.type === castle.weapon) ||
+                           window.SCRE_WEAPONS.find(w => w.name === slot.weaponId);
+        }
+      }
+    } else if (slot && slot.weapon && typeof slot.weapon === "object") {
+      equippedWeapon = slot.weapon;
+    } else if (isFixedWeaponCastle(castle) && slot && slot.weaponId === undefined) {
+      equippedWeapon = getDefaultFixedWeapon(castle);
+    }
+
+    if (equippedWeapon) {
+      res.weapon = equippedWeapon;
+      res.weaponAtk = equippedWeapon.atk || 0;
+      res.weaponParsed = parseWeaponEffect(equippedWeapon);
+      res.atk += res.weaponAtk;
+      res.range += res.weaponParsed.rangeFlat || 0;
+      res.atkSpeed += res.weaponParsed.atkSpeed || 0;
+      res.gapShorten += res.weaponParsed.gapShorten || 0;
+      res.inRangeAtk += res.weaponParsed.inRangeAtk || 0;
+    }
+
+    // 2. 施設 (最大3枠)
+    if (slot && Array.isArray(slot.facilityIds) && window.SCRE_FACILITIES) {
+      const facs = [];
+      for (const fid of slot.facilityIds.slice(0, 3)) {
+        if (!fid || fid === "none") continue;
+        const fac = window.SCRE_FACILITIES.find(f => f.id === fid || f.name === fid);
+        if (fac && isFacilityUsableByCastle(fac, castle)) {
+          facs.push(fac);
+        }
+      }
+      res.facilities = facs;
+
+      const normalMax = { atk: 0, def: 0, hp: 0, range: 0, rec: 0, atkSpeed: 0, gapShorten: 0, cost: 0, stratInit: 0 };
+      const stackSum = { atk: 0, def: 0, hp: 0, range: 0, rec: 0, atkSpeed: 0, gapShorten: 0, cost: 0, stratInit: 0 };
+
+      for (const fac of facs) {
+        const st = fac.stats || {};
+        const isStack = Boolean(fac.stackable);
+        const keys = ['atk', 'def', 'hp', 'range', 'rec', 'atkSpeed', 'gapShorten', 'cost', 'stratInit'];
+        for (const k of keys) {
+          if (typeof st[k] === 'number') {
+            if (isStack) {
+              stackSum[k] += st[k];
+            } else {
+              normalMax[k] = Math.max(normalMax[k], st[k]);
+            }
+          }
+        }
+      }
+
+      res.facilityAtk = normalMax.atk + stackSum.atk;
+      res.facilityDef = normalMax.def + stackSum.def;
+      res.facilityHp = normalMax.hp + stackSum.hp;
+      res.facilityRange = normalMax.range + stackSum.range;
+      res.facilityRec = normalMax.rec + stackSum.rec;
+      res.facilityAtkSpeed = normalMax.atkSpeed + stackSum.atkSpeed;
+      res.facilityGapShorten = normalMax.gapShorten + stackSum.gapShorten;
+      res.facilityCost = normalMax.cost + stackSum.cost;
+      res.facilityStratInit = normalMax.stratInit + stackSum.stratInit;
+
+      res.atk += res.facilityAtk;
+      res.def += res.facilityDef;
+      res.hp += res.facilityHp;
+      res.range += res.facilityRange;
+      res.rec += res.facilityRec;
+      res.atkSpeed += res.facilityAtkSpeed;
+      res.gapShorten += res.facilityGapShorten;
+    }
+
+    return res;
   }
 
   function normalizePresets(rawPresets) {
@@ -1266,11 +1589,61 @@
       });
     }
 
-    // 2nd Pass: Calculate dynamic effective values (Real Stat = Base * (1 + Perc/100) + Flat + Shares)
+    // 第55弾: 装備（武器・施設）の効果適用（武器の射程内バフ、攻速・隙短縮バフ）
+    activePartyMembers.forEach(({ slot, castle }) => {
+      const equip = calculateEquipmentStats(slot, castle);
+      const data = perCastle[castle.id];
+      const b = data.buffs;
+
+      // 1) 自身の武器の射程内味方攻撃バフ (inRangeAtk) -> 全味方（自身含む）に固定値加算
+      if (equip.inRangeAtk > 0 && equip.weapon) {
+        activePartyMembers.forEach(({ castle: targetCastle }) => {
+          const tb = perCastle[targetCastle.id].buffs;
+          tb.atkFlat.sum += equip.inRangeAtk;
+          tb.atkFlat.items.push({
+            from: castle.name,
+            type: "武器",
+            val: equip.inRangeAtk,
+            raw: `武器「${equip.weapon.name}」射程内攻撃+${equip.inRangeAtk}`,
+            applied: true
+          });
+        });
+      }
+
+      // 2) 装備による攻撃速度上昇・隙短縮（特技・計略と累積加算）
+      if (equip.atkSpeed > 0) {
+        b.atkSpeed.stackSum += equip.atkSpeed;
+        b.atkSpeed.sources.push({
+          from: castle.name,
+          type: "装備",
+          val: equip.atkSpeed,
+          stackable: true,
+          isSelf: true,
+          applied: true,
+          raw: `装備: 攻撃速度+${equip.atkSpeed}%`
+        });
+      }
+      if (equip.gapShorten > 0) {
+        b.gapShorten.stackSum += equip.gapShorten;
+        b.gapShorten.sources.push({
+          from: castle.name,
+          type: "装備",
+          val: equip.gapShorten,
+          stackable: true,
+          isSelf: true,
+          applied: true,
+          raw: `装備: 隙短縮+${equip.gapShorten}%`
+        });
+      }
+    });
+
+    // 2nd Pass: Calculate dynamic effective values (Real Stat = (Base * TerrainMult + Equip) * (1 + Perc/100) + Flat + Shares)
     activePartyMembers.forEach(({ slot, castle }) => {
       const data = perCastle[castle.id];
       const b = data.buffs;
       const base = getCastleBaseStatsForGiant(castle, slot?.giantStep ?? 5);
+      const equip = calculateEquipmentStats(slot, castle);
+      data.equipment = equip;
 
       const atkPerc = (b.atkPercent.max + b.atkPercent.stackSum) / 100;
       const defPerc = (b.defPercent.max + b.defPercent.stackSum) / 100;
@@ -1295,10 +1668,16 @@
       const isTerrainMatch = Boolean(targetTerrain && castle.attributes && castle.attributes.includes(targetTerrain));
       const terrainMult = isTerrainMatch ? (targetTerrain === "地獄" ? 1.3 : 1.25) : 1.0;
 
-      const effectiveAtk = Math.floor((base.atk * terrainMult) * (1 + atkPerc) + b.atkFlat.sum + shareAtk);
-      const effectiveDef = Math.floor((base.def * terrainMult) * (1 + defPerc) + b.defFlat.sum + shareDef);
-      const effectiveRange = Math.floor(base.range * (1 + rangePerc) + b.rangeFlat.sum + shareRange);
-      const effectiveHp = Math.floor((base.hp * terrainMult) * (1 + hpPerc) + b.hpFlat.sum);
+      // 検証wiki準拠: 区分A = Math.floor(基礎ステータス * 地形倍率) + 装備補正
+      const preAtk = Math.floor(base.atk * terrainMult) + equip.atk;
+      const preDef = Math.floor(base.def * terrainMult) + equip.def;
+      const preHp = Math.floor(base.hp * terrainMult) + equip.hp;
+      const preRange = base.range + equip.range;
+
+      const effectiveAtk = Math.floor(preAtk * (1 + atkPerc) + b.atkFlat.sum + shareAtk);
+      const effectiveDef = Math.floor(preDef * (1 + defPerc) + b.defFlat.sum + shareDef);
+      const effectiveRange = Math.floor(preRange * (1 + rangePerc) + b.rangeFlat.sum + shareRange);
+      const effectiveHp = Math.floor(preHp * (1 + hpPerc) + b.hpFlat.sum);
 
       // Single hit damage estimation: Atk * (与えるダメージ倍率の積) * (1 + 与ダメージ%) (Prompt 13)
       const dmgDealtPerc = (b.dmgDealt.max + b.dmgDealt.stackSum) / 100;
@@ -1552,12 +1931,42 @@
           }
         }
 
+        // 第55弾: 武器・施設セレクタの構築
+        let weaponOptionsHtml = `<option value="none">（武器なし）</option>`;
+        const availableWeapons = castle ? getAvailableWeaponsForCastle(castle) : [];
+        availableWeapons.sort((a, b) => (b.atk || 0) - (a.atk || 0));
+        const currentEquip = castle ? calculateEquipmentStats(slot, castle) : null;
+        const currentWeaponName = currentEquip?.weapon?.name || (slot.weaponId || "none");
+
+        availableWeapons.forEach(w => {
+          const isSel = (w.name === currentWeaponName);
+          weaponOptionsHtml += `<option value="${w.name}" ${isSel ? 'selected' : ''}>${w.name} (攻+${w.atk || 0})</option>`;
+        });
+
+        const activeFacCount = (slot.facilityIds && Array.isArray(slot.facilityIds))
+          ? slot.facilityIds.filter(f => f && f !== "none").length
+          : 0;
+
         card.innerHTML = `
           ${getIconHtml(castle, 38)}
           <div class="party-info">
             <div class="castle-name" data-id="${slot.id}">${slot.id}</div>
             <div class="castle-subinfo">
               ${subInfo}
+            </div>
+            <!-- 第55弾: 装備コントロール列 -->
+            <div class="party-equip-control" style="margin-top:4px; display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-size:12px;">
+              <div style="display:flex; align-items:center; gap:2px;">
+                <span style="font-size:12px;" title="装備武器">🗡️</span>
+                <select class="equip-weapon-select" data-slot-index="${i}" title="装備する武器を選択" style="font-size:12px; padding:2px 4px; max-width:140px; border-radius:4px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-main);">
+                  ${weaponOptionsHtml}
+                </select>
+              </div>
+              <div style="display:flex; align-items:center; gap:2px;">
+                <button class="btn btn-sm btn-facility-config" data-slot-index="${i}" title="増築用施設（最大3枠）を設定" style="font-size:12px; padding:2px 8px;">
+                  🏛️ 施設 (${activeFacCount}/3)
+                </button>
+              </div>
             </div>
           </div>
           <div class="party-actions">
@@ -1574,6 +1983,25 @@
             <button class="btn-remove" data-action="remove" data-index="${i}">&times;</button>
           </div>
         `;
+
+        // 武器変更リスナー
+        const wSelect = card.querySelector(".equip-weapon-select");
+        if (wSelect) {
+          wSelect.addEventListener("change", (e) => {
+            const val = e.target.value;
+            slot.weaponId = (val === "none" ? null : val);
+            saveParty();
+            renderDashboard();
+          });
+        }
+
+        // 施設設定ボタンリスナー
+        const facBtn = card.querySelector(".btn-facility-config");
+        if (facBtn) {
+          facBtn.addEventListener("click", () => {
+            openEquipmentFacilityModal(i);
+          });
+        }
       } else {
         card.className = "party-card empty";
         card.innerHTML = `+ 空き枠 (クリックして城娘を選択)`;
@@ -1582,6 +2010,125 @@
       listEl.appendChild(card);
     }
     renderKiCostBreakdown(calcResult);
+  }
+
+  // ==========================================
+  // 第55弾: 施設設定モーダル制御
+  // ==========================================
+  let activeFacilityConfigSlotIndex = null;
+
+  function openEquipmentFacilityModal(slotIndex) {
+    activeFacilityConfigSlotIndex = slotIndex;
+    const slot = party[slotIndex];
+    if (!slot) return;
+    const castle = getCastleById(slot.id);
+    if (!castle) return;
+
+    const modal = document.getElementById("modalEquipmentConfig");
+    const titleEl = document.getElementById("equipModalTitle");
+    const bodyEl = document.getElementById("modalEquipBody");
+    if (!modal || !bodyEl) return;
+
+    if (titleEl) titleEl.textContent = `🏛️ 施設設定: ${castle.name} (枠1〜3)`;
+    renderFacilityModalBody(slotIndex, castle);
+    modal.style.display = "flex";
+  }
+
+  function renderFacilityModalBody(slotIndex, castle) {
+    const slot = party[slotIndex];
+    const bodyEl = document.getElementById("modalEquipBody");
+    if (!slot || !castle || !bodyEl) return;
+
+    const availableFacs = getAvailableFacilitiesForCastle(castle);
+    const equip = calculateEquipmentStats(slot, castle);
+    const currentFacIds = Array.isArray(slot.facilityIds) ? slot.facilityIds : [];
+
+    // カテゴリ順・レア度降順にソート
+    availableFacs.sort((a, b) => {
+      if (a.category !== b.category) return a.category.localeCompare(b.category);
+      return (b.rarity || 1) - (a.rarity || 1);
+    });
+
+    let slotsHtml = "";
+    for (let fIdx = 0; fIdx < 3; fIdx++) {
+      const currentFid = currentFacIds[fIdx] || "none";
+      let optionsHtml = `<option value="none">（装備なし）</option>`;
+      availableFacs.forEach(f => {
+        const isSel = (f.id === currentFid || f.name === currentFid);
+        const stackMark = f.stackable ? " [重複可]" : "";
+        optionsHtml += `<option value="${f.id}" ${isSel ? 'selected' : ''}>${f.category}: ${f.name} (★${f.rarity} ${f.effectText})${stackMark}</option>`;
+      });
+
+      slotsHtml += `
+        <div style="margin-bottom:12px; font-size:12px;">
+          <label style="font-weight:bold; display:block; margin-bottom:4px; font-size:12px;">
+            施設枠 ${fIdx + 1}:
+          </label>
+          <select class="facility-slot-select" data-slot-index="${slotIndex}" data-facility-index="${fIdx}" style="width:100%; font-size:12px; padding:4px 6px; border-radius:4px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-main);">
+            ${optionsHtml}
+          </select>
+        </div>
+      `;
+    }
+
+    const statsSummary = [];
+    if (equip.facilityAtk) statsSummary.push(`攻撃 +${equip.facilityAtk}`);
+    if (equip.facilityDef) statsSummary.push(`防御 +${equip.facilityDef}`);
+    if (equip.facilityHp) statsSummary.push(`耐久 +${equip.facilityHp}`);
+    if (equip.facilityRange) statsSummary.push(`射程 +${equip.facilityRange}`);
+    if (equip.facilityRec) statsSummary.push(`回復 +${equip.facilityRec}`);
+    if (equip.facilityAtkSpeed) statsSummary.push(`攻撃速度 +${equip.facilityAtkSpeed}%`);
+    if (equip.facilityGapShorten) statsSummary.push(`隙短縮 +${equip.facilityGapShorten}%`);
+    if (equip.facilityCost) statsSummary.push(`配置気 ${equip.facilityCost}`);
+    if (equip.facilityStratInit) statsSummary.push(`初計短縮 ${equip.facilityStratInit}%`);
+
+    const summaryText = statsSummary.length > 0 ? statsSummary.join(' ｜ ') : '上昇ステータスなし';
+
+    bodyEl.innerHTML = `
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border-color); font-size:12px;">
+        ${getIconHtml(castle, 44)}
+        <div>
+          <div style="font-weight:bold; font-size:14px;">${castle.name}</div>
+          <div style="color:var(--text-sub); font-size:12px;">
+            武器: ${castle.weapon} ｜ 地形: ${castle.subType || castle.castleType} ｜ 配置: ${castle.rangeKind || "近"}
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        ${slotsHtml}
+      </div>
+
+      <div style="background:var(--bg-sub); padding:10px 12px; border-radius:6px; margin-bottom:10px; font-size:12px;">
+        <div style="font-weight:bold; margin-bottom:4px; color:var(--buff-color); font-size:12px;">現在の施設装備補正合計:</div>
+        <div style="font-size:12px; line-height:1.4;">${summaryText}</div>
+        <div style="margin-top:6px; font-size:12px; color:var(--text-muted);">
+          ※通常施設は同種ステータスで最も高い効果のみ適用されます。［重複可］（鎧兜等）は他施設と重複して加算されます。
+        </div>
+      </div>
+    `;
+
+    bodyEl.querySelectorAll(".facility-slot-select").forEach(sel => {
+      sel.addEventListener("change", (e) => {
+        const fIdx = parseInt(e.target.getAttribute("data-facility-index"), 10);
+        const val = e.target.value;
+        if (!Array.isArray(slot.facilityIds)) slot.facilityIds = [];
+        while (slot.facilityIds.length <= fIdx) slot.facilityIds.push("none");
+        slot.facilityIds[fIdx] = (val === "none" ? null : val);
+        while (slot.facilityIds.length > 0 && !slot.facilityIds[slot.facilityIds.length - 1]) {
+          slot.facilityIds.pop();
+        }
+        saveParty();
+        renderDashboard();
+        renderFacilityModalBody(slotIndex, castle);
+      });
+    });
+  }
+
+  function closeEquipmentFacilityModal() {
+    const modal = document.getElementById("modalEquipmentConfig");
+    if (modal) modal.style.display = "none";
+    activeFacilityConfigSlotIndex = null;
   }
 
   
@@ -3127,7 +3674,16 @@
   function selectCastleForSlot(c, targetSlotIndex = null) {
     pushUndoSnapshot();
     const existingIdx = party.findIndex(p => p && p.id === c.id);
-    const newMember = { id: c.id, strategyOn: true, specialOn: !!c.special, giantStep: 5 };
+    const isFixed = isFixedWeaponCastle(c);
+    const defW = isFixed ? getDefaultFixedWeapon(c) : null;
+    const newMember = {
+      id: c.id,
+      strategyOn: true,
+      specialOn: !!c.special,
+      giantStep: 5,
+      weaponId: defW ? defW.name : null,
+      facilityIds: []
+    };
 
     if (existingIdx !== -1) {
       if (targetSlotIndex !== null && targetSlotIndex >= 0 && targetSlotIndex < 8) {
@@ -6092,6 +6648,16 @@
   const selCompareB = document.getElementById("comparePresetB");
   if (selCompareA) selCompareA.addEventListener("change", updatePresetComparison);
   if (selCompareB) selCompareB.addEventListener("change", updatePresetComparison);
+
+  // 第55弾: 施設モーダル閉じるリスナー
+  document.getElementById("modalEquipCloseBtn")?.addEventListener("click", closeEquipmentFacilityModal);
+  document.getElementById("modalEquipSaveCloseBtn")?.addEventListener("click", closeEquipmentFacilityModal);
+  const modalEquipmentConfigEl = document.getElementById("modalEquipmentConfig");
+  if (modalEquipmentConfigEl) {
+    modalEquipmentConfigEl.addEventListener("click", (e) => {
+      if (e.target === modalEquipmentConfigEl) closeEquipmentFacilityModal();
+    });
+  }
 
   // ==========================================
   // Placement Order & Giantize Simulation (Feature 5)
@@ -14273,7 +14839,20 @@ function showQuizResult() {
       });
     }
 
-    const finalAtk = Math.floor((baseAtk * terrainMult) * (1 + atkPerc) + atkFlat + shareAtk);
+    // 第55弾: 装備情報の解決
+    let effectiveSlot = slot;
+    if (!effectiveSlot && Array.isArray(party)) {
+      effectiveSlot = party.find(p => p && p.id === c.id);
+    } else if (effectiveSlot && Array.isArray(party) && effectiveSlot.weaponId === undefined && (!effectiveSlot.facilityIds || effectiveSlot.facilityIds.length === 0)) {
+      const ps = party.find(p => p && p.id === c.id);
+      if (ps) {
+        effectiveSlot = { ...ps, ...effectiveSlot };
+      }
+    }
+    const equip = calculateEquipmentStats(effectiveSlot, c);
+
+    const baseWithEquip = Math.floor(baseAtk * terrainMult) + equip.atk;
+    const finalAtk = Math.floor(baseWithEquip * (1 + atkPerc) + atkFlat + shareAtk);
 
     const wf = SCRE_WEAPON_FRAMES[c.weapon] || { atk: 25, gap: 25, hits: 1, type: "physical", isEstimate: true };
     const isBuffWeapon = Boolean(wf.type === "buff");
@@ -14309,22 +14888,26 @@ function showQuizResult() {
     let baseDamage = 0;
     let finalHitDamage = 0;
     let blastHitDamage = 0;
-    let hits = wf.hits || 1;
+    let hits = (equip.weaponParsed && equip.weaponParsed.hits > 1) ? equip.weaponParsed.hits : (wf.hits || 1);
 
     if (isBuffWeapon) {
       baseDamage = 0;
       finalHitDamage = 0;
       blastHitDamage = 0;
     } else if (isCannon) {
-      // 是正1: 大砲直撃ボーナス 1.5倍 (最大化時 1.875倍)
-      const directHitMult = (giantStep === 5 ? 1.875 : 1.5);
+      // 是正1 & 第55弾: 大砲直撃ボーナス 1.5倍 (最大化時 1.875倍) + 武器直撃ボーナス
+      const weaponDirectHitBonus = equip.weaponParsed ? (equip.weaponParsed.directHitBonus || 0) : 0;
+      const baseCannonDirectMult = 1.0 + 0.5 + weaponDirectHitBonus;
+      const directHitMult = baseCannonDirectMult * (giantStep === 5 ? 1.25 : 1.0);
       directAtk = Math.floor(atkWithTarget * directHitMult);
       const minFloor = Math.min(20, Math.max(1, directAtk));
       baseDamage = Math.max(minFloor, directAtk - effDef);
       finalHitDamage = Math.max(1, Math.floor(baseDamage * postDmgMult * (1.0 - (targetRed / 100))));
 
-      // 周囲爆風: 直撃ボーナスなし (最大化時 1.25倍)
-      const blastMult = (giantStep === 5 ? 1.25 : 1.0);
+      // 周囲爆風: 直撃ボーナスなし (最大化時 1.25倍) + 武器爆風ダメージボーナス
+      const weaponBlastBonus = equip.weaponParsed ? (equip.weaponParsed.blastDamage || 0) : 0;
+      const baseBlastMult = 1.0 + weaponBlastBonus;
+      const blastMult = baseBlastMult * (giantStep === 5 ? 1.25 : 1.0);
       const blastAtk = Math.floor(atkWithTarget * blastMult);
       const blastMinFloor = Math.min(20, Math.max(1, blastAtk));
       const blastBaseDamage = Math.max(blastMinFloor, blastAtk - effDef);
@@ -14361,11 +14944,16 @@ function showQuizResult() {
     const attacksPerSec = cycleFrames > 0 ? (30 / cycleFrames) : 1;
 
     let effectiveTargets = 1;
+    if (equip.weaponParsed && equip.weaponParsed.targets > 1) {
+      effectiveTargets = Math.max(effectiveTargets, equip.weaponParsed.targets);
+    }
     if (targetCount > 1) {
       if (wf.aoe === true) {
         effectiveTargets = targetCount;
       } else if (["投剣", "祓串"].includes(c.weapon)) {
-        effectiveTargets = Math.min(targetCount, 2);
+        effectiveTargets = Math.min(targetCount, Math.max(2, equip.weaponParsed?.targets || 1));
+      } else {
+        effectiveTargets = Math.min(targetCount, effectiveTargets);
       }
     }
 
@@ -14616,7 +15204,7 @@ function showQuizResult() {
 
     const rangePerc = ((b.rangePercent?.max || 0) + (b.rangePercent?.stackSum || 0)) / 100;
     const rangeFlat = (b.rangeFlat?.sum || 0);
-    const effectiveRange = Math.floor(baseStats.range * (1 + rangePerc) + rangeFlat);
+    const effectiveRange = Math.floor((baseStats.range + equip.range) * (1 + rangePerc) + rangeFlat);
 
     let breakdownText = "";
     if (isBuffWeapon) {
@@ -14636,7 +15224,12 @@ function showQuizResult() {
     } else {
       let hitDetail = `1撃${finalHitDamage.toLocaleString()}`;
       if (isCannon) {
-        const cannonBonusStr = "直撃ボーナス ×1.5（最大化時 ×1.875）";
+        const weaponDirectBonus = equip.weaponParsed ? (equip.weaponParsed.directHitBonus || 0) : 0;
+        const totalBaseMult = 1.5 + weaponDirectBonus;
+        const totalMaxMult = totalBaseMult * 1.25;
+        const cannonBonusStr = (weaponDirectBonus > 0)
+          ? `直撃ボーナス ×${totalBaseMult}（最大化時 ×${totalMaxMult}）`
+          : "直撃ボーナス ×1.5（最大化時 ×1.875）";
         hitDetail += ` [${cannonBonusStr}]`;
         if (effectiveTargets > 1) {
           hitDetail += ` (爆風: 1撃${blastHitDamage.toLocaleString()} × ${effectiveTargets - 1}体)`;
@@ -14675,9 +15268,36 @@ function showQuizResult() {
       breakdownText += ` ｜ [所持特技: 敵防御-${ownedDefDownSrc.val}%(${ownedDefDownSrc.from})]`;
     }
 
+    // 第55弾: 武器・施設の内訳表示
+    if (equip.weapon) {
+      const wp = equip.weaponParsed;
+      const extras = [];
+      if (wp && wp.directHitBonus > 0) extras.push(`直撃+${Math.round(wp.directHitBonus * 100)}%`);
+      if (wp && wp.blastDamage > 0) extras.push(`爆風+${Math.round(wp.blastDamage * 100)}%`);
+      if (wp && wp.atkSpeed > 0) extras.push(`攻速+${wp.atkSpeed}%`);
+      if (wp && wp.gapShorten > 0) extras.push(`隙-${wp.gapShorten}%`);
+      if (wp && wp.inRangeAtk > 0) extras.push(`射程内攻+${wp.inRangeAtk}`);
+      if (wp && wp.hits > 1) extras.push(`${wp.hits}連撃`);
+      const extraStr = extras.length > 0 ? `, ${extras.join(' ')}` : '';
+      const unmodeledStr = wp && wp.hasUnmodeled ? ' [未反映の効果あり]' : '';
+      breakdownText += ` ｜ [武器: ${equip.weapon.name} (攻+${equip.weaponAtk}${extraStr})${unmodeledStr}]`;
+    }
+    if (equip.facilities && equip.facilities.length > 0) {
+      const facNames = equip.facilities.map(f => f.name).join('+');
+      const stats = [];
+      if (equip.facilityAtk) stats.push(`攻+${equip.facilityAtk}`);
+      if (equip.facilityDef) stats.push(`防+${equip.facilityDef}`);
+      if (equip.facilityHp) stats.push(`耐+${equip.facilityHp}`);
+      if (equip.facilityRange) stats.push(`射+${equip.facilityRange}`);
+      if (equip.facilityAtkSpeed) stats.push(`攻速+${equip.facilityAtkSpeed}%`);
+      if (equip.facilityGapShorten) stats.push(`隙-${equip.facilityGapShorten}%`);
+      breakdownText += ` ｜ [施設: ${facNames} (${stats.join(',')})]`;
+    }
+
     return {
       castle: c,
       slot: slot,
+      equipment: equip,
       giantStep: giantStep,
       isIntermediateGiant: isIntermediateGiant,
       finalAtk: finalAtk,
@@ -16498,4 +17118,14 @@ function showQuizResult() {
   window.renderOwnedSkillsDashboard = renderOwnedSkillsDashboard;
   window.renderBuffGrid = renderBuffGrid;
   window.renderDashboard = renderDashboard;
+
+  // 第55弾: 装備関連の公開
+  window.__parseWeaponEffect = parseWeaponEffect;
+  window.__calculateEquipmentStats = calculateEquipmentStats;
+  window.__isFixedWeaponCastle = isFixedWeaponCastle;
+  window.__getDefaultFixedWeapon = getDefaultFixedWeapon;
+  window.__getAvailableWeaponsForCastle = getAvailableWeaponsForCastle;
+  window.__getAvailableFacilitiesForCastle = getAvailableFacilitiesForCastle;
+  window.__openEquipmentFacilityModal = openEquipmentFacilityModal;
+  window.__closeEquipmentFacilityModal = closeEquipmentFacilityModal;
 })();

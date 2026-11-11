@@ -2235,6 +2235,22 @@
     </div>
   </div>
 
+  <!-- 第55弾: 装備・施設設定モーダル -->
+  <div class="modal-overlay" id="modalEquipmentConfig" style="display:none;">
+    <div class="modal-content" style="max-width:560px; max-height:90vh; display:flex; flex-direction:column;">
+      <div class="modal-header" style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-color); padding:10px 16px;">
+        <h2 class="detail-title" id="equipModalTitle" style="font-size:16px; margin:0;">🏛️ 装備・施設設定</h2>
+        <button id="modalEquipCloseBtn" class="modal-close-x" style="background:none; border:none; font-size:20px; cursor:pointer;">&times;</button>
+      </div>
+      <div class="modal-body" id="modalEquipBody" style="padding:16px; overflow-y:auto; font-size:12px;">
+        <!-- 動的レンダリング -->
+      </div>
+      <div class="modal-footer" style="padding:10px 16px; border-top:1px solid var(--border-color); display:flex; justify-content:flex-end;">
+        <button id="modalEquipSaveCloseBtn" class="btn btn-primary" style="font-size:12px; padding:4px 14px;">完了</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Hidden Canvas for Party Summary Image Generation -->
   <canvas id="partyCanvas" width="1200" height="675" style="display: none;"></canvas>
 
@@ -2248,6 +2264,7 @@
   <script src="guides.js"></script>
   <script src="tier_data.js"></script>
   <script src="weapons_data.js"></script>
+  <script src="facilities_data.js"></script>
   <script src="app.js"></script>
   <script>
     if ("serviceWorker" in navigator && (window.location.protocol === "https:" || window.location.hostname === "localhost")) {
