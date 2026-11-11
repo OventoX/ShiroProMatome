@@ -2046,11 +2046,15 @@
           const attrStr = castle.subType || castle.castleType;
           const terrainStatMultText = (typeof currentTerrain !== 'undefined' && currentTerrain === '地獄') ? '1.3倍' : '1.25倍';
           const matchBadge = (calc && calc.isTerrainMatch) ? `<span class="badge" style="background:#2c6f4f;color:#fff;font-size:9.5px;padding:1px 4px;margin-left:3px;" title="出撃地形一致: 巨大化消費気35%減＆合戦ステータス${terrainStatMultText}">✓一致</span>` : '';
+          const wf = (typeof SCRE_WEAPON_FRAMES !== "undefined" && SCRE_WEAPON_FRAMES[castle.weapon]);
+          const isBuffWeapon = Boolean(wf && wf.type === "buff");
           if (calc) {
-            subInfo = `★${castle.rarity} [${attrStr}]${matchBadge}・攻<strong style="color:var(--buff-color);">${calc.atk}</strong>・単撃目安(防0)<strong style="color:var(--buff-color);">${calc.singleHit}</strong>`;
+            const singleHitText = isBuffWeapon ? "支援専用" : calc.singleHit;
+            subInfo = `★${castle.rarity} [${attrStr}]${matchBadge}・攻<strong style="color:var(--buff-color);">${calc.atk}</strong>・単撃目安(防0)<strong style="color:var(--buff-color);">${singleHitText}</strong>`;
           } else {
             const baseG5 = getCastleBaseStatsForGiant(castle, 5);
-            subInfo = `★${castle.rarity} [${attrStr}]・攻${baseG5.atk}・単撃目安(防0)${Math.floor(baseG5.atk * 2.5)}`;
+            const singleHitText = isBuffWeapon ? "支援専用" : Math.floor(baseG5.atk * 2.5);
+            subInfo = `★${castle.rarity} [${attrStr}]・攻${baseG5.atk}・単撃目安(防0)${singleHitText}`;
           }
           if (isViolated) {
             subInfo += ` <span class="challenge-violation-tag" style="background:#dc3545;color:#fff;font-size:9.5px;padding:1px 5px;border-radius:3px;margin-left:4px;" title="縛り条件不適合">⚠️ 縛り不適合</span>`;
@@ -2597,6 +2601,11 @@
       rowsHtml += renderPercentRow("被ダメ軽減", b.dmgTakenDown, uid);
       rowsHtml += renderDefIgnoreRow(b.defIgnore, uid);
 
+      const wf = (typeof SCRE_WEAPON_FRAMES !== "undefined" && SCRE_WEAPON_FRAMES[castle.weapon]);
+      const isBuffWeapon = Boolean(wf && wf.type === "buff");
+      const singleHitDisplay = isBuffWeapon ? "支援専用" : calc.singleHit;
+      const singleHitTitle = isBuffWeapon ? "支援専用（通常攻撃なし）" : "防御0想定の単撃推定値";
+
       card.innerHTML = `
         <div class="buff-header">
           <strong style="font-size: 14px;">${castle.name}</strong>
@@ -2607,7 +2616,7 @@
           <span>防 <strong>${calc.def}</strong> <small style="color:var(--text-muted);font-weight:normal;">(${base.def})</small></span>
           <span>耐 <strong>${calc.hp}</strong> <small style="color:var(--text-muted);font-weight:normal;">(${base.hp})</small></span>
           <span>射 <strong>${calc.range}</strong> <small style="color:var(--text-muted);font-weight:normal;">(${base.range})</small></span>
-          <span>単撃(防0) <strong style="color:var(--buff-color);" title="防御0想定の単撃推定値">${calc.singleHit}</strong></span>
+          <span>単撃(防0) <strong style="color:var(--buff-color);" title="${singleHitTitle}">${singleHitDisplay}</strong></span>
         </div>
         <div class="buff-details">
           ${rowsHtml || '<div style="color:var(--text-muted);font-size:11px;">受けているバフはありません</div>'}
@@ -5074,8 +5083,8 @@
     }
   }
 
-  function resetZoomTransform(fitMode) {
-    zoomScale = fitMode ? 1.0 : 1.0;
+  function resetZoomTransform() {
+    zoomScale = 1.0;
     zoomPanX = 0;
     zoomPanY = 0;
     updateZoomTransform();
@@ -7134,6 +7143,8 @@
         const attrStr = castle.subType || castle.castleType;
         const isMatch = calc?.isTerrainMatch;
         const matchBadge = isMatch ? `<span style="background:#2c6f4f; color:#fff; font-size:10px; font-weight:bold; padding:1px 5px; border-radius:3px;">✓一致(-35%)</span>` : '';
+        const wf = (typeof SCRE_WEAPON_FRAMES !== "undefined" && SCRE_WEAPON_FRAMES[castle.weapon]);
+        const isBuffWeapon = Boolean(wf && wf.type === "buff");
 
         slotsHtml.push(`
           <div style="background:#fff; border:1px solid #d5cbbd; border-radius:6px; padding:10px 12px; display:flex; gap:10px; align-items:center; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
@@ -7154,7 +7165,7 @@
                 <span>攻: <strong style="color:#27ae60;">${calc ? calc.atk : '-'}</strong></span>
                 <span>射: <strong style="color:#2980b9;">${calc ? calc.range : '-'}</strong></span>
                 <span>防: <strong>${calc ? calc.def : '-'}</strong></span>
-                <span>単撃(防0): <strong style="color:#e67e22;" title="防御0想定の単撃推定値">${calc ? calc.singleHit : '-'}</strong></span>
+                <span>単撃(防0): <strong style="color:#e67e22;" title="${isBuffWeapon ? '支援専用（通常攻撃なし）' : '防御0想定の単撃推定値'}">${isBuffWeapon ? '支援専用' : (calc ? calc.singleHit : '-')}</strong></span>
               </div>
             </div>
           </div>
