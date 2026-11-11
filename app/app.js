@@ -56,6 +56,14 @@
       } else if (item.weaponId === null) {
         weaponId = null;
       }
+      // 第57弾修正3: 旧セーブ読込時、固定武器城娘にデフォルト固定武器を付与
+      if (!weaponId && typeof getCastleById === "function" && typeof isFixedWeaponCastle === "function") {
+        const c = getCastleById(id);
+        if (c && isFixedWeaponCastle(c)) {
+          const defW = typeof getDefaultFixedWeapon === "function" ? getDefaultFixedWeapon(c) : null;
+          if (defW) weaponId = defW.name;
+        }
+      }
       let facilityIds = [];
       if (Array.isArray(item.facilityIds)) {
         facilityIds = item.facilityIds.filter(f => typeof f === "string" && f).slice(0, 3);
@@ -117,11 +125,13 @@
       working = working.replace(m2[0], "");
     }
 
-    // 3. 爆風範囲+X%
-    const m3 = working.match(/爆風範囲\+?(\d+)%/);
+    // 3. 爆風範囲+X% (第57弾修正4: 訓練場で距離シミュレーションを行わないため未反映効果として扱う)
+    const m3 = working.match(/爆風範囲(?:\+|-)?(\d+)%/);
     if (m3) {
       result.blastRange = parseInt(m3[1], 10) / 100;
       working = working.replace(m3[0], "");
+      result.hasUnmodeled = true;
+      result.unmodeledText += (result.unmodeledText ? " " : "") + m3[0];
     }
 
     // 4. 射程内の味方/城娘の攻撃+X
@@ -131,11 +141,13 @@
       working = working.replace(m4[0], "");
     }
 
-    // 5. 射程+X% / 射程+X
+    // 5. 射程+X% / 射程+X (第57弾修正4: 武器の射程+X%は時限効果等のため常時計算には未反映として扱う)
     const m5 = working.match(/射程\+?(\d+)%/);
     if (m5) {
       result.rangePercent = parseInt(m5[1], 10);
       working = working.replace(m5[0], "");
+      result.hasUnmodeled = true;
+      result.unmodeledText += (result.unmodeledText ? " " : "") + m5[0];
     } else {
       const m5b = working.match(/射程\+?(\d+)(?!%|体)/);
       if (m5b) {
@@ -193,6 +205,57 @@
     return result;
   }
 
+  // --- 地域マッピング（第50弾・第57弾施設装備制限兼用） ---
+  const COUNTRY_TO_PREFECTURE_MAP = {
+    "蝦夷": "北海道", "渡島": "北海道", "北海道": "北海道", "陸奥": "宮城県", "陸前": "宮城県", "陸中": "岩手県",
+    "岩代": "福島県", "磐城": "福島県", "出羽": "山形県", "羽前": "山形県", "羽後": "秋田県", "津軽": "青森県",
+    "常陸": "茨城県", "下野": "栃木県", "上野": "群馬県", "武蔵": "東京都", "下総": "千葉県", "上総": "千葉県",
+    "安房": "千葉県", "相模": "神奈川県", "越後": "新潟県", "佐渡": "新潟県", "越中": "富山県", "能登": "石川県",
+    "加賀": "石川県", "越前": "福井県", "若狭": "福井県", "甲斐": "山梨県", "信濃": "長野県", "飛騨": "岐阜県",
+    "美濃": "岐阜県", "伊豆": "静岡県", "駿河": "静岡県", "遠江": "静岡県", "三河": "愛知県", "尾張": "愛知県",
+    "伊勢": "三重県", "志摩": "三重県", "伊賀": "三重県", "近江": "滋賀県", "山城": "京都府", "丹波": "京都府",
+    "丹後": "京都府", "摂津": "大阪府", "河内": "大阪府", "和泉": "大阪府", "大和": "奈良県", "紀伊": "和歌山県",
+    "播磨": "兵庫県", "但馬": "兵庫県", "淡路": "兵庫県", "因幡": "鳥取県", "伯耆": "鳥取県", "出雲": "島根県",
+    "石見": "島根県", "隠岐": "島根県", "備前": "岡山県", "備中": "岡山県", "美作": "岡山県", "安芸": "広島県",
+    "備後": "広島県", "周防": "山口県", "長門": "山口県", "阿波": "徳島県", "讃岐": "香川県", "伊予": "愛媛県",
+    "土佐": "高知県", "筑前": "福岡県", "筑後": "福岡県", "豊前": "福岡県", "肥前": "佐賀県", "肥後": "熊本県",
+    "豊後": "大分県", "日向": "宮崎県", "大隅": "鹿児島県", "薩摩": "鹿児島県", "壱岐": "長崎県", "対馬": "長崎県",
+    "琉球": "沖縄県"
+  };
+
+  const REGION_PREFECTURE_MAP = {
+    "北海道": ["北海道"],
+    "東北": ["青森県", "岩手県", "秋田県", "宮城県", "山形県", "福島県"],
+    "関東": ["茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県"],
+    "甲信越": ["山梨県", "長野県", "新潟県"],
+    "北陸": ["富山県", "石川県", "福井県"],
+    "東海": ["静岡県", "愛知県", "岐阜県", "三重県"],
+    "近畿": ["滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"],
+    "中国": ["鳥取県", "島根県", "岡山県", "広島県", "山口県"],
+    "四国": ["徳島県", "香川県", "愛媛県", "高知県"],
+    "九州": ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"]
+  };
+
+  function getCastleRegion(c) {
+    if (!c) return "";
+    let pref = c.prefecture || "";
+    if (!pref && c.country) {
+      const cleanCou = c.country.replace(/[（）()]/g, "").trim();
+      pref = COUNTRY_TO_PREFECTURE_MAP[cleanCou] || "";
+    }
+    if (pref) {
+      for (const [region, prefList] of Object.entries(REGION_PREFECTURE_MAP)) {
+        if (prefList.includes(pref)) return region;
+      }
+    }
+    const cou = c.country || "";
+    if (cou && !COUNTRY_TO_PREFECTURE_MAP[cou.replace(/[（）()]/g, "").trim()] && !cou.includes("日本") && !cou.includes("架空") && !cou.includes("その他")) {
+      return "海外";
+    }
+    return "";
+  }
+
+
   /**
    * 固定武器しか装備できない武器種・城娘か判定
    */
@@ -241,6 +304,47 @@
   }
 
   /**
+   * 第57弾修正2: 施設地域制限照合
+   */
+  function isFacilityRegionMatch(facRegions, castle) {
+    if (!facRegions || facRegions.length === 0) return true;
+    if (!castle) return false;
+    const cRegion = getCastleRegion(castle);
+    const pref = castle.prefecture || "";
+    const rawCou = castle.country || "";
+    const cleanCou = rawCou.replace(/[（）()]/g, "").trim();
+    const mappedPref = COUNTRY_TO_PREFECTURE_MAP[cleanCou] || "";
+
+    return facRegions.some(reg => {
+      // 1. 直接一致
+      if (reg === cRegion) return true;
+      // 2. 複合地域名（"北海道・東北", "関東・甲信越", "北陸・東海", "中国・四国", "九州・沖縄", "海外・その他"）
+      const parts = reg.split(/[・/]/).map(p => p.trim());
+      if (cRegion && parts.includes(cRegion)) return true;
+
+      // 3. 沖縄 / 琉球 の特別扱い (reg === "九州・沖縄" または "九州")
+      if (reg.includes("沖縄") && (pref === "沖縄県" || cleanCou === "琉球" || mappedPref === "沖縄県")) return true;
+
+      // 4. 海外・その他
+      if (reg.includes("その他") || reg.includes("海外")) {
+        if (cRegion === "海外") return true;
+        if (rawCou.includes("その他") || rawCou.includes("架空") || ["黄泉", "死者の国", "神話"].includes(cleanCou)) return true;
+      }
+
+      // 5. REGION_PREFECTURE_MAP の県名照合
+      for (const part of parts) {
+        const pList = REGION_PREFECTURE_MAP[part];
+        if (pList) {
+          if (pref && pList.includes(pref)) return true;
+          if (mappedPref && pList.includes(mappedPref)) return true;
+        }
+      }
+
+      return false;
+    });
+  }
+
+  /**
    * 施設が城娘に適合しているか判定
    */
   function isFacilityUsableByCastle(fac, castle) {
@@ -263,10 +367,18 @@
         return false;
       }
     }
-    // 4. 特殊制限
+    // 4. 地域制限 (第57弾修正2)
+    if (fac.regions && fac.regions.length > 0) {
+      if (!isFacilityRegionMatch(fac.regions, castle)) return false;
+    }
+    // 5. 特殊制限 (第57弾修正2)
     if (fac.special && fac.special.length > 0) {
       if (fac.special.includes("絢爛") && !castle.name.includes("［絢爛］")) return false;
       if (fac.special.includes("兜娘") && !castle.name.includes("兜")) return false;
+      if (fac.special.includes("架空")) {
+        const isFictional = Boolean(castle.country && castle.country.includes("架空")) || (!castle.realCastle && ["黄泉", "死者の国"].includes(castle.country));
+        if (!isFictional) return false;
+      }
     }
     return true;
   }
@@ -297,6 +409,7 @@
       facilityGapShorten: 0,
       facilityCost: 0,
       facilityStratInit: 0,
+      facilityRedeploy: 0,
       atk: 0,
       def: 0,
       hp: 0,
@@ -304,22 +417,25 @@
       rec: 0,
       atkSpeed: 0,
       gapShorten: 0,
+      cost: 0,
+      stratInit: 0,
+      redeploy: 0,
       inRangeAtk: 0
     };
     if (!castle) return res;
 
     // 1. 武器
     let equippedWeapon = null;
-    if (slot && slot.weaponId !== undefined) {
-      if (slot.weaponId && slot.weaponId !== "none") {
-        if (window.SCRE_WEAPONS) {
-          equippedWeapon = window.SCRE_WEAPONS.find(w => w.name === slot.weaponId && w.type === castle.weapon) ||
-                           window.SCRE_WEAPONS.find(w => w.name === slot.weaponId);
-        }
+    if (slot && slot.weaponId) {
+      if (slot.weaponId !== "none" && window.SCRE_WEAPONS) {
+        equippedWeapon = window.SCRE_WEAPONS.find(w => w.name === slot.weaponId && w.type === castle.weapon) ||
+                         window.SCRE_WEAPONS.find(w => w.name === slot.weaponId);
       }
     } else if (slot && slot.weapon && typeof slot.weapon === "object") {
       equippedWeapon = slot.weapon;
-    } else if (isFixedWeaponCastle(castle) && slot && slot.weaponId === undefined) {
+    }
+    // 第57弾修正3: 固定武器城娘のフォールバック（旧セーブ等で weaponId が未設定/null/武器なしの場合）
+    if (!equippedWeapon && isFixedWeaponCastle(castle)) {
       equippedWeapon = getDefaultFixedWeapon(castle);
     }
 
@@ -346,19 +462,30 @@
       }
       res.facilities = facs;
 
-      const normalMax = { atk: 0, def: 0, hp: 0, range: 0, rec: 0, atkSpeed: 0, gapShorten: 0, cost: 0, stratInit: 0 };
-      const stackSum = { atk: 0, def: 0, hp: 0, range: 0, rec: 0, atkSpeed: 0, gapShorten: 0, cost: 0, stratInit: 0 };
+      const normalMax = { atk: 0, def: 0, hp: 0, range: 0, rec: 0, atkSpeed: 0, gapShorten: 0 };
+      const normalMin = { cost: 0, stratInit: 0, redeploy: 0 };
+      const stackSum = { atk: 0, def: 0, hp: 0, range: 0, rec: 0, atkSpeed: 0, gapShorten: 0, cost: 0, stratInit: 0, redeploy: 0 };
 
       for (const fac of facs) {
         const st = fac.stats || {};
         const isStack = Boolean(fac.stackable);
-        const keys = ['atk', 'def', 'hp', 'range', 'rec', 'atkSpeed', 'gapShorten', 'cost', 'stratInit'];
-        for (const k of keys) {
+        const posKeys = ['atk', 'def', 'hp', 'range', 'rec', 'atkSpeed', 'gapShorten'];
+        const negKeys = ['cost', 'stratInit', 'redeploy'];
+        for (const k of posKeys) {
           if (typeof st[k] === 'number') {
             if (isStack) {
               stackSum[k] += st[k];
             } else {
               normalMax[k] = Math.max(normalMax[k], st[k]);
+            }
+          }
+        }
+        for (const k of negKeys) {
+          if (typeof st[k] === 'number') {
+            if (isStack) {
+              stackSum[k] += st[k];
+            } else {
+              normalMin[k] = Math.min(normalMin[k], st[k]);
             }
           }
         }
@@ -371,8 +498,9 @@
       res.facilityRec = normalMax.rec + stackSum.rec;
       res.facilityAtkSpeed = normalMax.atkSpeed + stackSum.atkSpeed;
       res.facilityGapShorten = normalMax.gapShorten + stackSum.gapShorten;
-      res.facilityCost = normalMax.cost + stackSum.cost;
-      res.facilityStratInit = normalMax.stratInit + stackSum.stratInit;
+      res.facilityCost = normalMin.cost + stackSum.cost;
+      res.facilityStratInit = normalMin.stratInit + stackSum.stratInit;
+      res.facilityRedeploy = normalMin.redeploy + stackSum.redeploy;
 
       res.atk += res.facilityAtk;
       res.def += res.facilityDef;
@@ -381,6 +509,9 @@
       res.rec += res.facilityRec;
       res.atkSpeed += res.facilityAtkSpeed;
       res.gapShorten += res.facilityGapShorten;
+      res.cost += res.facilityCost;
+      res.stratInit += res.facilityStratInit;
+      res.redeploy += res.facilityRedeploy;
     }
 
     return res;
@@ -1203,54 +1334,7 @@
     }
   }
 
-  const COUNTRY_TO_PREFECTURE_MAP = {
-    "蝦夷": "北海道", "渡島": "北海道", "北海道": "北海道", "陸奥": "宮城県", "陸前": "宮城県", "陸中": "岩手県",
-    "岩代": "福島県", "磐城": "福島県", "出羽": "山形県", "羽前": "山形県", "羽後": "秋田県", "津軽": "青森県",
-    "常陸": "茨城県", "下野": "栃木県", "上野": "群馬県", "武蔵": "東京都", "下総": "千葉県", "上総": "千葉県",
-    "安房": "千葉県", "相模": "神奈川県", "越後": "新潟県", "佐渡": "新潟県", "越中": "富山県", "能登": "石川県",
-    "加賀": "石川県", "越前": "福井県", "若狭": "福井県", "甲斐": "山梨県", "信濃": "長野県", "飛騨": "岐阜県",
-    "美濃": "岐阜県", "伊豆": "静岡県", "駿河": "静岡県", "遠江": "静岡県", "三河": "愛知県", "尾張": "愛知県",
-    "伊勢": "三重県", "志摩": "三重県", "伊賀": "三重県", "近江": "滋賀県", "山城": "京都府", "丹波": "京都府",
-    "丹後": "京都府", "摂津": "大阪府", "河内": "大阪府", "和泉": "大阪府", "大和": "奈良県", "紀伊": "和歌山県",
-    "播磨": "兵庫県", "但馬": "兵庫県", "淡路": "兵庫県", "因幡": "鳥取県", "伯耆": "鳥取県", "出雲": "島根県",
-    "石見": "島根県", "隠岐": "島根県", "備前": "岡山県", "備中": "岡山県", "美作": "岡山県", "安芸": "広島県",
-    "備後": "広島県", "周防": "山口県", "長門": "山口県", "阿波": "徳島県", "讃岐": "香川県", "伊予": "愛媛県",
-    "土佐": "高知県", "筑前": "福岡県", "筑後": "福岡県", "豊前": "福岡県", "肥前": "佐賀県", "肥後": "熊本県",
-    "豊後": "大分県", "日向": "宮崎県", "大隅": "鹿児島県", "薩摩": "鹿児島県", "壱岐": "長崎県", "対馬": "長崎県",
-    "琉球": "沖縄県"
-  };
 
-  const REGION_PREFECTURE_MAP = {
-    "北海道": ["北海道"],
-    "東北": ["青森県", "岩手県", "秋田県", "宮城県", "山形県", "福島県"],
-    "関東": ["茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県"],
-    "甲信越": ["山梨県", "長野県", "新潟県"],
-    "北陸": ["富山県", "石川県", "福井県"],
-    "東海": ["静岡県", "愛知県", "岐阜県", "三重県"],
-    "近畿": ["滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"],
-    "中国": ["鳥取県", "島根県", "岡山県", "広島県", "山口県"],
-    "四国": ["徳島県", "香川県", "愛媛県", "高知県"],
-    "九州": ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"]
-  };
-
-  function getCastleRegion(c) {
-    if (!c) return "";
-    let pref = c.prefecture || "";
-    if (!pref && c.country) {
-      const cleanCou = c.country.replace(/[（）()]/g, "").trim();
-      pref = COUNTRY_TO_PREFECTURE_MAP[cleanCou] || "";
-    }
-    if (pref) {
-      for (const [region, prefList] of Object.entries(REGION_PREFECTURE_MAP)) {
-        if (prefList.includes(pref)) return region;
-      }
-    }
-    const cou = c.country || "";
-    if (cou && !COUNTRY_TO_PREFECTURE_MAP[cou.replace(/[（）()]/g, "").trim()] && !cou.includes("日本") && !cou.includes("架空") && !cou.includes("その他")) {
-      return "海外";
-    }
-    return "";
-  }
 
   function isCastleMatchTarget(c, target, targetKind) {
     if (!c || !target) return false;
@@ -1686,15 +1770,24 @@
       b.dmgDealtTarget.multProduct = dmgTargetMult;
       const singleHitEstimate = Math.floor(effectiveAtk * dmgTargetMult * (1 + dmgDealtPerc));
 
-      // Cost calculation
-      const deployCost = castle.cost || 10;
+      // Cost calculation (第57弾修正1: 施設の配気効果 facilityCost を反映)
+      const baseDeployCost = castle.cost || 10;
+      const deployCost = Math.max(1, baseDeployCost + (equip.facilityCost || 0));
       let giantCost = 100;
       if (castle.statsDetail && castle.statsDetail.giant5 && castle.statsDetail.giant5.cost) {
-        giantCost = parseInt(castle.statsDetail.giant5.cost, 10) || (deployCost * 8);
+        giantCost = Math.max(deployCost, (parseInt(castle.statsDetail.giant5.cost, 10) || (baseDeployCost * 8)) + (equip.facilityCost || 0));
       } else {
         giantCost = deployCost * 8;
       }
       const actualGiantCost = isTerrainMatch ? Math.round(deployCost + (giantCost - deployCost) * 0.65) : giantCost;
+
+      // 初回計略タイミング (第57弾修正1: 施設の初計効果 facilityStratInit を反映)
+      let initialStratCooldown = null;
+      if (castle.strategy && castle.strategy.cooldown) {
+        const mInit = (castle.strategy.name + " " + (castle.strategy.text || "")).match(/初回(?::|)(\d+)秒/);
+        const baseInit = mInit ? parseInt(mInit[1], 10) : castle.strategy.cooldown;
+        initialStratCooldown = Math.max(0, Math.round(baseInit * (1 + (equip.facilityStratInit || 0) / 100)));
+      }
 
       data.calculatedStats = {
         atk: effectiveAtk,
@@ -1708,7 +1801,11 @@
         diffHp: effectiveHp - base.hp,
         isTerrainMatch,
         deployCost,
-        actualGiantCost
+        actualGiantCost,
+        facilityCost: equip.facilityCost || 0,
+        facilityStratInit: equip.facilityStratInit || 0,
+        facilityRedeploy: equip.facilityRedeploy || 0,
+        initialStratCooldown
       };
     });
 
@@ -1940,7 +2037,10 @@
 
         availableWeapons.forEach(w => {
           const isSel = (w.name === currentWeaponName);
-          weaponOptionsHtml += `<option value="${w.name}" ${isSel ? 'selected' : ''}>${w.name} (攻+${w.atk || 0})</option>`;
+          const wp = parseWeaponEffect(w);
+          const unmodNotice = wp.hasUnmodeled ? " [未反映あり]" : "";
+          const tip = (w.effectText ? w.effectText : "") + (wp.hasUnmodeled ? " (未反映の効果あり)" : "");
+          weaponOptionsHtml += `<option value="${w.name}" ${isSel ? 'selected' : ''} title="${escapeHtml(tip)}">${w.name} (攻+${w.atk || 0})${unmodNotice}</option>`;
         });
 
         const activeFacCount = (slot.facilityIds && Array.isArray(slot.facilityIds))
@@ -1961,6 +2061,7 @@
                 <select class="equip-weapon-select" data-slot-index="${i}" title="装備する武器を選択" style="font-size:12px; padding:2px 4px; max-width:140px; border-radius:4px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-main);">
                   ${weaponOptionsHtml}
                 </select>
+                ${currentEquip?.weaponParsed?.hasUnmodeled ? `<span class="badge" style="background:#fef3c7; color:#92400e; font-size:12px; padding:1px 3px; cursor:help;" title="武器に未反映の効果あり: ${escapeHtml(currentEquip.weapon.effectText || '')}">未反映あり</span>` : ''}
               </div>
               <div style="display:flex; align-items:center; gap:2px;">
                 <button class="btn btn-sm btn-facility-config" data-slot-index="${i}" title="増築用施設（最大3枠）を設定" style="font-size:12px; padding:2px 8px;">
@@ -2081,6 +2182,7 @@
     if (equip.facilityGapShorten) statsSummary.push(`隙短縮 +${equip.facilityGapShorten}%`);
     if (equip.facilityCost) statsSummary.push(`配置気 ${equip.facilityCost}`);
     if (equip.facilityStratInit) statsSummary.push(`初計短縮 ${equip.facilityStratInit}%`);
+    if (equip.facilityRedeploy) statsSummary.push(`再出撃短縮 ${equip.facilityRedeploy}%（計算未反映（表示のみ））`);
 
     const summaryText = statsSummary.length > 0 ? statsSummary.join(' ｜ ') : '上昇ステータスなし';
 
@@ -6681,9 +6783,11 @@
       if (!s) return null;
       const c = getCastleById(s.id);
       if (!c) return null;
+      const equip = calculateEquipmentStats(s, c);
       const isTerrainMatch = Boolean(currentTerrain && c.attributes && c.attributes.includes(currentTerrain));
-      const deployCost = c.cost || 10;
-      const rawGiantCost = (c.statsDetail && c.statsDetail.giant5 && c.statsDetail.giant5.cost) ? parseInt(c.statsDetail.giant5.cost, 10) : 60;
+      const baseDeployCost = c.cost || 10;
+      const deployCost = Math.max(1, baseDeployCost + (equip.facilityCost || 0));
+      const rawGiantCost = ((c.statsDetail && c.statsDetail.giant5 && c.statsDetail.giant5.cost) ? parseInt(c.statsDetail.giant5.cost, 10) : 60) + (equip.facilityCost || 0);
       const giantTotal = isTerrainMatch ? Math.round(deployCost + (rawGiantCost - deployCost) * 0.65) : rawGiantCost;
       const giantPerStep = Math.max(1, Math.round((giantTotal - deployCost) / 5));
 
@@ -15088,6 +15192,18 @@ function showQuizResult() {
       }
     }
 
+    // 第57弾修正1: 施設の初計効果 facilityStratInit を計略情報に反映
+    if (strategyDamage && c.strategy) {
+      const baseInitialWait = (() => {
+        const mInit = (c.strategy.name + " " + (c.strategy.text || "")).match(/初回(?::|)(\d+)秒/);
+        return mInit ? parseInt(mInit[1], 10) : strategyDamage.cooldown;
+      })();
+      const stratInitRatio = (equip.facilityStratInit || 0) / 100;
+      strategyDamage.baseInitialWait = baseInitialWait;
+      strategyDamage.initialCooldown = Math.max(0, Math.round(baseInitialWait * (1 + stratInitRatio)));
+      strategyDamage.facilityStratInit = equip.facilityStratInit || 0;
+    }
+
     // --- Prompt 45: 特技周期ダメージ計算 (屋良座森城, 宮津城, 高陽城) ---
     let tokugiDamage = null;
     const tokugiParsed = parseCastleTokugiDamage(c, giantStep);
@@ -15191,6 +15307,11 @@ function showQuizResult() {
 
     // --- Prompt 46: 未反映効果チェック ---
     const unreflectedCheck = checkCastleUnreflectedEffects(c, isStratOn, isSpecialOn);
+    // 第57弾修正4: 武器の未反映効果（爆風範囲、射程+X%等）をチェック
+    if (equip.weaponParsed && equip.weaponParsed.hasUnmodeled) {
+      unreflectedCheck.hasUnreflected = true;
+      unreflectedCheck.reasons.push(`武器: ${equip.weapon.name} (${equip.weaponParsed.unmodeledText || '未反映効果あり'})`);
+    }
 
     let stratDps = strategyDamage ? strategyDamage.dps : 0;
     const tokDps = tokugiDamage ? tokugiDamage.dps : 0;
@@ -15562,7 +15683,7 @@ function showQuizResult() {
           </td>
           <td style="text-align:center; font-size:12px;">
             <div>${stat.isBuffWeapon ? '支援周期' : '通常'}: <strong>${stat.cycleFrames}f</strong> (${stat.attacksPerSec.toFixed(2)}/s)</div>
-            <div>計略: ${stat.strategyDamage ? `<strong style="color:#9f7aea;">CT ${stat.strategyDamage.cooldown}s</strong>` : '<span style="color:var(--text-sub); font-size:12px;">-</span>'}</div>
+            <div>計略: ${stat.strategyDamage ? `<strong style="color:#9f7aea;">CT ${stat.strategyDamage.cooldown}s</strong>${stat.strategyDamage.initialCooldown !== undefined && stat.strategyDamage.initialCooldown !== stat.strategyDamage.cooldown ? ` <span style="font-size:12px; color:var(--text-sub);">(初計 ${stat.strategyDamage.initialCooldown}s)</span>` : ''}` : '<span style="color:var(--text-sub); font-size:12px;">-</span>'}</div>
             ${stat.specialDamage && stat.specialDamage.cooldown ? `<div>特殊: <strong style="color:#059669;">CT ${stat.specialDamage.cooldown}s</strong></div>` : ''}
           </td>
           <td style="text-align:right; font-size:12px;">
@@ -17132,6 +17253,9 @@ function showQuizResult() {
   window.__getDefaultFixedWeapon = getDefaultFixedWeapon;
   window.__getAvailableWeaponsForCastle = getAvailableWeaponsForCastle;
   window.__getAvailableFacilitiesForCastle = getAvailableFacilitiesForCastle;
+  window.__isFacilityUsableByCastle = isFacilityUsableByCastle;
+  window.__isFacilityRegionMatch = isFacilityRegionMatch;
+  window.__getCastleRegion = getCastleRegion;
   window.__openEquipmentFacilityModal = openEquipmentFacilityModal;
   window.__closeEquipmentFacilityModal = closeEquipmentFacilityModal;
 })();
