@@ -203,6 +203,25 @@
               </div>
             </details>
           </div>
+
+          <!-- 第63弾: 計略ループ・稼働率チェッカー -->
+          <div id="strategyLoopSection" class="section-box" style="margin-top: 14px; background: #ffffff; border: 1px solid #dcdde1; border-radius: 8px; padding: 12px 14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+              <div style="font-weight:bold; font-size:14px; color:#2c3e50; display:flex; align-items:center; gap:6px;">
+                <span>🔄 計略ループ・稼働率チェッカー</span>
+                <span id="strategyLoopSummaryBadge" class="badge" style="background:#edf2f7; color:#2d3748; font-size:12px;">判定中</span>
+              </div>
+              <div style="font-size:12px; color:var(--text-sub);">
+                緑: 永続(100%) ／ 黄: 僅かな隙間(80%〜) ／ 赤: ループ不可(&lt;80%)
+              </div>
+            </div>
+            <div id="strategyLoopList" style="display:flex; flex-direction:column; gap:6px;">
+              <!-- Dynamically rendered party strategy loop cards -->
+            </div>
+            <div id="strategyLoopNotesBox" style="display:none; margin-top:8px; padding:6px 10px; background:#fffaf0; border:1px solid #fbd38d; border-radius:6px; font-size:12px; color:#7b341e; line-height:1.45;">
+              <!-- Notes for conditional/unparseable CT reductions -->
+            </div>
+          </div>
         </div>
 
         <!-- Column 3: 不足と候補 & カバレッジ診断 (右列サイドバー) -->

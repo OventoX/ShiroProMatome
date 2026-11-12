@@ -1884,6 +1884,7 @@
     renderPartyTab(calcResult);
     renderBuffGrid(calcResult);
     if (typeof renderBuffEquivalence === "function") renderBuffEquivalence(calcResult);
+    if (typeof renderStrategyLoopChecker === "function") renderStrategyLoopChecker();
     renderMissingSidebar(calcResult);
     renderCoveragePanel(calcResult);
     renderOwnedSkillsDashboard(calcResult);
@@ -13588,6 +13589,549 @@ function showQuizResult() {
     }
   }
 
+  // --- 第63弾: 計略ループ・稼働率チェッカー ---
+  const SCRE_CT_SEASONAL_TAGS = ["夏", "絢爛", "正月", "ハロウィン", "ﾊﾛｳｨﾝ", "聖夜", "お月見", "肝試し", "学園", "花嫁衣装", "裏", "雪華", "温泉"];
+
+  function parseAbilityCtReduction(castle, abilityObj, sourceType, giantStep = 5) {
+    if (!castle || !abilityObj || !abilityObj.text) return { rules: [], notes: [] };
+    const text = abilityObj.text.replace(/\s+/g, " ");
+    if (!/計略.*(?:短縮|再使用)|再使用.*(?:短縮|延長)/.test(text)) return { rules: [], notes: [] };
+
+    const rules = [];
+    const notes = [];
+
+    // 1. 秒数固定の短縮・延長（10秒短縮、5秒短縮、12秒短縮、10秒延長など）
+    const secMatch = text.match(/(?:計略\s*)?再使用(?:までの)?\s*時間(?:を|が)?\s*(\d+)秒\s*(短縮|延長)/);
+    if (secMatch) {
+      notes.push({
+        from: castle.name,
+        fromId: castle.id,
+        sourceType,
+        raw: secMatch[0],
+        reason: `秒数固定の${secMatch[2]}（${secMatch[1]}秒）のため%短縮合算の対象外`
+      });
+      return { rules, notes };
+    }
+
+    // 2. 計略再使用%短縮を含まない（隙短縮のみ・再配置短縮のみ）ケースを除外
+    const ctPctRegex = /(?:計略\s*(?:再使用|使用)\s*(?:までの?)?\s*(?:時間)?|再使用\s*(?:までの?)?\s*時間)(?:を|が|と)?(?:[^。]*?と)?\s*(\d+)%\s*短縮/;
+    if (!ctPctRegex.test(text) && !/計略\s*(?:再使用|使用)\s*(?:までの?)?\s*(?:時間)?(?:を|が)?\s*\d+%[、､,\s]*[\[［]/.test(text)) {
+      return { rules: [], notes: [] };
+    }
+
+    const sentences = text.split("。").map(s => s.trim()).filter(Boolean);
+    const ctSentence = sentences.find(s => /計略\s*(?:再使用|使用)|再使用\s*(?:までの?)?\s*時間/.test(s) && /%.*短縮/.test(s)) || text;
+
+    // 3. 条件付き・一時効果・機械判定不可トリガー
+    if (/【大魔法】/.test(ctSentence) || /【大魔法】/.test(text)) {
+      notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: ctSentence, reason: "【大魔法】発動時限定（一時効果）のため常時ループ計算から除外" });
+      return { rules, notes };
+    }
+    if (/【配置】\s*\d+秒間/.test(ctSentence)) {
+      notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: ctSentence, reason: "配置直後の短時間限定効果のため常時ループ計算から除外" });
+      return { rules, notes };
+    }
+    if (/大破する度/.test(ctSentence)) {
+      notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: ctSentence, reason: "大破回数依存の条件付き短縮のため機械判定対象外" });
+      return { rules, notes };
+    }
+    if (/1体につき/.test(ctSentence)) {
+      notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: ctSentence, reason: "射程内特定城娘数依存の条件付き短縮のため機械判定対象外" });
+      return { rules, notes };
+    }
+
+    // 二条城: 自身の計略使用までの時間が50%、敵撃破時10秒間は80%短縮
+    if (/自身の計略使用までの時間が(\d+)%、敵撃破時\s*\d+秒間は(\d+)%短縮/.test(ctSentence)) {
+      const m = ctSentence.match(/自身の計略使用までの時間が(\d+)%、敵撃破時\s*\d+秒間は(\d+)%短縮/);
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "self", pct: parseInt(m[1], 10), desc: "自身" });
+      notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: `敵撃破時10秒間は${m[2]}%短縮`, reason: `敵撃破トリガーの一時短縮は除外（常時分${m[1]}%のみ適用）` });
+      return { rules, notes };
+    }
+
+    if (/敵撃破(?:時|毎)[^、。]*?(?:計略|再使用)[^、。]*?短縮/.test(ctSentence)) {
+      notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: ctSentence, reason: "敵撃破トリガーの一時/累積短縮のため常時ループ計算から除外" });
+      return { rules, notes };
+    }
+
+    // 計略・特殊能力の個別ハンドリング
+    if (sourceType === "計略") {
+      if (/自分のみ/.test(text)) {
+        notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: ctSentence, reason: "短時間（5秒間）の特殊計略短縮のため常時ループ計算から除外" });
+        return { rules, notes };
+      }
+      if (/\[絢爛\]城娘は(\d+)%短縮.*\[絢爛\]城娘と近接城娘が対象/.test(text)) {
+        const m = text.match(/計略再使用時間(\d+)%短縮、\[絢爛\]城娘は(\d+)%短縮/);
+        if (m) {
+          rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "rangeKind", rangeKind: "近", pct: parseInt(m[1], 10), desc: "近接城娘(計略)" });
+          rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "tag", tag: "絢爛", pct: parseInt(m[2], 10), desc: "[絢爛]城娘(計略)" });
+          return { rules, notes };
+        }
+      }
+      if (/射程内城娘と自身の.*計略再使用時間(\d+)%短縮/.test(text)) {
+        const m = text.match(/計略再使用時間(\d+)%短縮/);
+        rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "inRange", pct: parseInt(m[1], 10), desc: "射程内(計略・伏兵配置中)" });
+        return { rules, notes };
+      }
+      notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: ctSentence, reason: "単体対象指定または伏兵射程依存の計略短縮のため自動合算対象外" });
+      return { rules, notes };
+    }
+
+    if (sourceType === "特殊能力") {
+      const mSelf = text.match(/自身の計略再使用時間(\d+)%短縮/);
+      if (mSelf) {
+        rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "self", pct: parseInt(mSelf[1], 10), desc: "自身(特殊能力中)" });
+        return { rules, notes };
+      }
+      const mInRange = text.match(/射程内城娘の.*計略\s*再使用時間(\d+)%短縮/);
+      if (mInRange) {
+        rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "inRange", pct: parseInt(mInRange[1], 10), desc: "射程内(特殊能力中)" });
+        return { rules, notes };
+      }
+      notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: ctSentence, reason: "特殊能力による条件付き短縮のため自動合算対象外" });
+      return { rules, notes };
+    }
+
+    // data.jsのフィールドから機械判定できない所属・称号カテゴリ
+    const loreMatch = ctSentence.match(/全ての\s*(\[(?:古代城柵|中国都城)\]|\S*騎士)|射程内の\s*\[学園都市\]\s*\[能力者\]\s*\[魔術師\]/);
+    if (loreMatch) {
+      notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: ctSentence, reason: `対象条件（${loreMatch[0]}）がdata.js上で機械判定不可` });
+      return { rules, notes };
+    }
+
+    // 二段階指定特技
+    if (/自身の計略使用までの時間が(\d+)%短縮.*計略使用までの時間が(\d+)%、\[肝試し\]は(\d+)%短縮/.test(text)) {
+      const m = text.match(/自身の計略使用までの時間が(\d+)%短縮.*計略使用までの時間が(\d+)%、\[肝試し\]は(\d+)%短縮/);
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "self", pct: parseInt(m[1], 10), desc: "自身" });
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "inRange", pct: parseInt(m[2], 10), desc: "射程内" });
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "tag", tag: "肝試し", pct: parseInt(m[3], 10), desc: "射程内[肝試し]" });
+      return { rules, notes };
+    }
+
+    const mAllPlusTag = ctSentence.match(/(?:全城娘|全ての城娘)の\s*計略\s*(?:再使用|使用)\s*(?:までの)?\s*時間(?:を|が)?\s*(\d+)%[、､,\s]*[\[［]([^\]］]+)[\]］]城娘は(\d+)%短縮/);
+    if (mAllPlusTag) {
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "all", pct: parseInt(mAllPlusTag[1], 10), desc: "味方全体" });
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "tag", tag: mAllPlusTag[2], pct: parseInt(mAllPlusTag[3], 10), desc: `[${mAllPlusTag[2]}]城娘` });
+      return { rules, notes };
+    }
+
+    if (/計略再使用時間が(\d+)%短縮、近畿城娘に対しては効果が1\.7倍/.test(ctSentence)) {
+      const m = ctSentence.match(/計略再使用時間が(\d+)%短縮/);
+      const base = parseInt(m[1], 10);
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "inRange", pct: base, desc: "射程内" });
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "region", region: "近畿", pct: Math.floor(base * 1.7), desc: "射程内[近畿](1.7倍)" });
+      return { rules, notes };
+    }
+
+    if (/全城娘の計略再使用時間を(\d+)%短縮.*\[お月見\]城娘に対して特技効果が2倍/.test(text)) {
+      const m = text.match(/全城娘の計略再使用時間を(\d+)%短縮/);
+      const base = parseInt(m[1], 10);
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "all", pct: base, desc: "味方全体" });
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "tag", tag: "お月見", pct: base * 2, desc: "[お月見]城娘(2倍)" });
+      return { rules, notes };
+    }
+
+    if (/計略再使用\s*時間(\d+)%短縮、\[GuP\]には効果1\.5倍/.test(ctSentence)) {
+      const m = ctSentence.match(/計略再使用\s*時間(\d+)%短縮/);
+      const base = parseInt(m[1], 10);
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "inRange", pct: base, desc: "射程内" });
+      notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: "[GuP]には効果1.5倍", reason: `[GuP]所属判定がdata.jsにないため基礎値${base}%を適用` });
+      return { rules, notes };
+    }
+
+    if (/射程内城娘と全地獄城の.*計略再使用\s*時間(\d+)%短縮/.test(ctSentence)) {
+      const m = ctSentence.match(/計略再使用\s*時間(\d+)%短縮/);
+      const base = parseInt(m[1], 10);
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "inRange", pct: base, desc: "射程内・全地獄城" });
+      return { rules, notes };
+    }
+
+    const mTagAll = ctSentence.match(/全ての[\[［]([^\]］]+)[\]］]城娘の\s*計略\s*(?:再使用|使用)\s*(?:までの)?\s*時間(?:を|が)?\s*(\d+)%短縮/);
+    if (mTagAll && SCRE_CT_SEASONAL_TAGS.includes(mTagAll[1])) {
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope: "tag", tag: mTagAll[1], pct: parseInt(mTagAll[2], 10), desc: `[${mTagAll[1]}]城娘` });
+      return { rules, notes };
+    }
+
+    const mPct = ctSentence.match(/(?:計略\s*(?:再使用|使用)\s*(?:までの?)?\s*(?:時間)?|再使用\s*(?:までの?)?\s*時間)(?:を|が|と)?(?:[^。]*?と)?\s*(\d+)%\s*短縮/);
+    if (mPct) {
+      const rawPct = parseInt(mPct[1], 10);
+      const isPerGiant = /巨大化する度に/.test(ctSentence) || (sentences[0] && /巨大化する度に/.test(sentences[0]) && !/最大化時|自身の計略ダメージ/.test(ctSentence));
+      const step = (typeof giantStep === "number" && giantStep >= 0) ? giantStep : 5;
+      const pct = isPerGiant ? (rawPct * step) : rawPct;
+      let scope = "self";
+      let desc = "自身";
+      if (/全城娘|全ての城娘|全味方/.test(ctSentence) || (/全城娘|全ての城娘|全味方/.test(text) && !/射程内|自身/.test(ctSentence))) {
+        scope = "all";
+        desc = "味方全体";
+      } else if (/射程内/.test(ctSentence) || (/射程内/.test(text) && !/自身/.test(ctSentence))) {
+        scope = "inRange";
+        desc = "射程内";
+      } else if (/自身/.test(ctSentence)) {
+        scope = "self";
+        desc = "自身";
+      }
+      if (isPerGiant) {
+        desc += `(巨大化${rawPct}%×${step})`;
+      }
+      rules.push({ from: castle.name, fromId: castle.id, sourceType, scope, pct, rawPct, isPerGiant, desc });
+      if (/霧切響子/.test(castle.name)) {
+        notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: "全ての[超高校級][希望ヶ峰学園]", reason: "射程内味方として30%適用（コラボ所属は射程外判定不可）" });
+      }
+      return { rules, notes };
+    }
+
+    notes.push({ from: castle.name, fromId: castle.id, sourceType, raw: ctSentence, reason: "複合構文のため機械判定対象外" });
+    return { rules, notes };
+  }
+
+  function evaluateCastleStrategyDuration(castle) {
+    if (!castle || !castle.strategy || !castle.strategy.text || castle.strategy.text.trim() === "無し") {
+      return {
+        evaluable: false,
+        reason: "計略なし",
+        statusLabel: "判定不可（理由：計略なし）",
+        duration: null,
+        baseCt: null,
+        kiCost: null
+      };
+    }
+
+    const st = castle.strategy;
+    const cd = st.cooldown;
+    if (typeof cd !== "number" || isNaN(cd) || cd <= 0) {
+      return {
+        evaluable: false,
+        reason: "CTなし",
+        statusLabel: "判定不可（理由：CTなし）",
+        duration: null,
+        baseCt: null,
+        kiCost: null
+      };
+    }
+
+    const text = st.text.trim();
+    const hasKiCost = (typeof st.cost === "number" && !isNaN(st.cost) && st.cost >= 0) && (st.cost > 0 || /消費気\s*0/.test(st.name || ""));
+    const kiCost = hasKiCost ? st.cost : null;
+
+    if (/効果時間無限/.test(text) && !/一部効果時間無限/.test(text) && !/^[0-9]+(?:\.[0-9]+)?秒間/.test(text) && !/対象が[0-9]+秒間/.test(text)) {
+      return {
+        evaluable: false,
+        reason: "持続時間なし（効果時間無限・永続変化型）",
+        statusLabel: "判定不可（理由：持続時間なし［効果時間無限・永続変化型］）",
+        duration: null,
+        baseCt: cd,
+        kiCost
+      };
+    }
+
+    if (/伏兵|トークン/.test(text) && !/配置時[、,\s]*[0-9]+(?:\.[0-9]+)?秒間/.test(text) && !/^[0-9]+(?:\.[0-9]+)?秒間/.test(text) && !/対象が.*永続.*[0-9]+秒間/.test(text)) {
+      return {
+        evaluable: false,
+        reason: "持続時間なし（伏兵・トークン計略）",
+        statusLabel: "判定不可（理由：持続時間なし［伏兵・トークン計略］）",
+        duration: null,
+        baseCt: cd,
+        kiCost
+      };
+    }
+
+    const mDur = text.match(/([0-9]+(?:\.[0-9]+)?)秒間/);
+    if (!mDur) {
+      return {
+        evaluable: false,
+        reason: "持続時間なし（単発・即時効果等）",
+        statusLabel: "判定不可（理由：持続時間なし［単発・即時効果等］）",
+        duration: null,
+        baseCt: cd,
+        kiCost
+      };
+    }
+
+    return {
+      evaluable: true,
+      reason: null,
+      statusLabel: null,
+      duration: parseFloat(mDur[1]),
+      baseCt: cd,
+      kiCost
+    };
+  }
+
+  function doesCtRuleMatchReceiver(rule, receiver) {
+    if (!rule || !receiver) return false;
+    if (rule.scope === "self") return receiver.id === rule.fromId || receiver.name === rule.from;
+    if (rule.scope === "all" || rule.scope === "inRange") return true;
+    if (rule.scope === "tag" && rule.tag) {
+      return receiver.name.includes(`［${rule.tag}］`) ||
+             receiver.name.includes(`[${rule.tag}]`) ||
+             (rule.tag === "ハロウィン" && receiver.name.includes("ﾊﾛｳｨﾝ"));
+    }
+    if (rule.scope === "region" && rule.region) {
+      return getCastleRegion(receiver) === rule.region;
+    }
+    if (rule.scope === "rangeKind" && rule.rangeKind) {
+      return receiver.rangeKind === rule.rangeKind || receiver.rangeKind === "遠近";
+    }
+    return false;
+  }
+
+  function evaluatePartyStrategyLoops(targetParty = party) {
+    const rawParty = Array.isArray(targetParty) ? targetParty : [];
+    const seenIds = new Set();
+    const members = [];
+
+    rawParty.forEach((item, index) => {
+      if (!item) return;
+      const castle = item.name && item.weapon ? item : getCastleById(item.id || item);
+      if (!castle || seenIds.has(castle.id)) return;
+      seenIds.add(castle.id);
+      const slot = (item && typeof item === "object" && !item.weapon) ? item : {
+        id: castle.id,
+        giantStep: 5,
+        strategyOn: true,
+        specialOn: Boolean(castle.special)
+      };
+      members.push({ castle, slot, slotIndex: index });
+    });
+
+    const allRules = [];
+    const partyNotes = [];
+
+    members.forEach(({ castle: provider, slot }) => {
+      const gStep = (typeof slot.giantStep === "number" && !isNaN(slot.giantStep)) ? slot.giantStep : 5;
+      if (provider.skill) {
+        const parsed = parseAbilityCtReduction(provider, provider.skill, "特技", gStep);
+        allRules.push(...parsed.rules);
+        partyNotes.push(...parsed.notes);
+      }
+      if (slot.strategyOn !== false && provider.strategy) {
+        const parsed = parseAbilityCtReduction(provider, provider.strategy, "計略", gStep);
+        allRules.push(...parsed.rules);
+        partyNotes.push(...parsed.notes);
+      }
+      if (slot.specialOn && provider.special) {
+        const parsed = parseAbilityCtReduction(provider, provider.special, "特殊能力", gStep);
+        allRules.push(...parsed.rules);
+        partyNotes.push(...parsed.notes);
+      }
+    });
+
+    const perCastle = members.map(({ castle: receiver, slot, slotIndex }) => {
+      const baseEval = evaluateCastleStrategyDuration(receiver);
+      const stratNameClean = receiver.strategy && receiver.strategy.name
+        ? cleanCounterAbilityName(receiver.strategy.name)
+        : "計略なし";
+
+      // Collect matching rules for receiver, deduplicating per (provider + sourceType) by taking highest pct
+      const byAbilityKey = new Map();
+      allRules.forEach(r => {
+        if (!doesCtRuleMatchReceiver(r, receiver)) return;
+        const key = `${r.fromId}::${r.sourceType}`;
+        if (!byAbilityKey.has(key) || r.pct > byAbilityKey.get(key).pct) {
+          byAbilityKey.set(key, { ...r });
+        }
+      });
+
+      const matchedSources = Array.from(byAbilityKey.values()).sort((a, b) => b.pct - a.pct);
+      matchedSources.forEach((src, idx) => {
+        src.applied = (idx === 0 && src.pct > 0);
+        src.conflictReason = src.applied ? null : "同種効果の重複なし（最大値優先）";
+      });
+
+      const appliedSource = matchedSources.find(s => s.applied) || null;
+      const shortenPct = appliedSource ? Math.min(95, appliedSource.pct) : 0;
+      const shortenRatio = shortenPct / 100;
+
+      if (!baseEval.evaluable) {
+        return {
+          castle: receiver,
+          slot,
+          slotIndex,
+          strategyName: stratNameClean,
+          evaluable: false,
+          reason: baseEval.reason,
+          statusLabel: baseEval.statusLabel,
+          badgeText: "判定不可",
+          badgeColor: "gray",
+          statusKey: "unavailable",
+          duration: null,
+          baseCt: baseEval.baseCt,
+          effectiveCt: baseEval.baseCt !== null ? Number((baseEval.baseCt * (1 - shortenRatio)).toFixed(2)) : null,
+          shortenPct,
+          shortenRatio,
+          sources: matchedSources,
+          appliedSources: matchedSources.filter(s => s.applied),
+          uptimeRatio: null,
+          uptimePct: null,
+          gapSeconds: null,
+          kiCost: baseEval.kiCost,
+          kiPerSec: null
+        };
+      }
+
+      const effectiveCt = Number((baseEval.baseCt * (1 - shortenRatio)).toFixed(2));
+      const rawUptime = effectiveCt > 0 ? (baseEval.duration / effectiveCt) : 1.0;
+      const uptimeRatio = effectiveCt <= baseEval.duration ? 1.0 : rawUptime;
+      const uptimePct = Number((uptimeRatio * 100).toFixed(1));
+      const gapSeconds = Number(Math.max(0, effectiveCt - baseEval.duration).toFixed(2));
+
+      let badgeText = "ループ不可";
+      let badgeColor = "red";
+      let statusKey = "gap";
+      if (baseEval.duration >= effectiveCt) {
+        badgeText = "永続";
+        badgeColor = "green";
+        statusKey = "permanent";
+      } else if (uptimeRatio >= 0.80 - 1e-9) {
+        badgeText = "僅かな隙間";
+        badgeColor = "yellow";
+        statusKey = "near_loop";
+      }
+
+      const kiPerSec = (baseEval.kiCost !== null && effectiveCt > 0)
+        ? Number((baseEval.kiCost / effectiveCt).toFixed(2))
+        : null;
+
+      return {
+        castle: receiver,
+        slot,
+        slotIndex,
+        strategyName: stratNameClean,
+        evaluable: true,
+        reason: null,
+        statusLabel: badgeText,
+        badgeText,
+        badgeColor,
+        statusKey,
+        duration: baseEval.duration,
+        baseCt: baseEval.baseCt,
+        effectiveCt,
+        shortenPct,
+        shortenRatio,
+        sources: matchedSources,
+        appliedSources: matchedSources.filter(s => s.applied),
+        uptimeRatio,
+        uptimePct,
+        gapSeconds,
+        kiCost: baseEval.kiCost,
+        kiPerSec
+      };
+    });
+
+    return {
+      items: perCastle,
+      notes: partyNotes
+    };
+  }
+
+  function renderStrategyLoopChecker(targetParty = party) {
+    const listEl = document.getElementById("strategyLoopList");
+    const summaryBadgeEl = document.getElementById("strategyLoopSummaryBadge");
+    const notesBoxEl = document.getElementById("strategyLoopNotesBox");
+    if (!listEl) return;
+
+    const evalRes = evaluatePartyStrategyLoops(targetParty);
+    const items = evalRes.items;
+
+    if (items.length === 0) {
+      if (summaryBadgeEl) summaryBadgeEl.textContent = "編成なし";
+      listEl.innerHTML = `<div style="font-size:12px; color:#888; padding:8px; text-align:center;">編成スロットに城娘を配置すると計略ループ・稼働率を自動判定します。</div>`;
+      if (notesBoxEl) notesBoxEl.style.display = "none";
+      return;
+    }
+
+    const permCount = items.filter(it => it.statusKey === "permanent").length;
+    const nearCount = items.filter(it => it.statusKey === "near_loop").length;
+    const gapCount = items.filter(it => it.statusKey === "gap").length;
+    const unavailCount = items.filter(it => !it.evaluable).length;
+
+    if (summaryBadgeEl) {
+      summaryBadgeEl.textContent = `永続:${permCount} / 僅差:${nearCount} / 不可:${gapCount} / 対象外:${unavailCount}`;
+    }
+
+    listEl.innerHTML = items.map(it => {
+      const c = it.castle;
+      let badgeStyle = "background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;";
+      if (it.badgeColor === "green") {
+        badgeStyle = "background:#dcfce7; color:#166534; border:1px solid #86efac;";
+      } else if (it.badgeColor === "yellow") {
+        badgeStyle = "background:#fef9c3; color:#854d0e; border:1px solid #fde047;";
+      } else if (it.badgeColor === "red") {
+        badgeStyle = "background:#fee2e2; color:#991b1b; border:1px solid #fca5a5;";
+      }
+
+      const sourceBreakdownHtml = it.sources.length > 0
+        ? it.sources.map(s => {
+            if (s.applied) {
+              return `<span class="badge" style="background:#e8f4fd; color:#1b4965; border:1px solid #b8daff; font-size:12px; padding:1px 6px;">短縮出所: ${escapeHtml(s.from)}（${escapeHtml(s.sourceType)}・${escapeHtml(s.desc)}） -${s.pct}%</span>`;
+            }
+            return `<span class="badge" style="background:#f8fafc; color:#64748b; border:1px dashed #cbd5e1; font-size:12px; padding:1px 6px;" title="${escapeHtml(s.conflictReason || '')}">${escapeHtml(s.from)}（-${s.pct}%・最大値優先により未適用）</span>`;
+          }).join(" ")
+        : `<span style="font-size:12px; color:#888;">計略短縮バフなし（0%）</span>`;
+
+      if (!it.evaluable) {
+        return `
+          <div class="strategy-loop-card" data-castle-id="${escapeHtml(c.id)}" style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding:7px 10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:8px; min-width:180px; flex:1;">
+              ${getIconHtml(c, 30)}
+              <div>
+                <div style="font-size:12px; font-weight:bold; color:#2c3e50;">
+                  ${escapeHtml(c.name)}
+                  <span style="font-weight:normal; color:#64748b; margin-left:4px;">［${escapeHtml(it.strategyName)}］</span>
+                </div>
+                <div style="font-size:12px; color:#64748b; margin-top:2px;">
+                  ${it.baseCt !== null ? `基礎CT: ${it.baseCt}秒${it.shortenPct > 0 ? ` ➔ 実効CT: ${it.effectiveCt}秒 (-${it.shortenPct}%)` : ''} ｜ ` : ''}${escapeHtml(it.statusLabel)}
+                </div>
+              </div>
+            </div>
+            <span class="badge strategy-loop-badge" style="${badgeStyle} font-size:12px; font-weight:bold; padding:3px 8px;">
+              ${escapeHtml(it.statusLabel)}
+            </span>
+          </div>
+        `;
+      }
+
+      const kiRateHtml = (it.kiCost !== null && it.kiPerSec !== null)
+        ? `<span style="margin-left:8px; color:#1b4965; font-weight:bold;">⚡ 秒あたり消費気: ${it.kiPerSec.toFixed(2)} 気/秒 <span style="font-weight:normal; color:#64748b;">(消費気${it.kiCost} ÷ 実効CT${it.effectiveCt}s)</span></span>`
+        : "";
+
+      return `
+        <div class="strategy-loop-card" data-castle-id="${escapeHtml(c.id)}" style="display:flex; flex-direction:column; gap:4px; padding:8px 10px; background:#ffffff; border:1px solid #cbd5e1; border-radius:6px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:8px; min-width:180px;">
+              ${getIconHtml(c, 30)}
+              <div>
+                <div style="font-size:12px; font-weight:bold; color:#2c3e50;">
+                  ${escapeHtml(c.name)}
+                  <span style="font-weight:normal; color:#475569; margin-left:4px;">［計略: ${escapeHtml(it.strategyName)}］</span>
+                </div>
+                <div style="font-size:12px; color:#334155; margin-top:2px;">
+                  持続: <strong>${it.duration}秒</strong> ｜ 基礎CT: <strong>${it.baseCt}秒</strong> ➔ 実効CT: <strong>${it.effectiveCt}秒</strong> (${it.shortenPct > 0 ? `-${it.shortenPct}%短縮` : '短縮0%'}) ｜ 稼働率: <strong>${it.uptimePct.toFixed(1)}%</strong> ｜ 隙間: <strong>${it.gapSeconds}秒</strong>${kiRateHtml}
+                </div>
+              </div>
+            </div>
+            <span class="badge strategy-loop-badge" data-status="${escapeHtml(it.statusKey)}" style="${badgeStyle} font-size:12px; font-weight:bold; padding:4px 10px;">
+              ${escapeHtml(it.badgeText)}（稼働率 ${it.uptimePct.toFixed(1)}% / 隙間 ${it.gapSeconds}秒）
+            </span>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:4px; align-items:center; padding-left:38px;">
+            ${sourceBreakdownHtml}
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    if (notesBoxEl) {
+      if (evalRes.notes.length > 0) {
+        notesBoxEl.style.display = "block";
+        notesBoxEl.innerHTML = `<strong>⚠️ 条件付き・秒数固定のため自動合算から除外した計略短縮:</strong><br>` +
+          evalRes.notes.map(n => `・<strong>${escapeHtml(n.from)}</strong>（${escapeHtml(n.sourceType)}）: ${escapeHtml(n.reason)}`).join("<br>");
+      } else {
+        notesBoxEl.style.display = "none";
+        notesBoxEl.innerHTML = "";
+      }
+    }
+  }
+
   // --- 機能2: 対策コンシェルジュ（敵特性・審議からの逆引き / 第62弾拡充） ---
   function cleanCounterAbilityName(rawName) {
     if (!rawName) return "";
@@ -17357,6 +17901,7 @@ function showQuizResult() {
     initDelibPlannerListeners();
     initDetailDpsListeners();
     initFiringRange();
+    renderStrategyLoopChecker();
   }
 
   // Call on load
@@ -17612,4 +18157,10 @@ function showQuizResult() {
   window.__getCastleRegion = getCastleRegion;
   window.__openEquipmentFacilityModal = openEquipmentFacilityModal;
   window.__closeEquipmentFacilityModal = closeEquipmentFacilityModal;
+
+  // 第63弾: 計略ループ・稼働率チェッカーの公開
+  window.parseAbilityCtReduction = parseAbilityCtReduction;
+  window.evaluateCastleStrategyDuration = evaluateCastleStrategyDuration;
+  window.evaluatePartyStrategyLoops = evaluatePartyStrategyLoops;
+  window.renderStrategyLoopChecker = renderStrategyLoopChecker;
 })();
