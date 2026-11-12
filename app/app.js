@@ -12504,9 +12504,9 @@ function showQuizResult() {
     if (penetrationNotice) {
       if (isStatImmune) {
         penetrationNotice.innerHTML = `
-          <div style="color:#c0392b; font-weight:bold; margin-bottom:2px;">⚠️ ステージ審議「能力低下無効」が発動中:</div>
-          <div>❌ <strong>無効化:</strong> 敵攻撃力低下、敵防御力低下、射程低下（ステータス低下）</div>
-          <div>⭕ <strong>貫通して有効:</strong> 敵与ダメ低下、敵被ダメ上昇、攻撃隙延長、移動低下、状態異常（脱法重複可能！）</div>
+          <div style="color:#c0392b; font-weight:bold; margin-bottom:2px;">⚠️ ステージ審議「〇〇低下効果無効」が発動中:</div>
+          <div>❌ <strong>無効化:</strong> 特技・計略枠の一般的な割合/固定値デバフ（敵攻撃低下・敵防御低下・射程低下・移動速度低下等）</div>
+          <div>⭕ <strong>一次情報で確認済みの対象外（有効）:</strong> 編成特技・所持特技デバフ、武器の射程内デバフ、0にするデバフ（変更効果 ※変更効果無効審議を除く） <small style="color:#666;">（出典: 攻略Wiki「地獄」「検証」ページ。敵被ダメ上昇等は一次情報で未確認）</small></div>
         `;
       } else {
         penetrationNotice.innerHTML = `
@@ -14176,6 +14176,20 @@ function showQuizResult() {
   function matchCastleCounterAbility(c, opts) {
     const sources = getCastleAbilitySources(c);
     for (const entry of sources) {
+      if (opts.customMatcher) {
+        const customDetail = opts.customMatcher(entry, c);
+        if (customDetail) {
+          const detail = opts.prefix ? (opts.prefix + customDetail) : customDetail;
+          return {
+            sourceType: entry.sourceType,
+            timing: entry.timing,
+            abilityName: entry.abilityName,
+            rawAbilityName: entry.rawName,
+            detail,
+            reason: `［${entry.sourceType}（${entry.timing}）: ${entry.abilityName}］${detail}`
+          };
+        }
+      }
       if (opts.regex) {
         const m = entry.text.match(opts.regex);
         if (m) {
@@ -14202,6 +14216,23 @@ function showQuizResult() {
         };
       }
     }
+    if (opts.matchOwnedDebuff) {
+      const os = c.ownedSkill || (c.allOwnedSkills && c.allOwnedSkills[c.allOwnedSkills.length - 1]);
+      if (os && ((os.effects && os.effects.some(e => e.category && e.category.startsWith("enemy"))) || /全ての敵の/.test(os.text || ""))) {
+        const ownedCleanName = cleanCounterAbilityName(os.name);
+        const primarySkillName = c.skill ? cleanCounterAbilityName(c.skill.name) : ownedCleanName;
+        const primaryRawName = c.skill ? c.skill.name : os.name;
+        const detail = `所持特技「${ownedCleanName}」: ${os.text}`;
+        return {
+          sourceType: "特技",
+          timing: "常時",
+          abilityName: primarySkillName,
+          rawAbilityName: primaryRawName,
+          detail,
+          reason: `［所持特技（常時）: ${ownedCleanName} ／ 特技: ${primarySkillName}］${os.text}`
+        };
+      }
+    }
     if (opts.weapons && opts.weapons.includes(c.weapon)) {
       const primarySkillName = c.skill ? cleanCounterAbilityName(c.skill.name) : c.weapon;
       const primaryRawName = c.skill ? c.skill.name : c.weapon;
@@ -14221,6 +14252,7 @@ function showQuizResult() {
   function createCounterTraitDef(name, opts) {
     return {
       name,
+      opts,
       matchDetail: (c) => matchCastleCounterAbility(c, opts),
       matcher: (c) => {
         const d = matchCastleCounterAbility(c, opts);
@@ -14229,6 +14261,36 @@ function showQuizResult() {
     };
   }
 
+  // 第64弾修正1: 高防御・物理軽減の抽出ルール
+  // - 裸の「|術ダメージ」選択肢を削除し、被ダメージ軽減（［漆磊］広島城の「術ダメージは50%軽減」、淀城の「術ダメージは90%軽減」、［魔道書図書館］インデックス計略の「受ける術ダメージ無効」等）の誤検出を除外。
+  // - (a) 特技・計略の「敵の防御（力）を無視／0として計算／減算なし」
+  // - (b) 攻撃側の「術ダメージ（を与える／追加／倍／連続／継続／敵に…）」と機械判定できる表現
+  // - (c) 武器種が 法術・杖・祓串・鈴（術攻撃武器種）
+  const COUNTER_DEF_IGNORE_REGEX = /(?:敵の)?防御(?:力)?を?(?:\d+%?)?(?:無視|0として計算|減算な)/;
+  const COUNTER_OFFENSIVE_JUTSU_REGEX = /(?:術ダメージを(?:\d+連続で)?(?:追加|与え)|(?:倍|連続|継続的?|敵に)[^。、\n]*?術ダメージ(?!(?:は|を)?(?:\d+%?)?(?:軽減|無効|受けない|半減)))/;
+  function matchHighDefOrPhysResistEntry(entry) {
+    const text = entry.text || "";
+    if (entry.sourceType !== "特殊能力") {
+      const mDef = text.match(COUNTER_DEF_IGNORE_REGEX);
+      if (mDef) return mDef[0];
+    }
+    const mJutsu = text.match(COUNTER_OFFENSIVE_JUTSU_REGEX);
+    if (mJutsu) return mJutsu[0];
+    return null;
+  }
+
+  // 第64弾修正2: 「能力低下無効審議」（〇〇低下効果無効）の一次情報検証と対策抽出
+  // - 出典URL 1: https://scre.swiki.jp/index.php?%E5%9C%B0%E7%8D%84 （攻略Wiki「地獄」＞審議効果の補足＞〇〇上昇効果無効/低下効果無効）
+  //   該当文言: 「無効化されるのは特技計略枠に該当する一般的な割合バフ、固定値バフのみで以下の物は対象外となる。
+  //              デバフ：編成特技、所持特技、武器の射程内デバフ、0にするデバフ」
+  //             「変更効果: 移動速度を0にする効果、及び防御値を0にする効果を指す。」
+  // - 出典URL 2: https://scre.swiki.jp/index.php?%E6%A4%9C%E8%A8%BC （攻略Wiki「検証」＞ステータス計算式＞デバフに関する補足事項）
+  //   該当文言: 「割合所持デバフ・割合編成デバフと特技・計略の割合デバフは効果が累積する…これらのデバフは〇〇低下無効の審議や敵に無効化されない。」
+  //             「上記の区分とは別に「0にする」系のデバフというものが存在する。これらは割合デバフ100%ではなく、別系統のデバフとして扱われる。…また、「移動速度を0にする」効果は、移動速度低下を無効化する敵にも有効。」
+  // - 「敵の被ダメージ上昇」が能力低下無効審議で有効か否かは一次情報に明記がない（未確認）ため、断定記載および対策抽出から除外し、
+  //   一次情報で裏付けられた「所持特技による敵デバフ」および「敵の防御・移動速度を0にするデバフ（変更効果）」のみを抽出する。
+  const COUNTER_ENEMY_ZERO_DEBUFF_REGEX = /(?:敵の[^。]*?(?:防御|移動速度)[^。]*?0に(?:する|なり|なる)|(?:術ダメ[^。]*?与え|ダメージを与え|動きを\d+秒間封じ|射程内に敵が入った瞬間に発動し)[^。]*?(?:防御|移動速度)[^。]*?0に(?:する|なり|なる))/;
+
   const SCRE_COUNTER_TRAIT_DEFS = {
     "飛行": createCounterTraitDef("飛行", {
       regex: /飛行[^。、\n]*?(?:特効|上昇|倍|解除|対象|無効化|撃破|半減)|飛行敵/,
@@ -14236,14 +14298,14 @@ function showQuizResult() {
       weaponDesc: "対空飛行敵へ攻撃1.5倍特攻"
     }),
     "高防御": createCounterTraitDef("高防御", {
-      regex: /(?:敵の)?防御(?:力)?を?(?:\d+%?)?(?:無視|0として計算|減算な)|術ダメージ/,
+      customMatcher: matchHighDefOrPhysResistEntry,
       effectPred: e => e.stat === "enemyDefDown" && e.value >= 40,
       effectDesc: "敵防御40%以上低下で高防御を解体",
       weapons: ["法術", "杖", "祓串", "鈴"],
       weaponDesc: "防御無視の術攻撃でダメージを通す"
     }),
     "物理軽減": createCounterTraitDef("物理軽減", {
-      regex: /(?:敵の)?防御(?:力)?を?(?:\d+%?)?(?:無視|0として計算|減算な)|術ダメージ/,
+      customMatcher: matchHighDefOrPhysResistEntry,
       effectPred: e => e.stat === "enemyDefDown" && e.value >= 30,
       effectDesc: "敵防御大幅低下で物理軽減敵の有効防御を削減",
       weapons: ["法術", "杖", "祓串", "鈴"],
@@ -14286,9 +14348,9 @@ function showQuizResult() {
       effectDesc: "被ダメージ軽減で大ダメージ・割合削りを防護"
     }),
     "能力低下無効審議": createCounterTraitDef("能力低下無効審議", {
-      regex: /敵の[^。、\n]*?(?:被ダメージ|被ダメ|受けるダメージ)[^。、\n]*?上昇|敵の与ダメ(?:ージ)?[^。、\n]*?(?:低下|半減)/,
-      effectPred: e => e.stat === "enemyDmgTakenUp",
-      effectDesc: "能力低下無効を貫通する被ダメ上昇・与ダメ低下デバフ"
+      regex: COUNTER_ENEMY_ZERO_DEBUFF_REGEX,
+      prefix: "0にするデバフ(変更効果): ",
+      matchOwnedDebuff: true
     })
   };
 
@@ -14494,10 +14556,10 @@ function showQuizResult() {
     { tag: "ノックバック", label: "ノックバック", pattern: /敵を後退|後退させる|ノックバック/, effectStat: [], desc: "敵を押し戻すノックバック" },
     { tag: "足止め", label: "足止め", pattern: /足止め|足を止める/, effectStat: [], desc: "敵の移動を停止する足止め能力" },
     { tag: "対空・飛行特効", label: "対空・飛行特効", pattern: /飛行.*(?:特効|上昇|倍|解除|対象|無効化|撃破|半減)|飛行敵/, effectStat: [], weapon: ["弓"], desc: "飛行敵に対する特効・対空攻撃（弓の武器種特性含む）" },
-    { tag: "防御無視", label: "防御無視", pattern: /(?:敵の)?防御(?:力)?を?(?:無視|0として計算|減算な)|術ダメージ/, effectStat: [], weapon: ["法術", "杖", "祓串", "鈴"], desc: "防御力を無視する術攻撃・直撃貫通" },
+    { tag: "防御無視", label: "防御無視", pattern: /(?:敵の)?防御(?:力)?を?(?:\d+%?)?(?:無視|0として計算|減算な)|(?:術ダメージを(?:\d+連続で)?(?:追加|与え)|(?:倍|連続|継続的?|敵に)[^。、\n]*?術ダメージ(?!(?:は|を)?(?:\d+%?)?(?:軽減|無効|受けない|半減)))/, effectStat: [], weapon: ["法術", "杖", "祓串", "鈴"], desc: "防御力を無視する術攻撃・直撃貫通" },
     { tag: "敵攻撃低下", label: "敵攻撃低下", pattern: /敵の攻撃.*(?:低下|%|半減)/, effectStat: ["enemyAtkDown"], desc: "敵の攻撃力を割合・固定値で弱体化" },
     { tag: "敵防御低下", label: "敵防御低下", pattern: /敵の防御.*(?:低下|%|半減)/, effectStat: ["enemyDefDown"], desc: "敵の防御力を割合・固定値で弱体化" },
-    { tag: "敵被ダメ上昇", label: "敵被ダメ上昇", pattern: /敵の[^。、\n]*?(?:被ダメージ|被ダメ|受けるダメージ)[^。、\n]*?上昇/, effectStat: ["enemyDmgTakenUp"], desc: "敵が受けるダメージを割合増加（能力低下無効審議でも有効）" },
+    { tag: "敵被ダメ上昇", label: "敵被ダメ上昇", pattern: /敵の[^。、\n]*?(?:被ダメージ|被ダメ|受けるダメージ)[^。、\n]*?上昇/, effectStat: ["enemyDmgTakenUp"], desc: "敵が受けるダメージを割合増加" },
     { tag: "敵移動低下", label: "敵移動低下", pattern: /移動速度.*(?:低下|%|半減)/, effectStat: ["enemySlow"], desc: "敵の移動速度を低下（鈍足）" },
     { tag: "状態異常付与", label: "状態異常付与", pattern: /(?:火傷|氷結|猛毒|毒|麻痺|混乱|暗闇|絶望|移動不能|行動不能).*(?:付与|にする|状態|させ)/, effectStat: [], desc: "火傷/氷結/猛毒/麻痺/暗闇等の状態異常を付与" },
     { tag: "状態異常回復・無効", label: "状態異常回復・無効", pattern: /(?:状態異常|暗闇|火傷|麻痺|氷結|猛毒|毒|混乱).*(?:回復|防ぐ|無効|解除)/, effectStat: [], desc: "状態異常の解除または無効化" },
@@ -14525,8 +14587,12 @@ function showQuizResult() {
           matched = true;
         }
       }
-      if (!matched && rule.pattern && rule.pattern.test(fullText)) {
-        matched = true;
+      if (!matched && rule.pattern) {
+        if (rule.tag === "防御無視") {
+          matched = getCastleAbilitySources(c).some(entry => Boolean(matchHighDefOrPhysResistEntry(entry)));
+        } else if (rule.pattern.test(fullText)) {
+          matched = true;
+        }
       }
       if (matched) {
         matchedTags.push(rule.tag);
