@@ -1,8 +1,8 @@
 /**
- * Prompt 64 Automated Test Suite
- * 対抗策ファインダーの誤検出修正と審議仕様の出典確認
- * - P64-01: ［漆磊］広島城が高防御・物理軽減の対策一覧に出ないこと
- * - P64-02: 術ダメージ語句のみが根拠だった63体のうち、実際に攻撃側である城娘だけが残ること（件数と一覧を報告）
+ * Prompt 64/65 Automated Test Suite
+ * 対抗策ファインダーの誤検出是正と審議仕様の確認
+ * - P64-01: ［漆磊］広島城・［無疆］江戸城等（特殊能力に防御無視文言）が正しく含まれ、被ダメ軽減のみの淀城のみが除外されること
+ * - P64-02: 術ダメージ語句のみが根拠だった63体のうち、被ダメ軽減のみの淀城を除外し攻撃側城娘（広島城含む）が残ること
  * - P64-03: 武器種 法術・杖・祓串・鈴 の城娘は引き続き抽出されること
  * - P64-04: 能力低下無効審議の対策一覧に、一次情報で裏付けられた手段のみが残ること（件数を報告）
  */
@@ -48,13 +48,15 @@ function assert(title, condition, detail = '') {
   await new Promise(r => setTimeout(r, 1000));
 
   // -------------------------------------------------------------------------
-  // P64-01: ［漆磊］広島城が高防御・物理軽減の対策一覧に出ないこと
+  // P64-01 (第65弾是正): ［漆磊］広島城・［無疆］江戸城等（特殊能力に防御無視）が正しく含まれ、被ダメ軽減のみの淀城のみが除外されること
   // -------------------------------------------------------------------------
   const p64_01 = await page.evaluate(() => {
     const highDef = window.findCounterCastles(new Set(['高防御']));
     const physResist = window.findCounterCastles(new Set(['物理軽減']));
     const hiroshimaInHighDef = highDef.some(x => x.castle.name === '［漆磊］広島城');
     const hiroshimaInPhysResist = physResist.some(x => x.castle.name === '［漆磊］広島城');
+    const edoInHighDef = highDef.some(x => x.castle.name === '［無疆］江戸城');
+    const edoInPhysResist = physResist.some(x => x.castle.name === '［無疆］江戸城');
     const yodoInHighDef = highDef.some(x => x.castle.name === '淀城');
     const yodoInPhysResist = physResist.some(x => x.castle.name === '淀城');
 
@@ -66,6 +68,8 @@ function assert(title, condition, detail = '') {
       physResistCount: physResist.length,
       hiroshimaInHighDef,
       hiroshimaInPhysResist,
+      edoInHighDef,
+      edoInPhysResist,
       yodoInHighDef,
       yodoInPhysResist,
       hiroshimaHasDefIgnoreTag: hiroshimaTags.includes('防御無視')
@@ -73,9 +77,13 @@ function assert(title, condition, detail = '') {
   });
 
   assert(
-    'P64-01: ［漆磊］広島城（および被ダメ軽減のみの淀城）が高防御・物理軽減の対策一覧に出ないこと',
-    !p64_01.hiroshimaInHighDef && !p64_01.hiroshimaInPhysResist && !p64_01.yodoInHighDef && !p64_01.yodoInPhysResist && !p64_01.hiroshimaHasDefIgnoreTag,
-    `高防御=${p64_01.highDefCount}体 (広島城=${p64_01.hiroshimaInHighDef}, 淀城=${p64_01.yodoInHighDef}), 物理軽減=${p64_01.physResistCount}体 (広島城=${p64_01.hiroshimaInPhysResist}, 淀城=${p64_01.yodoInPhysResist})`
+    'P64-01: ［漆磊］広島城・［無疆］江戸城が高防御・物理軽減に対策として含まれ、被ダメ軽減のみの淀城のみが正しく除外されること（高防御=372体, 物理軽減=384体）',
+    p64_01.highDefCount === 372 && p64_01.physResistCount === 384 &&
+      p64_01.hiroshimaInHighDef && p64_01.hiroshimaInPhysResist &&
+      p64_01.edoInHighDef && p64_01.edoInPhysResist &&
+      !p64_01.yodoInHighDef && !p64_01.yodoInPhysResist &&
+      p64_01.hiroshimaHasDefIgnoreTag,
+    `高防御=${p64_01.highDefCount}体 (広島城=${p64_01.hiroshimaInHighDef}, 江戸城=${p64_01.edoInHighDef}, 淀城=${p64_01.yodoInHighDef}), 物理軽減=${p64_01.physResistCount}体 (広島城=${p64_01.hiroshimaInPhysResist}, 江戸城=${p64_01.edoInPhysResist}, 淀城=${p64_01.yodoInPhysResist})`
   );
 
   // -------------------------------------------------------------------------
@@ -120,9 +128,10 @@ function assert(title, condition, detail = '') {
   });
 
   assert(
-    'P64-02: 術ダメージ語句のみが根拠だった63体のうち、被ダメ軽減（防御側）を除外し実際に攻撃側である城娘だけが残ること',
-    p64_02.setBCount === 63 && p64_02.setBRemainingCount === 61 &&
-      p64_02.setACount === 63 && p64_02.setARemainingCount === 62,
+    'P64-02: 術ダメージ語句のみが根拠だった63体のうち、被ダメ軽減（防御側）を除外し実際に攻撃側である城娘だけが残ること（除外は淀城のみ）',
+    p64_02.setBCount === 63 && p64_02.setBRemainingCount === 62 &&
+      p64_02.setACount === 63 && p64_02.setARemainingCount === 62 &&
+      p64_02.setBExcludedNames.length === 1 && p64_02.setBExcludedNames[0].startsWith('淀城'),
     `［漆磊］広島城を含む63体ベース: ${p64_02.setBCount}体 → ${p64_02.setBRemainingCount}体 (除外: ${p64_02.setBExcludedNames.join('、')}) ／ 全ソース63体ベース: ${p64_02.setACount}体 → ${p64_02.setARemainingCount}体 (除外: ${p64_02.setAExcludedNames.join('、')})`
   );
 

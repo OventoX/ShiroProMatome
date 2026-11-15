@@ -56,7 +56,7 @@ function assert(title, condition, detail = '') {
     // 2) ［無疆］江戸城 単騎: 持続60秒, CT60秒, 消費気5 -> 短縮0%, 実効CT=60秒, 稼働率=60/60=100.0%, 隙間=0秒, 永続(緑), 秒あたり消費気=5/60=0.08
     const soloMukyouEdo = window.evaluatePartyStrategyLoops([{ id: '［無疆］江戸城', strategyOn: true, giantStep: 5 }]).items[0];
 
-    // 3) ペテルゴフ宮殿 単騎: 持続40秒, CT50秒, 消費気7 -> 短縮0%, 実効CT=50秒, 稼働率=40/50=80.0%, 隙間=10秒, 僅かな隙間(黄), 秒あたり消費気=7/50=0.14
+    // 3) ペテルゴフ宮殿 単騎: 持続40秒, CT50秒, 消費気5 -> 短縮0%, 実効CT=50秒, 稼働率=40/50=80.0%, 隙間=10秒, 僅かな隙間(黄), 秒あたり消費気=5/50=0.10
     const soloPeterhof = window.evaluatePartyStrategyLoops([{ id: 'ペテルゴフ宮殿', strategyOn: true, giantStep: 5 }]).items[0];
 
     // 全1,161城娘の分類集計
@@ -118,8 +118,11 @@ function assert(title, condition, detail = '') {
       { id: '小早川城', strategyOn: true, giantStep: 5 },
       { id: '［お月見］鹿野城', strategyOn: true, giantStep: 5 }
     ];
+    window.renderStrategyLoopChecker(party35);
     const res35 = window.evaluatePartyStrategyLoops(party35);
     const koba35 = res35.items.find(it => it.castle.name === '小早川城');
+    const domListText35 = document.getElementById('strategyLoopList')?.textContent.replace(/\s+/g, ' ').trim() || '';
+    const domNotesText35 = document.getElementById('strategyLoopNotesBox')?.textContent.replace(/\s+/g, ' ').trim() || '';
 
     // B) 小早川城(30s/50s) + ［お月見］鹿野城(35%) + 彦根城(全城娘40%短縮) + 万里の長城(10秒短縮・注記対象)
     // 最大値優先で彦根城40%が適用: 実効CT = 50 * (1 - 0.40) = 30.0s, 稼働率 = 100.0%, 隙間 = 0s, 永続(緑)
@@ -138,6 +141,8 @@ function assert(title, condition, detail = '') {
 
     return {
       koba35,
+      domListText35,
+      domNotesText35,
       koba40,
       notesCount: res40.notes.length,
       domListText,
@@ -146,13 +151,16 @@ function assert(title, condition, detail = '') {
   });
 
   assert(
-    'P63-02: 計略短縮バフ適用時に実効CTが短縮され、出所内訳（誰の・何%）および対象外短縮の注記が正確に表示される',
+    'P63-02: 計略短縮バフ適用時に実効CTが短縮され、出所内訳（誰の・何%）および対象限定短縮・対象外短縮の注記が正確に表示される',
     p63_02.koba35.shortenPct === 35 &&
       p63_02.koba35.effectiveCt === 32.5 &&
       p63_02.koba35.uptimePct === 92.3 &&
       p63_02.koba35.gapSeconds === 2.5 &&
       p63_02.koba35.badgeText === '僅かな隙間' &&
       p63_02.koba35.appliedSources[0]?.from === '［お月見］鹿野城' &&
+      p63_02.koba35.hasScopedReduction === true &&
+      p63_02.domListText35.includes('対象が限定される効果を含むため、実際の稼働率は編成・配置により下がる場合') &&
+      p63_02.domNotesText35.includes('対象が限定される効果を含むため、実際の稼働率は編成・配置により下がる場合') &&
       p63_02.koba40.shortenPct === 40 &&
       p63_02.koba40.effectiveCt === 30 &&
       p63_02.koba40.uptimePct === 100.0 &&

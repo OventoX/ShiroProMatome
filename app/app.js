@@ -13940,6 +13940,16 @@ function showQuizResult() {
       const appliedSource = matchedSources.find(s => s.applied) || null;
       const shortenPct = appliedSource ? Math.min(95, appliedSource.pct) : 0;
       const shortenRatio = shortenPct / 100;
+      const hasScopedReduction = Boolean(
+        appliedSource && (
+          appliedSource.scope === "inRange" ||
+          (appliedSource.desc && appliedSource.desc.includes("射程内")) ||
+          (appliedSource.scope !== "all" && (appliedSource.scope !== "self" || appliedSource.fromId !== receiver.id))
+        )
+      );
+      const scopedReductionNote = hasScopedReduction
+        ? "対象が限定される効果を含むため、実際の稼働率は編成・配置により下がる場合があります"
+        : null;
 
       if (!baseEval.evaluable) {
         return {
@@ -13960,6 +13970,8 @@ function showQuizResult() {
           shortenRatio,
           sources: matchedSources,
           appliedSources: matchedSources.filter(s => s.applied),
+          hasScopedReduction,
+          scopedReductionNote,
           uptimeRatio: null,
           uptimePct: null,
           gapSeconds: null,
@@ -14009,6 +14021,8 @@ function showQuizResult() {
         shortenRatio,
         sources: matchedSources,
         appliedSources: matchedSources.filter(s => s.applied),
+        hasScopedReduction,
+        scopedReductionNote,
         uptimeRatio,
         uptimePct,
         gapSeconds,
@@ -14017,9 +14031,11 @@ function showQuizResult() {
       };
     });
 
+    const hasAnyScopedReduction = perCastle.some(it => it.hasScopedReduction);
     return {
       items: perCastle,
-      notes: partyNotes
+      notes: partyNotes,
+      hasScopedReduction: hasAnyScopedReduction
     };
   }
 
@@ -14068,24 +14084,31 @@ function showQuizResult() {
           }).join(" ")
         : `<span style="font-size:12px; color:#888;">計略短縮バフなし（0%）</span>`;
 
+      const scopedNoticeHtml = it.hasScopedReduction
+        ? `<div style="font-size:11px; color:#c2410c; margin-top:2px;">⚠️ 対象が限定される効果を含むため、実際の稼働率は編成・配置により下がる場合があります</div>`
+        : "";
+
       if (!it.evaluable) {
         return `
-          <div class="strategy-loop-card" data-castle-id="${escapeHtml(c.id)}" style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding:7px 10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; flex-wrap:wrap;">
-            <div style="display:flex; align-items:center; gap:8px; min-width:180px; flex:1;">
-              ${getIconHtml(c, 30)}
-              <div>
-                <div style="font-size:12px; font-weight:bold; color:#2c3e50;">
-                  ${escapeHtml(c.name)}
-                  <span style="font-weight:normal; color:#64748b; margin-left:4px;">［${escapeHtml(it.strategyName)}］</span>
-                </div>
-                <div style="font-size:12px; color:#64748b; margin-top:2px;">
-                  ${it.baseCt !== null ? `基礎CT: ${it.baseCt}秒${it.shortenPct > 0 ? ` ➔ 実効CT: ${it.effectiveCt}秒 (-${it.shortenPct}%)` : ''} ｜ ` : ''}${escapeHtml(it.statusLabel)}
+          <div class="strategy-loop-card" data-castle-id="${escapeHtml(c.id)}" style="display:flex; flex-direction:column; gap:4px; padding:7px 10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+              <div style="display:flex; align-items:center; gap:8px; min-width:180px; flex:1;">
+                ${getIconHtml(c, 30)}
+                <div>
+                  <div style="font-size:12px; font-weight:bold; color:#2c3e50;">
+                    ${escapeHtml(c.name)}
+                    <span style="font-weight:normal; color:#64748b; margin-left:4px;">［${escapeHtml(it.strategyName)}］</span>
+                  </div>
+                  <div style="font-size:12px; color:#64748b; margin-top:2px;">
+                    ${it.baseCt !== null ? `基礎CT: ${it.baseCt}秒${it.shortenPct > 0 ? ` ➔ 実効CT: ${it.effectiveCt}秒 (-${it.shortenPct}%)` : ''} ｜ ` : ''}${escapeHtml(it.statusLabel)}
+                  </div>
                 </div>
               </div>
+              <span class="badge strategy-loop-badge" style="${badgeStyle} font-size:12px; font-weight:bold; padding:3px 8px;">
+                ${escapeHtml(it.statusLabel)}
+              </span>
             </div>
-            <span class="badge strategy-loop-badge" style="${badgeStyle} font-size:12px; font-weight:bold; padding:3px 8px;">
-              ${escapeHtml(it.statusLabel)}
-            </span>
+            ${scopedNoticeHtml ? `<div style="padding-left:38px;">${scopedNoticeHtml}</div>` : ''}
           </div>
         `;
       }
@@ -14116,15 +14139,24 @@ function showQuizResult() {
           <div style="display:flex; flex-wrap:wrap; gap:4px; align-items:center; padding-left:38px;">
             ${sourceBreakdownHtml}
           </div>
+          ${scopedNoticeHtml ? `<div style="padding-left:38px;">${scopedNoticeHtml}</div>` : ''}
         </div>
       `;
     }).join("");
 
     if (notesBoxEl) {
+      const parts = [];
+      if (evalRes.hasScopedReduction) {
+        parts.push(`<div style="color:#c2410c; font-weight:bold; margin-bottom:4px;">⚠️ 対象が限定される効果を含むため、実際の稼働率は編成・配置により下がる場合があります</div>`);
+      }
       if (evalRes.notes.length > 0) {
+        parts.push(`<strong>⚠️ 条件付き・秒数固定のため自動合算から除外した計略短縮:</strong><br>` +
+          evalRes.notes.map(n => `・<strong>${escapeHtml(n.from)}</strong>（${escapeHtml(n.sourceType)}）: ${escapeHtml(n.reason)}`).join("<br>"));
+      }
+
+      if (parts.length > 0) {
         notesBoxEl.style.display = "block";
-        notesBoxEl.innerHTML = `<strong>⚠️ 条件付き・秒数固定のため自動合算から除外した計略短縮:</strong><br>` +
-          evalRes.notes.map(n => `・<strong>${escapeHtml(n.from)}</strong>（${escapeHtml(n.sourceType)}）: ${escapeHtml(n.reason)}`).join("<br>");
+        notesBoxEl.innerHTML = parts.join("");
       } else {
         notesBoxEl.style.display = "none";
         notesBoxEl.innerHTML = "";
@@ -14261,19 +14293,18 @@ function showQuizResult() {
     };
   }
 
-  // 第64弾修正1: 高防御・物理軽減の抽出ルール
-  // - 裸の「|術ダメージ」選択肢を削除し、被ダメージ軽減（［漆磊］広島城の「術ダメージは50%軽減」、淀城の「術ダメージは90%軽減」、［魔道書図書館］インデックス計略の「受ける術ダメージ無効」等）の誤検出を除外。
-  // - (a) 特技・計略の「敵の防御（力）を無視／0として計算／減算なし」
+  // 第64弾・第65弾: 高防御・物理軽減の抽出ルール
+  // - 裸の「|術ダメージ」選択肢を削除し、被ダメージ軽減（淀城の「術ダメージは90%軽減」、［魔道書図書館］インデックス計略の「受ける術ダメージ無効」等）の誤検出を除外。
+  // - (a) 特技・計略・特殊能力等の「敵の防御（力）を無視／0として計算／減算なし」
+  //       （第65弾是正: 特殊能力の防御無視文言［無疆］江戸城、［漆磊］広島城など16体を復帰。淀城のみ正しく除外）
   // - (b) 攻撃側の「術ダメージ（を与える／追加／倍／連続／継続／敵に…）」と機械判定できる表現
   // - (c) 武器種が 法術・杖・祓串・鈴（術攻撃武器種）
   const COUNTER_DEF_IGNORE_REGEX = /(?:敵の)?防御(?:力)?を?(?:\d+%?)?(?:無視|0として計算|減算な)/;
   const COUNTER_OFFENSIVE_JUTSU_REGEX = /(?:術ダメージを(?:\d+連続で)?(?:追加|与え)|(?:倍|連続|継続的?|敵に)[^。、\n]*?術ダメージ(?!(?:は|を)?(?:\d+%?)?(?:軽減|無効|受けない|半減)))/;
   function matchHighDefOrPhysResistEntry(entry) {
     const text = entry.text || "";
-    if (entry.sourceType !== "特殊能力") {
-      const mDef = text.match(COUNTER_DEF_IGNORE_REGEX);
-      if (mDef) return mDef[0];
-    }
+    const mDef = text.match(COUNTER_DEF_IGNORE_REGEX);
+    if (mDef) return mDef[0];
     const mJutsu = text.match(COUNTER_OFFENSIVE_JUTSU_REGEX);
     if (mJutsu) return mJutsu[0];
     return null;
