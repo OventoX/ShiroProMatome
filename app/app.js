@@ -1430,6 +1430,17 @@
     return Array.from(grouped.values());
   }
 
+  // 第58弾・第68弾: 戦闘開始時や通常状態で無条件に成立・評価できない条件付きバフを判定する
+  function isConditionalBuffUnmet(cond) {
+    if (!cond) return false;
+    return /耐久\s*(?:が|)\s*\d+%\s*以下/.test(cond) ||
+           /移動速度\s*(?:が|)\s*\d+\s*(?:以下|以上|未満)/.test(cond) ||
+           /攻撃\s*(?:が|)\s*\d+\s*(?:以上|以下)/.test(cond) ||
+           /回復\s*(?:が|)\s*\d+\s*(?:以上|以下)/.test(cond) ||
+           /飛行敵に対して/.test(cond) ||
+           /被攻撃時/.test(cond);
+  }
+
   function calculateBuffs(targetParty = party, targetTerrain = currentTerrain, options = {}) {
     const rawParty = Array.isArray(targetParty) ? targetParty : [];
     const seenIds = new Set();
@@ -1646,23 +1657,21 @@
         const bucket = b[key];
         if (!bucket || !bucket.sources) return;
         let maxApplied = false;
+        const eligibleNonStack = bucket.sources.filter(s => s.type !== "所持特技" && !s.stackable && !isConditionalBuffUnmet(s.condition));
+        const maxEligible = eligibleNonStack.length > 0 ? Math.max(...eligibleNonStack.map(s => s.val)) : 0;
         bucket.sources.forEach(s => {
           if (s.type === "所持特技") return; // 所持特技は上のパスで適用・競合判定済み
 
-          // 第58弾: 敵耐久○%以下など、満タン敵（戦闘開始時・訓練場デフォルト）に成立しない条件付きバフの判定
-          // 出典: https://scre.swiki.jp/index.php?［無疆］江戸城 / https://scre.swiki.jp/index.php?特殊能力
-          // 該当文言: 「耐久80%以下の敵に与えるダメージ1.2倍」
-          // 敵の耐久が満タン(>80%)想定では条件不成立として未適用にする
-          const isHpUnderCond = s.condition && /耐久\s*(?:が|)\s*\d+%\s*以下/.test(s.condition);
-          if (isHpUnderCond) {
+          // 第58弾・第68弾: 満タン敵・未評価条件（耐久○%以下、移動速度条件、攻撃/回復閾値、飛行敵、被攻撃時）を無条件バフとして集計しない
+          if (isConditionalBuffUnmet(s.condition)) {
             s.applied = false;
-            s.conflictReason = `発動条件未成立 (${s.condition})`;
+            s.conflictReason = `発動条件未成立・条件付き (${s.condition})`;
             return;
           }
 
           if (s.stackable) {
             s.applied = true;
-          } else if (bucket.max > 0 && s.val === bucket.max && !maxApplied) {
+          } else if (maxEligible > 0 && s.val === maxEligible && !maxApplied) {
             s.applied = true;
             maxApplied = true;
           } else {
@@ -15178,17 +15187,14 @@ function showQuizResult() {
     const cEffects = getCastleCombinedEffects(c);
 
     cEffects.forEach(ef => {
+      if (isConditionalBuffUnmet(ef.condition)) return;
       if (ef.stat === "atkSpeed") selfAtkSpeed = Math.max(selfAtkSpeed, ef.value);
       else if (ef.stat === "gapShorten") selfGapShorten = Math.max(selfGapShorten, ef.value);
       else if (ef.stat === "atkPercent") selfAtkRatio = Math.max(selfAtkRatio, ef.value);
       else if (ef.stat === "atkFlat") selfAtkFlat = Math.max(selfAtkFlat, ef.value);
       else if (ef.stat === "dmgDealt") selfDmgDealt = Math.max(selfDmgDealt, ef.value);
       else if (ef.stat === "dmgDealtTarget" && ef.value > 0) {
-        // 第58弾: 満タン敵に成立しない敵耐久○%以下条件は除外
-        const isHpUnderCond = ef.condition && /耐久\s*(?:が|)\s*\d+%\s*以下/.test(ef.condition);
-        if (!isHpUnderCond) {
-          selfTargetMult *= (1 + ef.value / 100);
-        }
+        selfTargetMult *= (1 + ef.value / 100);
       }
       else if (ef.stat === "enemyDefDown") enemyDefDown = Math.max(enemyDefDown, ef.value);
     });

@@ -13,11 +13,12 @@ STAT_PATTERNS = [
     (r"(?:対象の|自身の|味方の|全城娘の|).*?攻撃と防御が(\d+)上昇", "atk_def_flat"),
 
     # 割合バフ
-    (r"(?:自身|味方|全城娘|射程内の城娘|部隊の城娘|全ての城娘|対象).*?の?攻撃が(\d+)%上昇", "atkPercent", "percent", False),
+    (r"(?:自身|味方|全城娘|射程内の城娘|部隊の城娘|全ての城娘|対象).*?の?攻撃(?:が)?(\d+)%上昇", "atkPercent", "percent", False),
     (r"攻撃が(\d+)%上昇\(同種効果(?:と|)重複\)", "atkPercent", "percent", True),
     (r"(?:自身|味方|全城娘|射程内の城娘|対象).*?の?防御が(\d+)%上昇", "defPercent", "percent", False),
     (r"(?:自身|味方|全城娘|射程内の城娘|対象).*?の?射程が(\d+)%上昇", "rangePercent", "percent", False),
-    (r"(?:自身|味方|全城娘|射程内の城娘|対象).*?の?耐久が(\d+)%上昇", "hpPercent", "percent", False),
+    (r"(?:自身|味方|全城娘|射程内の城娘|対象).*?の?耐久(?:が)?(\d+)%上昇", "hpPercent", "percent", False),
+    (r"^耐久(\d+)%上昇", "hpPercent", "percent", False),
     (r"(?:与ダメージ|与ダメ)が(\d+)%上昇", "dmgDealt", "percent", False),
     (r"被ダメージを?(\d+)%軽減", "dmgTakenDown", "percent", False),
     (r"攻撃速度が(\d+)%上昇", "atkSpeed", "percent", False),
@@ -32,35 +33,46 @@ STAT_PATTERNS = [
 
     # 敵へのデバフ
     (r"(?:敵|射程内の敵).*?の?攻撃が(\d+)%低下", "enemyAtkDown", "percent", False),
-    (r"(?:敵|射程内の敵).*?の?防御が(\d+)%低下", "enemyDefDown", "percent", False),
+    (r"(?:敵|射程内の敵).*?の?防御(?:が)?\s*(\d+)%低下", "enemyDefDown", "percent", False),
     (r"(?:敵|射程内の敵).*?の?防御と射程が(\d+)%低下", "enemyDefDown", "percent", False),
     (r"(?:敵|射程内の敵).*?の?移動速度が(\d+)%低下", "enemySlow", "percent", False),
     (r"(?:敵|射程内の敵).*?の?移動速度を少しの間(\d+)%低下", "enemySlow", "percent", False),
+    (r"(?:敵|射程内の敵).*?の?移動速度/与ダメージ(\d+)%低下", "enemySlow", "percent", False),
     (r"(?:敵|射程内の敵).*?の?被ダメージが(\d+)%上昇", "enemyDmgTakenUp", "percent", False),
 
     # 防御無視
     (r"敵の防御を無視", "defIgnore", "flag", False),
 ]
 
-def parse_dmg_target_clause(c: str, castle_name: str, source_type: str) -> dict | None:
+def parse_dmg_target_clause(c: str, castle_name: str, source_type: str, prev_clause: str = "") -> dict | None:
     """Accurately capture '与えるダメージ' multiplier/percent patterns and their conditions (Prompt 13)."""
-    if "与えるダメージ" not in c:
+    c_nospace = re.sub(r'\s+', '', c)
+    if "与えるダメージ" not in c_nospace:
         return None
 
     # Condition extraction from phrase immediately preceding 与えるダメージ
-    pre = c[:c.index("与えるダメージ")].strip()
+    pre = c_nospace[:c_nospace.index("与えるダメージ")].strip()
+    if not pre and prev_clause:
+        pre = re.sub(r'\s+', '', prev_clause).strip()
     tokens = [t for t in re.split(r'[\s、。]', pre) if t]
     last_token = tokens[-1] if tokens else ""
 
     cond = None
-    if any(k in last_token for k in ['敵', '妖怪', '飛行', '海洋', '兜', '耐久', '防御', 'に対して', 'に対し']):
-        cond = re.sub(r'(?:に対して|に対し|に|で|の時|場合)$', '', last_token).strip()
+    m_stat_cond = re.search(r'((?:自身の)?(?:攻撃|回復|移動速度)(?:が)?\s*\d+[^、。]*(?:以上|以下|未満))', last_token)
+    if m_stat_cond:
+        cond = m_stat_cond.group(1).strip()
+    elif any(k in last_token for k in ['敵', '妖怪', '飛行', '海洋', '兜', '耐久', '防御', '攻撃', '回復', '移動速度', 'に対して', 'に対し', '以上', '以下']):
+        cond = re.sub(r'(?:に対して|に対し|に|で|の時|の場合|場合)$', '', last_token).strip()
+    if not cond and any(k in pre for k in ['攻撃が', '回復が', '移動速度']):
+        m_cond = re.search(r'((?:自身の)?(?:攻撃|回復|移動速度)[^、。]*(?:以上|以下|未満))', pre)
+        if m_cond:
+            cond = m_cond.group(1).strip()
 
     # Match multiplier (e.g. 1.25倍) or percent (e.g. 25%上昇)
-    m_mult = re.search(r'与えるダメージ(?:が)?(?:約)?(\d+(?:\.\d+)?)倍', c)
-    m_perc = re.search(r'与えるダメージ(?:が)?(\d+)%上昇', c)
+    m_mult = re.search(r'与えるダメージ(?:が)?(?:約)?(\d+(?:\.\d+)?)倍', c_nospace)
+    m_perc = re.search(r'与えるダメージ(?:が)?(\d+)%上昇', c_nospace)
     if not m_mult and not m_perc:
-        m_perc2 = re.search(r'与えるダメージ(?:が)?(\d+)%', c)
+        m_perc2 = re.search(r'与えるダメージ(?:が)?(\d+)%', c_nospace)
         if m_perc2:
             m_perc = m_perc2
 
@@ -76,8 +88,15 @@ def parse_dmg_target_clause(c: str, castle_name: str, source_type: str) -> dict 
         mult_val = round(1.0 + perc_val / 100.0, 2)
         label_val = f"+{perc_val}%"
 
+    m_group = re.search(r'(?:全|全ての)\[([^\]]+)\]', pre)
     is_self = "自分のみ" in c or "自身のみ" in c or "自身が" in c or "自身の" in c or "自身" in c
-    if "全" in pre or "全城娘" in c or "味方" in pre:
+    if m_group:
+        # グループ限定効果（例: 全[太宰府と古代山城]）は全味方への無条件適用を防ぎ、対象限定として記録する
+        target = "self"
+        grp_name = m_group.group(1)
+        if not cond:
+            cond = f"対象限定: [{grp_name}]"
+    elif "全" in pre or "全城娘" in c or "味方" in pre:
         target = "all"
     elif "射程内" in pre or "射程内" in c:
         target = "inRange"
@@ -100,6 +119,8 @@ def parse_dmg_target_clause(c: str, castle_name: str, source_type: str) -> dict 
         "stackable": True,  # In game mechanics, dmgDealtTarget buffs stack/multiply with each other
         "raw": raw_label
     }
+    if m_group:
+        res["targetGroup"] = m_group.group(1)
     if cond:
         res["condition"] = cond
     return res
@@ -126,10 +147,14 @@ def parse_ability_effects(text: str, source_type: str, castle_name: str) -> list
 
     # 文で分割
     clauses = re.split(r"[、。&br;]+|\s{2,}", text)
+    prev_clause = ""
     for c in clauses:
         c = c.strip()
         if not c:
             continue
+        saved_prev = prev_clause
+        prev_clause = c
+        is_on_hit = ("被攻撃時" in c) or ("被攻撃時" in saved_prev)
 
         # 特殊複合パターンの処理
         m_comb = re.search(r"(?:対象の|自身の|味方の|).*?攻撃と射程が(\d+)上昇", c)
@@ -162,19 +187,70 @@ def parse_ability_effects(text: str, source_type: str, castle_name: str) -> list
             })
             continue
 
+        # 大宰府特技等: 耐久/攻撃/攻撃速度X%上昇、耐久と攻撃をX%上昇
+        m_hp_atk_spd = re.search(r"自身の耐久/攻撃/攻撃速度(\d+)%上昇", c)
+        if m_hp_atk_spd:
+            val = int(m_hp_atk_spd.group(1))
+            stk = "効果重複" in c
+            for sk in ("hpPercent", "atkPercent", "atkSpeed"):
+                effects.append({
+                    "source": source_type, "stat": sk, "mode": "percent", "value": val, "target": "self", "stackable": stk,
+                    "raw": f"+{val}% {castle_name}・{source_type}" + ("（重複）" if stk else "")
+                })
+            continue
+
+        m_hp_atk = re.search(r"自身の耐久と攻撃を(\d+)%上昇", c)
+        if m_hp_atk:
+            val = int(m_hp_atk.group(1))
+            stk = "効果重複" in c
+            for sk in ("hpPercent", "atkPercent"):
+                effects.append({
+                    "source": source_type, "stat": sk, "mode": "percent", "value": val, "target": "self", "stackable": stk,
+                    "raw": f"+{val}% {castle_name}・{source_type}" + ("（重複）" if stk else "")
+                })
+            continue
+
+        # 佐和山城特殊能力等: 射程/回復X倍
+        m_range_rec = re.search(r"射程/回復(?:が)?\s*(\d+(?:\.\d+)?)倍", c)
+        if m_range_rec:
+            mult_val = float(m_range_rec.group(1))
+            perc = int(round((mult_val - 1.0) * 100))
+            is_self = "自分のみ" in c or "自身のみ" in c or "自身の" in c
+            target = "self" if is_self else "inRange"
+            effects.append({
+                "source": source_type, "stat": "rangePercent", "mode": "percent", "value": perc, "target": target, "stackable": "効果重複" in c,
+                "raw": f"+{perc}%({mult_val}倍) {castle_name}・{source_type}"
+            })
+            continue
+
+        # 佐和山城特技等: 与ダメX% (単独) / 耐久X%上昇
+        if re.search(r"与ダメ\d+%", c) and "上昇" not in c and "軽減" not in c and "低下" not in c:
+            m_yd = re.search(r"与ダメ(\d+)%", c)
+            if m_yd:
+                val = int(m_yd.group(1))
+                effects.append({
+                    "source": source_type, "stat": "dmgDealt", "mode": "percent", "value": val, "target": "self", "stackable": False,
+                    "raw": f"+{val}% {castle_name}・{source_type}"
+                })
+                continue
+
         # 倍率パターンの換算 (1.5倍 -> 攻撃+50%)
-        m_mult = re.search(r"(?:対象の|自身の|味方の|).*?(攻撃|防御|射程)が(\d+(?:\.\d+)?)倍", c)
+        m_mult = re.search(r"(?:対象の|自身の|味方の|).*?(攻撃|防御|射程)(?:が)?\s*(\d+(?:\.\d+)?)倍(?!の?(?:ダメージ|攻撃))", c)
         if m_mult:
             stat_name = m_mult.group(1)
             mult_val = float(m_mult.group(2))
             perc = int(round((mult_val - 1.0) * 100))
             stat_key = "atkPercent" if stat_name == "攻撃" else "defPercent" if stat_name == "防御" else "rangePercent"
-            is_self = "自分のみ" in c or "自身のみ" in c
+            is_self = "自分のみ" in c or "自身のみ" in c or "自分のみ)" in text or "自分のみ）" in text
             target = "self" if is_self else "inRange"
-            effects.append({
+            eff = {
                 "source": source_type, "stat": stat_key, "mode": "percent", "value": perc, "target": target, "stackable": False,
                 "raw": f"+{perc}%({mult_val}倍) {castle_name}・{source_type}"
-            })
+            }
+            if "飛行敵に対して" in c:
+                eff["condition"] = "飛行敵に対して"
+                eff["raw"] = f"+{perc}%({mult_val}倍) [対空] {castle_name}・{source_type}"
+            effects.append(eff)
             continue
 
         m_mult_both = re.search(r"(?:対象の|自身の|味方の|).*?攻撃と防御が(\d+(?:\.\d+)?)倍", c)
@@ -194,7 +270,7 @@ def parse_ability_effects(text: str, source_type: str, castle_name: str) -> list
             continue
 
         # 与えるダメージ（倍率・%・条件付き）の捕捉 (Prompt 13)
-        dmg_target_eff = parse_dmg_target_clause(c, castle_name, source_type)
+        dmg_target_eff = parse_dmg_target_clause(c, castle_name, source_type, saved_prev)
         if dmg_target_eff:
             effects.append(dmg_target_eff)
             continue
@@ -207,12 +283,15 @@ def parse_ability_effects(text: str, source_type: str, castle_name: str) -> list
             m = re.search(pat, c)
             if m:
                 val = 1 if mode == "flag" else float(m.group(1)) if "." in m.group(1) else int(m.group(1))
-                is_self = "自分のみ" in c or "自身のみ" in c or "自身が" in c or "自身の" in c
-                target = "self" if is_self else "all" if "全" in c else "inRange"
+                if stat_key.startswith("enemy"):
+                    target = "all" if ("全" in c or "全て" in c) else "inRange"
+                else:
+                    is_self = "自分のみ" in c or "自身のみ" in c or "自身が" in c or "自身の" in c
+                    target = "self" if is_self else "all" if "全" in c else "inRange"
                 raw_label = f"+{val}{'%' if mode == 'percent' else ''} {castle_name}・{source_type}"
                 if stackable:
                     raw_label += "（重複）"
-                effects.append({
+                eff = {
                     "source": source_type,
                     "stat": stat_key,
                     "mode": mode,
@@ -220,7 +299,11 @@ def parse_ability_effects(text: str, source_type: str, castle_name: str) -> list
                     "target": target,
                     "stackable": stackable,
                     "raw": raw_label
-                })
+                }
+                if is_on_hit and stat_key == "atkPercent":
+                    eff["condition"] = "被攻撃時"
+                    eff["raw"] = f"+{val}% [被攻撃時] {castle_name}・{source_type}"
+                effects.append(eff)
                 break
         m_slow_temp = re.search(r"(?:敵|射程内の敵).*?の?移動速度を少しの間(\d+)%低下", c)
         if m_slow_temp and not any(e["stat"] == "enemySlow" for e in effects):
