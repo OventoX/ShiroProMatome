@@ -320,8 +320,8 @@ window.SCRE_DATA = [
      "multiplier": 1.1,
      "target": "self",
      "stackable": true,
-     "raw": "+10%(1.1倍) [自身の攻撃120上昇伏兵の射程(400)内の城娘の耐久を40%上昇] 大坂城・計略",
-     "condition": "自身の攻撃120上昇伏兵の射程(400)内の城娘の耐久を40%上昇"
+     "raw": "+10%(1.1倍) [伏兵の射程(400)内の城娘の耐久を40%上昇] 大坂城・計略",
+     "condition": "伏兵の射程(400)内の城娘の耐久を40%上昇"
     },
     {
      "source": "計略",
@@ -446,8 +446,8 @@ window.SCRE_DATA = [
       "multiplier": 1.1,
       "target": "self",
       "stackable": true,
-      "raw": "+10%(1.1倍) [自身の攻撃120上昇伏兵の射程(400)内の城娘の耐久を40%上昇] 大坂城・計略",
-      "condition": "自身の攻撃120上昇伏兵の射程(400)内の城娘の耐久を40%上昇"
+      "raw": "+10%(1.1倍) [伏兵の射程(400)内の城娘の耐久を40%上昇] 大坂城・計略",
+      "condition": "伏兵の射程(400)内の城娘の耐久を40%上昇"
      },
      {
       "source": "計略",
@@ -934,6 +934,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% 安平城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 安平城・特技"
      }
     ]
    },
@@ -1140,6 +1149,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+200%(3.0倍) ノイシュヴァンシュタイン城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% ノイシュヴァンシュタイン城・計略"
     }
    ],
    "cooldown": 30,
@@ -1180,6 +1198,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+120%(2.2倍) ノイシュヴァンシュタイン城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% ノイシュヴァンシュタイン城・計略"
      }
     ],
     "cooldown": 30,
@@ -1198,6 +1225,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+150%(2.5倍) ノイシュヴァンシュタイン城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ノイシュヴァンシュタイン城・計略"
      }
     ],
     "cooldown": 30,
@@ -1216,6 +1252,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+200%(3.0倍) ノイシュヴァンシュタイン城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ノイシュヴァンシュタイン城・計略"
      }
     ],
     "cooldown": 30,
@@ -1326,6 +1371,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+30% 聚楽第・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 40,
+     "target": "all",
+     "stackable": false,
+     "raw": "+40 聚楽第・特技"
     }
    ]
   },
@@ -1377,6 +1431,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+25% 聚楽第・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "all",
+      "stackable": false,
+      "raw": "+20 聚楽第・特技"
      }
     ]
    },
@@ -1393,6 +1456,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+30% 聚楽第・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "all",
+      "stackable": false,
+      "raw": "+40 聚楽第・特技"
      }
     ]
    }
@@ -1586,6 +1658,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% 安土城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 安土城・特技"
      }
     ]
    },
@@ -1738,8 +1819,17 @@ window.SCRE_DATA = [
      "multiplier": 1.15,
      "target": "inRange",
      "stackable": true,
-     "raw": "+15% [与ダメージが70%上昇射程内の敵1体につき] 熊本城・特技",
-     "condition": "与ダメージが70%上昇射程内の敵1体につき"
+     "raw": "+15% [射程内の敵1体につき] 熊本城・特技",
+     "condition": "射程内の敵1体につき"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealt",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% 熊本城・特技"
     },
     {
      "source": "特技",
@@ -1802,6 +1892,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 熊本城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 熊本城・特技"
      }
     ]
    },
@@ -1818,6 +1917,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+35% 熊本城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% 熊本城・特技"
      }
     ]
    },
@@ -1834,8 +1942,17 @@ window.SCRE_DATA = [
       "multiplier": 1.15,
       "target": "inRange",
       "stackable": true,
-      "raw": "+15% [与ダメージが70%上昇射程内の敵1体につき] 熊本城・特技",
-      "condition": "与ダメージが70%上昇射程内の敵1体につき"
+      "raw": "+15% [射程内の敵1体につき] 熊本城・特技",
+      "condition": "射程内の敵1体につき"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% 熊本城・特技"
      },
      {
       "source": "特技",
@@ -2182,6 +2299,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% 万里の長城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "defPercent",
      "mode": "percent",
      "value": 40,
@@ -2254,6 +2380,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) 万里の長城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% 万里の長城・特技"
      },
      {
       "source": "特技",
@@ -2481,6 +2616,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 姫路城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 姫路城・特技"
      }
     ]
    },
@@ -2851,6 +2995,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% 紫禁城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30 紫禁城・計略"
     }
    ],
    "cooldown": 30,
@@ -2885,6 +3038,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 紫禁城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20 紫禁城・計略"
      }
     ],
     "cooldown": 30,
@@ -2903,6 +3065,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 紫禁城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 紫禁城・計略"
      }
     ],
     "cooldown": 30,
@@ -3021,6 +3192,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+80%(1.8倍) 徳川大坂城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% 徳川大坂城・計略"
     }
    ],
    "cooldown": 45,
@@ -3093,6 +3273,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+80%(1.8倍) 徳川大坂城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 徳川大坂城・計略"
      }
     ],
     "cooldown": 45,
@@ -3191,6 +3380,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ウィンザー城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "defPercent",
      "mode": "percent",
      "value": 50,
@@ -3221,6 +3419,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+100%(2.0倍) ウィンザー城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 250,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+250 ウィンザー城・計略"
     }
    ],
    "cooldown": 40,
@@ -3255,6 +3462,15 @@ window.SCRE_DATA = [
     "name": "[改弐] / ガーター騎士団",
     "text": "自身の攻撃と防御が1.5倍、回復が200上昇、足止め数 が4増加、被ダメージを30%軽減(同種効果と重複) 全ての近接城娘の被ダメージを35%軽減",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ウィンザー城・特技"
+     },
      {
       "source": "特技",
       "stat": "defPercent",
@@ -3308,6 +3524,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100%(2.0倍) ウィンザー城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200 ウィンザー城・計略"
      }
     ],
     "cooldown": 40,
@@ -3326,6 +3551,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100%(2.0倍) ウィンザー城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 250,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+250 ウィンザー城・計略"
      }
     ],
     "cooldown": 40,
@@ -3513,6 +3747,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30% 城塞都市カルカソンヌ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 城塞都市カルカソンヌ・特技"
      }
     ]
    },
@@ -3699,6 +3942,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50 シェーンブルン宮殿・計略"
+    },
+    {
+     "source": "計略",
      "stat": "enemyDefDown",
      "mode": "percent",
      "value": 40,
@@ -3745,6 +3997,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 6,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+6% シェーンブルン宮殿・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 6,
       "target": "inRange",
@@ -3857,6 +4118,15 @@ window.SCRE_DATA = [
     "name": "[改弐] / マリア・テレジア （使用まで45秒：消費気5：赤青配置）",
     "text": "攻撃をしない伏兵を配置。配置中自身の攻撃100 射程50上昇。射程内(440)の城娘の与ダメージ40%上昇 敵の防御40%低下、全城娘の防御100、攻撃50上昇",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 シェーンブルン宮殿・計略"
+     },
      {
       "source": "計略",
       "stat": "enemyDefDown",
@@ -4235,6 +4505,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+80 シャンボール城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "all",
+      "stackable": false,
+      "raw": "+15% シャンボール城・特技"
      }
     ]
    },
@@ -4251,6 +4530,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100 シャンボール城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "all",
+      "stackable": false,
+      "raw": "+20% シャンボール城・特技"
      }
     ]
    },
@@ -5644,6 +5932,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+30% キャメロット城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 30,
+     "target": "all",
+     "stackable": false,
+     "raw": "+30 キャメロット城・特技"
     }
    ]
   },
@@ -5679,6 +5976,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% キャメロット城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25 キャメロット城・特技"
      }
     ]
    },
@@ -5695,6 +6001,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+30% キャメロット城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30 キャメロット城・特技"
      }
     ]
    }
@@ -6186,6 +6501,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+80%(1.8倍) ロンドン塔・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% ロンドン塔・計略"
     }
    ],
    "cooldown": 40,
@@ -6206,6 +6530,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40 ロンドン塔・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% ロンドン塔・特技"
      }
     ]
    },
@@ -6240,6 +6573,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+70%(1.7倍) ロンドン塔・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ロンドン塔・計略"
      }
     ],
     "cooldown": 40,
@@ -6258,6 +6600,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+80%(1.8倍) ロンドン塔・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ロンドン塔・計略"
      }
     ],
     "cooldown": 40,
@@ -6597,6 +6948,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+6% ［夏］シェーンブルン宮殿・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 6,
+      "target": "self",
+      "stackable": false,
+      "raw": "+6 ［夏］シェーンブルン宮殿・特技"
      }
     ]
    },
@@ -6793,6 +7153,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% 成都城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 成都城・特技"
      }
     ]
    },
@@ -7186,6 +7555,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+25% チャンドラ・マハル・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 20,
+     "target": "all",
+     "stackable": false,
+     "raw": "+20% チャンドラ・マハル・特技"
     }
    ]
   },
@@ -7237,6 +7615,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+25% チャンドラ・マハル・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "all",
+      "stackable": false,
+      "raw": "+20% チャンドラ・マハル・特技"
      }
     ]
    }
@@ -7441,6 +7828,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% 琉球御城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 40,
       "target": "self",
@@ -7935,6 +8331,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50% ［正月］姫路城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% ［正月］姫路城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "self",
+      "stackable": false,
+      "raw": "+150 ［正月］姫路城・特技"
      }
     ]
    },
@@ -8114,6 +8528,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50%(1.5倍) 竜宮城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% 竜宮城・計略"
     }
    ],
    "cooldown": 40,
@@ -8186,6 +8609,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) 竜宮城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 竜宮城・計略"
      }
     ],
     "cooldown": 40,
@@ -8204,6 +8636,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) 竜宮城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 竜宮城・計略"
      }
     ],
     "cooldown": 40,
@@ -8502,6 +8943,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30 木幡山伏見城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 木幡山伏見城・特技"
      }
     ]
    },
@@ -8518,6 +8968,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40 木幡山伏見城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 木幡山伏見城・特技"
      }
     ]
    },
@@ -8673,6 +9132,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50% 江戸城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 60,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+60% 江戸城・計略"
     }
    ],
    "cooldown": 45,
@@ -8733,6 +9201,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100%(2.0倍) 江戸城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 江戸城・計略"
      }
     ],
     "cooldown": 50,
@@ -8751,6 +9228,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100%(2.0倍) 江戸城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 江戸城・計略"
      }
     ],
     "cooldown": 45,
@@ -8778,6 +9264,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50% 江戸城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60% 江戸城・計略"
      }
     ],
     "cooldown": 45,
@@ -8911,6 +9406,15 @@ window.SCRE_DATA = [
      "stackable": true,
      "raw": "+60%(1.6倍) [耐久が60%以上の敵] 金鯱城・特技",
      "condition": "耐久が60%以上の敵"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealt",
+     "mode": "percent",
+     "value": 45,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+45% 金鯱城・特技"
     }
    ]
   },
@@ -8970,6 +9474,15 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+60%(1.6倍) [耐久が60%以上の敵] 金鯱城・特技",
       "condition": "耐久が60%以上の敵"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 45,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+45% 金鯱城・特技"
      }
     ]
    }
@@ -9105,8 +9618,8 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [攻撃が敵の防御を50%無視する耐久が50%以上の敵] 虎臥城・特技",
-     "condition": "攻撃が敵の防御を50%無視する耐久が50%以上の敵"
+     "raw": "+50%(1.5倍) [耐久が50%以上の敵] 虎臥城・特技",
+     "condition": "耐久が50%以上の敵"
     }
    ]
   },
@@ -9132,6 +9645,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 虎臥城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 虎臥城・特技"
      }
     ]
    },
@@ -9164,8 +9686,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [攻撃が敵の防御を50%無視する耐久が50%以上の敵] 虎臥城・特技",
-      "condition": "攻撃が敵の防御を50%無視する耐久が50%以上の敵"
+      "raw": "+50%(1.5倍) [耐久が50%以上の敵] 虎臥城・特技",
+      "condition": "耐久が50%以上の敵"
      }
     ]
    }
@@ -9891,6 +10413,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+40%(1.4倍) ［花嫁衣装］ロンドン塔・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80 ［花嫁衣装］ロンドン塔・特技"
     }
    ]
   },
@@ -9960,6 +10491,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+40%(1.4倍) ［花嫁衣装］ロンドン塔・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 ［花嫁衣装］ロンドン塔・特技"
      }
     ]
    }
@@ -10303,6 +10843,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 大宰府・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 大宰府・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% 大宰府・特技"
      }
     ]
    },
@@ -10513,6 +11071,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% オラヴィ城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "atkPercent",
      "mode": "percent",
      "value": 200,
@@ -10526,6 +11093,15 @@ window.SCRE_DATA = [
    "name": "[改壱] / 極夜の蒼湖 （使用まで60秒：消費気10：青水配置）",
    "text": "敵2体に術攻撃を行う伏兵を配置(1体。水上移動可) 配置中自身の射程120上昇。自身と伏兵の射程内の 味方の攻撃30%上昇、回復1.5倍、氷結無効",
    "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 120,
+     "target": "self",
+     "stackable": false,
+     "raw": "+120 オラヴィ城・計略"
+    },
     {
      "source": "計略",
      "stat": "atkPercent",
@@ -10573,6 +11149,15 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% オラヴィ城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "atkPercent",
       "mode": "percent",
       "value": 200,
@@ -10607,6 +11192,15 @@ window.SCRE_DATA = [
     "name": "[改壱] / 極夜の蒼湖 （使用まで60秒：消費気10：青水配置）",
     "text": "敵2体に術攻撃を行う伏兵を配置(1体。水上移動可) 配置中自身の射程120上昇。自身と伏兵の射程内の 味方の攻撃30%上昇、回復1.5倍、氷結無効",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "self",
+      "stackable": false,
+      "raw": "+120 オラヴィ城・計略"
+     },
      {
       "source": "計略",
       "stat": "atkPercent",
@@ -10761,6 +11355,24 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+25% ［夏］聚楽第・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30 ［夏］聚楽第・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30% ［夏］聚楽第・特技"
      }
     ]
    },
@@ -11563,6 +12175,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+150 平城京・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150 平城京・計略"
     }
    ],
    "cooldown": 45,
@@ -11612,6 +12233,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+80 平城京・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 平城京・計略"
      }
     ],
     "cooldown": 45,
@@ -11639,6 +12269,24 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100 平城京・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 平城京・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 平城京・計略"
      }
     ],
     "cooldown": 45,
@@ -11661,6 +12309,15 @@ window.SCRE_DATA = [
      {
       "source": "計略",
       "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150 平城京・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defFlat",
       "mode": "flat",
       "value": 150,
       "target": "inRange",
@@ -11869,6 +12526,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50%(1.5倍) 肥前名護屋城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50 肥前名護屋城・計略"
     }
    ],
    "cooldown": 60,
@@ -11921,6 +12587,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) 肥前名護屋城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 肥前名護屋城・計略"
      }
     ],
     "cooldown": 60,
@@ -12069,6 +12744,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30% ［ハロウィン］万里の長城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 ［ハロウィン］万里の長城・特技"
      }
     ]
    },
@@ -12103,6 +12787,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20%(1.2倍) ［ハロウィン］万里の長城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［ハロウィン］万里の長城・計略"
      }
     ],
     "cooldown": 50,
@@ -12647,6 +13340,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 足利氏館・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 足利氏館・特技"
      }
     ]
    },
@@ -12949,6 +13651,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50% ［聖夜］モン・サン＝ミッシェル・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 200,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+200 ［聖夜］モン・サン＝ミッシェル・計略"
     }
    ],
    "cooldown": 40,
@@ -13003,6 +13714,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50% ［聖夜］モン・サン＝ミッシェル・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150 ［聖夜］モン・サン＝ミッシェル・計略"
      }
     ],
     "cooldown": 40,
@@ -13021,6 +13741,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50% ［聖夜］モン・サン＝ミッシェル・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200 ［聖夜］モン・サン＝ミッシェル・計略"
      }
     ],
     "cooldown": 40,
@@ -13306,6 +14035,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+30% ［正月］小田原城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% ［正月］小田原城・特技"
     }
    ]
   },
@@ -13342,6 +14080,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% ［正月］小田原城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 30,
       "target": "inRange",
@@ -13694,6 +14441,24 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% エーリューズニル・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% エーリューズニル・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% エーリューズニル・特技"
     }
    ]
   },
@@ -13719,6 +14484,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% エーリューズニル・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% エーリューズニル・特技"
      }
     ]
    },
@@ -13735,6 +14509,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% エーリューズニル・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% エーリューズニル・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% エーリューズニル・特技"
      }
     ]
    }
@@ -14051,6 +14843,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% ［バレンタイン］シャンボール城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ［バレンタイン］シャンボール城・特技"
      }
     ]
    },
@@ -14356,6 +15157,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+35% アテナイ・アクロポリス・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% アテナイ・アクロポリス・特技"
     }
    ]
   },
@@ -14391,6 +15201,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30% アテナイ・アクロポリス・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% アテナイ・アクロポリス・特技"
      }
     ]
    },
@@ -14407,6 +15226,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+35% アテナイ・アクロポリス・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% アテナイ・アクロポリス・特技"
      }
     ]
    }
@@ -14539,6 +15367,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% バベルの塔・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 120,
+     "target": "self",
+     "stackable": false,
+     "raw": "+120 バベルの塔・特技"
     }
    ]
   },
@@ -14590,6 +15427,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% バベルの塔・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "self",
+      "stackable": false,
+      "raw": "+120 バベルの塔・特技"
      }
     ]
    }
@@ -14754,6 +15600,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25 甲府城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 6,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+6% 甲府城・特技"
      }
     ]
    },
@@ -15745,6 +16600,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+6% ストラホフ修道院・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 8,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+8% ストラホフ修道院・特技"
     }
    ]
   },
@@ -15770,6 +16634,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+5% ストラホフ修道院・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 6,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+6% ストラホフ修道院・特技"
      }
     ]
    },
@@ -15786,6 +16659,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+6% ストラホフ修道院・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 8,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+8% ストラホフ修道院・特技"
      }
     ]
    }
@@ -17356,6 +18238,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 霞城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25 霞城・特技"
      }
     ]
    },
@@ -17552,6 +18443,15 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+130%(2.3倍) [対空] 月の都・特技",
       "condition": "飛行敵に対して"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% 月の都・特技"
      }
     ]
    },
@@ -18205,6 +19105,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% リヒテンシュタイン城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "defPercent",
      "mode": "percent",
      "value": 25,
@@ -18246,6 +19155,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+20% リヒテンシュタイン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% リヒテンシュタイン城・特技"
      }
     ]
    },
@@ -18262,6 +19180,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+35% リヒテンシュタイン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% リヒテンシュタイン城・特技"
      },
      {
       "source": "特技",
@@ -19126,6 +20053,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35% ［絢爛］福岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
       "mode": "percent",
       "value": 35,
       "target": "self",
@@ -20606,6 +21542,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+120 鷹城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% 鷹城・計略"
     }
    ],
    "cooldown": 45,
@@ -20669,6 +21614,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100 鷹城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 鷹城・計略"
      }
     ],
     "cooldown": 45,
@@ -20696,6 +21650,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+120 鷹城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 鷹城・計略"
      }
     ],
     "cooldown": 45,
@@ -21058,6 +22021,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 白鷺城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 白鷺城・特技"
      }
     ]
    },
@@ -21217,6 +22189,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+30% ［学園］金亀城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% ［学園］金亀城・特技"
     }
    ]
   },
@@ -21252,6 +22233,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［学園］金亀城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［学園］金亀城・特技"
      }
     ]
    },
@@ -21263,6 +22253,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% ［学園］金亀城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
       "mode": "percent",
       "value": 30,
       "target": "inRange",
@@ -21778,6 +22777,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+35% チャフティツェ城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% チャフティツェ城・特技"
     }
    ]
   },
@@ -21818,6 +22826,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% チャフティツェ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% チャフティツェ城・特技"
      }
     ]
    },
@@ -21834,6 +22851,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% チャフティツェ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% チャフティツェ城・特技"
      }
     ]
    }
@@ -21996,6 +23022,24 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+35% アラゴネーゼ城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100 アラゴネーゼ城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% アラゴネーゼ城・特技"
     }
    ]
   },
@@ -22026,6 +23070,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% アラゴネーゼ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80 アラゴネーゼ城・特技"
      }
     ]
    },
@@ -22051,6 +23104,24 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+35% アラゴネーゼ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 アラゴネーゼ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% アラゴネーゼ城・特技"
      }
     ]
    }
@@ -22423,6 +23494,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+30% ［絢爛］岡豊城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% ［絢爛］岡豊城・特技"
      }
     ]
    },
@@ -22632,13 +23712,32 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50% ［絢爛］津山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% ［絢爛］津山城・特技"
     }
    ]
   },
   "strategy": {
    "name": "[改壱] / 鶴山八幡大神 （使用まで35秒：消費気5）",
    "text": "25秒間対象の射程120上昇、攻撃対象が3増加 直撃ボーナスが50%上昇 範囲攻撃の範囲が半減(槌城娘が対象)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 120,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+120 ［絢爛］津山城・計略"
+    }
+   ],
    "cooldown": 35,
    "cost": 5
   },
@@ -22652,6 +23751,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkPercent",
+      "mode": "percent",
+      "value": 45,
+      "target": "self",
+      "stackable": false,
+      "raw": "+45% ［絢爛］津山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
       "mode": "percent",
       "value": 45,
       "target": "self",
@@ -22682,6 +23790,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50% ［絢爛］津山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［絢爛］津山城・特技"
      }
     ]
    }
@@ -22691,7 +23808,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 八子八幡 （使用まで35秒：消費気5）",
     "text": "20秒間対象の射程100上昇、攻撃対象が3増加 直撃ボーナスが50%上昇 範囲攻撃の範囲が半減(槌城娘が対象)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 ［絢爛］津山城・計略"
+     }
+    ],
     "cooldown": 35,
     "cost": 5
    },
@@ -22699,7 +23826,17 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 鶴山八幡大神 （使用まで35秒：消費気5）",
     "text": "25秒間対象の射程120上昇、攻撃対象が3増加 直撃ボーナスが50%上昇 範囲攻撃の範囲が半減(槌城娘が対象)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120 ［絢爛］津山城・計略"
+     }
+    ],
     "cooldown": 35,
     "cost": 5
    }
@@ -23206,6 +24343,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+60% ［夏］ノイシュヴァンシュタイン城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 60,
+     "target": "self",
+     "stackable": false,
+     "raw": "+60% ［夏］ノイシュヴァンシュタイン城・特技"
     }
    ]
   },
@@ -23231,6 +24377,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50% ［夏］ノイシュヴァンシュタイン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ［夏］ノイシュヴァンシュタイン城・特技"
      }
     ]
    },
@@ -23242,6 +24397,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "hpPercent",
+      "mode": "percent",
+      "value": 60,
+      "target": "self",
+      "stackable": false,
+      "raw": "+60% ［夏］ノイシュヴァンシュタイン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
       "mode": "percent",
       "value": 60,
       "target": "self",
@@ -24386,6 +25550,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+25% ［肝試し］伊予松山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% ［肝試し］伊予松山城・特技"
      }
     ]
    },
@@ -24566,6 +25739,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": true,
      "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80% ［肝試し］白河小峰城・計略"
     }
    ],
    "cooldown": 50,
@@ -24611,6 +25793,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": true,
       "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% ［肝試し］白河小峰城・計略"
      }
     ],
     "cooldown": 50,
@@ -24630,6 +25821,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": true,
       "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% ［肝試し］白河小峰城・計略"
      }
     ],
     "cooldown": 50,
@@ -24942,6 +26142,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+35% ブダ城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30% ブダ城・特技"
     }
    ]
   },
@@ -24982,6 +26191,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ブダ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ブダ城・特技"
      }
     ]
    },
@@ -24998,6 +26216,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% ブダ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% ブダ城・特技"
      }
     ]
    }
@@ -25179,6 +26406,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% 千方窟・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 30,
       "target": "self",
@@ -25505,6 +26741,24 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+35% メヘラーンガル城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% メヘラーンガル城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40 メヘラーンガル城・特技"
     }
    ]
   },
@@ -25556,6 +26810,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% メヘラーンガル城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% メヘラーンガル城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40 メヘラーンガル城・特技"
      }
     ]
    }
@@ -25892,6 +27164,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+45% ［ハロウィン］クロンボー城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% ［ハロウィン］クロンボー城・特技"
      }
     ]
    },
@@ -26222,6 +27503,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50%(1.5倍) ［裏］坂本城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 200,
+     "target": "self",
+     "stackable": false,
+     "raw": "+200 ［裏］坂本城・計略"
     }
    ],
    "cooldown": 40,
@@ -26256,6 +27546,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) ［裏］坂本城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "self",
+      "stackable": false,
+      "raw": "+150 ［裏］坂本城・計略"
      }
     ],
     "cooldown": 40,
@@ -26274,6 +27573,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) ［裏］坂本城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "self",
+      "stackable": false,
+      "raw": "+200 ［裏］坂本城・計略"
      }
     ],
     "cooldown": 40,
@@ -26843,8 +28151,25 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "inRange",
       "stackable": true,
-      "raw": "+20%(1.2倍) [自身の攻撃が30%上昇計略使用時] ［聖夜］霞城・特技",
-      "condition": "自身の攻撃が30%上昇計略使用時"
+      "raw": "+20%(1.2倍) ［聖夜］霞城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% ［聖夜］霞城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 ［聖夜］霞城・特技"
      }
     ]
    },
@@ -27201,6 +28526,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% ［正月］徳川伏見城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 30,
       "target": "inRange",
@@ -28250,6 +29584,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100%(2.0倍) ［絢爛］会津若松城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［絢爛］会津若松城・計略"
      }
     ],
     "cooldown": 50,
@@ -28460,6 +29803,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40% ［絢爛］引田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 35,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+35% ［絢爛］引田城・特技"
      }
     ]
    },
@@ -29697,6 +31049,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% チリンガム城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% チリンガム城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 20,
+      "target": "all",
+      "stackable": false,
+      "raw": "+20% チリンガム城・特技"
      }
     ]
    },
@@ -29713,6 +31083,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% チリンガム城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% チリンガム城・特技"
      }
     ]
    },
@@ -30092,6 +31471,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 滸我御所・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 滸我御所・特技"
      }
     ]
    },
@@ -30493,6 +31881,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% ［学園］マルボルク城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［学園］マルボルク城・特技"
      }
     ]
    },
@@ -30677,6 +32074,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 城塞都市ウルク・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 城塞都市ウルク・特技"
      }
     ]
    },
@@ -31365,6 +32771,24 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+100 ［絢爛］七尾城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealt",
+     "mode": "percent",
+     "value": 30,
+     "target": "all",
+     "stackable": false,
+     "raw": "+30% ［絢爛］七尾城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 40,
+     "target": "all",
+     "stackable": false,
+     "raw": "+40% ［絢爛］七尾城・特技"
     }
    ]
   },
@@ -31400,6 +32824,24 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+25% ［絢爛］七尾城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "all",
+      "stackable": false,
+      "raw": "+80 ［絢爛］七尾城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30% ［絢爛］七尾城・特技"
      }
     ]
    },
@@ -31425,6 +32867,24 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100 ［絢爛］七尾城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30% ［絢爛］七尾城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 40,
+      "target": "all",
+      "stackable": false,
+      "raw": "+40% ［絢爛］七尾城・特技"
      }
     ]
    }
@@ -31612,6 +33072,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 35,
+     "target": "all",
+     "stackable": false,
+     "raw": "+35% 枉死城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "enemyDefDown",
      "mode": "percent",
      "value": 35,
@@ -31648,6 +33117,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+30% 枉死城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30% 枉死城・特技"
      }
     ]
    },
@@ -31664,6 +33142,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+20% 枉死城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 35,
+      "target": "all",
+      "stackable": false,
+      "raw": "+35% 枉死城・特技"
      },
      {
       "source": "特技",
@@ -31858,6 +33345,24 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50%(1.5倍) ［裏］淀城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 70,
+     "target": "self",
+     "stackable": false,
+     "raw": "+70 ［裏］淀城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ［裏］淀城・計略"
     }
    ],
    "cooldown": 45,
@@ -31921,6 +33426,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) ［裏］淀城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［裏］淀城・計略"
      }
     ],
     "cooldown": 50,
@@ -31939,6 +33453,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) ［裏］淀城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70 ［裏］淀城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［裏］淀城・計略"
      }
     ],
     "cooldown": 45,
@@ -32116,6 +33648,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ドゥアト・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ドゥアト・特技"
      }
     ]
    },
@@ -32315,8 +33856,26 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [35秒間対象の攻撃が敵の防御を無視し攻撃速度と攻撃] ［花嫁衣装］春日山城・計略",
-     "condition": "35秒間対象の攻撃が敵の防御を無視し攻撃速度と攻撃"
+     "raw": "+50%(1.5倍) [攻撃速度と攻撃] ［花嫁衣装］春日山城・計略",
+     "condition": "攻撃速度と攻撃"
+    },
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 80,
+     "target": "self",
+     "stackable": false,
+     "raw": "+80% ［花嫁衣装］春日山城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defIgnore",
+     "mode": "flag",
+     "value": 1,
+     "target": "self",
+     "stackable": false,
+     "raw": "+1 ［花嫁衣装］春日山城・計略"
     }
    ],
    "cooldown": 50,
@@ -32371,8 +33930,26 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [30秒間対象の攻撃が敵の防御を無視し攻撃] ［花嫁衣装］春日山城・計略",
-      "condition": "30秒間対象の攻撃が敵の防御を無視し攻撃"
+      "raw": "+50%(1.5倍) [攻撃] ［花嫁衣装］春日山城・計略",
+      "condition": "攻撃"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80% ［花嫁衣装］春日山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 ［花嫁衣装］春日山城・計略"
      }
     ],
     "cooldown": 50,
@@ -32391,8 +33968,26 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [35秒間対象の攻撃が敵の防御を無視し攻撃速度と攻撃] ［花嫁衣装］春日山城・計略",
-      "condition": "35秒間対象の攻撃が敵の防御を無視し攻撃速度と攻撃"
+      "raw": "+50%(1.5倍) [攻撃速度と攻撃] ［花嫁衣装］春日山城・計略",
+      "condition": "攻撃速度と攻撃"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80% ［花嫁衣装］春日山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 ［花嫁衣装］春日山城・計略"
      }
     ],
     "cooldown": 50,
@@ -32520,6 +34115,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 25,
       "target": "self",
+      "stackable": false,
+      "raw": "+25% ［花嫁衣装］許昌城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
       "stackable": false,
       "raw": "+25% ［花嫁衣装］許昌城・特技"
      }
@@ -32845,6 +34449,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［夏］亀田御役所土塁・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［夏］亀田御役所土塁・特技"
      }
     ]
    },
@@ -33028,6 +34641,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［夏］島原城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［夏］島原城・特技"
      }
     ]
    },
@@ -33687,6 +35309,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+40% ［絢爛］佐倉城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40% ［絢爛］佐倉城・特技"
     }
    ]
   },
@@ -33712,6 +35343,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% ［絢爛］佐倉城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35% ［絢爛］佐倉城・特技"
      }
     ]
    },
@@ -33723,6 +35363,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ［絢爛］佐倉城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 40,
       "target": "self",
@@ -34204,6 +35853,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［絢爛］アラゴネーゼ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% ［絢爛］アラゴネーゼ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 90,
+      "target": "self",
+      "stackable": false,
+      "raw": "+90 ［絢爛］アラゴネーゼ城・特技"
      }
     ]
    },
@@ -34589,6 +36256,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 60,
+     "target": "self",
+     "stackable": false,
+     "raw": "+60 ［肝試し］鶴ヶ岡城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgTakenDown",
      "mode": "percent",
      "value": 8,
@@ -34645,6 +36321,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+7% ［肝試し］鶴ヶ岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 60,
+      "target": "self",
+      "stackable": false,
+      "raw": "+60 ［肝試し］鶴ヶ岡城・特技"
      },
      {
       "source": "特技",
@@ -34831,6 +36516,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 黒船 サスケハナ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
       "mode": "percent",
       "value": 30,
       "target": "inRange",
@@ -35036,8 +36730,17 @@ window.SCRE_DATA = [
       "multiplier": 1.4,
       "target": "self",
       "stackable": true,
-      "raw": "+40%(1.4倍) [自身の与ダメージが45%上昇自身の耐久80%以上] ［ハロウィン］カステル・デル・モンテ・特技",
-      "condition": "自身の与ダメージが45%上昇自身の耐久80%以上"
+      "raw": "+40%(1.4倍) [自身の耐久80%以上] ［ハロウィン］カステル・デル・モンテ・特技",
+      "condition": "自身の耐久80%以上"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 45,
+      "target": "self",
+      "stackable": false,
+      "raw": "+45% ［ハロウィン］カステル・デル・モンテ・特技"
      }
     ]
    },
@@ -35665,8 +37368,8 @@ window.SCRE_DATA = [
      "multiplier": 1.7,
      "target": "self",
      "stackable": true,
-     "raw": "+70%(1.7倍) [対象が最大耐久の50%の値のダメージを受ける45秒間対象が攻撃] ［裏］小田原城・計略",
-     "condition": "対象が最大耐久の50%の値のダメージを受ける45秒間対象が攻撃"
+     "raw": "+70%(1.7倍) [45秒間対象が攻撃] ［裏］小田原城・計略",
+     "condition": "45秒間対象が攻撃"
     },
     {
      "source": "計略",
@@ -35730,8 +37433,8 @@ window.SCRE_DATA = [
       "multiplier": 1.7,
       "target": "self",
       "stackable": true,
-      "raw": "+70%(1.7倍) [対象が最大耐久の50%の値のダメージを受ける40秒間対象が攻撃] ［裏］小田原城・計略",
-      "condition": "対象が最大耐久の50%の値のダメージを受ける40秒間対象が攻撃"
+      "raw": "+70%(1.7倍) [40秒間対象が攻撃] ［裏］小田原城・計略",
+      "condition": "40秒間対象が攻撃"
      },
      {
       "source": "計略",
@@ -35759,8 +37462,8 @@ window.SCRE_DATA = [
       "multiplier": 1.7,
       "target": "self",
       "stackable": true,
-      "raw": "+70%(1.7倍) [対象が最大耐久の50%の値のダメージを受ける45秒間対象が攻撃] ［裏］小田原城・計略",
-      "condition": "対象が最大耐久の50%の値のダメージを受ける45秒間対象が攻撃"
+      "raw": "+70%(1.7倍) [45秒間対象が攻撃] ［裏］小田原城・計略",
+      "condition": "45秒間対象が攻撃"
      },
      {
       "source": "計略",
@@ -36334,6 +38037,16 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+100%(2.0倍) ［正月］江戸城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 300,
+     "multiplier": 4.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+300%(4.0倍) ［正月］江戸城・計略"
     }
    ],
    "cooldown": 50,
@@ -36390,6 +38103,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100%(2.0倍) ［正月］江戸城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 300,
+      "multiplier": 4.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+300%(4.0倍) ［正月］江戸城・計略"
      }
     ],
     "cooldown": 60,
@@ -36408,6 +38131,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100%(2.0倍) ［正月］江戸城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 300,
+      "multiplier": 4.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+300%(4.0倍) ［正月］江戸城・計略"
      }
     ],
     "cooldown": 50,
@@ -36737,7 +38470,17 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 慶縛の注連縄",
    "text": "射程内の全ての敵に攻撃の3倍のダメージを与え 5秒間移動速度70%低下、敵味方問わず最も近い対象を攻撃させる 射程内の殿と全ての城娘に3倍の攻撃で回復を行う(ゲージ蓄積：中)",
-   "effects": []
+   "effects": [
+    {
+     "source": "特殊攻撃",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 70,
+     "target": "all",
+     "stackable": false,
+     "raw": "+70% ［正月］寛永江戸城・特殊攻撃"
+    }
+   ]
   },
   "allSkills": [
    {
@@ -36802,7 +38545,17 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 慶縛の注連縄",
     "text": "射程内の全ての敵に攻撃の3倍のダメージを与え 5秒間移動速度70%低下、敵味方問わず最も近い対象を攻撃させる 射程内の殿と全ての城娘に3倍の攻撃で回復を行う(ゲージ蓄積：中)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 70,
+      "target": "all",
+      "stackable": false,
+      "raw": "+70% ［正月］寛永江戸城・特殊攻撃"
+     }
+    ]
    }
   ],
   "parseWarnings": [],
@@ -37491,6 +39244,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+6% ［裏］桜尾城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50 ［裏］桜尾城・特技"
     }
    ]
   },
@@ -37542,6 +39304,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+6% ［裏］桜尾城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［裏］桜尾城・特技"
      }
     ]
    }
@@ -37736,6 +39507,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+40 ［裏］伊勢長島城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 35,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+35% ［裏］伊勢長島城・特技"
     }
    ]
   },
@@ -37814,6 +39594,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40 ［裏］伊勢長島城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 35,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+35% ［裏］伊勢長島城・特技"
      }
     ]
    }
@@ -38248,6 +40037,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+200 ［バレンタイン］マチュ・ピチュ・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80%(1.8倍) ［バレンタイン］マチュ・ピチュ・計略"
     }
    ],
    "cooldown": 60,
@@ -38320,6 +40118,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+60%(1.6倍) ［バレンタイン］マチュ・ピチュ・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 170,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+170 ［バレンタイン］マチュ・ピチュ・計略"
      }
     ],
     "cooldown": 60,
@@ -38356,6 +40163,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+200 ［バレンタイン］マチュ・ピチュ・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［バレンタイン］マチュ・ピチュ・計略"
      }
     ],
     "cooldown": 60,
@@ -39268,6 +41084,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［絢爛］駿府城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ［絢爛］駿府城・特技"
      }
     ]
    },
@@ -39881,6 +41706,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% ［学園］城塞都市ローテンブルク・特技"
+    },
+    {
+     "source": "特技",
      "stat": "rangePercent",
      "mode": "percent",
      "value": 40,
@@ -39930,6 +41764,15 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 35,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+35% ［学園］城塞都市ローテンブルク・特技"
+     },
+     {
+      "source": "特技",
       "stat": "rangePercent",
       "mode": "percent",
       "value": 30,
@@ -39952,6 +41795,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+35% ［学園］城塞都市ローテンブルク・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［学園］城塞都市ローテンブルク・特技"
      },
      {
       "source": "特技",
@@ -40113,6 +41965,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+35% 善見城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% 善見城・特技"
     }
    ]
   },
@@ -40138,6 +41999,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 善見城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 善見城・特技"
      }
     ]
    },
@@ -40154,6 +42024,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% 善見城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 善見城・特技"
      }
     ]
    }
@@ -40479,8 +42358,8 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [与ダメージが1.8倍特殊攻撃] シバルバー・計略",
-     "condition": "与ダメージが1.8倍特殊攻撃"
+     "raw": "+50%(1.5倍) [特殊攻撃] シバルバー・計略",
+     "condition": "特殊攻撃"
     }
    ],
    "cooldown": 60,
@@ -40506,6 +42385,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% シバルバー・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% シバルバー・特技"
      }
     ]
    },
@@ -40549,8 +42437,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [与ダメージが1.7倍特殊攻撃] シバルバー・計略",
-      "condition": "与ダメージが1.7倍特殊攻撃"
+      "raw": "+50%(1.5倍) [特殊攻撃] シバルバー・計略",
+      "condition": "特殊攻撃"
      }
     ],
     "cooldown": 60,
@@ -40578,8 +42466,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [与ダメージが1.8倍特殊攻撃] シバルバー・計略",
-      "condition": "与ダメージが1.8倍特殊攻撃"
+      "raw": "+50%(1.5倍) [特殊攻撃] シバルバー・計略",
+      "condition": "特殊攻撃"
      }
     ],
     "cooldown": 60,
@@ -41248,8 +43136,8 @@ window.SCRE_DATA = [
      "multiplier": 1.4,
      "target": "self",
      "stackable": true,
-     "raw": "+40%(1.4倍) [最大化時自身の特殊攻撃のダメージと防御0の敵] ［花嫁衣装］月の都・特技",
-     "condition": "最大化時自身の特殊攻撃のダメージと防御0の敵"
+     "raw": "+40%(1.4倍) [自身の特殊攻撃のダメージと防御0の敵] ［花嫁衣装］月の都・特技",
+     "condition": "自身の特殊攻撃のダメージと防御0の敵"
     }
    ]
   },
@@ -41299,8 +43187,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [最大化時自身の特殊攻撃のダメージと防御0の敵] ［花嫁衣装］月の都・特技",
-      "condition": "最大化時自身の特殊攻撃のダメージと防御0の敵"
+      "raw": "+30%(1.3倍) [自身の特殊攻撃のダメージと防御0の敵] ［花嫁衣装］月の都・特技",
+      "condition": "自身の特殊攻撃のダメージと防御0の敵"
      }
     ]
    },
@@ -41317,8 +43205,8 @@ window.SCRE_DATA = [
       "multiplier": 1.4,
       "target": "self",
       "stackable": true,
-      "raw": "+40%(1.4倍) [最大化時自身の特殊攻撃のダメージと防御0の敵] ［花嫁衣装］月の都・特技",
-      "condition": "最大化時自身の特殊攻撃のダメージと防御0の敵"
+      "raw": "+40%(1.4倍) [自身の特殊攻撃のダメージと防御0の敵] ［花嫁衣装］月の都・特技",
+      "condition": "自身の特殊攻撃のダメージと防御0の敵"
      }
     ]
    }
@@ -42561,6 +44449,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40% ［夏］吉野ヶ里・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgDealt",
      "mode": "percent",
      "value": 60,
@@ -42611,6 +44508,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+50% ［夏］吉野ヶ里・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 35,
+      "target": "all",
+      "stackable": false,
+      "raw": "+35% ［夏］吉野ヶ里・特技"
      }
     ]
    },
@@ -42627,6 +44533,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50% ［夏］吉野ヶ里・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ［夏］吉野ヶ里・特技"
      },
      {
       "source": "特技",
@@ -42675,6 +44590,16 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 300,
+      "multiplier": 4.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+300%(4.0倍) ［夏］吉野ヶ里・計略"
+     },
+     {
+      "source": "計略",
       "stat": "rangePercent",
       "mode": "percent",
       "value": 100,
@@ -42718,6 +44643,16 @@ window.SCRE_DATA = [
     "name": "[改壱] /  夏浜の三神器 （使用まで60秒：消費気7）",
     "text": "40秒間対象の攻撃対象が3増加、射程が2倍 攻撃が4倍のダメージを与える (自分のみが対象)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 300,
+      "multiplier": 4.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+300%(4.0倍) ［夏］吉野ヶ里・計略"
+     },
      {
       "source": "計略",
       "stat": "rangePercent",
@@ -42839,8 +44774,17 @@ window.SCRE_DATA = [
      "multiplier": 1.25,
      "target": "self",
      "stackable": true,
-     "raw": "+25%(1.25倍) [攻撃対象が1増加特殊攻撃] 蓉城・特技",
-     "condition": "攻撃対象が1増加特殊攻撃"
+     "raw": "+25%(1.25倍) [特殊攻撃] 蓉城・特技",
+     "condition": "特殊攻撃"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 35,
+     "target": "all",
+     "stackable": false,
+     "raw": "+35% 蓉城・特技"
     }
    ]
   },
@@ -42915,8 +44859,17 @@ window.SCRE_DATA = [
       "multiplier": 1.25,
       "target": "self",
       "stackable": true,
-      "raw": "+25%(1.25倍) [攻撃対象が1増加特殊攻撃] 蓉城・特技",
-      "condition": "攻撃対象が1増加特殊攻撃"
+      "raw": "+25%(1.25倍) [特殊攻撃] 蓉城・特技",
+      "condition": "特殊攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 35,
+      "target": "all",
+      "stackable": false,
+      "raw": "+35% 蓉城・特技"
      }
     ]
    }
@@ -43218,8 +45171,8 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [射程が敵撃破毎に10上昇(上限200)耐久が50%以上の敵] ［肝試し］鬼ヶ島・特技",
-     "condition": "射程が敵撃破毎に10上昇(上限200)耐久が50%以上の敵"
+     "raw": "+50%(1.5倍) [耐久が50%以上の敵] ［肝試し］鬼ヶ島・特技",
+     "condition": "耐久が50%以上の敵"
     }
    ]
   },
@@ -43255,8 +45208,8 @@ window.SCRE_DATA = [
       "multiplier": 1.4,
       "target": "self",
       "stackable": true,
-      "raw": "+40%(1.4倍) [射程が敵撃破毎に8上昇(上限160)耐久が50%以上の敵] ［肝試し］鬼ヶ島・特技",
-      "condition": "射程が敵撃破毎に8上昇(上限160)耐久が50%以上の敵"
+      "raw": "+40%(1.4倍) [耐久が50%以上の敵] ［肝試し］鬼ヶ島・特技",
+      "condition": "耐久が50%以上の敵"
      }
     ]
    },
@@ -43273,8 +45226,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [射程が敵撃破毎に10上昇(上限200)耐久が50%以上の敵] ［肝試し］鬼ヶ島・特技",
-      "condition": "射程が敵撃破毎に10上昇(上限200)耐久が50%以上の敵"
+      "raw": "+50%(1.5倍) [耐久が50%以上の敵] ［肝試し］鬼ヶ島・特技",
+      "condition": "耐久が50%以上の敵"
      }
     ]
    }
@@ -43388,6 +45341,16 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) ［肝試し］前田金沢城・計略"
+    },
+    {
+     "source": "計略",
      "stat": "rangePercent",
      "mode": "percent",
      "value": 100,
@@ -43431,6 +45394,16 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 80,
+      "multiplier": 1.8,
+      "target": "self",
+      "stackable": true,
+      "raw": "+80%(1.8倍) ［肝試し］前田金沢城・計略"
+     },
+     {
+      "source": "計略",
       "stat": "rangePercent",
       "mode": "percent",
       "value": 100,
@@ -43456,6 +45429,16 @@ window.SCRE_DATA = [
     "name": "[改壱] / 龍神・白火蛇 （使用まで50秒：消費気7）",
     "text": "35秒間対象の攻撃が2倍のダメージを与える 術攻撃になり、射程2倍、攻撃対象が1増加 妖怪に対して攻撃が2倍(自分のみが対象)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［肝試し］前田金沢城・計略"
+     },
      {
       "source": "計略",
       "stat": "rangePercent",
@@ -43611,6 +45594,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 黒船 ポーハタン・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% 黒船 ポーハタン・特技"
      }
     ]
    },
@@ -43801,6 +45793,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30% ［絢爛］今治城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% ［絢爛］今治城・特技"
      }
     ]
    },
@@ -44126,6 +46127,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": true,
       "raw": "+40%(1.4倍) ［絢爛］忍城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ［絢爛］忍城・特技"
      }
     ]
    },
@@ -44169,6 +46179,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+70% ［絢爛］忍城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［絢爛］忍城・計略"
      }
     ],
     "cooldown": 35,
@@ -44193,6 +46212,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 70,
       "target": "self",
+      "stackable": false,
+      "raw": "+70% ［絢爛］忍城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
       "stackable": false,
       "raw": "+70% ［絢爛］忍城・計略"
      }
@@ -45559,6 +47587,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 35,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+35% ［裏］吉田郡山城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgDealtTarget",
      "mode": "percent",
      "value": 30,
@@ -45634,6 +47671,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% ［裏］吉田郡山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 35,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+35% ［裏］吉田郡山城・特技"
      },
      {
       "source": "特技",
@@ -46049,6 +48095,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+35% チットールガル城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30 チットールガル城・特技"
     }
    ]
   },
@@ -46079,6 +48134,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% チットールガル城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% チットールガル城・特技"
      }
     ]
    },
@@ -46095,6 +48159,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% チットールガル城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 チットールガル城・特技"
      }
     ]
    }
@@ -46262,6 +48335,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+200 ［聖夜］バベルの塔・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［聖夜］バベルの塔・特技"
      }
     ]
    },
@@ -46480,6 +48562,15 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 8,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+8 ［聖夜］基肄城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "gapShorten",
       "mode": "percent",
       "value": 7,
@@ -46675,6 +48766,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+40%(1.4倍) ［威光］多賀城・特殊能力"
+    },
+    {
+     "source": "特殊能力",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% ［威光］多賀城・特殊能力"
     }
    ]
   },
@@ -46748,6 +48848,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+40%(1.4倍) ［威光］多賀城・特殊能力"
+     },
+     {
+      "source": "特殊能力",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［威光］多賀城・特殊能力"
      }
     ]
    }
@@ -46850,8 +48959,8 @@ window.SCRE_DATA = [
      "multiplier": 2.0,
      "target": "self",
      "stackable": true,
-     "raw": "+100%(2.0倍) [射程が100上昇特殊攻撃] ［正月］滸我御所・特技",
-     "condition": "射程が100上昇特殊攻撃"
+     "raw": "+100%(2.0倍) [特殊攻撃] ［正月］滸我御所・特技",
+     "condition": "特殊攻撃"
     }
    ]
   },
@@ -46882,8 +48991,17 @@ window.SCRE_DATA = [
       "multiplier": 1.8,
       "target": "self",
       "stackable": true,
-      "raw": "+80%(1.8倍) [自身と自身の伏兵の攻撃が50%上昇特殊攻撃] ［正月］滸我御所・特技",
-      "condition": "自身と自身の伏兵の攻撃が50%上昇特殊攻撃"
+      "raw": "+80%(1.8倍) [特殊攻撃] ［正月］滸我御所・特技",
+      "condition": "特殊攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ［正月］滸我御所・特技"
      }
     ]
    },
@@ -46900,8 +49018,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [射程が100上昇特殊攻撃] ［正月］滸我御所・特技",
-      "condition": "射程が100上昇特殊攻撃"
+      "raw": "+100%(2.0倍) [特殊攻撃] ［正月］滸我御所・特技",
+      "condition": "特殊攻撃"
      }
     ]
    }
@@ -48006,6 +50124,17 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 80,
+      "multiplier": 1.8,
+      "target": "all",
+      "stackable": true,
+      "raw": "+80%(1.8倍) [攻撃] ナラカ・計略",
+      "condition": "攻撃"
+     },
+     {
+      "source": "計略",
       "stat": "atkPercent",
       "mode": "percent",
       "value": 0,
@@ -48030,6 +50159,17 @@ window.SCRE_DATA = [
     "name": "[改壱] / 天上のアストラ （使用まで40秒：消費気5）",
     "text": "30秒間対象が射程内の全ての敵に攻撃を行う 攻撃で与えるダメージが2倍になり 飛行敵に対する攻撃が1倍になる(自分のみが対象)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "all",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [攻撃] ナラカ・計略",
+      "condition": "攻撃"
+     },
      {
       "source": "計略",
       "stat": "atkPercent",
@@ -48680,6 +50820,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": true,
       "raw": "+40%(1.4倍) ［バレンタイン］ヴァイジャヤンタ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% ［バレンタイン］ヴァイジャヤンタ・特技"
      }
     ]
    },
@@ -49601,6 +51750,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% ［絢爛］佐土原城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35% ［絢爛］佐土原城・特技"
      }
     ]
    },
@@ -50375,6 +52533,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+15% ［学園］千方窟・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% ［学園］千方窟・特技"
      }
     ]
    },
@@ -50844,8 +53011,17 @@ window.SCRE_DATA = [
      "multiplier": 1.4,
      "target": "self",
      "stackable": true,
-     "raw": "+40%(1.4倍) [自身の攻撃速度が30%上昇特殊攻撃] 玉藻城・特技",
-     "condition": "自身の攻撃速度が30%上昇特殊攻撃"
+     "raw": "+40%(1.4倍) [特殊攻撃] 玉藻城・特技",
+     "condition": "特殊攻撃"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30% 玉藻城・特技"
     },
     {
      "source": "特技",
@@ -50912,8 +53088,17 @@ window.SCRE_DATA = [
       "multiplier": 1.4,
       "target": "self",
       "stackable": true,
-      "raw": "+40%(1.4倍) [自身の攻撃速度が30%上昇特殊攻撃] 玉藻城・特技",
-      "condition": "自身の攻撃速度が30%上昇特殊攻撃"
+      "raw": "+40%(1.4倍) [特殊攻撃] 玉藻城・特技",
+      "condition": "特殊攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% 玉藻城・特技"
      },
      {
       "source": "特技",
@@ -51071,8 +53256,8 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "inRange",
      "stackable": true,
-     "raw": "+30%(1.3倍) [30秒間対象の攻撃と攻撃速度が2.2倍特殊攻撃] ［天明］岐阜城・計略",
-     "condition": "30秒間対象の攻撃と攻撃速度が2.2倍特殊攻撃"
+     "raw": "+30%(1.3倍) [特殊攻撃] ［天明］岐阜城・計略",
+     "condition": "特殊攻撃"
     }
    ],
    "cooldown": 40,
@@ -51132,8 +53317,8 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "inRange",
       "stackable": true,
-      "raw": "+20%(1.2倍) [30秒間対象の攻撃と攻撃速度が2倍特殊攻撃] ［天明］岐阜城・計略",
-      "condition": "30秒間対象の攻撃と攻撃速度が2倍特殊攻撃"
+      "raw": "+20%(1.2倍) [特殊攻撃] ［天明］岐阜城・計略",
+      "condition": "特殊攻撃"
      }
     ],
     "cooldown": 40,
@@ -51152,8 +53337,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "inRange",
       "stackable": true,
-      "raw": "+30%(1.3倍) [30秒間対象の攻撃と攻撃速度が2.2倍特殊攻撃] ［天明］岐阜城・計略",
-      "condition": "30秒間対象の攻撃と攻撃速度が2.2倍特殊攻撃"
+      "raw": "+30%(1.3倍) [特殊攻撃] ［天明］岐阜城・計略",
+      "condition": "特殊攻撃"
      }
     ],
     "cooldown": 40,
@@ -51290,8 +53475,8 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [40秒間対象の攻撃速度とゲージ蓄積速度が2倍攻撃] ［破将］掛川城・計略",
-     "condition": "40秒間対象の攻撃速度とゲージ蓄積速度が2倍攻撃"
+     "raw": "+50%(1.5倍) [攻撃] ［破将］掛川城・計略",
+     "condition": "攻撃"
     }
    ],
    "cooldown": 50,
@@ -51351,8 +53536,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [40秒間対象の攻撃速度とゲージ蓄積速度が2倍攻撃] ［破将］掛川城・計略",
-      "condition": "40秒間対象の攻撃速度とゲージ蓄積速度が2倍攻撃"
+      "raw": "+50%(1.5倍) [攻撃] ［破将］掛川城・計略",
+      "condition": "攻撃"
      }
     ],
     "cooldown": 60,
@@ -51371,8 +53556,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [40秒間対象の攻撃速度とゲージ蓄積速度が2倍攻撃] ［破将］掛川城・計略",
-      "condition": "40秒間対象の攻撃速度とゲージ蓄積速度が2倍攻撃"
+      "raw": "+50%(1.5倍) [攻撃] ［破将］掛川城・計略",
+      "condition": "攻撃"
      }
     ],
     "cooldown": 50,
@@ -51490,8 +53675,8 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "self",
      "stackable": true,
-     "raw": "+30%(1.3倍) [移動速度300以下] コーロア城・計略",
-     "condition": "移動速度300以下"
+     "raw": "+30%(1.3倍) [敵] コーロア城・計略",
+     "condition": "敵"
     },
     {
      "source": "計略",
@@ -51563,8 +53748,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [移動速度300以下] コーロア城・計略",
-      "condition": "移動速度300以下"
+      "raw": "+30%(1.3倍) [敵] コーロア城・計略",
+      "condition": "敵"
      },
      {
       "source": "計略",
@@ -51715,6 +53900,15 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+20%(1.2倍) [自身の耐久が高い程] バロルの城・特技",
       "condition": "自身の耐久が高い程"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 バロルの城・特技"
      }
     ]
    },
@@ -52278,6 +54472,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+100%(2.0倍) ［花嫁衣装］チリンガム城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 60,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+60% ［花嫁衣装］チリンガム城・計略"
     }
    ],
    "cooldown": 45,
@@ -52353,6 +54556,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+80%(1.8倍) ［花嫁衣装］チリンガム城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60% ［花嫁衣装］チリンガム城・計略"
      }
     ],
     "cooldown": 50,
@@ -52380,6 +54592,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100%(2.0倍) ［花嫁衣装］チリンガム城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60% ［花嫁衣装］チリンガム城・計略"
      }
     ],
     "cooldown": 45,
@@ -52494,6 +54715,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80 ［夏］善見城・計略"
+    },
+    {
+     "source": "計略",
      "stat": "atkPercent",
      "mode": "percent",
      "value": 20,
@@ -52568,6 +54798,15 @@ window.SCRE_DATA = [
     "name": "[改壱] / 大海より生まれし者 （使用まで70秒：消費気10）",
     "text": "50秒間対象の射程80上昇、ダメージを20000まで防ぎ 攻撃が標的とその周囲に1.7倍のダメージを与える 射程内城娘の攻撃1.2倍(同種効果と重複)(自分のみ)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 ［夏］善見城・計略"
+     },
      {
       "source": "計略",
       "stat": "atkPercent",
@@ -53133,8 +55372,17 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "self",
      "stackable": true,
-     "raw": "+30%(1.3倍) [攻撃後の隙が35%短縮特殊攻撃] ［夏］シバルバー・特技",
-     "condition": "攻撃後の隙が35%短縮特殊攻撃"
+     "raw": "+30%(1.3倍) [特殊攻撃] ［夏］シバルバー・特技",
+     "condition": "特殊攻撃"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 35,
+     "target": "all",
+     "stackable": false,
+     "raw": "+35% ［夏］シバルバー・特技"
     }
    ]
   },
@@ -53150,6 +55398,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+100%(2.0倍) ［夏］シバルバー・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defIgnore",
+     "mode": "flag",
+     "value": 1,
+     "target": "self",
+     "stackable": false,
+     "raw": "+1 ［夏］シバルバー・計略"
     }
    ],
    "cooldown": 60,
@@ -53175,8 +55432,8 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "self",
       "stackable": true,
-      "raw": "+20%(1.2倍) [自身の攻撃対象が2増加特殊攻撃] ［夏］シバルバー・特技",
-      "condition": "自身の攻撃対象が2増加特殊攻撃"
+      "raw": "+20%(1.2倍) [特殊攻撃] ［夏］シバルバー・特技",
+      "condition": "特殊攻撃"
      }
     ]
    },
@@ -53193,8 +55450,17 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [攻撃後の隙が35%短縮特殊攻撃] ［夏］シバルバー・特技",
-      "condition": "攻撃後の隙が35%短縮特殊攻撃"
+      "raw": "+30%(1.3倍) [特殊攻撃] ［夏］シバルバー・特技",
+      "condition": "特殊攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 35,
+      "target": "all",
+      "stackable": false,
+      "raw": "+35% ［夏］シバルバー・特技"
      }
     ]
    }
@@ -53213,6 +55479,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100%(2.0倍) ［夏］シバルバー・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 ［夏］シバルバー・計略"
      }
     ],
     "cooldown": 60,
@@ -53231,6 +55506,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100%(2.0倍) ［夏］シバルバー・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 ［夏］シバルバー・計略"
      }
     ],
     "cooldown": 60,
@@ -53390,6 +55674,17 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) [自身の伏兵が特殊攻撃] ［夏］ポエナリ城・計略",
+     "condition": "自身の伏兵が特殊攻撃"
+    },
+    {
+     "source": "計略",
      "stat": "atkPercent",
      "mode": "percent",
      "value": 100,
@@ -53424,6 +55719,17 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "self",
+      "stackable": true,
+      "raw": "+30%(1.3倍) [自身の伏兵が特殊攻撃] ［夏］ポエナリ城・計略",
+      "condition": "自身の伏兵が特殊攻撃"
+     },
+     {
+      "source": "計略",
       "stat": "atkPercent",
       "mode": "percent",
       "value": 100,
@@ -53448,6 +55754,17 @@ window.SCRE_DATA = [
     "name": "[改壱] / 夏を制する王者のバカンス （使用まで60秒：消費気7）",
     "text": "50秒間対象の鼓舞効果と攻撃が2倍 自身の伏兵が特殊攻撃で与えるダメージが1.5倍 (自分のみが対象)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) [自身の伏兵が特殊攻撃] ［夏］ポエナリ城・計略",
+      "condition": "自身の伏兵が特殊攻撃"
+     },
      {
       "source": "計略",
       "stat": "atkPercent",
@@ -54157,6 +56474,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+35% ［赤蹄］新府城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 30,
+     "target": "all",
+     "stackable": false,
+     "raw": "+30% ［赤蹄］新府城・特技"
     }
    ]
   },
@@ -54206,6 +56532,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40% ［赤蹄］新府城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% ［赤蹄］新府城・特技"
      }
     ]
    },
@@ -54231,6 +56566,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+35% ［赤蹄］新府城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30% ［赤蹄］新府城・特技"
      }
     ]
    }
@@ -54554,7 +56898,18 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 美しき偽りの刑部姫 （使用まで45秒：消費気7）",
    "text": "30秒間対象が敵から狙われず、攻撃が6倍のダメージを 与える攻撃を行い、敵の現在耐久を8%減少させる 自身と射程内敵の攻撃後の隙が100%増加(自分のみ)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 500,
+     "multiplier": 6.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+500%(6.0倍) ［肝試し］姫路城・計略"
+    }
+   ],
    "cooldown": 45,
    "cost": 7
   },
@@ -54640,7 +56995,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 偽りの刑部姫 （使用まで45秒：消費気7）",
     "text": "30秒間対象が敵から狙われず、攻撃が5倍のダメージを 与える攻撃を行い、敵の現在耐久を5%減少させる 自身と射程内敵の攻撃後の隙が100%増加(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 400,
+      "multiplier": 5.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+400%(5.0倍) ［肝試し］姫路城・計略"
+     }
+    ],
     "cooldown": 45,
     "cost": 7
    },
@@ -54648,7 +57014,18 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 美しき偽りの刑部姫 （使用まで45秒：消費気7）",
     "text": "30秒間対象が敵から狙われず、攻撃が6倍のダメージを 与える攻撃を行い、敵の現在耐久を8%減少させる 自身と射程内敵の攻撃後の隙が100%増加(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 500,
+      "multiplier": 6.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+500%(6.0倍) ［肝試し］姫路城・計略"
+     }
+    ],
     "cooldown": 45,
     "cost": 7
    }
@@ -54755,6 +57132,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% ［肝試し］長門指月城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "enemySlow",
      "mode": "percent",
      "value": 60,
@@ -54778,6 +57164,15 @@ window.SCRE_DATA = [
      "stackable": true,
      "raw": "+150%(2.5倍) [30秒間対象が妖怪と飛行敵] ［肝試し］長門指月城・計略",
      "condition": "30秒間対象が妖怪と飛行敵"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 60,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+60% ［肝試し］長門指月城・計略"
     }
    ],
    "cooldown": 45,
@@ -54793,6 +57188,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% ［肝試し］長門指月城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 30,
       "target": "inRange",
@@ -54818,6 +57222,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［肝試し］長門指月城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 40,
       "target": "inRange",
@@ -54852,6 +57265,15 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+150%(2.5倍) [30秒間対象が妖怪と飛行敵] ［肝試し］長門指月城・計略",
       "condition": "30秒間対象が妖怪と飛行敵"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［肝試し］長門指月城・計略"
      }
     ],
     "cooldown": 45,
@@ -54872,6 +57294,15 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+150%(2.5倍) [30秒間対象が妖怪と飛行敵] ［肝試し］長門指月城・計略",
       "condition": "30秒間対象が妖怪と飛行敵"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60% ［肝試し］長門指月城・計略"
      }
     ],
     "cooldown": 45,
@@ -54976,6 +57407,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+50% 戦列艦 ヴィクトリー号・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 50,
+     "target": "all",
+     "stackable": false,
+     "raw": "+50% 戦列艦 ヴィクトリー号・特技"
     }
    ]
   },
@@ -55011,6 +57451,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+40% 戦列艦 ヴィクトリー号・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "all",
+      "stackable": false,
+      "raw": "+40% 戦列艦 ヴィクトリー号・特技"
      }
     ]
    },
@@ -55022,6 +57471,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 50,
+      "target": "all",
+      "stackable": false,
+      "raw": "+50% 戦列艦 ヴィクトリー号・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 50,
       "target": "all",
@@ -55388,6 +57846,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+150 ［お月見］鹿野城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 35,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+35% ［お月見］鹿野城・特技"
     }
    ]
   },
@@ -55413,6 +57880,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+120 ［お月見］鹿野城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% ［お月見］鹿野城・特技"
      }
     ]
    },
@@ -55429,6 +57905,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+150 ［お月見］鹿野城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 35,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+35% ［お月見］鹿野城・特技"
      }
     ]
    }
@@ -57211,6 +59696,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 40,
+     "target": "all",
+     "stackable": false,
+     "raw": "+40% ［泡影］伊賀上野城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "gapShorten",
      "mode": "percent",
      "value": 50,
@@ -57279,6 +59773,15 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 35,
+      "target": "all",
+      "stackable": false,
+      "raw": "+35% ［泡影］伊賀上野城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "gapShorten",
       "mode": "percent",
       "value": 40,
@@ -57301,6 +59804,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+35% ［泡影］伊賀上野城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 40,
+      "target": "all",
+      "stackable": false,
+      "raw": "+40% ［泡影］伊賀上野城・特技"
      },
      {
       "source": "特技",
@@ -57345,6 +59857,16 @@ window.SCRE_DATA = [
       "value": 40,
       "target": "self",
       "stackable": false,
+      "raw": "+40%(1.4倍) ［泡影］伊賀上野城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
       "raw": "+40%(1.4倍) ［泡影］伊賀上野城・計略"
      }
     ],
@@ -57409,6 +59931,16 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) ［泡影］伊賀上野城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 60,
+      "multiplier": 1.6,
+      "target": "self",
+      "stackable": true,
+      "raw": "+60%(1.6倍) ［泡影］伊賀上野城・計略"
      }
     ],
     "cooldown": 45,
@@ -58836,6 +61368,17 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 70,
+     "multiplier": 1.7,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+70%(1.7倍) [移動攻撃] ［正月］忍城・計略",
+     "condition": "移動攻撃"
+    },
+    {
+     "source": "計略",
      "stat": "atkPercent",
      "mode": "percent",
      "value": 100,
@@ -58890,6 +61433,17 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+50%(1.5倍) [移動攻撃] ［正月］忍城・計略",
+      "condition": "移動攻撃"
+     },
+     {
+      "source": "計略",
       "stat": "atkPercent",
       "mode": "percent",
       "value": 80,
@@ -58906,6 +61460,17 @@ window.SCRE_DATA = [
     "name": "[改壱] /謹賀・成田流水芸 （使用まで60秒：消費気7）",
     "text": "45秒間対象の攻撃が2倍 移動攻撃で与えるダメージが1.7倍 射程内敵の攻撃と与ダメージが40%低下(自分のみ)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 70,
+      "multiplier": 1.7,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+70%(1.7倍) [移動攻撃] ［正月］忍城・計略",
+      "condition": "移動攻撃"
+     },
      {
       "source": "計略",
       "stat": "atkPercent",
@@ -59018,6 +61583,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+40% ［正月］城塞都市ディーテ・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 40,
+     "target": "all",
+     "stackable": false,
+     "raw": "+40% ［正月］城塞都市ディーテ・特技"
     }
    ]
   },
@@ -59033,6 +61607,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+85% ［正月］城塞都市ディーテ・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defIgnore",
+     "mode": "flag",
+     "value": 1,
+     "target": "self",
+     "stackable": false,
+     "raw": "+1 ［正月］城塞都市ディーテ・計略"
     }
    ],
    "cooldown": 50,
@@ -59053,6 +61636,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% ［正月］城塞都市ディーテ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 35,
+      "target": "all",
+      "stackable": false,
+      "raw": "+35% ［正月］城塞都市ディーテ・特技"
      }
     ]
    },
@@ -59067,6 +61659,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 40,
       "target": "self",
+      "stackable": false,
+      "raw": "+40% ［正月］城塞都市ディーテ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "all",
       "stackable": false,
       "raw": "+40% ［正月］城塞都市ディーテ・特技"
      }
@@ -59087,6 +61688,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+80% ［正月］城塞都市ディーテ・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 ［正月］城塞都市ディーテ・計略"
      }
     ],
     "cooldown": 50,
@@ -59105,6 +61715,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+85% ［正月］城塞都市ディーテ・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 ［正月］城塞都市ディーテ・計略"
      }
     ],
     "cooldown": 50,
@@ -59245,6 +61864,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+40% ［正月］ナラカ・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 150,
+     "target": "self",
+     "stackable": false,
+     "raw": "+150 ［正月］ナラカ・特技"
     }
    ]
   },
@@ -59252,6 +61880,15 @@ window.SCRE_DATA = [
    "name": "[改壱] / 地のガダカ （使用まで30秒：消費気5：赤配置）",
    "text": "自身の1倍の攻撃で敵2体に2連続攻撃を行う伏兵(4体まで) 伏兵の攻撃は地上敵に2.5倍のダメージを与える 配置中、自身の射程50上昇、攻撃1.2倍(同種効果重複)",
    "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50 ［正月］ナラカ・計略"
+    },
     {
      "source": "計略",
      "stat": "atkPercent",
@@ -59280,6 +61917,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% ［正月］ナラカ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "self",
+      "stackable": false,
+      "raw": "+120 ［正月］ナラカ・特技"
      }
     ]
    },
@@ -59296,6 +61942,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40% ［正月］ナラカ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "self",
+      "stackable": false,
+      "raw": "+150 ［正月］ナラカ・特技"
      }
     ]
    }
@@ -59306,6 +61961,15 @@ window.SCRE_DATA = [
     "name": "[無印] / 地のガダカ （使用まで40秒：消費気5：赤配置）",
     "text": "自身の1倍の攻撃で敵2体に2連続攻撃を行う伏兵(4体まで) 伏兵の攻撃は地上敵に2倍のダメージを与える 配置中、自身の射程50上昇、攻撃1.2倍(同種効果重複)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［正月］ナラカ・計略"
+     },
      {
       "source": "計略",
       "stat": "atkPercent",
@@ -59342,6 +62006,15 @@ window.SCRE_DATA = [
     "name": "[改壱] / 地のガダカ （使用まで30秒：消費気5：赤配置）",
     "text": "自身の1倍の攻撃で敵2体に2連続攻撃を行う伏兵(4体まで) 伏兵の攻撃は地上敵に2.5倍のダメージを与える 配置中、自身の射程50上昇、攻撃1.2倍(同種効果重複)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［正月］ナラカ・計略"
+     },
      {
       "source": "計略",
       "stat": "atkPercent",
@@ -59820,6 +62493,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+40 パンデモニウム・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 8,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+8% パンデモニウム・特技"
      }
     ]
    },
@@ -60654,8 +63336,7 @@ window.SCRE_DATA = [
      "multiplier": 1.25,
      "target": "all",
      "stackable": true,
-     "raw": "+25%(1.25倍) [射程内敵の被ダメ50%上昇【水上】全軍船と自身の伏兵の] 軍艦 ドレッドノート・特技",
-     "condition": "射程内敵の被ダメ50%上昇【水上】全軍船と自身の伏兵の"
+     "raw": "+25%(1.25倍) 軍艦 ドレッドノート・特技"
     }
    ]
   },
@@ -60690,8 +63371,7 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "all",
       "stackable": true,
-      "raw": "+20%(1.2倍) [射程内敵の被ダメージ40%上昇【水上】全軍船と自身の伏兵の] 軍艦 ドレッドノート・特技",
-      "condition": "射程内敵の被ダメージ40%上昇【水上】全軍船と自身の伏兵の"
+      "raw": "+20%(1.2倍) 軍艦 ドレッドノート・特技"
      }
     ]
    },
@@ -60708,8 +63388,7 @@ window.SCRE_DATA = [
       "multiplier": 1.25,
       "target": "all",
       "stackable": true,
-      "raw": "+25%(1.25倍) [射程内敵の被ダメ50%上昇【水上】全軍船と自身の伏兵の] 軍艦 ドレッドノート・特技",
-      "condition": "射程内敵の被ダメ50%上昇【水上】全軍船と自身の伏兵の"
+      "raw": "+25%(1.25倍) 軍艦 ドレッドノート・特技"
      }
     ]
    }
@@ -60736,6 +63415,17 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) 軍艦 ドレッドノート・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 10,
+      "multiplier": 1.1,
+      "target": "self",
+      "stackable": true,
+      "raw": "+10% [1体につき攻撃が120] 軍艦 ドレッドノート・計略",
+      "condition": "1体につき攻撃が120"
      },
      {
       "source": "計略",
@@ -60771,6 +63461,17 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) 軍艦 ドレッドノート・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 15,
+      "multiplier": 1.15,
+      "target": "self",
+      "stackable": true,
+      "raw": "+15% [1体につき攻撃が150] 軍艦 ドレッドノート・計略",
+      "condition": "1体につき攻撃が150"
      },
      {
       "source": "計略",
@@ -60886,6 +63587,24 @@ window.SCRE_DATA = [
      "stackable": true,
      "raw": "+40%(1.4倍) [自身の攻撃速度と特殊攻撃] ルーヴル宮殿・特技",
      "condition": "自身の攻撃速度と特殊攻撃"
+    },
+    {
+     "source": "特技",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40% ルーヴル宮殿・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% ルーヴル宮殿・特技"
     }
    ]
   },
@@ -60938,6 +63657,24 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+30%(1.3倍) [自身の特殊攻撃] ルーヴル宮殿・特技",
       "condition": "自身の特殊攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35% ルーヴル宮殿・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ルーヴル宮殿・特技"
      }
     ]
    },
@@ -60956,6 +63693,24 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+40%(1.4倍) [自身の攻撃速度と特殊攻撃] ルーヴル宮殿・特技",
       "condition": "自身の攻撃速度と特殊攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ルーヴル宮殿・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ルーヴル宮殿・特技"
      }
     ]
    }
@@ -61137,6 +63892,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+60%(1.6倍) ［学園］金剛山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 35,
+     "target": "self",
+     "stackable": false,
+     "raw": "+35% ［学園］金剛山城・特技"
     }
    ]
   },
@@ -61190,6 +63954,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) ［学園］金剛山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% ［学園］金剛山城・特技"
      }
     ]
    },
@@ -61206,6 +63979,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+60%(1.6倍) ［学園］金剛山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35% ［学園］金剛山城・特技"
      }
     ]
    }
@@ -61454,12 +64236,30 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40 ［学園］墨俣一夜城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgTakenDown",
      "mode": "percent",
      "value": 35,
      "target": "inRange",
      "stackable": false,
      "raw": "+35% ［学園］墨俣一夜城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% ［学園］墨俣一夜城・特技"
     }
    ]
   },
@@ -61495,6 +64295,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［学園］墨俣一夜城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35% ［学園］墨俣一夜城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80 ［学園］墨俣一夜城・特技"
      }
     ]
    },
@@ -61514,12 +64332,30 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40 ［学園］墨俣一夜城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "dmgTakenDown",
       "mode": "percent",
       "value": 35,
       "target": "inRange",
       "stackable": false,
       "raw": "+35% ［学園］墨俣一夜城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［学園］墨俣一夜城・特技"
      }
     ]
    }
@@ -61889,6 +64725,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25%(1.25倍) 京都新城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "defPercent",
      "mode": "percent",
      "value": 25,
@@ -61939,6 +64784,15 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20%(1.2倍) 京都新城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "defPercent",
       "mode": "percent",
       "value": 20,
@@ -61953,6 +64807,15 @@ window.SCRE_DATA = [
     "name": "[改壱] / 太閤之新城",
     "text": "【配置】城娘の能力が一定値まで徐々に上昇 攻撃/防御:500、回復:60。平城には効果1.5倍 最大化時、射程内城娘の攻撃と防御が1.25倍(同種効果重複)",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25%(1.25倍) 京都新城・特技"
+     },
      {
       "source": "特技",
       "stat": "defPercent",
@@ -62127,8 +64990,17 @@ window.SCRE_DATA = [
      "multiplier": 1.4,
      "target": "self",
      "stackable": true,
-     "raw": "+40%(1.4倍) [自身の攻撃後の隙が50%短縮特殊攻撃] 二条御所・特技",
-     "condition": "自身の攻撃後の隙が50%短縮特殊攻撃"
+     "raw": "+40%(1.4倍) [特殊攻撃] 二条御所・特技",
+     "condition": "特殊攻撃"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% 二条御所・特技"
     },
     {
      "source": "特技",
@@ -62178,8 +65050,17 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [自身の攻撃後の隙が40%短縮特殊攻撃] 二条御所・特技",
-      "condition": "自身の攻撃後の隙が40%短縮特殊攻撃"
+      "raw": "+30%(1.3倍) [特殊攻撃] 二条御所・特技",
+      "condition": "特殊攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% 二条御所・特技"
      }
     ]
    },
@@ -62196,8 +65077,17 @@ window.SCRE_DATA = [
       "multiplier": 1.4,
       "target": "self",
       "stackable": true,
-      "raw": "+40%(1.4倍) [自身の攻撃後の隙が50%短縮特殊攻撃] 二条御所・特技",
-      "condition": "自身の攻撃後の隙が50%短縮特殊攻撃"
+      "raw": "+40%(1.4倍) [特殊攻撃] 二条御所・特技",
+      "condition": "特殊攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% 二条御所・特技"
      },
      {
       "source": "特技",
@@ -62269,7 +65159,17 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 地道・二剣 （使用まで60秒：消費気7）",
     "text": "40秒間対象の射程80上昇、与ダメージと特殊攻撃ゲージの 蓄積量が1.8倍、攻撃が敵の防御を80%無視する (自分のみが対象)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 二条御所・計略"
+     }
+    ],
     "cooldown": 60,
     "cost": 7
    }
@@ -62397,6 +65297,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 10,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+10 アトランティス・特技"
+    },
+    {
+     "source": "特技",
      "stat": "enemyDefDown",
      "mode": "percent",
      "value": 40,
@@ -62447,6 +65356,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50 アトランティス・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 8,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+8 アトランティス・特技"
      }
     ]
    },
@@ -62472,6 +65390,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+60 アトランティス・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 10,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+10 アトランティス・特技"
      },
      {
       "source": "特技",
@@ -62899,6 +65826,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+8% ［アイドル］安土城＆一乗谷城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 6,
+      "target": "self",
+      "stackable": false,
+      "raw": "+6% ［アイドル］安土城＆一乗谷城・特技"
      }
     ]
    },
@@ -62942,6 +65878,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20%(1.2倍) ［アイドル］安土城＆一乗谷城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% ［アイドル］安土城＆一乗谷城・計略"
      }
     ],
     "cooldown": 50,
@@ -63550,6 +66495,24 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80 ［絢爛］千賀地氏城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ［絢爛］千賀地氏城・計略"
+    },
+    {
+     "source": "計略",
      "stat": "defIgnore",
      "mode": "flag",
      "value": 1,
@@ -63613,6 +66576,15 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［絢爛］千賀地氏城・計略"
+     },
+     {
+      "source": "計略",
       "stat": "defIgnore",
       "mode": "flag",
       "value": 1,
@@ -63647,6 +66619,24 @@ window.SCRE_DATA = [
     "name": "[改壱] / 伊賀手裏剣・皆伝 （使用まで30秒：消費気5）",
     "text": "対象が大破撤退時まで永続で射程80上昇、敵に狙われない 30秒間攻撃対象2増加、射程内敵の移動速度50%低下 対象と自身の伏兵の攻撃が敵の防御を無視(自分のみ)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 ［絢爛］千賀地氏城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［絢爛］千賀地氏城・計略"
+     },
      {
       "source": "計略",
       "stat": "defIgnore",
@@ -64051,12 +67041,30 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) ［龍毘］春日山城・計略"
+    },
+    {
+     "source": "計略",
      "stat": "defPercent",
      "mode": "percent",
      "value": 100,
      "target": "inRange",
      "stackable": false,
      "raw": "+100%(2.0倍) ［龍毘］春日山城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 75,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+75% ［龍毘］春日山城・計略"
     }
    ],
    "cooldown": 60,
@@ -64110,12 +67118,30 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80%(1.8倍) ［龍毘］春日山城・計略"
+     },
+     {
+      "source": "計略",
       "stat": "defPercent",
       "mode": "percent",
       "value": 80,
       "target": "inRange",
       "stackable": false,
       "raw": "+80%(1.8倍) ［龍毘］春日山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［龍毘］春日山城・計略"
      }
     ],
     "cooldown": 60,
@@ -64128,12 +67154,30 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) ［龍毘］春日山城・計略"
+     },
+     {
+      "source": "計略",
       "stat": "defPercent",
       "mode": "percent",
       "value": 100,
       "target": "inRange",
       "stackable": false,
       "raw": "+100%(2.0倍) ［龍毘］春日山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 75,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+75% ［龍毘］春日山城・計略"
      }
     ],
     "cooldown": 60,
@@ -65437,6 +68481,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+50% ［夏］城塞都市ロンディニウム・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 30,
+     "target": "all",
+     "stackable": false,
+     "raw": "+30% ［夏］城塞都市ロンディニウム・特技"
     }
    ]
   },
@@ -65467,6 +68520,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+40% ［夏］城塞都市ロンディニウム・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% ［夏］城塞都市ロンディニウム・特技"
      }
     ]
    },
@@ -65483,6 +68545,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+50% ［夏］城塞都市ロンディニウム・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30% ［夏］城塞都市ロンディニウム・特技"
      }
     ]
    }
@@ -65650,6 +68721,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+45% ［夏］金烏城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 35,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+35% ［夏］金烏城・特技"
      }
     ]
    },
@@ -65996,6 +69076,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+45% 千鳥城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 40,
+     "target": "all",
+     "stackable": false,
+     "raw": "+40% 千鳥城・特技"
     }
    ]
   },
@@ -66031,6 +69120,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+35% 千鳥城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30% 千鳥城・特技"
      }
     ]
    },
@@ -66047,6 +69145,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+45% 千鳥城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "all",
+      "stackable": false,
+      "raw": "+40% 千鳥城・特技"
      }
     ]
    }
@@ -66459,7 +69566,17 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 神仏不畏の蜘蛛網 （使用まで30秒：消費気5：赤青配置））",
    "text": "敵から狙われず、自身の1.5倍の攻撃で射程内の全敵に 継続的に術ダメージを与える伏兵を配置(5体まで) 射程内敵の移動速度70%低下、攻撃後の隙70%延長",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 70,
+     "target": "all",
+     "stackable": false,
+     "raw": "+70% ［裏］多聞山城・計略"
+    }
+   ],
    "cooldown": 30,
    "cost": 5
   },
@@ -66526,7 +69643,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 悪虐の蜘蛛網 （使用まで40秒：消費気5：赤青配置）",
     "text": "敵から狙われず、自身の1.4倍の攻撃で射程内の全敵に 継続的に術ダメージを与える伏兵を配置(5体まで) 射程内敵の移動速度70%低下、攻撃後の隙70%延長",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 70,
+      "target": "all",
+      "stackable": false,
+      "raw": "+70% ［裏］多聞山城・計略"
+     }
+    ],
     "cooldown": 40,
     "cost": 5
    },
@@ -66534,7 +69661,17 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 神仏不畏の蜘蛛網 （使用まで30秒：消費気5：赤青配置））",
     "text": "敵から狙われず、自身の1.5倍の攻撃で射程内の全敵に 継続的に術ダメージを与える伏兵を配置(5体まで) 射程内敵の移動速度70%低下、攻撃後の隙70%延長",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 70,
+      "target": "all",
+      "stackable": false,
+      "raw": "+70% ［裏］多聞山城・計略"
+     }
+    ],
     "cooldown": 30,
     "cost": 5
    }
@@ -67115,7 +70252,17 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 夜泣きの魂",
    "text": "自身の射程100上昇、攻撃した敵の移動速度を3秒間70%低下 敵の耐久/移動速度が低い程与えるダメージ上昇(最大2.4倍) 射程内遠隔と[肝試し]の攻撃100上昇、計略中はさらに100上昇",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100 ［肝試し］高天神城・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[改壱] / 古井戸の尾白狐 （使用まで60秒：消費気7）",
@@ -67149,13 +70296,33 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 夜泣きの霊",
     "text": "自身の射程80上昇、攻撃した敵の移動速度を3秒間60%低下 敵の耐久/移動速度が低い程与えるダメージ上昇(最大2倍) 射程内の遠隔城娘と[肝試し]城娘の攻撃90上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80 ［肝試し］高天神城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 夜泣きの魂",
     "text": "自身の射程100上昇、攻撃した敵の移動速度を3秒間70%低下 敵の耐久/移動速度が低い程与えるダメージ上昇(最大2.4倍) 射程内遠隔と[肝試し]の攻撃100上昇、計略中はさらに100上昇",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ［肝試し］高天神城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -67484,8 +70651,7 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "self",
      "stackable": true,
-     "raw": "+30%(1.3倍) [【配置】敵撃破毎自身の攻撃と防御125ずつ上昇(最大2500)最大化時自身と自伏兵の] ［白輝］姫路城・特技",
-     "condition": "【配置】敵撃破毎自身の攻撃と防御125ずつ上昇(最大2500)最大化時自身と自伏兵の"
+     "raw": "+30%(1.3倍) ［白輝］姫路城・特技"
     }
    ]
   },
@@ -67543,8 +70709,7 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [【配置】敵撃破毎自身の攻撃と防御125ずつ上昇(最大2500)最大化時自身と自伏兵の] ［白輝］姫路城・特技",
-      "condition": "【配置】敵撃破毎自身の攻撃と防御125ずつ上昇(最大2500)最大化時自身と自伏兵の"
+      "raw": "+30%(1.3倍) ［白輝］姫路城・特技"
      }
     ]
    }
@@ -67750,6 +70915,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+30%(1.3倍) ［月狼］月山富田城・特殊能力"
+    },
+    {
+     "source": "特殊能力",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% ［月狼］月山富田城・特殊能力"
     }
    ]
   },
@@ -67837,6 +71011,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30%(1.3倍) ［月狼］月山富田城・特殊能力"
+     },
+     {
+      "source": "特殊能力",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ［月狼］月山富田城・特殊能力"
      }
     ]
    }
@@ -67943,6 +71126,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+70% ［飢渇］鳥取城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 60,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+60% ［飢渇］鳥取城・計略"
     }
    ],
    "cooldown": 20,
@@ -68001,6 +71193,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+70% ［飢渇］鳥取城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［飢渇］鳥取城・計略"
      }
     ],
     "cooldown": 20,
@@ -68019,6 +71220,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+70% ［飢渇］鳥取城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60% ［飢渇］鳥取城・計略"
      }
     ],
     "cooldown": 20,
@@ -68594,8 +71804,8 @@ window.SCRE_DATA = [
      "multiplier": 2.5,
      "target": "self",
      "stackable": true,
-     "raw": "+150%(2.5倍) [伏兵が地上敵] 駿河府中城・計略",
-     "condition": "伏兵が地上敵"
+     "raw": "+150%(2.5倍) [地上敵] 駿河府中城・計略",
+     "condition": "地上敵"
     }
    ],
    "cooldown": 20,
@@ -68616,6 +71826,16 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+8% 駿河府中城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 30,
+      "multiplier": 1.3,
+      "target": "all",
+      "stackable": true,
+      "raw": "+30%(1.3倍) 駿河府中城・特技"
      },
      {
       "source": "特技",
@@ -68678,8 +71898,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [伏兵が地上敵] 駿河府中城・計略",
-      "condition": "伏兵が地上敵"
+      "raw": "+100%(2.0倍) [地上敵] 駿河府中城・計略",
+      "condition": "地上敵"
      }
     ],
     "cooldown": 20,
@@ -68698,8 +71918,8 @@ window.SCRE_DATA = [
       "multiplier": 2.5,
       "target": "self",
       "stackable": true,
-      "raw": "+150%(2.5倍) [伏兵が地上敵] 駿河府中城・計略",
-      "condition": "伏兵が地上敵"
+      "raw": "+150%(2.5倍) [地上敵] 駿河府中城・計略",
+      "condition": "地上敵"
      }
     ],
     "cooldown": 20,
@@ -68827,8 +72047,7 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "inRange",
      "stackable": true,
-     "raw": "+30%(1.3倍) [30秒間射程内の城娘と殿の攻撃500上昇隠密状態の城娘が] 雲霧城・特殊攻撃",
-     "condition": "30秒間射程内の城娘と殿の攻撃500上昇隠密状態の城娘が"
+     "raw": "+30%(1.3倍) 雲霧城・特殊攻撃"
     }
    ]
   },
@@ -68851,7 +72070,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 井戸の霧障壁 （使用まで60秒：消費気5）",
     "text": "30秒間対象の射程内の城娘が敵から狙われない 射程内の敵の移動速度50%低下(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 雲霧城・計略"
+     }
+    ],
     "cooldown": 60,
     "cost": 5
    },
@@ -68863,6 +72092,15 @@ window.SCRE_DATA = [
      {
       "source": "計略",
       "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 雲霧城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 50,
       "target": "inRange",
@@ -68904,6 +72142,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+60% 雲霧城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 雲霧城・計略"
      }
     ],
     "cooldown": 60,
@@ -68924,8 +72171,7 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "inRange",
       "stackable": true,
-      "raw": "+20%(1.2倍) [30秒間射程内の城娘と殿の攻撃500上昇隠密状態の城娘が] 雲霧城・特殊攻撃",
-      "condition": "30秒間射程内の城娘と殿の攻撃500上昇隠密状態の城娘が"
+      "raw": "+20%(1.2倍) 雲霧城・特殊攻撃"
      }
     ]
    },
@@ -68942,8 +72188,7 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "inRange",
       "stackable": true,
-      "raw": "+30%(1.3倍) [30秒間射程内の城娘と殿の攻撃500上昇隠密状態の城娘が] 雲霧城・特殊攻撃",
-      "condition": "30秒間射程内の城娘と殿の攻撃500上昇隠密状態の城娘が"
+      "raw": "+30%(1.3倍) 雲霧城・特殊攻撃"
      }
     ]
    }
@@ -69038,6 +72283,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50% 黄金郷エル・ドラード・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% 黄金郷エル・ドラード・特技"
     }
    ]
   },
@@ -69050,9 +72304,20 @@ window.SCRE_DATA = [
      "stat": "atkPercent",
      "mode": "percent",
      "value": 100,
-     "target": "self",
+     "target": "inRange",
      "stackable": false,
      "raw": "+100%(2.0倍) 黄金郷エル・ドラード・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) [耐久が50%以上の敵] 黄金郷エル・ドラード・計略",
+     "condition": "耐久が50%以上の敵"
     }
    ],
    "cooldown": 60,
@@ -69078,6 +72343,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40% 黄金郷エル・ドラード・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% 黄金郷エル・ドラード・特技"
      }
     ]
    },
@@ -69092,6 +72366,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 50,
       "target": "self",
+      "stackable": false,
+      "raw": "+50% 黄金郷エル・ドラード・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
       "stackable": false,
       "raw": "+50% 黄金郷エル・ドラード・特技"
      }
@@ -69109,9 +72392,20 @@ window.SCRE_DATA = [
       "stat": "atkPercent",
       "mode": "percent",
       "value": 80,
-      "target": "self",
+      "target": "inRange",
       "stackable": false,
       "raw": "+80%(1.8倍) 黄金郷エル・ドラード・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [耐久が50%以上の敵] 黄金郷エル・ドラード・計略",
+      "condition": "耐久が50%以上の敵"
      }
     ],
     "cooldown": 60,
@@ -69127,9 +72421,20 @@ window.SCRE_DATA = [
       "stat": "atkPercent",
       "mode": "percent",
       "value": 100,
-      "target": "self",
+      "target": "inRange",
       "stackable": false,
       "raw": "+100%(2.0倍) 黄金郷エル・ドラード・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [耐久が50%以上の敵] 黄金郷エル・ドラード・計略",
+      "condition": "耐久が50%以上の敵"
      }
     ],
     "cooldown": 60,
@@ -69994,7 +73299,17 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 栄光のカーニバル",
    "text": "指定方向の敵に5倍で2連続遠隔攻撃を行い 大きく後退させる。5秒間攻撃した敵の移動速度100%低下 (射程:極長、ゲージ蓄積量:中)",
-   "effects": []
+   "effects": [
+    {
+     "source": "特殊攻撃",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100% 海上都市ヴェネツィア・特殊攻撃"
+    }
+   ]
   },
   "allSkills": [
    {
@@ -70088,13 +73403,33 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 高貴なるカーニバル",
     "text": "指定方向の敵に4.5倍で2連続遠隔攻撃を行い 大きく後退させる。5秒間攻撃した敵の移動速度100%低下 (射程:極長、ゲージ蓄積量:中)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100% 海上都市ヴェネツィア・特殊攻撃"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 栄光のカーニバル",
     "text": "指定方向の敵に5倍で2連続遠隔攻撃を行い 大きく後退させる。5秒間攻撃した敵の移動速度100%低下 (射程:極長、ゲージ蓄積量:中)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100% 海上都市ヴェネツィア・特殊攻撃"
+     }
+    ]
    }
   ],
   "parseWarnings": [],
@@ -70187,6 +73522,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 8,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+8% 軍港 舞鶴・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgDealtTarget",
      "mode": "percent",
      "value": 50,
@@ -70235,6 +73579,15 @@ window.SCRE_DATA = [
     "name": "[改壱] / 赤レンガの補給倉庫",
     "text": "巨大化する度に射程内城娘の攻撃60、射程と回復が15上昇 軍船城娘には効果2倍、射程内の敵の移動速度8%低下 最大化時、自身の特殊攻撃で与えるダメージ1.5倍",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 8,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+8% 軍港 舞鶴・特技"
+     },
      {
       "source": "特技",
       "stat": "dmgDealtTarget",
@@ -70687,6 +74040,15 @@ window.SCRE_DATA = [
      "source": "特技",
      "stat": "enemySlow",
      "mode": "percent",
+     "value": 6,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+6% ［絢爛］天童城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
      "value": 8,
      "target": "all",
      "stackable": false,
@@ -70740,6 +74102,15 @@ window.SCRE_DATA = [
       "source": "特技",
       "stat": "enemySlow",
       "mode": "percent",
+      "value": 5,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+5% ［絢爛］天童城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
       "value": 7,
       "target": "all",
       "stackable": false,
@@ -70752,6 +74123,15 @@ window.SCRE_DATA = [
     "name": "[改壱] / 攻勢の居飛車穴熊",
     "text": "巨大化する度に射程内の敵の防御と移動速度6%低下 (効果重複)、射程7%低下、被ダメージ10%上昇 全ての敵の防御と移動速度が8%低下",
     "effects": [
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 6,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+6% ［絢爛］天童城・特技"
+     },
      {
       "source": "特技",
       "stat": "enemySlow",
@@ -71203,7 +74583,17 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 背水上等日ノ本最高",
    "text": "【配置】自身を除く射程内の［絢爛］1体毎に自身の 攻撃250上昇。射程内の城娘の射程50上昇 【鼓舞】自身の攻撃と防御の35%の値を射程内城娘に加算",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50 ［絢爛］吉田城・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[改壱] / 日ノ本の出世城 （使用まで60秒：消費気7）",
@@ -71228,13 +74618,33 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 背水上等猪突猛進",
     "text": "【配置】自身を除く射程内の［絢爛］1体毎に自身の 攻撃200上昇。射程内の城娘の射程40上昇 【鼓舞】自身の攻撃と防御の30%の値を射程内城娘に加算",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40 ［絢爛］吉田城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 背水上等日ノ本最高",
     "text": "【配置】自身を除く射程内の［絢爛］1体毎に自身の 攻撃250上昇。射程内の城娘の射程50上昇 【鼓舞】自身の攻撃と防御の35%の値を射程内城娘に加算",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［絢爛］吉田城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -71879,7 +75289,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 赤薔薇の紋章 （使用まで30秒：消費気3：赤青配置）",
     "text": "射程内全敵に継続的術ダメージを与え敵1体に 術攻撃を行う伏兵。伏兵の射程内敵の移動速度50%低下 更に攻撃/防御/移動速度5%低下(効果重複)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ランカスター城・計略"
+     }
+    ],
     "cooldown": 30,
     "cost": 3
    },
@@ -71989,8 +75409,8 @@ window.SCRE_DATA = [
      "multiplier": 2.0,
      "target": "inRange",
      "stackable": true,
-     "raw": "+100%(2.0倍) [射程内城娘の攻撃150上昇最大化時自身の耐久が最大] ［獅聖］ガイヤール城・特技",
-     "condition": "射程内城娘の攻撃150上昇最大化時自身の耐久が最大"
+     "raw": "+100%(2.0倍) [最大化時自身の耐久が最大] ［獅聖］ガイヤール城・特技",
+     "condition": "最大化時自身の耐久が最大"
     }
    ]
   },
@@ -72061,8 +75481,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "all",
       "stackable": true,
-      "raw": "+50%(1.5倍) [【配置】自身を除く射程内味方1体毎に自身の攻撃50上昇巨大化気10%軽減(最大50%)最大化時自身の耐久が最大] ［獅聖］ガイヤール城・特技",
-      "condition": "【配置】自身を除く射程内味方1体毎に自身の攻撃50上昇巨大化気10%軽減(最大50%)最大化時自身の耐久が最大"
+      "raw": "+50%(1.5倍) [最大化時自身の耐久が最大] ［獅聖］ガイヤール城・特技",
+      "condition": "最大化時自身の耐久が最大"
      }
     ]
    },
@@ -72079,8 +75499,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "inRange",
       "stackable": true,
-      "raw": "+100%(2.0倍) [射程内城娘の攻撃150上昇最大化時自身の耐久が最大] ［獅聖］ガイヤール城・特技",
-      "condition": "射程内城娘の攻撃150上昇最大化時自身の耐久が最大"
+      "raw": "+100%(2.0倍) [最大化時自身の耐久が最大] ［獅聖］ガイヤール城・特技",
+      "condition": "最大化時自身の耐久が最大"
      }
     ]
    }
@@ -72273,14 +75693,23 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100 ［竜焔］仙台城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgDealtTarget",
      "mode": "percent",
      "value": 100,
      "multiplier": 2.0,
      "target": "self",
      "stackable": true,
-     "raw": "+100%(2.0倍) [自身の射程の値を攻撃に加算自身の射程が1000以上] ［竜焔］仙台城・特技",
-     "condition": "自身の射程の値を攻撃に加算自身の射程が1000以上"
+     "raw": "+100%(2.0倍) [自身の射程が1000以上] ［竜焔］仙台城・特技",
+     "condition": "自身の射程が1000以上"
     }
    ]
   },
@@ -72365,14 +75794,23 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ［竜焔］仙台城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 100,
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [自身の射程の値を攻撃に加算自身の射程が1000以上] ［竜焔］仙台城・特技",
-      "condition": "自身の射程の値を攻撃に加算自身の射程が1000以上"
+      "raw": "+100%(2.0倍) [自身の射程が1000以上] ［竜焔］仙台城・特技",
+      "condition": "自身の射程が1000以上"
      }
     ]
    }
@@ -73698,8 +77136,16 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [再配置時間70%短縮部隊の城娘の大破数に応じて自身の攻撃が100上昇計略中] ［正月］鎌刃城・特技",
-      "condition": "再配置時間70%短縮部隊の城娘の大破数に応じて自身の攻撃が100上昇計略中"
+      "raw": "+30%(1.3倍) ［正月］鎌刃城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ［正月］鎌刃城・特技"
      }
     ]
    },
@@ -75369,14 +78815,22 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 60,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+60% 虎牢関・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgDealtTarget",
      "mode": "percent",
      "value": 50,
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [自身の現在耐久が10000以上] 虎牢関・特技",
-     "condition": "自身の現在耐久が10000以上"
+     "raw": "+50%(1.5倍) 虎牢関・特技"
     }
    ]
   },
@@ -75392,6 +78846,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+100%(2.0倍) 虎牢関・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80% 虎牢関・計略"
     }
    ],
    "cooldown": 40,
@@ -75420,14 +78883,23 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 虎牢関・特技"
+     },
+     {
+      "source": "特技",
       "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 40,
       "multiplier": 1.4,
       "target": "self",
       "stackable": true,
-      "raw": "+40%(1.4倍) [自身の現在耐久が10000以上] 虎牢関・特技",
-      "condition": "自身の現在耐久が10000以上"
+      "raw": "+40%(1.4倍) [10000以上] 虎牢関・特技",
+      "condition": "10000以上"
      }
     ]
    },
@@ -75447,14 +78919,22 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60% 虎牢関・特技"
+     },
+     {
+      "source": "特技",
       "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 50,
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [自身の現在耐久が10000以上] 虎牢関・特技",
-      "condition": "自身の現在耐久が10000以上"
+      "raw": "+50%(1.5倍) 虎牢関・特技"
      }
     ]
    }
@@ -75473,6 +78953,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+80%(1.8倍) 虎牢関・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% 虎牢関・計略"
      }
     ],
     "cooldown": 50,
@@ -75491,6 +78980,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100%(2.0倍) 虎牢関・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80% 虎牢関・計略"
      }
     ],
     "cooldown": 40,
@@ -75612,6 +79110,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50% 霞ヶ城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% 霞ヶ城・計略"
     }
    ],
    "cooldown": 40,
@@ -75639,8 +79146,17 @@ window.SCRE_DATA = [
      "multiplier": 1.25,
      "target": "self",
      "stackable": true,
-     "raw": "+25%(1.25倍) [被ダメージを70%軽減耐久が50%以上の敵] 霞ヶ城・特殊攻撃",
-     "condition": "被ダメージを70%軽減耐久が50%以上の敵"
+     "raw": "+25%(1.25倍) [耐久が50%以上の敵] 霞ヶ城・特殊攻撃",
+     "condition": "耐久が50%以上の敵"
+    },
+    {
+     "source": "特殊攻撃",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% 霞ヶ城・特殊攻撃"
     }
    ]
   },
@@ -75672,6 +79188,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50% 霞ヶ城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 霞ヶ城・計略"
      }
     ],
     "cooldown": 40,
@@ -75688,6 +79213,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 50,
       "target": "self",
+      "stackable": false,
+      "raw": "+50% 霞ヶ城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
       "stackable": false,
       "raw": "+50% 霞ヶ城・計略"
      }
@@ -75719,8 +79253,17 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "self",
       "stackable": true,
-      "raw": "+20%(1.2倍) [被ダメージを70%軽減耐久が50%以上の敵] 霞ヶ城・特殊攻撃",
-      "condition": "被ダメージを70%軽減耐久が50%以上の敵"
+      "raw": "+20%(1.2倍) [耐久が50%以上の敵] 霞ヶ城・特殊攻撃",
+      "condition": "耐久が50%以上の敵"
+     },
+     {
+      "source": "特殊攻撃",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% 霞ヶ城・特殊攻撃"
      }
     ]
    },
@@ -75746,8 +79289,17 @@ window.SCRE_DATA = [
       "multiplier": 1.25,
       "target": "self",
       "stackable": true,
-      "raw": "+25%(1.25倍) [被ダメージを70%軽減耐久が50%以上の敵] 霞ヶ城・特殊攻撃",
-      "condition": "被ダメージを70%軽減耐久が50%以上の敵"
+      "raw": "+25%(1.25倍) [耐久が50%以上の敵] 霞ヶ城・特殊攻撃",
+      "condition": "耐久が50%以上の敵"
+     },
+     {
+      "source": "特殊攻撃",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% 霞ヶ城・特殊攻撃"
      }
     ]
    }
@@ -75866,6 +79418,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+100%(2.0倍) 城塞都市ヴァレッタ・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% 城塞都市ヴァレッタ・計略"
     }
    ],
    "cooldown": 40,
@@ -75922,6 +79483,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100%(2.0倍) 城塞都市ヴァレッタ・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% 城塞都市ヴァレッタ・計略"
      }
     ],
     "cooldown": 40,
@@ -75940,6 +79510,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100%(2.0倍) 城塞都市ヴァレッタ・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% 城塞都市ヴァレッタ・計略"
      }
     ],
     "cooldown": 40,
@@ -76515,7 +80094,17 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 翔天招嶺 （使用まで60秒：消費気10）",
    "text": "対象の射程400上昇、攻撃の8倍で射程内全敵に2連続防御 無視攻撃を行い移動速度を7秒間80%低下。敵撃破毎に攻撃 70上昇。全マス移動可(自分のみ。効果時間無限)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 400,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+400 崑崙・計略"
+    }
+   ],
    "cooldown": 60,
    "cost": 10
   },
@@ -76577,7 +80166,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 飛空昇岳 （使用まで60秒：消費気10）",
     "text": "対象の射程400上昇、攻撃の7倍で射程内全敵に2連続防御 無視攻撃を行い移動速度を7秒間80%低下。敵撃破毎に攻撃 50上昇。全マス移動可(自分のみ。効果時間無限)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 400,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+400 崑崙・計略"
+     }
+    ],
     "cooldown": 60,
     "cost": 10
    },
@@ -76593,7 +80192,17 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 翔天招嶺 （使用まで60秒：消費気10）",
     "text": "対象の射程400上昇、攻撃の8倍で射程内全敵に2連続防御 無視攻撃を行い移動速度を7秒間80%低下。敵撃破毎に攻撃 70上昇。全マス移動可(自分のみ。効果時間無限)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 400,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+400 崑崙・計略"
+     }
+    ],
     "cooldown": 60,
     "cost": 10
    },
@@ -76796,14 +80405,23 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 60,
+      "target": "self",
+      "stackable": false,
+      "raw": "+60% ［無疆］江戸城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 40,
       "multiplier": 1.4,
       "target": "inRange",
       "stackable": true,
-      "raw": "+40%(1.4倍) [自身の攻撃後の隙60%短縮射程内城娘の攻撃と防御が200上昇] ［無疆］江戸城・特技",
-      "condition": "自身の攻撃後の隙60%短縮射程内城娘の攻撃と防御が200上昇"
+      "raw": "+40%(1.4倍) [射程内城娘の攻撃と防御が200上昇] ［無疆］江戸城・特技",
+      "condition": "射程内城娘の攻撃と防御が200上昇"
      }
     ]
    },
@@ -77186,8 +80804,8 @@ window.SCRE_DATA = [
      "multiplier": 1.2,
      "target": "all",
      "stackable": true,
-     "raw": "+20%(1.2倍) [耐久が80%以上の射程内味方の] ［球陽］首里城・計略",
-     "condition": "耐久が80%以上の射程内味方の"
+     "raw": "+20%(1.2倍) [が80%以上の射程内味方の] ［球陽］首里城・計略",
+     "condition": "が80%以上の射程内味方の"
     }
    ],
    "cooldown": 30,
@@ -77257,8 +80875,8 @@ window.SCRE_DATA = [
       "multiplier": 1.15,
       "target": "all",
       "stackable": true,
-      "raw": "+15%(1.15倍) [耐久が80%以上の射程内味方の] ［球陽］首里城・計略",
-      "condition": "耐久が80%以上の射程内味方の"
+      "raw": "+15%(1.15倍) [が80%以上の射程内味方の] ［球陽］首里城・計略",
+      "condition": "が80%以上の射程内味方の"
      }
     ],
     "cooldown": 30,
@@ -77269,6 +80887,17 @@ window.SCRE_DATA = [
     "name": "[無印] / 演舞・かぎやで風節 （使用まで60秒：消費気5）",
     "text": "40秒間対象と自身の伏兵の攻撃と与えるダメージ1.8倍 射程1.3倍。対象を除く射程内城娘の射程に 自身の射程の25%の値加算(自分のみ)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 80,
+      "multiplier": 1.8,
+      "target": "self",
+      "stackable": true,
+      "raw": "+80%(1.8倍) [40秒間対象と自身の伏兵の攻撃と] ［球陽］首里城・計略",
+      "condition": "40秒間対象と自身の伏兵の攻撃と"
+     },
      {
       "source": "計略",
       "stat": "rangePercent",
@@ -77295,8 +80924,8 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "all",
       "stackable": true,
-      "raw": "+20%(1.2倍) [耐久が80%以上の射程内味方の] ［球陽］首里城・計略",
-      "condition": "耐久が80%以上の射程内味方の"
+      "raw": "+20%(1.2倍) [が80%以上の射程内味方の] ［球陽］首里城・計略",
+      "condition": "が80%以上の射程内味方の"
      }
     ],
     "cooldown": 30,
@@ -77307,6 +80936,17 @@ window.SCRE_DATA = [
     "name": "[改壱] / 演舞・かぎやで風節 （使用まで60秒：消費気5）",
     "text": "40秒間対象と自身の伏兵の攻撃と与えるダメージが2倍 射程1.3倍。対象を除く射程内城娘の射程に 自身の射程の30%の値加算(自分のみ)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [40秒間対象と自身の伏兵の攻撃と] ［球陽］首里城・計略",
+      "condition": "40秒間対象と自身の伏兵の攻撃と"
+     },
      {
       "source": "計略",
       "stat": "rangePercent",
@@ -78050,12 +81690,31 @@ window.SCRE_DATA = [
    "stage": "改壱",
    "name": "[改壱] / 因幡の天才画家",
    "text": "自身の射程100上昇、攻撃が標的の周囲にもダメージを与える 射程内城娘の攻撃と攻撃速度が50%、[学園]はさらに20%上昇 自身の伏兵が1度だけ大破しない秒数が5秒増加",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100 ［学園］若桜鬼ヶ城・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[改壱] / 超感覚ライブペインティング （使用まで10秒：消費気15：使用可能回数5回）",
    "text": "配置場所を「近接/遠隔マス」に変更し、強化する (配置した城娘の耐久と攻撃と防御が1.3倍、地形属性と 重複、未配置の近接マスまたは遠隔マスが対象)",
    "effects": [
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30%(1.3倍) ［学園］若桜鬼ヶ城・計略"
+    },
     {
      "source": "計略",
      "stat": "defPercent",
@@ -78075,13 +81734,33 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 因幡の美術部部長",
     "text": "自身の射程80上昇、攻撃が標的の周囲にもダメージを与える 射程内城娘の攻撃が40%、[学園]はさらに15%上昇 自身の伏兵が1度だけ大破しない秒数が3秒増加",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80 ［学園］若桜鬼ヶ城・特技"
+     }
+    ]
    },
    {
     "stage": "改壱",
     "name": "[改壱] / 因幡の天才画家",
     "text": "自身の射程100上昇、攻撃が標的の周囲にもダメージを与える 射程内城娘の攻撃と攻撃速度が50%、[学園]はさらに20%上昇 自身の伏兵が1度だけ大破しない秒数が5秒増加",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ［学園］若桜鬼ヶ城・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -78090,6 +81769,15 @@ window.SCRE_DATA = [
     "name": "[無印] / 感覚的ペインティング （使用まで10秒：消費気20：使用可能回数3回）",
     "text": "配置場所を「近接/遠隔マス」に変更し、強化する (配置した城娘の耐久と攻撃と防御が1.3倍、地形属性と 重複、未配置の近接マスまたは遠隔マスが対象)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) ［学園］若桜鬼ヶ城・計略"
+     },
      {
       "source": "計略",
       "stat": "defPercent",
@@ -78116,6 +81804,15 @@ window.SCRE_DATA = [
     "name": "[改壱] / 超感覚ライブペインティング （使用まで10秒：消費気15：使用可能回数5回）",
     "text": "配置場所を「近接/遠隔マス」に変更し、強化する (配置した城娘の耐久と攻撃と防御が1.3倍、地形属性と 重複、未配置の近接マスまたは遠隔マスが対象)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) ［学園］若桜鬼ヶ城・計略"
+     },
      {
       "source": "計略",
       "stat": "defPercent",
@@ -79475,7 +83172,17 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 芳香のフラージュステップ （使用まで40秒：消費気5）",
    "text": "40秒間対象の射程100上昇、優先攻撃対象になる。射程内敵 の攻撃60%低下。射程内味方の被ダメ50%、対象は80%軽 減。最大化時対象の被ダメを更に50%軽減(自分のみ)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100 ［アイドル］シノン城＆ロシュ城・計略"
+    }
+   ],
    "cooldown": 40,
    "cost": 5
   },
@@ -79504,7 +83211,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 軽快なるフラージュステップ （使用まで40秒：消費気7）",
     "text": "40秒間対象の射程100上昇、優先攻撃対象になる。射程内敵 の攻撃60%低下。射程内味方の被ダメ50%、対象は75%軽 減。最大化時対象の被ダメを更に50%軽減(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 ［アイドル］シノン城＆ロシュ城・計略"
+     }
+    ],
     "cooldown": 40,
     "cost": 7
    },
@@ -79520,7 +83237,17 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 芳香のフラージュステップ （使用まで40秒：消費気5）",
     "text": "40秒間対象の射程100上昇、優先攻撃対象になる。射程内敵 の攻撃60%低下。射程内味方の被ダメ50%、対象は80%軽 減。最大化時対象の被ダメを更に50%軽減(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 ［アイドル］シノン城＆ロシュ城・計略"
+     }
+    ],
     "cooldown": 40,
     "cost": 5
    },
@@ -79637,8 +83364,17 @@ window.SCRE_DATA = [
      "multiplier": 8.0,
      "target": "self",
      "stackable": true,
-     "raw": "+700%(8.0倍) [自身の攻撃と与ダメージと攻撃速度が70%上昇耐久30%以下の敵] ［アイドル］コンシェルジュリー・特技",
-     "condition": "自身の攻撃と与ダメージと攻撃速度が70%上昇耐久30%以下の敵"
+     "raw": "+700%(8.0倍) [耐久30%以下の敵] ［アイドル］コンシェルジュリー・特技",
+     "condition": "耐久30%以下の敵"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 70,
+     "target": "self",
+     "stackable": false,
+     "raw": "+70% ［アイドル］コンシェルジュリー・特技"
     }
    ]
   },
@@ -79674,8 +83410,17 @@ window.SCRE_DATA = [
       "multiplier": 8.0,
       "target": "self",
       "stackable": true,
-      "raw": "+700%(8.0倍) [自身の攻撃と与ダメージが60%上昇耐久25%以下の敵] ［アイドル］コンシェルジュリー・特技",
-      "condition": "自身の攻撃と与ダメージが60%上昇耐久25%以下の敵"
+      "raw": "+700%(8.0倍) [耐久25%以下の敵] ［アイドル］コンシェルジュリー・特技",
+      "condition": "耐久25%以下の敵"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 60,
+      "target": "self",
+      "stackable": false,
+      "raw": "+60% ［アイドル］コンシェルジュリー・特技"
      }
     ]
    },
@@ -79692,8 +83437,17 @@ window.SCRE_DATA = [
       "multiplier": 8.0,
       "target": "self",
       "stackable": true,
-      "raw": "+700%(8.0倍) [自身の攻撃と与ダメージと攻撃速度が70%上昇耐久30%以下の敵] ［アイドル］コンシェルジュリー・特技",
-      "condition": "自身の攻撃と与ダメージと攻撃速度が70%上昇耐久30%以下の敵"
+      "raw": "+700%(8.0倍) [耐久30%以下の敵] ［アイドル］コンシェルジュリー・特技",
+      "condition": "耐久30%以下の敵"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70% ［アイドル］コンシェルジュリー・特技"
      }
     ]
    }
@@ -80071,6 +83825,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 75,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+75% ［漆磊］広島城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgDealtTarget",
      "mode": "percent",
      "value": 120,
@@ -80105,6 +83868,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特殊能力",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100 ［漆磊］広島城・特殊能力"
+    },
+    {
+     "source": "特殊能力",
      "stat": "defIgnore",
      "mode": "flag",
      "value": 1,
@@ -80126,6 +83898,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 70,
       "target": "self",
+      "stackable": false,
+      "raw": "+70% ［漆磊］広島城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
       "stackable": false,
       "raw": "+70% ［漆磊］広島城・特技"
      },
@@ -80154,6 +83935,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+80% ［漆磊］広島城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 75,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+75% ［漆磊］広島城・特技"
      },
      {
       "source": "特技",
@@ -80212,6 +84002,15 @@ window.SCRE_DATA = [
     "name": "[無印] / 破杭の喧闘 （消費気5：初回10秒：再使用40秒）",
     "text": "40秒間自身の射程100上昇、敵の防御を無視し、標的に攻撃の 10倍の攻撃を行った後、攻撃の5倍で標的とその周囲に ダメージを与える攻撃を2連続で行う",
     "effects": [
+     {
+      "source": "特殊能力",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ［漆磊］広島城・特殊能力"
+     },
      {
       "source": "特殊能力",
       "stat": "defIgnore",
@@ -80782,7 +84581,17 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 祝宴の餅投げ （使用まで60秒：消費気5）",
    "text": "45秒間対象の射程200上昇、敵の移動速度が低いほど 与えるダメージ上昇(最大3.5倍)、攻撃した敵の移動速度と 防御を5秒間0にし、攻撃が5秒間70%低下(自分のみ)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 200,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+200 ［花嫁衣装］大垣城・計略"
+    }
+   ],
    "cooldown": 60,
    "cost": 5
   },
@@ -80835,7 +84644,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 婚姻のきめ酒 （使用まで60秒：消費気5）",
     "text": "30秒間対象の射程200上昇、敵の移動速度が低いほど 与えるダメージ上昇(最大3倍)、攻撃した敵の移動速度と 防御を5秒間0にし、攻撃が5秒間70%低下(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200 ［花嫁衣装］大垣城・計略"
+     }
+    ],
     "cooldown": 60,
     "cost": 5
    },
@@ -80843,7 +84662,17 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 祝宴の餅投げ （使用まで60秒：消費気5）",
     "text": "45秒間対象の射程200上昇、敵の移動速度が低いほど 与えるダメージ上昇(最大3.5倍)、攻撃した敵の移動速度と 防御を5秒間0にし、攻撃が5秒間70%低下(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200 ［花嫁衣装］大垣城・計略"
+     }
+    ],
     "cooldown": 60,
     "cost": 5
    }
@@ -81144,8 +84973,7 @@ window.SCRE_DATA = [
      "multiplier": 1.8,
      "target": "self",
      "stackable": true,
-     "raw": "+80%(1.8倍) [自身の攻撃が60上昇(20回まで)計略中] ［夏］七飯台場・特技",
-     "condition": "自身の攻撃が60上昇(20回まで)計略中"
+     "raw": "+80%(1.8倍) ［夏］七飯台場・特技"
     }
    ]
   },
@@ -81180,8 +85008,7 @@ window.SCRE_DATA = [
       "multiplier": 1.7,
       "target": "self",
       "stackable": true,
-      "raw": "+70%(1.7倍) [攻撃が50上昇(20回まで)計略中] ［夏］七飯台場・特技",
-      "condition": "攻撃が50上昇(20回まで)計略中"
+      "raw": "+70%(1.7倍) ［夏］七飯台場・特技"
      }
     ]
    },
@@ -81216,8 +85043,7 @@ window.SCRE_DATA = [
       "multiplier": 1.8,
       "target": "self",
       "stackable": true,
-      "raw": "+80%(1.8倍) [自身の攻撃が60上昇(20回まで)計略中] ［夏］七飯台場・特技",
-      "condition": "自身の攻撃が60上昇(20回まで)計略中"
+      "raw": "+80%(1.8倍) ［夏］七飯台場・特技"
      }
     ]
    }
@@ -81335,6 +85161,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+100%(2.0倍) ［夏］ナグルファル・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% ［夏］ナグルファル・計略"
     }
    ],
    "cooldown": 50,
@@ -81369,6 +85204,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100%(2.0倍) ［夏］ナグルファル・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［夏］ナグルファル・計略"
      }
     ],
     "cooldown": 50,
@@ -81387,6 +85231,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100%(2.0倍) ［夏］ナグルファル・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［夏］ナグルファル・計略"
      }
     ],
     "cooldown": 50,
@@ -81897,7 +85750,17 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 北前港湾・宮津 （使用まで40秒：消費気7）",
    "text": "40秒間対象の射程内の城娘と殿の攻撃400上昇 射程内敵の攻撃対象にならない効果を無効(一部敵を除く) 移動速度60%低下、被ダメージ60%上昇(自分のみ)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 60,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+60% 宮津城・計略"
+    }
+   ],
    "cooldown": 40,
    "cost": 7
   },
@@ -81906,6 +85769,26 @@ window.SCRE_DATA = [
    "name": "[改壱] / 銘茶・三斎流",
    "text": "射程内の城娘と殿を回復。50秒間射程内の 城娘と殿の攻撃と防御が1.3倍(同種効果重複) 耐久が30%以下の敵に与えるダメージ2倍",
    "effects": [
+    {
+     "source": "特殊攻撃",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+100%(2.0倍) [耐久が30%以下の敵] 宮津城・特殊攻撃",
+     "condition": "耐久が30%以下の敵"
+    },
+    {
+     "source": "特殊攻撃",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30%(1.3倍) 宮津城・特殊攻撃"
+    },
     {
      "source": "特殊攻撃",
      "stat": "defPercent",
@@ -81936,7 +85819,17 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 北前港湾 （使用まで40秒：消費気7）",
     "text": "40秒間対象の射程内の城娘と殿の攻撃300上昇 射程内敵の攻撃対象にならない効果を無効(一部敵を除く) 移動速度50%低下、被ダメージ60%上昇(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 宮津城・計略"
+     }
+    ],
     "cooldown": 40,
     "cost": 7
    },
@@ -81944,7 +85837,17 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 北前港湾・宮津 （使用まで40秒：消費気7）",
     "text": "40秒間対象の射程内の城娘と殿の攻撃400上昇 射程内敵の攻撃対象にならない効果を無効(一部敵を除く) 移動速度60%低下、被ダメージ60%上昇(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60% 宮津城・計略"
+     }
+    ],
     "cooldown": 40,
     "cost": 7
    }
@@ -81955,6 +85858,26 @@ window.SCRE_DATA = [
     "name": "[無印] / 銘茶・三斎流",
     "text": "射程内の城娘と殿を回復。50秒間射程内の 城娘と殿の攻撃と防御が1.25倍(同種効果重複) 耐久が30%以下の敵に与えるダメージ2倍",
     "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [耐久が30%以下の敵] 宮津城・特殊攻撃",
+      "condition": "耐久が30%以下の敵"
+     },
+     {
+      "source": "特殊攻撃",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25%(1.25倍) 宮津城・特殊攻撃"
+     },
      {
       "source": "特殊攻撃",
       "stat": "defPercent",
@@ -81971,6 +85894,26 @@ window.SCRE_DATA = [
     "name": "[改壱] / 銘茶・三斎流",
     "text": "射程内の城娘と殿を回復。50秒間射程内の 城娘と殿の攻撃と防御が1.3倍(同種効果重複) 耐久が30%以下の敵に与えるダメージ2倍",
     "effects": [
+     {
+      "source": "特殊攻撃",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [耐久が30%以下の敵] 宮津城・特殊攻撃",
+      "condition": "耐久が30%以下の敵"
+     },
+     {
+      "source": "特殊攻撃",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) 宮津城・特殊攻撃"
+     },
      {
       "source": "特殊攻撃",
       "stat": "defPercent",
@@ -82102,8 +86045,7 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [ストック数で攻撃と射程が上昇(最大2倍)ストック最大時] 聖杯城コルベニック・特殊攻撃",
-     "condition": "ストック数で攻撃と射程が上昇(最大2倍)ストック最大時"
+     "raw": "+50%(1.5倍) 聖杯城コルベニック・特殊攻撃"
     }
    ]
   },
@@ -82209,8 +86151,7 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [ストック数で攻撃と射程が上昇(最大2倍)ストック最大時] 聖杯城コルベニック・特殊攻撃",
-      "condition": "ストック数で攻撃と射程が上昇(最大2倍)ストック最大時"
+      "raw": "+50%(1.5倍) 聖杯城コルベニック・特殊攻撃"
      }
     ]
    },
@@ -82227,8 +86168,7 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [ストック数で攻撃と射程が上昇(最大2倍)ストック最大時] 聖杯城コルベニック・特殊攻撃",
-      "condition": "ストック数で攻撃と射程が上昇(最大2倍)ストック最大時"
+      "raw": "+50%(1.5倍) 聖杯城コルベニック・特殊攻撃"
      }
     ]
    }
@@ -82322,8 +86262,17 @@ window.SCRE_DATA = [
      "multiplier": 1.4,
      "target": "inRange",
      "stackable": true,
-     "raw": "+40% [自身の攻撃50%上昇(効果重複)射程内敵1体毎] ［夏］江戸城・特技",
-     "condition": "自身の攻撃50%上昇(効果重複)射程内敵1体毎"
+     "raw": "+40% [射程内敵1体毎] ［夏］江戸城・特技",
+     "condition": "射程内敵1体毎"
+    },
+    {
+     "source": "特技",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% ［夏］江戸城・特技"
     }
    ]
   },
@@ -82359,8 +86308,17 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "inRange",
       "stackable": true,
-      "raw": "+30% [自身の攻撃40%上昇(効果重複)射程内敵1体毎] ［夏］江戸城・特技",
-      "condition": "自身の攻撃40%上昇(効果重複)射程内敵1体毎"
+      "raw": "+30% [射程内敵1体毎] ［夏］江戸城・特技",
+      "condition": "射程内敵1体毎"
+     },
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% ［夏］江戸城・特技"
      }
     ]
    },
@@ -82377,8 +86335,17 @@ window.SCRE_DATA = [
       "multiplier": 1.4,
       "target": "inRange",
       "stackable": true,
-      "raw": "+40% [自身の攻撃50%上昇(効果重複)射程内敵1体毎] ［夏］江戸城・特技",
-      "condition": "自身の攻撃50%上昇(効果重複)射程内敵1体毎"
+      "raw": "+40% [射程内敵1体毎] ［夏］江戸城・特技",
+      "condition": "射程内敵1体毎"
+     },
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% ［夏］江戸城・特技"
      }
     ]
    }
@@ -82527,8 +86494,7 @@ window.SCRE_DATA = [
      "multiplier": 1.2,
      "target": "self",
      "stackable": true,
-     "raw": "+20%(1.2倍) [耐久50%以上の敵に自身が] ［夏］パンデモニウム・計略",
-     "condition": "耐久50%以上の敵に自身が"
+     "raw": "+20%(1.2倍) ［夏］パンデモニウム・計略"
     }
    ],
    "cooldown": 30,
@@ -82583,8 +86549,7 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "self",
       "stackable": true,
-      "raw": "+20%(1.2倍) [耐久50%以上の敵に自身が] ［夏］パンデモニウム・計略",
-      "condition": "耐久50%以上の敵に自身が"
+      "raw": "+20%(1.2倍) ［夏］パンデモニウム・計略"
      }
     ],
     "cooldown": 30,
@@ -82603,8 +86568,7 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "self",
       "stackable": true,
-      "raw": "+20%(1.2倍) [耐久50%以上の敵に自身が] ［夏］パンデモニウム・計略",
-      "condition": "耐久50%以上の敵に自身が"
+      "raw": "+20%(1.2倍) ［夏］パンデモニウム・計略"
      }
     ],
     "cooldown": 30,
@@ -83238,8 +87202,8 @@ window.SCRE_DATA = [
      "multiplier": 2.0,
      "target": "self",
      "stackable": true,
-     "raw": "+100%(2.0倍) [耐久が最大の敵] ［肝試し］龍王山城・計略",
-     "condition": "耐久が最大の敵"
+     "raw": "+100%(2.0倍) [最大の敵] ［肝試し］龍王山城・計略",
+     "condition": "最大の敵"
     }
    ],
    "cooldown": 60,
@@ -83293,8 +87257,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [耐久が最大の敵] ［肝試し］龍王山城・計略",
-      "condition": "耐久が最大の敵"
+      "raw": "+100%(2.0倍) [最大の敵] ［肝試し］龍王山城・計略",
+      "condition": "最大の敵"
      }
     ],
     "cooldown": 60,
@@ -83330,8 +87294,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [耐久が最大の敵] ［肝試し］龍王山城・計略",
-      "condition": "耐久が最大の敵"
+      "raw": "+100%(2.0倍) [最大の敵] ［肝試し］龍王山城・計略",
+      "condition": "最大の敵"
      }
     ],
     "cooldown": 60,
@@ -84422,8 +88386,8 @@ window.SCRE_DATA = [
      "multiplier": 2.2,
      "target": "self",
      "stackable": true,
-     "raw": "+120%(2.2倍) [攻撃が3000以上] ［お月見］青葉城・計略",
-     "condition": "攻撃が3000以上"
+     "raw": "+120%(2.2倍) [3000以上] ［お月見］青葉城・計略",
+     "condition": "3000以上"
     }
    ],
    "cooldown": 60,
@@ -84467,8 +88431,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [攻撃が3000以上] ［お月見］青葉城・計略",
-      "condition": "攻撃が3000以上"
+      "raw": "+100%(2.0倍) [3000以上] ［お月見］青葉城・計略",
+      "condition": "3000以上"
      }
     ],
     "cooldown": 60,
@@ -84496,8 +88460,8 @@ window.SCRE_DATA = [
       "multiplier": 2.2,
       "target": "self",
       "stackable": true,
-      "raw": "+120%(2.2倍) [攻撃が3000以上] ［お月見］青葉城・計略",
-      "condition": "攻撃が3000以上"
+      "raw": "+120%(2.2倍) [3000以上] ［お月見］青葉城・計略",
+      "condition": "3000以上"
      }
     ],
     "cooldown": 60,
@@ -84621,8 +88585,8 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "inRange",
      "stackable": true,
-     "raw": "+50%(1.5倍) [射程内城娘が耐久25%以下の敵] ［お月見］小牧山城・特技",
-     "condition": "射程内城娘が耐久25%以下の敵"
+     "raw": "+50%(1.5倍) [以下の敵] ［お月見］小牧山城・特技",
+     "condition": "以下の敵"
     }
    ]
   },
@@ -84672,8 +88636,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "inRange",
       "stackable": true,
-      "raw": "+30%(1.3倍) [射程内城娘が耐久25%以下の敵] ［お月見］小牧山城・特技",
-      "condition": "射程内城娘が耐久25%以下の敵"
+      "raw": "+30%(1.3倍) [以下の敵] ［お月見］小牧山城・特技",
+      "condition": "以下の敵"
      }
     ]
    },
@@ -84709,8 +88673,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "inRange",
       "stackable": true,
-      "raw": "+50%(1.5倍) [射程内城娘が耐久25%以下の敵] ［お月見］小牧山城・特技",
-      "condition": "射程内城娘が耐久25%以下の敵"
+      "raw": "+50%(1.5倍) [以下の敵] ［お月見］小牧山城・特技",
+      "condition": "以下の敵"
      }
     ]
    }
@@ -85116,6 +89080,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50% ［裏］松代城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 200,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+200 ［裏］松代城・計略"
     }
    ],
    "cooldown": 45,
@@ -85175,6 +89148,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50% ［裏］松代城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150 ［裏］松代城・計略"
      }
     ],
     "cooldown": 60,
@@ -85193,6 +89175,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50% ［裏］松代城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200 ［裏］松代城・計略"
      }
     ],
     "cooldown": 45,
@@ -86377,8 +90368,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [攻撃が10000以上] ［絢爛］鎌倉城・計略",
-      "condition": "攻撃が10000以上"
+      "raw": "+100%(2.0倍) [10000以上] ［絢爛］鎌倉城・計略",
+      "condition": "10000以上"
      },
      {
       "source": "計略",
@@ -86388,8 +90379,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [攻撃対象数が5以上] ［絢爛］鎌倉城・計略",
-      "condition": "攻撃対象数が5以上"
+      "raw": "+100%(2.0倍) [が5以上] ［絢爛］鎌倉城・計略",
+      "condition": "が5以上"
      }
     ],
     "cooldown": 50,
@@ -86434,8 +90425,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [攻撃が10000以上] ［絢爛］鎌倉城・計略",
-      "condition": "攻撃が10000以上"
+      "raw": "+100%(2.0倍) [10000以上] ［絢爛］鎌倉城・計略",
+      "condition": "10000以上"
      },
      {
       "source": "計略",
@@ -86445,8 +90436,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [攻撃対象数が5以上] ［絢爛］鎌倉城・計略",
-      "condition": "攻撃対象数が5以上"
+      "raw": "+100%(2.0倍) [が5以上] ［絢爛］鎌倉城・計略",
+      "condition": "が5以上"
      }
     ],
     "cooldown": 40,
@@ -87161,6 +91152,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+8% ［ハロウィン］カルルシュテイン城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "all",
+     "stackable": false,
+     "raw": "+80 ［ハロウィン］カルルシュテイン城・特技"
     }
    ]
   },
@@ -87186,6 +91186,24 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+10% ［ハロウィン］カルルシュテイン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 6,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+6% ［ハロウィン］カルルシュテイン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 70,
+      "target": "all",
+      "stackable": false,
+      "raw": "+70 ［ハロウィン］カルルシュテイン城・特技"
      }
     ]
    },
@@ -87202,6 +91220,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+8% ［ハロウィン］カルルシュテイン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "all",
+      "stackable": false,
+      "raw": "+80 ［ハロウィン］カルルシュテイン城・特技"
      }
     ]
    }
@@ -87820,6 +91847,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+150%(2.5倍) ［大華の神衣］善見城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 60,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+60% ［大華の神衣］善見城・計略"
     }
    ],
    "cooldown": 60,
@@ -87873,6 +91909,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+130%(2.3倍) ［大華の神衣］善見城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［大華の神衣］善見城・計略"
      }
     ],
     "cooldown": 60,
@@ -87908,6 +91953,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+150%(2.5倍) ［大華の神衣］善見城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 60,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+60% ［大華の神衣］善見城・計略"
      }
     ],
     "cooldown": 60,
@@ -88017,6 +92071,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50%(1.5倍) ［魔犬の冥衣］タルタロス・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ［魔犬の冥衣］タルタロス・計略"
     }
    ],
    "cooldown": 45,
@@ -88051,6 +92114,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) ［魔犬の冥衣］タルタロス・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［魔犬の冥衣］タルタロス・計略"
      }
     ],
     "cooldown": 45,
@@ -88069,6 +92141,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50%(1.5倍) ［魔犬の冥衣］タルタロス・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［魔犬の冥衣］タルタロス・計略"
      }
     ],
     "cooldown": 45,
@@ -88172,8 +92253,17 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [攻撃後の隙35%短縮計略効果中に自身の攻撃] ［雷鳥の天衣］ヴァイジャヤンタ・特技",
-     "condition": "攻撃後の隙35%短縮計略効果中に自身の攻撃"
+     "raw": "+50%(1.5倍) [計略効果中に自身の攻撃] ［雷鳥の天衣］ヴァイジャヤンタ・特技",
+     "condition": "計略効果中に自身の攻撃"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 35,
+     "target": "self",
+     "stackable": false,
+     "raw": "+35% ［雷鳥の天衣］ヴァイジャヤンタ・特技"
     }
    ]
   },
@@ -88209,8 +92299,8 @@ window.SCRE_DATA = [
       "multiplier": 1.4,
       "target": "all",
       "stackable": true,
-      "raw": "+40%(1.4倍) [全ての遠隔城娘の攻撃が40%上昇計略効果中に自身の攻撃] ［雷鳥の天衣］ヴァイジャヤンタ・特技",
-      "condition": "全ての遠隔城娘の攻撃が40%上昇計略効果中に自身の攻撃"
+      "raw": "+40%(1.4倍) [計略効果中に自身の攻撃] ［雷鳥の天衣］ヴァイジャヤンタ・特技",
+      "condition": "計略効果中に自身の攻撃"
      }
     ]
    },
@@ -88227,8 +92317,17 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [攻撃後の隙35%短縮計略効果中に自身の攻撃] ［雷鳥の天衣］ヴァイジャヤンタ・特技",
-      "condition": "攻撃後の隙35%短縮計略効果中に自身の攻撃"
+      "raw": "+50%(1.5倍) [計略効果中に自身の攻撃] ［雷鳥の天衣］ヴァイジャヤンタ・特技",
+      "condition": "計略効果中に自身の攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35% ［雷鳥の天衣］ヴァイジャヤンタ・特技"
      }
     ]
    }
@@ -88357,7 +92456,18 @@ window.SCRE_DATA = [
   "strategy": {
    "name": "[改壱] / 冥府紡ぐ災歌・宵闇 （使用まで60秒：消費気5）",
    "text": "40秒間対象の与ダメ、射程、範囲攻撃の範囲1.5倍、攻撃が 1.5倍のダメージを与え、10秒間「氷結」状態にする。射程 内の「氷結」状態の敵の被ダメ60%上昇(自分のみ)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "self",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［死氷の黒衣］シバルバー・計略"
+    }
+   ],
    "cooldown": 60,
    "cost": 5
   },
@@ -88389,11 +92499,12 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
-      "stat": "atkPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 50,
+      "multiplier": 1.5,
       "target": "self",
-      "stackable": false,
+      "stackable": true,
       "raw": "+50%(1.5倍) ［死氷の黒衣］シバルバー・計略"
      }
     ],
@@ -88407,11 +92518,12 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
-      "stat": "atkPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 100,
+      "multiplier": 2.0,
       "target": "self",
-      "stackable": false,
+      "stackable": true,
       "raw": "+100%(2.0倍) ［死氷の黒衣］シバルバー・計略"
      }
     ],
@@ -88425,11 +92537,12 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
-      "stat": "atkPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 200,
+      "multiplier": 3.0,
       "target": "self",
-      "stackable": false,
+      "stackable": true,
       "raw": "+200%(3.0倍) ［死氷の黒衣］シバルバー・計略"
      }
     ],
@@ -88440,7 +92553,18 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 冥府紡ぐ災歌・宵闇 （使用まで60秒：消費気5）",
     "text": "40秒間対象の与ダメ、射程、範囲攻撃の範囲1.5倍、攻撃が 1.5倍のダメージを与え、10秒間「氷結」状態にする。射程 内の「氷結」状態の敵の被ダメ60%上昇(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "self",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［死氷の黒衣］シバルバー・計略"
+     }
+    ],
     "cooldown": 60,
     "cost": 5
    },
@@ -88448,7 +92572,18 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 冥府紡ぐ災歌・宵禍 （使用まで60秒：消費気10）",
     "text": "40秒間対象の与ダメ、射程、範囲攻撃の範囲1.7倍、攻撃が 2倍のダメージを与え、10秒間「氷結」状態にする。射程 内の「氷結」状態の敵の被ダメ70%上昇(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) ［死氷の黒衣］シバルバー・計略"
+     }
+    ],
     "cooldown": 60,
     "cost": 10
    },
@@ -88456,7 +92591,18 @@ window.SCRE_DATA = [
     "stage": "改壱",
     "name": "[改壱] / 冥府紡ぐ災歌・死氷 （使用まで60秒：消費気20）",
     "text": "40秒間対象の与ダメ、射程、範囲攻撃の範囲2倍。攻撃が 3倍のダメージを与え15秒間「氷結」状態にする。射程内敵の 「氷結」が無効化されず、被ダメ90%上昇(自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 200,
+      "multiplier": 3.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+200%(3.0倍) ［死氷の黒衣］シバルバー・計略"
+     }
+    ],
     "cooldown": 60,
     "cost": 20
    }
@@ -88953,6 +93099,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+30% 明智光秀・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% 明智光秀・特技"
     }
    ]
   },
@@ -88983,6 +93138,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 明智光秀・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
       "mode": "percent",
       "value": 30,
       "target": "inRange",
@@ -89241,6 +93405,16 @@ window.SCRE_DATA = [
     },
     {
      "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) 豊臣秀吉・計略"
+    },
+    {
+     "source": "計略",
      "stat": "rangePercent",
      "mode": "percent",
      "value": 20,
@@ -89279,6 +93453,16 @@ window.SCRE_DATA = [
       "value": 100,
       "target": "self",
       "stackable": false,
+      "raw": "+100%(2.0倍) 豊臣秀吉・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
       "raw": "+100%(2.0倍) 豊臣秀吉・計略"
      },
      {
@@ -89560,6 +93744,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+20%(1.2倍) 徳川家康・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% 徳川家康・計略"
     }
    ],
    "cooldown": 60,
@@ -89602,6 +93795,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20%(1.2倍) 徳川家康・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% 徳川家康・計略"
      }
     ],
     "cooldown": 60,
@@ -89709,6 +93911,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100 今川義元・特技"
+    },
+    {
+     "source": "特技",
      "stat": "gapShorten",
      "mode": "percent",
      "value": 40,
@@ -89750,6 +93961,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40% 今川義元・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 今川義元・特技"
      },
      {
       "source": "特技",
@@ -90032,6 +94252,15 @@ window.SCRE_DATA = [
      "value": 25.0,
      "shareSource": "上杉謙信",
      "raw": "+ (上杉謙信の攻撃の25.0%) 上杉謙信・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 35,
+     "target": "all",
+     "stackable": false,
+     "raw": "+35% 上杉謙信・特技"
     }
    ]
   },
@@ -90066,6 +94295,15 @@ window.SCRE_DATA = [
       "value": 25.0,
       "shareSource": "上杉謙信",
       "raw": "+ (上杉謙信の攻撃の25.0%) 上杉謙信・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 35,
+      "target": "all",
+      "stackable": false,
+      "raw": "+35% 上杉謙信・特技"
      }
     ]
    }
@@ -90568,8 +94806,8 @@ window.SCRE_DATA = [
      "multiplier": 2.5,
      "target": "self",
      "stackable": true,
-     "raw": "+150%(2.5倍) [耐久が50%以上の敵] 織田吉法師・計略",
-     "condition": "耐久が50%以上の敵"
+     "raw": "+150%(2.5倍) [50%以上の敵] 織田吉法師・計略",
+     "condition": "50%以上の敵"
     }
    ],
    "cooldown": 65,
@@ -90622,8 +94860,8 @@ window.SCRE_DATA = [
       "multiplier": 2.5,
       "target": "self",
       "stackable": true,
-      "raw": "+150%(2.5倍) [耐久が50%以上の敵] 織田吉法師・計略",
-      "condition": "耐久が50%以上の敵"
+      "raw": "+150%(2.5倍) [50%以上の敵] 織田吉法師・計略",
+      "condition": "50%以上の敵"
      }
     ],
     "cooldown": 65,
@@ -93162,6 +97400,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+40%(1.4倍) 旧調査兵団本部・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% 旧調査兵団本部・特技"
      }
     ]
    },
@@ -93528,6 +97775,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+35% ヒストリア・レイス・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100 ヒストリア・レイス・計略"
     }
    ],
    "cooldown": 60,
@@ -93584,6 +97840,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% ヒストリア・レイス・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ヒストリア・レイス・計略"
      }
     ],
     "cooldown": 60,
@@ -93672,6 +97937,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) 紅輪の道士 ナタク・計略"
+    },
+    {
+     "source": "計略",
      "stat": "defPercent",
      "mode": "percent",
      "value": 100,
@@ -93721,6 +97995,15 @@ window.SCRE_DATA = [
     "name": "[無印] / 火尖槍・焔玉 （使用まで40秒：消費気5）",
     "text": "30秒間対象の攻撃と防御が2倍、射程が1.2倍、足止め数 と攻撃対象1増加、攻撃の10%の値を回復に加算 攻撃が敵の防御を無視する(自分のみが対象)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) 紅輪の道士 ナタク・計略"
+     },
      {
       "source": "計略",
       "stat": "defPercent",
@@ -93867,6 +98150,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50%(1.5倍) 黒翼の魔兵 エスネア・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50%(1.5倍) 黒翼の魔兵 エスネア・計略"
     }
    ],
    "cooldown": 30,
@@ -93909,6 +98201,15 @@ window.SCRE_DATA = [
      {
       "source": "計略",
       "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 黒翼の魔兵 エスネア・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
       "mode": "percent",
       "value": 50,
       "target": "self",
@@ -94313,6 +98614,24 @@ window.SCRE_DATA = [
     },
     {
      "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ［城姫］五稜郭・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ［城姫］五稜郭・計略"
+    },
+    {
+     "source": "計略",
      "stat": "rangePercent",
      "mode": "percent",
      "value": 30,
@@ -94352,6 +98671,24 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100%(2.0倍) ［城姫］五稜郭・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［城姫］五稜郭・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［城姫］五稜郭・計略"
      },
      {
       "source": "計略",
@@ -94465,6 +98802,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+25% ［城姫］広島城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 25,
+     "target": "all",
+     "stackable": false,
+     "raw": "+25% ［城姫］広島城・特技"
     }
    ]
   },
@@ -94490,6 +98836,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% ［城姫］広島城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 25,
       "target": "all",
@@ -94607,6 +98962,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+20% 大地を紡ぐ者 サナラ・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% 大地を紡ぐ者 サナラ・特技"
     }
    ]
   },
@@ -94632,6 +98996,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20% 大地を紡ぐ者 サナラ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 大地を紡ぐ者 サナラ・特技"
      }
     ]
    }
@@ -94889,6 +99262,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50%(1.5倍) 英傑の塔・計略"
+    },
+    {
+     "source": "計略",
      "stat": "defPercent",
      "mode": "percent",
      "value": 50,
@@ -94923,6 +99305,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30%(1.3倍) 英傑の塔・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 英傑の塔・計略"
      },
      {
       "source": "計略",
@@ -95077,6 +99468,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 80,
+     "target": "self",
+     "stackable": false,
+     "raw": "+80% 【シェイプシフター娘】アスタ・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgDealtTarget",
      "mode": "percent",
      "value": 30,
@@ -95119,6 +99519,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": true,
       "raw": "+70% 【シェイプシフター娘】アスタ・特技（重複）"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80% 【シェイプシフター娘】アスタ・特技"
      },
      {
       "source": "特技",
@@ -96284,10 +100693,19 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150%(2.5倍) 初代白の皇帝ヴィラヘルム・計略"
+    },
+    {
+     "source": "計略",
      "stat": "defPercent",
      "mode": "percent",
      "value": 150,
-     "target": "self",
+     "target": "inRange",
      "stackable": false,
      "raw": "+150%(2.5倍) 初代白の皇帝ヴィラヘルム・計略"
     },
@@ -96333,10 +100751,19 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) 初代白の皇帝ヴィラヘルム・計略"
+     },
+     {
+      "source": "計略",
       "stat": "defPercent",
       "mode": "percent",
       "value": 150,
-      "target": "self",
+      "target": "inRange",
       "stackable": false,
       "raw": "+150%(2.5倍) 初代白の皇帝ヴィラヘルム・計略"
      },
@@ -96759,6 +101186,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 180,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+180%(2.8倍) 大洗女子学園艦・計略"
+    },
+    {
+     "source": "計略",
      "stat": "defPercent",
      "mode": "percent",
      "value": 180,
@@ -96808,6 +101244,15 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) 大洗女子学園艦・計略"
+     },
+     {
+      "source": "計略",
       "stat": "defPercent",
       "mode": "percent",
       "value": 150,
@@ -96824,6 +101269,15 @@ window.SCRE_DATA = [
     "name": "[改壱] / 世界を翔ける艦上都市 （使用まで60秒：消費気5）",
     "text": "30秒間範囲内の城娘が天候の影響を受けず 攻撃と防御が2.8倍、射程100上昇 (範囲:特大。発動中の計略を解除しない)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 180,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+180%(2.8倍) 大洗女子学園艦・計略"
+     },
      {
       "source": "計略",
       "stat": "defPercent",
@@ -96988,6 +101442,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50%(1.5倍) 西住みほ・特殊能力"
+    },
+    {
+     "source": "特殊能力",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30%(1.3倍) 西住みほ・特殊能力"
     }
    ]
   },
@@ -97044,6 +101507,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) 西住みほ・特殊能力"
+     },
+     {
+      "source": "特殊能力",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) 西住みほ・特殊能力"
      }
     ]
    }
@@ -97166,6 +101638,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特殊能力",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150%(2.5倍) ダージリン・特殊能力"
+    },
+    {
+     "source": "特殊能力",
      "stat": "rangePercent",
      "mode": "percent",
      "value": 30,
@@ -97227,6 +101708,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) ダージリン・特殊能力"
+     },
+     {
+      "source": "特殊能力",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) ダージリン・特殊能力"
      },
      {
       "source": "特殊能力",
@@ -97372,6 +101862,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+70%(1.7倍) 逸見エリカ・特殊能力"
+    },
+    {
+     "source": "特殊能力",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30%(1.3倍) 逸見エリカ・特殊能力"
     }
    ]
   },
@@ -97437,6 +101936,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+70%(1.7倍) 逸見エリカ・特殊能力"
+     },
+     {
+      "source": "特殊能力",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30%(1.3倍) 逸見エリカ・特殊能力"
      }
     ]
    }
@@ -97565,8 +102073,8 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [計略対象の耐久が50%以上] ミカ・計略",
-     "condition": "計略対象の耐久が50%以上"
+     "raw": "+50%(1.5倍) [50%以上] ミカ・計略",
+     "condition": "50%以上"
     }
    ],
    "cooldown": 50,
@@ -97585,6 +102093,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+100%(2.0倍) ミカ・特殊能力"
+    },
+    {
+     "source": "特殊能力",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ミカ・特殊能力"
     },
     {
      "source": "特殊能力",
@@ -97656,8 +102173,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [計略対象の耐久が50%以上] ミカ・計略",
-      "condition": "計略対象の耐久が50%以上"
+      "raw": "+50%(1.5倍) [50%以上] ミカ・計略",
+      "condition": "50%以上"
      }
     ],
     "cooldown": 50,
@@ -97678,6 +102195,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100%(2.0倍) ミカ・特殊能力"
+     },
+     {
+      "source": "特殊能力",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ミカ・特殊能力"
      },
      {
       "source": "特殊能力",
@@ -98819,6 +103345,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+105 東黒川館・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50 東黒川館・特技"
     }
    ]
   },
@@ -98847,6 +103382,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+90 東黒川館・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 東黒川館・特技"
      }
     ]
    },
@@ -98872,6 +103416,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+105 東黒川館・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 東黒川館・特技"
      }
     ]
    }
@@ -99093,6 +103646,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% 会津若松城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 17,
+     "target": "self",
+     "stackable": false,
+     "raw": "+17% 会津若松城・特技"
     }
    ]
   },
@@ -99128,6 +103690,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 会津若松城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 17,
+      "target": "self",
+      "stackable": false,
+      "raw": "+17% 会津若松城・特技"
      }
     ]
    }
@@ -99972,6 +104543,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+5% 鶴ヶ岡城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25 鶴ヶ岡城・特技"
     }
    ]
   },
@@ -100007,6 +104587,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+5% 鶴ヶ岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25 鶴ヶ岡城・特技"
      }
     ]
    }
@@ -100662,6 +105251,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+15% 前橋城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 17,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+17% 前橋城・特技"
     }
    ]
   },
@@ -100705,6 +105303,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+15% 前橋城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 17,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+17% 前橋城・特技"
      }
     ]
    }
@@ -100808,6 +105415,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+27% 宇都宮城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "hpPercent",
+     "mode": "percent",
+     "value": 15,
+     "target": "self",
+     "stackable": false,
+     "raw": "+15% 宇都宮城・特技"
     }
    ]
   },
@@ -100849,6 +105465,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% 宇都宮城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "hpPercent",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% 宇都宮城・特技"
      }
     ]
    }
@@ -101451,6 +106076,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+15% 忍城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 20,
+     "target": "all",
+     "stackable": false,
+     "raw": "+20% 忍城・特技"
     }
    ]
   },
@@ -101486,6 +106120,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+15% 忍城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 20,
+      "target": "all",
+      "stackable": false,
+      "raw": "+20% 忍城・特技"
      }
     ]
    }
@@ -102433,6 +107076,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+25% 今川館・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "all",
+     "stackable": false,
+     "raw": "+100 今川館・特技"
     }
    ]
   },
@@ -102484,6 +107136,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+25% 今川館・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "all",
+      "stackable": false,
+      "raw": "+100 今川館・特技"
      }
     ]
    }
@@ -102587,6 +107248,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% 小牧山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30 小牧山城・特技"
     }
    ]
   },
@@ -102622,6 +107292,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 小牧山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 小牧山城・特技"
      }
     ]
    }
@@ -103344,6 +108023,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+40% 坂戸城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 200,
+     "target": "self",
+     "stackable": false,
+     "raw": "+200 坂戸城・特技"
     }
    ]
   },
@@ -103394,6 +108082,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40% 坂戸城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "self",
+      "stackable": false,
+      "raw": "+200 坂戸城・特技"
      }
     ]
    }
@@ -103952,6 +108649,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+10% 北ノ庄城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 15,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+15% 北ノ庄城・特技"
     }
    ]
   },
@@ -103977,6 +108683,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+10% 北ノ庄城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+15% 北ノ庄城・特技"
      }
     ]
    }
@@ -104395,8 +109110,8 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "self",
      "stackable": true,
-     "raw": "+30%(1.3倍) [攻撃対象2増加自身の耐久が80%以上] 金ヶ崎城・特技",
-     "condition": "攻撃対象2増加自身の耐久が80%以上"
+     "raw": "+30%(1.3倍) [自身の耐久が80%以上] 金ヶ崎城・特技",
+     "condition": "自身の耐久が80%以上"
     }
    ]
   },
@@ -104457,8 +109172,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [攻撃対象2増加自身の耐久が80%以上] 金ヶ崎城・特技",
-      "condition": "攻撃対象2増加自身の耐久が80%以上"
+      "raw": "+30%(1.3倍) [自身の耐久が80%以上] 金ヶ崎城・特技",
+      "condition": "自身の耐久が80%以上"
      }
     ]
    }
@@ -104972,6 +109687,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+17% 多聞山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 10,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+10% 多聞山城・特技"
      }
     ]
    },
@@ -105996,6 +110720,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50%(1.5倍) 岡山城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 15,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+15% 岡山城・計略"
     }
    ],
    "cooldown": 20,
@@ -106042,6 +110775,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) 岡山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+15% 岡山城・計略"
      }
     ],
     "cooldown": 20,
@@ -106285,6 +111027,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% 三原城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 27,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+27% 三原城・特技"
     }
    ]
   },
@@ -106320,6 +111071,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 三原城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 27,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+27% 三原城・特技"
      }
     ]
    }
@@ -106619,6 +111379,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% 鹿野城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "hpFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "self",
+      "stackable": false,
+      "raw": "+200 鹿野城・特技"
      }
     ]
    },
@@ -107359,6 +112128,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+15% 上関城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 10,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+10% 上関城・特技"
     }
    ]
   },
@@ -107394,6 +112172,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+15% 上関城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 10,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+10% 上関城・特技"
      }
     ]
    }
@@ -107795,6 +112582,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+100 勝瑞城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% 勝瑞城・特技"
     }
    ]
   },
@@ -107846,6 +112642,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100 勝瑞城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% 勝瑞城・特技"
      }
     ]
    }
@@ -109738,8 +114543,7 @@ window.SCRE_DATA = [
      "multiplier": 1.15,
      "target": "all",
      "stackable": true,
-     "raw": "+15%(1.15倍) [射程内の城娘の攻撃が25%と50上昇全ての九州城娘の] 鹿児島城・特技",
-     "condition": "射程内の城娘の攻撃が25%と50上昇全ての九州城娘の"
+     "raw": "+15%(1.15倍) 鹿児島城・特技"
     }
    ]
   },
@@ -109787,8 +114591,7 @@ window.SCRE_DATA = [
       "multiplier": 1.15,
       "target": "all",
       "stackable": true,
-      "raw": "+15%(1.15倍) [射程内の城娘の攻撃が25%と50上昇全ての九州城娘の] 鹿児島城・特技",
-      "condition": "射程内の城娘の攻撃が25%と50上昇全ての九州城娘の"
+      "raw": "+15%(1.15倍) 鹿児島城・特技"
      }
     ]
    }
@@ -109908,6 +114711,24 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+15%(1.15倍) 浦添城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 10,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+10%(1.1倍) 浦添城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "all",
+     "stackable": false,
+     "raw": "+30% 浦添城・特技"
     }
    ]
   },
@@ -109915,6 +114736,17 @@ window.SCRE_DATA = [
    "name": "[改弐] / ワカリジー （使用まで40秒：消費気5）",
    "text": "40秒間対象の攻撃が1.6倍 耐久が80%以上の時与えるダメージが1.2倍 耐久が100%の時、さらに1.2倍",
    "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 20,
+     "multiplier": 1.2,
+     "target": "self",
+     "stackable": true,
+     "raw": "+20%(1.2倍) [耐久が80%以上] 浦添城・計略",
+     "condition": "耐久が80%以上"
+    },
     {
      "source": "計略",
      "stat": "atkPercent",
@@ -109959,6 +114791,24 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+15%(1.15倍) 浦添城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 10,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+10%(1.1倍) 浦添城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30% 浦添城・特技"
      }
     ]
    }
@@ -109987,6 +114837,17 @@ window.SCRE_DATA = [
     "name": "[改弐] / ワカリジー （使用まで40秒：消費気5）",
     "text": "40秒間対象の攻撃が1.6倍 耐久が80%以上の時与えるダメージが1.2倍 耐久が100%の時、さらに1.2倍",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 20,
+      "multiplier": 1.2,
+      "target": "self",
+      "stackable": true,
+      "raw": "+20%(1.2倍) [耐久が80%以上] 浦添城・計略",
+      "condition": "耐久が80%以上"
+     },
      {
       "source": "計略",
       "stat": "atkPercent",
@@ -110259,6 +115120,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+40% 月山富田城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40% 月山富田城・特技"
     }
    ]
   },
@@ -110305,6 +115175,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "defPercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% 月山富田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
       "mode": "percent",
       "value": 40,
       "target": "self",
@@ -110583,6 +115462,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "self",
+     "stackable": false,
+     "raw": "+80 一乗谷城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "gapShorten",
      "mode": "percent",
      "value": 4,
@@ -110641,6 +115529,15 @@ window.SCRE_DATA = [
       "stackable": false,
       "raw": "+50%(1.5倍) [対空] 一乗谷城・特技",
       "condition": "飛行敵に対して"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80 一乗谷城・特技"
      },
      {
       "source": "特技",
@@ -111378,6 +116275,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+27% 根来城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 10,
+     "target": "self",
+     "stackable": false,
+     "raw": "+10 根来城・特技"
     }
    ]
   },
@@ -111419,6 +116325,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% 根来城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 10,
+      "target": "self",
+      "stackable": false,
+      "raw": "+10 根来城・特技"
      }
     ]
    }
@@ -111774,6 +116689,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+15% 丹波横山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 10,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+10% 丹波横山城・特技"
     }
    ]
   },
@@ -111809,6 +116733,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+15% 丹波横山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 10,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+10% 丹波横山城・特技"
      }
     ]
    }
@@ -112405,6 +117338,17 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 40,
+     "multiplier": 1.4,
+     "target": "self",
+     "stackable": true,
+     "raw": "+40%(1.4倍) [耐久が50%以下] 与板城・計略",
+     "condition": "耐久が50%以下"
+    },
+    {
+     "source": "計略",
      "stat": "atkPercent",
      "mode": "percent",
      "value": 60,
@@ -112481,6 +117425,17 @@ window.SCRE_DATA = [
     "name": "[改弐] / 越後与板打刃物・真打 （使用まで40秒：消費気5）",
     "text": "40秒間対象の攻撃が1.6倍 耐久が50%以下の時与えるダメージが1.4倍 耐久が25%以下の時、さらに1.4倍",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 40,
+      "multiplier": 1.4,
+      "target": "self",
+      "stackable": true,
+      "raw": "+40%(1.4倍) [耐久が50%以下] 与板城・計略",
+      "condition": "耐久が50%以下"
+     },
      {
       "source": "計略",
       "stat": "atkPercent",
@@ -112931,8 +117886,7 @@ window.SCRE_DATA = [
      "multiplier": 1.2,
      "target": "inRange",
      "stackable": true,
-     "raw": "+20%(1.2倍) [現在耐久が10000以上の射程内城娘の] 柳川城・特技",
-     "condition": "現在耐久が10000以上の射程内城娘の"
+     "raw": "+20%(1.2倍) 柳川城・特技"
     }
    ]
   },
@@ -112983,8 +117937,7 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "inRange",
       "stackable": true,
-      "raw": "+20%(1.2倍) [現在耐久が10000以上の射程内城娘の] 柳川城・特技",
-      "condition": "現在耐久が10000以上の射程内城娘の"
+      "raw": "+20%(1.2倍) 柳川城・特技"
      }
     ]
    }
@@ -113148,6 +118101,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+40% 石垣山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% 石垣山城・特技"
     }
    ]
   },
@@ -113199,6 +118161,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% 石垣山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 10,
+      "target": "self",
+      "stackable": false,
+      "raw": "+10% 石垣山城・特技"
      }
     ]
    },
@@ -113215,6 +118186,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40% 石垣山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% 石垣山城・特技"
      }
     ]
    }
@@ -113355,6 +118335,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+27% 今治城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 10,
+     "target": "self",
+     "stackable": false,
+     "raw": "+10 今治城・特技"
     }
    ]
   },
@@ -113406,6 +118395,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% 今治城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 10,
+      "target": "self",
+      "stackable": false,
+      "raw": "+10 今治城・特技"
      }
     ]
    }
@@ -114446,6 +119444,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+500%(6.0倍) 深志城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "self",
+     "stackable": false,
+     "raw": "+80 深志城・特技"
     }
    ]
   },
@@ -114481,6 +119488,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+250%(3.5倍) 深志城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20 深志城・特技"
      }
     ]
    },
@@ -114497,6 +119513,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+500%(6.0倍) 深志城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80 深志城・特技"
      }
     ]
    }
@@ -114731,6 +119756,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% 中村舘・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 10,
+     "target": "self",
+     "stackable": false,
+     "raw": "+10% 中村舘・特技"
     }
    ]
   },
@@ -114766,6 +119800,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 中村舘・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 10,
+      "target": "self",
+      "stackable": false,
+      "raw": "+10% 中村舘・特技"
      }
     ]
    }
@@ -115030,6 +120073,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% 四稜郭・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% 四稜郭・特技"
      }
     ]
    },
@@ -115175,6 +120227,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+100 安平古堡・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% 安平古堡・特技"
     }
    ]
   },
@@ -115242,6 +120303,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100 安平古堡・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 安平古堡・特技"
      }
     ]
    }
@@ -115733,6 +120803,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% 久留米城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15 久留米城・特技"
      }
     ]
    },
@@ -116166,6 +121245,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+15% 福島城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 35,
+     "target": "self",
+     "stackable": false,
+     "raw": "+35 福島城・特技"
     }
    ]
   },
@@ -116201,6 +121289,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+15% 福島城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35 福島城・特技"
      }
     ]
    }
@@ -116726,6 +121823,24 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50% 亀居城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 35,
+     "target": "self",
+     "stackable": false,
+     "raw": "+35% 亀居城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 150,
+     "target": "self",
+     "stackable": false,
+     "raw": "+150 亀居城・特技"
     }
    ]
   },
@@ -116777,6 +121892,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% 亀居城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40 亀居城・特技"
      }
     ]
    },
@@ -116793,6 +121917,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50% 亀居城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35% 亀居城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "self",
+      "stackable": false,
+      "raw": "+150 亀居城・特技"
      }
     ]
    }
@@ -117100,6 +122242,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+200%(3.0倍) コンウィ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% コンウィ城・特技"
      }
     ]
    },
@@ -118424,6 +123575,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+5% 鬼ノ城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 15,
+     "target": "self",
+     "stackable": false,
+     "raw": "+15 鬼ノ城・特技"
     }
    ]
   },
@@ -118459,6 +123619,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+5% 鬼ノ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15 鬼ノ城・特技"
      }
     ]
    }
@@ -118562,6 +123731,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20 邯鄲・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 15,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+15% 邯鄲・特技"
     }
    ]
   },
@@ -118597,6 +123775,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20 邯鄲・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+15% 邯鄲・特技"
      }
     ]
    }
@@ -118706,6 +123893,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+30 高崎城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% 高崎城・特技"
     }
    ]
   },
@@ -118747,6 +123943,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+17 高崎城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 15,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+15% 高崎城・特技"
      }
     ]
    },
@@ -118763,6 +123968,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30 高崎城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% 高崎城・特技"
      }
     ]
    }
@@ -119042,6 +124256,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50 尼崎城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20% 尼崎城・計略"
     }
    ],
    "cooldown": 50,
@@ -119086,6 +124309,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50 尼崎城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 尼崎城・計略"
      }
     ],
     "cooldown": 50,
@@ -119555,6 +124787,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% 白石城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20% 白石城・特技"
     }
    ]
   },
@@ -119580,6 +124821,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% 白石城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 17,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+17% 白石城・特技"
      }
     ]
    },
@@ -119596,6 +124846,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 白石城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 白石城・特技"
      }
     ]
    }
@@ -119735,6 +124994,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+17% 赤穂城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 15,
+     "target": "self",
+     "stackable": false,
+     "raw": "+15 赤穂城・特技"
     }
    ]
   },
@@ -119786,6 +125054,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% 赤穂城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15 赤穂城・特技"
      }
     ]
    }
@@ -120519,6 +125796,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 美作一ノ瀬城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15 美作一ノ瀬城・特技"
      }
     ]
    },
@@ -120544,6 +125830,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20 美作一ノ瀬城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 美作一ノ瀬城・特技"
      }
     ]
    },
@@ -120702,6 +125997,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20 千賀地氏城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 22,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+22% 千賀地氏城・特技"
     }
    ]
   },
@@ -120743,6 +126047,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20 千賀地氏城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 22,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+22% 千賀地氏城・特技"
      }
     ]
    }
@@ -120991,6 +126304,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+17% 椿尾上城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 17,
+     "target": "self",
+     "stackable": false,
+     "raw": "+17 椿尾上城・特技"
     }
    ]
   },
@@ -121016,6 +126338,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% 椿尾上城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 17,
+      "target": "self",
+      "stackable": false,
+      "raw": "+17 椿尾上城・特技"
      }
     ]
    }
@@ -122140,6 +127471,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+27% 神辺城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 10,
+     "target": "self",
+     "stackable": false,
+     "raw": "+10% 神辺城・特技"
     }
    ]
   },
@@ -122191,6 +127531,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% 神辺城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 10,
+      "target": "self",
+      "stackable": false,
+      "raw": "+10% 神辺城・特技"
      }
     ]
    }
@@ -123026,6 +128375,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 仙台城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% 仙台城・特技"
      }
     ]
    },
@@ -123198,6 +128556,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50% 駿府城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 10,
+     "target": "self",
+     "stackable": false,
+     "raw": "+10% 駿府城・特技"
     }
    ]
   },
@@ -123242,6 +128609,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% 駿府城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 22,
+      "target": "self",
+      "stackable": false,
+      "raw": "+22 駿府城・特技"
      }
     ]
    },
@@ -123274,6 +128650,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50% 駿府城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 10,
+      "target": "self",
+      "stackable": false,
+      "raw": "+10% 駿府城・特技"
      }
     ]
    }
@@ -123405,6 +128790,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+40 岐阜城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 15,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+15% 岐阜城・特技"
     }
    ]
   },
@@ -123446,6 +128840,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40 岐阜城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+15% 岐阜城・特技"
      }
     ]
    }
@@ -123885,6 +129288,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+120 高知城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20% 高知城・特技"
     }
    ]
   },
@@ -123944,6 +129356,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+120 高知城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 高知城・特技"
      }
     ]
    }
@@ -124366,6 +129787,15 @@ window.SCRE_DATA = [
      "source": "特技",
      "stat": "gapShorten",
      "mode": "percent",
+     "value": 17,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+17% 福山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
      "value": 70,
      "target": "inRange",
      "stackable": false,
@@ -124389,6 +129819,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% 福山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 17,
+      "target": "self",
+      "stackable": false,
+      "raw": "+17% 福山城・特技"
      }
     ]
    },
@@ -124405,6 +129844,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30% 福山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 17,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+17% 福山城・特技"
      },
      {
       "source": "特技",
@@ -124696,6 +130144,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% 多賀城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 17,
+      "target": "self",
+      "stackable": false,
+      "raw": "+17 多賀城・特技"
      }
     ]
    },
@@ -124712,6 +130169,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+25% 多賀城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "all",
+      "stackable": false,
+      "raw": "+20 多賀城・特技"
      }
     ]
    },
@@ -125020,6 +130486,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% 観音寺城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% 観音寺城・特技"
     }
    ]
   },
@@ -125045,6 +130520,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% 観音寺城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 10,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+10% 観音寺城・特技"
      }
     ]
    },
@@ -125061,6 +130545,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% 観音寺城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 観音寺城・特技"
      }
     ]
    },
@@ -125077,6 +130570,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 観音寺城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 観音寺城・特技"
      }
     ]
    }
@@ -125232,6 +130734,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+25% 萩城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% 萩城・特技"
     }
    ]
   },
@@ -125273,6 +130784,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 萩城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+15% 萩城・特技"
      }
     ]
    },
@@ -125289,6 +130809,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% 萩城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 萩城・特技"
      }
     ]
    }
@@ -125428,6 +130957,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+30 岡豊城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% 岡豊城・特技"
     }
    ]
   },
@@ -125488,6 +131026,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30 岡豊城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 岡豊城・特技"
      }
     ]
    }
@@ -126289,6 +131836,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% 高岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 17,
+      "target": "self",
+      "stackable": false,
+      "raw": "+17 高岡城・特技"
      }
     ]
    },
@@ -126305,6 +131861,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% 高岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20 高岡城・特技"
      }
     ]
    },
@@ -126912,6 +132477,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+27% 有岡城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 15,
+     "target": "self",
+     "stackable": false,
+     "raw": "+15% 有岡城・特技"
     }
    ]
   },
@@ -126953,6 +132527,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% 有岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% 有岡城・特技"
      }
     ]
    }
@@ -127204,6 +132787,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+35% 備中松山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% 備中松山城・特技"
     }
    ]
   },
@@ -127245,6 +132837,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 備中松山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15 備中松山城・特技"
      }
     ]
    },
@@ -127261,6 +132862,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% 備中松山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% 備中松山城・特技"
      }
     ]
    }
@@ -127381,6 +132991,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% 岡城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% 岡城・特技"
     }
    ]
   },
@@ -127417,6 +133036,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
       "mode": "percent",
       "value": 20,
       "target": "self",
@@ -128476,8 +134104,26 @@ window.SCRE_DATA = [
      "multiplier": 2.5,
      "target": "self",
      "stackable": true,
-     "raw": "+150%(2.5倍) [自身の攻撃と防御が50%上昇被ダメージを50%軽減(効果重複)自身の耐久が最大] 淀城・特技",
-     "condition": "自身の攻撃と防御が50%上昇被ダメージを50%軽減(効果重複)自身の耐久が最大"
+     "raw": "+150%(2.5倍) [自身の耐久が最大] 淀城・特技",
+     "condition": "自身の耐久が最大"
+    },
+    {
+     "source": "特技",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% 淀城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50% 淀城・特技"
     }
    ]
   },
@@ -128529,6 +134175,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+15% 淀城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 32,
+      "target": "self",
+      "stackable": false,
+      "raw": "+32% 淀城・特技"
      }
     ]
    },
@@ -128545,8 +134200,26 @@ window.SCRE_DATA = [
       "multiplier": 2.5,
       "target": "self",
       "stackable": true,
-      "raw": "+150%(2.5倍) [自身の攻撃と防御が50%上昇被ダメージを50%軽減(効果重複)自身の耐久が最大] 淀城・特技",
-      "condition": "自身の攻撃と防御が50%上昇被ダメージを50%軽減(効果重複)自身の耐久が最大"
+      "raw": "+150%(2.5倍) [自身の耐久が最大] 淀城・特技",
+      "condition": "自身の耐久が最大"
+     },
+     {
+      "source": "特技",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% 淀城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50% 淀城・特技"
      }
     ]
    }
@@ -128703,8 +134376,8 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "inRange",
      "stackable": true,
-     "raw": "+30%(1.3倍) [自身の伏兵が敵に狙われない最大耐久25000以上の射程内城娘の] 井伊谷城・特技",
-     "condition": "自身の伏兵が敵に狙われない最大耐久25000以上の射程内城娘の"
+     "raw": "+30%(1.3倍) [最大耐久25000以上の射程内城娘の] 井伊谷城・特技",
+     "condition": "最大耐久25000以上の射程内城娘の"
     }
    ]
   },
@@ -128756,6 +134429,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35 井伊谷城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+15% 井伊谷城・特技"
      }
     ]
    },
@@ -128781,8 +134463,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "inRange",
       "stackable": true,
-      "raw": "+30%(1.3倍) [自身の伏兵が敵に狙われない最大耐久25000以上の射程内城娘の] 井伊谷城・特技",
-      "condition": "自身の伏兵が敵に狙われない最大耐久25000以上の射程内城娘の"
+      "raw": "+30%(1.3倍) [最大耐久25000以上の射程内城娘の] 井伊谷城・特技",
+      "condition": "最大耐久25000以上の射程内城娘の"
      }
     ]
    }
@@ -129053,6 +134735,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 120,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+120 津山城・計略"
+    },
+    {
+     "source": "計略",
      "stat": "gapShorten",
      "mode": "percent",
      "value": 50,
@@ -129119,6 +134810,15 @@ window.SCRE_DATA = [
     "name": "[改弐] / 篇笠の釣鐘 （使用まで30秒：消費気5）",
     "text": "30秒間対象の射程120上昇、攻撃後の隙50%短縮 攻撃した敵の攻撃と防御が 10秒間10%ずつ低下(最大50%)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 120,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+120 津山城・計略"
+     },
      {
       "source": "計略",
       "stat": "gapShorten",
@@ -131102,6 +136802,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40%(1.4倍) 津城・計略"
+    },
+    {
+     "source": "計略",
      "stat": "defPercent",
      "mode": "percent",
      "value": 40,
@@ -131144,6 +136853,15 @@ window.SCRE_DATA = [
     "name": "[無印] / 伊勢音頭 （使用まで50秒：消費気7）",
     "text": "40秒間対象の攻撃と防御が1.4倍",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40%(1.4倍) 津城・計略"
+     },
      {
       "source": "計略",
       "stat": "defPercent",
@@ -132517,6 +138235,24 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+4% 長谷堂城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 5,
+     "target": "self",
+     "stackable": false,
+     "raw": "+5% 長谷堂城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25 長谷堂城・特技"
     }
    ]
   },
@@ -132542,6 +138278,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+4% 長谷堂城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20 長谷堂城・特技"
      }
     ]
    },
@@ -132558,6 +138303,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+4% 長谷堂城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 5,
+      "target": "self",
+      "stackable": false,
+      "raw": "+5% 長谷堂城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25 長谷堂城・特技"
      }
     ]
    }
@@ -132714,6 +138477,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+17% 秋田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 10,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+10% 秋田城・特技"
      }
     ]
    },
@@ -132730,6 +138502,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+10% 秋田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 20,
+      "target": "all",
+      "stackable": false,
+      "raw": "+20% 秋田城・特技"
      }
     ]
    },
@@ -133158,6 +138939,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+70% マルクスブルク城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "recoveryFlat",
+     "mode": "flat",
+     "value": 1000,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+1000 マルクスブルク城・計略"
     }
    ],
    "cooldown": 45,
@@ -133228,6 +139018,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50% マルクスブルク城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 マルクスブルク城・計略"
      }
     ],
     "cooldown": 45,
@@ -133246,6 +139045,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+70% マルクスブルク城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 1000,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+1000 マルクスブルク城・計略"
      }
     ],
     "cooldown": 45,
@@ -133959,6 +139767,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% 百地丹波城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20% 百地丹波城・特技"
     }
    ]
   },
@@ -134008,6 +139825,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 20,
       "target": "self",
+      "stackable": false,
+      "raw": "+20% 百地丹波城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
       "stackable": false,
       "raw": "+20% 百地丹波城・特技"
      }
@@ -134308,6 +140134,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50 甘崎城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "gapShorten",
      "mode": "percent",
      "value": 25,
@@ -134329,6 +140164,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+100 甘崎城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defIgnore",
+     "mode": "flag",
+     "value": 1,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+1 甘崎城・計略"
     }
    ],
    "cooldown": 40,
@@ -134361,6 +140205,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40% 甘崎城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 甘崎城・特技"
      },
      {
       "source": "特技",
@@ -134406,6 +140259,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100 甘崎城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+1 甘崎城・計略"
      }
     ],
     "cooldown": 40,
@@ -134649,6 +140511,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+40% 龍岡城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% 龍岡城・特技"
     }
    ]
   },
@@ -134690,6 +140561,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% 龍岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 龍岡城・特技"
      }
     ]
    },
@@ -134706,6 +140586,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+40% 龍岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 龍岡城・特技"
      }
     ]
    }
@@ -135888,6 +141777,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+17% ［夏］富山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 17,
+     "target": "self",
+     "stackable": false,
+     "raw": "+17% ［夏］富山城・特技"
     }
    ]
   },
@@ -135924,6 +141822,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 17,
+      "target": "self",
+      "stackable": false,
+      "raw": "+17% ［夏］富山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 17,
       "target": "self",
@@ -137210,6 +143117,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20 ドーヴァー城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 17,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+17% ドーヴァー城・特技"
      }
     ]
    },
@@ -137520,6 +143436,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% 岸和田城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "hpPercent",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% 岸和田城・特技"
     }
    ]
   },
@@ -137555,6 +143480,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% 岸和田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "hpPercent",
+      "mode": "percent",
+      "value": 17,
+      "target": "self",
+      "stackable": false,
+      "raw": "+17% 岸和田城・特技"
      }
     ]
    },
@@ -137571,6 +143505,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 岸和田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "hpPercent",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 岸和田城・特技"
      }
     ]
    }
@@ -138124,6 +144067,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% ［正月］宇都宮城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 35,
+     "target": "self",
+     "stackable": false,
+     "raw": "+35 ［正月］宇都宮城・特技"
     }
    ]
   },
@@ -138149,6 +144101,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% ［正月］宇都宮城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 ［正月］宇都宮城・特技"
      }
     ]
    },
@@ -138165,6 +144126,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% ［正月］宇都宮城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35 ［正月］宇都宮城・特技"
      }
     ]
    }
@@ -138454,6 +144424,24 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+25% 魚津城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% 魚津城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50 魚津城・計略"
     }
    ],
    "cooldown": 50,
@@ -138517,6 +144505,24 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% 魚津城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 魚津城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50 魚津城・計略"
      }
     ],
     "cooldown": 50,
@@ -138624,6 +144630,15 @@ window.SCRE_DATA = [
      "stackable": true,
      "raw": "+25% [自身の範囲攻撃] ［バレンタイン］大洲城・特技",
      "condition": "自身の範囲攻撃"
+    },
+    {
+     "source": "特技",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% ［バレンタイン］大洲城・特技"
     }
    ]
   },
@@ -138667,6 +144682,15 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+25% [自身の範囲攻撃] ［バレンタイン］大洲城・特技",
       "condition": "自身の範囲攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［バレンタイン］大洲城・特技"
      }
     ]
    }
@@ -140059,6 +146083,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% 湯築城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "recoveryFlat",
+     "mode": "flat",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30 湯築城・特技"
     }
    ]
   },
@@ -140110,6 +146143,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 湯築城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 湯築城・特技"
      }
     ]
    }
@@ -140537,6 +146579,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+15% ［花嫁衣装］山形城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% ［花嫁衣装］山形城・特技"
     }
    ]
   },
@@ -140578,6 +146629,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+15% ［花嫁衣装］山形城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% ［花嫁衣装］山形城・特技"
      }
     ]
    }
@@ -140734,6 +146794,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% ［花嫁衣装］アイリーン・ドナン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ［花嫁衣装］アイリーン・ドナン城・特技"
      }
     ]
    },
@@ -141097,6 +147166,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［夏］柳川城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［夏］柳川城・特技"
      }
     ]
    },
@@ -142168,6 +148246,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% 大津城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% 大津城・特技"
     }
    ]
   },
@@ -142193,6 +148280,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 大津城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% 大津城・特技"
      }
     ]
    },
@@ -142209,6 +148305,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 大津城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 大津城・特技"
      }
     ]
    }
@@ -142464,6 +148569,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% ［ハロウィン］平遥古城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% ［ハロウィン］平遥古城・特技"
     }
    ]
   },
@@ -142499,6 +148613,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［ハロウィン］平遥古城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% ［ハロウィン］平遥古城・特技"
      }
     ]
    },
@@ -142515,6 +148638,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［ハロウィン］平遥古城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［ハロウィン］平遥古城・特技"
      }
     ]
    }
@@ -142636,6 +148768,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20 リープ城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20% リープ城・特技"
     }
    ]
   },
@@ -142692,6 +148833,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20 リープ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% リープ城・特技"
      }
     ]
    }
@@ -142842,6 +148992,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+200%(3.0倍) 大野城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100 大野城・計略"
     }
    ],
    "cooldown": 50,
@@ -142912,6 +149071,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+140%(2.4倍) 大野城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50 大野城・計略"
      }
     ],
     "cooldown": 50,
@@ -142930,6 +149098,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+200%(3.0倍) 大野城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 大野城・計略"
      }
     ],
     "cooldown": 50,
@@ -143027,6 +149204,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+15% ［聖夜］四稜郭・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 70,
+     "target": "self",
+     "stackable": false,
+     "raw": "+70 ［聖夜］四稜郭・特技"
     }
    ]
   },
@@ -143052,6 +149238,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+10% ［聖夜］四稜郭・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［聖夜］四稜郭・特技"
      }
     ]
    },
@@ -143068,6 +149263,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+15% ［聖夜］四稜郭・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70 ［聖夜］四稜郭・特技"
      }
     ]
    }
@@ -143566,8 +149770,8 @@ window.SCRE_DATA = [
      "multiplier": 3.0,
      "target": "self",
      "stackable": true,
-     "raw": "+200%(3.0倍) [防御で敵3体に攻撃する伏兵を配置伏兵の耐久が30%以下] 飯沼城・計略",
-     "condition": "防御で敵3体に攻撃する伏兵を配置伏兵の耐久が30%以下"
+     "raw": "+200%(3.0倍) [伏兵の耐久が30%以下] 飯沼城・計略",
+     "condition": "伏兵の耐久が30%以下"
     }
    ],
    "cooldown": 40,
@@ -143646,8 +149850,8 @@ window.SCRE_DATA = [
       "multiplier": 3.0,
       "target": "self",
       "stackable": true,
-      "raw": "+200%(3.0倍) [防御で敵3体に攻撃する伏兵を配置伏兵の耐久が30%以下] 飯沼城・計略",
-      "condition": "防御で敵3体に攻撃する伏兵を配置伏兵の耐久が30%以下"
+      "raw": "+200%(3.0倍) [伏兵の耐久が30%以下] 飯沼城・計略",
+      "condition": "伏兵の耐久が30%以下"
      }
     ],
     "cooldown": 40,
@@ -143779,6 +149983,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% ［バレンタイン］与板城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% ［バレンタイン］与板城・特技"
      }
     ]
    },
@@ -143910,6 +150123,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+15% 小丸山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% 小丸山城・特技"
     }
    ]
   },
@@ -143935,6 +150157,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+17% 小丸山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 10,
+      "target": "self",
+      "stackable": false,
+      "raw": "+10% 小丸山城・特技"
      }
     ]
    },
@@ -143951,6 +150182,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+15% 小丸山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 小丸山城・特技"
      }
     ]
    }
@@ -144399,6 +150639,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% ［学園］苗木城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% ［学園］苗木城・特技"
     }
    ]
   },
@@ -144424,6 +150673,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+15% ［学園］苗木城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% ［学園］苗木城・特技"
      }
     ]
    },
@@ -144440,6 +150698,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% ［学園］苗木城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［学園］苗木城・特技"
      }
     ]
    }
@@ -144726,6 +150993,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% ロケト城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% ロケト城・特技"
     }
    ]
   },
@@ -144756,6 +151032,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% ロケト城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% ロケト城・特技"
      }
     ]
    },
@@ -144772,6 +151057,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ロケト城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% ロケト城・特技"
      }
     ]
    }
@@ -144891,6 +151185,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+15% ［花嫁衣装］鹿児島城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30 ［花嫁衣装］鹿児島城・特技"
     }
    ]
   },
@@ -144926,6 +151229,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+15% ［花嫁衣装］鹿児島城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 ［花嫁衣装］鹿児島城・特技"
      }
     ]
    }
@@ -145989,6 +152301,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+17% ［聖夜］坂戸城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 17,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+17% ［聖夜］坂戸城・特技"
     }
    ]
   },
@@ -146013,6 +152334,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+100 ［聖夜］坂戸城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defIgnore",
+     "mode": "flag",
+     "value": 1,
+     "target": "self",
+     "stackable": false,
+     "raw": "+1 ［聖夜］坂戸城・計略"
     }
    ],
    "cooldown": 50,
@@ -146031,6 +152361,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 17,
       "target": "self",
+      "stackable": false,
+      "raw": "+17% ［聖夜］坂戸城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 17,
+      "target": "inRange",
       "stackable": false,
       "raw": "+17% ［聖夜］坂戸城・特技"
      }
@@ -146060,6 +152399,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100 ［聖夜］坂戸城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 ［聖夜］坂戸城・計略"
      }
     ],
     "cooldown": 60,
@@ -146087,6 +152435,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+100 ［聖夜］坂戸城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 ［聖夜］坂戸城・計略"
      }
     ],
     "cooldown": 50,
@@ -146200,6 +152557,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50 ［正月］大宝寺城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% ［正月］大宝寺城・特技"
     }
    ]
   },
@@ -146225,6 +152591,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% ［正月］大宝寺城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40 ［正月］大宝寺城・特技"
      }
     ]
    },
@@ -146250,6 +152625,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50 ［正月］大宝寺城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［正月］大宝寺城・特技"
      }
     ]
    }
@@ -146363,6 +152747,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% フリント城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20% フリント城・特技"
     }
    ]
   },
@@ -146403,6 +152796,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% フリント城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+15% フリント城・特技"
      }
     ]
    },
@@ -146417,6 +152819,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 20,
       "target": "self",
+      "stackable": false,
+      "raw": "+20% フリント城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
       "stackable": false,
       "raw": "+20% フリント城・特技"
      }
@@ -146547,6 +152958,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% ［バレンタイン］盛岡城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% ［バレンタイン］盛岡城・特技"
     }
    ]
   },
@@ -146582,6 +153002,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［バレンタイン］盛岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% ［バレンタイン］盛岡城・特技"
      }
     ]
    },
@@ -146598,6 +153027,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［バレンタイン］盛岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% ［バレンタイン］盛岡城・特技"
      }
     ]
    }
@@ -146940,6 +153378,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20 越前大野城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 4,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+4% 越前大野城・特技"
      }
     ]
    },
@@ -147069,6 +153516,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+27% ［学園］鳥羽城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 15,
+     "target": "self",
+     "stackable": false,
+     "raw": "+15% ［学園］鳥羽城・特技"
     }
    ]
   },
@@ -147094,6 +153550,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［学園］鳥羽城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 10,
+      "target": "self",
+      "stackable": false,
+      "raw": "+10% ［学園］鳥羽城・特技"
      }
     ]
    },
@@ -147110,6 +153575,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+27% ［学園］鳥羽城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% ［学園］鳥羽城・特技"
      }
     ]
    }
@@ -147608,6 +154082,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% ［夏］唐津城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 15,
+     "target": "self",
+     "stackable": false,
+     "raw": "+15% ［夏］唐津城・特技"
     }
    ]
   },
@@ -147668,6 +154151,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［夏］唐津城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% ［夏］唐津城・特技"
      }
     ]
    }
@@ -147800,6 +154292,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+15% ［肝試し］笹原城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50 ［肝試し］笹原城・特技"
     }
    ]
   },
@@ -147825,6 +154326,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+15% ［肝試し］笹原城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［肝試し］笹原城・特技"
      }
     ]
    }
@@ -149804,6 +156314,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+25% ［花嫁衣装］千代城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "all",
+     "stackable": false,
+     "raw": "+25% ［花嫁衣装］千代城・特技"
     }
    ]
   },
@@ -149839,6 +156358,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+20% ［花嫁衣装］千代城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "all",
+      "stackable": false,
+      "raw": "+20% ［花嫁衣装］千代城・特技"
      }
     ]
    },
@@ -149850,6 +156378,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "defPercent",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% ［花嫁衣装］千代城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
       "mode": "percent",
       "value": 25,
       "target": "all",
@@ -150750,6 +157287,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% 八代城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% 八代城・特技"
     }
    ]
   },
@@ -150785,6 +157331,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "defPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 八代城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
       "mode": "percent",
       "value": 20,
       "target": "self",
@@ -151131,6 +157686,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+15% 米子城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 米子城・特技"
      }
     ]
    },
@@ -151425,6 +157989,15 @@ window.SCRE_DATA = [
      "stackable": true,
      "raw": "+30%(1.3倍) [範囲攻撃] ジェファーソン砦・特技",
      "condition": "範囲攻撃"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 15,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+15 ジェファーソン砦・特技"
     }
    ]
   },
@@ -151493,6 +158066,15 @@ window.SCRE_DATA = [
       "stackable": true,
       "raw": "+30%(1.3倍) [範囲攻撃] ジェファーソン砦・特技",
       "condition": "範囲攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 15,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+15 ジェファーソン砦・特技"
      }
     ]
    }
@@ -151716,6 +158298,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": true,
      "raw": "+20%(1.2倍) ［正月］鳥取城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 30,
+     "target": "all",
+     "stackable": false,
+     "raw": "+30% ［正月］鳥取城・特技"
     }
    ]
   },
@@ -151758,6 +158349,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": true,
       "raw": "+20%(1.2倍) ［正月］鳥取城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30% ［正月］鳥取城・特技"
      }
     ]
    }
@@ -152659,8 +159259,8 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "self",
      "stackable": true,
-     "raw": "+30%(1.3倍) [耐久が90%以上の場合敵] ［花嫁衣装］馬場城・特技",
-     "condition": "耐久が90%以上の場合敵"
+     "raw": "+30%(1.3倍) [敵] ［花嫁衣装］馬場城・特技",
+     "condition": "敵"
     }
    ]
   },
@@ -152686,8 +159286,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "inRange",
       "stackable": true,
-      "raw": "+30%(1.3倍) [耐久が90%以上の場合敵] ［花嫁衣装］馬場城・特技",
-      "condition": "耐久が90%以上の場合敵"
+      "raw": "+30%(1.3倍) [敵] ［花嫁衣装］馬場城・特技",
+      "condition": "敵"
      }
     ]
    },
@@ -152704,8 +159304,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [耐久が90%以上の場合敵] ［花嫁衣装］馬場城・特技",
-      "condition": "耐久が90%以上の場合敵"
+      "raw": "+30%(1.3倍) [敵] ［花嫁衣装］馬場城・特技",
+      "condition": "敵"
      }
     ]
    }
@@ -153707,6 +160307,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+20% 長岡京・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% 長岡京・特技"
     }
    ]
   },
@@ -153732,6 +160341,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+15% 長岡京・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 長岡京・特技"
      }
     ]
    },
@@ -153757,6 +160375,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20% 長岡京・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 長岡京・特技"
      }
     ]
    }
@@ -153903,6 +160530,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+30% ［正月］飯沼城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 10,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+10% ［正月］飯沼城・計略"
     }
    ],
    "cooldown": 40,
@@ -153965,6 +160601,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30% ［正月］飯沼城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 10,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+10% ［正月］飯沼城・計略"
      }
     ],
     "cooldown": 40,
@@ -154669,6 +161314,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+7% ［ハロウィン］城塞都市ルシュノフ・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40 ［ハロウィン］城塞都市ルシュノフ・特技"
     }
    ]
   },
@@ -154694,6 +161348,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+6% ［ハロウィン］城塞都市ルシュノフ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30 ［ハロウィン］城塞都市ルシュノフ・特技"
      }
     ]
    },
@@ -154710,6 +161373,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+7% ［ハロウィン］城塞都市ルシュノフ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40 ［ハロウィン］城塞都市ルシュノフ・特技"
      }
     ]
    }
@@ -155488,8 +162160,25 @@ window.SCRE_DATA = [
      "multiplier": 1.2,
      "target": "all",
      "stackable": true,
-     "raw": "+20%(1.2倍) [自身の攻撃と攻撃速度が40%上昇射程内の城娘と伏兵の射程が50上昇全沖縄城娘の] 首里城・特技",
-     "condition": "自身の攻撃と攻撃速度が40%上昇射程内の城娘と伏兵の射程が50上昇全沖縄城娘の"
+     "raw": "+20%(1.2倍) 首里城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40% 首里城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50 首里城・特技"
     }
    ]
   },
@@ -155557,8 +162246,25 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "all",
       "stackable": true,
-      "raw": "+20%(1.2倍) [自身の攻撃と攻撃速度が40%上昇射程内の城娘と伏兵の射程が50上昇全沖縄城娘の] 首里城・特技",
-      "condition": "自身の攻撃と攻撃速度が40%上昇射程内の城娘と伏兵の射程が50上昇全沖縄城娘の"
+      "raw": "+20%(1.2倍) 首里城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% 首里城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 首里城・特技"
      }
     ]
    }
@@ -156341,6 +163047,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+150%(2.5倍) 吉野ヶ里・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 吉野ヶ里・計略"
      }
     ],
     "cooldown": 30,
@@ -156463,6 +163178,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+120 前田金沢城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20% 前田金沢城・特技"
     }
    ]
   },
@@ -156498,6 +163222,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+120 前田金沢城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 前田金沢城・特技"
      }
     ]
    }
@@ -156608,6 +163341,24 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+40% 竹田城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40% 竹田城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40 竹田城・特技"
     }
    ]
   },
@@ -156633,6 +163384,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 竹田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20 竹田城・特技"
      }
     ]
    },
@@ -156665,6 +163425,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40% 竹田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% 竹田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40 竹田城・特技"
      }
     ]
    }
@@ -156832,6 +163610,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% 躑躅ヶ崎館・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80 躑躅ヶ崎館・特技"
      },
      {
       "source": "特技",
@@ -158134,6 +164921,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% マルボルク城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defIgnore",
+      "mode": "flag",
+      "value": 1,
+      "target": "self",
+      "stackable": false,
+      "raw": "+1 マルボルク城・特技"
      }
     ]
    },
@@ -158432,6 +165228,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+25% 上田城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "all",
+     "stackable": false,
+     "raw": "+25% 上田城・特技"
     }
    ]
   },
@@ -158457,6 +165262,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 上田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 上田城・特技"
      }
     ]
    },
@@ -158468,6 +165282,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% 上田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
       "mode": "percent",
       "value": 25,
       "target": "all",
@@ -158610,6 +165433,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 180,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+180 聚楽城・計略"
+    },
+    {
+     "source": "計略",
      "stat": "enemyAtkDown",
      "mode": "percent",
      "value": 40,
@@ -158704,6 +165536,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50% 聚楽城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 180,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+180 聚楽城・計略"
      },
      {
       "source": "計略",
@@ -159884,6 +166725,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% カステル・デル・モンテ・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% カステル・デル・モンテ・特技"
     }
    ]
   },
@@ -159925,6 +166775,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% カステル・デル・モンテ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% カステル・デル・モンテ・特技"
      }
     ]
    }
@@ -160088,6 +166947,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 20,
       "target": "self",
+      "stackable": false,
+      "raw": "+20% 松江城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
       "stackable": false,
       "raw": "+20% 松江城・特技"
      }
@@ -160281,6 +167149,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+120 ［夏］犬山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% ［夏］犬山城・特技"
     }
    ]
   },
@@ -160324,6 +167201,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+80 ［夏］犬山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% ［夏］犬山城・特技"
      }
     ]
    },
@@ -160349,6 +167235,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+120 ［夏］犬山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% ［夏］犬山城・特技"
      }
     ]
    }
@@ -160724,8 +167619,8 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [射程が80上昇優先攻撃対象] 高天神城・特技",
-     "condition": "射程が80上昇優先攻撃対象"
+     "raw": "+50%(1.5倍) [優先攻撃対象] 高天神城・特技",
+     "condition": "優先攻撃対象"
     }
    ]
   },
@@ -160750,8 +167645,7 @@ window.SCRE_DATA = [
      "multiplier": 1.7,
      "target": "self",
      "stackable": true,
-     "raw": "+70%(1.7倍) [耐久が50%以上の敵] 高天神城・計略",
-     "condition": "耐久が50%以上の敵"
+     "raw": "+70%(1.7倍) 高天神城・計略"
     }
    ],
    "cooldown": 45,
@@ -160784,8 +167678,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [射程が80上昇優先攻撃対象] 高天神城・特技",
-      "condition": "射程が80上昇優先攻撃対象"
+      "raw": "+50%(1.5倍) [優先攻撃対象] 高天神城・特技",
+      "condition": "優先攻撃対象"
      }
     ]
    }
@@ -160813,8 +167707,8 @@ window.SCRE_DATA = [
       "multiplier": 1.4,
       "target": "self",
       "stackable": true,
-      "raw": "+40%(1.4倍) [耐久が50%以上の敵] 高天神城・計略",
-      "condition": "耐久が50%以上の敵"
+      "raw": "+40%(1.4倍) [50%以上の敵] 高天神城・計略",
+      "condition": "50%以上の敵"
      }
     ],
     "cooldown": 45,
@@ -160842,8 +167736,7 @@ window.SCRE_DATA = [
       "multiplier": 1.7,
       "target": "self",
       "stackable": true,
-      "raw": "+70%(1.7倍) [耐久が50%以上の敵] 高天神城・計略",
-      "condition": "耐久が50%以上の敵"
+      "raw": "+70%(1.7倍) 高天神城・計略"
      }
     ],
     "cooldown": 45,
@@ -161470,6 +168363,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% 銀杏城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% 銀杏城・特技"
      }
     ]
    },
@@ -161486,6 +168388,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30% 銀杏城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 銀杏城・特技"
      }
     ]
    },
@@ -161614,6 +168525,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% 高遠城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% 高遠城・特技"
     }
    ]
   },
@@ -161639,6 +168559,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 高遠城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 高遠城・特技"
      }
     ]
    },
@@ -161650,6 +168579,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "defPercent",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 高遠城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
       "mode": "percent",
       "value": 25,
       "target": "self",
@@ -161774,6 +168712,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% 長篠城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30% 長篠城・特技"
     }
    ]
   },
@@ -161799,6 +168746,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 長篠城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 長篠城・特技"
      }
     ]
    },
@@ -161810,6 +168766,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% 長篠城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 30,
       "target": "self",
@@ -162072,6 +169037,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 柳之御所・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
       "mode": "percent",
       "value": 20,
       "target": "inRange",
@@ -162513,6 +169487,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50% クロンボー城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% クロンボー城・計略"
     }
    ],
    "cooldown": 50,
@@ -162567,6 +169550,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50% クロンボー城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% クロンボー城・計略"
      }
     ],
     "cooldown": 50,
@@ -162671,6 +169663,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% 小倉城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% 小倉城・特技"
     }
    ]
   },
@@ -162696,6 +169697,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 小倉城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 小倉城・特技"
      }
     ]
    },
@@ -162712,6 +169722,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 小倉城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 小倉城・特技"
      }
     ]
    }
@@ -162962,6 +169981,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% 長門指月城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% 長門指月城・特技"
     }
    ]
   },
@@ -162977,6 +170005,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50%(1.5倍) 長門指月城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50 長門指月城・計略"
     }
    ],
    "cooldown": 50,
@@ -162997,6 +170034,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 長門指月城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15% 長門指月城・特技"
      }
     ]
    },
@@ -163013,6 +170059,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 長門指月城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 長門指月城・特技"
      }
     ]
    }
@@ -163031,6 +170086,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) 長門指月城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50 長門指月城・計略"
      }
     ],
     "cooldown": 50,
@@ -163187,6 +170251,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% リーズ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40 リーズ城・特技"
      }
     ]
    },
@@ -163203,6 +170276,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20% リーズ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40 リーズ城・特技"
      }
     ]
    },
@@ -163741,6 +170823,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+25% フォンテーヌブロー宮殿・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% フォンテーヌブロー宮殿・特技"
     }
    ]
   },
@@ -163776,6 +170867,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% フォンテーヌブロー宮殿・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% フォンテーヌブロー宮殿・特技"
      }
     ]
    }
@@ -163919,6 +171019,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20 水府城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 6,
+      "target": "self",
+      "stackable": false,
+      "raw": "+6 水府城・特技"
      }
     ]
    },
@@ -164062,7 +171171,17 @@ window.SCRE_DATA = [
    "stage": "改弐",
    "name": "[改弐] / ロマン主義の宮殿",
    "text": "自伏兵が敵の攻撃対象にならない。射程内の城娘と 伏兵の射程50上昇。【大魔法】30秒間全城娘と蔵が 敵から狙われなくなる(足止め無効化)",
-   "effects": []
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50 ペーナ宮殿・特技"
+    }
+   ]
   },
   "strategy": {
    "name": "[改弐] / 世界創造の象徴トリトン （使用まで50秒：消費気3：赤青水配置）",
@@ -164083,7 +171202,17 @@ window.SCRE_DATA = [
     "stage": "改弐",
     "name": "[改弐] / ロマン主義の宮殿",
     "text": "自伏兵が敵の攻撃対象にならない。射程内の城娘と 伏兵の射程50上昇。【大魔法】30秒間全城娘と蔵が 敵から狙われなくなる(足止め無効化)",
-    "effects": []
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50 ペーナ宮殿・特技"
+     }
+    ]
    }
   ],
   "allStrategies": [
@@ -164403,6 +171532,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 洛陽城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40 洛陽城・特技"
      }
     ]
    },
@@ -164703,6 +171841,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特技",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40%(1.4倍) 城塞都市アビラ・特技"
+    },
+    {
+     "source": "特技",
      "stat": "defPercent",
      "mode": "percent",
      "value": 40,
@@ -164718,12 +171865,30 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100%(2.0倍) 城塞都市アビラ・計略"
+    },
+    {
+     "source": "計略",
      "stat": "defPercent",
      "mode": "percent",
      "value": 100,
      "target": "inRange",
      "stackable": false,
      "raw": "+100%(2.0倍) 城塞都市アビラ・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100 城塞都市アビラ・計略"
     },
     {
      "source": "計略",
@@ -164753,6 +171918,15 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40%(1.4倍) 城塞都市アビラ・特技"
+     },
+     {
+      "source": "特技",
       "stat": "defPercent",
       "mode": "percent",
       "value": 40,
@@ -164769,6 +171943,15 @@ window.SCRE_DATA = [
     "name": "[無印] / 剛力無双 （使用まで60秒：消費気7）",
     "text": "30秒間対象の攻撃と防御が1.7倍 (自分のみが対象)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "self",
+      "stackable": false,
+      "raw": "+70%(1.7倍) 城塞都市アビラ・計略"
+     },
      {
       "source": "計略",
       "stat": "defPercent",
@@ -164789,12 +171972,30 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70%(1.7倍) 城塞都市アビラ・計略"
+     },
+     {
+      "source": "計略",
       "stat": "defPercent",
       "mode": "percent",
       "value": 70,
       "target": "inRange",
       "stackable": false,
       "raw": "+70%(1.7倍) 城塞都市アビラ・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50 城塞都市アビラ・計略"
      }
     ],
     "cooldown": 60,
@@ -164807,12 +172008,30 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100%(2.0倍) 城塞都市アビラ・計略"
+     },
+     {
+      "source": "計略",
       "stat": "defPercent",
       "mode": "percent",
       "value": 100,
       "target": "inRange",
       "stackable": false,
       "raw": "+100%(2.0倍) 城塞都市アビラ・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 城塞都市アビラ・計略"
      },
      {
       "source": "計略",
@@ -164930,6 +172149,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50%(1.5倍) 松代城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% 松代城・計略"
     }
    ],
    "cooldown": 70,
@@ -164964,6 +172192,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) 松代城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 松代城・計略"
      }
     ],
     "cooldown": 70,
@@ -165180,6 +172417,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+6% 勝竜寺城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 6,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+6% 勝竜寺城・特技"
     }
    ]
   },
@@ -165205,6 +172451,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+5% 勝竜寺城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 5,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+5% 勝竜寺城・特技"
      }
     ]
    },
@@ -165216,6 +172471,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 6,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+6% 勝竜寺城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 6,
       "target": "inRange",
@@ -165334,6 +172598,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+100%(2.0倍) ネスヴィジ城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealt",
+     "mode": "percent",
+     "value": 25,
+     "target": "all",
+     "stackable": false,
+     "raw": "+25% ネスヴィジ城・特技"
     }
    ]
   },
@@ -165385,6 +172658,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100%(2.0倍) ネスヴィジ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% ネスヴィジ城・特技"
      }
     ]
    }
@@ -165531,6 +172813,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+140 府内城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% 府内城・計略"
     }
    ],
    "cooldown": 50,
@@ -165594,6 +172885,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+140 府内城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 府内城・計略"
      }
     ],
     "cooldown": 50,
@@ -166118,6 +173418,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20 金華山城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "enemyDefDown",
      "mode": "percent",
      "value": 20,
@@ -166139,6 +173448,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+100 金華山城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% 金華山城・計略"
     }
    ],
    "cooldown": 50,
@@ -166159,6 +173477,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 金華山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20 金華山城・特技"
      }
     ]
    },
@@ -166175,6 +173502,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 金華山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20 金華山城・特技"
      },
      {
       "source": "特技",
@@ -166202,6 +173538,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100 金華山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% 金華山城・計略"
      }
     ],
     "cooldown": 50,
@@ -166604,6 +173949,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% 十河城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% 十河城・特技"
     }
    ]
   },
@@ -166664,6 +174018,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 十河城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 十河城・特技"
      }
     ]
    }
@@ -166794,6 +174157,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 35,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+35% 鉢形城・計略"
+    },
+    {
+     "source": "計略",
      "stat": "gapShorten",
      "mode": "percent",
      "value": 35,
@@ -166844,6 +174216,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+60%(1.6倍) 鉢形城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 35,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+35% 鉢形城・計略"
      },
      {
       "source": "計略",
@@ -167131,6 +174512,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+20% 城塞都市アンベール・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20% 城塞都市アンベール・特技"
     }
    ]
   },
@@ -167177,6 +174567,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "hpPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 城塞都市アンベール・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
       "mode": "percent",
       "value": 20,
       "target": "inRange",
@@ -167303,6 +174702,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+25% ［夏］柳之御所・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% ［夏］柳之御所・特技"
     }
    ]
   },
@@ -167339,6 +174747,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkPercent",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% ［夏］柳之御所・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
       "mode": "percent",
       "value": 25,
       "target": "inRange",
@@ -167457,6 +174874,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% 城塞都市トレド・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "defPercent",
+     "mode": "percent",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30% 城塞都市トレド・特技"
     }
    ]
   },
@@ -167492,6 +174918,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 城塞都市トレド・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 城塞都市トレド・特技"
      }
     ]
    },
@@ -167508,6 +174943,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 城塞都市トレド・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% 城塞都市トレド・特技"
      }
     ]
    }
@@ -168561,6 +176005,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+20% ［聖夜］サンタンジェロ城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "all",
+     "stackable": false,
+     "raw": "+30% ［聖夜］サンタンジェロ城・特技"
     }
    ]
   },
@@ -168586,6 +176039,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+20% ［聖夜］サンタンジェロ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "all",
+      "stackable": false,
+      "raw": "+30% ［聖夜］サンタンジェロ城・特技"
      }
     ]
    }
@@ -169047,6 +176509,24 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+30% 久能山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% 久能山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+80 久能山城・特技"
     }
    ]
   },
@@ -169082,6 +176562,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% 久能山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 久能山城・特技"
      }
     ]
    },
@@ -169098,6 +176587,24 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30% 久能山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 久能山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+80 久能山城・特技"
      }
     ]
    }
@@ -169220,6 +176727,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+30 芥川山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% 芥川山城・特技"
     }
    ]
   },
@@ -169245,6 +176761,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30 芥川山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 芥川山城・特技"
      }
     ]
    }
@@ -169417,6 +176942,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+5% 立花山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 10,
+      "target": "self",
+      "stackable": false,
+      "raw": "+10 立花山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20 立花山城・特技"
      }
     ]
    },
@@ -169442,6 +176985,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+5% 立花山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 6,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+6% 立花山城・特技"
      }
     ]
    },
@@ -169611,8 +177163,8 @@ window.SCRE_DATA = [
      "multiplier": 1.1,
      "target": "self",
      "stackable": true,
-     "raw": "+10%(1.1倍) [攻撃対象と足止め数が1増加攻撃] 館山城・計略",
-     "condition": "攻撃対象と足止め数が1増加攻撃"
+     "raw": "+10%(1.1倍) [攻撃] 館山城・計略",
+     "condition": "攻撃"
     }
    ],
    "cooldown": 30,
@@ -169647,8 +177199,8 @@ window.SCRE_DATA = [
       "multiplier": 1.1,
       "target": "self",
       "stackable": true,
-      "raw": "+10%(1.1倍) [攻撃対象と足止め数が1増加攻撃] 館山城・計略",
-      "condition": "攻撃対象と足止め数が1増加攻撃"
+      "raw": "+10%(1.1倍) [攻撃] 館山城・計略",
+      "condition": "攻撃"
      }
     ],
     "cooldown": 30,
@@ -170656,6 +178208,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+50% 鶴島城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30% 鶴島城・特技"
     }
    ]
   },
@@ -170717,6 +178278,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 鶴島城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 鶴島城・特技"
      }
     ]
    },
@@ -170733,6 +178303,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+50% 鶴島城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% 鶴島城・特技"
      }
     ]
    }
@@ -170878,6 +178457,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+30% 山崎城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% 山崎城・計略"
     }
    ],
    "cooldown": 60,
@@ -170922,6 +178510,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30% 山崎城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 山崎城・計略"
      }
     ],
     "cooldown": 60,
@@ -171070,6 +178667,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+25% 吹揚城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "all",
+     "stackable": false,
+     "raw": "+25% 吹揚城・特技"
     }
    ]
   },
@@ -171105,6 +178711,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+20% 吹揚城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "all",
+      "stackable": false,
+      "raw": "+20% 吹揚城・特技"
      }
     ]
    },
@@ -171116,6 +178731,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% 吹揚城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
       "mode": "percent",
       "value": 25,
       "target": "all",
@@ -172108,6 +179732,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+40% ［ハロウィン］ケルフィリー城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 35,
+     "target": "all",
+     "stackable": false,
+     "raw": "+35% ［ハロウィン］ケルフィリー城・特技"
     }
    ]
   },
@@ -172133,6 +179766,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+35% ［ハロウィン］ケルフィリー城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% ［ハロウィン］ケルフィリー城・特技"
      }
     ]
    },
@@ -172149,6 +179791,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40% ［ハロウィン］ケルフィリー城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 35,
+      "target": "all",
+      "stackable": false,
+      "raw": "+35% ［ハロウィン］ケルフィリー城・特技"
      }
     ]
    }
@@ -172416,6 +180067,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+300 扇城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% 扇城・計略"
     }
    ],
    "cooldown": 45,
@@ -172436,6 +180096,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+70 扇城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 扇城・特技"
      }
     ]
    },
@@ -172495,6 +180164,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100 扇城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 35,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+35% 扇城・計略"
      }
     ],
     "cooldown": 45,
@@ -172513,6 +180191,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+300 扇城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 扇城・計略"
      }
     ],
     "cooldown": 45,
@@ -172656,6 +180343,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+25% ハーレック城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ハーレック城・計略"
     }
    ],
    "cooldown": 50,
@@ -172674,6 +180370,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 20,
       "target": "self",
+      "stackable": false,
+      "raw": "+20% ハーレック城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
       "stackable": false,
       "raw": "+20% ハーレック城・特技"
      }
@@ -172770,6 +180475,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% ハーレック城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ハーレック城・計略"
      }
     ],
     "cooldown": 50,
@@ -173081,6 +180795,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 新高山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20 新高山城・特技"
      }
     ]
    },
@@ -173219,6 +180942,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% ［正月］竹田城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% ［正月］竹田城・特技"
     }
    ]
   },
@@ -173270,6 +181002,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［正月］竹田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［正月］竹田城・特技"
      }
     ]
    }
@@ -173565,6 +181306,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% 黒井城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30% 黒井城・特技"
     }
    ]
   },
@@ -173600,6 +181350,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 黒井城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 黒井城・特技"
      }
     ]
    },
@@ -173616,6 +181375,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 黒井城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% 黒井城・特技"
      }
     ]
    }
@@ -174210,6 +181978,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 勝幡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 勝幡城・特技"
      }
     ]
    },
@@ -174506,6 +182283,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 唐沢山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 唐沢山城・特技"
      }
     ]
    },
@@ -174653,6 +182439,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+6% 玉縄城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 6,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+6% 玉縄城・特技"
     }
    ]
   },
@@ -174668,6 +182463,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+70%(1.7倍) 玉縄城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "self",
+     "stackable": false,
+     "raw": "+100 玉縄城・計略"
     }
    ],
    "cooldown": 60,
@@ -174683,6 +182487,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 5,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+5% 玉縄城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 5,
       "target": "inRange",
@@ -174713,6 +182526,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+6% 玉縄城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 6,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+6% 玉縄城・特技"
      }
     ]
    }
@@ -174731,6 +182553,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+70%(1.7倍) 玉縄城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 玉縄城・計略"
      }
     ],
     "cooldown": 60,
@@ -174881,15 +182712,34 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [攻撃後の隙40%短縮計略中は自身の攻撃] 伊豆下田城・特技",
-     "condition": "攻撃後の隙40%短縮計略中は自身の攻撃"
+     "raw": "+50%(1.5倍) [計略中は自身の攻撃] 伊豆下田城・特技",
+     "condition": "計略中は自身の攻撃"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 40,
+     "target": "self",
+     "stackable": false,
+     "raw": "+40% 伊豆下田城・特技"
     }
    ]
   },
   "strategy": {
    "name": "[改弐] / 城下の船溜り （使用まで35秒：消費気7）",
    "text": "30秒間対象の射程100上昇、攻撃の7倍のダメージを 与え、大きく後退させる単発攻撃を行う。敵撃破時 10秒間攻撃が50%上昇(効果重複。自分のみ)",
-   "effects": [],
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100 伊豆下田城・計略"
+    }
+   ],
    "cooldown": 35,
    "cost": 7
   },
@@ -174908,6 +182758,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 伊豆下田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 伊豆下田城・特技"
      }
     ]
    },
@@ -174924,8 +182783,17 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [自身の防御と与ダメージが35%上昇計略中は攻撃] 伊豆下田城・特技",
-      "condition": "自身の防御と与ダメージが35%上昇計略中は攻撃"
+      "raw": "+30%(1.3倍) [計略中は攻撃] 伊豆下田城・特技",
+      "condition": "計略中は攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35% 伊豆下田城・特技"
      },
      {
       "source": "特技",
@@ -174960,8 +182828,17 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [攻撃後の隙40%短縮計略中は自身の攻撃] 伊豆下田城・特技",
-      "condition": "攻撃後の隙40%短縮計略中は自身の攻撃"
+      "raw": "+50%(1.5倍) [計略中は自身の攻撃] 伊豆下田城・特技",
+      "condition": "計略中は自身の攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "self",
+      "stackable": false,
+      "raw": "+40% 伊豆下田城・特技"
      }
     ]
    }
@@ -174979,7 +182856,17 @@ window.SCRE_DATA = [
     "stage": "改弐",
     "name": "[改弐] / 城下の船溜り （使用まで35秒：消費気7）",
     "text": "30秒間対象の射程100上昇、攻撃の7倍のダメージを 与え、大きく後退させる単発攻撃を行う。敵撃破時 10秒間攻撃が50%上昇(効果重複。自分のみ)",
-    "effects": [],
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 伊豆下田城・計略"
+     }
+    ],
     "cooldown": 35,
     "cost": 7
    }
@@ -175230,6 +183117,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% 鞠智城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "rangeFlat",
      "mode": "flat",
      "value": 20,
@@ -175251,6 +183147,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50% 鞠智城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "recoveryFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100 鞠智城・計略"
     }
    ],
    "cooldown": 45,
@@ -175271,6 +183176,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 鞠智城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% 鞠智城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15 鞠智城・特技"
      }
     ]
    },
@@ -175282,6 +183205,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 鞠智城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 25,
       "target": "self",
@@ -175314,6 +183246,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50% 鞠智城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "recoveryFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 鞠智城・計略"
      }
     ],
     "cooldown": 45,
@@ -175774,6 +183715,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50%(1.5倍) ［花嫁衣装］萩城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% ［花嫁衣装］萩城・計略"
     }
    ],
    "cooldown": 45,
@@ -175828,6 +183778,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) ［花嫁衣装］萩城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［花嫁衣装］萩城・計略"
      }
     ],
     "cooldown": 45,
@@ -176528,6 +184487,15 @@ window.SCRE_DATA = [
      },
      {
       "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 5,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+5 ［夏］立花山城・特技"
+     },
+     {
+      "source": "特技",
       "stat": "atkFlat",
       "mode": "flat",
       "value": 30,
@@ -176690,6 +184658,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% 佐柿国吉城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% 佐柿国吉城・特技"
     }
    ]
   },
@@ -176736,6 +184713,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "hpPercent",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 佐柿国吉城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
       "mode": "percent",
       "value": 25,
       "target": "self",
@@ -176878,6 +184864,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+20%(1.2倍) エゲル城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150 エゲル城・計略"
     }
    ],
    "cooldown": 50,
@@ -176901,6 +184896,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 25,
       "target": "self",
+      "stackable": false,
+      "raw": "+25% エゲル城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
       "stackable": false,
       "raw": "+25% エゲル城・特技"
      }
@@ -176937,6 +184941,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20%(1.2倍) エゲル城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150 エゲル城・計略"
      }
     ],
     "cooldown": 50,
@@ -177372,6 +185385,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% 津軽鷹岡城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20 津軽鷹岡城・特技"
     }
    ]
   },
@@ -177413,6 +185435,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 津軽鷹岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20 津軽鷹岡城・特技"
      }
     ]
    }
@@ -177525,6 +185556,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% モースハム城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% モースハム城・特技"
     }
    ]
   },
@@ -177571,6 +185611,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% モースハム城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% モースハム城・特技"
      }
     ]
    }
@@ -177754,8 +185803,16 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [自身の攻撃が30%上昇計略使用時] 桑名城・特技",
-      "condition": "自身の攻撃が30%上昇計略使用時"
+      "raw": "+30%(1.3倍) 桑名城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% 桑名城・特技"
      }
     ]
    },
@@ -178006,6 +186063,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% ［お月見］新宮城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 15,
+      "target": "self",
+      "stackable": false,
+      "raw": "+15 ［お月見］新宮城・特技"
      }
     ]
    },
@@ -178297,6 +186363,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% 大宮城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30 大宮城・特技"
     }
    ]
   },
@@ -178338,6 +186413,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 大宮城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 大宮城・特技"
      }
     ]
    }
@@ -178961,6 +187045,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% 真岡城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% 真岡城・特技"
     }
    ]
   },
@@ -178996,6 +187089,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 真岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 真岡城・特技"
      }
     ]
    },
@@ -179010,6 +187112,15 @@ window.SCRE_DATA = [
       "mode": "percent",
       "value": 30,
       "target": "self",
+      "stackable": false,
+      "raw": "+30% 真岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
       "stackable": false,
       "raw": "+30% 真岡城・特技"
      }
@@ -180231,8 +188342,17 @@ window.SCRE_DATA = [
      "multiplier": 1.4,
      "target": "self",
      "stackable": true,
-     "raw": "+40%(1.4倍) [射程が120上昇敵を撃破するたびに攻撃速度が10%上昇(最大100%)計略中の攻撃] 七飯台場・特技",
-     "condition": "射程が120上昇敵を撃破するたびに攻撃速度が10%上昇(最大100%)計略中の攻撃"
+     "raw": "+40%(1.4倍) [計略中の攻撃] 七飯台場・特技",
+     "condition": "計略中の攻撃"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 10,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+10% 七飯台場・特技"
     }
    ]
   },
@@ -180285,8 +188405,17 @@ window.SCRE_DATA = [
       "multiplier": 1.4,
       "target": "self",
       "stackable": true,
-      "raw": "+40%(1.4倍) [射程が120上昇敵を撃破するたびに攻撃速度が10%上昇(最大100%)計略中の攻撃] 七飯台場・特技",
-      "condition": "射程が120上昇敵を撃破するたびに攻撃速度が10%上昇(最大100%)計略中の攻撃"
+      "raw": "+40%(1.4倍) [計略中の攻撃] 七飯台場・特技",
+      "condition": "計略中の攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 10,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+10% 七飯台場・特技"
      }
     ]
    }
@@ -180421,6 +188550,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% グラーフェンステーン・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% グラーフェンステーン・特技"
     }
    ]
   },
@@ -180467,6 +188605,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% グラーフェンステーン・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% グラーフェンステーン・特技"
      }
     ]
    }
@@ -180584,6 +188731,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+20% ［バレンタイン］十河城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% ［バレンタイン］十河城・特技"
     }
    ]
   },
@@ -180635,6 +188791,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% ［バレンタイン］十河城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［バレンタイン］十河城・特技"
      }
     ]
    }
@@ -180880,6 +189045,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+6% 湯島聖堂・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40 湯島聖堂・特技"
     }
    ]
   },
@@ -180905,6 +189079,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+5% 湯島聖堂・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30 湯島聖堂・特技"
      }
     ]
    },
@@ -180921,6 +189104,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+6% 湯島聖堂・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40 湯島聖堂・特技"
      }
     ]
    }
@@ -181034,6 +189226,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% 麋城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% 麋城・特技"
     }
    ]
   },
@@ -181069,6 +189270,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 麋城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 麋城・特技"
      }
     ]
    },
@@ -181085,6 +189295,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% 麋城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 麋城・特技"
      }
     ]
    }
@@ -182024,12 +190243,32 @@ window.SCRE_DATA = [
     },
     {
      "source": "計略",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) [耐久が30%以下の敵] エルツ城・計略",
+     "condition": "耐久が30%以下の敵"
+    },
+    {
+     "source": "計略",
      "stat": "rangePercent",
      "mode": "percent",
      "value": 20,
      "target": "inRange",
      "stackable": false,
      "raw": "+20%(1.2倍) エルツ城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% エルツ城・計略"
     }
    ],
    "cooldown": 45,
@@ -182050,6 +190289,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% エルツ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% エルツ城・特技"
      }
     ]
    },
@@ -182066,6 +190314,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% エルツ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% エルツ城・特技"
      }
     ]
    },
@@ -182099,12 +190356,32 @@ window.SCRE_DATA = [
      },
      {
       "source": "計略",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [耐久が30%以下の敵] エルツ城・計略",
+      "condition": "耐久が30%以下の敵"
+     },
+     {
+      "source": "計略",
       "stat": "rangePercent",
       "mode": "percent",
       "value": 20,
       "target": "inRange",
       "stackable": false,
       "raw": "+20%(1.2倍) エルツ城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% エルツ城・計略"
      }
     ],
     "cooldown": 45,
@@ -182208,6 +190485,24 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% ［夏］千賀地氏城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "hpPercent",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% ［夏］千賀地氏城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% ［夏］千賀地氏城・特技"
     }
    ]
   },
@@ -182249,6 +190544,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［夏］千賀地氏城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "hpPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% ［夏］千賀地氏城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［夏］千賀地氏城・特技"
      }
     ]
    }
@@ -182533,11 +190846,12 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
-     "stat": "atkPercent",
+     "stat": "dmgDealtTarget",
      "mode": "percent",
      "value": 100,
-     "target": "inRange",
-     "stackable": false,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
      "raw": "+100%(2.0倍) ［夏］エゲル城・計略"
     }
    ],
@@ -182610,11 +190924,12 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
-      "stat": "atkPercent",
+      "stat": "dmgDealtTarget",
       "mode": "percent",
       "value": 100,
-      "target": "inRange",
-      "stackable": false,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
       "raw": "+100%(2.0倍) ［夏］エゲル城・計略"
      }
     ],
@@ -182742,6 +191057,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+90 アンジェ城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% アンジェ城・特技"
     }
    ]
   },
@@ -182777,6 +191101,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% アンジェ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80 アンジェ城・特技"
      }
     ]
    },
@@ -182802,6 +191135,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+90 アンジェ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% アンジェ城・特技"
      }
     ]
    }
@@ -183132,6 +191474,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+40 高田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 高田城・特技"
      }
     ]
    },
@@ -183279,6 +191630,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+30 基肄城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 6,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+6% 基肄城・特技"
     }
    ]
   },
@@ -183347,6 +191707,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30 基肄城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 6,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+6% 基肄城・特技"
      }
     ]
    }
@@ -184135,6 +192504,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% ［聖夜］レーヴェンブルク城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30% ［聖夜］レーヴェンブルク城・特技"
     }
    ]
   },
@@ -184186,6 +192564,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［聖夜］レーヴェンブルク城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% ［聖夜］レーヴェンブルク城・特技"
      }
     ]
    }
@@ -184300,6 +192687,24 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% シャトー・ディフ・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20 シャトー・ディフ・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% シャトー・ディフ・特技"
     }
    ]
   },
@@ -184340,6 +192745,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% シャトー・ディフ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% シャトー・ディフ・特技"
      }
     ]
    },
@@ -184356,6 +192770,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% シャトー・ディフ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20 シャトー・ディフ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% シャトー・ディフ・特技"
      }
     ]
    }
@@ -184517,6 +192949,17 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+150 ［正月］七飯台場・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 80,
+     "multiplier": 1.8,
+     "target": "self",
+     "stackable": true,
+     "raw": "+80%(1.8倍) [耐久が80%以上の敵] ［正月］七飯台場・特技",
+     "condition": "耐久が80%以上の敵"
     }
    ]
   },
@@ -184570,8 +193013,17 @@ window.SCRE_DATA = [
       "multiplier": 1.6,
       "target": "self",
       "stackable": true,
-      "raw": "+60%(1.6倍) [自身の射程が100上昇耐久が80%以上の敵] ［正月］七飯台場・特技",
-      "condition": "自身の射程が100上昇耐久が80%以上の敵"
+      "raw": "+60%(1.6倍) [耐久が80%以上の敵] ［正月］七飯台場・特技",
+      "condition": "耐久が80%以上の敵"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ［正月］七飯台場・特技"
      }
     ]
    },
@@ -184615,6 +193067,17 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+150 ［正月］七飯台場・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 80,
+      "multiplier": 1.8,
+      "target": "self",
+      "stackable": true,
+      "raw": "+80%(1.8倍) [耐久が80%以上の敵] ［正月］七飯台場・特技",
+      "condition": "耐久が80%以上の敵"
      }
     ]
    }
@@ -184959,6 +193422,24 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+25% ［正月］備中松山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 30,
+     "target": "self",
+     "stackable": false,
+     "raw": "+30% ［正月］備中松山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 50,
+     "target": "self",
+     "stackable": false,
+     "raw": "+50 ［正月］備中松山城・特技"
     }
    ]
   },
@@ -184984,6 +193465,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［正月］備中松山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30 ［正月］備中松山城・特技"
      }
     ]
    },
@@ -185000,6 +193490,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［正月］備中松山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% ［正月］備中松山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［正月］備中松山城・特技"
      }
     ]
    }
@@ -185137,6 +193645,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 金烏城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 金烏城・特技"
      }
     ]
    },
@@ -185153,6 +193670,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+30% 金烏城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 金烏城・特技"
      }
     ]
    },
@@ -185280,6 +193806,24 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% ［バレンタイン］佐竹城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25% ［バレンタイン］佐竹城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 25,
+     "target": "self",
+     "stackable": false,
+     "raw": "+25 ［バレンタイン］佐竹城・特技"
     }
    ]
   },
@@ -185305,6 +193849,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［バレンタイン］佐竹城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% ［バレンタイン］佐竹城・特技"
      }
     ]
    },
@@ -185321,6 +193874,24 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［バレンタイン］佐竹城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% ［バレンタイン］佐竹城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25 ［バレンタイン］佐竹城・特技"
      }
     ]
    }
@@ -185979,6 +194550,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 150,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+150%(2.5倍) ［学園］城塞都市アビラ・計略"
+    },
+    {
+     "source": "計略",
      "stat": "defPercent",
      "mode": "percent",
      "value": 150,
@@ -186026,6 +194606,15 @@ window.SCRE_DATA = [
     "effects": [
      {
       "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "self",
+      "stackable": false,
+      "raw": "+150%(2.5倍) ［学園］城塞都市アビラ・計略"
+     },
+     {
+      "source": "計略",
       "stat": "defPercent",
       "mode": "percent",
       "value": 150,
@@ -186042,6 +194631,15 @@ window.SCRE_DATA = [
     "name": "[改壱] / 剛勇無双のエース （使用まで80秒：消費気10）",
     "text": "60秒間対象の攻撃と防御が2.5倍 射程が100、直撃ボーナスが50%上昇 攻撃後の隙が50%延長(自分のみが対象)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 150,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+150%(2.5倍) ［学園］城塞都市アビラ・計略"
+     },
      {
       "source": "計略",
       "stat": "defPercent",
@@ -186154,6 +194752,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+6% リズラン城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 4,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+4% リズラン城・特技"
     }
    ]
   },
@@ -186179,6 +194786,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+5% リズラン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 5,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+5% リズラン城・特技"
      }
     ]
    },
@@ -186195,6 +194811,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+6% リズラン城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 4,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+4% リズラン城・特技"
      }
     ]
    }
@@ -186610,6 +195235,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50%(1.5倍) 安宅船 日本丸・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% 安宅船 日本丸・特技"
     }
    ]
   },
@@ -186625,6 +195259,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+60% 安宅船 日本丸・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 1000,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+1000 安宅船 日本丸・計略"
     }
    ],
    "cooldown": 60,
@@ -186645,6 +195288,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+40%(1.4倍) 安宅船 日本丸・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "all",
+      "stackable": false,
+      "raw": "+20% 安宅船 日本丸・特技"
      }
     ]
    },
@@ -186661,6 +195313,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) 安宅船 日本丸・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 安宅船 日本丸・特技"
      }
     ]
    }
@@ -186679,6 +195340,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+60% 安宅船 日本丸・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 1000,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+1000 安宅船 日本丸・計略"
      }
     ],
     "cooldown": 60,
@@ -186792,6 +195462,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% ［夏］栗橋城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% ［夏］栗橋城・特技"
     }
    ]
   },
@@ -186827,6 +195506,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［夏］栗橋城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% ［夏］栗橋城・特技"
      }
     ]
    },
@@ -186852,6 +195540,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［夏］栗橋城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% ［夏］栗橋城・特技"
      }
     ]
    }
@@ -187165,6 +195862,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+30% ［夏］平井城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "all",
+     "stackable": false,
+     "raw": "+25% ［夏］平井城・特技"
     }
    ]
   },
@@ -187206,6 +195912,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+30% ［夏］平井城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% ［夏］平井城・特技"
      }
     ]
    }
@@ -187358,6 +196073,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+20% 城塞都市イントラムロス・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 城塞都市イントラムロス・特技"
      }
     ]
    },
@@ -187538,6 +196262,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 三重城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 三重城・特技"
      }
     ]
    },
@@ -187680,6 +196413,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% ［肝試し］大垣城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "self",
+     "stackable": false,
+     "raw": "+80 ［肝試し］大垣城・特技"
     }
    ]
   },
@@ -187705,6 +196447,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［肝試し］大垣城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［肝試し］大垣城・特技"
      }
     ]
    },
@@ -187721,6 +196472,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［肝試し］大垣城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80 ［肝試し］大垣城・特技"
      }
     ]
    }
@@ -187843,6 +196603,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+90 鳴海城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% 鳴海城・特技"
     }
    ]
   },
@@ -187858,6 +196627,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+70%(1.7倍) 鳴海城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% 鳴海城・計略"
     }
    ],
    "cooldown": 50,
@@ -187878,6 +196656,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+70 鳴海城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 鳴海城・特技"
      }
     ]
    },
@@ -187903,6 +196690,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+90 鳴海城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 鳴海城・特技"
      }
     ]
    }
@@ -187921,6 +196717,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+70%(1.7倍) 鳴海城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% 鳴海城・計略"
      }
     ],
     "cooldown": 50,
@@ -188202,6 +197007,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% 鉄甲船 大宮丸・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "self",
+      "stackable": false,
+      "raw": "+30% 鉄甲船 大宮丸・特技"
      }
     ]
    },
@@ -188960,6 +197774,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+40% ［正月］千代田城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 50,
+     "target": "all",
+     "stackable": false,
+     "raw": "+50% ［正月］千代田城・特技"
     }
    ]
   },
@@ -188985,6 +197808,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+30% ［正月］千代田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 45,
+      "target": "all",
+      "stackable": false,
+      "raw": "+45% ［正月］千代田城・特技"
      }
     ]
    },
@@ -189001,6 +197833,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+40% ［正月］千代田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 50,
+      "target": "all",
+      "stackable": false,
+      "raw": "+50% ［正月］千代田城・特技"
      }
     ]
    }
@@ -189632,6 +198473,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "計略",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) 玉城城・計略"
+    },
+    {
+     "source": "計略",
      "stat": "defPercent",
      "mode": "percent",
      "value": 50,
@@ -189684,6 +198534,15 @@ window.SCRE_DATA = [
     "name": "[無印] / 東御廻り （使用まで70秒：消費気10）",
     "text": "60秒間対象の攻撃と防御が1.5倍 射程内の沖縄城娘の敵撃破時の獲得気が1増加 (同種効果の重複なし。自分のみが対象)",
     "effects": [
+     {
+      "source": "計略",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 玉城城・計略"
+     },
      {
       "source": "計略",
       "stat": "defPercent",
@@ -189796,6 +198655,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+30% ［バレンタイン］プファルツ城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20% ［バレンタイン］プファルツ城・特技"
     }
    ]
   },
@@ -189837,6 +198705,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［バレンタイン］プファルツ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% ［バレンタイン］プファルツ城・特技"
      }
     ]
    }
@@ -189973,6 +198850,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ドラショルム城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35 ドラショルム城・特技"
      }
     ]
    },
@@ -190276,6 +199162,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［学園］比志城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 ［学園］比志城・特技"
      }
     ]
    },
@@ -190292,6 +199187,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+30% ［学園］比志城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 60,
+      "target": "self",
+      "stackable": false,
+      "raw": "+60 ［学園］比志城・特技"
      }
     ]
    },
@@ -190774,6 +199678,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 20,
+     "target": "self",
+     "stackable": false,
+     "raw": "+20% ［夏］伊豆下田城・特技"
+    },
+    {
+     "source": "特技",
      "stat": "dmgDealtTarget",
      "mode": "percent",
      "value": 20,
@@ -190816,6 +199729,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+25% ［夏］伊豆下田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 20,
+      "target": "self",
+      "stackable": false,
+      "raw": "+20% ［夏］伊豆下田城・特技"
      },
      {
       "source": "特技",
@@ -191140,6 +200062,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50%(1.5倍) ［夏］安宅船 日本丸・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "defFlat",
+     "mode": "flat",
+     "value": 200,
+     "target": "self",
+     "stackable": false,
+     "raw": "+200 ［夏］安宅船 日本丸・特技"
     }
    ]
   },
@@ -191175,6 +200106,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) ［夏］安宅船 日本丸・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "defFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "self",
+      "stackable": false,
+      "raw": "+200 ［夏］安宅船 日本丸・特技"
      }
     ]
    }
@@ -191933,8 +200873,17 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "self",
      "stackable": true,
-     "raw": "+30%(1.3倍) [攻撃速度が25%上昇特殊攻撃] 喜春城・特技",
-     "condition": "攻撃速度が25%上昇特殊攻撃"
+     "raw": "+30%(1.3倍) [特殊攻撃] 喜春城・特技",
+     "condition": "特殊攻撃"
+    },
+    {
+     "source": "特技",
+     "stat": "atkSpeed",
+     "mode": "percent",
+     "value": 25,
+     "target": "all",
+     "stackable": false,
+     "raw": "+25% 喜春城・特技"
     }
    ]
   },
@@ -191965,8 +200914,17 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "self",
       "stackable": true,
-      "raw": "+20%(1.2倍) [自身の攻撃速度が25%上昇特殊攻撃] 喜春城・特技",
-      "condition": "自身の攻撃速度が25%上昇特殊攻撃"
+      "raw": "+20%(1.2倍) [特殊攻撃] 喜春城・特技",
+      "condition": "特殊攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 喜春城・特技"
      }
     ]
    },
@@ -191992,8 +200950,17 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [攻撃速度が25%上昇特殊攻撃] 喜春城・特技",
-      "condition": "攻撃速度が25%上昇特殊攻撃"
+      "raw": "+30%(1.3倍) [特殊攻撃] 喜春城・特技",
+      "condition": "特殊攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% 喜春城・特技"
      }
     ]
    }
@@ -192312,7 +201279,7 @@ window.SCRE_DATA = [
      "stat": "rangeFlat",
      "mode": "flat",
      "value": 10,
-     "target": "all",
+     "target": "inRange",
      "stackable": false,
      "raw": "+10 ［ハロウィン］ペレシュ城・特技"
     }
@@ -192337,7 +201304,7 @@ window.SCRE_DATA = [
       "stat": "rangeFlat",
       "mode": "flat",
       "value": 9,
-      "target": "all",
+      "target": "inRange",
       "stackable": false,
       "raw": "+9 ［ハロウィン］ペレシュ城・特技"
      }
@@ -192353,7 +201320,7 @@ window.SCRE_DATA = [
       "stat": "rangeFlat",
       "mode": "flat",
       "value": 10,
-      "target": "all",
+      "target": "inRange",
       "stackable": false,
       "raw": "+10 ［ハロウィン］ペレシュ城・特技"
      }
@@ -192470,6 +201437,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% 鉄製汽船 ネメシス号・特技"
+    },
+    {
+     "source": "特技",
      "stat": "rangeFlat",
      "mode": "flat",
      "value": 70,
@@ -192501,6 +201477,24 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% 鉄製汽船 ネメシス号・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% 鉄製汽船 ネメシス号・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50 鉄製汽船 ネメシス号・特技"
      }
     ]
    },
@@ -192512,6 +201506,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkSpeed",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% 鉄製汽船 ネメシス号・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
       "mode": "percent",
       "value": 30,
       "target": "inRange",
@@ -192844,6 +201847,15 @@ window.SCRE_DATA = [
    "effects": [
     {
      "source": "特殊能力",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40%(1.4倍) ［心螺］大宝寺城・特殊能力"
+    },
+    {
+     "source": "特殊能力",
      "stat": "defPercent",
      "mode": "percent",
      "value": 40,
@@ -192885,6 +201897,15 @@ window.SCRE_DATA = [
     "name": "[無印] / 抗戦の鬨 （消費気7：初回20秒：再使用50秒）",
     "text": "20秒間自身の鼓舞効果が1.5倍 射程内の城娘の攻撃と防御が1.4倍",
     "effects": [
+     {
+      "source": "特殊能力",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40%(1.4倍) ［心螺］大宝寺城・特殊能力"
+     },
      {
       "source": "特殊能力",
       "stat": "defPercent",
@@ -193740,8 +202761,17 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [自身の与ダメージが25%上昇耐久30%以下の敵] 鎌刃城・特技",
-      "condition": "自身の与ダメージが25%上昇耐久30%以下の敵"
+      "raw": "+100%(2.0倍) [耐久30%以下の敵] 鎌刃城・特技",
+      "condition": "耐久30%以下の敵"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 25,
+      "target": "self",
+      "stackable": false,
+      "raw": "+25% 鎌刃城・特技"
      }
     ]
    },
@@ -195186,8 +204216,17 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "inRange",
       "stackable": true,
-      "raw": "+30%(1.3倍) [自身の耐久が与ダメージの20%回復特殊攻撃時の範囲攻撃] ［命護］尼崎城・特技",
-      "condition": "自身の耐久が与ダメージの20%回復特殊攻撃時の範囲攻撃"
+      "raw": "+30%(1.3倍) [特殊攻撃時の範囲攻撃] ［命護］尼崎城・特技",
+      "condition": "特殊攻撃時の範囲攻撃"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% ［命護］尼崎城・特技"
      }
     ]
    },
@@ -196484,6 +205523,15 @@ window.SCRE_DATA = [
      "target": "all",
      "stackable": false,
      "raw": "+40% ロシュ城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "all",
+     "stackable": false,
+     "raw": "+100 ロシュ城・特技"
     }
    ]
   },
@@ -196544,6 +205592,15 @@ window.SCRE_DATA = [
       "target": "all",
       "stackable": false,
       "raw": "+40% ロシュ城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "all",
+      "stackable": false,
+      "raw": "+100 ロシュ城・特技"
      }
     ]
    }
@@ -197544,6 +206601,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20%(1.2倍) ［毒禍］石山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［毒禍］石山城・計略"
      }
     ],
     "cooldown": 30,
@@ -197580,6 +206646,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20%(1.2倍) ［毒禍］石山城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［毒禍］石山城・計略"
      }
     ],
     "cooldown": 30,
@@ -197865,6 +206940,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50% ［雲臥］備中松山城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% ［雲臥］備中松山城・特技"
     }
    ]
   },
@@ -197921,6 +207005,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50% ［雲臥］備中松山城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% ［雲臥］備中松山城・特技"
      }
     ]
    }
@@ -198580,6 +207673,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+12% レプティス・マグナ・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% レプティス・マグナ・特技"
     }
    ]
   },
@@ -198604,8 +207706,8 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [与ダメージ1.8倍特殊攻撃] レプティス・マグナ・計略",
-     "condition": "与ダメージ1.8倍特殊攻撃"
+     "raw": "+50%(1.5倍) [特殊攻撃] レプティス・マグナ・計略",
+     "condition": "特殊攻撃"
     }
    ],
    "cooldown": 60,
@@ -198640,6 +207742,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+10% レプティス・マグナ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% レプティス・マグナ・特技"
      }
     ]
    },
@@ -198674,6 +207785,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+12% レプティス・マグナ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% レプティス・マグナ・特技"
      }
     ]
    }
@@ -198701,8 +207821,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [与ダメージ1.8倍特殊攻撃] レプティス・マグナ・計略",
-      "condition": "与ダメージ1.8倍特殊攻撃"
+      "raw": "+50%(1.5倍) [特殊攻撃] レプティス・マグナ・計略",
+      "condition": "特殊攻撃"
      }
     ],
     "cooldown": 60,
@@ -199555,6 +208675,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+60%(1.6倍) 小田城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 50,
+      "target": "self",
+      "stackable": false,
+      "raw": "+50 小田城・特技"
      }
     ]
    },
@@ -199928,6 +209057,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+20%(1.2倍) ［アイドル］ドーヴァー城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100 ［アイドル］ドーヴァー城・計略"
     }
    ],
    "cooldown": 40,
@@ -199984,6 +209122,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+20%(1.2倍) ［アイドル］ドーヴァー城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100 ［アイドル］ドーヴァー城・計略"
      }
     ],
     "cooldown": 40,
@@ -200313,6 +209460,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+40% ［夏］水口城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "atkFlat",
+     "mode": "flat",
+     "value": 200,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+200 ［夏］水口城・特技"
     }
    ]
   },
@@ -200372,6 +209528,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+40% ［夏］水口城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "atkFlat",
+      "mode": "flat",
+      "value": 200,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+200 ［夏］水口城・特技"
      }
     ]
    }
@@ -201243,6 +210408,15 @@ window.SCRE_DATA = [
     },
     {
      "source": "特技",
+     "stat": "enemyDmgTakenUp",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20% 黒田長政・特技"
+    },
+    {
+     "source": "特技",
      "stat": "atkPercent",
      "mode": "percent",
      "value": 40,
@@ -201274,6 +210448,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+70 黒田長政・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDmgTakenUp",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 黒田長政・特技"
      },
      {
       "source": "特技",
@@ -202340,8 +211523,17 @@ window.SCRE_DATA = [
      "multiplier": 3.0,
      "target": "inRange",
      "stackable": true,
-     "raw": "+200%(3.0倍) [自身の射程80上昇耐久25%以下の敵] 蒲生氏郷・特技",
-     "condition": "自身の射程80上昇耐久25%以下の敵"
+     "raw": "+200%(3.0倍) [耐久25%以下の敵] 蒲生氏郷・特技",
+     "condition": "耐久25%以下の敵"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 80,
+     "target": "self",
+     "stackable": false,
+     "raw": "+80 蒲生氏郷・特技"
     }
    ]
   },
@@ -202378,8 +211570,17 @@ window.SCRE_DATA = [
       "multiplier": 3.0,
       "target": "inRange",
       "stackable": true,
-      "raw": "+200%(3.0倍) [自身の射程80上昇耐久25%以下の敵] 蒲生氏郷・特技",
-      "condition": "自身の射程80上昇耐久25%以下の敵"
+      "raw": "+200%(3.0倍) [耐久25%以下の敵] 蒲生氏郷・特技",
+      "condition": "耐久25%以下の敵"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80 蒲生氏郷・特技"
      }
     ]
    }
@@ -202948,8 +212149,7 @@ window.SCRE_DATA = [
      "multiplier": 1.2,
      "target": "self",
      "stackable": true,
-     "raw": "+20%(1.2倍) [50%の確率で攻撃を回避計略] 兎形兜・特技",
-     "condition": "50%の確率で攻撃を回避計略"
+     "raw": "+20%(1.2倍) 兎形兜・特技"
     }
    ]
   },
@@ -202985,8 +212185,7 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "self",
       "stackable": true,
-      "raw": "+20%(1.2倍) [50%の確率で攻撃を回避計略] 兎形兜・特技",
-      "condition": "50%の確率で攻撃を回避計略"
+      "raw": "+20%(1.2倍) 兎形兜・特技"
      }
     ]
    }
@@ -204597,6 +213796,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+50%(1.5倍) リネット・ビショップ・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 20,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+20% リネット・ビショップ・特技"
     }
    ]
   },
@@ -204641,6 +213849,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+50%(1.5倍) リネット・ビショップ・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% リネット・ビショップ・特技"
      }
     ]
    }
@@ -205271,6 +214488,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+150 インデックス・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 30,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+30% インデックス・特技"
     }
    ]
   },
@@ -205296,6 +214522,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+150 インデックス・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% インデックス・特技"
      }
     ]
    }
@@ -205393,8 +214628,8 @@ window.SCRE_DATA = [
      "multiplier": 1.4,
      "target": "self",
      "stackable": true,
-     "raw": "+40%(1.4倍) [自身が攻撃した敵を後退させる耐久50%以下の敵] ガビ・ブラウン・特技",
-     "condition": "自身が攻撃した敵を後退させる耐久50%以下の敵"
+     "raw": "+40%(1.4倍) [耐久50%以下の敵] ガビ・ブラウン・特技",
+     "condition": "耐久50%以下の敵"
     }
    ]
   },
@@ -205420,8 +214655,8 @@ window.SCRE_DATA = [
       "multiplier": 1.4,
       "target": "self",
       "stackable": true,
-      "raw": "+40%(1.4倍) [自身が攻撃した敵を後退させる耐久50%以下の敵] ガビ・ブラウン・特技",
-      "condition": "自身が攻撃した敵を後退させる耐久50%以下の敵"
+      "raw": "+40%(1.4倍) [耐久50%以下の敵] ガビ・ブラウン・特技",
+      "condition": "耐久50%以下の敵"
      }
     ]
    }
@@ -206410,6 +215645,15 @@ window.SCRE_DATA = [
      {
       "source": "特技",
       "stat": "atkPercent",
+      "mode": "percent",
+      "value": 20,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+20% 阿万音鈴羽・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
       "mode": "percent",
       "value": 20,
       "target": "inRange",
@@ -207667,6 +216911,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+70%(1.7倍) 白井黒子・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) 白井黒子・計略"
     }
    ],
    "cooldown": 60,
@@ -207695,6 +216948,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+70%(1.7倍) 白井黒子・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) 白井黒子・計略"
      }
     ],
     "cooldown": 60,
@@ -207784,6 +217046,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+25% ピーク・フィンガー・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+25% ピーク・フィンガー・特技"
     }
    ]
   },
@@ -207799,6 +217070,15 @@ window.SCRE_DATA = [
      "target": "self",
      "stackable": false,
      "raw": "+40%(1.4倍) ピーク・フィンガー・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ピーク・フィンガー・計略"
     }
    ],
    "cooldown": 50,
@@ -207824,6 +217104,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% ピーク・フィンガー・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+25% ピーク・フィンガー・特技"
      }
     ]
    }
@@ -207842,6 +217131,15 @@ window.SCRE_DATA = [
       "target": "self",
       "stackable": false,
       "raw": "+40%(1.4倍) ピーク・フィンガー・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ピーク・フィンガー・計略"
      }
     ],
     "cooldown": 50,
@@ -207961,7 +217259,18 @@ window.SCRE_DATA = [
    "stage": "無印",
    "name": "[無印] / 巨人化[女型の巨人] （消費気30：初回20秒：再使用50秒）",
    "text": "自身の耐久が50%回復 90秒間耐久/攻撃/防御/射程が大きく上昇し 攻撃が3倍ダメージを与える単発攻撃になる",
-   "effects": []
+   "effects": [
+    {
+     "source": "特殊能力",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 200,
+     "multiplier": 3.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+200%(3.0倍) アニ・レオンハート・特殊能力"
+    }
+   ]
   },
   "allSkills": [
    {
@@ -208005,7 +217314,18 @@ window.SCRE_DATA = [
     "stage": "無印",
     "name": "[無印] / 巨人化[女型の巨人] （消費気30：初回20秒：再使用50秒）",
     "text": "自身の耐久が50%回復 90秒間耐久/攻撃/防御/射程が大きく上昇し 攻撃が3倍ダメージを与える単発攻撃になる",
-    "effects": []
+    "effects": [
+     {
+      "source": "特殊能力",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 200,
+      "multiplier": 3.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+200%(3.0倍) アニ・レオンハート・特殊能力"
+     }
+    ]
    }
   ],
   "parseWarnings": []
@@ -208115,8 +217435,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [敵から狙われない耐久が50%以下の敵] 戦刃むくろ・特技",
-      "condition": "敵から狙われない耐久が50%以下の敵"
+      "raw": "+50%(1.5倍) [耐久が50%以下の敵] 戦刃むくろ・特技",
+      "condition": "耐久が50%以下の敵"
      },
      {
       "source": "特技",

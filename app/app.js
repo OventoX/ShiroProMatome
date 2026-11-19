@@ -1549,7 +1549,9 @@
                 stackable: effect.stackable,
                 isSelf,
                 raw: effect.raw,
-                condition: effect.condition || null
+                condition: effect.condition || null,
+                targetGroup: effect.targetGroup || null,
+                groupNote: effect.targetGroup ? `※グループ限定[${effect.targetGroup}]：所属マスタ未収録のため本人のみ適用` : null
               });
               if (effect.stackable) {
                 bucket.stackSum += effect.value;
@@ -2429,7 +2431,7 @@
         let tag = "";
         let style = "";
         let nameHtml = "";
-        const condBadge = s.condition ? `<span class="badge" style="background:#8e44ad; color:#fff; font-size:10px; padding:1px 4px; border-radius:3px; margin-right:3px;">${escapeHtml(s.condition)}</span>` : "";
+        const condBadge = s.condition ? `<span class="badge" style="background:#8e44ad; color:#fff; font-size:10px; padding:1px 4px; border-radius:3px; margin-right:3px;" title="${escapeHtml(s.groupNote || '')}">${escapeHtml(s.condition)}</span>` : "";
         if (isTargetDmg) {
           tag = `<span class="buff-tag" style="background:#27ae60; color:#fff;">[乗算]</span>`;
           style = "color:var(--buff-color); font-weight:bold;";
