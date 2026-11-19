@@ -33,7 +33,9 @@ STAT_PATTERNS = [
     # 敵へのデバフ
     (r"(?:敵|射程内の敵).*?の?攻撃が(\d+)%低下", "enemyAtkDown", "percent", False),
     (r"(?:敵|射程内の敵).*?の?防御が(\d+)%低下", "enemyDefDown", "percent", False),
+    (r"(?:敵|射程内の敵).*?の?防御と射程が(\d+)%低下", "enemyDefDown", "percent", False),
     (r"(?:敵|射程内の敵).*?の?移動速度が(\d+)%低下", "enemySlow", "percent", False),
+    (r"(?:敵|射程内の敵).*?の?移動速度を少しの間(\d+)%低下", "enemySlow", "percent", False),
     (r"(?:敵|射程内の敵).*?の?被ダメージが(\d+)%上昇", "enemyDmgTakenUp", "percent", False),
 
     # 防御無視
@@ -220,4 +222,16 @@ def parse_ability_effects(text: str, source_type: str, castle_name: str) -> list
                     "raw": raw_label
                 })
                 break
+        m_slow_temp = re.search(r"(?:敵|射程内の敵).*?の?移動速度を少しの間(\d+)%低下", c)
+        if m_slow_temp and not any(e["stat"] == "enemySlow" for e in effects):
+            val = int(m_slow_temp.group(1))
+            effects.append({
+                "source": source_type,
+                "stat": "enemySlow",
+                "mode": "percent",
+                "value": val,
+                "target": "inRange",
+                "stackable": False,
+                "raw": f"+{val}% {castle_name}・{source_type}"
+            })
     return effects

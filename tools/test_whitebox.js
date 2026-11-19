@@ -216,14 +216,14 @@ recordTest('ST-08', 'リポジトリキャッシュ追跡整合(.gitignore)', ca
 // -------------------------------------------------------------
 console.log('\n[SECTION 3] Data Invariants (DT-01 ~ DT-15)...');
 
-// DT-01: 1,161 castles, id and name unique
+// DT-01: 1,165 castles, id and name unique
 const castleCount = SCRE_DATA.length;
 const idSet = new Set(SCRE_DATA.map(c => c.id));
 const nameSet = new Set(SCRE_DATA.map(c => c.name));
-recordTest('DT-01', '城娘1,161体・ID/名称重複なし',
-  castleCount === 1161 && idSet.size === 1161 && nameSet.size === 1161,
+recordTest('DT-01', '城娘1,165体・ID/名称重複なし',
+  castleCount === 1165 && idSet.size === 1165 && nameSet.size === 1165,
   `count=${castleCount}, idSet=${idSet.size}, nameSet=${nameSet.size}`,
-  'count=1161, idSet=1161, nameSet=1161');
+  'count=1165, idSet=1165, nameSet=1165');
 
 // DT-02: parseWarnings empty
 const warningCastles = SCRE_DATA.filter(c => c.parseWarnings && c.parseWarnings.length > 0).map(c => c.name);
@@ -281,12 +281,12 @@ SCRE_DATA.forEach(c => {
 recordTest('DT-05', 'effects target語彙が既知語彙(self/inRange/all/"")のみ', unknownTargets.size === 0,
   `unknownTargets=${Array.from(unknownTargets).join(', ') || 'none'}`, 'unknownTargets=none');
 
-// DT-06: rangeKind distribution (554 / 543 / 64)
+// DT-06: rangeKind distribution (557 / 544 / 64)
 const rkCounts = {};
 SCRE_DATA.forEach(c => { rkCounts[c.rangeKind] = (rkCounts[c.rangeKind] || 0) + 1; });
-recordTest('DT-06', 'rangeKind分布 近554 / 遠543 / 遠近64',
-  rkCounts['近'] === 554 && rkCounts['遠'] === 543 && rkCounts['遠近'] === 64,
-  JSON.stringify(rkCounts), JSON.stringify({ '近': 554, '遠': 543, '遠近': 64 }));
+recordTest('DT-06', 'rangeKind分布 近557 / 遠544 / 遠近64',
+  rkCounts['近'] === 557 && rkCounts['遠'] === 544 && rkCounts['遠近'] === 64,
+  JSON.stringify(rkCounts), JSON.stringify({ '近': 557, '遠': 544, '遠近': 64 }));
 
 // DT-07: Kai2 remodelStages consistency (Resolved in Prompt 11: 0 missing)
 const missingKai2 = SCRE_DATA.filter(c => {
@@ -333,19 +333,19 @@ recordTest('DT-10', '特技/大破絵なし城娘が既知5体と一致',
   actualNoTokugiOrTaiha.length === 5 && actualNoTokugiOrTaiha.every((n, i) => n === KNOWN_NO_TOKUGI_OR_TAIHA[i]),
   actualNoTokugiOrTaiha.join(', '), KNOWN_NO_TOKUGI_OR_TAIHA.join(', '));
 
-// DT-11: 23 castles without ruby
+// DT-11: 24 castles without ruby
 const KNOWN_NO_RUBY = [
   'ノイシュヴァンシュタイン城', 'コンシェルジュリー', '［聖夜］モン・サン＝ミッシェル',
   'エーリューズニル', 'アテナイ・アクロポリス', 'ラピュータ', 'ホッホオスターヴィッツ城',
   'リヒテンシュタイン城', 'カルルシュテイン城', '伊達政宗', 'カーナーヴォン城',
   'フランケンシュタイン城', 'サンタンジェロ城', 'カステル・ヴェッキオ', 'リープ城',
   'ペレシュ城', 'ウォリック城', 'カステル・ヌオーヴォ', 'グラーフェンステーン',
-  'エルツ城', 'ゆんゆん', 'めぐみん', 'アーニャ・アールストレイム'
+  'エルツ城', 'ゆんゆん', 'めぐみん', 'アーニャ・アールストレイム', '［忠刃］佐和山城'
 ].sort();
 const actualNoRuby = SCRE_DATA.filter(c => !c.ruby).map(c => c.name).sort();
-recordTest('DT-11', 'ruby未定義城娘が既知23体と一致',
-  actualNoRuby.length === 23 && actualNoRuby.every((n, i) => n === KNOWN_NO_RUBY[i]),
-  `count=${actualNoRuby.length}`, 'count=23');
+recordTest('DT-11', 'ruby未定義城娘が既知24体と一致',
+  actualNoRuby.length === 24 && actualNoRuby.every((n, i) => n === KNOWN_NO_RUBY[i]),
+  `count=${actualNoRuby.length}`, 'count=24');
 
 // DT-12: Guides count (182 total, 130 hell, 11/42/35/42)
 let gTotal = 0, gHell = 0;
@@ -526,13 +526,13 @@ recordTest('UT-08', 'calcPercentile 境界値(同値・1件・空配列)NaN回�
 // -------------------------------------------------------------
 console.log('\n[SECTION 15] Build Data Reproducibility (BD-01 ~ BD-04)...');
 
-// BD-01: 再生成の安定性 (城娘件数1,161件、主要フィールド維持)
-const bd01Pass = SCRE_DATA.length === 1161 &&
+// BD-01: 再生成の安定性 (城娘件数1,165件、主要フィールド維持)
+const bd01Pass = SCRE_DATA.length === 1165 &&
   SCRE_DATA.every(c => c.id && c.name && c.rarity && c.rangeKind && c.weapon);
-recordTest('BD-01', '再生成の安定性(城娘件数1,161件・主要フィールド維持)',
+recordTest('BD-01', '再生成の安定性(城娘件数1,165件・主要フィールド維持)',
   bd01Pass,
   `total=${SCRE_DATA.length}, allValidFields=${bd01Pass}`,
-  'total=1161, allValidFields=true');
+  'total=1165, allValidFields=true');
 
 // BD-02: フィールド欠落の検出 (illustUrl 等の主要フィールドが空になる城娘が0件)
 const missingIllustCastles = SCRE_DATA.filter(c => !c.illustUrl && !c.illustFile).map(c => c.name);

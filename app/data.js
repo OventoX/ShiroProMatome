@@ -859,6 +859,15 @@ window.SCRE_DATA = [
      "value": 50.0,
      "shareSource": "安平城",
      "raw": "+ (安平城の攻撃の50.0%) 安平城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 35,
+     "target": "self",
+     "stackable": false,
+     "raw": "+35% 安平城・特技"
     }
    ]
   },
@@ -874,6 +883,15 @@ window.SCRE_DATA = [
      "target": "inRange",
      "stackable": false,
      "raw": "+100 安平城・計略"
+    },
+    {
+     "source": "計略",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 5,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+5% 安平城・計略"
     }
    ],
    "cooldown": 25,
@@ -933,6 +951,15 @@ window.SCRE_DATA = [
       "value": 50.0,
       "shareSource": "安平城",
       "raw": "+ (安平城の攻撃の50.0%) 安平城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 35,
+      "target": "self",
+      "stackable": false,
+      "raw": "+35% 安平城・特技"
      }
     ]
    }
@@ -967,6 +994,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+100 安平城・計略"
+     },
+     {
+      "source": "計略",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 5,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+5% 安平城・計略"
      }
     ],
     "cooldown": 25,
@@ -37427,6 +37463,15 @@ window.SCRE_DATA = [
       "target": "inRange",
       "stackable": false,
       "raw": "+25% ［裏］伊勢長島城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 30,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+30% ［裏］伊勢長島城・特技"
      }
     ]
    },
@@ -204742,5 +204787,952 @@ window.SCRE_DATA = [
   ],
   "allSpecials": [],
   "parseWarnings": []
+ },
+ {
+  "id": "［霊衛］大宰府",
+  "name": "［霊衛］大宰府",
+  "ruby": "［れいえい］だざいふ",
+  "bookNo": "1045",
+  "country": "筑前",
+  "rarity": 7,
+  "castleType": "平",
+  "subType": "平",
+  "attributes": [
+   "平"
+  ],
+  "weapon": "槌",
+  "rangeKind": "近",
+  "cost": 14,
+  "illustFile": "［霊衛］大宰府S.png",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2640a9092cd239b5d44c893912e4e147f17346f9",
+  "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e1c46cc109c9f4ee9ffa929b110ee115a53f8a61",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3d2cca2d8e49bc12b18fe81bd773eca7a88fed26",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/899e5e25cb60a6cebb927b80e687a68bc08090cd",
+  "remodelStages": [
+   "無印",
+   "改壱"
+  ],
+  "remodelForms": {
+   "無印": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0b32a69b5519e7cae8567d41162f9b3cb10ba61e",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e1c46cc109c9f4ee9ffa929b110ee115a53f8a61",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/51d3683ae3d587b59c1ab3478f976ef454118d29",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/157f1901fd23564cbdcb6e55689299a7b754f59b"
+   },
+   "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/2640a9092cd239b5d44c893912e4e147f17346f9",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e1c46cc109c9f4ee9ffa929b110ee115a53f8a61",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3d2cca2d8e49bc12b18fe81bd773eca7a88fed26",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/899e5e25cb60a6cebb927b80e687a68bc08090cd"
+   }
+  },
+  "illustrator": "&uploader(57d1a578477346c1ed1ef5531c43c91067070a00_scre_22309",
+  "voiceActor": "",
+  "lore": "吾は大宰府。 かつて遠の朝廷と呼ばれし筑紫の政庁である。 もっとも今世において吾が担いしは、政にあらず。  菅公の霊廟に空いた、黄泉に通ずる大穴── ヨモツヒラサカを管理し、 其に留まる霊魂を守護する墓守にして。  まあ分かりやすく言えば、 天満大自在天神にスカウトされた吾は、 ヨモツヒラサカのイシューへエントリーし、 これにインクルージョンしようとする スレットアクターをブロックするポジションに アサインされたというわけだな。",
+  "stats": {
+   "base": {
+    "hp": 2000,
+    "atk": 200,
+    "def": 150,
+    "range": 150
+   },
+   "giant5": {
+    "hp": 8374,
+    "atk": 385,
+    "def": 203,
+    "range": 252,
+    "singleHit": 962
+   }
+  },
+  "statsDetail": {
+   "initial": {
+    "cost": "14",
+    "hp": "3988/10662",
+    "atk": "203/819",
+    "def": "97/356",
+    "range": "140/140",
+    "recovery": "10/34"
+   },
+   "giant5": {
+    "cost": "163",
+    "hp": "8374/22390",
+    "atk": "385/1556",
+    "def": "203/747",
+    "range": "252/252",
+    "recovery": "16/54"
+   }
+  },
+  "skill": {
+   "stage": "改壱",
+   "name": "[改壱] / ヨモツヒラサカの守護者",
+   "text": "自身の耐久/攻撃/攻撃速度30%上昇(効果重複)。全[太宰府と古代山城] の与えるダメージが1.6倍。特殊能力中、自身の射程が150上昇し ダメージを与えた敵の移動速度を少しの間100%低下させる",
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 60,
+     "multiplier": 1.6,
+     "target": "all",
+     "stackable": true,
+     "raw": "+60%(1.6倍) ［霊衛］大宰府・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "rangeFlat",
+     "mode": "flat",
+     "value": 150,
+     "target": "self",
+     "stackable": false,
+     "raw": "+150 ［霊衛］大宰府・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "enemySlow",
+     "mode": "percent",
+     "value": 100,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+100% ［霊衛］大宰府・特技"
+    }
+   ]
+  },
+  "strategy": {
+   "name": "[改壱] / 火雷天神の加護 （使用まで20秒：消費気5）",
+   "text": "30秒間対象の攻撃と与ダメージが2.2倍、巨大化気が半減 被ダメージ70%軽減。射程内敵の被ダメージ70%上昇、攻撃 対象にならない効果を無効(一部敵を除く。自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 70,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+70% ［霊衛］大宰府・計略"
+    }
+   ],
+   "cooldown": 20,
+   "cost": 5
+  },
+  "special": {
+   "stage": "無印",
+   "name": "[無印] / 此岸彼岸の梅の花 （消費気5：初回10秒：再使用60秒）",
+   "text": "60秒間自身の射程2倍、攻撃後の隙90%短縮、射程内の全敵 とその周囲に攻撃の1.5倍の6連続攻撃を行う 射程内の敵の攻撃が25%低下(効果重複)",
+   "effects": [
+    {
+     "source": "特殊能力",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 90,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+90% ［霊衛］大宰府・特殊能力"
+    },
+    {
+     "source": "特殊能力",
+     "stat": "enemyAtkDown",
+     "mode": "percent",
+     "value": 25,
+     "target": "all",
+     "stackable": false,
+     "raw": "+25% ［霊衛］大宰府・特殊能力"
+    }
+   ]
+  },
+  "allSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 菅公霊廟の墓守",
+    "text": "自身の耐久と攻撃を25%上昇(効果重複)。全ての[太宰府と古代山城]の 与えるダメージが1.5倍。特殊能力中、自身の射程が100上昇し ダメージを与えた敵の移動速度を少しの間100%低下させる",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "all",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［霊衛］大宰府・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 100,
+      "target": "self",
+      "stackable": false,
+      "raw": "+100 ［霊衛］大宰府・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100% ［霊衛］大宰府・特技"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / ヨモツヒラサカの守護者",
+    "text": "自身の耐久/攻撃/攻撃速度30%上昇(効果重複)。全[太宰府と古代山城] の与えるダメージが1.6倍。特殊能力中、自身の射程が150上昇し ダメージを与えた敵の移動速度を少しの間100%低下させる",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 60,
+      "multiplier": 1.6,
+      "target": "all",
+      "stackable": true,
+      "raw": "+60%(1.6倍) ［霊衛］大宰府・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 150,
+      "target": "self",
+      "stackable": false,
+      "raw": "+150 ［霊衛］大宰府・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "enemySlow",
+      "mode": "percent",
+      "value": 100,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+100% ［霊衛］大宰府・特技"
+     }
+    ]
+   }
+  ],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 天神の加護 （使用まで20秒：消費気5）",
+    "text": "30秒間対象の攻撃と与ダメージが2倍、巨大化気が半減 被ダメージ70%軽減。射程内敵の被ダメージ60%上昇、攻撃 対象にならない効果を無効(一部敵を除く。自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［霊衛］大宰府・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 5
+   },
+   {
+    "stage": "無印",
+    "name": "[無印] / 天神の権能 （使用まで60秒：消費気5）",
+    "text": "【火属性】範囲内の敵に7倍のダメージを与え 10秒間「火傷」にし、永続で防御を50%低下させる (範囲：超特大)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 火雷天神の加護 （使用まで20秒：消費気5）",
+    "text": "30秒間対象の攻撃と与ダメージが2.2倍、巨大化気が半減 被ダメージ70%軽減。射程内敵の被ダメージ70%上昇、攻撃 対象にならない効果を無効(一部敵を除く。自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 70,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+70% ［霊衛］大宰府・計略"
+     }
+    ],
+    "cooldown": 20,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 火雷天神の権能 （使用まで60秒：消費気5）",
+    "text": "【火属性】範囲内の敵に8倍のダメージを与え 10秒間「火傷」にし、永続で防御を60%低下させる (範囲：超特大)",
+    "effects": [],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
+  "allSpecials": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 此岸彼岸の梅の花 （消費気5：初回10秒：再使用60秒）",
+    "text": "60秒間自身の射程2倍、攻撃後の隙90%短縮、射程内の全敵 とその周囲に攻撃の1.5倍の6連続攻撃を行う 射程内の敵の攻撃が25%低下(効果重複)",
+    "effects": [
+     {
+      "source": "特殊能力",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 90,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+90% ［霊衛］大宰府・特殊能力"
+     },
+     {
+      "source": "特殊能力",
+      "stat": "enemyAtkDown",
+      "mode": "percent",
+      "value": 25,
+      "target": "all",
+      "stackable": false,
+      "raw": "+25% ［霊衛］大宰府・特殊能力"
+     }
+    ]
+   }
+  ],
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "大宰府",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Tofuroh_dazaifu.jpg/960px-Tofuroh_dazaifu.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%AE%B0%E5%BA%9C",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  },
+  "prefecture": "福岡県"
+ },
+ {
+  "id": "［崩舞］延岡城",
+  "name": "［崩舞］延岡城",
+  "ruby": "［ほうぶ］のべおかじょう",
+  "bookNo": "1046",
+  "country": "",
+  "rarity": 7,
+  "castleType": "平山",
+  "subType": "平山",
+  "attributes": [
+   "平山"
+  ],
+  "weapon": "石弓",
+  "rangeKind": "遠",
+  "cost": 10,
+  "illustFile": "［崩舞］延岡城S.png",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/05f9ea5c8784c6010105a0b10e9158be246812ac",
+  "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f12adab0ee846261aae18cdac683a323e95f705d",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e0e6a620a7fd0a20d581a6927cd16274d658ec6e",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/913fb433cc9c91a77a79e95d299861c541c9a5e7",
+  "remodelStages": [
+   "無印",
+   "改壱"
+  ],
+  "remodelForms": {
+   "無印": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3ae6c277efc0c6fc53ec56abe7cf456f2de7a4a3",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f12adab0ee846261aae18cdac683a323e95f705d",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/830a7321f5625373fd06326f43a987ac367d64bb",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/0b3b4dcb4d67f595491fef2cec2ba8c28d11a2a1"
+   },
+   "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/05f9ea5c8784c6010105a0b10e9158be246812ac",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/f12adab0ee846261aae18cdac683a323e95f705d",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e0e6a620a7fd0a20d581a6927cd16274d658ec6e",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/913fb433cc9c91a77a79e95d299861c541c9a5e7"
+   }
+  },
+  "illustrator": "&uploader(c53a9c15006c95719d03148e0c75171b2035e6e2_scre_22310",
+  "voiceActor": "",
+  "lore": "我が名は縣城。日向国は土持氏代々の本城として、 松尾城の名でも通っている。もっとも、 道雪殿の下にある今では、 大友の御城と言って差し支えないがな。  なに……延岡城に、見える？ 貴様、何処で其の名を聞いた。  しぃーっ、大きな声を出すんじゃない！ 兜に知られたらあんたも大変なことになるんだぞ！？ え、あたしはなぜ知ってるか、だと……ええい！ このような開けた場所で話せるものか、付いて参れ！",
+  "stats": {
+   "base": {
+    "hp": 2000,
+    "atk": 200,
+    "def": 150,
+    "range": 150
+   },
+   "giant5": {
+    "hp": 3893,
+    "atk": 326,
+    "def": 136,
+    "range": 549,
+    "singleHit": 815
+   }
+  },
+  "statsDetail": {
+   "initial": {
+    "cost": "",
+    "hp": "1854/4424",
+    "atk": "172/667",
+    "def": "65/300",
+    "range": "305/305",
+    "recovery": "10/34"
+   },
+   "giant5": {
+    "cost": "",
+    "hp": "3893/9290",
+    "atk": "326/1267",
+    "def": "136/630",
+    "range": "549/549",
+    "recovery": "16/54"
+   }
+  },
+  "skill": {
+   "stage": "改壱",
+   "name": "[改壱] / 天下一の神事能",
+   "text": "自身を除く射程内城娘1体毎に自身の攻撃が10%ずつ上昇(効果重複) 射程内城娘の攻撃速度が50%、射程が100上昇、攻撃後の隙が50%短縮 特殊能力中、自身が移動速度100以下の敵に与えるダメージ2倍",
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "gapShorten",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ［崩舞］延岡城・特技"
+    },
+    {
+     "source": "特技",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 100,
+     "multiplier": 2.0,
+     "target": "self",
+     "stackable": true,
+     "raw": "+100%(2.0倍) [自身が移動速度100以下の敵] ［崩舞］延岡城・特技",
+     "condition": "自身が移動速度100以下の敵"
+    }
+   ]
+  },
+  "strategy": {
+   "name": "[改壱] / 明鏡止水・羽衣水鏡 （使用まで30秒：消費気10）",
+   "text": "対象が敵から狙われず攻撃2.2倍、飛行敵に対して攻撃が 2倍、攻撃毎に攻撃が40上昇(最大4000)。射程内味方の 撃破気1増加、九州は2増加(効果時間無限。自分のみ)",
+   "effects": [],
+   "cooldown": 30,
+   "cost": 10
+  },
+  "special": {
+   "stage": "無印",
+   "name": "[無印] / 千人殺しの秘策 （消費気5：初回10秒：再使用45秒）",
+   "text": "45秒間射程が1.5倍、標的とその周囲に攻撃の2倍で防御 無視のダメージを与え、5秒間移動速度と防御を0にする 攻撃を5連続で行う。射程内敵の撃破気が1増加",
+   "effects": [
+    {
+     "source": "特殊能力",
+     "stat": "rangePercent",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50%(1.5倍) ［崩舞］延岡城・特殊能力"
+    }
+   ]
+  },
+  "allSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 戦見做しの能舞台",
+    "text": "自身を除く射程内城娘1体毎に自身の攻撃が8%ずつ上昇(効果重複) 射程内城娘の射程が80上昇、攻撃後の隙が40%短縮 特殊能力中、自身が移動速度100以下の敵に与えるダメージ2倍",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "rangeFlat",
+      "mode": "flat",
+      "value": 80,
+      "target": "self",
+      "stackable": false,
+      "raw": "+80 ［崩舞］延岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［崩舞］延岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [自身が移動速度100以下の敵] ［崩舞］延岡城・特技",
+      "condition": "自身が移動速度100以下の敵"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 天下一の神事能",
+    "text": "自身を除く射程内城娘1体毎に自身の攻撃が10%ずつ上昇(効果重複) 射程内城娘の攻撃速度が50%、射程が100上昇、攻撃後の隙が50%短縮 特殊能力中、自身が移動速度100以下の敵に与えるダメージ2倍",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "gapShorten",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［崩舞］延岡城・特技"
+     },
+     {
+      "source": "特技",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 100,
+      "multiplier": 2.0,
+      "target": "self",
+      "stackable": true,
+      "raw": "+100%(2.0倍) [自身が移動速度100以下の敵] ［崩舞］延岡城・特技",
+      "condition": "自身が移動速度100以下の敵"
+     }
+    ]
+   }
+  ],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 明鏡止水・水鏡 （使用まで30秒：消費気10）",
+    "text": "対象が敵から狙われず攻撃2倍、飛行敵に対して攻撃が 2倍、攻撃毎に攻撃が30上昇(最大3000)。射程内味方の 撃破気1増加、九州は2増加(効果時間無限。自分のみ)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 10
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 明鏡止水・羽衣水鏡 （使用まで30秒：消費気10）",
+    "text": "対象が敵から狙われず攻撃2.2倍、飛行敵に対して攻撃が 2倍、攻撃毎に攻撃が40上昇(最大4000)。射程内味方の 撃破気1増加、九州は2増加(効果時間無限。自分のみ)",
+    "effects": [],
+    "cooldown": 30,
+    "cost": 10
+   }
+  ],
+  "allSpecials": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 千人殺しの秘策 （消費気5：初回10秒：再使用45秒）",
+    "text": "45秒間射程が1.5倍、標的とその周囲に攻撃の2倍で防御 無視のダメージを与え、5秒間移動速度と防御を0にする 攻撃を5連続で行う。射程内敵の撃破気が1増加",
+    "effects": [
+     {
+      "source": "特殊能力",
+      "stat": "rangePercent",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50%(1.5倍) ［崩舞］延岡城・特殊能力"
+     }
+    ]
+   }
+  ],
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "延岡城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Nobeoka_castle_ishigaki1.JPG/960px-Nobeoka_castle_ishigaki1.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E5%BB%B6%E5%B2%A1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  },
+  "prefecture": "宮崎県"
+ },
+ {
+  "id": "［忠刃］佐和山城",
+  "name": "［忠刃］佐和山城",
+  "ruby": "",
+  "bookNo": "1047",
+  "country": "",
+  "rarity": 7,
+  "castleType": "山",
+  "subType": "山",
+  "attributes": [
+   "山"
+  ],
+  "weapon": "刀",
+  "rangeKind": "近",
+  "cost": 10,
+  "illustFile": "［忠刃］佐和山城S.png",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e2f7c53e656570b040c4fca50d1f8b35fbfa3b0b",
+  "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/be8e0f077fc4b48ae3ed6ee7dc3181b85f09eca5",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3bc51cc1b60565547e0473af8b8d309c7971afbb",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/14afd35f0da15b62b2c1856dc93ace2b57991efd",
+  "remodelStages": [
+   "無印",
+   "改壱"
+  ],
+  "remodelForms": {
+   "無印": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e2f7c53e656570b040c4fca50d1f8b35fbfa3b0b",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/be8e0f077fc4b48ae3ed6ee7dc3181b85f09eca5",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3bc51cc1b60565547e0473af8b8d309c7971afbb",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/14afd35f0da15b62b2c1856dc93ace2b57991efd"
+   },
+   "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/e2f7c53e656570b040c4fca50d1f8b35fbfa3b0b",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/be8e0f077fc4b48ae3ed6ee7dc3181b85f09eca5",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3bc51cc1b60565547e0473af8b8d309c7971afbb",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/14afd35f0da15b62b2c1856dc93ace2b57991efd"
+   }
+  },
+  "illustrator": "&uploader(8061afddc307670ea042a869d8159eb72dbeb965_scre_22339",
+  "voiceActor": "",
+  "lore": "",
+  "stats": {
+   "base": {
+    "hp": 2000,
+    "atk": 200,
+    "def": 150,
+    "range": 150
+   },
+   "giant5": {
+    "hp": 5338,
+    "atk": 262,
+    "def": 216,
+    "range": 270,
+    "singleHit": 655
+   }
+  },
+  "statsDetail": {
+   "initial": {
+    "cost": "",
+    "hp": "2542/＿",
+    "atk": "138/＿",
+    "def": "103/＿",
+    "range": "150/＿",
+    "recovery": "10/＿"
+   },
+   "giant5": {
+    "cost": "",
+    "hp": "5338/＿",
+    "atk": "262/＿",
+    "def": "216/＿",
+    "range": "270/＿",
+    "recovery": "16/＿"
+   }
+  },
+  "skill": {
+   "stage": "改壱",
+   "name": "[改壱] / 大一大万大吉の合戦旗印",
+   "text": "【配置】自身が優先攻撃対象になり、被攻撃時に攻撃と回復が150ず つ上昇(最大4500)。射程内敵1体毎に攻撃が10%ずつ上昇(効果重複) 最大化時、与ダメ60%、耐久100%上昇。回復の1倍の値を攻撃に加算",
+   "effects": []
+  },
+  "strategy": {
+   "name": "[改壱] / 忠義戦証の切り込み痕 （使用まで60秒：消費気5）",
+   "text": "60秒間対象が被ダメージ85%軽減、全状態異常を無効、受け るダメージを30000まで防ぐ。射程内敵の防御90%低下 被攻撃時、30秒間対象の攻撃200%上昇(自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgTakenDown",
+     "mode": "percent",
+     "value": 85,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+85% ［忠刃］佐和山城・計略"
+    }
+   ],
+   "cooldown": 60,
+   "cost": 5
+  },
+  "special": {
+   "stage": "無印",
+   "name": "[無印] / 融刀・石田正宗 （消費気5：初回5秒：再使用45秒）",
+   "text": "45秒間自身の射程/回復1.5倍(効果重複)。標的に10倍 その周囲に5倍の攻撃を行い、回復が1500以上の時与える ダメージ2倍。射程内敵の移動速度/与ダメージ50%低下",
+   "effects": []
+  },
+  "allSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 大一大万大吉の陣幕",
+    "text": "【配置】自身が優先攻撃対象になり、被攻撃時に攻撃と回復が100 ずつ上昇(最大3000)。射程内敵1体毎に攻撃が7%ずつ上昇(効果重複) 最大化時、与ダメ60%上昇。回復の1倍の値を攻撃に加算",
+    "effects": []
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 大一大万大吉の合戦旗印",
+    "text": "【配置】自身が優先攻撃対象になり、被攻撃時に攻撃と回復が150ず つ上昇(最大4500)。射程内敵1体毎に攻撃が10%ずつ上昇(効果重複) 最大化時、与ダメ60%、耐久100%上昇。回復の1倍の値を攻撃に加算",
+    "effects": []
+   }
+  ],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 戦証の切り込み痕 （使用まで60秒：消費気5）",
+    "text": "60秒間対象が被ダメージ75%軽減、全状態異常を無効、受け るダメージを30000まで防ぐ。射程内敵の防御80%低下 被攻撃時、30秒間対象の攻撃200%上昇(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 75,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+75% ［忠刃］佐和山城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 忠義戦証の切り込み痕 （使用まで60秒：消費気5）",
+    "text": "60秒間対象が被ダメージ85%軽減、全状態異常を無効、受け るダメージを30000まで防ぐ。射程内敵の防御90%低下 被攻撃時、30秒間対象の攻撃200%上昇(自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgTakenDown",
+      "mode": "percent",
+      "value": 85,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+85% ［忠刃］佐和山城・計略"
+     }
+    ],
+    "cooldown": 60,
+    "cost": 5
+   }
+  ],
+  "allSpecials": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 融刀・石田正宗 （消費気5：初回5秒：再使用45秒）",
+    "text": "45秒間自身の射程/回復1.5倍(効果重複)。標的に10倍 その周囲に5倍の攻撃を行い、回復が1500以上の時与える ダメージ2倍。射程内敵の移動速度/与ダメージ50%低下",
+    "effects": []
+   }
+  ],
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "佐和山城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Sawayama_Castle_taken_from_the_car_window_of_JR_Biwako_Line_bounded_for_Maibara.jpg/960px-Sawayama_Castle_taken_from_the_car_window_of_JR_Biwako_Line_bounded_for_Maibara.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E4%BD%90%E5%92%8C%E5%B1%B1%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  }
+ },
+ {
+  "id": "［雲耀］鹿児島城",
+  "name": "［雲耀］鹿児島城",
+  "ruby": "［うんよう］かごしまじょう",
+  "bookNo": "1048",
+  "country": "",
+  "rarity": 6,
+  "castleType": "平山",
+  "subType": "平山/水",
+  "attributes": [
+   "平山",
+   "水"
+  ],
+  "weapon": "刀",
+  "rangeKind": "近",
+  "cost": 10,
+  "illustFile": "［雲耀］鹿児島城S.png",
+  "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ac0dcb6d3aa131c5ab59c272e95cc11b0bf25412",
+  "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c83ac47092b7df2222e9c925274d8c46338b5d9b",
+  "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3be031f579a73c9c44feb3a7799ff4329c6c3dcc",
+  "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/650b5959c756bfbb2396e5bdcdf198d17efafcc6",
+  "remodelStages": [
+   "無印",
+   "改壱"
+  ],
+  "remodelForms": {
+   "無印": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ac0dcb6d3aa131c5ab59c272e95cc11b0bf25412",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c83ac47092b7df2222e9c925274d8c46338b5d9b",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3be031f579a73c9c44feb3a7799ff4329c6c3dcc",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/650b5959c756bfbb2396e5bdcdf198d17efafcc6"
+   },
+   "改壱": {
+    "illustUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/ac0dcb6d3aa131c5ab59c272e95cc11b0bf25412",
+    "ojouUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/c83ac47092b7df2222e9c925274d8c46338b5d9b",
+    "taihaUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/3be031f579a73c9c44feb3a7799ff4329c6c3dcc",
+    "tokugiUrl": "https://uploader.swiki.jp/attachment/full/attachment_hash/650b5959c756bfbb2396e5bdcdf198d17efafcc6"
+   }
+  },
+  "illustrator": "七六",
+  "voiceActor": "",
+  "lore": "あたいの名前は鹿児島城だよ。 と言っても、城娘ってことを思い出したのは、 つい最近のことだけど。  第六天魔王が日の本を支配する世の中で、 身寄りのない子たちをまとめて世話してるんだ。  今までは、妹みたいに思ってたお鶴が 矢面に立ってあたいたちの居場所を 守るために辛い日々を耐えてくれた。 これからはあたいがお鶴のため、 そして家族の未来のために戦うよ。 殿どん、よろしくね♪",
+  "stats": {
+   "base": {
+    "hp": 2000,
+    "atk": 200,
+    "def": 150,
+    "range": 150
+   },
+   "giant5": {
+    "hp": 4958,
+    "atk": 257,
+    "def": 194,
+    "range": 315,
+    "singleHit": 642
+   }
+  },
+  "statsDetail": {
+   "initial": {
+    "cost": "",
+    "hp": "2479/＿",
+    "atk": "143/＿",
+    "def": "97/＿",
+    "range": "175/＿",
+    "recovery": "10/＿"
+   },
+   "giant5": {
+    "cost": "",
+    "hp": "4958/＿",
+    "atk": "257/＿",
+    "def": "194/＿",
+    "range": "315/＿",
+    "recovery": "15/＿"
+   }
+  },
+  "skill": {
+   "stage": "改壱",
+   "name": "[改壱] / 津島の血滾闘志",
+   "text": "自身が全ての敵を足止めし、敵を撃破する度に自身の攻撃が 3%ずつ上昇(最大30%、効果重複)。射程内敵の防御と射程が40%低下 特殊能力中、自身の特殊攻撃ゲージ蓄積速度が2倍",
+   "effects": [
+    {
+     "source": "特技",
+     "stat": "enemyDefDown",
+     "mode": "percent",
+     "value": 40,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+40% ［雲耀］鹿児島城・特技"
+    }
+   ]
+  },
+  "strategy": {
+   "name": "[無印] / 薩摩の武士 （使用まで30秒：消費気7）",
+   "text": "20秒間対象の耐久が0にならず、与ダメージが50%上昇 耐久が時間経過で徐々に減少。対象の耐久が低いほど 与えるダメージが上昇(最大2倍。自分のみ)",
+   "effects": [
+    {
+     "source": "計略",
+     "stat": "dmgDealt",
+     "mode": "percent",
+     "value": 50,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+50% ［雲耀］鹿児島城・計略"
+    }
+   ],
+   "cooldown": 30,
+   "cost": 7
+  },
+  "special": {
+   "stage": "無印",
+   "name": "[無印] / 津島の武者震い （消費気5：初回15秒：再使用60秒）",
+   "text": "60秒間自身の攻撃が5倍、射程1.2倍 自身の攻撃が5000以上の場合、与えるダメージ1.5倍 自身を除く射程内味方1体ごとに自身の攻撃が250低下",
+   "effects": [
+    {
+     "source": "特殊能力",
+     "stat": "atkPercent",
+     "mode": "percent",
+     "value": 400,
+     "target": "inRange",
+     "stackable": false,
+     "raw": "+400%(5.0倍) ［雲耀］鹿児島城・特殊能力"
+    },
+    {
+     "source": "特殊能力",
+     "stat": "dmgDealtTarget",
+     "mode": "percent",
+     "value": 50,
+     "multiplier": 1.5,
+     "target": "inRange",
+     "stackable": true,
+     "raw": "+50%(1.5倍) ［雲耀］鹿児島城・特殊能力"
+    }
+   ]
+  },
+  "allSkills": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 津島の闘志",
+    "text": "自身が全ての敵を足止めし、敵を撃破する度に自身の攻撃が 2%ずつ上昇(最大30%、効果重複)。射程内敵の防御が35%低下 特殊能力中、自身の特殊攻撃ゲージ蓄積速度が2倍",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 35,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+35% ［雲耀］鹿児島城・特技"
+     }
+    ]
+   },
+   {
+    "stage": "改壱",
+    "name": "[改壱] / 津島の血滾闘志",
+    "text": "自身が全ての敵を足止めし、敵を撃破する度に自身の攻撃が 3%ずつ上昇(最大30%、効果重複)。射程内敵の防御と射程が40%低下 特殊能力中、自身の特殊攻撃ゲージ蓄積速度が2倍",
+    "effects": [
+     {
+      "source": "特技",
+      "stat": "enemyDefDown",
+      "mode": "percent",
+      "value": 40,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+40% ［雲耀］鹿児島城・特技"
+     }
+    ]
+   }
+  ],
+  "allStrategies": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 薩摩の武士 （使用まで30秒：消費気7）",
+    "text": "20秒間対象の耐久が0にならず、与ダメージが50%上昇 耐久が時間経過で徐々に減少。対象の耐久が低いほど 与えるダメージが上昇(最大2倍。自分のみ)",
+    "effects": [
+     {
+      "source": "計略",
+      "stat": "dmgDealt",
+      "mode": "percent",
+      "value": 50,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+50% ［雲耀］鹿児島城・計略"
+     }
+    ],
+    "cooldown": 30,
+    "cost": 7
+   }
+  ],
+  "allSpecials": [
+   {
+    "stage": "無印",
+    "name": "[無印] / 津島の武者震い （消費気5：初回15秒：再使用60秒）",
+    "text": "60秒間自身の攻撃が5倍、射程1.2倍 自身の攻撃が5000以上の場合、与えるダメージ1.5倍 自身を除く射程内味方1体ごとに自身の攻撃が250低下",
+    "effects": [
+     {
+      "source": "特殊能力",
+      "stat": "atkPercent",
+      "mode": "percent",
+      "value": 400,
+      "target": "inRange",
+      "stackable": false,
+      "raw": "+400%(5.0倍) ［雲耀］鹿児島城・特殊能力"
+     },
+     {
+      "source": "特殊能力",
+      "stat": "dmgDealtTarget",
+      "mode": "percent",
+      "value": 50,
+      "multiplier": 1.5,
+      "target": "inRange",
+      "stackable": true,
+      "raw": "+50%(1.5倍) ［雲耀］鹿児島城・特殊能力"
+     }
+    ]
+   }
+  ],
+  "parseWarnings": [],
+  "realCastle": {
+   "name": "鹿児島城",
+   "photoUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Goromon_Gate_ac_%281%29.jpg/960px-Goromon_Gate_ac_%281%29.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+   "articleUrl": "https://ja.wikipedia.org/wiki/%E9%B9%BF%E5%85%90%E5%B3%B6%E5%9F%8E",
+   "license": "CC BY-SA",
+   "author": "Wikimedia Commons"
+  },
+  "prefecture": "鹿児島県"
  }
 ];
