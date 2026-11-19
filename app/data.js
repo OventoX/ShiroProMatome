@@ -25734,8 +25734,7 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) [対象] ［肝試し］白河小峰城・計略",
-     "condition": "対象"
+     "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
     },
     {
      "source": "計略",
@@ -25789,8 +25788,7 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [対象] ［肝試し］白河小峰城・計略",
-      "condition": "対象"
+      "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
      },
      {
       "source": "計略",
@@ -25818,8 +25816,7 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) [対象] ［肝試し］白河小峰城・計略",
-      "condition": "対象"
+      "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
      },
      {
       "source": "計略",

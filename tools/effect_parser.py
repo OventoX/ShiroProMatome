@@ -71,8 +71,8 @@ def parse_dmg_target_clause(c: str, castle_name: str, source_type: str, prev_cla
             cand = re.sub(r'(?:[のをが]|(?<!ご)と)$', '', cand).strip()
             cand = re.sub(r'^\d+秒間(?:対象が|対象の|自身の|自身)?', '', cand).strip()
             if cand and any(k in cand for k in ['敵', '妖怪', '飛行', '海洋', '兜', '耐久', '防御', '攻撃', '回復', '移動速度', '以上', '以下', '未満', '最大', '最小', '状態', '属性', '対象', '回数', '毎']):
-                # もし「〜の攻撃」や「〜の攻撃速度」だけの無条件主語なら除外
-                if cand not in ('攻撃', '自身の攻撃', '対象の攻撃', '攻撃速度', '特殊攻撃', '範囲攻撃'):
+                # もし単なる無条件主語（「対象」「自身」「味方」「〜の攻撃」等）のみなら条件として扱わない
+                if cand not in ('攻撃', '自身の攻撃', '対象の攻撃', '攻撃速度', '特殊攻撃', '範囲攻撃', '対象', '自身', '味方'):
                     cond = cand
 
         c_after = re.sub(r'\s+', '', c[m_pos.start():])
