@@ -53,24 +53,25 @@ def parse_dmg_target_clause(c: str, castle_name: str, source_type: str, prev_cla
         return None, c
 
     if m_pos:
-        # Condition extraction from phrase immediately preceding 与えるダメージ (preserving whitespace!)
+        # Condition extraction from phrase immediately preceding 与えるダメージ (handling Wiki line-break spaces without truncating multi-word conditions)
         pre = c[:m_pos.start()].strip()
         if not pre and prev_clause:
-            prev_tokens = [t for t in re.split(r'[\s、､。]', prev_clause.strip()) if t]
-            pre = prev_tokens[-1] if prev_tokens else ""
-        tokens = [t for t in re.split(r'[\s、､。]', pre) if t]
-        last_token = tokens[-1] if tokens else ""
+            pre = prev_clause.strip()
+        pre_clean = re.sub(r'\s+', '', pre)
+        # 同一文節内の先行効果文（〜上昇/軽減/低下/短縮/回復/無効/無視する/配置/倍 等）の末尾で区切り、直前の条件句全体を残す
+        ends = list(re.finditer(r'(?:上昇|軽減|低下|短縮|回復|無効|無視する|無視|行う|増加|狙われない|防ぐ|受ける|与える|得る|配置|\d+(?:\.\d+)?倍)(?:\([^)]*\))?', pre_clean))
+        if ends:
+            pre_clean = pre_clean[ends[-1].end():]
 
         cond = None
-        m_stat_cond = re.search(r'((?:自身の)?(?:攻撃|回復|移動速度)(?:が)?\s*\d+[^、。]*(?:以上|以下|未満))', last_token)
-        if m_stat_cond:
-            cond = m_stat_cond.group(1).strip()
-        elif any(k in last_token for k in ['敵', '妖怪', '飛行', '海洋', '兜', '耐久', '防御', '攻撃', '回復', '移動速度', 'に対して', 'に対し', '以上', '以下']):
-            cond = re.sub(r'(?:に対して|に対し|に|で|の時|の場合|場合)$', '', last_token).strip()
-        if not cond and any(k in pre for k in ['攻撃が', '回復が', '移動速度']):
-            m_cond = re.search(r'((?:自身の)?(?:攻撃|回復|移動速度)[^、。\s]*(?:以上|以下|未満))', pre)
-            if m_cond:
-                cond = m_cond.group(1).strip()
+        if pre_clean:
+            cand = re.sub(r'(?:に対して|に対し|に|で|の時|の場合|場合)$', '', pre_clean).strip()
+            cand = re.sub(r'の場合敵$', '', cand).strip()
+            cand = re.sub(r'^\d+秒間(?:対象が|対象の|自身の|自身)?', '', cand).strip()
+            if cand and any(k in cand for k in ['敵', '妖怪', '飛行', '海洋', '兜', '耐久', '防御', '攻撃', '回復', '移動速度', '以上', '以下', '未満', '最大', '最小', '状態', '属性', '対象', '回数', '毎']):
+                # もし「〜の攻撃」や「〜の攻撃速度」だけの無条件主語なら除外
+                if cand not in ('攻撃', '自身の攻撃', '対象の攻撃', '攻撃速度', '特殊攻撃', '範囲攻撃'):
+                    cond = cand
 
         c_after = re.sub(r'\s+', '', c[m_pos.start():])
         m_mult = re.search(r'与えるダメージ(?:が)?(?:約)?(\d+(?:\.\d+)?)倍', c_after)
