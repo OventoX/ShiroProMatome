@@ -9832,8 +9832,8 @@ window.SCRE_DATA = [
      "multiplier": 1.2,
      "target": "all",
      "stackable": true,
-     "raw": "+20%(1.2倍) [射程内隠密状態の味方の] 小峯城・特技",
-     "condition": "射程内隠密状態の味方の"
+     "raw": "+20%(1.2倍) [射程内隠密状態の味方] 小峯城・特技",
+     "condition": "射程内隠密状態の味方"
     },
     {
      "source": "特技",
@@ -9910,8 +9910,8 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "all",
       "stackable": true,
-      "raw": "+20%(1.2倍) [射程内隠密状態の味方の] 小峯城・特技",
-      "condition": "射程内隠密状態の味方の"
+      "raw": "+20%(1.2倍) [射程内隠密状態の味方] 小峯城・特技",
+      "condition": "射程内隠密状態の味方"
      },
      {
       "source": "特技",
@@ -25734,7 +25734,8 @@ window.SCRE_DATA = [
      "multiplier": 1.5,
      "target": "self",
      "stackable": true,
-     "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
+     "raw": "+50%(1.5倍) [対象] ［肝試し］白河小峰城・計略",
+     "condition": "対象"
     },
     {
      "source": "計略",
@@ -25788,7 +25789,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
+      "raw": "+50%(1.5倍) [対象] ［肝試し］白河小峰城・計略",
+      "condition": "対象"
      },
      {
       "source": "計略",
@@ -25816,7 +25818,8 @@ window.SCRE_DATA = [
       "multiplier": 1.5,
       "target": "self",
       "stackable": true,
-      "raw": "+50%(1.5倍) ［肝試し］白河小峰城・計略"
+      "raw": "+50%(1.5倍) [対象] ［肝試し］白河小峰城・計略",
+      "condition": "対象"
      },
      {
       "source": "計略",
@@ -70609,8 +70612,8 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "self",
      "stackable": true,
-     "raw": "+30%(1.3倍) [最大化時自身と自伏兵の] ［白輝］姫路城・特技",
-     "condition": "最大化時自身と自伏兵の"
+     "raw": "+30%(1.3倍) [最大化時自身と自伏兵] ［白輝］姫路城・特技",
+     "condition": "最大化時自身と自伏兵"
     }
    ]
   },
@@ -70668,8 +70671,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [最大化時自身と自伏兵の] ［白輝］姫路城・特技",
-      "condition": "最大化時自身と自伏兵の"
+      "raw": "+30%(1.3倍) [最大化時自身と自伏兵] ［白輝］姫路城・特技",
+      "condition": "最大化時自身と自伏兵"
      }
     ]
    }
@@ -72007,8 +72010,8 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "inRange",
      "stackable": true,
-     "raw": "+30%(1.3倍) [隠密状態の城娘が] 雲霧城・特殊攻撃",
-     "condition": "隠密状態の城娘が"
+     "raw": "+30%(1.3倍) [隠密状態の城娘] 雲霧城・特殊攻撃",
+     "condition": "隠密状態の城娘"
     }
    ]
   },
@@ -72132,8 +72135,8 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "inRange",
       "stackable": true,
-      "raw": "+20%(1.2倍) [隠密状態の城娘が] 雲霧城・特殊攻撃",
-      "condition": "隠密状態の城娘が"
+      "raw": "+20%(1.2倍) [隠密状態の城娘] 雲霧城・特殊攻撃",
+      "condition": "隠密状態の城娘"
      }
     ]
    },
@@ -72150,8 +72153,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "inRange",
       "stackable": true,
-      "raw": "+30%(1.3倍) [隠密状態の城娘が] 雲霧城・特殊攻撃",
-      "condition": "隠密状態の城娘が"
+      "raw": "+30%(1.3倍) [隠密状態の城娘] 雲霧城・特殊攻撃",
+      "condition": "隠密状態の城娘"
      }
     ]
    }
@@ -73234,8 +73237,8 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "self",
      "stackable": true,
-     "raw": "+30%(1.3倍) [敵撃破時10秒間自身の] 海上都市ヴェネツィア・特技",
-     "condition": "敵撃破時10秒間自身の"
+     "raw": "+30%(1.3倍) [敵撃破時10秒間自身] 海上都市ヴェネツィア・特技",
+     "condition": "敵撃破時10秒間自身"
     }
    ]
   },
@@ -73314,8 +73317,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "self",
       "stackable": true,
-      "raw": "+30%(1.3倍) [敵撃破時10秒間自身の] 海上都市ヴェネツィア・特技",
-      "condition": "敵撃破時10秒間自身の"
+      "raw": "+30%(1.3倍) [敵撃破時10秒間自身] 海上都市ヴェネツィア・特技",
+      "condition": "敵撃破時10秒間自身"
      }
     ]
    }
@@ -80760,8 +80763,8 @@ window.SCRE_DATA = [
      "multiplier": 1.2,
      "target": "all",
      "stackable": true,
-     "raw": "+20%(1.2倍) [耐久が80%以上の射程内味方の] ［球陽］首里城・計略",
-     "condition": "耐久が80%以上の射程内味方の"
+     "raw": "+20%(1.2倍) [耐久が80%以上の射程内味方] ［球陽］首里城・計略",
+     "condition": "耐久が80%以上の射程内味方"
     }
    ],
    "cooldown": 30,
@@ -80831,8 +80834,8 @@ window.SCRE_DATA = [
       "multiplier": 1.15,
       "target": "all",
       "stackable": true,
-      "raw": "+15%(1.15倍) [耐久が80%以上の射程内味方の] ［球陽］首里城・計略",
-      "condition": "耐久が80%以上の射程内味方の"
+      "raw": "+15%(1.15倍) [耐久が80%以上の射程内味方] ［球陽］首里城・計略",
+      "condition": "耐久が80%以上の射程内味方"
      }
     ],
     "cooldown": 30,
@@ -80851,8 +80854,8 @@ window.SCRE_DATA = [
       "multiplier": 1.8,
       "target": "self",
       "stackable": true,
-      "raw": "+80%(1.8倍) [対象と自身の伏兵の攻撃と] ［球陽］首里城・計略",
-      "condition": "対象と自身の伏兵の攻撃と"
+      "raw": "+80%(1.8倍) [対象と自身の伏兵の攻撃] ［球陽］首里城・計略",
+      "condition": "対象と自身の伏兵の攻撃"
      },
      {
       "source": "計略",
@@ -80880,8 +80883,8 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "all",
       "stackable": true,
-      "raw": "+20%(1.2倍) [耐久が80%以上の射程内味方の] ［球陽］首里城・計略",
-      "condition": "耐久が80%以上の射程内味方の"
+      "raw": "+20%(1.2倍) [耐久が80%以上の射程内味方] ［球陽］首里城・計略",
+      "condition": "耐久が80%以上の射程内味方"
      }
     ],
     "cooldown": 30,
@@ -80900,8 +80903,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [対象と自身の伏兵の攻撃と] ［球陽］首里城・計略",
-      "condition": "対象と自身の伏兵の攻撃と"
+      "raw": "+100%(2.0倍) [対象と自身の伏兵の攻撃] ［球陽］首里城・計略",
+      "condition": "対象と自身の伏兵の攻撃"
      },
      {
       "source": "計略",
@@ -86453,8 +86456,8 @@ window.SCRE_DATA = [
      "multiplier": 1.2,
      "target": "self",
      "stackable": true,
-     "raw": "+20%(1.2倍) [耐久50%以上の敵に自身が] ［夏］パンデモニウム・計略",
-     "condition": "耐久50%以上の敵に自身が"
+     "raw": "+20%(1.2倍) [耐久50%以上の敵に自身] ［夏］パンデモニウム・計略",
+     "condition": "耐久50%以上の敵に自身"
     }
    ],
    "cooldown": 30,
@@ -86509,8 +86512,8 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "self",
       "stackable": true,
-      "raw": "+20%(1.2倍) [耐久50%以上の敵に自身が] ［夏］パンデモニウム・計略",
-      "condition": "耐久50%以上の敵に自身が"
+      "raw": "+20%(1.2倍) [耐久50%以上の敵に自身] ［夏］パンデモニウム・計略",
+      "condition": "耐久50%以上の敵に自身"
      }
     ],
     "cooldown": 30,
@@ -86529,8 +86532,8 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "self",
       "stackable": true,
-      "raw": "+20%(1.2倍) [耐久50%以上の敵に自身が] ［夏］パンデモニウム・計略",
-      "condition": "耐久50%以上の敵に自身が"
+      "raw": "+20%(1.2倍) [耐久50%以上の敵に自身] ［夏］パンデモニウム・計略",
+      "condition": "耐久50%以上の敵に自身"
      }
     ],
     "cooldown": 30,
@@ -100823,8 +100826,8 @@ window.SCRE_DATA = [
      "multiplier": 3.0,
      "target": "self",
      "stackable": true,
-     "raw": "+200%(3.0倍) [3回攻撃毎に自身の] 【川熊娘】イオ・特技",
-     "condition": "3回攻撃毎に自身の"
+     "raw": "+200%(3.0倍) [3回攻撃毎に自身] 【川熊娘】イオ・特技",
+     "condition": "3回攻撃毎に自身"
     },
     {
      "source": "特技",
@@ -100878,8 +100881,8 @@ window.SCRE_DATA = [
       "multiplier": 3.0,
       "target": "self",
       "stackable": true,
-      "raw": "+200%(3.0倍) [3回攻撃毎に自身の] 【川熊娘】イオ・特技",
-      "condition": "3回攻撃毎に自身の"
+      "raw": "+200%(3.0倍) [3回攻撃毎に自身] 【川熊娘】イオ・特技",
+      "condition": "3回攻撃毎に自身"
      },
      {
       "source": "特技",
@@ -117845,8 +117848,8 @@ window.SCRE_DATA = [
      "multiplier": 1.2,
      "target": "inRange",
      "stackable": true,
-     "raw": "+20%(1.2倍) [現在耐久が10000以上の射程内城娘の] 柳川城・特技",
-     "condition": "現在耐久が10000以上の射程内城娘の"
+     "raw": "+20%(1.2倍) [現在耐久が10000以上の射程内城娘] 柳川城・特技",
+     "condition": "現在耐久が10000以上の射程内城娘"
     }
    ]
   },
@@ -117897,8 +117900,8 @@ window.SCRE_DATA = [
       "multiplier": 1.2,
       "target": "inRange",
       "stackable": true,
-      "raw": "+20%(1.2倍) [現在耐久が10000以上の射程内城娘の] 柳川城・特技",
-      "condition": "現在耐久が10000以上の射程内城娘の"
+      "raw": "+20%(1.2倍) [現在耐久が10000以上の射程内城娘] 柳川城・特技",
+      "condition": "現在耐久が10000以上の射程内城娘"
      }
     ]
    }
@@ -134337,8 +134340,8 @@ window.SCRE_DATA = [
      "multiplier": 1.3,
      "target": "inRange",
      "stackable": true,
-     "raw": "+30%(1.3倍) [最大耐久25000以上の射程内城娘の] 井伊谷城・特技",
-     "condition": "最大耐久25000以上の射程内城娘の"
+     "raw": "+30%(1.3倍) [最大耐久25000以上の射程内城娘] 井伊谷城・特技",
+     "condition": "最大耐久25000以上の射程内城娘"
     }
    ]
   },
@@ -134424,8 +134427,8 @@ window.SCRE_DATA = [
       "multiplier": 1.3,
       "target": "inRange",
       "stackable": true,
-      "raw": "+30%(1.3倍) [最大耐久25000以上の射程内城娘の] 井伊谷城・特技",
-      "condition": "最大耐久25000以上の射程内城娘の"
+      "raw": "+30%(1.3倍) [最大耐久25000以上の射程内城娘] 井伊谷城・特技",
+      "condition": "最大耐久25000以上の射程内城娘"
      }
     ]
    }
@@ -176857,7 +176860,8 @@ window.SCRE_DATA = [
      "multiplier": 1.1,
      "target": "inRange",
      "stackable": true,
-     "raw": "+10% 立花山城・特技"
+     "raw": "+10% [巨大化する度に自身の与回復量] 立花山城・特技",
+     "condition": "巨大化する度に自身の与回復量"
     },
     {
      "source": "特技",
@@ -176969,7 +176973,8 @@ window.SCRE_DATA = [
       "multiplier": 1.1,
       "target": "inRange",
       "stackable": true,
-      "raw": "+10% 立花山城・特技"
+      "raw": "+10% [巨大化する度に自身の与回復量] 立花山城・特技",
+      "condition": "巨大化する度に自身の与回復量"
      },
      {
       "source": "特技",
@@ -218416,8 +218421,8 @@ window.SCRE_DATA = [
      "multiplier": 2.0,
      "target": "self",
      "stackable": true,
-     "raw": "+100%(2.0倍) [が1500以上] ［忠刃］佐和山城・特殊能力",
-     "condition": "が1500以上"
+     "raw": "+100%(2.0倍) [回復が1500以上] ［忠刃］佐和山城・特殊能力",
+     "condition": "回復が1500以上"
     },
     {
      "source": "特殊能力",
@@ -218562,8 +218567,8 @@ window.SCRE_DATA = [
       "multiplier": 2.0,
       "target": "self",
       "stackable": true,
-      "raw": "+100%(2.0倍) [が1500以上] ［忠刃］佐和山城・特殊能力",
-      "condition": "が1500以上"
+      "raw": "+100%(2.0倍) [回復が1500以上] ［忠刃］佐和山城・特殊能力",
+      "condition": "回復が1500以上"
      },
      {
       "source": "特殊能力",

@@ -58,8 +58,9 @@ def parse_dmg_target_clause(c: str, castle_name: str, source_type: str, prev_cla
         if not pre and prev_clause:
             pre = prev_clause.strip()
         pre_clean = re.sub(r'\s+', '', pre)
-        # 同一文節内の先行効果文（〜上昇/軽減/低下/短縮/回復/無効/無視する/配置/倍 等）の末尾で区切り、直前の条件句全体を残す
-        ends = list(re.finditer(r'(?:上昇|軽減|低下|短縮|回復|無効|無視する|無視|行う|増加|狙われない|防ぐ|受ける|与える|得る|配置|\d+(?:\.\d+)?倍)(?:\([^)]*\))?', pre_clean))
+        # 同一文節内の先行効果文（〜上昇/軽減/低下/短縮/X回復/無効/無視する/配置/倍 等）の末尾で区切り、直前の条件句全体を残す
+        # ただし直後に「が/の/を/と」が続く名詞形や条件句先頭の「回復が...」は切り落とさない
+        ends = list(re.finditer(r'(?:上昇|軽減|低下|短縮|\d+%?回復|を回復|無効|無視する|無視|行う|増加|狙われない|防ぐ|受ける|与える|得る|配置|\d+(?:\.\d+)?倍)(?:\([^)]*\))?(?![がのをと])', pre_clean))
         if ends:
             pre_clean = pre_clean[ends[-1].end():]
 
@@ -67,6 +68,7 @@ def parse_dmg_target_clause(c: str, castle_name: str, source_type: str, prev_cla
         if pre_clean:
             cand = re.sub(r'(?:に対して|に対し|に|で|の時|の場合|場合)$', '', pre_clean).strip()
             cand = re.sub(r'の場合敵$', '', cand).strip()
+            cand = re.sub(r'(?:[のをが]|(?<!ご)と)$', '', cand).strip()
             cand = re.sub(r'^\d+秒間(?:対象が|対象の|自身の|自身)?', '', cand).strip()
             if cand and any(k in cand for k in ['敵', '妖怪', '飛行', '海洋', '兜', '耐久', '防御', '攻撃', '回復', '移動速度', '以上', '以下', '未満', '最大', '最小', '状態', '属性', '対象', '回数', '毎']):
                 # もし「〜の攻撃」や「〜の攻撃速度」だけの無条件主語なら除外
