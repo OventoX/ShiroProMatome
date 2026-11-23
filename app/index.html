@@ -544,21 +544,35 @@
             <option value="水">水 (複合含む)</option>
             <option value="地獄">地獄 (複合含む)</option>
             <option value="無">無</option>
-            <option value="複合">★複合属性のみ (240体)</option>
+            <option value="複合">★複合属性のみ</option>
           </select>
           <select id="filterWeapon" class="btn" style="flex: 1; min-width: 120px;">
             <option value="">武器 (すべて)</option>
             <option value="刀">刀</option>
+            <option value="双剣">双剣</option>
             <option value="槍">槍</option>
             <option value="槌">槌</option>
             <option value="盾">盾</option>
             <option value="拳">拳</option>
+            <option value="鎌">鎌</option>
+            <option value="戦棍">戦棍</option>
+            <option value="ランス">ランス</option>
             <option value="弓">弓</option>
+            <option value="石弓">石弓</option>
             <option value="鉄砲">鉄砲</option>
+            <option value="大砲">大砲</option>
             <option value="歌舞">歌舞</option>
             <option value="法術">法術</option>
-            <option value="陣貝">陣貝</option>
+            <option value="鈴">鈴</option>
+            <option value="杖">杖</option>
+            <option value="祓串">祓串</option>
+            <option value="本">本</option>
+            <option value="投剣">投剣</option>
             <option value="鞭">鞭</option>
+            <option value="陣貝">陣貝</option>
+            <option value="軍船">軍船</option>
+            <option value="茶器">茶器</option>
+            <option value="その他">その他</option>
           </select>
           <select id="filterBuffCategory" class="btn" style="flex: 1.2; min-width: 150px; font-weight: bold; background: #fdfaf6; border-color: #baa793;">
             <option value="">効果・バフ逆引き (すべて)</option>
@@ -707,12 +721,14 @@
               <select id="tierAutoFilterWeapon" class="btn btn-sm">
                 <option value="">武器種 (すべて)</option>
                 <option value="刀">刀</option>
+                <option value="双剣">双剣</option>
                 <option value="槍">槍</option>
                 <option value="槌">槌</option>
+                <option value="盾">盾</option>
                 <option value="拳">拳</option>
                 <option value="鎌">鎌</option>
                 <option value="戦棍">戦棍</option>
-                <option value="短槍">短槍</option>
+                <option value="ランス">ランス</option>
                 <option value="弓">弓</option>
                 <option value="石弓">石弓</option>
                 <option value="鉄砲">鉄砲</option>
@@ -726,6 +742,9 @@
                 <option value="投剣">投剣</option>
                 <option value="鞭">鞭</option>
                 <option value="陣貝">陣貝</option>
+                <option value="軍船">軍船</option>
+                <option value="茶器">茶器</option>
+                <option value="その他">その他</option>
               </select>
 
               <select id="tierAutoFilterType" class="btn btn-sm">
@@ -1030,16 +1049,30 @@
             <select id="tierPoolWeapon" class="btn btn-sm" style="font-size:11px;">
               <option value="">武器 (すべて)</option>
               <option value="刀">刀</option>
+              <option value="双剣">双剣</option>
               <option value="槍">槍</option>
               <option value="槌">槌</option>
               <option value="盾">盾</option>
               <option value="拳">拳</option>
+              <option value="鎌">鎌</option>
+              <option value="戦棍">戦棍</option>
+              <option value="ランス">ランス</option>
               <option value="弓">弓</option>
+              <option value="石弓">石弓</option>
               <option value="鉄砲">鉄砲</option>
+              <option value="大砲">大砲</option>
               <option value="歌舞">歌舞</option>
               <option value="法術">法術</option>
-              <option value="陣貝">陣貝</option>
+              <option value="鈴">鈴</option>
+              <option value="杖">杖</option>
+              <option value="祓串">祓串</option>
+              <option value="本">本</option>
               <option value="投剣">投剣</option>
+              <option value="鞭">鞭</option>
+              <option value="陣貝">陣貝</option>
+              <option value="軍船">軍船</option>
+              <option value="茶器">茶器</option>
+              <option value="その他">その他</option>
             </select>
             <select id="tierPoolOwnership" class="btn btn-sm" style="font-size:11px;">
               <option value="">所持状態 (すべて)</option>
@@ -1381,6 +1414,7 @@
               <option value="軍船">軍船</option>
               <option value="ランス">ランス</option>
               <option value="茶器">茶器</option>
+              <option value="その他">その他</option>
             </select>
             <select id="firingPickerRarityFilter" class="form-control" style="font-size: 12px; padding: 4px 6px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--card-bg); color: var(--text-main);">
               <option value="">全レアリティ</option>

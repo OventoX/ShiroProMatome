@@ -11000,6 +11000,7 @@ function populateGalleryFilterDropdowns() {
     opt.textContent = name;
     vaSel.appendChild(opt);
   });
+  vaSel.style.display = voiceActors.size <= 1 ? "none" : "";
 
   Array.from(countries).sort().forEach(name => {
     const opt = document.createElement("option");
