@@ -809,6 +809,23 @@ body {
   border-color: var(--shiro-gold-bright);
 }
 
+select.btn,
+select.btn:hover,
+select.form-control,
+select.form-control:hover {
+  background: #fdf8eb !important;
+  color: #2a1a10 !important;
+  border: 1px solid var(--shiro-gold);
+  text-shadow: none;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+select option {
+  background: #fdf8eb;
+  color: #2a1a10;
+}
+
 .btn-primary {
   background: linear-gradient(180deg, #c8522b 0%, #8b2e20 100%);
   color: #ffffff;
