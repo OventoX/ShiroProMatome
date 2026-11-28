@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "tools" / "cache" / "raw"
 ICONS_DIR = ROOT / "app" / "icons"
 ICONS_DIR.mkdir(parents=True, exist_ok=True)
+PNG_MAGIC = b"\x89PNG\r\n\x1a\n"
 
 session = requests.Session()
 session.headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) scre-helper-icons"
@@ -53,8 +54,10 @@ def main():
 
     for i, (png, castle) in enumerate(valid_items, 1):
         target_path = ICONS_DIR / (safe_filename(castle) + ".png")
-        existed = target_path.exists() and target_path.stat().st_size > 1000
-        if existed and not args.force:
+        existed_valid_png = False
+        if target_path.exists() and target_path.stat().st_size > 1000:
+            existed_valid_png = target_path.read_bytes()[:8] == PNG_MAGIC
+        if existed_valid_png and not args.force:
             skipped += 1
             continue
 
@@ -63,7 +66,7 @@ def main():
 
         try:
             r = session.get(img_url, timeout=12)
-            if r.status_code == 200 and len(r.content) > 1000:
+            if r.status_code == 200 and len(r.content) > 1000 and r.content.startswith(PNG_MAGIC):
                 if not target_path.exists():
                     target_path.write_bytes(r.content)
                     newly_downloaded += 1
