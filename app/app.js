@@ -2085,7 +2085,7 @@
           const wp = parseWeaponEffect(w);
           const unmodNotice = wp.hasUnmodeled ? " [未反映あり]" : "";
           const tip = (w.effectText ? w.effectText : "") + (wp.hasUnmodeled ? " (未反映の効果あり)" : "");
-          weaponOptionsHtml += `<option value="${w.name}" ${isSel ? 'selected' : ''} title="${escapeHtml(tip)}">${w.name} (攻+${w.atk || 0})${unmodNotice}</option>`;
+          weaponOptionsHtml += `<option value="${escapeHtml(w.name)}" ${isSel ? 'selected' : ''} title="${escapeHtml(tip)}">${escapeHtml(w.name)} (攻+${w.atk || 0})${unmodNotice}</option>`;
         });
 
         const activeFacCount = (slot.facilityIds && Array.isArray(slot.facilityIds))
@@ -2095,7 +2095,7 @@
         card.innerHTML = `
           ${getIconHtml(castle, 38)}
           <div class="party-info">
-            <div class="castle-name" data-id="${slot.id}">${slot.id}</div>
+            <div class="castle-name" data-id="${escapeHtml(slot.id)}">${escapeHtml(slot.id)}</div>
             <div class="castle-subinfo">
               ${subInfo}
             </div>
@@ -3595,7 +3595,7 @@
           <div style="margin-top:6px;">
             <strong style="color:var(--primary-color);font-size:var(--fs-body, 13px);">特別ルール・戦場効果:</strong>
             <ul style="padding-left:18px;font-size:var(--fs-body, 13px);color:#444;margin-top:2px;line-height:1.45;">
-              ${st.rules.map(r => `<li style="margin-bottom:3px;line-height:1.35;">${r.replace(/\n/g, '<br>')}</li>`).join("")}
+              ${st.rules.map(r => `<li style="margin-bottom:3px;line-height:1.35;">${escapeHtml(r).replace(/\n/g, '<br>')}</li>`).join("")}
             </ul>
           </div>
         `;
@@ -3607,7 +3607,7 @@
           <div style="margin-top:6px;">
             <strong style="color:var(--debuff-color);font-size:var(--fs-body, 13px);">☠️ ボス・強敵の特性:</strong>
             <ul style="padding-left:18px;font-size:var(--fs-body, 13px);color:#555;margin-top:2px;line-height:1.45;">
-              ${st.bossInfo.map(b => `<li style="margin-bottom:3px;line-height:1.35;">${b.replace(/\n/g, '<br>')}</li>`).join("")}
+              ${st.bossInfo.map(b => `<li style="margin-bottom:3px;line-height:1.35;">${escapeHtml(b).replace(/\n/g, '<br>')}</li>`).join("")}
             </ul>
           </div>
         `;
@@ -5298,9 +5298,9 @@
     // Meta Info (イラストレーター / 声優 / 令制国)
     const metaEl = document.getElementById("detailMetaInfo");
     let metaHtml = "";
-    if (c.illustrator) metaHtml += `<div><strong>絵師:</strong> ${c.illustrator}</div>`;
+    if (c.illustrator) metaHtml += `<div><strong>絵師:</strong> ${escapeHtml(c.illustrator)}</div>`;
     if (c.voiceActor) metaHtml += `<div><strong>声優(CV):</strong> ${escapeHtml(cleanVoiceActorName(c.voiceActor))}</div>`;
-    if (c.country) metaHtml += `<div><strong>令制国/地域:</strong> ${c.country}</div>`;
+    if (c.country) metaHtml += `<div><strong>令制国/地域:</strong> ${escapeHtml(c.country)}</div>`;
     metaEl.innerHTML = metaHtml || '<div style="color:var(--text-muted);">追加情報なし</div>';
 
     // Lore (図鑑文章 / 自己紹介)
@@ -6005,7 +6005,7 @@
       <strong>地形属性:</strong> <span class="badge ${foundStage.terrain !== '無' ? 'badge-' + foundStage.terrain : ''}">${foundStage.terrain}</span>
       ${isHades && foundStage.hadesMeta ? `<span class="badge" style="background:#8e44ad; color:#fff; margin-left:6px;">${foundStage.hadesMeta.soulColor}霊魂 (${foundStage.hadesMeta.depth})</span> <span class="badge" style="background:#27ae60; color:#fff;">超難</span>` : ''}
       ${foundStage.totalDelibPoints ? `<span class="badge" style="background:#6c5ce7; color:#fff; margin-left:4px;">${foundStage.totalDelibPoints}審議 (${foundStage.deliberations.length}件)</span>` : ''}
-      ${rulesList.length > 0 ? `<div style="margin-top:6px; max-height:90px; overflow-y:auto; color:#444; background:#fbf9f6; padding:6px; border-radius:4px; border:1px solid #eee;">${rulesList.slice(0, 6).map(r => `• ${r}`).join('<br>')}</div>` : ''}
+      ${rulesList.length > 0 ? `<div style="margin-top:6px; max-height:90px; overflow-y:auto; color:#444; background:#fbf9f6; padding:6px; border-radius:4px; border:1px solid #eee;">${rulesList.slice(0, 6).map(r => `• ${escapeHtml(r)}`).join('<br>')}</div>` : ''}
       ${hadesAnalysisHtml}
     `;
 
@@ -6793,9 +6793,9 @@
     const selA = document.getElementById("comparePresetA");
     const selB = document.getElementById("comparePresetB");
     if (selA && selB) {
-      selA.innerHTML = partyPresets.map((p, idx) => `<option value="${idx}" ${idx === currentPresetIdx ? 'selected' : ''}>${p.name} (${p.party.length}体)</option>`).join("");
+      selA.innerHTML = partyPresets.map((p, idx) => `<option value="${idx}" ${idx === currentPresetIdx ? 'selected' : ''}>${escapeHtml(p.name)} (${p.party.length}体)</option>`).join("");
       const defaultB = currentPresetIdx === 0 ? 1 : 0;
-      selB.innerHTML = partyPresets.map((p, idx) => `<option value="${idx}" ${idx === defaultB ? 'selected' : ''}>${p.name} (${p.party.length}体)</option>`).join("");
+      selB.innerHTML = partyPresets.map((p, idx) => `<option value="${idx}" ${idx === defaultB ? 'selected' : ''}>${escapeHtml(p.name)} (${p.party.length}体)</option>`).join("");
     }
     updatePresetComparison();
     modal.classList.add("open");
@@ -6917,11 +6917,11 @@
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; background:#f7f9fa; border:1px solid #e1e8ed; border-radius:6px; padding:8px;">
           <div>
-            <strong style="font-size:11.5px; color:#2980b9;">[A] ${pA.name} メンバー:</strong>
+            <strong style="font-size:11.5px; color:#2980b9;">[A] ${escapeHtml(pA.name)} メンバー:</strong>
             <div style="margin-top:4px;">${renderSlotsMini(pA.party)}</div>
           </div>
           <div>
-            <strong style="font-size:11.5px; color:#e67e22;">[B] ${pB.name} メンバー:</strong>
+            <strong style="font-size:11.5px; color:#e67e22;">[B] ${escapeHtml(pB.name)} メンバー:</strong>
             <div style="margin-top:4px;">${renderSlotsMini(pB.party)}</div>
           </div>
         </div>
@@ -6930,8 +6930,8 @@
           <thead>
             <tr>
               <th style="text-align:left;">バフ効果 (部隊平均値)</th>
-              <th style="color:#2980b9;">[A] ${pA.name}</th>
-              <th style="color:#e67e22;">[B] ${pB.name}</th>
+              <th style="color:#2980b9;">[A] ${escapeHtml(pA.name)}</th>
+              <th style="color:#e67e22;">[B] ${escapeHtml(pB.name)}</th>
               <th>差分 (B - A)</th>
             </tr>
           </thead>
@@ -7195,7 +7195,7 @@
       <div style="display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid #8e2a2a; padding-bottom:10px; margin-bottom:14px;">
         <div>
           <div style="font-size:11px; color:#8e2a2a; font-weight:bold; letter-spacing:1px; margin-bottom:2px;">城プロRE 編成・バフ/デバフ統合ダッシュボード</div>
-          <div style="font-size:22px; font-weight:bold; color:#2c1b18;">${presetName} 編成サマリー</div>
+          <div style="font-size:22px; font-weight:bold; color:#2c1b18;">${escapeHtml(presetName)} 編成サマリー</div>
         </div>
         <div style="text-align:right; font-size:11.5px; color:#555;">
           <div>出撃地形: <strong>${terrainLabel}</strong> ｜ 総消費気: <strong style="color:#8e2a2a; font-size:13px;">${calcResult.totalGiantCost}気</strong> (配置: ${calcResult.totalDeployCost}気)</div>
@@ -9015,7 +9015,7 @@
 
         cardEl.innerHTML = `
           <div class="tier-card-icon-col" data-action="detail" data-id="${c.id}" title="クリックで詳細・立ち絵を表示">
-            <img src="${iconSrc}" onerror="this.src='${fallbackSrc}'" style="width:100%; height:100%; object-fit:cover; border-radius:4px; border:1px solid #dcd5cb;" alt="${c.name}">
+            <img src="${escapeHtml(iconSrc)}" onerror="this.src='${escapeHtml(fallbackSrc)}'" style="width:100%; height:100%; object-fit:cover; border-radius:4px; border:1px solid #dcd5cb;" alt="${escapeHtml(c.name)}">
           </div>
           <div class="tier-card-info-col">
             <div class="tier-card-header">
@@ -9463,8 +9463,9 @@
         return `
           <div style="display:flex; flex-direction:column; align-items:center; width:54px; margin:2px;">
             <div style="width:48px; height:48px; border-radius:6px; overflow:hidden; border:1px solid rgba(255,255,255,0.2); box-shadow:0 1px 3px rgba(0,0,0,0.5); background:#2c3e50; position:relative;">
-              <img src="${localIconByName}"
-                   onerror="this.onerror=null; this.src='${localIconById}'; this.onerror=() => { this.style.display='none'; if (this.nextElementSibling) this.nextElementSibling.style.display='flex'; };"
+              <img class="tier-export-img"
+                   src="${escapeHtml(localIconByName)}"
+                   data-fallback-src="${escapeHtml(localIconById)}"
                    style="width:100%; height:100%; object-fit:cover; display:block;"
                    crossOrigin="anonymous"
                    alt="${escapeHtml(name)}">
@@ -9475,9 +9476,12 @@
         `;
       }).join("");
 
+      const safeColor = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(String(r.color || "").trim())
+        ? String(r.color).trim()
+        : "#555";
       return `
         <div style="display:flex; min-height:80px; margin-bottom:6px; background:#222; border:1px solid #3a3a3a; border-radius:6px; overflow:hidden;">
-          <div style="width:130px; min-width:110px; background:${r.color || '#555'}; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; padding:6px; text-align:center;">
+          <div style="width:130px; min-width:110px; background:${safeColor}; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; padding:6px; text-align:center;">
             <div style="font-size:22px; font-weight:900; letter-spacing:1px; text-shadow:0 1px 3px rgba(0,0,0,0.5);">${escapeHtml(r.letter)}</div>
             ${r.sub ? `<div style="font-size:10px; font-weight:bold; opacity:0.95; margin-top:2px;">${escapeHtml(r.sub)}</div>` : ''}
           </div>
@@ -9507,6 +9511,20 @@
         <div>※ 個別合戦の審議や施設によって最適な城娘は変動します</div>
       </div>
     `;
+
+    exportArea.querySelectorAll("img.tier-export-img").forEach(img => {
+      img.addEventListener("error", function handleTierImgErr() {
+        const fb = img.getAttribute("data-fallback-src");
+        if (fb && !img.dataset.triedFallback) {
+          img.dataset.triedFallback = "1";
+          img.src = fb;
+          return;
+        }
+        img.removeEventListener("error", handleTierImgErr);
+        img.style.display = "none";
+        if (img.nextElementSibling) img.nextElementSibling.style.display = "flex";
+      });
+    });
 
     showToast("📸 ティア画像を生成中...");
 
@@ -11029,7 +11047,7 @@ function renderGalleryTile(c) {
 
   tile.innerHTML = `
     <div class="gallery-tile-art-wrap">
-      <img src="${imgSrc}" onerror="this.src='${fallbackSrc}'" alt="${escapeHtml(c.name)}" class="gallery-tile-img" loading="lazy">
+      <img src="${escapeHtml(imgSrc)}" onerror="this.src='${escapeHtml(fallbackSrc)}'" alt="${escapeHtml(c.name)}" class="gallery-tile-img" loading="lazy">
       <div class="gallery-tile-badges">
         <span class="badge badge-rarity badge-rarity-${c.rarity}">★${c.rarity}</span>
         <span class="badge badge-attr badge-attr-${c.subType || c.castleType}">${c.subType || c.castleType}</span>
@@ -17573,11 +17591,11 @@ function showQuizResult() {
             <div>
               <strong style="font-size:12px;">${escapeHtml(s.name)}</strong>
               <div style="color:var(--text-sub); font-size:12px;">
-                総DPS: <strong style="color:#d35400;">${s.totalDps.toLocaleString()}</strong> /秒 (防${s.targetDef})
+                総DPS: <strong style="color:#d35400;">${s.totalDps.toLocaleString()}</strong> /秒 (防${escapeHtml(s.targetDef)})
               </div>
             </div>
             <div style="display:flex; gap:4px;">
-              <button type="button" class="btn btn-xs" onclick="deleteFiringSnapshot('${s.id}')" title="削除">✕</button>
+              <button type="button" class="btn btn-xs" onclick="deleteFiringSnapshot('${escapeHtml(s.id)}')" title="削除">✕</button>
             </div>
           </div>
         `).join("")}
@@ -17585,11 +17603,11 @@ function showQuizResult() {
       ${list.length >= 2 ? `
         <div style="display:flex; gap:6px; align-items:center;">
           <select id="firingSnapSelectA" class="form-control" style="flex:1; font-size:12px; padding:4px;">
-            ${list.map(s => `<option value="${s.id}">${escapeHtml(s.name)} (${s.totalDps.toLocaleString()}/s)</option>`).join("")}
+            ${list.map(s => `<option value="${escapeHtml(s.id)}">${escapeHtml(s.name)} (${s.totalDps.toLocaleString()}/s)</option>`).join("")}
           </select>
           <span style="font-size:12px; font-weight:bold;">vs</span>
           <select id="firingSnapSelectB" class="form-control" style="flex:1; font-size:12px; padding:4px;">
-            ${list.map((s, idx) => `<option value="${s.id}" ${idx === 1 ? 'selected' : ''}>${escapeHtml(s.name)} (${s.totalDps.toLocaleString()}/s)</option>`).join("")}
+            ${list.map((s, idx) => `<option value="${escapeHtml(s.id)}" ${idx === 1 ? 'selected' : ''}>${escapeHtml(s.name)} (${s.totalDps.toLocaleString()}/s)</option>`).join("")}
           </select>
           <button type="button" id="btnCompareSnapshots" class="btn btn-xs btn-primary" onclick="triggerSnapshotComparison()" style="font-size:12px; white-space:nowrap;">比較</button>
         </div>
@@ -17624,13 +17642,13 @@ function showQuizResult() {
           <div style="font-size:12px; color:var(--text-sub);">基準 (Snapshot A)</div>
           <strong style="font-size:14px;">${escapeHtml(snapA.name)}</strong>
           <div style="font-size:13px; font-weight:bold; color:#1a365d; margin-top:4px;">総DPS: ${snapA.totalDps.toLocaleString()} /秒</div>
-          <div style="font-size:12px; color:var(--text-sub);">的: 防${snapA.targetDef} / 軽減${snapA.targetRed}%</div>
+          <div style="font-size:12px; color:var(--text-sub);">的: 防${escapeHtml(snapA.targetDef)} / 軽減${escapeHtml(snapA.targetRed)}%</div>
         </div>
         <div style="background:var(--nav-bg); padding:10px; border-radius:6px; border:1px solid var(--border-color);">
           <div style="font-size:12px; color:var(--text-sub);">比較対象 (Snapshot B)</div>
           <strong style="font-size:14px;">${escapeHtml(snapB.name)}</strong>
           <div style="font-size:13px; font-weight:bold; color:#1a365d; margin-top:4px;">総DPS: ${snapB.totalDps.toLocaleString()} /秒</div>
-          <div style="font-size:12px; color:var(--text-sub);">的: 防${snapB.targetDef} / 軽減${snapB.targetRed}%</div>
+          <div style="font-size:12px; color:var(--text-sub);">的: 防${escapeHtml(snapB.targetDef)} / 軽減${escapeHtml(snapB.targetRed)}%</div>
         </div>
       </div>
 
@@ -17660,7 +17678,7 @@ function showQuizResult() {
               <tr style="border-bottom:1px solid var(--border-color);">
                 <td>
                   <strong>${escapeHtml(ca.name)}</strong>
-                  <span style="color:var(--text-sub); font-size:12px;">${ca.weapon}</span>
+                  <span style="color:var(--text-sub); font-size:12px;">${escapeHtml(ca.weapon)}</span>
                   <span style="font-size:12px; color:#2b6cb0; margin-left:4px;">
                     ${ca.giantStep !== undefined ? (ca.giantStep === 0 ? '[未巨大化]' : (ca.giantStep === 5 ? '[最大]' : `[${ca.giantStep}段(推)]`)) : ''}
                   </span>
