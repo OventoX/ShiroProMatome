@@ -1,4 +1,5 @@
 """Download all 1200+ castle icons from 画像で一覧RE into app/icons."""
+import argparse
 import re
 import time
 import urllib.parse
@@ -17,6 +18,10 @@ def safe_filename(name: str) -> str:
     return re.sub(r'[\\/:*?"<>|]', "_", name)
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--force", action="store_true", help="Re-download existing icons too")
+    args = parser.parse_args()
+
     list_file = RAW / "画像で一覧RE.txt"
     if not list_file.exists():
         print("画像で一覧RE.txt not found!")
@@ -28,9 +33,12 @@ def main():
 
     base_url = "https://scre.swiki.jp/index.php?plugin=ref&host=scre&page=%E7%94%BB%E5%83%8F%E3%81%A7%E4%B8%80%E8%A6%A7RE&src="
 
-    downloaded = 0
+    newly_downloaded = 0
+    updated = 0
+    unchanged = 0
     skipped = 0
     failed = 0
+    failed_names = []
 
     seen_castles = set()
     valid_items = []
@@ -41,11 +49,12 @@ def main():
         seen_castles.add(castle_clean)
         valid_items.append((png, castle_clean))
 
-    print(f"Unique castles to download: {len(valid_items)}")
+    print(f"Unique castles to download: {len(valid_items)} (force={args.force})")
 
     for i, (png, castle) in enumerate(valid_items, 1):
         target_path = ICONS_DIR / (safe_filename(castle) + ".png")
-        if target_path.exists() and target_path.stat().st_size > 1000:
+        existed = target_path.exists() and target_path.stat().st_size > 1000
+        if existed and not args.force:
             skipped += 1
             continue
 
@@ -55,18 +64,34 @@ def main():
         try:
             r = session.get(img_url, timeout=12)
             if r.status_code == 200 and len(r.content) > 1000:
-                target_path.write_bytes(r.content)
-                downloaded += 1
+                if not target_path.exists():
+                    target_path.write_bytes(r.content)
+                    newly_downloaded += 1
+                else:
+                    old_bytes = target_path.read_bytes()
+                    if old_bytes != r.content:
+                        target_path.write_bytes(r.content)
+                        updated += 1
+                    else:
+                        unchanged += 1
             else:
                 failed += 1
+                failed_names.append(castle)
             time.sleep(0.3)
         except Exception:
             failed += 1
+            failed_names.append(castle)
             time.sleep(1.0)
 
         if i % 100 == 0 or i == len(valid_items):
-            print(f"[{i}/{len(valid_items)}] DL: {downloaded}, Skip: {skipped}, Fail: {failed}", flush=True)
+            print(
+                f"[{i}/{len(valid_items)}] New: {newly_downloaded}, Updated: {updated}, Unchanged: {unchanged}, Skip: {skipped}, Fail: {failed}",
+                flush=True,
+            )
 
+    print(f"Summary -> New: {newly_downloaded}, Updated: {updated}, Unchanged: {unchanged}, Skip: {skipped}, Fail: {failed}")
+    if failed_names:
+        print("Failed castles:", ", ".join(failed_names))
     print(f"Completed! Total icons in folder: {len(list(ICONS_DIR.glob('*.png')))}")
 
 if __name__ == "__main__":
